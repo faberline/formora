@@ -1,0 +1,4 @@
+//! Formora's source-backed acceptance contracts.
+//!
+//! A valid catalog is not proof that any product capability works.
+pub mod baseline;
