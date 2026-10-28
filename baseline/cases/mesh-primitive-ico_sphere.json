@@ -1,0 +1,692 @@
+{
+  "schema_version": 1,
+  "feature_id": "mesh.primitive.ico_sphere",
+  "fixture": {
+    "suite_path": "baseline/fixtures/mesh-primitives.json",
+    "run_ids": [
+      "ico_sphere_default",
+      "ico_sphere_no_uv",
+      "ico_sphere_placed",
+      "ico_sphere_level1",
+      "ico_sphere_level2",
+      "ico_sphere_level3"
+    ],
+    "reference_directory": "baseline/reference/blender-5.2.3/mesh-primitives",
+    "operator_properties_path": "baseline/reference/blender-5.2.3/mesh-primitives/operator-properties.json",
+    "coordinate_system": "right handed, Z up; metres; row-major 4x4 world matrices",
+    "comparison": {
+      "positions_absolute_tolerance_metres": 1e-06,
+      "normals_absolute_tolerance": 1e-06,
+      "uv_absolute_tolerance": 1e-06,
+      "topology": "exact oriented faces and edges under a bijective vertex map; vertex and face numbering may differ",
+      "uv": "compare each face corner under the same oriented cyclic face mapping",
+      "unverified": "These are finite fixtures, not complete parameter-domain coverage."
+    },
+    "coverage_limits": [
+      "Object Mode creation only. Edit Mode insertion and shared alignment controls remain unreviewed.",
+      "Finite valid inputs only. The full parameter domain and degenerate inputs remain unreviewed.",
+      "This contract covers geometry and UV values. Rendering and performance need their own fixed contracts."
+    ],
+    "execution_status": {
+      "blender_reference": "captured twice; semantic comparison passed; numbering may differ",
+      "formora": "unrun"
+    }
+  },
+  "steps": [
+    "以固定 Blender 版本和建置，從原廠空白場景執行本功能的全部 run_ids，保存完整幾何及建置資料。",
+    "外部 agent 用 MCP 和命令列分別在 Formora 空白場景執行同一組有效輸入。記錄每次要求、結果及候選 commit。",
+    "以雙向一對一頂點對應比較座標。對應誤差不得超過固定上限。邊及有方向的面循環必須一致；不要求頂點或面的編號相同。",
+    "沿同一面循環比較每個面角的 UV 和法線。比較 UV 層數、名稱、平滑旗標、物件變換及世界邊界。不得只比較總數。",
+    "儲存並重新開啟 Formora 場景，再做相同比較。三平台均保留實際執行結果，缺失或失敗不得算作通過。"
+  ],
+  "assertions": [
+    {
+      "target": "runs.ico_sphere_default.vertex_count",
+      "expected": 42
+    },
+    {
+      "target": "runs.ico_sphere_default.edge_count",
+      "expected": 120
+    },
+    {
+      "target": "runs.ico_sphere_default.face_count",
+      "expected": 80
+    },
+    {
+      "target": "runs.ico_sphere_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_local.0.0",
+      "expected": -0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_local.0.1",
+      "expected": -0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_local.0.2",
+      "expected": -1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_local.1.0",
+      "expected": 0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_local.1.1",
+      "expected": 0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_local.1.2",
+      "expected": 1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_world.0.0",
+      "expected": -0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_world.0.1",
+      "expected": -0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_world.0.2",
+      "expected": -1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_world.1.0",
+      "expected": 0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_world.1.1",
+      "expected": 0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.bounds_world.1.2",
+      "expected": 1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_default.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_default.transform_matrix_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_default.save_reload_preserves_mesh_and_uv",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_default.mcp_and_cli_outputs_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.vertex_count",
+      "expected": 42
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.edge_count",
+      "expected": 120
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.face_count",
+      "expected": 80
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_local.0.0",
+      "expected": -0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_local.0.1",
+      "expected": -0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_local.0.2",
+      "expected": -1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_local.1.0",
+      "expected": 0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_local.1.1",
+      "expected": 0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_local.1.2",
+      "expected": 1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_world.0.0",
+      "expected": -0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_world.0.1",
+      "expected": -0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_world.0.2",
+      "expected": -1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_world.1.0",
+      "expected": 0.9510578513145447,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_world.1.1",
+      "expected": 0.9999999403953552,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.bounds_world.1.2",
+      "expected": 1.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.transform_matrix_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.save_reload_preserves_mesh_and_uv",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.mcp_and_cli_outputs_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_placed.vertex_count",
+      "expected": 42
+    },
+    {
+      "target": "runs.ico_sphere_placed.edge_count",
+      "expected": 120
+    },
+    {
+      "target": "runs.ico_sphere_placed.face_count",
+      "expected": 80
+    },
+    {
+      "target": "runs.ico_sphere_placed.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_local.0.0",
+      "expected": -1.426586389541626,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_local.0.1",
+      "expected": -0.7499997615814209,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_local.0.2",
+      "expected": -1.999999761581421,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_local.1.0",
+      "expected": 1.426586389541626,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_local.1.1",
+      "expected": 0.7499997615814209,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_local.1.2",
+      "expected": 1.999999761581421,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_world.0.0",
+      "expected": 0.2983580529689789,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_world.0.1",
+      "expected": -3.9938082695007324,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_world.0.2",
+      "expected": -1.0746915340423584,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_world.1.0",
+      "expected": 2.2016420364379883,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_world.1.1",
+      "expected": -1.0061918497085571,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.bounds_world.1.2",
+      "expected": 2.5746915340423584,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_placed.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_placed.transform_matrix_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_placed.save_reload_preserves_mesh_and_uv",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_placed.mcp_and_cli_outputs_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level1.vertex_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.ico_sphere_level1.edge_count",
+      "expected": 30
+    },
+    {
+      "target": "runs.ico_sphere_level1.face_count",
+      "expected": 20
+    },
+    {
+      "target": "runs.ico_sphere_level1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_local.0.0",
+      "expected": -1.1180312633514404,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_local.0.1",
+      "expected": -1.0633000135421753,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_local.0.2",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_local.1.0",
+      "expected": 1.1180312633514404,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_local.1.1",
+      "expected": 1.0633000135421753,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_local.1.2",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_world.0.0",
+      "expected": -1.1180312633514404,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_world.0.1",
+      "expected": -1.0633000135421753,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_world.0.2",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_world.1.0",
+      "expected": 1.1180312633514404,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_world.1.1",
+      "expected": 1.0633000135421753,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.bounds_world.1.2",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.transform_matrix_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level1.save_reload_preserves_mesh_and_uv",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level1.mcp_and_cli_outputs_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level2.vertex_count",
+      "expected": 42
+    },
+    {
+      "target": "runs.ico_sphere_level2.edge_count",
+      "expected": 120
+    },
+    {
+      "target": "runs.ico_sphere_level2.face_count",
+      "expected": 80
+    },
+    {
+      "target": "runs.ico_sphere_level2.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_local.0.0",
+      "expected": -1.1888223886489868,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_local.0.1",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_local.0.2",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_local.1.0",
+      "expected": 1.1888223886489868,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_local.1.1",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_local.1.2",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_world.0.0",
+      "expected": -1.1888223886489868,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_world.0.1",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_world.0.2",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_world.1.0",
+      "expected": 1.1888223886489868,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_world.1.1",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.bounds_world.1.2",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level2.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level2.transform_matrix_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level2.save_reload_preserves_mesh_and_uv",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level2.mcp_and_cli_outputs_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level3.vertex_count",
+      "expected": 162
+    },
+    {
+      "target": "runs.ico_sphere_level3.edge_count",
+      "expected": 480
+    },
+    {
+      "target": "runs.ico_sphere_level3.face_count",
+      "expected": 320
+    },
+    {
+      "target": "runs.ico_sphere_level3.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_local.0.0",
+      "expected": -1.2499998807907104,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_local.0.1",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_local.0.2",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_local.1.0",
+      "expected": 1.2499998807907104,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_local.1.1",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_local.1.2",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_world.0.0",
+      "expected": -1.2499998807907104,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_world.0.1",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_world.0.2",
+      "expected": -1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_world.1.0",
+      "expected": 1.2499998807907104,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_world.1.1",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.bounds_world.1.2",
+      "expected": 1.25,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level3.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.transform_matrix_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level3.save_reload_preserves_mesh_and_uv",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_level3.mcp_and_cli_outputs_match",
+      "expected": true
+    }
+  ],
+  "evidence": [
+    "固定輸入、上游執行檔 SHA-256、完整 Blender 建置資訊及參考輸出 SHA-256。",
+    "每組 Formora MCP/CLI 操作收據與儲存重開後的完整幾何及 UV。",
+    "機器可讀的頂點對應、拓撲、每個面角及數值誤差比較報告。",
+    "三平台的候選 commit、環境、通過或失敗紀錄；目前 Formora 執行保持 unrun。"
+  ]
+}
