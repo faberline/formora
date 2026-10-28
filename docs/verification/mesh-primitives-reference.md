@@ -2,6 +2,8 @@
 
 日期：2026-10-29，Asia/Taipei。
 本次屬於 [issue #22](https://github.com/faberline/formora/issues/22)。
+本紀錄保留 PR #23 的參考資料驗證。
+後續來源數量見[文件採集紀錄](unreal-source-collection.md)。
 完整功能盤點仍由 [issue #14](https://github.com/faberline/formora/issues/14) 追蹤。
 
 ## 固定來源

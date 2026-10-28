@@ -89,6 +89,19 @@ Unreal 來源使用官方頁面的文件清單。
 採集深度 1 只讀取首頁及下一層清單，不是完整盤點。
 未取得的文件保留在採集失敗紀錄中。
 
+使用已稽核的固定 metadata 續跑：
+
+```sh
+python3 tools/collect_baseline.py --output /private/tmp/formora-source-review-next --date 2026-10-29 --unreal-depth 6 --unreal-seed baseline/sources/unreal-5.8-documents-depth5.json
+```
+
+metadata 記錄文件版本、摘要與子連結。
+已取得的文件會重用。失敗頁面會重新嘗試。
+工具會拒絕重複 URL、錯誤版本與無效摘要。
+每秒最多開始一個請求。伺服器回報 429 時，工具會遵守 `Retry-After` 的等待時間。
+沒有提供有效等待時間時，工具使用 60 秒。
+[來源採集紀錄](verification/unreal-source-collection.md)保留原始資料、去重稽核及續跑結果。
+
 目前 0.0 未完成。其餘 milestones 也未通過產品驗收。
 
 ## 首批網格案例
