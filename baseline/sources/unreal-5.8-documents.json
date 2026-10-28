@@ -1,0 +1,2227 @@
+{
+  "schema_version": 1,
+  "requested_version": "5.8",
+  "depth": 1,
+  "documents": [
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/ai-features-tools-and-plugins-in-unreal-engine?application_version=5.8",
+      "title": "AI Features, Tools, and Plugins",
+      "document_id": 4787921,
+      "revision_id": 5002100,
+      "applications": [
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "e4f7f88c8bbea5bcf7fd7c36120f54f3e643356e0669c7cc38e0481411b0232b",
+      "children": [
+        {
+          "title": "Unreal MCP",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-mcp-in-unreal-editor?application_version=5.8"
+        },
+        {
+          "title": "Working with PCG and LLMs Using Unreal MCP",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-pcg-and-llms-using-unreal-mcp-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Semantic Search",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/semantic-search-in-unreal-enigne?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/animating-characters-and-objects-in-unreal-engine?application_version=5.8",
+      "title": "Animating Characters and Objects",
+      "document_id": 3230659,
+      "revision_id": 4513803,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "9bdcd535236c402e9dddeeb2644399916ac93fe82b0655e55eabf79ac1281ba7",
+      "children": [
+        {
+          "title": "Skeletal Mesh Animation System",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/skeletal-mesh-animation-system-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Cinematics and Sequencer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/cinematics-and-movie-making-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Control Rig",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/control-rig-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Paper 2D",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/paper-2d-overview-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine?application_version=5.8",
+      "title": "Blueprints Visual Scripting",
+      "document_id": 3227503,
+      "revision_id": 3214275,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "1d96aeb294a84068779eac7b78637bd5192110e3ad9b409bfaf5f95d69afda19",
+      "children": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/building-virtual-worlds-in-unreal-engine?application_version=5.8",
+      "title": "Building Virtual Worlds",
+      "document_id": 3224463,
+      "revision_id": 3211234,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "0af595881fcaaea8667a44e8a1c11015372171db584930f4225ca607cfa6fc8a",
+      "children": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-user-interfaces-with-umg-and-slate-in-unreal-engine?application_version=5.8",
+      "title": "Creating User Interfaces",
+      "document_id": 3232310,
+      "revision_id": 3219081,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "8a3b465de3831b29ef7d168f8a050b40223e73a6d33abda8cf7d83ee9c8e051d",
+      "children": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine?application_version=5.8",
+      "title": "Creating Visual Effects",
+      "document_id": 3226869,
+      "revision_id": 5004296,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "41515a6bad2c7ee32e097062192a9f1add2d50888a9420d39a3d013ee8c69536",
+      "children": [
+        {
+          "title": "Getting Started in Niagara",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/getting-started-in-niagara-effects-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Niagara Tutorials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/tutorials-for-niagara-effects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Niagara Fluids in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/niagara-fluids-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Collisions in Niagara",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/collisions-in-niagara-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating Custom Modules",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-custom-modules-in-niagara-effects-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Niagara Lightweight Emitters",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/niagara-lightweight-emitters?application_version=5.8"
+        },
+        {
+          "title": "Debugging and Optimization in Niagara",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-and-optimization-in-niagara-effects-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Niagara Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reference-for-niagara-effects-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/designing-visuals-rendering-and-graphics-with-unreal-engine?application_version=5.8",
+      "title": "Designing Visuals, Rendering, and Graphics",
+      "document_id": 3225669,
+      "revision_id": 3945769,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "76d733ec5414493a71a30f7410829a23f1cfbae45c75f5215071268fcf3f1e12",
+      "children": [
+        {
+          "title": "Lumen Global Illumination and Reflections",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Lumen Technical Details",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lumen-technical-details-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Nanite Virtualized Geometry",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Virtual Shadow Maps",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/virtual-shadow-maps-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Substrate Materials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/substrate-materials-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Path Tracer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/path-tracer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "GPUDump Viewer Tool",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gpudump-viewer-tool-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Render Dependency Graph",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/render-dependency-graph-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Textures",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/textures-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Materials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-materials?application_version=5.8"
+        },
+        {
+          "title": "Physically Based Materials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/physically-based-materials-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "UV Editor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/uv-editor-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Lighting the Environment",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lighting-the-environment-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Global Illumination",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/global-illumination-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Lumen Global Illumination and Reflections",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Lumen Technical Details",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lumen-technical-details-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Virtual Shadow Maps",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/virtual-shadow-maps-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Heterogeneous Volumes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/heterogeneous-volumes-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Sparse Volume Textures",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sparse-volume-textures-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Hardware Ray Tracing and Path Tracing Features",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/ray-tracing-and-path-tracing-features-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Direct Lighting",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/features-and-properties-of-lights-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Light Types and Their Mobility",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/light-types-and-their-mobility-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Environmental Light with Fog, Clouds, Sky and Atmosphere",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/environmental-light-with-fog-clouds-sky-and-atmosphere-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mesh Distance Fields",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mesh-distance-fields-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Reflections Environment",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reflections-environment-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Shadowing",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/shadowing-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Rendering Components",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/rendering-components-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Skeletal Mesh Rendering Paths",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/skeletal-mesh-rendering-paths-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Rendering High Quality Frames with Movie Render Queue",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/rendering-high-quality-frames-with-movie-render-queue-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Landscape Materials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/landscape-materials-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating and Using LODs",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-and-using-lods-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Understanding Lightmapping in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/understanding-lightmapping-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Generating Lightmap UVs",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/generating-lightmap-uvs-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Post Process Effects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/post-process-effects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating Visual Effects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Forward Shading Renderer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/forward-shading-renderer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Orthographic Camera",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/orthographic-camera-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Optimizing and Debugging Projects for Real-Time Rendering",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/optimizing-and-debugging-projects-for-realtime-rendering-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Nanite Virtualized Geometry",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/nanite-virtualized-geometry-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Anti-Aliasing and Upscaling",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/anti-aliasing-and-upscaling-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Temporal Super Resolution",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/temporal-super-resolution-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Virtual Texturing",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/virtual-texturing-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Visibility and Occlusion Culling",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/visibility-and-occlusion-culling-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using RenderDoc with Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-renderdoc-with-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "GPUDump Viewer Tool",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gpudump-viewer-tool-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Texture Streaming",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/texture-streaming-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Render Resource Viewer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/render-resource-viewer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mobile Rendering Features",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mobile-rendering-features-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mobile Previewer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-mobile-previewer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Path Tracer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/path-tracer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "HDRI Backdrop Visualization Tool",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/hdri-backdrop-visualization-tool-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Sun and Sky Actor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sun-and-sky-actor-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Geographically Accurate Sun Positioning Tool",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/geographically-accurate-sun-positioning-tool-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Third-Party Rendering Tools and Plugins",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/thirdparty-rendering-tools-and-plugins-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "FShaderCache",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/fshadercache-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mesh Drawing Pipeline",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mesh-drawing-pipeline-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Graphics Programming Overview",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/graphics-programming-overview-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Parallel Rendering Overview",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/parallel-rendering-overview-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Render Dependency Graph",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/render-dependency-graph-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Shader Development",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/shader-development-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "AsyncCompute",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/asynccompute-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Shaders in Plugins",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/shaders-in-plugins-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Threaded Rendering",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/threaded-rendering-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Large World Coordinates Rendering Overview.",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/large-world-coordinates-rendering-in-unreal-engine-5?application_version=5.8"
+        },
+        {
+          "title": "Neural Network Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/neural-network-engine-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-systems-in-unreal-engine?application_version=5.8",
+      "title": "Gameplay Systems",
+      "document_id": 3228778,
+      "revision_id": 3958303,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "d32713b36ff6cddb2b0a5ce2f867f978ee98cf81367b8ba36600ba02d9ed1e47",
+      "children": [
+        {
+          "title": "Artificial Intelligence",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/artificial-intelligence-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Data Driven Gameplay Elements",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/data-driven-gameplay-elements-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Ability System",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-ability-system-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Architecture",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/programming-with-cpp-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Camera System",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-camera-system?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Targeting System",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-targeting-system-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Input",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/input-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Class Creation Basics",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/class-creation-basics-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Framework",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-framework-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Physics",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/physics-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Large World Coordinates",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/large-world-coordinates-in-unreal-engine-5?application_version=5.8"
+        },
+        {
+          "title": "Online Subsystems and Services",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/online-subsystems-and-services-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Networking and Multiplayer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/networking-and-multiplayer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mover",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mover-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-tutorials-for-unreal-engine?application_version=5.8",
+      "title": "Gameplay Tutorials",
+      "document_id": 3230199,
+      "revision_id": 3216966,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "09deff6bd662576eddde2e87eeb74453cc3d5058e926de36494ff195f7d6235e",
+      "children": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/getting-started-with-mobile-development-in-unreal-engine?application_version=5.8",
+      "title": "Mobile Development",
+      "document_id": 4788193,
+      "revision_id": 5000390,
+      "applications": [
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "4870207a2aa573832170348cfc7a26115461871e9deeb60c031e6e4a2c24a14d",
+      "children": [
+        {
+          "title": "Creating a Mobile Project",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-an-unreal-engine-project-for-mobile-platforms?application_version=5.8"
+        },
+        {
+          "title": "Android Quick Start",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/android-quick-start?application_version=5.8"
+        },
+        {
+          "title": "Android Development Requirements",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/android-development-requirements-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Automated Android SDK, NDK, and JDK Setup",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/automated-android-sdk-ndk-and-jdk-setup-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Manual Android SDK Setup With Android Studio",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/manual-android-sdk-setup-with-android-studio-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Setting Up Your Android Device For Development",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-your-android-device-for-developing-applications-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Debugging Android Projects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-unreal-engine-projects-for-android-using-android-studio?application_version=5.8"
+        },
+        {
+          "title": "Android Vulkan Mobile Renderer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-android-vulkan-mobile-renderer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Debugging with AGDE in Visual Studio",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-unreal-engine-projects-for-android-in-visual-studio-with-the-agde-plugin?application_version=5.8"
+        },
+        {
+          "title": "Profiling Android Projects With Platform-Native Tools",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/profile-android-projects-with-platformnative-tools?application_version=5.8"
+        },
+        {
+          "title": "Android Emulator",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-unreal-engine-projects-with-virtual-devices-using-the-android-emulator?application_version=5.8"
+        },
+        {
+          "title": "Google Play Asset Delivery Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-google-play-asset-delivery-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android File Server",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/android-file-server-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Frame Pacing for Mobile Devices",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/frame-pacing-for-mobile-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Reducing Android Binary Size",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reducing-android-binary-size-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Creating Bundled PSO Caches for Android",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-bundled-pso-caches-for-android-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Signing Projects for Release",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/signing-android-projects-for-release-on-the-google-play-store-with-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android Manifest Control",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/how-to-use-android-manifest-control-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Android Virtual Keyboard",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-android-virtual-keyboard-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Android Development Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/android-development-basics-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Setting up Android Launch Screens",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-android-launch-screens-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using In-App Purchases on Android",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/how-to-use-inapp-purchases-in-unreal-engine-projects-on-android?application_version=5.8"
+        },
+        {
+          "title": "Using Google Play Services Leaderboards",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-google-play-services-leaderboards-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Using Google Play Achievements",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-google-play-achievements-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Using Ad Mob In-Game Ads on Android",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-ad-mob-for-in-game-ads-on-android-with-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "iOS, iPadOS, tvOS Quick Start Guide",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/ios-ipados-tvos-quick-start-guide-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "iOS, iPadOS, and tvOS Development Requirements",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/ios-ipados-and-tvos-development-requirements-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Provisioning Profiles and Signing Certificates",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-ios-tvos-and-ipados-provisioning-profiles-and-signing-certificates-for-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Set Up iOS, iPadOS, and tvOS Devices for Development",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/set-up-ios-ipados-and-tvos-devices-for-development-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Connecting to tvOS Devices",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/connecting-to-tvos-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "iOS for Windows Users",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-on-ios-projects-using-a-windows-machine-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Test on Mac With Designed for iPad",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/test-on-mac-with-designed-for-ipad-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Profiling iOS Projects with Platform-Native Tools",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/profiling-ios-projects-with-platformnative-tools?application_version=5.8"
+        },
+        {
+          "title": "Debugging iOS Projects With Xcode",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-ios-projects-with-xcode-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working with iOS Input",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-ios-input-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Localizing plist and NSLocalizedString",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/localizing-plist-and-nslocalizedstring-in-an-ios-project-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "iOS Launch Storyboards",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-ios-launch-storyboards-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "iOS Packaged Game Size",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/optimizing-packaged-game-size-for-ios-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using In-App Purchases on iOS",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/how-to-use-inapp-purchases-in-unreal-engine-projects-on-ios?application_version=5.8"
+        },
+        {
+          "title": "Accessing Logs and Crash Reports on iOS and tvOS",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/accessing-logs-and-crash-reports-on-ios-and-tvos-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using Preview Platform",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-preview-platform-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using Unreal Engine Remote with Remote Session",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-unreal-engine-remote-with-remote-session?application_version=5.8"
+        },
+        {
+          "title": "Performance Guidelines for Mobile Devices",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/performance-guidelines-for-mobile-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Insights on Android Devices",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/how-to-use-unreal-insights-to-profile-android-games-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android Debugging",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-for-android-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mesh Auto-Instancing on Mobile",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-mesh-auto-instancing-on-mobile-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Rendering Optimization for Mobile",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/optimization-and-development-best-practices-for-mobile-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Customizing Device Profiles and Scalability for Android",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/customizing-device-profiles-and-scalability-in-unreal-engine-projects-for-android?application_version=5.8"
+        },
+        {
+          "title": "Android Configuration Rules System",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-android-configuration-rules-system-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gauntlet Automation Framework",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gauntlet-automation-framework-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using Oodle",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-oodle-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "PSO Caches",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/optimizing-rendering-with-pso-caches-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Animation Budget Allocator",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/animation-budget-allocator-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Rendering and Shading Modes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mobile-rendering-and-shading-modes-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mobile Deferred Shading Mode",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-mobile-deferred-shading-mode-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mobile FSR",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-mobile-fsr-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Desktop Renderer on Mobile",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-desktop-renderer-on-mobile-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Lumen on Mobile",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-lumen-global-illumination-on-mobile-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Feature Levels and Rendering Modes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mobile-feature-levels-and-rendering-modes-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Plugin Language",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-unreal-plugin-language-for-mobile-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using In-App Purchases",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-inapp-purchases-in-unreal-engine-projects-for-mobile-devices?application_version=5.8"
+        },
+        {
+          "title": "Using In-Game Ads",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-in-game-ads-in-unreal-engine-projects-on-mobile-platforms?application_version=5.8"
+        },
+        {
+          "title": "Using Mobile Service Achievements",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-achievements-in-mobile-applications-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using Mobile Service Leaderboards",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-mobile-service-leaderboards-in-unreal-engine-projects-for-mobile-devices?application_version=5.8"
+        },
+        {
+          "title": "Local Notification For Android and iOS",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/local-notifications-for-android-and-ios-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Packaging iOS Projects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-ios-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Packaging and Publishing for Android",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-and-publishing-android-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android Single Instance Service",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/android-single-instance-service-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android Multi-View",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/android-multiview-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Resources for Scaling Your Team",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/resources-for-scaling-your-unreal-engine-team?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/motion-design-in-unreal-engine?application_version=5.8",
+      "title": "Motion Design",
+      "document_id": 3232789,
+      "revision_id": 4515782,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "abba6f6731c8daed879cf8bc891d4056c015477055e18252bb49e22680e28510",
+      "children": [
+        {
+          "title": "Motion Design Quick Start Guide",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/motion-design-quickstart-guide-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Your First Graphic with Motion Design",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/your-first-graphic-with-motion-design-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Cloners and Effectors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/motion-design-cloners-and-effectors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Rundown Server",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-rundown-server-for-motion-design-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Operator Stack",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/operator-stack-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Scene State",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/scene-state-for-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/programming-with-cplusplus-in-unreal-engine?application_version=5.8",
+      "title": "Programming with C++",
+      "document_id": 3227217,
+      "revision_id": 5004283,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "51e09219fe4e1b9319ec44833177ca42f506ad7aa37e23916f31317b18ffd555",
+      "children": [
+        {
+          "title": "Coding Standard",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Containers in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/containers-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Delegates",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/delegates-and-lambda-functions-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Development Setup",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-your-development-environment-for-cplusplus-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Object Pointers",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/object-pointers-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Architecture",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/programming-in-the-unreal-engine-architecture?application_version=5.8"
+        },
+        {
+          "title": "Unreal Engine Reflection System",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reflection-system-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/samples-and-tutorials-for-unreal-engine?application_version=5.8",
+      "title": "Samples and Tutorials",
+      "document_id": 3236691,
+      "revision_id": 4516977,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "fe46cb2ce2de843bccc993fefb137851c0ab4c1f9b0188231287ff0cc54664ed",
+      "children": [
+        {
+          "title": "Templates Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-templates-reference?application_version=5.8"
+        },
+        {
+          "title": "Engine Feature Examples",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/engine-feature-examples-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Content Examples",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/content-examples-sample-project-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Sample Game Projects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sample-game-projects-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Free Epic Games Content",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/free-epic-games-content-for-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-your-production-pipeline-in-unreal-engine?application_version=5.8",
+      "title": "Setting Up Your Production Pipeline",
+      "document_id": 3234026,
+      "revision_id": 5003797,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "8f3551befdad75508bbce206828e8c6236057fec758f3b0bac963ae36d091f0c",
+      "children": [
+        {
+          "title": "Asset Management",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/asset-management-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Derived Data Cache (DDC)",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-derived-data-cache-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Turnkey",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/automating-platform-and-sdk-management-with-unreal-turnkey?application_version=5.8"
+        },
+        {
+          "title": "Ushell",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/how-to-use-ushell-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Zen Storage Server",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/zen-storage-server-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Build Pipeline",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-unreal-engine-build-pipeline?application_version=5.8"
+        },
+        {
+          "title": "Recommended Asset Naming Conventions",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/recommended-asset-naming-conventions-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Deploying Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/deploying-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Collaboration and Version Control in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/collaboration-and-version-control-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Multi-User Editing in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/multi-user-editing-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Plugins",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/plugins-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Virtual Assets",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/virtual-assets-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Redirectors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/asset-redirectors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Scripting and Automating the Unreal Editor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/scripting-and-automating-the-unreal-editor?application_version=5.8"
+        },
+        {
+          "title": "Using Unreal Engine with Autodesk ShotGrid",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-unreal-engine-with-autodesk-shotgrid?application_version=5.8"
+        },
+        {
+          "title": "Horde",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/horde-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Remote Windows Deployment",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/remote-windows-deployment-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/sharing-and-releasing-projects-for-unreal-engine?application_version=5.8",
+      "title": "Sharing and Releasing Projects",
+      "document_id": 4787866,
+      "revision_id": 4803224,
+      "applications": [
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "d8ac69600c5e7b7c51fb150a6031b9eea9144243ece80c31420c3246008edf11",
+      "children": [
+        {
+          "title": "Build Operations: Cook, Package, Deploy, and Run",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/build-operations-cooking-packaging-deploying-and-running-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Content Cooking",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/cooking-content-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Cooking and Chunking",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/cooking-content-and-creating-chunks-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Launching to Devices",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/launching-unreal-engine-projects-on-devices?application_version=5.8"
+        },
+        {
+          "title": "Multi-Process Cooking",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-multi-process-cooking-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Releasing Your Project",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/preparing-unreal-engine-projects-for-release?application_version=5.8"
+        },
+        {
+          "title": "Working with Cooked Content in the Editor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-cooked-content-in-the-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Project Launcher",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-project-launcher-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Frontend",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-unreal-frontend-tool?application_version=5.8"
+        },
+        {
+          "title": "C++ Cooking Development Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/cplusplus-cooking-development-reference?application_version=5.8"
+        },
+        {
+          "title": "AutoSDK Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-autosdk-system-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Device Manager",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/connecting-to-and-managing-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Setting Device Profiles",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-device-profiles-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Low Latency Frame Syncing",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/low-latency-frame-syncing-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Setting Up TV Safe Zone Debugging",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-tv-safe-zone-debugging-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Windows ARM64 Support",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/windows-arm64-support-in-unreal-engine-5-8?application_version=5.8"
+        },
+        {
+          "title": "Mobile Development Tools",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/development-tools-for-mobile-applications?application_version=5.8"
+        },
+        {
+          "title": "Mobile Rendering Features",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mobile-rendering-features-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mobile Platform Integrations",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mobile-platform-integrations-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Performance and Optimization",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/performance-and-optimization-for-mobile-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Windows ARM64 Support",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/windows-arm64-support-in-unreal-engine-5-8?application_version=5.8"
+        },
+        {
+          "title": "iOS for Windows Users",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-on-ios-projects-using-a-windows-machine-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Getting Started and Setup for Android in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/getting-started-and-setup-for-android-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android Development Guides",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/developing-guides-for-android-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Packaging and Publishing for Android",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-and-publishing-android-projects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Android Debugging",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/debugging-for-android-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Optimization Guides for Android in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/optimization-guides-for-android-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Developing for Head-Mounted Experiences with OpenXR",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/developing-for-headmounted-experiences-with-openxr-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Developing for Handheld Augmented Reality Experiences",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/developing-for-handheld-augmented-reality-experiences-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Getting Started with XR Development",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/getting-started-with-xr-development-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Making Interactive XR Experiences",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/making-interactive-xr-experiences-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating UI for XR Experiences",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/design-user-interfaces-for-xr-experiences-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Sharing XR Experiences",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sharing-xr-experiences-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Supported XR Devices",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/supported-xr-devices-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Pixel Streaming",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/pixel-streaming-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/testing-and-optimizing-your-content?application_version=5.8",
+      "title": "Testing and Optimizing Your Content",
+      "document_id": 3234759,
+      "revision_id": 5003768,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "e74ee24fa7b27d3fa54eab6e5fbd875d7a98ac271f43db42dcfea085fbe89ef8",
+      "children": [
+        {
+          "title": "Console Variables Editor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/console-variables-editor?application_version=5.8"
+        },
+        {
+          "title": "Crash Reporting",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/crash-reporting-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Debugger",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-the-gameplay-debugger-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Using Oodle",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-oodle-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "PSO Caches",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/optimizing-rendering-with-pso-caches-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Significance Manager",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/significance-manager-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Stat Commands",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/stat-commands-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Insights",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-insights-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Zen Loader",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/zen-loader-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Stats System Overview",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-stats-system-overview?application_version=5.8"
+        },
+        {
+          "title": "Low-Level Tests",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lowlevel-tests-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Visual Logger",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/visual-logger-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Clang Sanitizers",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-clang-sanitizers-in-unreal-engine-projects?application_version=5.8"
+        },
+        {
+          "title": "Automation Test Framework",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/automation-test-framework-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Introduction to Performance Profiling and Configuration",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/introduction-to-performance-profiling-and-configuration-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Common Performance Considerations",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/common-memory-and-cpu-performance-considerations-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine?application_version=5.8",
+      "title": "Understanding the Basics",
+      "document_id": 3222141,
+      "revision_id": 4793435,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "4ca2f12fe4817cd3028c19502660c4d243c610347a725fb3c296fca617cde56b",
+      "children": [
+        {
+          "title": "Installing Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/install-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Install Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/install-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Unreal Engine Terminology",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-terminology?application_version=5.8"
+        },
+        {
+          "title": "Tools and Editors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/tools-and-editors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Editor Preferences",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-editor-preferences?application_version=5.8"
+        },
+        {
+          "title": "Directory Structure",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-directory-structure?application_version=5.8"
+        },
+        {
+          "title": "Working with Plugins",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-plugins-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Customizing Keyboard Shortcuts",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/customizing-keyboard-shortcuts-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Color Picker",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/color-picker-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Coordinate System and Spaces",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/coordinate-system-and-spaces-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Units of Measurement",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/units-of-measurement-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Content Browser",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/content-browser-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Content Browser Interface",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/content-browser-interface-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Developers Folder",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/developers-folder-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Sources Panel Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sources-panel-reference-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Content Browser Settings Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/content-browser-settings-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Filters and Collections",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/filters-and-collections-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Advanced Search Syntax",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/advanced-search-syntax-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Customizing Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/customizing-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Projects and Templates",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-projects-and-templates-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating a New Project",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-a-new-project-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Opening an Existing Project",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/opening-an-existing-unreal-engine-project?application_version=5.8"
+        },
+        {
+          "title": "Templates Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-templates-reference?application_version=5.8"
+        },
+        {
+          "title": "Updating Projects to Newer Versions of Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/updating-projects-to-newer-versions-of-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Recovery Hub",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/recovery-hub-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating Custom Templates",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/converting-a-project-to-an-unreal-engine-template?application_version=5.8"
+        },
+        {
+          "title": "Working with Levels",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-levels-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Managing Multiple Levels",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/managing-multiple-levels-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "World Settings",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/world-settings-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Changing the Default Level",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/changing-the-default-level-of-an-unreal-engine-project?application_version=5.8"
+        },
+        {
+          "title": "Importing Assets Directly",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/importing-assets-directly-into-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working with Assets",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-assets-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Migrating Assets",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/migrating-assets-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Asset Metadata",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/asset-metadata-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Fab in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/fab-window-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Reimporting Assets Automatically",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reimporting-assets-automatically-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Reference Viewer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reference-viewer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Consolidating Assets",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/consolidating-assets-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Class Viewer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/class-viewer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Global Asset Picker",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/global-asset-picker-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Property Matrix",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/property-matrix-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Actors and Geometry",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/actors-and-geometry-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Placing Actors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/placing-actors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Selecting Actors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/selecting-actors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Transforming Actors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/transforming-actors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Actor Snapping",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/actor-snapping-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Actor Mobility",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/actor-mobility-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Grouping Actors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/grouping-actors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Merging Actors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/merging-actors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Actors Reference",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-actors-reference?application_version=5.8"
+        },
+        {
+          "title": "Basic Components",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/basic-components-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Playing and Simulating",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/playing-and-simulating-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Packaging Unreal Engine Projects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-your-project?application_version=5.8"
+        },
+        {
+          "title": "Packaging Unreal Engine Projects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-your-project?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-8-documentation?application_version=5.8",
+      "title": "Unreal Engine 5.8 Documentation",
+      "document_id": 4787790,
+      "revision_id": 4803004,
+      "applications": [
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "ebeb0ab8aefb85f57631e558fe646548f5baad7468c5c8f636010b3bf7466621",
+      "children": [
+        {
+          "title": "What's New",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/whats-new?application_version=5.8"
+        },
+        {
+          "title": "Understanding the Basics",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/understanding-the-basics-of-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working with Content",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-content-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Building Virtual Worlds",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/building-virtual-worlds-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Designing Visuals, Rendering, and Graphics",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/designing-visuals-rendering-and-graphics-with-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "AI Features, Tools, and Plugins",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/ai-features-tools-and-plugins-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating Visual Effects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-visual-effects-in-niagara-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Tutorials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-tutorials-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Blueprints Visual Scripting",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/blueprints-visual-scripting-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Programming with C++",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/programming-with-cplusplus-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Gameplay Systems",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/gameplay-systems-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mobile Development",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/getting-started-with-mobile-development-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Animating Characters and Objects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/animating-characters-and-objects-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Motion Design",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/motion-design-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Creating User Interfaces",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/creating-user-interfaces-with-umg-and-slate-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working with Audio",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-audio-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working with Media",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-media-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Setting Up Your Production Pipeline",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/setting-up-your-production-pipeline-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Testing and Optimizing Your Content",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/testing-and-optimizing-your-content?application_version=5.8"
+        },
+        {
+          "title": "Sharing and Releasing Projects",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sharing-and-releasing-projects-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Samples and Tutorials",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/samples-and-tutorials-for-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/whats-new?application_version=5.8",
+      "title": "What's New",
+      "document_id": 3222043,
+      "revision_id": 4516575,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "4de01f720b37e9a19108f8dde05e2d5fea425dbe0a4d776b58d48de1432ca995",
+      "children": [
+        {
+          "title": "Unreal Engine 5.8 Release Notes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-8-release-notes?application_version=5.8"
+        },
+        {
+          "title": "Unreal Engine 5 Migration Guide",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-5-migration-guide?application_version=5.8"
+        },
+        {
+          "title": "Beta Features",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/beta-features?application_version=5.8"
+        },
+        {
+          "title": "Experimental Features",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/experimental-features?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-audio-in-unreal-engine?application_version=5.8",
+      "title": "Working with Audio",
+      "document_id": 3232788,
+      "revision_id": 4603234,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "70c5a564d8a6bb58b146ac90b44851e3d9ef86f9342de2e0af27473c4bc50ffb",
+      "children": [
+        {
+          "title": "Audio Analysis and Visualization",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-analysis-and-visualization-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Audio Debugging",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-debugging-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Audio Gameplay Volumes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-gameplay-volumes-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Audio in Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Audio Memory Management",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-memory-management-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Audio Mixing",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-mixing-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "AudioLink",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audiolink?application_version=5.8"
+        },
+        {
+          "title": "External Audio Control",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/external-audio-control-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Music Systems",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/music-systems-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Sound Sources",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/sound-sources-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Soundscape",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/soundscape-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Spatialization and Sound Attenuation",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/spatialization-and-sound-attenuation-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Submixes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/submixes-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Audio Volume Actors",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/audio-volume-actors-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Reverb",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/reverb-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-content-in-unreal-engine?application_version=5.8",
+      "title": "Working with Content",
+      "document_id": 3223199,
+      "revision_id": 4803090,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "244affc10cbe747db6a04ae1d568f3910b52ecb37d2ab636724340615ed434d3",
+      "children": [
+        {
+          "title": "Artist Quick Start",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/artist-quick-start-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Alembic File Importer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/alembic-file-importer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "FBX Content Pipeline",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/fbx-content-pipeline?application_version=5.8"
+        },
+        {
+          "title": "Hair Rendering and Simulation",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/hair-rendering-and-simulation-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Interchange Framework",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/interchange-framework-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Skeletal Meshes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/skeletal-mesh-assets-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Static Meshes",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/static-meshes?application_version=5.8"
+        },
+        {
+          "title": "Mutable Skeletal Mesh Generation",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mutable-skeletal-mesh-generation-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Datasmith",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/datasmith-plugins-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "GL Transmission Format (glTF)",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/the-gl-transmission-format-gltf-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Universal Scene Description (USD)",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/universal-scene-description-usd-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "MaterialX",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/materialx-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "LiDAR Point Cloud Plugin",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/lidar-point-cloud-plugin-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Modeling and Geometry Scripting",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/modeling-and-geometry-scripting-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working with Scene Variants",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-scene-variants-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "SpeedTree",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/using-speedtree-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Localization",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/localizing-content-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/working-with-media-in-unreal-engine?application_version=5.8",
+      "title": "Working with Media",
+      "document_id": 3233207,
+      "revision_id": 5003857,
+      "applications": [
+        {
+          "id": 3581142,
+          "type": "unreal_engine",
+          "version": "5.5",
+          "major_version": "5"
+        },
+        {
+          "id": 4279130,
+          "type": "unreal_engine",
+          "version": "5.6",
+          "major_version": "5"
+        },
+        {
+          "id": 4279213,
+          "type": "unreal_engine",
+          "version": "5.7",
+          "major_version": "5"
+        },
+        {
+          "id": 4279322,
+          "type": "unreal_engine",
+          "version": "5.8",
+          "major_version": "5"
+        }
+      ],
+      "response_sha256": "59323e438b786c09abdfaebe773370981c8a7ff7f02a5925b49b1b6a1f1d730f",
+      "children": [
+        {
+          "title": "Bink Video for Unreal Engine",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/bink-video-for-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "The Media Plate Actor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/the-media-plate-actor-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Media Framework",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/media-framework-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Media Viewer",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/media-viewer-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Professional Video I/O",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/professional-video-io-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Camera Lens Calibration",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/camera-lens-calibration-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "In-Camera VFX",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/incamera-vfx-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Rendering to Multiple Displays with nDisplay",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/rendering-to-multiple-displays-with-ndisplay-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Real-Time Compositing with Composure",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/realtime-compositing-with-composure-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Texture Share",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/texture-share-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Mixed Reality Capture",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/mixed-reality-capture-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "DMX",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/dmx-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Switchboard",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/switchboard-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Stage Monitor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/stage-monitor-with-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Timed Data Monitor",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/timed-data-monitor-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Working Color Space",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/working-color-space-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Color Management with OpenColorIO",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/color-management-with-opencolorio-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Color Correct Regions",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/color-correct-regions-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Taking Screenshots",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/taking-screenshots-in-unreal-engine?application_version=5.8"
+        },
+        {
+          "title": "Panoramic Capture Tool",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/panoramic-capture-tool-in-unreal-engine?application_version=5.8"
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "traversal_complete": false
+}

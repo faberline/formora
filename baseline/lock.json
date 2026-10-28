@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-29",
+  "products": [
+    {
+      "id": "blender",
+      "version": "5.2.3",
+      "manual_root": "https://docs.blender.org/manual/en/5.2/",
+      "release_url": "https://www.blender.org/releases/",
+      "release_status": "stable"
+    },
+    {
+      "id": "unreal",
+      "version": "5.8",
+      "manual_root": "https://dev.epicgames.com/documentation/unreal-engine",
+      "release_url": "https://www.unrealengine.com/news/unreal-engine-5-8-is-now-available",
+      "release_status": "stable"
+    }
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
+  ],
+  "exclusions": [
+    "native_project_compatibility",
+    "existing_scripts_and_plugins",
+    "operator_gui_parity",
+    "mobile",
+    "xr",
+    "consoles"
+  ],
+  "artifacts": [
+    {
+      "path": "baseline/sources/blender-5.2-objects.inv",
+      "url": "https://docs.blender.org/manual/en/5.2/objects.inv",
+      "sha256": "02a8454651ecbd4350542bd6d97779d6d79a3906fb08afa3c309ef5341d88000"
+    },
+    {
+      "path": "baseline/sources/blender-5.2.3.sha256",
+      "url": "https://download.blender.org/release/Blender5.2/blender-5.2.3.sha256",
+      "sha256": "eb16a93ab6030d9274c314c10b7b4c9418ba039b1e486f6f9c68470c66f306d1"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8-documents.json",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
+      "sha256": "191b9a08322bdfe66c3fdd68fb9db1df426510f354e4471faf35ac7758c1dd92"
+    },
+    {
+      "path": "baseline/sources/source-manifest.json",
+      "url": "https://docs.blender.org/manual/en/5.2/objects.inv",
+      "sha256": "9ee1c90c8f3212e1380196277985977b647c6443ae23c7c4b4b6778fc2ff84f8"
+    }
+  ],
+  "source_manifest_path": "baseline/sources/source-manifest.json"
+}
