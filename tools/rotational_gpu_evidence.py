@@ -95,7 +95,8 @@ def main():
                         'changed_visible_pixels': changed_count, 'different_pixels': different,
                         'reopened_png_identical': True, 'asset_identity_preserved': True})
     artifacts = {str(p.relative_to(output)): hashlib.sha256(p.read_bytes()).hexdigest()
-                 for p in sorted(output.rglob('*')) if p.is_file()}
+                 for p in sorted(output.rglob('*'))
+                 if p.is_file() and not p.name.endswith('.formora.lock')}
     report = {'passed': True, 'scope': 'Four isolated native GPU generation and regeneration samples',
               'full_feature_acceptance': 'unrun', 'platform': platform.platform(), 'runs': records,
               'binary_sha256': hashlib.sha256(binary.read_bytes()).hexdigest(),
