@@ -1,0 +1,284 @@
+{
+  "scope": "issue #32 polygon data and native Metal tessellation evidence",
+  "full_product_acceptance": false,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+  "binary_sha256": "c6e66ab1f185acea5bc295a488fac5f426359d19f7ed2dc51ed6416ae0a84194",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "7d0cc2e647f3c7cde1b0a1cb56a0f01c622e6f357040a5aee72fd3ea8e2d7750",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "c58a1bbb93ca2d3b537fd5cd42921d05236adfdb2e9dad39d1f5fa0c7a9d3067",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh.rs": "57f23b1fd5a85f85729cf3dfe82ae43ac120dd17b96a69677bfedf6ee05909a6",
+    "src/preview/math.rs": "a1c1e97e48884f64c5dd97bdc065b3e8b454e6c23ccbff0f697bc1570ad40d71",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "a8bd3d23f23ff946f01b65b30bf0a6c862741d9483f2a80d411941a351623a1a",
+    "src/session.rs": "7d624be6b1cde4af76af56b8daca0ccc36688a9866434a05b9af79c1506dacc8"
+  },
+  "capture_inputs_sha256": {
+    "tools/polygon_gpu_evidence.py": "3231c6d268215b0f9d2ccb55533684ae9d8ed4db8eb94c74cb84d275736bf0f5",
+    "tools/png_pixels.py": "d75c0dbab5bfa901153cea78dddf99899085eb396a8fd5c098b27b615be5562f",
+    "tests/fixtures/polygon-asset.json": "4f438ae16c827767464ca5a9ba7afcea5be1aa08ed4fa123857f7a90a8651fee",
+    "docs/contracts/polygon-assets.md": "ca5759431b12f72c3d9fb1943a0d8bf8549576d64aba8bc9fd88103fbb0ca95e"
+  },
+  "pixel_assertions": {
+    "notch": {
+      "world_xy": [
+        1.5,
+        2
+      ],
+      "pixel_xy": [
+        480,
+        308
+      ],
+      "before_rgba": [
+        44,
+        52,
+        66,
+        255
+      ],
+      "filled": false
+    },
+    "left_arm": {
+      "world_xy": [
+        0.5,
+        2
+      ],
+      "pixel_xy": [
+        376,
+        308
+      ],
+      "before_rgba": [
+        37,
+        85,
+        112,
+        255
+      ],
+      "filled": true
+    },
+    "right_arm": {
+      "world_xy": [
+        2.5,
+        2
+      ],
+      "pixel_xy": [
+        584,
+        308
+      ],
+      "before_rgba": [
+        37,
+        85,
+        112,
+        255
+      ],
+      "filled": true
+    },
+    "base": {
+      "world_xy": [
+        1.5,
+        0.5
+      ],
+      "pixel_xy": [
+        480,
+        464
+      ],
+      "before_rgba": [
+        37,
+        85,
+        112,
+        255
+      ],
+      "filled": true
+    },
+    "future_cut": {
+      "world_xy": [
+        1.75,
+        0.75
+      ],
+      "pixel_xy": [
+        506,
+        438
+      ],
+      "before_rgba": [
+        37,
+        85,
+        112,
+        255
+      ],
+      "filled": true,
+      "after_rgba": [
+        44,
+        52,
+        66,
+        255
+      ]
+    }
+  },
+  "background_rgba": [
+    44,
+    52,
+    66,
+    255
+  ],
+  "notch_unfilled": true,
+  "edit_visible": true,
+  "reopened_png_identical": true,
+  "crossing_rejected_without_partial_output": true,
+  "existing_png_preserved_on_failure": true,
+  "saved_crossing_unchanged": true,
+  "artifacts": {
+    "before.png": "5dc318acb0e1975abdb373cb27b0fe39ebc1e80bfc899709c8bc608751fc6264",
+    "after-edit.png": "e290d0071cd83b99d7a0017251b3903f4e4e5ac7497343c894cc9eea9b09a053",
+    "reopened.png": "e290d0071cd83b99d7a0017251b3903f4e4e5ac7497343c894cc9eea9b09a053",
+    "scene.json": "037f74ff329bf2e2e77eca720a3b918a9c416938e32882e9b0394c6ef73782bb",
+    "crossed.scene.json": "9fe1172db6e8bbe6b28dd6c8a4ff397be1f1b71560fa178c8b8ef9ea9a5041bc",
+    "creation-request.json": "874f1b6837af55ec712a6ebde73f3814cebf01339fc7e44c578a663778822e0a",
+    "edit-request.json": "ad3a46e8e08323be37e6b4eaf70ef42e43d160468c9197232a560c123dfe296b"
+  },
+  "commands": [
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/scene.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/scene.json",
+        "--request",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"revision\":1}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/scene.json",
+        "--output",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/before.png",
+        "--width",
+        "960",
+        "--height",
+        "720"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":720,\"output\":\"/private/tmp/formora-polygon-rust185-gpu-01a18342/before.png\",\"width\":960}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/scene.json",
+        "--request",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"revision\":2}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/scene.json",
+        "--output",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/after-edit.png",
+        "--width",
+        "960",
+        "--height",
+        "720"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":720,\"output\":\"/private/tmp/formora-polygon-rust185-gpu-01a18342/after-edit.png\",\"width\":960}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/scene.json",
+        "--output",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/reopened.png",
+        "--width",
+        "960",
+        "--height",
+        "720"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":720,\"output\":\"/private/tmp/formora-polygon-rust185-gpu-01a18342/reopened.png\",\"width\":960}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/crossed.scene.json",
+        "--request",
+        "-"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"revision\":3}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/crossed.scene.json",
+        "--output",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/rejected.png",
+        "--width",
+        "960",
+        "--height",
+        "720"
+      ],
+      "exit_code": 1,
+      "stdout": "{\"error\":\"polygon u: self-intersecting polygon projection\"}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/crossed.scene.json",
+        "--output",
+        "/private/tmp/formora-polygon-rust185-gpu-01a18342/protected.png",
+        "--width",
+        "960",
+        "--height",
+        "720"
+      ],
+      "exit_code": 1,
+      "stdout": "{\"error\":\"polygon u: self-intersecting polygon projection\"}\n",
+      "stderr": ""
+    }
+  ],
+  "unrun": [
+    "native window input",
+    "Windows GPU",
+    "Linux GPU",
+    "primitive generation",
+    "full modeling parity"
+  ]
+}

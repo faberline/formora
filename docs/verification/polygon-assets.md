@@ -23,6 +23,23 @@ against each derived render vertex. Multi-layer order, active layer, loose edges
 Real-process CLI and MCP tests return the same tessellation. A crossing projection produces an error without a partial result.
 The failed query leaves undo usable. Restoring the prior asset and querying a collapsed asset returns an explicit diagnostic.
 
+## Minimum Rust version and unavailable CI
+
+Rust 1.85.0 was installed in an isolated temporary toolchain directory.
+Format, Clippy with all features and targets, and all 79 Rust tests passed on macOS arm64.
+The [minimum-version record](../evidence/polygon-assets/rust185/report.json) pins the compiler, source and full test log.
+All 57 reference payload results match the stored candidate files exactly.
+The official MCP SDK checks also passed against that binary.
+Its native Metal checks passed, including the notch, edit, reload and failed-render output protection.
+All three PNGs are identical to the Rust 1.96.1 capture.
+
+These are local macOS results. They do not replace Windows, Linux or GitHub CI.
+The first two CI attempts on candidate `f199c2c35ca7428be7ced15d12192b67a085b205` executed no test steps.
+GitHub rejected all six jobs because recent account payments failed or the spending limit needs an increase.
+The [CI snapshot](../evidence/polygon-assets/ci-unrun.json) records the original annotations and run links.
+The account's billing administrator must resolve that external gate. The required checks remain unchanged.
+The PR and issue must remain open until the exact candidate passes those checks and integration review.
+
 ## Source payload preservation
 
 `tools/polygon_reference_smoke.py` passes all 57 fixed Blender 5.2.3 payloads through actual CLI processes.
