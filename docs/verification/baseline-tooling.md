@@ -3,6 +3,10 @@
 日期：2026-10-29，Asia/Taipei。
 環境：macOS 26.5.2，arm64，Rust 1.96.1。
 
+本紀錄保留 PR #15 初版工具的檢查結果。
+下方數量與 CI 狀態屬於該次候選。
+後續進度見[網格參考資料](mesh-primitives-reference.md)與[原生預覽](macos-preview.md)。
+
 ## 已執行
 
 | 檢查 | 結果 |

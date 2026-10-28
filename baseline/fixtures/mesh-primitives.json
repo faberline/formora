@@ -1,0 +1,602 @@
+{
+  "schema_version": 1,
+  "reference": {
+    "product": "blender",
+    "version": [
+      5,
+      2,
+      3
+    ],
+    "build_hash": "e13b728c6880"
+  },
+  "comparison": {
+    "positions_absolute_tolerance_metres": 1e-06,
+    "normals_absolute_tolerance": 1e-06,
+    "uv_absolute_tolerance": 1e-06,
+    "topology": "exact oriented faces and edges under a bijective vertex map; vertex and face numbering may differ",
+    "uv": "compare each face corner under the same oriented cyclic face mapping",
+    "unverified": "These are finite fixtures, not complete parameter-domain coverage."
+  },
+  "runs": [
+    {
+      "id": "plane_default",
+      "operator": "plane",
+      "parameters": {}
+    },
+    {
+      "id": "plane_no_uv",
+      "operator": "plane",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "plane_placed",
+      "operator": "plane",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "cube_default",
+      "operator": "cube",
+      "parameters": {}
+    },
+    {
+      "id": "cube_no_uv",
+      "operator": "cube",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "cube_placed",
+      "operator": "cube",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "circle_default",
+      "operator": "circle",
+      "parameters": {}
+    },
+    {
+      "id": "circle_no_uv",
+      "operator": "circle",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "circle_placed",
+      "operator": "circle",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_default",
+      "operator": "uv_sphere",
+      "parameters": {}
+    },
+    {
+      "id": "uv_sphere_no_uv",
+      "operator": "uv_sphere",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "uv_sphere_placed",
+      "operator": "uv_sphere",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_default",
+      "operator": "ico_sphere",
+      "parameters": {}
+    },
+    {
+      "id": "ico_sphere_no_uv",
+      "operator": "ico_sphere",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "ico_sphere_placed",
+      "operator": "ico_sphere",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "cylinder_default",
+      "operator": "cylinder",
+      "parameters": {}
+    },
+    {
+      "id": "cylinder_no_uv",
+      "operator": "cylinder",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "cylinder_placed",
+      "operator": "cylinder",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "cone_default",
+      "operator": "cone",
+      "parameters": {}
+    },
+    {
+      "id": "cone_no_uv",
+      "operator": "cone",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "cone_placed",
+      "operator": "cone",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "torus_default",
+      "operator": "torus",
+      "parameters": {}
+    },
+    {
+      "id": "torus_no_uv",
+      "operator": "torus",
+      "parameters": {
+        "generate_uvs": false
+      }
+    },
+    {
+      "id": "torus_placed",
+      "operator": "torus",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      }
+    },
+    {
+      "id": "grid_default",
+      "operator": "grid",
+      "parameters": {}
+    },
+    {
+      "id": "grid_no_uv",
+      "operator": "grid",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "grid_placed",
+      "operator": "grid",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "monkey_default",
+      "operator": "monkey",
+      "parameters": {}
+    },
+    {
+      "id": "monkey_no_uv",
+      "operator": "monkey",
+      "parameters": {
+        "calc_uvs": false
+      }
+    },
+    {
+      "id": "monkey_placed",
+      "operator": "monkey",
+      "parameters": {
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ],
+        "scale": [
+          1.5,
+          0.75,
+          2.0
+        ]
+      }
+    },
+    {
+      "id": "plane_size",
+      "operator": "plane",
+      "parameters": {
+        "size": 3.5
+      }
+    },
+    {
+      "id": "cube_size",
+      "operator": "cube",
+      "parameters": {
+        "size": 3.5
+      }
+    },
+    {
+      "id": "monkey_size",
+      "operator": "monkey",
+      "parameters": {
+        "size": 3.5
+      }
+    },
+    {
+      "id": "circle_nothing",
+      "operator": "circle",
+      "parameters": {
+        "vertices": 7,
+        "radius": 1.25,
+        "fill_type": "NOTHING"
+      }
+    },
+    {
+      "id": "circle_ngon",
+      "operator": "circle",
+      "parameters": {
+        "vertices": 7,
+        "radius": 1.25,
+        "fill_type": "NGON"
+      }
+    },
+    {
+      "id": "circle_trifan",
+      "operator": "circle",
+      "parameters": {
+        "vertices": 7,
+        "radius": 1.25,
+        "fill_type": "TRIFAN"
+      }
+    },
+    {
+      "id": "circle_minimum",
+      "operator": "circle",
+      "parameters": {
+        "vertices": 3,
+        "radius": 0.5,
+        "fill_type": "NGON"
+      }
+    },
+    {
+      "id": "uv_sphere_coarse",
+      "operator": "uv_sphere",
+      "parameters": {
+        "segments": 8,
+        "ring_count": 4,
+        "radius": 1.25
+      }
+    },
+    {
+      "id": "uv_sphere_minimum",
+      "operator": "uv_sphere",
+      "parameters": {
+        "segments": 3,
+        "ring_count": 3,
+        "radius": 0.5
+      }
+    },
+    {
+      "id": "ico_sphere_level1",
+      "operator": "ico_sphere",
+      "parameters": {
+        "subdivisions": 1,
+        "radius": 1.25
+      }
+    },
+    {
+      "id": "ico_sphere_level2",
+      "operator": "ico_sphere",
+      "parameters": {
+        "subdivisions": 2,
+        "radius": 1.25
+      }
+    },
+    {
+      "id": "ico_sphere_level3",
+      "operator": "ico_sphere",
+      "parameters": {
+        "subdivisions": 3,
+        "radius": 1.25
+      }
+    },
+    {
+      "id": "cylinder_nothing",
+      "operator": "cylinder",
+      "parameters": {
+        "vertices": 7,
+        "radius": 1.25,
+        "depth": 3.5,
+        "end_fill_type": "NOTHING"
+      }
+    },
+    {
+      "id": "cone_nothing",
+      "operator": "cone",
+      "parameters": {
+        "vertices": 7,
+        "radius1": 1.25,
+        "radius2": 0.0,
+        "depth": 3.5,
+        "end_fill_type": "NOTHING"
+      }
+    },
+    {
+      "id": "cylinder_ngon",
+      "operator": "cylinder",
+      "parameters": {
+        "vertices": 7,
+        "radius": 1.25,
+        "depth": 3.5,
+        "end_fill_type": "NGON"
+      }
+    },
+    {
+      "id": "cone_ngon",
+      "operator": "cone",
+      "parameters": {
+        "vertices": 7,
+        "radius1": 1.25,
+        "radius2": 0.0,
+        "depth": 3.5,
+        "end_fill_type": "NGON"
+      }
+    },
+    {
+      "id": "cylinder_trifan",
+      "operator": "cylinder",
+      "parameters": {
+        "vertices": 7,
+        "radius": 1.25,
+        "depth": 3.5,
+        "end_fill_type": "TRIFAN"
+      }
+    },
+    {
+      "id": "cone_trifan",
+      "operator": "cone",
+      "parameters": {
+        "vertices": 7,
+        "radius1": 1.25,
+        "radius2": 0.0,
+        "depth": 3.5,
+        "end_fill_type": "TRIFAN"
+      }
+    },
+    {
+      "id": "cylinder_minimum",
+      "operator": "cylinder",
+      "parameters": {
+        "vertices": 3,
+        "radius": 0.5,
+        "depth": 1.0,
+        "end_fill_type": "NGON"
+      }
+    },
+    {
+      "id": "cone_frustum",
+      "operator": "cone",
+      "parameters": {
+        "vertices": 8,
+        "radius1": 1.25,
+        "radius2": 0.5,
+        "depth": 3.5,
+        "end_fill_type": "TRIFAN"
+      }
+    },
+    {
+      "id": "cone_pyramid",
+      "operator": "cone",
+      "parameters": {
+        "vertices": 4,
+        "radius1": 1.0,
+        "radius2": 0.0,
+        "depth": 2.0,
+        "end_fill_type": "NGON"
+      }
+    },
+    {
+      "id": "cone_inverted",
+      "operator": "cone",
+      "parameters": {
+        "vertices": 8,
+        "radius1": 0.0,
+        "radius2": 1.25,
+        "depth": 3.5,
+        "end_fill_type": "NGON"
+      }
+    },
+    {
+      "id": "torus_major_minor",
+      "operator": "torus",
+      "parameters": {
+        "major_segments": 12,
+        "minor_segments": 6,
+        "mode": "MAJOR_MINOR",
+        "major_radius": 2.0,
+        "minor_radius": 0.5
+      }
+    },
+    {
+      "id": "torus_exterior_interior",
+      "operator": "torus",
+      "parameters": {
+        "major_segments": 12,
+        "minor_segments": 6,
+        "mode": "EXT_INT",
+        "abso_major_rad": 2.5,
+        "abso_minor_rad": 1.5
+      }
+    },
+    {
+      "id": "torus_minimum",
+      "operator": "torus",
+      "parameters": {
+        "major_segments": 3,
+        "minor_segments": 3,
+        "major_radius": 1.0,
+        "minor_radius": 0.25
+      }
+    },
+    {
+      "id": "grid_rectangular",
+      "operator": "grid",
+      "parameters": {
+        "x_subdivisions": 3,
+        "y_subdivisions": 5,
+        "size": 3.5
+      }
+    },
+    {
+      "id": "grid_minimum",
+      "operator": "grid",
+      "parameters": {
+        "x_subdivisions": 1,
+        "y_subdivisions": 1,
+        "size": 1.0
+      }
+    }
+  ]
+}

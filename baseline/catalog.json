@@ -1,4 +1,105 @@
 {
   "schema_version": 1,
-  "features": []
+  "features": [
+    {
+      "id": "mesh.primitive.plane",
+      "title": "網格基本形狀：平面",
+      "source_ids": [
+        "blender:3948701c0708d64b3983"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-plane.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.cube",
+      "title": "網格基本形狀：方塊",
+      "source_ids": [
+        "blender:b1512789d0d2540b6eb7"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-cube.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.circle",
+      "title": "網格基本形狀：圓環線與填面",
+      "source_ids": [
+        "blender:7c069cd5ee8f0a39b806"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-circle.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.uv_sphere",
+      "title": "網格基本形狀：經緯球",
+      "source_ids": [
+        "blender:e75b8a8013d49be0dea5"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-uv_sphere.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.ico_sphere",
+      "title": "網格基本形狀：三角球",
+      "source_ids": [
+        "blender:e27b8823bf661a2b502e"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-ico_sphere.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.cylinder",
+      "title": "網格基本形狀：圓柱",
+      "source_ids": [
+        "blender:b5c79df5643ae3fa7a6f"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-cylinder.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.cone",
+      "title": "網格基本形狀：圓錐與截錐",
+      "source_ids": [
+        "blender:e19e4f011f803a78e900"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-cone.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.torus",
+      "title": "網格基本形狀：圓環體",
+      "source_ids": [
+        "blender:f82d30787126263fbc66"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-torus.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.grid",
+      "title": "網格基本形狀：四邊形網格",
+      "source_ids": [
+        "blender:23e422e6b253b44bf221"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-grid.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.primitive.monkey",
+      "title": "網格基本形狀：Suzanne 猴頭",
+      "source_ids": [
+        "blender:804091d2b8371ed2726b"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-primitive-monkey.json",
+      "review": "pending"
+    }
+  ]
 }
