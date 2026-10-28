@@ -10,7 +10,8 @@ No product milestone has passed acceptance yet.
 The [scene core](docs/scene.md) and [agent interfaces](docs/agent-interface.md) provide
 agent authoring and a room-and-door example. The optional [native preview](docs/preview.md)
 shows the scene, plays door interactions, and saves review notes.
-[Shared triangle assets](docs/mesh-assets.md) support agent edits, saved instances, and preview picking.
+[Shared mesh assets](docs/mesh-assets.md) support agent edits, saved instances, and preview picking.
+[Source polygon topology](docs/polygon-assets.md) preserves faces and edges while Rust tessellates preview surfaces.
 
 ```sh
 cargo test --locked

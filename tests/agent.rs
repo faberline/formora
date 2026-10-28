@@ -346,3 +346,84 @@ fn duplicate_mesh_ids_in_raw_native_and_mcp_messages_cannot_mutate_the_scene() {
         assert_eq!(fs::read(project.scene()).unwrap(), before);
     }
 }
+
+#[test]
+fn polygon_tessellation_queries_match_cli_mcp_and_fail_without_changing_undo() {
+    let project = Project::new();
+    project.create();
+    let asset: Value = serde_json::from_str(include_str!("fixtures/polygon-asset.json")).unwrap();
+    let apply = |asset: &Value, revision| json!({"expected_revision":revision,"commands":[{"operation":"set_mesh_asset","id":"u","asset":asset}]});
+    let output = project.process(
+        &["scene", "apply", "--request", "-"],
+        &apply(&asset, 1).to_string(),
+    );
+    assert!(output.status.success());
+    let saved = fs::read(project.scene()).unwrap();
+    let queried = project.process(
+        &["scene", "inspect", "--mesh-asset", "u", "--tessellate"],
+        "",
+    );
+    assert!(queried.status.success());
+    let native = lines(&queried)[0].clone();
+    assert_eq!(
+        native["tessellation"]["triangles"]
+            .as_array()
+            .unwrap()
+            .len(),
+        6
+    );
+    let request = json!({"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"scene_inspect","arguments":{"mesh_asset":"u","tessellate":true}}});
+    let output = project.process(
+        &["mcp"],
+        &requests(&[initialize(), initialized(), request.clone()]),
+    );
+    assert!(output.status.success());
+    assert_eq!(lines(&output)[1]["result"]["structuredContent"], native);
+    assert_eq!(fs::read(project.scene()).unwrap(), saved);
+    // Save a valid topology with a crossing projection. Query must fail without a partial result.
+    let mut crossed = asset.clone();
+    crossed["vertices"]["v1"] = json!([3, 3, 0]);
+    crossed["vertices"]["v2"] = json!([3, 0, 0]);
+    let output=project.process(&["mcp"],&requests(&[initialize(),initialized(),
+        json!({"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"scene_apply","arguments":apply(&crossed,2)}}),
+        request,
+        json!({"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"scene_undo","arguments":{"expected_revision":3}}}),
+    ]));
+    let replies = lines(&output);
+    assert_eq!(replies[1]["result"]["isError"], false);
+    assert_eq!(replies[2]["result"]["isError"], true);
+    assert!(replies[2]["result"].get("structuredContent").is_none());
+    assert_eq!(replies[3]["result"]["isError"], false);
+    assert_eq!(
+        Scene::load(&project.scene()).unwrap().mesh_assets["u"],
+        serde_json::from_value::<formora::mesh::MeshAsset>(asset.clone()).unwrap()
+    );
+    let mut degenerate = asset;
+    for point in degenerate["vertices"].as_object_mut().unwrap().values_mut() {
+        *point = json!([0, 0, 0]);
+    }
+    assert!(
+        project
+            .process(
+                &["scene", "apply", "--request", "-"],
+                &apply(&degenerate, 4).to_string()
+            )
+            .status
+            .success()
+    );
+    let output = project.process(
+        &["scene", "inspect", "--mesh-asset", "u", "--tessellate"],
+        "",
+    );
+    let reply = lines(&output)[0].clone();
+    assert!(
+        reply["tessellation"]["triangles"]
+            .as_array()
+            .unwrap()
+            .is_empty()
+    );
+    assert_eq!(
+        reply["tessellation"]["diagnostics"][0]["code"],
+        "degenerate_polygon"
+    );
+}

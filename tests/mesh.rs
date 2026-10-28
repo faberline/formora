@@ -51,6 +51,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
     let mesh = InspectRequest {
         entity: None,
         mesh_asset: Some("shared".into()),
+        tessellate: false,
     }
     .inspect(&restored)
     .unwrap();
@@ -58,7 +59,8 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
     assert!(
         InspectRequest {
             entity: Some("first".into()),
-            mesh_asset: Some("shared".into())
+            mesh_asset: Some("shared".into()),
+            tessellate: false,
         }
         .inspect(&restored)
         .is_err()

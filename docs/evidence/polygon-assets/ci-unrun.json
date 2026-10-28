@@ -1,0 +1,90 @@
+{
+  "observed_at_utc": "2026-10-28T21:53:23.825360+00:00",
+  "scope": "Three-platform CI attempts for issue #32. No test step started. Not acceptance.",
+  "candidate": "f199c2c35ca7428be7ced15d12192b67a085b205",
+  "runs": [
+    {
+      "run_id": 40774673235,
+      "url": "https://github.com/faberline/formora/actions/runs/40774673235",
+      "event": "push",
+      "head_sha": "f199c2c35ca7428be7ced15d12192b67a085b205",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "contracts (windows-latest)",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps_executed": 0,
+          "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123120708891",
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ]
+        },
+        {
+          "name": "contracts (macos-15-intel)",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps_executed": 0,
+          "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123120709143",
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ]
+        },
+        {
+          "name": "contracts (ubuntu-latest)",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps_executed": 0,
+          "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123120709150",
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": 40774731024,
+      "url": "https://github.com/faberline/formora/actions/runs/40774731024",
+      "event": "pull_request",
+      "head_sha": "f199c2c35ca7428be7ced15d12192b67a085b205",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "contracts (windows-latest)",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps_executed": 0,
+          "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123120912522",
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ]
+        },
+        {
+          "name": "contracts (macos-15-intel)",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps_executed": 0,
+          "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123120912912",
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ]
+        },
+        {
+          "name": "contracts (ubuntu-latest)",
+          "status": "completed",
+          "conclusion": "failure",
+          "steps_executed": 0,
+          "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123120913021",
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ]
+        }
+      ]
+    }
+  ],
+  "required_checks_preserved": true,
+  "three_platform_acceptance": "unrun",
+  "account_action_required": "GitHub reports failed recent account payments or an insufficient spending limit. Billing administrator action is required."
+}
