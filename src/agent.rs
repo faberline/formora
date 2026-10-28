@@ -212,9 +212,35 @@ pub fn mcp_serve(
     mut writer: impl Write,
 ) -> io::Result<()> {
     let mut server = McpServer::default();
+    mcp_loop(&mut reader, &mut writer, |request| {
+        server.handle(session, request)
+    })
+}
+
+pub fn mcp_serve_shared(
+    session: std::sync::Arc<std::sync::Mutex<Session>>,
+    mut reader: impl BufRead,
+    mut writer: impl Write,
+) -> io::Result<()> {
+    let mut server = McpServer::default();
+    mcp_loop(&mut reader, &mut writer, |request| match session.lock() {
+        Ok(mut session) => server.handle(&mut session, request),
+        Err(_) => Some(rpc_error(
+            request.get("id").cloned().unwrap_or(Value::Null),
+            -32603,
+            "scene session is unavailable",
+        )),
+    })
+}
+
+fn mcp_loop(
+    mut reader: impl BufRead,
+    mut writer: impl Write,
+    mut handle: impl FnMut(Value) -> Option<Value>,
+) -> io::Result<()> {
     while let Some(bytes) = read_message(&mut reader)? {
         let response = match serde_json::from_slice(&bytes) {
-            Ok(request) => server.handle(session, request),
+            Ok(request) => handle(request),
             Err(error) => Some(rpc_error(Value::Null, -32700, error.to_string())),
         };
         if let Some(message) = response {

@@ -97,6 +97,15 @@ pub struct Door {
     pub duration_seconds: f64,
     pub progress: f64,
     pub target_open: bool,
+    #[serde(default)]
+    pub trigger_revision: u64,
+}
+
+impl Door {
+    /// Rotation at the current progress. The door definition must already be valid.
+    pub fn rotation(&self) -> Rotation {
+        interpolate_rotation(self.closed_rotation, self.open_rotation, self.progress)
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
@@ -196,6 +205,17 @@ fn interpolate_rotation(a: Rotation, b: Rotation, progress: f64) -> Rotation {
 }
 
 impl Scene {
+    /// Derive execution state without changing the authored revision or undo history.
+    pub fn simulated(&self, commands: &[Command]) -> Result<Self> {
+        self.validate()?;
+        let mut result = self.clone();
+        for command in commands {
+            command.apply(&mut result)?;
+            result.validate()?;
+        }
+        Ok(result)
+    }
+
     pub fn validate(&self) -> Result<()> {
         if self.schema_version != 1 {
             return fail("unsupported scene schema version");
@@ -465,6 +485,7 @@ impl Command {
                         duration_seconds: *duration_seconds,
                         progress: 0.0,
                         target_open: false,
+                        trigger_revision: 0,
                     },
                 );
             }
@@ -479,11 +500,15 @@ impl Command {
                     .duration_seconds = *duration_seconds
             }
             Self::TriggerDoor { id, open } => {
-                scene
+                let door = scene
                     .doors
                     .get_mut(id)
-                    .ok_or_else(|| SceneError(format!("unknown door: {id}")))?
-                    .target_open = *open
+                    .ok_or_else(|| SceneError(format!("unknown door: {id}")))?;
+                door.trigger_revision = door
+                    .trigger_revision
+                    .checked_add(1)
+                    .ok_or_else(|| SceneError("door trigger revision exhausted".into()))?;
+                door.target_open = *open;
             }
             Self::Advance { seconds } => {
                 if !seconds.is_finite() || *seconds < 0.0 {

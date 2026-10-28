@@ -375,3 +375,28 @@ fn persistence_preserves_finite_float_bits_instead_of_rounding_scene_data() {
     }
     fs::remove_file(path).unwrap();
 }
+
+#[test]
+fn existing_version_one_door_scenes_load_without_a_trigger_counter() {
+    let path = temp_scene();
+    let mut value = serde_json::to_value(room_demo().unwrap()).unwrap();
+    value["doors"]["front_door"]
+        .as_object_mut()
+        .unwrap()
+        .remove("trigger_revision");
+    fs::write(&path, serde_json::to_vec_pretty(&value).unwrap()).unwrap();
+    let loaded = Scene::load(&path).unwrap();
+    assert_eq!(loaded.doors["front_door"].trigger_revision, 0);
+    let mut editor = Editor::new(loaded).unwrap();
+    execute(
+        &mut editor,
+        Command::TriggerDoor {
+            id: "front_door".into(),
+            open: true,
+        },
+    );
+    assert_eq!(editor.scene().doors["front_door"].trigger_revision, 1);
+    editor.scene().save(&path).unwrap();
+    assert_eq!(Scene::load(&path).unwrap(), *editor.scene());
+    fs::remove_file(path).unwrap();
+}
