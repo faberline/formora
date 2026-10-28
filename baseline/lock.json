@@ -49,7 +49,7 @@
     {
       "path": "baseline/sources/source-manifest.json",
       "url": "https://docs.blender.org/manual/en/5.2/objects.inv",
-      "sha256": "9ee1c90c8f3212e1380196277985977b647c6443ae23c7c4b4b6778fc2ff84f8"
+      "sha256": "ac3ea2154ff79291d107734c7d6f8a12ddc7d5a039da79c522f1da6470077684"
     },
     {
       "path": "baseline/sources/blender-5.2-mesh-primitives.html",
@@ -365,6 +365,31 @@
       "path": "baseline/fixtures/mesh-primitives.json",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
       "sha256": "fc591ede7c5fd201d3def6f756a8a61697a124690e034ca87c2ec2a154d85dea"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8-documents-depth2-raw.json",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
+      "sha256": "efc8e5eb6c778ac1eaed97cde147357b5d3ad171b3145fde0fae914647022651"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8-documents-depth2-seed.json",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
+      "sha256": "d39c0db5483b4967b8ccb0f28d76debdd76be445678f66c6379b7214c2610d20"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8-documents-depth3.json",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
+      "sha256": "92e4bd1e859af0d31b2174f9c14dec220ed509148807d300dcf5ae0c837de1fb"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8-documents-depth4.json",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
+      "sha256": "e284b01d78d13377353ae561867d690300d98eab387135c9101a580a11274672"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8-documents-depth5.json",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
+      "sha256": "61906c9d1e7b2b5e2cff18050255c02d2b4029ad628bc22dd4414c3223d54ee8"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
