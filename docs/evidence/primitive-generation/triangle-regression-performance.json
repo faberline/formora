@@ -1,0 +1,57 @@
+{
+  "full_product_acceptance": false,
+  "limits_ms": {
+    "create_edit_save_reload": 2000,
+    "validation": 250
+  },
+  "passed": true,
+  "runs": [
+    {
+      "create_edit_save_reload_ms": 189.80987499999998,
+      "passed": true,
+      "run": 1,
+      "validation_ms": 10.715459000000001
+    },
+    {
+      "create_edit_save_reload_ms": 167.09854199999998,
+      "passed": true,
+      "run": 2,
+      "validation_ms": 9.718292
+    },
+    {
+      "create_edit_save_reload_ms": 161.736625,
+      "passed": true,
+      "run": 3,
+      "validation_ms": 9.705084
+    }
+  ],
+  "sample": {
+    "triangles": 20000,
+    "vertices": 10201
+  },
+  "compiler": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "cpu": "Apple M1 Max",
+  "profile": "release",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "examples/mesh_asset_bench.rs": "c976f4c7964861b46b13de639e5aee7cbe6956b3a4cb1bae97bbb19d77a83c0a",
+    "src/agent.rs": "89f019bed0b2073b2628f3634efd90ba583600377ba3bba25edc57bf3c77320e",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "7bd095eb520518bc87e758a1ff224cdc61ce6644e8829dcce971440e805a585d",
+    "src/mesh/primitives.rs": "53de9293597302d496d53a09014e1cb12b0e2146633c7cd0cc51f12d56fee6a4",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh.rs": "5b59d1ce767fa417e3ab2a985e13e688c918742571b6b3eb202c370ff81ab8e7",
+    "src/preview/math.rs": "a1c1e97e48884f64c5dd97bdc065b3e8b454e6c23ccbff0f697bc1570ad40d71",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "e4bfcd26f46dfa7486e795650106c56604c575db85adb8c6149a5bc50f3f1681",
+    "src/session.rs": "1eca8fad470aff65a80fa5dc7909b332c46518711222546d3468f2d952f1c2ea"
+  },
+  "contract_sha256": "7aae300f3c41fa360a27f34e08058a13a221c7111a44a7ad39771e684f7dadb2"
+}

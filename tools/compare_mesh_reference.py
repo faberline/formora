@@ -279,8 +279,9 @@ def compare(reference, candidate, comparison, upstream_repeat=False):
             require(max(distance(a, b) for a, b in zip(reference[key], candidate[key])) <= p_tol,
                     f'{key} differs')
         if 'creation_kind' in reference:
-            errors.update({'creation_attributes_match_reference': True,
-                           'undefined_reference_uv_components': undefined_uv,
+            errors['creation_attributes_match_reference'] = True
+        if 'creation_kind' in reference or undefined_uv:
+            errors.update({'undefined_reference_uv_components': undefined_uv,
                            'compared_finite_uv_components': finite_uv,
                            'undefined_uv_fallback_verified': undefined_uv > 0 and not upstream_repeat})
             if undefined_uv and not finite_uv:

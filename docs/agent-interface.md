@@ -115,3 +115,6 @@ Shared triangle assets use the same tools. See [mesh assets](mesh-assets.md) for
 All wire JSON object keys must be unique. Ambiguous requests fail before any command runs.
 
 Polygon queries can include `tessellate: true`. See [polygon assets](polygon-assets.md) for corner indices and diagnostics.
+
+`create_mesh_primitive` and `regenerate_mesh_primitive` use the same scene tools.
+Successful batches can return `generation_diagnostics` after saving. See [primitive generation](primitive-generation.md).

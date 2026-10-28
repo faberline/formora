@@ -5,7 +5,7 @@ An agent can replace the asset or change vertices by ID. These changes affect al
 
 This is the bounded foundation in [issue #30](https://github.com/faberline/formora/issues/30).
 It does not complete the modeling milestone. The [polygon extension](polygon-assets.md) adds topology.
-Primitive generation and complete modeling remain pending.
+[Primitive generation](primitive-generation.md) now covers four shapes. Complete modeling remains pending.
 
 ## Data
 
@@ -67,3 +67,5 @@ The [fixed contract](contracts/mesh-assets.md) predates implementation.
 The [verification record](verification/mesh-assets.md) records its evidence and remaining work.
 The fixed Blender plane and cube data test storage and coordinate conversion.
 They do not test primitive generation or full upstream feature parity.
+
+Generated assets can store a primitive `recipe` and generation `diagnostics`. See [generation](primitive-generation.md).

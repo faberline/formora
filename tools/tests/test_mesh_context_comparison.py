@@ -16,6 +16,24 @@ def load(name):
 
 
 class ContextComparisonTests(unittest.TestCase):
+    def test_geometry_only_boundary_report_does_not_call_undefined_uv_zero_error(self):
+        fields = ['run_id', 'vertices', 'edges', 'faces', 'face_normals', 'corner_normals',
+                  'smooth_faces', 'uv_layers', 'matrix_world', 'bounds_local', 'bounds_world']
+        full = load('circle_zero_ngon')
+        reference = {field: full[field] for field in fields}
+        candidate = copy.deepcopy(reference)
+        for layer in candidate['uv_layers']:
+            layer['faces'] = [[[0.0, 0.0] for corner in face] for face in layer['faces']]
+        candidate['diagnostics'] = ['degenerate_default_uv']
+        report = comparison.compare(reference, candidate, LIMITS)
+        self.assertIsNone(report['maximum_face_corner_uv_error'])
+        self.assertEqual(report['undefined_reference_uv_components'], 14)
+        self.assertEqual(report['compared_finite_uv_components'], 0)
+        self.assertNotIn('creation_attributes_match_reference', report)
+        candidate['diagnostics'] = []
+        with self.assertRaises(comparison.Mismatch):
+            comparison.compare(reference, candidate, LIMITS)
+
     def test_incident_uv_matching_is_injective_and_tolerant_without_sort_order(self):
         actual = [(3, [0.0, 0.9e-6]), (3, [0.9e-6, 0.0])]
         expected = [(3, [0.0, 0.0]), (3, [0.9e-6, 1.8e-6])]

@@ -19,3 +19,5 @@ cargo run --locked -- baseline check --root . --strict
 ```
 
 The strict check fails until the baseline is complete. Contract checks do not prove product parity.
+
+[Rust primitive generation](docs/primitive-generation.md) creates and rebuilds editable planes, cubes, grids and circles.

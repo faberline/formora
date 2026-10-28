@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import argparse,hashlib,json,shutil,subprocess,tempfile
+parser=argparse.ArgumentParser(description="Verify runtime generation with all source repository reads denied on macOS")
+parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
+args=parser.parse_args()
+root=Path(__file__).resolve().parents[1]
+output=args.output.resolve();output.mkdir(parents=True,exist_ok=False)
+workspace=tempfile.TemporaryDirectory(prefix='formora-independent-generation-')
+runtime=Path(workspace.name)
+binary=runtime/'formora';shutil.copyfile(args.binary.resolve(),binary);binary.chmod(0o755)
+policy='(version 1)(allow default)(deny file-read* (subpath '+json.dumps(str(root))+'))'
+prefix=['/usr/bin/sandbox-exec','-p',policy]
+control=subprocess.run([*prefix,'/bin/cat',str(root/'baseline/fixtures/mesh-primitives.json')],capture_output=True,text=True,cwd=runtime)
+assert (root/'baseline/fixtures/mesh-primitives.json').is_file()
+assert control.returncode!=0 and not control.stdout and ('Operation not permitted' in control.stderr or 'Permission denied' in control.stderr),control
+scene=runtime/'scene.json'
+def run(*args,request=None):
+ p=subprocess.run([*prefix,str(binary),*map(str,args)],input=None if request is None else json.dumps(request),capture_output=True,text=True,cwd=runtime,check=True)
+ return json.loads(p.stdout)
+run('scene','init','--scene',scene)
+primitives=[{'kind':'plane','size':3.25},{'kind':'cube','size':5.125},{'kind':'grid','size':4.125,'x_subdivisions':17,'y_subdivisions':19},{'kind':'circle','radius':0.875,'vertices':37,'fill_type':'trifan'}]
+run('scene','apply','--scene',scene,'--request','-',request={'expected_revision':0,'commands':[{'operation':'create_mesh_primitive','id':p['kind'],'primitive':p} for p in primitives]})
+expected={'plane':(4,4,1),'cube':(8,12,6),'grid':(360,682,323),'circle':(38,74,37)}
+results=[]
+for primitive in primitives:
+ value=run('scene','inspect','--scene',scene,'--mesh-asset',primitive['kind']);asset=value['mesh_asset'];counts=(len(asset['vertices']),len(asset['edges']),len(asset['polygons']))
+ assert counts==expected[primitive['kind']]
+ assert asset['recipe']['primitive']['kind']==primitive['kind']
+ results.append({'kind':primitive['kind'],'counts':counts,'recipe':asset['recipe']})
+report={'source_repository_reads':'denied by macOS sandbox','repository_path':str(root),'policy':policy,'denial_control_exit_code':control.returncode,'denial_control_stderr':control.stderr,'copied_binary_sha256':hashlib.sha256(binary.read_bytes()).hexdigest(),'cwd':str(runtime),'inputs':primitives,'results':results,'passed':True,'full_feature_acceptance':'unrun'}
+(output/'report.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({'runtime_has_no_repository_access':True,'unseen_parameter_samples':4,'passed':True}))
+
+workspace.cleanup()

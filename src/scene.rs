@@ -425,6 +425,17 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    CreateMeshPrimitive {
+        id: String,
+        primitive: crate::mesh::primitives::Primitive,
+        #[serde(default = "crate::mesh::primitives::default_budget")]
+        max_components: usize,
+    },
+    RegenerateMeshPrimitive {
+        id: String,
+        primitive: Option<crate::mesh::primitives::Primitive>,
+        max_components: Option<usize>,
+    },
     SetMeshAsset {
         id: String,
         asset: MeshAsset,
@@ -481,6 +492,45 @@ pub enum Command {
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<()> {
         match self {
+            Self::CreateMeshPrimitive {
+                id,
+                primitive,
+                max_components,
+            } => {
+                if !valid_id(id) {
+                    return fail(format!("invalid mesh asset ID: {id}"));
+                }
+                if scene.mesh_assets.contains_key(id) {
+                    return fail(format!("mesh asset exists: {id}"));
+                }
+                scene
+                    .mesh_assets
+                    .insert(id.clone(), primitive.generate(*max_components)?);
+            }
+            Self::RegenerateMeshPrimitive {
+                id,
+                primitive,
+                max_components,
+            } => {
+                let existing = scene
+                    .mesh_assets
+                    .get(id)
+                    .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
+                let recipe = existing.recipe.as_ref();
+                let primitive = primitive
+                    .as_ref()
+                    .or(recipe.map(|r| &r.primitive))
+                    .ok_or_else(|| {
+                        SceneError(
+                            "asset has no primitive recipe; provide primitive parameters".into(),
+                        )
+                    })?;
+                let budget = max_components
+                    .or(recipe.map(|r| r.max_components))
+                    .unwrap_or(crate::mesh::primitives::DEFAULT_MAX_COMPONENTS);
+                let generated = primitive.generate(budget)?;
+                scene.mesh_assets.insert(id.clone(), generated);
+            }
             Self::SetMeshAsset { id, asset } => {
                 scene.mesh_assets.insert(id.clone(), asset.clone());
             }
@@ -498,6 +548,9 @@ impl Command {
                         .get_mut(vertex)
                         .ok_or_else(|| SceneError(format!("unknown mesh vertex: {vertex}")))? =
                         *position;
+                }
+                if let Some(recipe) = &mut asset.recipe {
+                    recipe.edited = true;
                 }
             }
             Self::DeleteMeshAsset { id } => {
