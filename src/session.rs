@@ -30,6 +30,14 @@ pub struct Session {
     _lock: File,
 }
 
+impl Drop for Session {
+    fn drop(&mut self) {
+        // A concurrent fork may keep an inherited descriptor alive until exec.
+        // Release ownership explicitly instead of waiting for its last close.
+        let _ = fs2::FileExt::unlock(&self._lock);
+    }
+}
+
 fn lock_path(path: &Path) -> Result<(PathBuf, File)> {
     let path = if path.exists() {
         path.canonicalize().map_err(|e| SceneError(e.to_string()))?
@@ -114,5 +122,33 @@ impl Session {
         candidate.scene().save(&self.path)?;
         self.editor = candidate;
         Ok(revision)
+    }
+}
+
+#[cfg(all(test, unix))]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn closing_session_releases_lock_even_if_a_child_inherited_its_descriptor() {
+        let root = std::env::temp_dir().join(format!(
+            "formora-inherited-lock-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir_all(&root).unwrap();
+        let path = root.join("scene.json");
+        let session = Session::create(&path, Scene::default()).unwrap();
+        // dup shares an open-file description, just as the fork/exec window does.
+        let inherited = session._lock.try_clone().unwrap();
+        drop(session);
+        let next =
+            Session::open(&path).expect("the ended session must release ownership immediately");
+        drop(next);
+        drop(inherited);
+        std::fs::remove_dir_all(root).unwrap();
     }
 }
