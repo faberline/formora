@@ -36,9 +36,40 @@ pub struct ManifestProduct {
 pub struct Product {
     pub id: String,
     pub version: String,
+    pub documentation_version: String,
     pub manual_root: String,
     pub release_url: String,
     pub release_status: String,
+    pub reference_build: Option<ReferenceBuild>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ReferenceBuild {
+    pub id: String,
+    pub evidence_path: String,
+}
+
+// Capture-specific details remain in the evidence file. These common fields
+// bind a version probe to its product pin without claiming feature acceptance.
+#[derive(Debug, Deserialize)]
+struct BuildEvidence {
+    schema_version: u32,
+    product: String,
+    version: String,
+    documentation_version: String,
+    build_id: String,
+    version_probe_status: String,
+    product_acceptance: String,
+    entry_executable: String,
+    files: BTreeMap<String, BuildFile>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+struct BuildFile {
+    sha256: String,
+    bytes: u64,
 }
 
 #[derive(Debug, Deserialize)]
@@ -132,6 +163,7 @@ pub struct Report {
     pub pending_features: usize,
     pub uncovered_sources: usize,
     pub incomplete_products: Vec<String>,
+    pub unverified_builds: Vec<String>,
     pub problems: Vec<Problem>,
 }
 
@@ -194,16 +226,12 @@ fn pinned_url(product: &Product, url: &str) -> bool {
             .map(|(_, q)| q.split('#').next().unwrap_or(q));
         return query.is_some_and(|q| {
             q.split('&')
-                .any(|p| p == format!("application_version={}", product.version))
+                .any(|p| p == format!("application_version={}", product.documentation_version))
         });
     }
-    product.manual_root.contains(&format!(
-        "/{}/",
-        product
-            .version
-            .rsplit_once('.')
-            .map_or(product.version.as_str(), |(v, _)| v)
-    ))
+    product
+        .manual_root
+        .contains(&format!("/{}/", product.documentation_version))
 }
 
 pub fn check(root: &Path) -> Result<Report, String> {
@@ -229,15 +257,20 @@ pub fn inspect(
         pending_features: 0,
         uncovered_sources: 0,
         incomplete_products: Vec::new(),
+        unverified_builds: Vec::new(),
         problems: Vec::new(),
     };
-    for (name, version) in [
-        ("lock", lock.schema_version),
-        ("inventory", inventory.schema_version),
-        ("catalog", catalog.schema_version),
+    for (name, version, expected) in [
+        ("lock", lock.schema_version, 2),
+        ("inventory", inventory.schema_version, 1),
+        ("catalog", catalog.schema_version, 1),
     ] {
-        if version != 1 {
-            report.error("schema_version", name, "expected schema version 1");
+        if version != expected {
+            report.error(
+                "schema_version",
+                name,
+                format!("expected schema version {expected}"),
+            );
         }
     }
     if lock.frozen_at.len() != 10 || lock.platforms.is_empty() || lock.exclusions.is_empty() {
@@ -261,6 +294,23 @@ pub fn inspect(
                 &p.id,
                 "a stable release and its source must be pinned",
             );
+        }
+        let parts: Vec<_> = p.version.split('.').collect();
+        if parts.len() != 3
+            || parts.iter().any(|part| {
+                part.parse::<u32>()
+                    .map_or(true, |number| number.to_string() != *part)
+            })
+            || p.documentation_version != parts[..parts.len().min(2)].join(".")
+        {
+            report.error(
+                "product_documentation_version",
+                &p.id,
+                "pin an exact major.minor.patch product version and its matching major.minor manual",
+            );
+        }
+        if p.reference_build.is_none() {
+            report.unverified_builds.push(p.id.clone());
         }
     }
     for required in ["blender", "unreal"] {
@@ -310,6 +360,45 @@ pub fn inspect(
                 "source artifact differs from its pinned SHA-256",
             ),
             Err(e) => report.error("artifact_missing", &artifact.path, e),
+        }
+    }
+    for p in &lock.products {
+        let Some(pin) = &p.reference_build else {
+            continue;
+        };
+        if pin.id.trim().is_empty() || !lock.artifacts.iter().any(|a| a.path == pin.evidence_path) {
+            report.error(
+                "build_pin",
+                &p.id,
+                "a reference build needs an ID and hash-pinned evidence",
+            );
+        }
+        match read::<BuildEvidence>(root, &pin.evidence_path) {
+            Ok(evidence) => {
+                let valid_files = !evidence.files.is_empty()
+                    && evidence.files.contains_key(&evidence.entry_executable)
+                    && evidence.files.values().all(|file| {
+                        file.bytes > 0
+                            && file.sha256.len() == 64
+                            && file.sha256.bytes().all(|b| b.is_ascii_hexdigit())
+                    });
+                if evidence.schema_version != 1
+                    || evidence.product != p.id
+                    || evidence.version != p.version
+                    || evidence.documentation_version != p.documentation_version
+                    || evidence.build_id != pin.id
+                    || evidence.version_probe_status != "passed"
+                    || evidence.product_acceptance != "unrun"
+                    || !valid_files
+                {
+                    report.error(
+                        "build_evidence",
+                        &p.id,
+                        "version probe and executable evidence must match the frozen product and build",
+                    );
+                }
+            }
+            Err(error) => report.error("build_evidence", &p.id, error),
         }
     }
     let mut sources = BTreeMap::new();
@@ -524,6 +613,7 @@ pub fn inspect(
         && report.pending_sources == 0
         && report.pending_features == 0
         && report.uncovered_sources == 0
+        && report.unverified_builds.is_empty()
         && report.incomplete_products.is_empty();
     Ok(report)
 }

@@ -1,0 +1,30 @@
+{
+  "architecture": "arm64",
+  "build": {
+    "build_branch": "blender-v5.2-release",
+    "build_date": "2026-10-22",
+    "build_platform": "Darwin",
+    "build_time": "01:31:22",
+    "build_type": "Release"
+  },
+  "build_id": "e13b728c6880",
+  "documentation_version": "5.2",
+  "entry_executable": "Blender",
+  "feature_tests": "unrun",
+  "files": {
+    "Blender": {
+      "bytes": 182930560,
+      "sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619"
+    }
+  },
+  "gpu_tests": "unrun",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "probe_sha256": "c17ecceac0ea367d84699cab5132c2f786882bcbcaf0632f8d5a33704d23b4f3",
+  "product": "blender",
+  "product_acceptance": "unrun",
+  "python_version": "3.13.13 (main, Apr 25 2025, 12:39:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "runtime_version": "5.2.3 LTS",
+  "schema_version": 1,
+  "version": "5.2.3",
+  "version_probe_status": "passed"
+}

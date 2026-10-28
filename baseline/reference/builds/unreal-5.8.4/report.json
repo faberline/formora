@@ -1,0 +1,46 @@
+{
+  "architecture": "arm64",
+  "build": {
+    "BranchName": "++UE5+Release-5.8",
+    "Changelist": 58902052,
+    "CompatibleChangelist": 55116800,
+    "IsLicenseeVersion": 0,
+    "IsPromotedBuild": 1,
+    "MajorVersion": 5,
+    "MinorVersion": 8,
+    "PatchVersion": 4
+  },
+  "build_id": "5.8.4-58902052+++UE5+Release-5.8",
+  "documentation_version": "5.8",
+  "entry_executable": "Binaries/Mac/UnrealEditor-Cmd",
+  "feature_tests": "unrun",
+  "files": {
+    "Binaries/Mac/UnrealEditor-Cmd": {
+      "bytes": 1491432,
+      "sha256": "91319f4cfe45d8e48f202caef79616da95d9bb1857a110bfa63174c00bcb0d09"
+    },
+    "Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor": {
+      "bytes": 1538496,
+      "sha256": "029ddb22b14b6d935716cb2efb5afa6befa5907b4ddf0a1d54654eddea70608b"
+    },
+    "Binaries/Mac/UnrealEditor.version": {
+      "bytes": 230,
+      "sha256": "b21f400807bfa79475044d9b1a8fe279fb435688c3a82d7d63061740ab910016"
+    },
+    "Build/Build.version": {
+      "bytes": 215,
+      "sha256": "80a6af0f427f373b43a1c373082acf2b3de07305d215a67c27f18272e6dff24f"
+    }
+  },
+  "gpu_tests": "unrun",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "probe_sha256": "a51617dfb3193d19c5578f8a60030d8f3adbe124bb2267982be31ba57b043122",
+  "product": "unreal",
+  "product_acceptance": "unrun",
+  "python_version": "3.11.8 (main, Feb 13 2024, 20:13:17) [Clang 15.0.0 (clang-1500.1.0.2.5)]",
+  "render_backend": "NullRHI",
+  "runtime_version": "5.8.4-58902052+++UE5+Release-5.8",
+  "schema_version": 1,
+  "version": "5.8.4",
+  "version_probe_status": "passed"
+}

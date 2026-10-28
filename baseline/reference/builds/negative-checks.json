@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "checks": [
+    {
+      "case": "blender_wrong_build",
+      "launcher_exit_code": 1,
+      "upstream_exit_code": 1,
+      "published_output": false,
+      "status": "passed"
+    },
+    {
+      "case": "unreal_wrong_build",
+      "launcher_exit_code": 1,
+      "upstream_exit_code": 255,
+      "published_output": false,
+      "status": "passed"
+    },
+    {
+      "case": "existing_output",
+      "launcher_exit_code": 2,
+      "original_report_unchanged": true,
+      "status": "passed"
+    }
+  ],
+  "product_acceptance": "unrun"
+}
