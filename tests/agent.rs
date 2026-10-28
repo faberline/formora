@@ -103,15 +103,26 @@ fn failed_disk_commit_rolls_back_in_memory_and_undo_history() {
     project.create();
     let mut session = Session::open(&project.scene()).unwrap();
     let before = session.scene().clone();
-    let moved = project.0.with_extension("moved");
-    fs::rename(&project.0, &moved).unwrap();
+    // Force the atomic replacement to fail without moving an open lock file.
+    // Windows forbids renaming its containing directory while that lock is held.
+    let backup = project.0.join("scene.backup.json");
+    fs::rename(project.scene(), &backup).unwrap();
+    fs::create_dir(project.scene()).unwrap();
     let result = session.apply(ApplyRequest {
         expected_revision: before.revision,
         commands: vec![Command::Advance { seconds: 1.0 }],
     });
     assert!(result.is_err());
     assert_eq!(session.scene(), &before);
-    fs::rename(&moved, &project.0).unwrap();
+    assert!(fs::read_dir(&project.0).unwrap().all(|entry| {
+        !entry
+            .unwrap()
+            .file_name()
+            .to_string_lossy()
+            .ends_with(".tmp")
+    }));
+    fs::remove_dir(project.scene()).unwrap();
+    fs::rename(&backup, project.scene()).unwrap();
     assert!(
         session
             .undo(UndoRequest {
