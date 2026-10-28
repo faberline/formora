@@ -126,6 +126,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.ico_sphere_default.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.ico_sphere_default.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -229,6 +234,11 @@
     },
     {
       "target": "runs.ico_sphere_no_uv.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_no_uv.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -340,6 +350,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.ico_sphere_placed.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.ico_sphere_placed.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -443,6 +458,11 @@
     },
     {
       "target": "runs.ico_sphere_level1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level1.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -554,6 +574,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.ico_sphere_level2.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.ico_sphere_level2.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -657,6 +682,11 @@
     },
     {
       "target": "runs.ico_sphere_level3.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_level3.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },

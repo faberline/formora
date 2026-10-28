@@ -110,6 +110,18 @@ class ComparisonTests(unittest.TestCase):
         with self.assertRaisesRegex(comparison.Mismatch, 'no position/topology match'):
             comparison.compare(source, changed, LIMITS)
 
+    def test_small_local_error_cannot_be_amplified_past_the_world_tolerance(self):
+        source = load('cube_default')
+        for i in range(3):
+            source['matrix_world'][i][i] = 100.0
+        source['bounds_world'] = [[value*100 for value in side] for side in source['bounds_local']]
+        changed = copy.deepcopy(source)
+        # Move one corner inward. Other corners keep the same bounding box.
+        for axis in range(3):
+            changed['vertices'][0][axis] *= 1.0 - 0.5e-6
+        with self.assertRaisesRegex(comparison.Mismatch, 'world position error'):
+            comparison.compare(source, changed, LIMITS)
+
     def test_coincident_vertices_are_not_welded(self):
         source = load('monkey_default')
         changed = copy.deepcopy(source)

@@ -126,6 +126,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.torus_default.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.torus_default.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -229,6 +234,11 @@
     },
     {
       "target": "runs.torus_no_uv.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_no_uv.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -340,6 +350,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.torus_placed.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.torus_placed.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -443,6 +458,11 @@
     },
     {
       "target": "runs.torus_major_minor.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_major_minor.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -554,6 +574,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.torus_exterior_interior.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.torus_exterior_interior.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -657,6 +682,11 @@
     },
     {
       "target": "runs.torus_minimum.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_minimum.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },

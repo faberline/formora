@@ -128,9 +128,26 @@ def compare(reference, candidate, comparison):
         _neighbors, _edges, faces, _signatures = index_mesh(mapped)
         require(faces.keys() == rf.keys(), 'oriented face topology differs')
         errors = {'maximum_position_error_metres': 0.0,
+                  'maximum_world_position_error_metres': 0.0,
                   'maximum_normal_error': 0.0, 'maximum_face_corner_uv_error': 0.0}
+        require(len(reference['matrix_world']) == len(candidate['matrix_world']) == 4,
+                'world matrix must have four rows')
+        require(all(len(row) == 4 for row in [*reference['matrix_world'], *candidate['matrix_world']]),
+                'world matrix must have four columns')
+        require(max(distance(a, b) for a, b in zip(reference['matrix_world'], candidate['matrix_world'])) <= p_tol,
+                'world matrix differs')
+
+        def world_position(mesh, vertex):
+            point = [*mesh['vertices'][vertex], 1.0]
+            return [sum(a*b for a, b in zip(row, point)) for row in mesh['matrix_world'][:3]]
+
         for i, j in mapping.items():
             errors['maximum_position_error_metres'] = max(errors['maximum_position_error_metres'], distance(cv[i], rv[j]))
+            errors['maximum_world_position_error_metres'] = max(
+                errors['maximum_world_position_error_metres'],
+                distance(world_position(candidate, i), world_position(reference, j)))
+        require(errors['maximum_world_position_error_metres'] <= p_tol,
+                'world position error exceeds frozen tolerance')
         for key, actual in faces.items():
             expected = rf[key]
             require(actual['smooth'] == expected['smooth'], 'face shading mode differs')
@@ -143,12 +160,6 @@ def compare(reference, candidate, comparison):
                     errors['maximum_face_corner_uv_error'] = max(errors['maximum_face_corner_uv_error'], distance(a, b))
         require(errors['maximum_normal_error'] <= n_tol, 'normal error exceeds frozen tolerance')
         require(errors['maximum_face_corner_uv_error'] <= uv_tol, 'UV error exceeds frozen tolerance')
-        require(len(reference['matrix_world']) == len(candidate['matrix_world']) == 4,
-                'world matrix must have four rows')
-        require(all(len(row) == 4 for row in [*reference['matrix_world'], *candidate['matrix_world']]),
-                'world matrix must have four columns')
-        require(max(distance(a, b) for a, b in zip(reference['matrix_world'], candidate['matrix_world'])) <= p_tol,
-                'world matrix differs')
         for key in ['bounds_local', 'bounds_world']:
             require(len(reference[key]) == len(candidate[key]) == 2, 'bounds must have two vectors')
             require(max(distance(a, b) for a, b in zip(reference[key], candidate[key])) <= p_tol,

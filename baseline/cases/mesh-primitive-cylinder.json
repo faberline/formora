@@ -127,6 +127,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cylinder_default.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cylinder_default.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -230,6 +235,11 @@
     },
     {
       "target": "runs.cylinder_no_uv.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_no_uv.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -341,6 +351,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cylinder_placed.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cylinder_placed.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -444,6 +459,11 @@
     },
     {
       "target": "runs.cylinder_nothing.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_nothing.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -555,6 +575,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cylinder_ngon.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cylinder_ngon.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -662,6 +687,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cylinder_trifan.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cylinder_trifan.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -765,6 +795,11 @@
     },
     {
       "target": "runs.cylinder_minimum.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_minimum.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },

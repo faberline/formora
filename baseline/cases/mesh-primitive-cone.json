@@ -129,6 +129,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cone_default.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cone_default.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -232,6 +237,11 @@
     },
     {
       "target": "runs.cone_no_uv.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_no_uv.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -343,6 +353,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cone_placed.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cone_placed.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -446,6 +461,11 @@
     },
     {
       "target": "runs.cone_nothing.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_nothing.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -557,6 +577,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cone_ngon.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cone_ngon.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -660,6 +685,11 @@
     },
     {
       "target": "runs.cone_trifan.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_trifan.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -771,6 +801,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cone_frustum.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cone_frustum.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -878,6 +913,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.cone_pyramid.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.cone_pyramid.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -981,6 +1021,11 @@
     },
     {
       "target": "runs.cone_inverted.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_inverted.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },

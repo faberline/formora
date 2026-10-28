@@ -125,6 +125,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.grid_default.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.grid_default.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -228,6 +233,11 @@
     },
     {
       "target": "runs.grid_no_uv.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_no_uv.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
@@ -339,6 +349,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.grid_placed.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.grid_placed.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -446,6 +461,11 @@
       "absolute_tolerance": 1e-06
     },
     {
+      "target": "runs.grid_rectangular.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
       "target": "runs.grid_rectangular.maximum_normal_error",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
@@ -549,6 +569,11 @@
     },
     {
       "target": "runs.grid_minimum.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_minimum.maximum_world_position_error_metres",
       "expected": 0.0,
       "absolute_tolerance": 1e-06
     },
