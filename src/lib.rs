@@ -2,3 +2,4 @@
 //!
 //! A valid catalog is not proof that any product capability works.
 pub mod baseline;
+pub mod scene;
