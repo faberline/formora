@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "revision": 7,
+  "time_seconds": 1.0,
+  "entities": {
+    "camera": {
+      "name": "Preview camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          -8.0,
+          4.0
+        ],
+        "rotation": [
+          0.5056662096028154,
+          0.0,
+          0.0,
+          0.8627292069160065
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 60.0,
+        "near": 0.1,
+        "far": 1000.0
+      }
+    },
+    "door_header": {
+      "name": "door_header",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          -3.0,
+          2.7
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            1.2,
+            0.2,
+            0.6
+          ]
+        },
+        "material": "wall_material"
+      }
+    },
+    "door_hinge": {
+      "name": "Door hinge",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -0.6,
+          -3.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.18736555037889127,
+          0.9822902577808736
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "door_panel": {
+      "name": "Door",
+      "parent": "door_hinge",
+      "transform": {
+        "translation": [
+          0.6,
+          0.0,
+          1.2
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            1.2,
+            0.12,
+            2.4
+          ]
+        },
+        "material": "door_material"
+      }
+    },
+    "east_wall": {
+      "name": "east_wall",
+      "parent": null,
+      "transform": {
+        "translation": [
+          4.0,
+          0.0,
+          1.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            0.2,
+            6.0,
+            3.0
+          ]
+        },
+        "material": "wall_material"
+      }
+    },
+    "floor": {
+      "name": "floor",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          -0.1
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            8.0,
+            6.0,
+            0.2
+          ]
+        },
+        "material": "floor_material"
+      }
+    },
+    "light": {
+      "name": "Room light",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          5.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1.0,
+          0.95,
+          0.85
+        ],
+        "intensity": 100.0
+      }
+    },
+    "north_wall": {
+      "name": "north_wall",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          3.0,
+          1.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            8.0,
+            0.2,
+            3.0
+          ]
+        },
+        "material": "wall_material"
+      }
+    },
+    "south_left": {
+      "name": "south_left",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -2.3,
+          -3.0,
+          1.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            3.4,
+            0.2,
+            3.0
+          ]
+        },
+        "material": "wall_material"
+      }
+    },
+    "south_right": {
+      "name": "south_right",
+      "parent": null,
+      "transform": {
+        "translation": [
+          2.3,
+          -3.0,
+          1.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            3.4,
+            0.2,
+            3.0
+          ]
+        },
+        "material": "wall_material"
+      }
+    },
+    "west_wall": {
+      "name": "west_wall",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -4.0,
+          0.0,
+          1.5
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            0.2,
+            6.0,
+            3.0
+          ]
+        },
+        "material": "wall_material"
+      }
+    }
+  },
+  "materials": {
+    "door_material": {
+      "base_color": [
+        0.8,
+        0.35,
+        0.12,
+        1.0
+      ],
+      "roughness": 0.7,
+      "metallic": 0.0
+    },
+    "floor_material": {
+      "base_color": [
+        0.35,
+        0.38,
+        0.42,
+        1.0
+      ],
+      "roughness": 0.7,
+      "metallic": 0.0
+    },
+    "wall_material": {
+      "base_color": [
+        0.75,
+        0.75,
+        0.7,
+        1.0
+      ],
+      "roughness": 0.7,
+      "metallic": 0.0
+    }
+  },
+  "doors": {
+    "front_door": {
+      "entity": "door_hinge",
+      "closed_rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "open_rotation": [
+        0.0,
+        0.0,
+        0.7071067811865475,
+        0.7071067811865476
+      ],
+      "duration_seconds": 4.0,
+      "progress": 0.25,
+      "target_open": true,
+      "trigger_revision": 1
+    }
+  },
+  "active_camera": "camera",
+  "annotations": [
+    {
+      "entity": "door_panel",
+      "position": [
+        0.0,
+        -3.0600000000000005,
+        1.3815479269980964
+      ],
+      "text": "Open the door more slowly"
+    },
+    {
+      "entity": "door_panel",
+      "position": [
+        0.0,
+        -3.0600000000000005,
+        1.3815479269980964
+      ],
+      "text": "門開慢一點"
+    },
+    {
+      "entity": "door_panel",
+      "position": [
+        0.0,
+        -2.826996289850798,
+        1.2580440711565348
+      ],
+      "text": "保留四秒速度"
+    }
+  ]
+}

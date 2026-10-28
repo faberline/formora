@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH"
+        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -21,7 +21,7 @@ fn options(
         if values.contains_key(&key) {
             return Err(format!("duplicate option: {key}"));
         }
-        let value = if key == "--demo-room" {
+        let value = if ["--demo-room", "--preview"].contains(&key.as_str()) {
             String::new()
         } else {
             args.next()
@@ -38,7 +38,10 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
         "init" => &["--scene", "--demo-room"],
         "inspect" => &["--scene", "--entity"],
         "apply" => &["--scene", "--request"],
-        "serve" | "mcp" => &["--scene"],
+        "serve" => &["--scene"],
+        "mcp" => &["--scene", "--preview", "--capture"],
+        "preview" => &["--scene", "--capture"],
+        "render" => &["--scene", "--output", "--width", "--height"],
         "schema" => &[],
         _ => return usage("unknown scene action"),
     };
@@ -59,9 +62,59 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
     if action == "apply" && !options.contains_key("--request") {
         return usage("--request is required");
     }
+    if action == "render" && !options.contains_key("--output") {
+        return usage("--output is required");
+    }
+    if action == "mcp" && options.contains_key("--capture") && !options.contains_key("--preview") {
+        return usage("--capture requires --preview");
+    }
     let result = (|| -> Result<Option<serde_json::Value>, String> {
         let map_err = |e: formora::scene::SceneError| e.to_string();
         match action {
+            "preview" | "render" => {
+                #[cfg(feature = "preview")]
+                {
+                    if action == "preview" {
+                        let session =
+                            formora::session::Session::open(Path::new(path)).map_err(map_err)?;
+                        formora::preview::run(
+                            session,
+                            false,
+                            options.get("--capture").map(PathBuf::from),
+                        )
+                        .map_err(map_err)?;
+                        Ok(None)
+                    } else {
+                        let dimension = |key: &str, default| -> Result<u32, String> {
+                            options
+                                .get(key)
+                                .map(|v| {
+                                    v.parse::<u32>()
+                                        .map_err(|_| format!("{key} must be a positive integer"))
+                                })
+                                .unwrap_or(Ok(default))
+                        };
+                        let width = dimension("--width", 1280)?;
+                        let height = dimension("--height", 800)?;
+                        let scene =
+                            formora::scene::Scene::load(Path::new(path)).map_err(map_err)?;
+                        let adapter = formora::preview::render_png(
+                            &scene,
+                            Path::new(&options["--output"]),
+                            width,
+                            height,
+                        )
+                        .map_err(map_err)?;
+                        Ok(Some(
+                            serde_json::json!({"output":options["--output"],"width":width,"height":height,"gpu":adapter}),
+                        ))
+                    }
+                }
+                #[cfg(not(feature = "preview"))]
+                {
+                    Err("preview support is not enabled; build with --features preview".into())
+                }
+            }
             "init" => {
                 let scene = if options.contains_key("--demo-room") {
                     formora::scene::room_demo().map_err(map_err)?
@@ -109,6 +162,24 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
             "serve" | "mcp" => {
                 let mut session =
                     formora::session::Session::open(Path::new(path)).map_err(map_err)?;
+                if options.contains_key("--preview") {
+                    #[cfg(feature = "preview")]
+                    {
+                        formora::preview::run(
+                            session,
+                            true,
+                            options.get("--capture").map(PathBuf::from),
+                        )
+                        .map_err(map_err)?;
+                        return Ok(None);
+                    }
+                    #[cfg(not(feature = "preview"))]
+                    {
+                        return Err(
+                            "preview support is not enabled; build with --features preview".into(),
+                        );
+                    }
+                }
                 let stdin = std::io::stdin();
                 let stdout = std::io::stdout();
                 if action == "mcp" {
@@ -149,6 +220,8 @@ fn main() -> std::process::ExitCode {
             };
         }
         Some("mcp") => return scene_cli("mcp", args),
+        Some("preview") => return scene_cli("preview", args),
+        Some("render") => return scene_cli("render", args),
         Some("baseline") if args.next().as_deref() == Some("check") => {}
         _ => return usage("command is required"),
     }

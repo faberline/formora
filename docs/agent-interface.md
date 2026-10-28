@@ -106,6 +106,6 @@ python3 tools/mcp_smoke.py target/debug/formora
 它會檢查初始化、工具發現、欄位規則、查詢、修改、版本衝突、復原和重開。
 測試只使用新建的暫存場景。
 
-目前沒有成果視窗與點擊試玩介面。
-這些功能由 [預覽與實機驗收工作](https://github.com/faberline/formora/issues/18)處理。
+使用 `--features preview` 建置後，可用 `mcp --scene PATH --preview` 同時提供[原生成果視窗](preview.md)。
+視窗與 MCP 共用同一個 session。
 此介面的測試通過不能作為 milestone 0.1 的完整驗收。

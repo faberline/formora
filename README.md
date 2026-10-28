@@ -8,7 +8,8 @@ The current work is the [source-backed acceptance baseline](docs/baseline.md).
 No product milestone has passed acceptance yet.
 
 The [scene core](docs/scene.md) and [agent interfaces](docs/agent-interface.md) provide
-headless authoring and a room-and-door example. A visual preview is not available yet.
+agent authoring and a room-and-door example. The optional [native preview](docs/preview.md)
+shows the scene, plays door interactions, and saves review notes.
 
 ```sh
 cargo test --locked

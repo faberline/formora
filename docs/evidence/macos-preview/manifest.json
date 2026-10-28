@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "environment": {
+    "os": "macOS 26.5.2",
+    "architecture": "arm64",
+    "gpu": "Apple M1 Max",
+    "backend": "Metal",
+    "rust": "1.96.1",
+    "mcp_client": "2.3.0"
+  },
+  "source_fingerprint_sha256": "9faa99b384542522f6a2019c19f8effd5738013250a579c07e4266b2a311d7ac",
+  "source_files": [
+    "Cargo.lock",
+    "Cargo.toml",
+    "src/agent.rs",
+    "src/baseline.rs",
+    "src/lib.rs",
+    "src/main.rs",
+    "src/preview/math.rs",
+    "src/preview/mod.rs",
+    "src/preview/render.rs",
+    "src/preview/shader.wgsl",
+    "src/preview/window.rs",
+    "src/scene.rs",
+    "src/session.rs"
+  ],
+  "binary_sha256": "a1b4068d6f189c03fd29018325148af262f04b4d244e37edea5bf8db83ad0f82",
+  "files": {
+    "before-reopen.png": {
+      "sha256": "165e3a147d9615c940325751a68a441d42562ebfd7624d25c6472a186814742f",
+      "bytes": 35191
+    },
+    "after-reopen.png": {
+      "sha256": "165e3a147d9615c940325751a68a441d42562ebfd7624d25c6472a186814742f",
+      "bytes": 35191
+    },
+    "reviewed.scene.json": {
+      "sha256": "168f77ba9fd704ace9dd0133e3edf391936612a8c1e3bc2e59812ab29b45e8b0",
+      "bytes": 7653
+    }
+  },
+  "image_size": [
+    1280,
+    800
+  ],
+  "before_after_bytes_identical": true,
+  "saved_scene": {
+    "revision": 7,
+    "door_progress": 0.25,
+    "duration_seconds": 4.0,
+    "annotation_count": 3
+  },
+  "verified": [
+    "native_metal_render",
+    "indexed_native_window_click_opens_and_closes_door",
+    "space_play_pause",
+    "physical_r_reset",
+    "physical_s_capture",
+    "shift_click_review_marker",
+    "ascii_note_typing",
+    "unicode_note_paste",
+    "empty_note_error",
+    "external_mcp_camera_update",
+    "external_mcp_duration_update",
+    "saved_scene_native_reopen",
+    "identical_frame_after_reopen"
+  ],
+  "not_verified": [
+    "direct_physical_chinese_ime_input",
+    "native_gui_on_windows_or_linux",
+    "full_upstream_feature_parity"
+  ],
+  "milestone_acceptance": false
+}
