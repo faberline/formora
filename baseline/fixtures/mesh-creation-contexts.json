@@ -1,0 +1,3860 @@
+{
+  "schema_version": 1,
+  "reference": {
+    "product": "blender",
+    "version": [
+      5,
+      2,
+      3
+    ],
+    "build_hash": "e13b728c6880"
+  },
+  "comparison": {
+    "positions_absolute_tolerance_metres": 1e-06,
+    "normals_absolute_tolerance": 1e-06,
+    "uv_absolute_tolerance": 1e-06,
+    "topology": "exact oriented faces and edges under a bijective vertex map; vertex and face numbering may differ",
+    "uv": "compare each face corner under the same oriented cyclic face mapping",
+    "unverified": "Finite context and lower-bound fixtures only. Full upper-bound, performance and parameter-preset contracts remain pending.",
+    "undefined_uv_policy": {
+      "upstream_capture": "preserve tagged NaN; never call it a numeric pass",
+      "finite_fallback": 0.0,
+      "required_diagnostic": "degenerate_default_uv",
+      "scope": "Only undefined UV components of zero-radius filled circle fixtures. Finite values retain 1e-6 tolerance.",
+      "allowed_run_ids": [
+        "circle_zero_ngon",
+        "circle_zero_trifan"
+      ]
+    }
+  },
+  "runs": [
+    {
+      "id": "circle_align_world",
+      "operator": "circle",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_align_cursor",
+      "operator": "circle",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_align_view",
+      "operator": "circle",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_explicit_override",
+      "operator": "circle",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_append_uv0_0",
+      "operator": "circle",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_append_uv0_1",
+      "operator": "circle",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_append_uv2_0",
+      "operator": "circle",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_append_uv2_1",
+      "operator": "circle",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_enter_edit",
+      "operator": "circle",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_negative_scale",
+      "operator": "circle",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_zero_axis_scale",
+      "operator": "circle",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_zero_radius",
+      "operator": "circle",
+      "parameters": {
+        "radius": 0.0,
+        "vertices": 7
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_align_world",
+      "operator": "cone",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_align_cursor",
+      "operator": "cone",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_align_view",
+      "operator": "cone",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_explicit_override",
+      "operator": "cone",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_append_uv0_0",
+      "operator": "cone",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_append_uv0_1",
+      "operator": "cone",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_append_uv2_0",
+      "operator": "cone",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_append_uv2_1",
+      "operator": "cone",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_enter_edit",
+      "operator": "cone",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_negative_scale",
+      "operator": "cone",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_zero_axis_scale",
+      "operator": "cone",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_zero_depth",
+      "operator": "cone",
+      "parameters": {
+        "depth": 0.0,
+        "vertices": 7
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_align_world",
+      "operator": "cube",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_align_cursor",
+      "operator": "cube",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_align_view",
+      "operator": "cube",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_explicit_override",
+      "operator": "cube",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_append_uv0_0",
+      "operator": "cube",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_append_uv0_1",
+      "operator": "cube",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_append_uv2_0",
+      "operator": "cube",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_append_uv2_1",
+      "operator": "cube",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_enter_edit",
+      "operator": "cube",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_negative_scale",
+      "operator": "cube",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_zero_axis_scale",
+      "operator": "cube",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cube_zero_size",
+      "operator": "cube",
+      "parameters": {
+        "size": 0.0
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_align_world",
+      "operator": "cylinder",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_align_cursor",
+      "operator": "cylinder",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_align_view",
+      "operator": "cylinder",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_explicit_override",
+      "operator": "cylinder",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_append_uv0_0",
+      "operator": "cylinder",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_append_uv0_1",
+      "operator": "cylinder",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_append_uv2_0",
+      "operator": "cylinder",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_append_uv2_1",
+      "operator": "cylinder",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_enter_edit",
+      "operator": "cylinder",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_negative_scale",
+      "operator": "cylinder",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_zero_axis_scale",
+      "operator": "cylinder",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_zero_radius",
+      "operator": "cylinder",
+      "parameters": {
+        "radius": 0.0,
+        "vertices": 7
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_zero_depth",
+      "operator": "cylinder",
+      "parameters": {
+        "depth": 0.0,
+        "vertices": 7
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_align_world",
+      "operator": "grid",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_align_cursor",
+      "operator": "grid",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_align_view",
+      "operator": "grid",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_explicit_override",
+      "operator": "grid",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_append_uv0_0",
+      "operator": "grid",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_append_uv0_1",
+      "operator": "grid",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_append_uv2_0",
+      "operator": "grid",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_append_uv2_1",
+      "operator": "grid",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_enter_edit",
+      "operator": "grid",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_negative_scale",
+      "operator": "grid",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_zero_axis_scale",
+      "operator": "grid",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "grid_zero_size",
+      "operator": "grid",
+      "parameters": {
+        "size": 0.0
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_align_world",
+      "operator": "ico_sphere",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_align_cursor",
+      "operator": "ico_sphere",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_align_view",
+      "operator": "ico_sphere",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_explicit_override",
+      "operator": "ico_sphere",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_append_uv0_0",
+      "operator": "ico_sphere",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_append_uv0_1",
+      "operator": "ico_sphere",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_append_uv2_0",
+      "operator": "ico_sphere",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_append_uv2_1",
+      "operator": "ico_sphere",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_enter_edit",
+      "operator": "ico_sphere",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_negative_scale",
+      "operator": "ico_sphere",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_zero_axis_scale",
+      "operator": "ico_sphere",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "ico_sphere_zero_radius",
+      "operator": "ico_sphere",
+      "parameters": {
+        "radius": 0.0,
+        "subdivisions": 1
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_align_world",
+      "operator": "monkey",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_align_cursor",
+      "operator": "monkey",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_align_view",
+      "operator": "monkey",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_explicit_override",
+      "operator": "monkey",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_append_uv0_0",
+      "operator": "monkey",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_append_uv0_1",
+      "operator": "monkey",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_append_uv2_0",
+      "operator": "monkey",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_append_uv2_1",
+      "operator": "monkey",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_enter_edit",
+      "operator": "monkey",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_negative_scale",
+      "operator": "monkey",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_zero_axis_scale",
+      "operator": "monkey",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "monkey_zero_size",
+      "operator": "monkey",
+      "parameters": {
+        "size": 0.0
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_align_world",
+      "operator": "plane",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_align_cursor",
+      "operator": "plane",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_align_view",
+      "operator": "plane",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_explicit_override",
+      "operator": "plane",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_append_uv0_0",
+      "operator": "plane",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_append_uv0_1",
+      "operator": "plane",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_append_uv2_0",
+      "operator": "plane",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_append_uv2_1",
+      "operator": "plane",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_enter_edit",
+      "operator": "plane",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_negative_scale",
+      "operator": "plane",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_zero_axis_scale",
+      "operator": "plane",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "plane_zero_size",
+      "operator": "plane",
+      "parameters": {
+        "size": 0.0
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_align_world",
+      "operator": "torus",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_align_cursor",
+      "operator": "torus",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_align_view",
+      "operator": "torus",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_explicit_override",
+      "operator": "torus",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_append_uv0_0",
+      "operator": "torus",
+      "parameters": {
+        "generate_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_append_uv0_1",
+      "operator": "torus",
+      "parameters": {
+        "generate_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_append_uv2_0",
+      "operator": "torus",
+      "parameters": {
+        "generate_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_append_uv2_1",
+      "operator": "torus",
+      "parameters": {
+        "generate_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_align_world",
+      "operator": "uv_sphere",
+      "parameters": {
+        "align": "WORLD"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_align_cursor",
+      "operator": "uv_sphere",
+      "parameters": {
+        "align": "CURSOR"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_align_view",
+      "operator": "uv_sphere",
+      "parameters": {
+        "align": "VIEW"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_explicit_override",
+      "operator": "uv_sphere",
+      "parameters": {
+        "align": "CURSOR",
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ],
+        "rotation": [
+          0.25,
+          -0.5,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_append_uv0_0",
+      "operator": "uv_sphere",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_append_uv0_1",
+      "operator": "uv_sphere",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_append_uv2_0",
+      "operator": "uv_sphere",
+      "parameters": {
+        "calc_uvs": false,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_append_uv2_1",
+      "operator": "uv_sphere",
+      "parameters": {
+        "calc_uvs": true,
+        "location": [
+          1.25,
+          -2.5,
+          0.75
+        ]
+      },
+      "state": {
+        "creation_kind": "append_mesh",
+        "seed_uv_layers": 2,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_enter_edit",
+      "operator": "uv_sphere",
+      "parameters": {
+        "enter_editmode": true
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_negative_scale",
+      "operator": "uv_sphere",
+      "parameters": {
+        "scale": [
+          -1.25,
+          0.75,
+          2.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_zero_axis_scale",
+      "operator": "uv_sphere",
+      "parameters": {
+        "scale": [
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "uv_sphere_zero_radius",
+      "operator": "uv_sphere",
+      "parameters": {
+        "radius": 0.0,
+        "segments": 8,
+        "ring_count": 4
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_zero_nothing",
+      "operator": "circle",
+      "parameters": {
+        "radius": 0.0,
+        "vertices": 7,
+        "fill_type": "NOTHING"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_zero_nothing",
+      "operator": "cylinder",
+      "parameters": {
+        "radius": 0.0,
+        "depth": 3.5,
+        "vertices": 7,
+        "end_fill_type": "NOTHING"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_zero_nothing",
+      "operator": "cone",
+      "parameters": {
+        "radius1": 0.0,
+        "radius2": 0.0,
+        "depth": 3.5,
+        "vertices": 7,
+        "end_fill_type": "NOTHING"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_zero_ngon",
+      "operator": "circle",
+      "parameters": {
+        "radius": 0.0,
+        "vertices": 7,
+        "fill_type": "NGON"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_zero_ngon",
+      "operator": "cylinder",
+      "parameters": {
+        "radius": 0.0,
+        "depth": 3.5,
+        "vertices": 7,
+        "end_fill_type": "NGON"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_zero_ngon",
+      "operator": "cone",
+      "parameters": {
+        "radius1": 0.0,
+        "radius2": 0.0,
+        "depth": 3.5,
+        "vertices": 7,
+        "end_fill_type": "NGON"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "circle_zero_trifan",
+      "operator": "circle",
+      "parameters": {
+        "radius": 0.0,
+        "vertices": 7,
+        "fill_type": "TRIFAN"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cylinder_zero_trifan",
+      "operator": "cylinder",
+      "parameters": {
+        "radius": 0.0,
+        "depth": 3.5,
+        "vertices": 7,
+        "end_fill_type": "TRIFAN"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_zero_trifan",
+      "operator": "cone",
+      "parameters": {
+        "radius1": 0.0,
+        "radius2": 0.0,
+        "depth": 3.5,
+        "vertices": 7,
+        "end_fill_type": "TRIFAN"
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "cone_equal_radii",
+      "operator": "cone",
+      "parameters": {
+        "radius1": 1.25,
+        "radius2": 1.25,
+        "depth": 3.5,
+        "vertices": 7
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_zero_major",
+      "operator": "torus",
+      "parameters": {
+        "major_radius": 0.0,
+        "minor_radius": 0.5,
+        "major_segments": 6,
+        "minor_segments": 4
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_zero_minor",
+      "operator": "torus",
+      "parameters": {
+        "major_radius": 1.0,
+        "minor_radius": 0.0,
+        "major_segments": 6,
+        "minor_segments": 4
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_zero_both",
+      "operator": "torus",
+      "parameters": {
+        "major_radius": 0.0,
+        "minor_radius": 0.0,
+        "major_segments": 3,
+        "minor_segments": 3
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "torus_inverted_radii",
+      "operator": "torus",
+      "parameters": {
+        "mode": "EXT_INT",
+        "abso_major_rad": 1.0,
+        "abso_minor_rad": 2.0,
+        "major_segments": 6,
+        "minor_segments": 4
+      },
+      "state": {
+        "creation_kind": "new_object",
+        "seed_uv_layers": 0,
+        "cursor_location": [
+          3.0,
+          -2.0,
+          1.0
+        ],
+        "cursor_rotation": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "view_rotation": [
+          0.35,
+          -0.25,
+          0.6
+        ]
+      }
+    }
+  ]
+}

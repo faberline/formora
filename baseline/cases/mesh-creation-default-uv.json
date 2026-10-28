@@ -1,0 +1,2337 @@
+{
+  "schema_version": 1,
+  "feature_id": "mesh.creation.default_uv",
+  "fixture": {
+    "suite_path": "baseline/fixtures/mesh-creation-contexts.json",
+    "reference_directory": "baseline/reference/blender-5.2.3/mesh-contexts",
+    "run_ids": [
+      "circle_append_uv0_0",
+      "circle_append_uv0_1",
+      "circle_append_uv2_0",
+      "circle_append_uv2_1",
+      "cone_append_uv0_0",
+      "cone_append_uv0_1",
+      "cone_append_uv2_0",
+      "cone_append_uv2_1",
+      "cube_append_uv0_0",
+      "cube_append_uv0_1",
+      "cube_append_uv2_0",
+      "cube_append_uv2_1",
+      "cylinder_append_uv0_0",
+      "cylinder_append_uv0_1",
+      "cylinder_append_uv2_0",
+      "cylinder_append_uv2_1",
+      "grid_append_uv0_0",
+      "grid_append_uv0_1",
+      "grid_append_uv2_0",
+      "grid_append_uv2_1",
+      "ico_sphere_append_uv0_0",
+      "ico_sphere_append_uv0_1",
+      "ico_sphere_append_uv2_0",
+      "ico_sphere_append_uv2_1",
+      "monkey_append_uv0_0",
+      "monkey_append_uv0_1",
+      "monkey_append_uv2_0",
+      "monkey_append_uv2_1",
+      "plane_append_uv0_0",
+      "plane_append_uv0_1",
+      "plane_append_uv2_0",
+      "plane_append_uv2_1",
+      "torus_append_uv0_0",
+      "torus_append_uv0_1",
+      "torus_append_uv2_0",
+      "torus_append_uv2_1",
+      "uv_sphere_append_uv0_0",
+      "uv_sphere_append_uv0_1",
+      "uv_sphere_append_uv2_0",
+      "uv_sphere_append_uv2_1",
+      "circle_zero_ngon",
+      "circle_zero_trifan"
+    ],
+    "comparison": {
+      "positions_absolute_tolerance_metres": 1e-06,
+      "normals_absolute_tolerance": 1e-06,
+      "uv_absolute_tolerance": 1e-06,
+      "topology": "exact oriented faces and edges under a bijective vertex map; vertex and face numbering may differ",
+      "uv": "compare each face corner under the same oriented cyclic face mapping",
+      "unverified": "Finite context and lower-bound fixtures only. Full upper-bound, performance and parameter-preset contracts remain pending.",
+      "undefined_uv_policy": {
+        "upstream_capture": "preserve tagged NaN; never call it a numeric pass",
+        "finite_fallback": 0.0,
+        "required_diagnostic": "degenerate_default_uv",
+        "scope": "Only undefined UV components of zero-radius filled circle fixtures. Finite values retain 1e-6 tolerance.",
+        "allowed_run_ids": [
+          "circle_zero_ngon",
+          "circle_zero_trifan"
+        ]
+      }
+    },
+    "supporting_documentation": [
+      "https://docs.blender.org/manual/en/5.2/scene_layout/object/types.html#object-common-options"
+    ],
+    "operation_contract": {
+      "operation": "mesh.create_primitive",
+      "primitive": "runs[].operator",
+      "parameters": "runs[].parameters",
+      "context": "runs[].state",
+      "append_target": "pre-existing mesh when creation_kind is append_mesh; preserve its logical component IDs",
+      "selection": "compare created/existing membership and selected component sets; no legacy GUI mode is required",
+      "material_role_aliases": {
+        "SeedMaterial0": "first fixture material",
+        "SeedMaterial1": "second fixture material"
+      }
+    },
+    "unverified": [
+      "Full upper-bound, performance, parameter-preset and generic object-type-selection contracts remain pending.",
+      "Formora execution remains unrun."
+    ],
+    "execution_status": {
+      "blender_reference": "131 captures reproduced; undefined UV is separately tagged",
+      "formora": "unrun"
+    },
+    "additional_suites": [
+      {
+        "suite_path": "baseline/fixtures/mesh-primitives.json",
+        "reference_directory": "baseline/reference/blender-5.2.3/mesh-primitives",
+        "run_ids": [
+          "plane_default",
+          "plane_no_uv",
+          "cube_default",
+          "cube_no_uv",
+          "circle_default",
+          "circle_no_uv",
+          "uv_sphere_default",
+          "uv_sphere_no_uv",
+          "ico_sphere_default",
+          "ico_sphere_no_uv",
+          "cylinder_default",
+          "cylinder_no_uv",
+          "cone_default",
+          "cone_no_uv",
+          "torus_default",
+          "torus_no_uv",
+          "grid_default",
+          "grid_no_uv",
+          "monkey_default",
+          "monkey_no_uv"
+        ],
+        "context": "new_object, zero cursor location, world alignment",
+        "comparison": {
+          "positions_absolute_tolerance_metres": 1e-06,
+          "normals_absolute_tolerance": 1e-06,
+          "uv_absolute_tolerance": 1e-06,
+          "topology": "exact oriented faces and edges under a bijective vertex map; vertex and face numbering may differ",
+          "uv": "compare each face corner under the same oriented cyclic face mapping",
+          "unverified": "These are finite fixtures, not complete parameter-domain coverage."
+        }
+      }
+    ],
+    "initial_mesh_fixture": "baseline/fixtures/mesh-creation-seed.json"
+  },
+  "steps": [
+    "以固定版本執行本功能全部 run_ids。按每組 state 設定游標、視角及既有網格，保存完整前後幾何與屬性。",
+    "Agent 用 MCP 與命令列執行 mesh.create_primitive 的相同語義操作。插入時以原有網格 ID 作為目標，保留原有元件 ID。",
+    "用一對一頂點對應驗證有方向拓撲、座標、法線、每個面角的 UV、材質及選取範圍。不得只比較數量或自報狀態。",
+    "原有頂點與面不得遺失或重新命名。新增元件與原有元件的歸屬由操作前後實際查詢的 ID 集合建立。",
+    "兩個零半徑填面圓形的上游 UV 是未定義 NaN。產品須保留幾何，輸出有限零 UV 並回報 degenerate_default_uv。其餘有限 UV 仍以 1e-6 比較。",
+    "儲存並重新開啟，重做資料與操作收據比較。三平台保留實際結果；未執行或失敗都不能算作通過。"
+  ],
+  "assertions": [
+    {
+      "target": "runs.circle_append_uv0_0.vertex_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.circle_append_uv0_0.edge_count",
+      "expected": 44
+    },
+    {
+      "target": "runs.circle_append_uv0_0.face_count",
+      "expected": 6
+    },
+    {
+      "target": "runs.circle_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.circle_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_1.vertex_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.circle_append_uv0_1.edge_count",
+      "expected": 44
+    },
+    {
+      "target": "runs.circle_append_uv0_1.face_count",
+      "expected": 6
+    },
+    {
+      "target": "runs.circle_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.circle_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_0.vertex_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.circle_append_uv2_0.edge_count",
+      "expected": 44
+    },
+    {
+      "target": "runs.circle_append_uv2_0.face_count",
+      "expected": 6
+    },
+    {
+      "target": "runs.circle_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.circle_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_1.vertex_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.circle_append_uv2_1.edge_count",
+      "expected": 44
+    },
+    {
+      "target": "runs.circle_append_uv2_1.face_count",
+      "expected": 6
+    },
+    {
+      "target": "runs.circle_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.circle_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_0.vertex_count",
+      "expected": 41
+    },
+    {
+      "target": "runs.cone_append_uv0_0.edge_count",
+      "expected": 76
+    },
+    {
+      "target": "runs.cone_append_uv0_0.face_count",
+      "expected": 39
+    },
+    {
+      "target": "runs.cone_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.cone_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_1.vertex_count",
+      "expected": 41
+    },
+    {
+      "target": "runs.cone_append_uv0_1.edge_count",
+      "expected": 76
+    },
+    {
+      "target": "runs.cone_append_uv0_1.face_count",
+      "expected": 39
+    },
+    {
+      "target": "runs.cone_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.cone_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_0.vertex_count",
+      "expected": 41
+    },
+    {
+      "target": "runs.cone_append_uv2_0.edge_count",
+      "expected": 76
+    },
+    {
+      "target": "runs.cone_append_uv2_0.face_count",
+      "expected": 39
+    },
+    {
+      "target": "runs.cone_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.cone_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_1.vertex_count",
+      "expected": 41
+    },
+    {
+      "target": "runs.cone_append_uv2_1.edge_count",
+      "expected": 76
+    },
+    {
+      "target": "runs.cone_append_uv2_1.face_count",
+      "expected": 39
+    },
+    {
+      "target": "runs.cone_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.cone_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cone_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cone_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_0.vertex_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.cube_append_uv0_0.edge_count",
+      "expected": 24
+    },
+    {
+      "target": "runs.cube_append_uv0_0.face_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.cube_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.cube_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_1.vertex_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.cube_append_uv0_1.edge_count",
+      "expected": 24
+    },
+    {
+      "target": "runs.cube_append_uv0_1.face_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.cube_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.cube_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_0.vertex_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.cube_append_uv2_0.edge_count",
+      "expected": 24
+    },
+    {
+      "target": "runs.cube_append_uv2_0.face_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.cube_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.cube_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_1.vertex_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.cube_append_uv2_1.edge_count",
+      "expected": 24
+    },
+    {
+      "target": "runs.cube_append_uv2_1.face_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.cube_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.cube_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cube_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cube_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.vertex_count",
+      "expected": 72
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.edge_count",
+      "expected": 108
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.face_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.vertex_count",
+      "expected": 72
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.edge_count",
+      "expected": 108
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.face_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.vertex_count",
+      "expected": 72
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.edge_count",
+      "expected": 108
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.face_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.vertex_count",
+      "expected": 72
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.edge_count",
+      "expected": 108
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.face_count",
+      "expected": 40
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.cylinder_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_0.vertex_count",
+      "expected": 129
+    },
+    {
+      "target": "runs.grid_append_uv0_0.edge_count",
+      "expected": 232
+    },
+    {
+      "target": "runs.grid_append_uv0_0.face_count",
+      "expected": 106
+    },
+    {
+      "target": "runs.grid_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.grid_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_1.vertex_count",
+      "expected": 129
+    },
+    {
+      "target": "runs.grid_append_uv0_1.edge_count",
+      "expected": 232
+    },
+    {
+      "target": "runs.grid_append_uv0_1.face_count",
+      "expected": 106
+    },
+    {
+      "target": "runs.grid_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.grid_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_0.vertex_count",
+      "expected": 129
+    },
+    {
+      "target": "runs.grid_append_uv2_0.edge_count",
+      "expected": 232
+    },
+    {
+      "target": "runs.grid_append_uv2_0.face_count",
+      "expected": 106
+    },
+    {
+      "target": "runs.grid_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.grid_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_1.vertex_count",
+      "expected": 129
+    },
+    {
+      "target": "runs.grid_append_uv2_1.edge_count",
+      "expected": 232
+    },
+    {
+      "target": "runs.grid_append_uv2_1.face_count",
+      "expected": 106
+    },
+    {
+      "target": "runs.grid_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.grid_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.grid_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.grid_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.vertex_count",
+      "expected": 50
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.edge_count",
+      "expected": 132
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.face_count",
+      "expected": 86
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.vertex_count",
+      "expected": 50
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.edge_count",
+      "expected": 132
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.face_count",
+      "expected": 86
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.vertex_count",
+      "expected": 50
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.edge_count",
+      "expected": 132
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.face_count",
+      "expected": 86
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.vertex_count",
+      "expected": 50
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.edge_count",
+      "expected": 132
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.face_count",
+      "expected": 86
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.ico_sphere_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.face_count",
+      "expected": 506
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.face_count",
+      "expected": 506
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.face_count",
+      "expected": 506
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.face_count",
+      "expected": 506
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.monkey_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_0.vertex_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.plane_append_uv0_0.edge_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.plane_append_uv0_0.face_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.plane_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.plane_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_1.vertex_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.plane_append_uv0_1.edge_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.plane_append_uv0_1.face_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.plane_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.plane_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_0.vertex_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.plane_append_uv2_0.edge_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.plane_append_uv2_0.face_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.plane_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.plane_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_1.vertex_count",
+      "expected": 12
+    },
+    {
+      "target": "runs.plane_append_uv2_1.edge_count",
+      "expected": 16
+    },
+    {
+      "target": "runs.plane_append_uv2_1.face_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.plane_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.plane_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.plane_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.plane_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_0.vertex_count",
+      "expected": 584
+    },
+    {
+      "target": "runs.torus_append_uv0_0.edge_count",
+      "expected": 1164
+    },
+    {
+      "target": "runs.torus_append_uv0_0.face_count",
+      "expected": 582
+    },
+    {
+      "target": "runs.torus_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.torus_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_1.vertex_count",
+      "expected": 584
+    },
+    {
+      "target": "runs.torus_append_uv0_1.edge_count",
+      "expected": 1164
+    },
+    {
+      "target": "runs.torus_append_uv0_1.face_count",
+      "expected": 582
+    },
+    {
+      "target": "runs.torus_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.torus_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_0.vertex_count",
+      "expected": 584
+    },
+    {
+      "target": "runs.torus_append_uv2_0.edge_count",
+      "expected": 1164
+    },
+    {
+      "target": "runs.torus_append_uv2_0.face_count",
+      "expected": 582
+    },
+    {
+      "target": "runs.torus_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.torus_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_1.vertex_count",
+      "expected": 584
+    },
+    {
+      "target": "runs.torus_append_uv2_1.edge_count",
+      "expected": 1164
+    },
+    {
+      "target": "runs.torus_append_uv2_1.face_count",
+      "expected": 582
+    },
+    {
+      "target": "runs.torus_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.torus_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.torus_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.torus_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.vertex_count",
+      "expected": 490
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.edge_count",
+      "expected": 1004
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.face_count",
+      "expected": 518
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.vertex_count",
+      "expected": 490
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.edge_count",
+      "expected": 1004
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.face_count",
+      "expected": 518
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv0_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.vertex_count",
+      "expected": 490
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.edge_count",
+      "expected": 1004
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.face_count",
+      "expected": 518
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_0.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.vertex_count",
+      "expected": 490
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.edge_count",
+      "expected": 1004
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.face_count",
+      "expected": 518
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.uv_sphere_append_uv2_1.maximum_face_corner_uv_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_zero_ngon.vertex_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.circle_zero_ngon.edge_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.circle_zero_ngon.face_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.circle_zero_ngon.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.circle_zero_ngon.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_ngon.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_ngon.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_ngon.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_zero_ngon.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_zero_ngon.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_zero_trifan.vertex_count",
+      "expected": 8
+    },
+    {
+      "target": "runs.circle_zero_trifan.edge_count",
+      "expected": 14
+    },
+    {
+      "target": "runs.circle_zero_trifan.face_count",
+      "expected": 7
+    },
+    {
+      "target": "runs.circle_zero_trifan.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "runs.circle_zero_trifan.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_trifan.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_trifan.save_reload_and_agent_receipts_match",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_trifan.maximum_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_zero_trifan.maximum_world_position_error_metres",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "runs.circle_zero_trifan.maximum_normal_error",
+      "expected": 0.0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "original_runs.plane_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.plane_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.plane_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.plane_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.cube_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.cube_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.cube_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.cube_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.circle_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.circle_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.circle_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.circle_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.uv_sphere_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.uv_sphere_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.uv_sphere_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.uv_sphere_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.ico_sphere_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.ico_sphere_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.ico_sphere_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.ico_sphere_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.cylinder_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.cylinder_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.cylinder_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.cylinder_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.cone_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.cone_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.cone_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.cone_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.torus_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.torus_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.torus_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.torus_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.grid_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.grid_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.grid_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.grid_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.monkey_default.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "original_runs.monkey_default.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "original_runs.monkey_no_uv.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "original_runs.monkey_no_uv.default_uv_layout_matches",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_ngon.undefined_reference_uv_components",
+      "expected": 14
+    },
+    {
+      "target": "runs.circle_zero_ngon.compared_finite_uv_components",
+      "expected": 0
+    },
+    {
+      "target": "runs.circle_zero_ngon.undefined_uv_fallback_verified",
+      "expected": true
+    },
+    {
+      "target": "runs.circle_zero_trifan.undefined_reference_uv_components",
+      "expected": 42
+    },
+    {
+      "target": "runs.circle_zero_trifan.compared_finite_uv_components",
+      "expected": 0
+    },
+    {
+      "target": "runs.circle_zero_trifan.undefined_uv_fallback_verified",
+      "expected": true
+    }
+  ],
+  "evidence": [
+    "固定來源、輸入、建置、執行檔及兩次上游捕捉的摘要。",
+    "MCP／命令列要求、操作前後查詢、原有與新增元件 ID、儲存重開資料。",
+    "可回讀的拓撲、屬性及有限數值誤差報告。未定義來源值的數量與處理結果另列。",
+    "三平台候選、環境與測試紀錄；目前 Formora 仍為 unrun。"
+  ]
+}

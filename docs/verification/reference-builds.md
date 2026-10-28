@@ -3,6 +3,7 @@
 日期：2026-10-29，Asia/Taipei。
 環境：macOS 26.5.2，arm64。
 本次屬於 [issue #26](https://github.com/faberline/formora/issues/26) 與 [issue #12](https://github.com/faberline/formora/issues/12)。
+本紀錄保留 PR #27 的候選狀態。後續案例進度見[網格建立情境](mesh-creation-contexts.md)。
 
 ## 固定版本
 

@@ -37,3 +37,9 @@ All ten feature contracts remain pending review.
 The shared options, Edit Mode insertion, full valid parameter range, degenerate inputs,
 rendering and performance need more contracts.
 Formora execution and product acceptance remain `unrun`.
+
+The later `mesh-contexts/` dataset adds 131 creation and lower-bound fixtures.
+See `docs/verification/mesh-creation-contexts.md` for the capture and comparison rules.
+Undefined UV values in two zero-radius circles are preserved as explicit tags.
+They cannot pass a finite Formora comparison without the fixed zero fallback and diagnostic.
+The first 57 input and output files remain unchanged.

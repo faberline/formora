@@ -100,6 +100,36 @@
       "milestone": "0.2",
       "case_path": "baseline/cases/mesh-primitive-monkey.json",
       "review": "pending"
+    },
+    {
+      "id": "mesh.creation.placement",
+      "title": "網格建立：位置、旋轉與對齊",
+      "source_ids": [
+        "blender:492d218209cbd2b95dce"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-creation-placement.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.creation.edit_append",
+      "title": "網格建立：插入既有網格與選取結果",
+      "source_ids": [
+        "blender:492d218209cbd2b95dce"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-creation-edit-append.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.creation.default_uv",
+      "title": "網格建立：預設 UV 與既有 UV 保留",
+      "source_ids": [
+        "blender:492d218209cbd2b95dce"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-creation-default-uv.json",
+      "review": "pending"
     }
   ]
 }
