@@ -294,13 +294,13 @@ def main():
     ]}
     artifact("source-manifest.json", inventory_url, (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode())
     write_json(args.output / "lock.json", {
-        "schema_version": 1,
+        "schema_version": 2,
         "frozen_at": args.date,
         "products": [
-            {"id": "blender", "version": "5.2.3", "manual_root": BLENDER,
+            {"id": "blender", "version": "5.2.3", "documentation_version": "5.2", "manual_root": BLENDER,
              "release_url": "https://www.blender.org/releases/", "release_status": "stable"},
-            {"id": "unreal", "version": "5.8", "manual_root": UNREAL,
-             "release_url": "https://www.unrealengine.com/news/unreal-engine-5-8-is-now-available", "release_status": "stable"},
+            {"id": "unreal", "version": "5.8.4", "documentation_version": "5.8", "manual_root": UNREAL,
+             "release_url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775", "release_status": "stable"},
         ],
         "platforms": ["macos", "windows", "linux"],
         "exclusions": ["native_project_compatibility", "existing_scripts_and_plugins", "operator_gui_parity", "mobile", "xr", "consoles"],

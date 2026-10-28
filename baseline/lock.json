@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "frozen_at": "2026-10-29",
   "products": [
     {
@@ -7,14 +7,24 @@
       "version": "5.2.3",
       "manual_root": "https://docs.blender.org/manual/en/5.2/",
       "release_url": "https://www.blender.org/releases/",
-      "release_status": "stable"
+      "release_status": "stable",
+      "documentation_version": "5.2",
+      "reference_build": {
+        "id": "e13b728c6880",
+        "evidence_path": "baseline/reference/builds/blender-5.2.3/report.json"
+      }
     },
     {
       "id": "unreal",
-      "version": "5.8",
+      "version": "5.8.4",
       "manual_root": "https://dev.epicgames.com/documentation/unreal-engine",
-      "release_url": "https://www.unrealengine.com/news/unreal-engine-5-8-is-now-available",
-      "release_status": "stable"
+      "release_url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "release_status": "stable",
+      "documentation_version": "5.8",
+      "reference_build": {
+        "id": "5.8.4-58902052+++UE5+Release-5.8",
+        "evidence_path": "baseline/reference/builds/unreal-5.8.4/report.json"
+      }
     }
   ],
   "platforms": [
@@ -390,6 +400,56 @@
       "path": "baseline/sources/unreal-5.8-documents-depth5.json",
       "url": "https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8",
       "sha256": "61906c9d1e7b2b5e2cff18050255c02d2b4029ad628bc22dd4414c3223d54ee8"
+    },
+    {
+      "path": "baseline/reference/builds/blender-5.2.3/command.json",
+      "url": "https://www.blender.org/releases/",
+      "sha256": "c2626445ccc7b82fc5a39406543b1aa81a92406b1955ad7716458944b9a7f829"
+    },
+    {
+      "path": "baseline/reference/builds/blender-5.2.3/process.json",
+      "url": "https://www.blender.org/releases/",
+      "sha256": "1237c40f96bb61fcfd346913a96a2c502b8f42ad38b27fb25b1432b69eb86fd6"
+    },
+    {
+      "path": "baseline/reference/builds/blender-5.2.3/report.json",
+      "url": "https://www.blender.org/releases/",
+      "sha256": "5b87c2a71c5f71bfe64784ea72f1dda2b55a7b41b245885595bfaac0909cec68"
+    },
+    {
+      "path": "baseline/reference/builds/blender-5.2.3/stdout-excerpt.log",
+      "url": "https://www.blender.org/releases/",
+      "sha256": "8167b2c5fff965eb4100b73f9ff6be76f58673972ca47f0c569442cff1769135"
+    },
+    {
+      "path": "baseline/reference/builds/unreal-5.8.4/command.json",
+      "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "sha256": "7b402137e822af7b0570f4fc13adac3edabebd9a6bf594099df9b273bdcd4e89"
+    },
+    {
+      "path": "baseline/reference/builds/unreal-5.8.4/process.json",
+      "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "sha256": "9dac675fa1d3b94fdb8ca479c6ae8a1b4bdf0b281a62dd5d4dd250b23db5cbad"
+    },
+    {
+      "path": "baseline/reference/builds/unreal-5.8.4/report.json",
+      "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "sha256": "b49eb38cd7cf80d75997d5bc8842b6e1014056a6d26a3fc2a3971fc10381c695"
+    },
+    {
+      "path": "baseline/reference/builds/unreal-5.8.4/stdout-excerpt.log",
+      "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "sha256": "df4b86a80e0c00eb0f4266cd14a739b26a8050da82a1ec0735a9845308bed73c"
+    },
+    {
+      "path": "baseline/sources/unreal-5.8.4-release.json",
+      "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "sha256": "666fbf6699fe37fa8d71292d913cb1bbcc44d694ec551848b1af93c9fdbd1605"
+    },
+    {
+      "path": "baseline/reference/builds/negative-checks.json",
+      "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
+      "sha256": "cbe298da1ba9ef5fc54bb07dc5c204e0723a30b1173f6926cf1cf2ca67788877"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"

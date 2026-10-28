@@ -19,6 +19,21 @@ impl Fixture {
         fs::create_dir_all(root.join("baseline/cases")).unwrap();
         fs::write(root.join("baseline/source.txt"), "pinned source").unwrap();
         let fixture = Self(root);
+        fs::create_dir_all(fixture.0.join("baseline/builds")).unwrap();
+        for (product, version, manual, build) in [
+            ("blender", "5.2.3", "5.2", "test-blender-build"),
+            ("unreal", "5.8.4", "5.8", "test-unreal-build"),
+        ] {
+            fixture.write(&format!("builds/{product}"), json!({
+                "schema_version":1,"product":product,"version":version,
+                "documentation_version":manual,"build_id":build,
+                "version_probe_status":"passed","product_acceptance":"unrun",
+                "entry_executable":"test-only-reference-executable",
+                "files":{"test-only-reference-executable":{
+                    "sha256":format!("{:x}",Sha256::digest(b"synthetic test fixture")),"bytes":22
+                }}
+            }));
+        }
         fixture.write(
             "manifest",
             json!({"schema_version":1,"products":[
@@ -31,10 +46,10 @@ impl Fixture {
             Sha256::digest(fs::read(fixture.0.join("baseline/manifest.json")).unwrap())
         );
         fixture.write("lock", json!({
-            "schema_version":1,"frozen_at":"2026-10-29",
+            "schema_version":2,"frozen_at":"2026-10-29",
             "products":[
-                {"id":"blender","version":"5.2.3","manual_root":"https://docs.blender.org/manual/en/5.2/","release_url":"https://www.blender.org/releases/","release_status":"stable"},
-                {"id":"unreal","version":"5.8","manual_root":"https://dev.epicgames.com/documentation/unreal-engine","release_url":"https://www.unrealengine.com/news/unreal-engine-5-8-is-now-available","release_status":"stable"}
+                {"id":"blender","version":"5.2.3","documentation_version":"5.2","manual_root":"https://docs.blender.org/manual/en/5.2/","release_url":"https://www.blender.org/releases/","release_status":"stable","reference_build":{"id":"test-blender-build","evidence_path":"baseline/builds/blender.json"}},
+                {"id":"unreal","version":"5.8.4","documentation_version":"5.8","manual_root":"https://dev.epicgames.com/documentation/unreal-engine","release_url":"https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775","release_status":"stable","reference_build":{"id":"test-unreal-build","evidence_path":"baseline/builds/unreal.json"}}
             ],
             "platforms":["macos","windows","linux"],"exclusions":["native_project_compatibility"],
             "source_manifest_path":"baseline/manifest.json",
@@ -43,6 +58,18 @@ impl Fixture {
                 {"path":"baseline/manifest.json","url":"https://docs.blender.org/manual/en/5.2/objects.inv","sha256":manifest_hash}
             ]
         }));
+        for product in ["blender", "unreal"] {
+            let path = format!("baseline/builds/{product}.json");
+            let hash = format!(
+                "{:x}",
+                Sha256::digest(fs::read(fixture.0.join(&path)).unwrap())
+            );
+            fixture.edit("lock", |v| {
+                v["artifacts"].as_array_mut().unwrap().push(json!({
+                    "path":path,"url":"https://example.com/test-fixture","sha256":hash
+                }))
+            });
+        }
         fixture.write("inventory", json!({
             "schema_version":1,"complete_products":["blender","unreal"],
             "sources":[
@@ -83,6 +110,22 @@ impl Fixture {
         formora::baseline::check(&self.0).unwrap()
     }
 
+    fn repin(&self, relative: &str) {
+        let hash = format!(
+            "{:x}",
+            Sha256::digest(fs::read(self.0.join(relative)).unwrap())
+        );
+        self.edit("lock", |v| {
+            let artifact = v["artifacts"]
+                .as_array_mut()
+                .unwrap()
+                .iter_mut()
+                .find(|a| a["path"] == relative)
+                .unwrap();
+            artifact["sha256"] = json!(hash);
+        });
+    }
+
     fn problem(&self, code: &str) {
         let report = self.check();
         assert!(!report.structurally_valid);
@@ -107,6 +150,90 @@ fn complete_contract_does_not_claim_product_acceptance() {
     assert!(report.structurally_valid, "{report:#?}");
     assert!(report.baseline_ready);
     assert_eq!(report.product_acceptance, "unrun");
+}
+
+#[test]
+fn patch_product_versions_use_the_matching_manual_family() {
+    let f = Fixture::new();
+    assert!(f.check().baseline_ready);
+    f.edit("lock", |v| {
+        v["products"][1]["documentation_version"] = json!("5.7")
+    });
+    f.problem("product_documentation_version");
+}
+
+#[test]
+fn incomplete_or_prerelease_product_versions_cannot_be_frozen_as_stable() {
+    for version in ["5.8", "5.8.4-preview", "5.8.4.0", "05.8.4"] {
+        let f = Fixture::new();
+        f.edit("lock", |v| v["products"][1]["version"] = json!(version));
+        f.problem("product_documentation_version");
+    }
+}
+
+#[test]
+fn legacy_lock_schema_cannot_claim_the_full_build_baseline() {
+    let f = Fixture::new();
+    f.edit("lock", |v| v["schema_version"] = json!(1));
+    f.problem("schema_version");
+}
+
+#[test]
+fn missing_build_probe_keeps_the_strict_baseline_closed() {
+    let f = Fixture::new();
+    f.edit("lock", |v| {
+        v["products"][1]["reference_build"] = Value::Null
+    });
+    let report = f.check();
+    assert!(report.structurally_valid);
+    assert!(!report.baseline_ready);
+    assert_eq!(report.unverified_builds, ["unreal"]);
+    assert_eq!(report.product_acceptance, "unrun");
+}
+
+#[test]
+fn hash_pinned_build_evidence_must_match_the_declared_reference() {
+    for (field, wrong) in [
+        ("product", "blender"),
+        ("version", "5.8.3"),
+        ("documentation_version", "5.7"),
+        ("build_id", "other-build"),
+        ("version_probe_status", "unrun"),
+        ("product_acceptance", "passed"),
+    ] {
+        let f = Fixture::new();
+        f.edit("builds/unreal", |v| v[field] = json!(wrong));
+        f.repin("baseline/builds/unreal.json");
+        f.problem("build_evidence");
+    }
+}
+
+#[test]
+fn build_evidence_must_identify_a_measured_executable() {
+    let f = Fixture::new();
+    f.edit("builds/unreal", |v| {
+        v["entry_executable"] = json!("missing-executable")
+    });
+    f.repin("baseline/builds/unreal.json");
+    f.problem("build_evidence");
+    let f = Fixture::new();
+    f.edit("builds/unreal", |v| {
+        v["files"]["test-only-reference-executable"]["sha256"] = json!("invalid")
+    });
+    f.repin("baseline/builds/unreal.json");
+    f.problem("build_evidence");
+}
+
+#[test]
+fn build_evidence_cannot_bypass_the_artifact_hash_pin() {
+    let f = Fixture::new();
+    f.edit("lock", |v| {
+        v["artifacts"]
+            .as_array_mut()
+            .unwrap()
+            .retain(|a| a["path"] != "baseline/builds/unreal.json")
+    });
+    f.problem("build_pin");
 }
 
 #[test]

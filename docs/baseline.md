@@ -5,18 +5,26 @@ GitHub milestones 是路線圖的主要來源。
 
 ## 固定來源
 
-基準採 Blender 5.2.3 LTS 與 Unreal Engine 5.8 正式版。
+基準採 Blender 5.2.3 LTS 與 Unreal Engine 5.8.4 正式版。
 查核日期是 2026-10-29，時區是 Asia/Taipei。
 
 - [Blender 正式版本](https://www.blender.org/releases/)
 - [Blender 5.2.3 下載摘要](https://download.blender.org/release/Blender5.2/blender-5.2.3.sha256)
 - [Blender 5.2 手冊](https://docs.blender.org/manual/en/5.2/)
 - [Unreal Engine 5.8 正式發布](https://www.unrealengine.com/news/unreal-engine-5-8-is-now-available)
+- [Unreal Engine 5.8.4 正式 Hotfix](https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775)
 - [Unreal Engine 5.8 手冊](https://dev.epicgames.com/documentation/unreal-engine?application_version=5.8)
 
-Unreal 的 5.8 是官方發布及文件的版本名稱。
-參考執行測試還須記錄實際執行檔的完整版本與建置資訊。
-目前沒有安裝包或上游執行結果的驗收證據。
+Unreal 的完整產品版本是 5.8.4，文件版本是 5.8。
+Blender 的完整產品版本是 5.2.3，文件版本是 5.2。
+[參考建置實測](verification/reference-builds.md)保留兩套實際程序回報的版本與執行檔摘要。
+這些探測只證明版本。它們不能代替功能或 GPU 驗收。
+
+`baseline/lock.json` 的格式版本是 2。
+`version` 固定三段完整產品版本。
+`documentation_version` 固定兩段手冊版本。
+`reference_build` 固定建置 ID 與已登記摘要的證據路徑。
+來源清單、功能對照表及測試契約仍使用格式版本 1。
 
 `baseline/lock.json` 固定來源及本地檔案的 SHA-256。
 SHA-256 是檔案內容摘要，可用來檢查檔案是否改變。
@@ -51,6 +59,8 @@ cargo run --locked -- baseline check --root . --strict
 它不是獨立內容審核，也不是產品驗收。
 `product_acceptance` 保持 `unrun`，因為此工具不執行產品測試。
 CI 的通過只表示契約檢查通過。
+`unverified_builds` 列出缺少版本探測證據的產品。
+有缺少項目時，嚴格檢查不能通過。
 
 ## 逐項審核
 
@@ -88,6 +98,8 @@ Sphinx 索引列出文件頁面與章節位置。
 Unreal 來源使用官方頁面的文件清單。
 採集深度 1 只讀取首頁及下一層清單，不是完整盤點。
 未取得的文件保留在採集失敗紀錄中。
+來源採集不啟動參考產品。它產生的草稿不包含版本探測證據。
+不要用採集草稿覆寫現有的建置 pin 或功能契約。
 
 使用已稽核的固定 metadata 續跑：
 
