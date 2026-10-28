@@ -1,0 +1,122 @@
+{
+  "full_feature_acceptance": "unrun",
+  "limits_ms": {
+    "create_regenerate_save_reload": 2000,
+    "generation": 500
+  },
+  "passed": true,
+  "runs": [
+    {
+      "create_regenerate_save_reload_ms": 272.112042,
+      "generation_ms": 62.464,
+      "passed": true,
+      "run": 1,
+      "sample": "uv_sphere_128x64"
+    },
+    {
+      "create_regenerate_save_reload_ms": 251.57370899999998,
+      "generation_ms": 40.414125000000006,
+      "passed": true,
+      "run": 2,
+      "sample": "uv_sphere_128x64"
+    },
+    {
+      "create_regenerate_save_reload_ms": 249.32175,
+      "generation_ms": 40.796667,
+      "passed": true,
+      "run": 3,
+      "sample": "uv_sphere_128x64"
+    },
+    {
+      "create_regenerate_save_reload_ms": 244.67416599999999,
+      "generation_ms": 36.564792,
+      "passed": true,
+      "run": 1,
+      "sample": "torus_128x64"
+    },
+    {
+      "create_regenerate_save_reload_ms": 241.89374999999998,
+      "generation_ms": 35.300875000000005,
+      "passed": true,
+      "run": 2,
+      "sample": "torus_128x64"
+    },
+    {
+      "create_regenerate_save_reload_ms": 245.786375,
+      "generation_ms": 36.530125,
+      "passed": true,
+      "run": 3,
+      "sample": "torus_128x64"
+    },
+    {
+      "create_regenerate_save_reload_ms": 269.12737500000003,
+      "generation_ms": 35.046082999999996,
+      "passed": true,
+      "run": 1,
+      "sample": "grid_100x100"
+    },
+    {
+      "create_regenerate_save_reload_ms": 265.594958,
+      "generation_ms": 35.393833,
+      "passed": true,
+      "run": 2,
+      "sample": "grid_100x100"
+    },
+    {
+      "create_regenerate_save_reload_ms": 265.752,
+      "generation_ms": 36.046458,
+      "passed": true,
+      "run": 3,
+      "sample": "grid_100x100"
+    },
+    {
+      "create_regenerate_save_reload_ms": 52.595000000000006,
+      "generation_ms": 4.929,
+      "passed": true,
+      "run": 1,
+      "sample": "circle_4096_ngon"
+    },
+    {
+      "create_regenerate_save_reload_ms": 49.713917,
+      "generation_ms": 4.94475,
+      "passed": true,
+      "run": 2,
+      "sample": "circle_4096_ngon"
+    },
+    {
+      "create_regenerate_save_reload_ms": 51.656042,
+      "generation_ms": 5.09675,
+      "passed": true,
+      "run": 3,
+      "sample": "circle_4096_ngon"
+    }
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "hardware": "Apple M1 Max",
+  "rust_version": "1.85.0",
+  "profile": "release",
+  "command": "cargo run --locked --release --example primitive_generation_bench",
+  "example_binary_sha256": "8dc7399ff233d3a88ce91e0a92d80c306ebafbb1c212155c9f43765da3dd05a0",
+  "source_files_sha256": {
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "examples/primitive_generation_bench.rs": "6ab83c5e5e52581ce8cde414e231a3634894e41d41b7579365c1ea10d93d3e24",
+    "docs/contracts/rotational-primitives.md": "c3dbeab3fab8766d9a753f3c3442309b43deab84a66a7a38e91ea292ec062dbb",
+    "src/agent.rs": "89f019bed0b2073b2628f3634efd90ba583600377ba3bba25edc57bf3c77320e",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "7bd095eb520518bc87e758a1ff224cdc61ce6644e8829dcce971440e805a585d",
+    "src/mesh/primitives/rotational.rs": "663f762de8c5723168566c3e604afa42d4f7c7ef311c2f776ae1f95039b91414",
+    "src/mesh/primitives.rs": "83193e6fd87ad355913c26b03c615fec51d84e86d797f2e050b6f746c52f99c2",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh.rs": "5b59d1ce767fa417e3ab2a985e13e688c918742571b6b3eb202c370ff81ab8e7",
+    "src/preview/math.rs": "a1c1e97e48884f64c5dd97bdc065b3e8b454e6c23ccbff0f697bc1570ad40d71",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "e4bfcd26f46dfa7486e795650106c56604c575db85adb8c6149a5bc50f3f1681",
+    "src/session.rs": "1eca8fad470aff65a80fa5dc7909b332c46518711222546d3468f2d952f1c2ea"
+  }
+}
