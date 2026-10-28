@@ -1,10 +1,11 @@
-# Shared triangle assets
+# Shared mesh assets
 
-A mesh asset stores triangle data in Rust. More than one entity can use the same asset.
+A mesh asset stores triangle data in Rust. It can also store [source polygons and edges](polygon-assets.md). More than one entity can use the same asset.
 An agent can replace the asset or change vertices by ID. These changes affect all its instances.
 
 This is the bounded foundation in [issue #30](https://github.com/faberline/formora/issues/30).
-It does not complete the modeling milestone. General polygon topology and primitive generation remain pending.
+It does not complete the modeling milestone. The [polygon extension](polygon-assets.md) adds topology.
+Primitive generation and complete modeling remain pending.
 
 ## Data
 
@@ -29,8 +30,9 @@ All stored numbers must be finite. UV layer names must contain 1–128 UTF-8 byt
 Empty assets and vertices without triangles are valid. The preview draws triangle surfaces.
 Zero-area triangles remain stored. They add no visible area and cannot be picked.
 
-The asset is a triangle buffer. It does not yet store polygon boundaries, loose edges,
-vertex selections, texture images, or generated smooth normals. Normals and UVs are caller data.
+The original triangle buffer remains valid. Optional polygon, edge and UV layout fields
+are defined in the [polygon extension](polygon-assets.md). Vertex selections, texture images,
+and generated smooth normals remain pending. Normals and UVs are caller data.
 Moving a vertex preserves these values. The agent must replace them when needed.
 
 ## Commands

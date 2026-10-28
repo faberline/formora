@@ -2,6 +2,7 @@
 """Check the built server with the official Python MCP client (mcp==2.3.0)."""
 import argparse
 import asyncio
+import hashlib
 import importlib.metadata
 import json
 from pathlib import Path
@@ -81,21 +82,46 @@ async def run(binary):
                 undone_mesh = await client.call_tool("scene_undo", {"expected_revision": revision + 4})
                 assert not undone_mesh.is_error
                 assert undone_mesh.structured_content["revision"] == revision + 5
+                polygon = json.loads((Path(__file__).resolve().parents[1] / "tests/fixtures/polygon-asset.json").read_text())
+                polygon_arguments = {"expected_revision": revision + 5, "commands": [
+                    {"operation": "set_mesh_asset", "id": "sdk_polygon", "asset": polygon}
+                ]}
+                Draft202012Validator(schema).validate(polygon_arguments)
+                created_polygon = await client.call_tool("scene_apply", polygon_arguments)
+                assert not created_polygon.is_error
+                query_arguments = {"mesh_asset": "sdk_polygon", "tessellate": True}
+                inspect_schema = next(t.input_schema for t in listed.tools if t.name == "scene_inspect")
+                Draft202012Validator(inspect_schema).validate(query_arguments)
+                tessellated = await client.call_tool("scene_inspect", query_arguments)
+                assert not tessellated.is_error
+                assert len(tessellated.structured_content["tessellation"]["triangles"]) == 6
+                assert tessellated.structured_content["tessellation"]["diagnostics"] == []
+                assert tessellated.structured_content["mesh_asset"] == polygon
+                moved_polygon = await client.call_tool("scene_apply", {"expected_revision": revision + 6, "commands": [
+                    {"operation": "set_mesh_vertices", "id": "sdk_polygon", "positions": {"v1": [3, 0, 0.5]}}
+                ]})
+                assert not moved_polygon.is_error
+                restored_polygon = await client.call_tool("scene_undo", {"expected_revision": revision + 7})
+                assert not restored_polygon.is_error
+                assert restored_polygon.structured_content["revision"] == revision + 8
                 protocol = initialized.protocol_version
         loaded = json.loads(subprocess.check_output(
             [str(binary), "scene", "inspect", "--scene", str(scene)], text=True
         ))
-        assert loaded["revision"] == revision + 5
+        assert loaded["revision"] == revision + 8
+        assert loaded["scene"]["mesh_assets"]["sdk_polygon"] == polygon
         assert loaded["scene"]["mesh_assets"]["sdk_mesh"] == asset
         assert loaded["scene"]["doors"]["front_door"]["duration_seconds"] == 1.0
         print(json.dumps({
             "sdk_version": importlib.metadata.version("mcp"),
+            "binary_sha256": hashlib.sha256(binary.read_bytes()).hexdigest(),
             "protocol_version": protocol,
             "initialize": "passed", "discovery": "passed", "input_schemas": "passed",
             "inspect": "passed", "apply": "passed", "stale_revision": "passed",
             "undo": "passed", "reload": "passed",
             "mesh_create_edit_query": "passed", "referenced_mesh_delete_rejected": "passed",
-            "mesh_undo_reload": "passed", "product_milestone_acceptance": False,
+            "mesh_undo_reload": "passed", "polygon_tessellate_edit_undo_reload": "passed",
+            "product_milestone_acceptance": False,
         }))
 
 

@@ -161,10 +161,10 @@ struct SurfaceTriangle<'a> {
     material: Option<&'a str>,
 }
 
-fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Vec<SurfaceTriangle<'a>> {
+fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTriangle<'a>>> {
     if let Geometry::Asset { id } = geometry {
         let asset = &scene.mesh_assets[id];
-        return asset
+        let mut result: Vec<_> = asset
             .triangles
             .values()
             .map(|triangle| SurfaceTriangle {
@@ -178,8 +178,25 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Vec<SurfaceTriangle<'
                     .and_then(|slot| asset.material_slots[slot].as_deref()),
             })
             .collect();
+        for t in asset.tessellate()?.triangles {
+            let polygon = &asset.polygons[&t.polygon];
+            result.push(SurfaceTriangle {
+                points: t
+                    .corners
+                    .map(|c| DVec3::from_array(asset.vertices[&polygon.vertices[c]])),
+                normals: polygon
+                    .corner_normals
+                    .as_ref()
+                    .map(|ns| t.corners.map(|c| ns[c]))
+                    .or(polygon.normal.map(|n| [n; 3])),
+                material: polygon
+                    .material_slot
+                    .and_then(|slot| asset.material_slots[slot].as_deref()),
+            });
+        }
+        return Ok(result);
     }
-    quads(geometry)
+    Ok(quads(geometry)
         .into_iter()
         .flat_map(|quad| {
             [[0, 1, 2], [0, 2, 3]].map(|indices| SurfaceTriangle {
@@ -188,7 +205,7 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Vec<SurfaceTriangle<'
                 material: None,
             })
         })
-        .collect()
+        .collect())
 }
 
 fn append_triangle(
@@ -232,7 +249,7 @@ pub fn vertices(scene: &Scene) -> Result<Vec<Vertex>> {
     let mut result = Vec::new();
     for (id, entity) in &scene.entities {
         if let EntityKind::Mesh { geometry, material } = &entity.content {
-            for triangle in triangles(scene, geometry) {
+            for triangle in triangles(scene, geometry)? {
                 // An entity material is an explicit override of all asset slots.
                 let binding = material.as_deref().or(triangle.material);
                 let (color, surface) = match binding.and_then(|id| scene.materials.get(id)) {
@@ -247,7 +264,7 @@ pub fn vertices(scene: &Scene) -> Result<Vec<Vertex>> {
         }
     }
     for note in &scene.annotations {
-        for triangle in triangles(scene, &Geometry::Cube { size: [0.06; 3] }) {
+        for triangle in triangles(scene, &Geometry::Cube { size: [0.06; 3] })? {
             append_triangle(
                 &mut result,
                 triangle,
@@ -291,7 +308,7 @@ pub fn pick(scene: &Scene, origin: DVec3, direction: DVec3) -> Result<Option<Hit
         let EntityKind::Mesh { geometry, .. } = &entity.content else {
             continue;
         };
-        for triangle in triangles(scene, geometry) {
+        for triangle in triangles(scene, geometry)? {
             let [a, b, c] = triangle.points.map(|p| world[id].transform_point3(p));
             let edge1 = b - a;
             let edge2 = c - a;

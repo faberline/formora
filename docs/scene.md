@@ -20,7 +20,7 @@ ID 可使用英文字母、數字、底線和連字號，最長 128 個位元組
 鏡頭沿本地的負 Z 軸觀看，本地 Y 軸向上。
 
 物件可以是空物件、幾何、鏡頭或燈光。
-幾何目前支援方塊與平面。
+幾何支援方塊、平面及共用網格資產。
 物件可指定父物件。父物件必須存在，且不能形成循環。
 子物件的變換相對於父物件。
 
@@ -80,11 +80,11 @@ cargo test --locked --test scene
 
 資料流程測試涵蓋房間、門、減慢速度、儲存重開、錯誤回復、
 版本衝突、父子循環、重複 ID、無效數字及註記。
-目前尚未完成 0.1 的畫面與實機驗收。
+0.1 的完整驗收仍未通過。有限範圍的 macOS 預覽證據見[實機紀錄](verification/macos-preview.md)。
 
-## Shared triangle assets
+## Shared mesh assets
 
 Schema 1 can also store an optional `mesh_assets` map. Existing files without it still load.
 Mesh entities can use `{"kind":"asset","id":"asset_id"}` geometry.
 See [the mesh asset contract](mesh-assets.md) for stable IDs, face-corner data, shared edits,
-material bindings and the current triangle-only limits.
+material bindings and the current limits. [Polygon topology](polygon-assets.md) adds source faces and edges.

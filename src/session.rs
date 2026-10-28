@@ -23,11 +23,26 @@ pub struct UndoRequest {
 pub struct InspectRequest {
     pub entity: Option<String>,
     pub mesh_asset: Option<String>,
+    #[serde(default)]
+    pub tessellate: bool,
 }
 
 impl InspectRequest {
     /// The CLI can inspect a saved scene without taking the writer lock.
     pub fn inspect(&self, scene: &Scene) -> Result<serde_json::Value> {
+        if self.tessellate && (self.mesh_asset.is_none() || self.entity.is_some()) {
+            return Err(SceneError("tessellate requires only mesh_asset".into()));
+        }
+        if self.tessellate {
+            let id = self.mesh_asset.as_ref().expect("checked mesh asset");
+            let asset = scene
+                .mesh_assets
+                .get(id)
+                .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
+            return Ok(
+                serde_json::json!({"revision":scene.revision,"id":id,"mesh_asset":asset,"tessellation":asset.tessellate()?}),
+            );
+        }
         match (&self.entity, &self.mesh_asset) {
             (Some(_), Some(_)) => Err(SceneError("inspect accepts either entity or mesh_asset".into())),
             (Some(id), None) => scene.entities.get(id).map(|entity| serde_json::json!({"revision":scene.revision,"id":id,"entity":entity})).ok_or_else(|| SceneError(format!("unknown entity: {id}"))),

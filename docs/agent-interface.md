@@ -83,7 +83,7 @@ MCP 是 agent 用來發現和呼叫工具的協定。
 
 | 工具 | 用途 |
 |---|---|
-| `scene_inspect` | 查詢整個場景或單一物件 |
+| `scene_inspect` | 查詢場景、物件或資產；可取得多邊形切分結果 |
 | `scene_apply` | 檢查版本號，再執行並儲存一批指令 |
 | `scene_undo` | 復原此程序中的上一批操作，並儲存結果 |
 
@@ -113,3 +113,5 @@ python3 tools/mcp_smoke.py target/debug/formora
 Shared triangle assets use the same tools. See [mesh assets](mesh-assets.md) for
 `set_mesh_asset`, `set_mesh_vertices`, `delete_mesh_asset`, and asset inspection.
 All wire JSON object keys must be unique. Ambiguous requests fail before any command runs.
+
+Polygon queries can include `tessellate: true`. See [polygon assets](polygon-assets.md) for corner indices and diagnostics.
