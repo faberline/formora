@@ -21,11 +21,17 @@ def renumber(mesh):
     result = copy.deepcopy(mesh)
     n = len(mesh['vertices'])
     result['vertices'] = list(reversed(mesh['vertices']))
+    for field in ['vertex_origin', 'edge_origin', 'vertex_selected', 'edge_selected']:
+        if field in mesh:
+            result[field] = list(reversed(mesh[field]))
     result['edges'] = [[n-1-v for v in reversed(edge)] for edge in reversed(mesh['edges'])]
     result['faces'] = []
     result['face_normals'] = []
     result['corner_normals'] = []
     result['smooth_faces'] = []
+    for field in ['face_materials', 'face_selected', 'face_origin']:
+        if field in mesh:
+            result[field] = []
     result['uv_layers'] = [{'name': l['name'], 'faces': []} for l in mesh['uv_layers']]
     starts = []
     offset = 0
@@ -37,6 +43,9 @@ def renumber(mesh):
         result['faces'].append(comparison.rotate([n-1-v for v in face], 1))
         result['face_normals'].append(mesh['face_normals'][i])
         result['smooth_faces'].append(mesh['smooth_faces'][i])
+        for field in ['face_materials', 'face_selected', 'face_origin']:
+            if field in mesh:
+                result[field].append(mesh[field][i])
         corners = mesh['corner_normals'][starts[i]:starts[i]+len(face)]
         result['corner_normals'].extend(comparison.rotate(corners, 1))
         for a, b in zip(result['uv_layers'], mesh['uv_layers']):

@@ -41983,9 +41983,13 @@
       "product": "blender",
       "title": "Mesh Primitives",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "網格基本形狀與共用建立功能屬於範圍內。共用建立案例已登記；預設參數組管理、完整上限及效能仍待審核，不能宣稱頁面或產品完整盤點。",
+      "feature_ids": [
+        "mesh.creation.placement",
+        "mesh.creation.edit_append",
+        "mesh.creation.default_uv"
+      ]
     },
     {
       "id": "blender:7c069cd5ee8f0a39b806",

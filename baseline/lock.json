@@ -450,6 +450,691 @@
       "path": "baseline/reference/builds/negative-checks.json",
       "url": "https://forums.unrealengine.com/t/5-8-4-hotfix-released/2842775",
       "sha256": "cbe298da1ba9ef5fc54bb07dc5c204e0723a30b1173f6926cf1cf2ca67788877"
+    },
+    {
+      "path": "baseline/sources/blender-5.2-object-types.html",
+      "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/types.html",
+      "sha256": "1bca3e216b69e419a139231b8df9678ba3a1e53075c54597ea7f8dd1f9d627ff"
+    },
+    {
+      "path": "baseline/fixtures/mesh-creation-contexts.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "3858b4517f3ca0f74c3977e8ad872e47a5c9f40d2c7ed63a5ca6988934297701"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "fbe02eb45f4308193bc1d5674bd2ebf40693a5f61c7ce6b4f71acace2d1ea763"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "dc99793b77ce46468c8fc3798516b89ecd1d3cccf211c71c1675b13561f89998"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "045e818714a60e36458ac83fd8d3ff85845a6e0d6eeaed61d152fa7bc355b628"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4a018676610011648ea6764a83f80f8cee751fcef96619c7cbaccb05ebc1ff97"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "fa0a03b6aff5c685d47df1dfc2ac80d7e3d1fa33db227d3f05fc2b552de0156d"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "8c0ffc61bdfb2dbdd518ef0c37ef47639d0bf61792f253760e78c4bb3394d5ad"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "15c87d5584777f4c750467d8a13eb498c70537a00675778b48a6d6317d9afbe3"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "bd17e577f5cf4ecf462111cc3794963e82e71aca936a3c2ac7f1181f3bcc9ca3"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "b196f9384b3c68bbf6fe9a44f3e3dd3445c0105183e709788ab9185875a004f5"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6a803f53fa51516c88c458a412d8c65ca4b7b8798372e281a0a183a6bcf9d775"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4a4fa49e2c0556277e470da1e5d7e5749983db1606f67afa8ffa7ffc83515f91"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_zero_ngon.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "06ef98e7488179b5d11d8715d145695339a6b256a9adb4bec69ce554c84cac61"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_zero_nothing.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "435e6ea93f3f859081d978af792702f6c752213666fdc0119da3211dcd9f01e0"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_zero_radius.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a9f186cbdb50a172c97db79c0a180f4e01ae237d94d7b5f3d2bdd59520a37fcf"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/circle_zero_trifan.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2ba52b40663f29be1f6921a07ede854406b52aaab1b0f2134d94a53df450c4b1"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "88f6f82fa59eddc910bb92f979a669fcd994f1c6b4f6d4124bc38ef3bce6432e"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a6887c87af4d1672f18134c690a990195bb59fe321147be7d0b958082d45ab3c"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "00ab4948bb01115615f5d3f3ec1dcd9b686e40330caae09658ff973e525099c4"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "101f921dc3067040008633a8ed97649e798c422593f77365d60facfeeba00324"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "450dbdad3781903ddf08136cf52f9cfd686641dc1593fb65815caa9a89a1da3f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "7a076e771e16fc1d780135df72ed8512bffe8517e5c504c2eede83562162ba16"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "e80af1705e60f82f29c2d6ade7108ea2dc52066b970a9ff99d5c54d1d7d8d490"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "911d5311736757b7eb84630f8fdc3fa1d1a73d306240f45847047f503e9e3218"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_equal_radii.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "d4cc4354a11fe7396febbd2fe523ad7aca777d22289e950205f58b6bde65a782"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "190937d5d32a4f5fa071cb773559dacfad551ad5bd5d03fe64e821ae7d72bc81"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4b02b59d6dde14b7152876cb7aa34561f8e5b043de1fa3af80be05506bf124e5"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4ad0134ca011ce7540cc4326d2775aad5f9ccb296399543efe3561b01b84ed84"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_zero_depth.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6eb1b12f269bb2bccb235713e22b839776ce9347bfd1f041d3db5451a4031549"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_zero_ngon.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "175ee4924679b15886e530c84681d3e1c920e0a5cbd6b2f0f8473c4aec2f70b2"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_zero_nothing.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "559b3d76cc10e26af12166c9fa3c5b6e10849162389b380afb72c139c37827cc"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cone_zero_trifan.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "343b52fcff80a4e67b3467801922b3639fcac6c555ec3e410ccb14969bf203e8"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "72029c0ecfd6c50e029e614fbc53af1b04076373953ba29fe4b42a5f0449cf4d"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "c72a2b0ab155fa1d743eb0b71bda53fd6c96af73839399eca2f76f3c2ff16efb"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6bae8983ac29598390e1c8395ca9f523f7f825584d0e6949175a50cdb5272db4"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "58a5f22ea9cce7341eb385250f585a2ba1d80ff7da07789225402ee5e4fc8737"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "d69de727ec5bfe881eb440d7b3f44685a1611bb62230ded6c6bf9c3844294462"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "e1d007d7d87e2343b74aa9490f2c047e0ef4e3b7c177a14d30013f268ae4d60a"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "14114189ddcd038a22226f030b78feab6e9694ec966f6e8d1d2c36bee7450d66"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "0ab7b88669b889e4aa88366f42982741852b6a66e1f11e6bcc65d433ac7bb2bd"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "f59b9a5a3f927eded6a015a9d0e0fea609afad0a8d8c481edcff9c81cb0f38b3"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a9b3c7da3543fba6647debbdb7f530866fb5bfebd8378ff2555b0603b535d042"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "36b6333bee9957df532d60686593809624a3afa76a21b31fba099b45d8d56ec1"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cube_zero_size.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "bd422e91fd482ba0e62661dff1f1cdafa523182d9e6cf71c3c5651fb20409f3f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "29d61db4b6b25efb465ae08fae2df52ccda4ff537a7d01e98151f5b33a4285d3"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "e368861a0942e9b43d361240072f1de4a1b61067d34240e53edadf86ed3ad06d"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2dd376a8c931d14c93ba896d07f5365c292f3c016f5b8373c7aceeb766fde493"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "1d3c3184b3d5e4e2855265f6ad9fc2c0b5cf571eb17272a17d961a08f14ecce8"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "1d2a4e8ece91344f2683be32c46def01b93f5975d5332f9a14c9d3f823fe7e71"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4c9a22df7ea72272f12bcbf09ef5d0916f4d6a15bd2356697ad9a05cadf413b6"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "ad3ba53982f8875b6208bb9efb21e4b181d7ffd85bdb94d98212217d22a99ee9"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2cb04be798d4920199e7ac15504a2b51c3fef7fcc97b12fc385690daf9cee9f1"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6af80e4f1d1049d46ae11773263c42c895d505277b09ab05c1465d19a9c1f74f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "20be8249cbf975aa93d875463e69a2788845f0a8fde4020f7ace02673429bbf2"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "1402a2a61e5806fd733e58615819d2f3017db72abbde89fa7d164c833a36e898"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_zero_depth.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "cc3af9d1b57fc7338b67bc7539e77daa28dc9b69df37b5205350e0bdd23e22f4"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_zero_ngon.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "b2666ec9ae0bfb885870257d3054d8979cfc0b92ce849a8df7b1fbea844acd9f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_zero_nothing.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "de8eae3eadc7c29fa7ece81ce3b498797d2794c934b6ae1eca0dcaab989c056f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_zero_radius.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "0208e7986fbab2e27c53c9d818f170daf68853ac85dd1d7c05f4f8dd7377f590"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/cylinder_zero_trifan.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2ae647374ad53c9c57975c8aade4399d147a45da2232523d967cb1abad0b6dae"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "e8025fb2c2b717c89a1d99d54073584f2ee27ca9a03a2852267e443ad6bee30a"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6f2e4b456725513a3c6e073e30abddbe2b5723daa0b4ec54b99662e791cf94f8"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "fd2cc26fd03bd831b8a274232d278a868ba98367d66e285cf8cae26cdb6bfd05"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4bdf26f6ae0eb85c626800cd94b62a4ea9c660dbcce2f4e037babe2788d4446b"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "33fe848c493db823be6f0095a38f97822fdaa4d2166d76a18b141686740630ab"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6f4c65f8f49d19c11e89fe1c530c7a979ced7ae33e186b100eb527d1db90317c"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "261634e4045924bfedcdddcee4c1a07bc3f49389dff53fdbf7a37ef99aa54205"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "83522132260a07974ad8b0145c5e4a21a45dca97913beea85a530584c43c0060"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "5d88a3bb7a468b1b8b4d21de72fcd6d0bf8982d7f55c36ddeb18c2acf2b55e21"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "b10e2cf1f8295ffcb25a9aba670e3ce8f7dcfaac6d7d4a80712563f30ab7e069"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "8e15db2fa1be0b6a16a3b1324be796881114b8626347e44bd684b1db8208471a"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/grid_zero_size.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2dfd19f0d4c8f5469a59f71958f71c82a3c455565aedd7388e55c0ba24e93961"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a117cdc5d61e6d56fca08903fd94f7b65f7227d050d86ae67d6ebc3ffd1771a1"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "b0133c223f806ec3bd87a2861026208185c22bb45a1847fc96fdce5f963a0185"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "881c96a056a6dfdfecc0cefd9ab3a66947f20b95ed9a87cb0cf19ba4e3241863"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "67970df653895ded0344ace13bda911d5040ac07c0773351152f5fd51d95527e"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4325474194359818751616589cbbcba99a19ac555bff32f1a654c7e0466a8ac0"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "1467328ec6b5f7c81a9cf3c565074bcc44da2414b4791aa4219dcd4dba253c50"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "55459e395367eda9ae93e86bf6c2fbcccdbedf9a0016507d3669d9f394a3d842"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "c9f29a7962468901049d6b19e41f20d4a6f8283e65cee4357edee1fe7aca528f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a8202f4e91344caef9da7ff197001f30dfeea23093ed20d6a8eff82cc6220598"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "fb9e10bd28d24a0b789a4809342564197aa69deb4ec4625aae4251bbc29a4cb3"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "255a91298d1d678e2db90358b0e47f5e73a2f0b4650f6a1600646d2dec260516"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/ico_sphere_zero_radius.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "8e9c766fe08757d07185d10a2e958331e4a8a5d259158e1e9bafd8b24addaf94"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/manifest.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "f1d184ee77ba9f9aae12d295fc027f097f9e3bb5030d73316935c1fd3bc92201"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "43e9b69981d0a29ba813b9264514386cbc11872f6833f7032ba0ed11fae6e1a5"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "f6dc7db73355184157b670cb0dd67fba68562d991e33d58bf3c8954671501e36"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "09138c1b935b2c7089a0e34b199b9789800c78265142d94b0c2eb67fe9f097ec"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "c2432566aac008a443e353b7e09b06bd91deda5cd3ea86d33aea31baf757fe6d"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2303ff4269853fb9bd82c567a3bdbeb1422200ed5272963c0d2f30d663a43acd"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "b064f60e98d4a9a3b1c7a5d233e3bf63100f7823c2a520af93386d5a96e958fb"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "30bb1ca0a48915136c468c1ab35d0caace17088d6d66e002bc5401206a0f3cda"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "69a8961b0a293c6ee61d6c390670492e46c07309aeb649e6b99962f51e05ed62"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "f39064c212a141400643aa7366ea82b5099caacfeda0a8c57ca26bc3783a3cbb"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "33dc7122bb211c3fecc81f2c91fd15bf6f52d6e04a943baf21ed3c5ce8072c0b"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "364dd4687de05e2b37ad110b6b8898d98db8112a0329016f91981d6510b58ccf"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/monkey_zero_size.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "565adac5c8e98c1aa9eded468ad07aa561332845d1f115b6ca573b907ffcab48"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "78856eba604c39187d8ec6420571f8f451ebcea706e4e89534cffc8fe7850207"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "8049327b7a3417e62f70f43c82b8d2d9fce475ae8fbebfd901f44b9c6e476413"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a20a6f53bd3befa853b6866934c5b7a7bb755953d174d669cc85b00535ac8b9f"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "3a1ed1578106473d8ed9a6298b5ba6b0355896186df200156e8c4ae92ae55b67"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "52376e0cce314c8f95b4117689d805a8b2566c77b2394090743c241a02d3b700"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "49f0787cbdd6e7dc5a2c1090c437423143b4561a1d62947ab1616fa31e51e2e4"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "2e83d2d104fd9ee1bb4d813e6cf160516081dce41a46d5c75109757154c08085"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6505009d7cb400b745c3ad040090448e5107ba2b6c127ac9d09eec264f908aa4"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "d797a944e325a9228a7ccb2133caf9dc00e44f643990a66774cadcee01a9304e"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "4f1f177b53f4a3501e417509acbf1930fca932b88db554f01162965bc9667a5c"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "9b23ff0a1e865cf46c3445fd7b1283615302f56d7887af509d1493475e461657"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/plane_zero_size.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "5baaddf5d094f861e6d5de9b2f74f0b4aff841623a97eb345c3a972c50acfc15"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/reproduction-comparison.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "e9e99a171afb4318836b4922e8e2d962ab5c23f675231ae1f6b2a7c3b3dc221b"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/reproduction-manifest.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "37ff4acc437dcce5dc738391fd228bdf4b79cc25dd843eea76e03c5c114a0054"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "0c8f52a28860e687e7f9b18e8444403fb0d33d5e7c2c22f1119a55286a2cbe4c"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6965ca758a4750ca284446e3aef62d1af585cbdebd2f83d6d100839fce4640f8"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "1ba81251f7436c5afe07ec2b04400c21b051fe256f77d3c22a62c30f459ce838"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "1a05192d7aac1fd83bfa10b6392e3a3ca76f3f82aa48d14ac6e0a4e3b5bc1b87"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a2906046b5a7a9d4327607abdabbe9e9d0911517b38ec93880d02ce39adfa961"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6dea4f0b0b7df17a8482f5797469b2ceb1243895572efa9782126f14d042515c"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "f35bdfb012ba9085005137e6210ff4507296a17c0660d631e7bdab4970b2c9d7"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "6b220186031121860c3428a38df1e05b8430e935b5be75e11af311a1e2bc746e"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_inverted_radii.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "98e1a757261bcbf9f8640e704aa6cbea4ac60c5e123e10fb9876422d49d9bc70"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_zero_both.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "038e81723469c37b849c563de1f54df7f49bb813f510557609e435cca8377926"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_zero_major.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "0283a46af4abce6ab6c89d80a210253371d06ebf5e9639278f301b42352a957b"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/torus_zero_minor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "57d9d8cdc0cdcbf18d9e0199d8f0edb606cfd5079ed642a0e1130f70b21fe905"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_align_cursor.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "d1bddcb3443a6c18519efb4547249f6dabda8c846af1c3e64545e90c97f7e1c7"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_align_view.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "62b77296439abf8d0ae977b3dd0e867ae956aeba819eff2fa4bef3a3853ac6da"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_align_world.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "52e06adec16554d3368d4e78a34ee5ea7e331638b478355c14745cc66804078a"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_append_uv0_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "f8d0a537e700cc9e1a6083d65cb786955b528d233502d22fbd90b6cf82f632f4"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_append_uv0_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "85f4417aafa114fbbf2ebfcdb432f692cf0c7dc391acfb1d4dd12599b5f34441"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_append_uv2_0.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "9f1b80363c3a287f6bac6a0d1515a150b8368c598f25eeb68a38b62f49f0d41c"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_append_uv2_1.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "b9e626fbcb3a6239a8879db2b2a7a4623cf536aae29b96965268e9176a4caab1"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_enter_edit.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "5cb0bd8327999319adbada744c2f6d59c44247b8cb1a58045b883089d807c4b1"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_explicit_override.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "5fd10bd425e446372edd07ec66240157963ebeb2e17fd741c5be4a0c5dd08cd5"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_negative_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "5e145d79555b226601cb7a65d9021947154c6e4d4ba6f106fc7c4f0dda2a93d6"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_zero_axis_scale.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "a7a58f95a1c9d167caf1d751dbbb1de24c02c510bc4514a1cf93439bd3f28e35"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/mesh-contexts/uv_sphere_zero_radius.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "eaa5c55813fd8cb8f23ef132fdc9378b5e3a502888b97664ce73b46fa09063d7"
+    },
+    {
+      "path": "baseline/fixtures/mesh-creation-seed.json",
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html",
+      "sha256": "fc41f10efe5eaf694967a151c8d163858e3966edf14a8eba96ee3b80147b21c8"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"

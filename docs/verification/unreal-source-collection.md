@@ -3,6 +3,7 @@
 日期：2026-10-29，Asia/Taipei。
 本次屬於 [issue #24](https://github.com/faberline/formora/issues/24)。
 完整內容與功能盤點仍由 [issue #14](https://github.com/faberline/formora/issues/14) 追蹤。
+本紀錄保留 PR #25 的來源狀態。後續功能數量以基準檢查及[建立情境紀錄](mesh-creation-contexts.md)為準。
 
 ## 已保存的來源
 

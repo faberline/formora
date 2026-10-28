@@ -21,13 +21,50 @@
       "unverified": "These are finite fixtures, not complete parameter-domain coverage."
     },
     "coverage_limits": [
-      "Object Mode creation only. Edit Mode insertion and shared alignment controls remain unreviewed.",
+      "The first suite covers Object Mode. The additional context suite covers world/cursor/view alignment, edit insertion, UV retention and representative lower bounds.",
       "Finite valid inputs only. The full parameter domain and degenerate inputs remain unreviewed.",
       "This contract covers geometry and UV values. Rendering and performance need their own fixed contracts."
     ],
     "execution_status": {
       "blender_reference": "captured twice; semantic comparison passed; numbering may differ",
       "formora": "unrun"
+    },
+    "additional_context_suite": {
+      "suite_path": "baseline/fixtures/mesh-creation-contexts.json",
+      "reference_directory": "baseline/reference/blender-5.2.3/mesh-contexts",
+      "run_ids": [
+        "monkey_align_world",
+        "monkey_align_cursor",
+        "monkey_align_view",
+        "monkey_explicit_override",
+        "monkey_append_uv0_0",
+        "monkey_append_uv0_1",
+        "monkey_append_uv2_0",
+        "monkey_append_uv2_1",
+        "monkey_enter_edit",
+        "monkey_negative_scale",
+        "monkey_zero_axis_scale",
+        "monkey_zero_size"
+      ],
+      "comparison": {
+        "positions_absolute_tolerance_metres": 1e-06,
+        "normals_absolute_tolerance": 1e-06,
+        "uv_absolute_tolerance": 1e-06,
+        "topology": "exact oriented faces and edges under a bijective vertex map; vertex and face numbering may differ",
+        "uv": "compare each face corner under the same oriented cyclic face mapping",
+        "unverified": "Finite context and lower-bound fixtures only. Full upper-bound, performance and parameter-preset contracts remain pending.",
+        "undefined_uv_policy": {
+          "upstream_capture": "preserve tagged NaN; never call it a numeric pass",
+          "finite_fallback": 0.0,
+          "required_diagnostic": "degenerate_default_uv",
+          "scope": "Only undefined UV components of zero-radius filled circle fixtures. Finite values retain 1e-6 tolerance.",
+          "allowed_run_ids": [
+            "circle_zero_ngon",
+            "circle_zero_trifan"
+          ]
+        }
+      },
+      "initial_mesh_fixture": "baseline/fixtures/mesh-creation-seed.json"
     }
   },
   "steps": [
@@ -484,6 +521,294 @@
     },
     {
       "target": "runs.monkey_size.mcp_and_cli_outputs_match",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_align_world.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_align_world.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_align_world.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_align_world.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_align_world.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_align_world.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_align_cursor.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_align_cursor.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_align_cursor.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_align_cursor.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_align_cursor.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_align_cursor.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_align_view.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_align_view.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_align_view.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_align_view.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_align_view.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_align_view.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_explicit_override.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_explicit_override.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_explicit_override.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_explicit_override.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_explicit_override.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_explicit_override.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_0.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_0.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_0.face_count",
+      "expected": 506
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_0.uv_layer_count",
+      "expected": 0
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_1.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_1.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_1.face_count",
+      "expected": 506
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_1.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv0_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_0.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_0.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_0.face_count",
+      "expected": 506
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_0.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_0.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_0.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_1.vertex_count",
+      "expected": 515
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_1.edge_count",
+      "expected": 1017
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_1.face_count",
+      "expected": 506
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_1.uv_layer_count",
+      "expected": 2
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_1.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_append_uv2_1.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_enter_edit.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_enter_edit.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_enter_edit.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_enter_edit.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_enter_edit.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_enter_edit.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_negative_scale.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_negative_scale.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_negative_scale.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_negative_scale.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_negative_scale.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_negative_scale.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_zero_axis_scale.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_zero_axis_scale.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_zero_axis_scale.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_zero_axis_scale.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_zero_axis_scale.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_zero_axis_scale.creation_attributes_match_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_zero_size.vertex_count",
+      "expected": 507
+    },
+    {
+      "target": "context_runs.monkey_zero_size.edge_count",
+      "expected": 1005
+    },
+    {
+      "target": "context_runs.monkey_zero_size.face_count",
+      "expected": 500
+    },
+    {
+      "target": "context_runs.monkey_zero_size.uv_layer_count",
+      "expected": 1
+    },
+    {
+      "target": "context_runs.monkey_zero_size.oriented_topology_matches_reference",
+      "expected": true
+    },
+    {
+      "target": "context_runs.monkey_zero_size.creation_attributes_match_reference",
       "expected": true
     }
   ],
