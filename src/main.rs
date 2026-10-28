@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -36,7 +36,7 @@ fn options(
 fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::ExitCode {
     let allowed: &[&str] = match action {
         "init" => &["--scene", "--demo-room"],
-        "inspect" => &["--scene", "--entity"],
+        "inspect" => &["--scene", "--entity", "--mesh-asset"],
         "apply" => &["--scene", "--request"],
         "serve" => &["--scene"],
         "mcp" => &["--scene", "--preview", "--capture"],
@@ -129,12 +129,12 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
             }
             "inspect" => {
                 let scene = formora::scene::Scene::load(Path::new(path)).map_err(map_err)?;
-                let value = match options.get("--entity") {
-                    Some(id) => {
-                        serde_json::json!({"revision":scene.revision,"id":id,"entity":scene.entities.get(id).ok_or_else(||format!("unknown entity: {id}"))?})
-                    }
-                    None => serde_json::json!({"revision":scene.revision,"scene":scene}),
-                };
+                let value = formora::session::InspectRequest {
+                    entity: options.get("--entity").cloned(),
+                    mesh_asset: options.get("--mesh-asset").cloned(),
+                }
+                .inspect(&scene)
+                .map_err(map_err)?;
                 Ok(Some(value))
             }
             "apply" => {

@@ -1,0 +1,54 @@
+{
+  "full_product_acceptance": false,
+  "limits_ms": {
+    "create_edit_save_reload": 2000,
+    "validation": 250
+  },
+  "passed": true,
+  "runs": [
+    {
+      "create_edit_save_reload_ms": 186.858333,
+      "passed": true,
+      "run": 1,
+      "validation_ms": 8.404458
+    },
+    {
+      "create_edit_save_reload_ms": 173.612041,
+      "passed": true,
+      "run": 2,
+      "validation_ms": 9.568083999999999
+    },
+    {
+      "create_edit_save_reload_ms": 176.041459,
+      "passed": true,
+      "run": 3,
+      "validation_ms": 9.73725
+    }
+  ],
+  "sample": {
+    "triangles": 20000,
+    "vertices": 10201
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "cpu": "Apple M1 Max",
+  "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26) (Homebrew)",
+  "profile": "release",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "examples/mesh_asset_bench.rs": "c976f4c7964861b46b13de639e5aee7cbe6956b3a4cb1bae97bbb19d77a83c0a",
+    "src/agent.rs": "93f2d6f29e839ef217ce38ba67b757c1949479563d6cf73f5ee5c5a9b6488af9",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "704c00593d80240bbe48caccedbe3e6db850bc0ab037bb0768ae08add43d1904",
+    "src/mesh.rs": "fea8ccec2995da466f9b4f9bc287d2dc89ac06ebc79aefcdb4a5284073f9e543",
+    "src/preview/math.rs": "d5df4e23afb7dddf916036b974121bd608f6351be4d6fd9b1121454e19fd2ae8",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "a8bd3d23f23ff946f01b65b30bf0a6c862741d9483f2a80d411941a351623a1a",
+    "src/session.rs": "76f6f82a44fc240c00a7df095f454ab3a824299258b336b43e9665e9ad3e692d"
+  },
+  "contract_sha256": "9c9029d28f4e2be9d4fa9c55998e09842f4988bd92a8575c5e0b0c13c77e0d51"
+}

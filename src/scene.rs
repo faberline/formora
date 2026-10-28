@@ -1,4 +1,5 @@
 //! Versioned scene data and transactional authoring commands.
+use crate::mesh::MeshAsset;
 use schemars::JsonSchema;
 use serde::{Deserialize, Deserializer, Serialize, de};
 use std::collections::{BTreeMap, BTreeSet};
@@ -50,6 +51,7 @@ impl Default for Transform {
 pub enum Geometry {
     Cube { size: [f64; 3] },
     Plane { size: [f64; 2] },
+    Asset { id: String },
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
@@ -126,6 +128,12 @@ pub struct Scene {
     pub entities: BTreeMap<String, Entity>,
     #[serde(deserialize_with = "unique_map")]
     pub materials: BTreeMap<String, Material>,
+    #[serde(
+        default,
+        deserialize_with = "unique_map",
+        skip_serializing_if = "BTreeMap::is_empty"
+    )]
+    pub mesh_assets: BTreeMap<String, MeshAsset>,
     #[serde(deserialize_with = "unique_map")]
     pub doors: BTreeMap<String, Door>,
     pub active_camera: Option<String>,
@@ -140,6 +148,7 @@ impl Default for Scene {
             time_seconds: 0.0,
             entities: BTreeMap::new(),
             materials: BTreeMap::new(),
+            mesh_assets: BTreeMap::new(),
             doors: BTreeMap::new(),
             active_camera: None,
             annotations: Vec::new(),
@@ -147,7 +156,9 @@ impl Default for Scene {
     }
 }
 
-fn unique_map<'de, D, T>(deserializer: D) -> std::result::Result<BTreeMap<String, T>, D::Error>
+pub(crate) fn unique_map<'de, D, T>(
+    deserializer: D,
+) -> std::result::Result<BTreeMap<String, T>, D::Error>
 where
     D: Deserializer<'de>,
     T: Deserialize<'de>,
@@ -174,7 +185,7 @@ where
     deserializer.deserialize_map(Visitor(std::marker::PhantomData))
 }
 
-fn valid_id(id: &str) -> bool {
+pub(crate) fn valid_id(id: &str) -> bool {
     !id.is_empty()
         && id.len() <= 128
         && id
@@ -223,6 +234,20 @@ impl Scene {
         if !self.time_seconds.is_finite() || self.time_seconds < 0.0 {
             return fail("scene time must be finite and nonnegative");
         }
+        for (id, asset) in &self.mesh_assets {
+            if !valid_id(id) {
+                return fail(format!("invalid mesh asset ID: {id}"));
+            }
+            asset.validate()?;
+            if asset
+                .material_slots
+                .iter()
+                .flatten()
+                .any(|m| !self.materials.contains_key(m))
+            {
+                return fail(format!("missing mesh asset material: {id}"));
+            }
+        }
         for (id, entity) in &self.entities {
             if !valid_id(id) {
                 return fail(format!("invalid entity ID: {id}"));
@@ -250,6 +275,12 @@ impl Scene {
                     let sizes: &[f64] = match geometry {
                         Geometry::Cube { size } => size,
                         Geometry::Plane { size } => size,
+                        Geometry::Asset { id } => {
+                            if !self.mesh_assets.contains_key(id) {
+                                return fail(format!("missing mesh asset: {id}"));
+                            }
+                            &[]
+                        }
                     };
                     if !finite(sizes) || sizes.iter().any(|n| *n <= 0.0) {
                         return fail(format!("invalid geometry size: {id}"));
@@ -394,6 +425,18 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    SetMeshAsset {
+        id: String,
+        asset: MeshAsset,
+    },
+    SetMeshVertices {
+        id: String,
+        #[serde(deserialize_with = "unique_map")]
+        positions: BTreeMap<String, [f64; 3]>,
+    },
+    DeleteMeshAsset {
+        id: String,
+    },
     CreateEntity {
         id: String,
         entity: Entity,
@@ -438,6 +481,30 @@ pub enum Command {
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<()> {
         match self {
+            Self::SetMeshAsset { id, asset } => {
+                scene.mesh_assets.insert(id.clone(), asset.clone());
+            }
+            Self::SetMeshVertices { id, positions } => {
+                if positions.is_empty() {
+                    return fail("mesh vertex edit must not be empty");
+                }
+                let asset = scene
+                    .mesh_assets
+                    .get_mut(id)
+                    .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
+                for (vertex, position) in positions {
+                    *asset
+                        .vertices
+                        .get_mut(vertex)
+                        .ok_or_else(|| SceneError(format!("unknown mesh vertex: {vertex}")))? =
+                        *position;
+                }
+            }
+            Self::DeleteMeshAsset { id } => {
+                if scene.mesh_assets.remove(id).is_none() {
+                    return fail(format!("unknown mesh asset: {id}"));
+                }
+            }
             Self::CreateEntity { id, entity } => {
                 if scene.entities.contains_key(id) {
                     return fail(format!("entity exists: {id}"));

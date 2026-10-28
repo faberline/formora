@@ -81,3 +81,10 @@ cargo test --locked --test scene
 資料流程測試涵蓋房間、門、減慢速度、儲存重開、錯誤回復、
 版本衝突、父子循環、重複 ID、無效數字及註記。
 目前尚未完成 0.1 的畫面與實機驗收。
+
+## Shared triangle assets
+
+Schema 1 can also store an optional `mesh_assets` map. Existing files without it still load.
+Mesh entities can use `{"kind":"asset","id":"asset_id"}` geometry.
+See [the mesh asset contract](mesh-assets.md) for stable IDs, face-corner data, shared edits,
+material bindings and the current triangle-only limits.

@@ -257,3 +257,92 @@ fn invalid_cli_request_and_stale_revision_do_not_change_the_file() {
         assert_eq!(fs::read(project.scene()).unwrap(), before);
     }
 }
+
+#[test]
+fn mesh_assets_have_the_same_cli_and_mcp_results_and_can_be_queried_and_reopened() {
+    let native = Project::new();
+    native.create();
+    let mcp = Project::new();
+    mcp.create();
+    let mut asset: Value =
+        serde_json::from_str(include_str!("fixtures/triangle-asset.json")).unwrap();
+    asset["material_slots"][0] = json!("door_material");
+    let arguments = json!({"expected_revision":1,"commands":[
+        {"operation":"set_mesh_asset","id":"shared","asset":asset},
+        {"operation":"create_entity","id":"imported","entity":{"name":"Imported","parent":null,"transform":{"translation":[0,0,1],"rotation":[0,0,0,1],"scale":[1,1,1]},"content":{"kind":"mesh","geometry":{"kind":"asset","id":"shared"},"material":null}}},
+        {"operation":"set_mesh_vertices","id":"shared","positions":{"a":[0,0,0.5]}}
+    ]});
+    let output = native.process(
+        &["scene", "apply", "--request", "-"],
+        &arguments.to_string(),
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let output=mcp.process(&["mcp"],&requests(&[initialize(),initialized(),
+        json!({"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"scene_apply","arguments":arguments}}),
+        json!({"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"scene_inspect","arguments":{"mesh_asset":"shared"}}}),
+        json!({"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"scene_apply","arguments":{"expected_revision":2,"commands":[{"operation":"delete_mesh_asset","id":"shared"}]}}}),
+    ]));
+    assert!(output.status.success());
+    let responses = lines(&output);
+    assert_eq!(responses[1]["result"]["isError"], false);
+    assert_eq!(
+        responses[2]["result"]["structuredContent"]["mesh_asset"]["vertices"]["a"],
+        json!([0., 0., 0.5])
+    );
+    assert_eq!(responses[3]["result"]["isError"], true);
+    assert_eq!(
+        Scene::load(&native.scene()).unwrap(),
+        Scene::load(&mcp.scene()).unwrap()
+    );
+    let output = native.process(&["scene", "inspect", "--mesh-asset", "shared"], "");
+    assert!(output.status.success());
+    assert_eq!(
+        lines(&output)[0],
+        responses[2]["result"]["structuredContent"]
+    );
+    let invalid = native.process(
+        &[
+            "scene",
+            "inspect",
+            "--entity",
+            "imported",
+            "--mesh-asset",
+            "shared",
+        ],
+        "",
+    );
+    assert_eq!(invalid.status.code(), Some(1));
+}
+
+#[test]
+fn duplicate_mesh_ids_in_raw_native_and_mcp_messages_cannot_mutate_the_scene() {
+    let arguments = r#"{"expected_revision":1,"commands":[{"operation":"set_mesh_asset","id":"duplicate","asset":{"vertices":{"a":[0,0,0],"a":[9,0,0]},"triangles":{},"material_slots":[]}}]}"#;
+    for mcp in [false, true] {
+        let project = Project::new();
+        project.create();
+        let before = fs::read(project.scene()).unwrap();
+        let input = if mcp {
+            requests(&[initialize(), initialized()])
+                + &format!(
+                    r#"{{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{{"name":"scene_apply","arguments":{arguments}}}}}"#
+                )
+                + "\n"
+        } else {
+            format!(r#"{{"id":1,"name":"scene_apply","arguments":{arguments}}}"#) + "\n"
+        };
+        let output = project.process(if mcp { &["mcp"] } else { &["scene", "serve"] }, &input);
+        assert!(output.status.success());
+        let replies = lines(&output);
+        let reply = replies.last().unwrap();
+        if mcp {
+            assert_eq!(reply["error"]["code"], -32700);
+        } else {
+            assert_eq!(reply["ok"], false);
+        }
+        assert_eq!(fs::read(project.scene()).unwrap(), before);
+    }
+}

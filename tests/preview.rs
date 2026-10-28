@@ -206,3 +206,71 @@ fn paused_playback_is_stable_and_room_generates_real_triangles() {
             .all(|n| n.is_finite())
     }));
 }
+
+#[test]
+fn shared_triangle_assets_render_pick_edit_materials_and_skip_zero_area() {
+    let asset: formora::mesh::MeshAsset =
+        serde_json::from_str(include_str!("fixtures/triangle-asset.json")).unwrap();
+    let mut scene = Scene::default();
+    scene.materials.insert(
+        "red".into(),
+        Material {
+            base_color: [1., 0., 0., 1.],
+            roughness: 0.5,
+            metallic: 0.,
+        },
+    );
+    scene.mesh_assets.insert("surface".into(), asset);
+    let mut a = mesh("A", [0., 0., 1.]);
+    a.content = EntityKind::Mesh {
+        geometry: Geometry::Asset {
+            id: "surface".into(),
+        },
+        material: None,
+    };
+    scene.entities.insert("a".into(), a.clone());
+    a.transform.translation = [4., 0., 2.];
+    a.transform.scale = [-2., 1., 1.];
+    scene.entities.insert("b".into(), a);
+    let vertices = math::vertices(&scene).unwrap();
+    assert_eq!(vertices.len(), 12); // Two real triangles per instance. Coincident IDs stay stored.
+    assert_eq!(vertices[0].color, [1., 0., 0., 1.]);
+    assert_eq!(vertices[3].color, [0.65, 0.68, 0.72, 1.]);
+    assert!(vertices.iter().all(|v| {
+        v.position
+            .iter()
+            .chain(v.normal.iter())
+            .all(|n| n.is_finite())
+    }));
+    let hit = math::pick(&scene, DVec3::new(1.5, 0.5, 10.), -DVec3::Z)
+        .unwrap()
+        .unwrap();
+    assert_eq!(hit.entity, "b");
+    assert!((hit.distance - 8.).abs() < 1e-6);
+    assert!(
+        math::pick(&scene, DVec3::new(10., 10., 10.), -DVec3::Z)
+            .unwrap()
+            .is_none()
+    );
+    let moved = scene
+        .simulated(&[Command::SetMeshVertices {
+            id: "surface".into(),
+            positions: std::collections::BTreeMap::from([("b".into(), [2., 0., 0.5])]),
+        }])
+        .unwrap();
+    let vertices = math::vertices(&moved).unwrap();
+    assert!(vertices.iter().any(|v| v.position == [2., 0., 1.5]));
+    assert!(vertices.iter().any(|v| v.position == [0., 0., 2.5]));
+    assert_eq!(moved.mesh_assets["surface"].vertices.len(), 5);
+    let mut collapsed = scene.clone();
+    collapsed
+        .entities
+        .values_mut()
+        .for_each(|e| e.transform.scale = [0.; 3]);
+    assert!(math::vertices(&collapsed).unwrap().is_empty());
+    assert!(
+        math::pick(&collapsed, DVec3::new(0., 0., 10.), -DVec3::Z)
+            .unwrap()
+            .is_none()
+    );
+}
