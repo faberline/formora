@@ -5,6 +5,9 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 
+mod rotational;
+pub use rotational::TorusMode;
+
 pub const DEFAULT_MAX_COMPONENTS: usize = 1_000_000;
 const MAX_DIMENSION: f64 = 999_999_995_904.;
 const MAX_DIVISIONS: u32 = 10_000_000;
@@ -25,6 +28,9 @@ fn circle_vertices() -> u32 {
 }
 fn enabled() -> bool {
     true
+}
+fn zero_rotation() -> [f64; 3] {
+    [0.; 3]
 }
 fn unit_scale() -> [f64; 3] {
     [1.; 3]
@@ -83,6 +89,88 @@ pub enum Primitive {
         #[serde(default = "enabled")]
         calc_uvs: bool,
     },
+    UvSphere {
+        #[serde(default = "radius")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        radius: f64,
+        #[serde(default = "circle_vertices")]
+        #[schemars(range(min = 3, max = 100000))]
+        segments: u32,
+        #[serde(default = "rotational::rings")]
+        #[schemars(range(min = 3, max = 100000))]
+        ring_count: u32,
+        #[serde(default = "enabled")]
+        calc_uvs: bool,
+        #[serde(default = "unit_scale")]
+        scale: [f64; 3],
+        #[serde(default = "zero_rotation")]
+        creation_rotation: [f64; 3],
+    },
+    Cylinder {
+        #[serde(default = "radius")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        radius: f64,
+        #[serde(default = "size")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        depth: f64,
+        #[serde(default = "circle_vertices")]
+        #[schemars(range(min = 3, max = MAX_DIVISIONS))]
+        vertices: u32,
+        #[serde(default = "rotational::cap_fill")]
+        end_fill_type: CircleFill,
+        #[serde(default = "enabled")]
+        calc_uvs: bool,
+        #[serde(default = "unit_scale")]
+        scale: [f64; 3],
+        #[serde(default = "zero_rotation")]
+        creation_rotation: [f64; 3],
+    },
+    Cone {
+        #[serde(default = "radius")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        radius1: f64,
+        #[serde(default)]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        radius2: f64,
+        #[serde(default = "size")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        depth: f64,
+        #[serde(default = "circle_vertices")]
+        #[schemars(range(min = 3, max = MAX_DIVISIONS))]
+        vertices: u32,
+        #[serde(default = "rotational::cap_fill")]
+        end_fill_type: CircleFill,
+        #[serde(default = "enabled")]
+        calc_uvs: bool,
+        #[serde(default = "unit_scale")]
+        scale: [f64; 3],
+        #[serde(default = "zero_rotation")]
+        creation_rotation: [f64; 3],
+    },
+    Torus {
+        #[serde(default = "rotational::major_segments")]
+        #[schemars(range(min = 3, max = 256))]
+        major_segments: u32,
+        #[serde(default = "rotational::minor_segments")]
+        #[schemars(range(min = 3, max = 256))]
+        minor_segments: u32,
+        #[serde(default)]
+        mode: TorusMode,
+        #[serde(default = "radius")]
+        #[schemars(range(min = 0., max = 10000.))]
+        major_radius: f64,
+        #[serde(default = "rotational::minor_radius")]
+        #[schemars(range(min = 0., max = 10000.))]
+        minor_radius: f64,
+        #[serde(default = "rotational::outer_radius")]
+        #[schemars(range(min = 0., max = 10000.))]
+        abso_major_rad: f64,
+        #[serde(default = "rotational::inner_radius")]
+        #[schemars(range(min = 0., max = 10000.))]
+        abso_minor_rad: f64,
+        #[serde(default = "enabled")]
+        generate_uvs: bool,
+    },
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
@@ -96,19 +184,27 @@ pub struct PrimitiveRecipe {
 impl Primitive {
     /// Vertex + edge + polygon + face-corner count. Checked before allocation.
     pub fn component_count(&self) -> Result<usize> {
-        if let Self::Cube { scale, .. } = self {
+        if let Self::Cube { scale, .. }
+        | Self::UvSphere { scale, .. }
+        | Self::Cylinder { scale, .. }
+        | Self::Cone { scale, .. } = self
+        {
             if scale
                 .iter()
                 .any(|n| !n.is_finite() || n.abs() > MAX_DIMENSION)
             {
                 return Err(SceneError(
-                    "cube scale must be finite and within the dimension range".into(),
+                    "primitive scale must be finite and within the dimension range".into(),
                 ));
             }
         }
         let dimension = match self {
             Self::Plane { size, .. } | Self::Cube { size, .. } | Self::Grid { size, .. } => *size,
             Self::Circle { radius, .. } => *radius,
+            Self::UvSphere { .. }
+            | Self::Cylinder { .. }
+            | Self::Cone { .. }
+            | Self::Torus { .. } => return rotational::component_count(self),
         };
         if !dimension.is_finite() || !(0. ..=MAX_DIMENSION).contains(&dimension) {
             return Err(SceneError(
@@ -117,6 +213,10 @@ impl Primitive {
         }
         let checked = || -> Option<usize> {
             Some(match self {
+                Self::UvSphere { .. }
+                | Self::Cylinder { .. }
+                | Self::Cone { .. }
+                | Self::Torus { .. } => unreachable!("rotational count returned above"),
                 Self::Plane { .. } => 13,
                 Self::Cube { .. } => 50,
                 Self::Circle {
@@ -171,10 +271,18 @@ impl Primitive {
             Self::Plane { calc_uvs, .. }
             | Self::Cube { calc_uvs, .. }
             | Self::Grid { calc_uvs, .. }
-            | Self::Circle { calc_uvs, .. } => *calc_uvs,
+            | Self::Circle { calc_uvs, .. }
+            | Self::UvSphere { calc_uvs, .. }
+            | Self::Cylinder { calc_uvs, .. }
+            | Self::Cone { calc_uvs, .. } => *calc_uvs,
+            Self::Torus { generate_uvs, .. } => *generate_uvs,
         };
         let mut builder = Builder::new(calc_uvs);
         match self {
+            Self::UvSphere { .. }
+            | Self::Cylinder { .. }
+            | Self::Cone { .. }
+            | Self::Torus { .. } => rotational::generate(self, &mut builder)?,
             Self::Plane { size, .. } => builder.grid(1, 1, *size as f32),
             Self::Grid {
                 size,

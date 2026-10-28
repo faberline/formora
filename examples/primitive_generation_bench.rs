@@ -1,4 +1,4 @@
-//! Fixed issue #34 procedural generation samples. Run with --release.
+//! Fixed issues #34 and #36 procedural generation samples. Run with --release.
 use formora::mesh::primitives::{DEFAULT_MAX_COMPONENTS, Primitive};
 use formora::scene::{Command, Scene};
 use formora::session::{ApplyRequest, Session};
@@ -16,6 +16,18 @@ fn main() {
     std::fs::create_dir(&root).unwrap();
     let mut runs = vec![];
     for (name, initial, changed) in [
+        (
+            "uv_sphere_128x64",
+            primitive(json!({"kind":"uv_sphere","segments":128,"ring_count":64})),
+            primitive(json!({"kind":"uv_sphere","segments":128,"ring_count":64,"radius":1.5})),
+        ),
+        (
+            "torus_128x64",
+            primitive(json!({"kind":"torus","major_segments":128,"minor_segments":64})),
+            primitive(
+                json!({"kind":"torus","major_segments":128,"minor_segments":64,"minor_radius":0.5}),
+            ),
+        ),
         (
             "grid_100x100",
             primitive(json!({"kind":"grid","x_subdivisions":100,"y_subdivisions":100})),
