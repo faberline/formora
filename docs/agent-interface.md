@@ -109,3 +109,7 @@ python3 tools/mcp_smoke.py target/debug/formora
 使用 `--features preview` 建置後，可用 `mcp --scene PATH --preview` 同時提供[原生成果視窗](preview.md)。
 視窗與 MCP 共用同一個 session。
 此介面的測試通過不能作為 milestone 0.1 的完整驗收。
+
+Shared triangle assets use the same tools. See [mesh assets](mesh-assets.md) for
+`set_mesh_asset`, `set_mesh_vertices`, `delete_mesh_asset`, and asset inspection.
+All wire JSON object keys must be unique. Ambiguous requests fail before any command runs.

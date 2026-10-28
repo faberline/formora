@@ -27,7 +27,7 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
 
 pub fn tools() -> Value {
     json!([
-        {"name":"scene_inspect","description":"Inspect the current scene or one entity. No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
+        {"name":"scene_inspect","description":"Inspect the current scene, one entity, or one mesh_asset. No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
         {"name":"scene_apply","description":"Apply one atomic command batch at expected_revision. Every command must leave a valid scene. Success is saved before returning. Query the scene first to obtain its revision.","inputSchema":schemars::schema_for!(ApplyRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}},
         {"name":"scene_undo","description":"Undo the last successful batch in this process. The restored scene is saved with a new revision. Undo history is not kept across process restarts.","inputSchema":schemars::schema_for!(UndoRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}}
     ])
@@ -62,7 +62,7 @@ pub fn native_serve(
     mut writer: impl Write,
 ) -> io::Result<()> {
     while let Some(bytes) = read_message(&mut reader)? {
-        let response = match serde_json::from_slice::<Value>(&bytes) {
+        let response = match crate::json::value_from_slice(&bytes) {
             Ok(request) => {
                 let id = request.get("id").cloned().unwrap_or(Value::Null);
                 let result = match (
@@ -239,7 +239,7 @@ fn mcp_loop(
     mut handle: impl FnMut(Value) -> Option<Value>,
 ) -> io::Result<()> {
     while let Some(bytes) = read_message(&mut reader)? {
-        let response = match serde_json::from_slice(&bytes) {
+        let response = match crate::json::value_from_slice(&bytes) {
             Ok(request) => handle(request),
             Err(error) => Some(rpc_error(Value::Null, -32700, error.to_string())),
         };

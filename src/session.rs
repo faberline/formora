@@ -22,6 +22,19 @@ pub struct UndoRequest {
 #[serde(deny_unknown_fields)]
 pub struct InspectRequest {
     pub entity: Option<String>,
+    pub mesh_asset: Option<String>,
+}
+
+impl InspectRequest {
+    /// The CLI can inspect a saved scene without taking the writer lock.
+    pub fn inspect(&self, scene: &Scene) -> Result<serde_json::Value> {
+        match (&self.entity, &self.mesh_asset) {
+            (Some(_), Some(_)) => Err(SceneError("inspect accepts either entity or mesh_asset".into())),
+            (Some(id), None) => scene.entities.get(id).map(|entity| serde_json::json!({"revision":scene.revision,"id":id,"entity":entity})).ok_or_else(|| SceneError(format!("unknown entity: {id}"))),
+            (None, Some(id)) => scene.mesh_assets.get(id).map(|asset| serde_json::json!({"revision":scene.revision,"id":id,"mesh_asset":asset})).ok_or_else(|| SceneError(format!("unknown mesh asset: {id}"))),
+            (None, None) => Ok(serde_json::json!({"revision":scene.revision,"scene":scene})),
+        }
+    }
 }
 
 pub struct Session {
@@ -102,10 +115,7 @@ impl Session {
     }
 
     pub fn inspect(&self, request: InspectRequest) -> Result<serde_json::Value> {
-        match request.entity {
-            Some(id) => self.scene().entities.get(&id).map(|entity| serde_json::json!({"revision":self.scene().revision,"id":id,"entity":entity})).ok_or_else(|| SceneError(format!("unknown entity: {id}"))),
-            None => Ok(serde_json::json!({"revision":self.scene().revision,"scene":self.scene()})),
-        }
+        request.inspect(self.scene())
     }
 
     pub fn apply(&mut self, request: ApplyRequest) -> Result<u64> {

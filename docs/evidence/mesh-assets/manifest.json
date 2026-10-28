@@ -1,0 +1,61 @@
+{
+  "scope": "issue #30 triangle asset CLI, shared editing, native GPU rendering and process reload",
+  "full_product_acceptance": false,
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "binary_sha256": "989eb57b6fbf81ae336b2334b3627823f6c9d97ce777bcc4041e81d4162433af",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "93f2d6f29e839ef217ce38ba67b757c1949479563d6cf73f5ee5c5a9b6488af9",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "704c00593d80240bbe48caccedbe3e6db850bc0ab037bb0768ae08add43d1904",
+    "src/mesh.rs": "fea8ccec2995da466f9b4f9bc287d2dc89ac06ebc79aefcdb4a5284073f9e543",
+    "src/preview/math.rs": "d5df4e23afb7dddf916036b974121bd608f6351be4d6fd9b1121454e19fd2ae8",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "a8bd3d23f23ff946f01b65b30bf0a6c862741d9483f2a80d411941a351623a1a",
+    "src/session.rs": "76f6f82a44fc240c00a7df095f454ab3a824299258b336b43e9665e9ad3e692d"
+  },
+  "capture_inputs_sha256": {
+    "tools/mesh_asset_evidence.py": "61d78358cc0170f9ee7e1c588afecb2c90f4ca9064019ddb0df66ad9e2de365a",
+    "tests/fixtures/triangle-asset.json": "6a2efad7ec17330bab51ba10c05f4cc773b329aef5c6b92e353570cfaff0088c",
+    "docs/contracts/mesh-assets.md": "9c9029d28f4e2be9d4fa9c55998e09842f4988bd92a8575c5e0b0c13c77e0d51"
+  },
+  "renders": {
+    "before": {
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "height": 600,
+      "output": "/private/tmp/formora-mesh-assets-native-final2-01a18342/before.png",
+      "width": 960
+    },
+    "after_edit": {
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "height": 600,
+      "output": "/private/tmp/formora-mesh-assets-native-final2-01a18342/after-edit.png",
+      "width": 960
+    },
+    "reopened": {
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "height": 600,
+      "output": "/private/tmp/formora-mesh-assets-native-final2-01a18342/reopened.png",
+      "width": 960
+    }
+  },
+  "edit_visible": true,
+  "reopened_png_identical": true,
+  "artifacts": {
+    "scene.json": "641fba908a0551c28c5c07fac23819840af201a381b89d34471c0532e03d11b7",
+    "before.png": "f6ccc37add43a186ac9e70924c745f4ecd817d32868e0e7ceffed6219e5c79be",
+    "after-edit.png": "8f7a5ee3b8f486e8e361ef1e078a770168667ca34f1fa2d512d8267f708dc5dd",
+    "reopened.png": "8f7a5ee3b8f486e8e361ef1e078a770168667ca34f1fa2d512d8267f708dc5dd"
+  },
+  "limits": [
+    "Triangle assets only. Polygon modeling remains unrun.",
+    "UV values are stored; textured drawing is not implemented.",
+    "Native window input, Windows GPU and Linux GPU are unrun for this candidate."
+  ]
+}
