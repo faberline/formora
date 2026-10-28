@@ -1,4 +1,5 @@
 //! Versioned scene data and transactional authoring commands.
+use schemars::JsonSchema;
 use serde::{Deserialize, Deserializer, Serialize, de};
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt;
@@ -25,7 +26,7 @@ fn fail<T>(message: impl Into<String>) -> Result<T> {
     Err(SceneError(message.into()))
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct Transform {
     pub translation: [f64; 3],
@@ -44,14 +45,14 @@ impl Default for Transform {
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Geometry {
     Cube { size: [f64; 3] },
     Plane { size: [f64; 2] },
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum EntityKind {
     Empty,
@@ -70,7 +71,7 @@ pub enum EntityKind {
     },
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct Entity {
     pub name: String,
@@ -79,7 +80,7 @@ pub struct Entity {
     pub content: EntityKind,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct Material {
     pub base_color: [f64; 4],
@@ -98,7 +99,7 @@ pub struct Door {
     pub target_open: bool,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct Annotation {
     pub entity: Option<String>,
@@ -370,7 +371,7 @@ impl Scene {
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
     CreateEntity {
@@ -514,7 +515,7 @@ impl Command {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Editor {
     scene: Scene,
     undo: Vec<Scene>,

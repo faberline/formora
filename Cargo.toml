@@ -7,6 +7,8 @@ publish = false
 description = "Agent-operated 3D creation and runtime"
 
 [dependencies]
+fs2 = "0.4"
+schemars = "1.2"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["float_roundtrip"] }
 sha2 = "0.10"

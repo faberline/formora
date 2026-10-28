@@ -7,6 +7,9 @@ The [GitHub milestones](https://github.com/faberline/formora/milestones) define 
 The current work is the [source-backed acceptance baseline](docs/baseline.md).
 No product milestone has passed acceptance yet.
 
+The [scene core](docs/scene.md) and [agent interfaces](docs/agent-interface.md) provide
+headless authoring and a room-and-door example. A visual preview is not available yet.
+
 ```sh
 cargo test --locked
 cargo run --locked -- baseline check --root . --strict
