@@ -59,6 +59,8 @@ fn vertex_mode() -> BTreeSet<Domain> {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct Editing {
+    #[serde(default = "enabled", skip_serializing_if = "is_enabled")]
+    pub preview: bool,
     #[serde(default = "vertex_mode", deserialize_with = "unique_set")]
     pub mode: BTreeSet<Domain>,
     #[serde(default)]
@@ -72,6 +74,7 @@ pub struct Editing {
 impl Default for Editing {
     fn default() -> Self {
         Self {
+            preview: true,
             mode: vertex_mode(),
             selected: Elements::default(),
             hidden: Elements::default(),
@@ -121,6 +124,9 @@ impl CountComparison {
 }
 fn enabled() -> bool {
     true
+}
+fn is_enabled(value: &bool) -> bool {
+    *value
 }
 fn four() -> u32 {
     4
@@ -273,6 +279,7 @@ pub fn apply(asset: &mut MeshAsset, selector: &Selector) -> Result<Outcome> {
     let outcome = graph.apply(asset, &mut editing, selector)?;
     graph.validate(&editing)?;
     if outcome == Outcome::Completed {
+        editing.preview = true;
         asset.editing = Some(editing);
     }
     Ok(outcome)

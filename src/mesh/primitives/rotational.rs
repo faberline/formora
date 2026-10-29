@@ -171,7 +171,7 @@ impl Builder {
     }
 }
 
-fn polygon_normal(points: &[[f64; 3]], single: bool) -> [f64; 3] {
+pub(super) fn polygon_normal(points: &[[f64; 3]], single: bool) -> [f64; 3] {
     let mut n = [0.; 3];
     for i in 0..points.len() {
         let a = points[(i + points.len() - 1) % points.len()];

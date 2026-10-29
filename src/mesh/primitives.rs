@@ -204,9 +204,47 @@ pub struct PrimitiveRecipe {
     pub primitive: Primitive,
     pub max_components: usize,
     pub edited: bool,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub creation_frame: Option<super::creation::CreationFrame>,
 }
 
 impl Primitive {
+    pub(crate) fn neutralize_frame(&mut self) -> Result<[f32; 3]> {
+        self.component_count()?;
+        let mut scale = [1.; 3];
+        if let Self::Cube { scale: value, .. }
+        | Self::UvSphere { scale: value, .. }
+        | Self::IcoSphere { scale: value, .. }
+        | Self::Cylinder { scale: value, .. }
+        | Self::Cone { scale: value, .. } = self
+        {
+            scale = value.map(|v| v as f32);
+            *value = [1.; 3];
+        }
+        if let Self::UvSphere {
+            creation_rotation, ..
+        }
+        | Self::IcoSphere {
+            creation_rotation, ..
+        }
+        | Self::Cylinder {
+            creation_rotation, ..
+        }
+        | Self::Cone {
+            creation_rotation, ..
+        }
+        | Self::Monkey {
+            creation_rotation, ..
+        } = self
+        {
+            if *creation_rotation != [0.; 3] {
+                return Err(SceneError(
+                    "creation_rotation is managed by the object placement frame".into(),
+                ));
+            }
+        }
+        Ok(scale)
+    }
     /// Vertex + edge + polygon + face-corner count. Checked before allocation.
     pub fn component_count(&self) -> Result<usize> {
         if let Self::Cube { scale, .. }
@@ -438,9 +476,25 @@ impl Primitive {
             primitive: self.clone(),
             max_components,
             edited: false,
+            creation_frame: None,
         });
         builder.asset.validate()?;
         Ok(builder.asset)
+    }
+}
+
+pub(crate) fn recompute_normals(asset: &mut MeshAsset) {
+    for polygon in asset.polygons.values_mut() {
+        let points: Vec<_> = polygon
+            .vertices
+            .iter()
+            .map(|id| asset.vertices[id])
+            .collect();
+        polygon.normal = Some(rotational::polygon_normal(&points, false));
+        polygon.corner_normals = Some(vec![
+            rotational::polygon_normal(&points, true);
+            points.len()
+        ]);
     }
 }
 

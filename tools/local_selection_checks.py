@@ -11,7 +11,7 @@ import subprocess
 import time
 
 
-def main(expected_rust_tests=101, expected_python_tests=47, extra_examples=()):
+def main(expected_rust_tests=101, expected_python_tests=47, extra_examples=(), extra_source_directories=()):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('toolchain_bin',type=Path);parser.add_argument('target',type=Path);parser.add_argument('output',type=Path)
     args=parser.parse_args();toolchain=args.toolchain_bin.resolve();target=args.target.resolve();output=args.output.resolve()
@@ -28,7 +28,7 @@ def main(expected_rust_tests=101, expected_python_tests=47, extra_examples=()):
     assert versions['rustfmt'].startswith('rustfmt 1.8.0-stable '),versions
     def input_files():
         return [root/'Cargo.toml',root/'Cargo.lock',root/'.gitattributes',root/'.github/workflows/contracts.yml',
-                *[p for directory in ['src','tests','examples','tools','docs/contracts','docs/evidence/remaining-primitives/source']
+                *[p for directory in ['src','tests','examples','tools','docs/contracts','docs/evidence/remaining-primitives/source',*extra_source_directories]
                   for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']]
     files=input_files()
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()

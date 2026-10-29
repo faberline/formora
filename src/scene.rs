@@ -138,6 +138,8 @@ pub struct Scene {
     pub doors: BTreeMap<String, Door>,
     pub active_camera: Option<String>,
     pub annotations: Vec<Annotation>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub authoring_context: Option<crate::mesh::creation::AuthoringContext>,
 }
 
 impl Default for Scene {
@@ -152,6 +154,7 @@ impl Default for Scene {
             doors: BTreeMap::new(),
             active_camera: None,
             annotations: Vec::new(),
+            authoring_context: None,
         }
     }
 }
@@ -243,6 +246,9 @@ impl Scene {
     }
 
     pub fn validate(&self) -> Result<()> {
+        if let Some(context) = &self.authoring_context {
+            context.validate()?;
+        }
         if self.schema_version != 1 {
             return fail("unsupported scene schema version");
         }
@@ -440,6 +446,15 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    SetAuthoringContext {
+        context: Option<crate::mesh::creation::AuthoringContext>,
+    },
+    CreateMeshObject {
+        creation: Box<crate::mesh::creation::ObjectCreation>,
+    },
+    AppendMeshPrimitive {
+        creation: Box<crate::mesh::creation::MeshInsertion>,
+    },
     SetMeshEditing {
         id: String,
         editing: Option<crate::mesh::selection::Editing>,
@@ -512,9 +527,25 @@ pub enum Command {
     },
 }
 
+enum CommandEffect {
+    None,
+    Selection(crate::mesh::selection::Outcome),
+    Creation(Box<crate::mesh::creation::CreationReceipt>),
+}
 impl Command {
-    fn apply(&self, scene: &mut Scene) -> Result<Option<crate::mesh::selection::Outcome>> {
+    fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::SetAuthoringContext { context } => scene.authoring_context = context.clone(),
+            Self::CreateMeshObject { creation } => {
+                return Ok(CommandEffect::Creation(Box::new(
+                    crate::mesh::creation::create(scene, creation)?,
+                )));
+            }
+            Self::AppendMeshPrimitive { creation } => {
+                return Ok(CommandEffect::Creation(Box::new(
+                    crate::mesh::creation::append(scene, creation)?,
+                )));
+            }
             Self::SetMeshEditing { id, editing } => {
                 let asset = scene
                     .mesh_assets
@@ -527,7 +558,9 @@ impl Command {
                     .mesh_assets
                     .get_mut(id)
                     .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
-                return Ok(Some(crate::mesh::selection::apply(asset, selector)?));
+                return Ok(CommandEffect::Selection(crate::mesh::selection::apply(
+                    asset, selector,
+                )?));
             }
             Self::CreateMeshPrimitive {
                 id,
@@ -565,7 +598,12 @@ impl Command {
                 let budget = max_components
                     .or(recipe.map(|r| r.max_components))
                     .unwrap_or(crate::mesh::primitives::DEFAULT_MAX_COMPONENTS);
-                let generated = primitive.generate(budget)?;
+                let generated = if let Some(frame) = recipe.and_then(|r| r.creation_frame.as_ref())
+                {
+                    frame.generate(primitive, budget)?
+                } else {
+                    primitive.generate(budget)?
+                };
                 scene.mesh_assets.insert(id.clone(), generated);
             }
             Self::SetMeshAsset { id, asset } => {
@@ -693,7 +731,7 @@ impl Command {
             }
             Self::Annotate { annotation } => scene.annotations.push(annotation.clone()),
         }
-        Ok(None)
+        Ok(CommandEffect::None)
     }
 }
 
@@ -706,6 +744,7 @@ pub struct Editor {
 pub struct EditResult {
     pub revision: u64,
     pub selection: Vec<crate::mesh::selection::CommandOutcome>,
+    pub creation: Vec<crate::mesh::creation::CreationReceipt>,
 }
 
 impl Editor {
@@ -745,16 +784,24 @@ impl Editor {
         let revision = self.next_revision(expected_revision)?;
         let mut candidate = self.scene.clone();
         let mut selection = Vec::new();
+        let mut creation = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
-            if let Some(outcome) = command.apply(&mut candidate)? {
-                let Command::SelectMesh { id, .. } = command else {
-                    unreachable!("only selectors return an outcome")
-                };
-                selection.push(crate::mesh::selection::CommandOutcome {
-                    command_index,
-                    mesh_asset: id.clone(),
-                    outcome,
-                });
+            match command.apply(&mut candidate)? {
+                CommandEffect::Selection(outcome) => {
+                    let Command::SelectMesh { id, .. } = command else {
+                        unreachable!("only selectors return an outcome")
+                    };
+                    selection.push(crate::mesh::selection::CommandOutcome {
+                        command_index,
+                        mesh_asset: id.clone(),
+                        outcome,
+                    });
+                }
+                CommandEffect::Creation(mut receipt) => {
+                    receipt.command_index = command_index;
+                    creation.push(*receipt);
+                }
+                CommandEffect::None => {}
             }
             candidate.validate()?;
         }
@@ -764,6 +811,7 @@ impl Editor {
         Ok(EditResult {
             revision,
             selection,
+            creation,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {
