@@ -30,6 +30,9 @@ Individual centres use selected connected edge/face islands. Isolated selected
 vertices use their own position. Centres and arithmetic follow the pinned source.
 Optional `center_override` supplies an authored world point for the global pivot.
 Individual element centres still apply when the pivot mode is `individual`.
+The source operator disables individual and active pivot setup when its centre
+is explicitly overridden. Its adapter must request native `bounds` with that
+authored point. This mapping keeps the native and source semantics explicit.
 
 `constraint_axis` is a three-boolean mask. All false means unconstrained.
 Translation masks displacement components in the working basis. Resize leaves
