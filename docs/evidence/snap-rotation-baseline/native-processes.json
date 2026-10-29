@@ -1,0 +1,21 @@
+{
+  "runs": [
+    {
+      "capture": "baseline/reference/blender-5.2.3/snap-rotation",
+      "process_id": 45292,
+      "tool_session_id": 52146,
+      "terminal_exit_code": 0,
+      "manifest_sha256": "738e6d005f32f2b7ac8e0a5a6f1b2dde01f7cc96a45b580a8d0d0b3d0d8edd26",
+      "capture_lock_sha256": "449150696b4288d5f37b4e1860120e75a786ce1d840b856c99418a1ada1301e3"
+    },
+    {
+      "capture": "baseline/reference/blender-5.2.3/snap-rotation-repeat",
+      "process_id": 47244,
+      "tool_session_id": 90845,
+      "terminal_exit_code": 0,
+      "manifest_sha256": "b969b0730871cb7a65efa041154e763d319b627d235da04296d25b766758a4c4",
+      "capture_lock_sha256": "449150696b4288d5f37b4e1860120e75a786ce1d840b856c99418a1ada1301e3"
+    }
+  ],
+  "product_acceptance": "unrun"
+}

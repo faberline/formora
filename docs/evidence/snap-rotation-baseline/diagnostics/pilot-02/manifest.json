@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "process_id": 45059,
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "scope": "focused_diagnostic",
+  "captured_utc": "2026-10-29T20:28:39.462834+00:00",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "tools/blender_snap_rotation_reference.py",
+    "--",
+    "--suite",
+    "baseline/fixtures/snap-rotation.json",
+    "--output",
+    "/private/tmp/formora-snap-rotation-pilot-02",
+    "--case",
+    "rotation_snap_0000",
+    "--case",
+    "rotation_snap_0771",
+    "--case",
+    "rotation_snap_1020",
+    "--case",
+    "rotation_snap_1023",
+    "--case",
+    "rotation_snap_1028",
+    "--case",
+    "rotation_snap_1895",
+    "--case",
+    "rotation_snap_2031",
+    "--case",
+    "rotation_snap_2048",
+    "--case",
+    "rotation_snap_2320",
+    "--case",
+    "rotation_snap_2368",
+    "--case",
+    "rotation_snap_2464",
+    "--case",
+    "rotation_snap_2495"
+  ],
+  "background": false,
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-rotation.json": "a16a20c7bd68f0f067900e776731ca3c48f492ca9d71f6a2654b3951174f4d82",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py": "d5db093f0c3f50786dd2ec3288194ad6df13aec91bfcd9f8af082edca91ec641",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "/Users/chrischeng/faberlines/formora/tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/snap-rotation-baseline.md": "5e7d3fc2ed6779a0f08bcddff361c8c376ac66d9afbe809171d70d694fdc9d66",
+    "/Users/chrischeng/faberlines/formora/baseline/lock.json": "449150696b4288d5f37b4e1860120e75a786ce1d840b856c99418a1ada1301e3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5"
+  },
+  "operator_properties_sha256": "6161e3217ddcbc78d021dd0484da0b33bb8cae0883a4b02edaa3092e51fc74b6",
+  "runs": [
+    {
+      "id": "rotation_snap_0000",
+      "file": "rotation_snap_0000.json.gz",
+      "sha256": "c20aab0464791b6cf7cfa3e5bdc89901a0b687065b5f00af7fe2ba95d8e11da9",
+      "raw_sha256": "119d44ea6b5f4b818f6d53cb4414f5f8c4153d7018439eb11053923bd57f51e6",
+      "raw_bytes": 139732,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_0771",
+      "file": "rotation_snap_0771.json.gz",
+      "sha256": "a45e4cf4055792f1c5a20d4a9d22362bdc0b00134f701084fbeaf7d8cc17fdfe",
+      "raw_sha256": "af336ebba1e298ad4176be6dfd2630dcc55392f023ad36069223c7894f310b70",
+      "raw_bytes": 139519,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_1020",
+      "file": "rotation_snap_1020.json.gz",
+      "sha256": "60e07d2adf972c1f5897948960e1a595e4bef0c0c50c8da7192b5bb59826de2e",
+      "raw_sha256": "77320ac8e43b9f6e53d55d2b6819228e62970488a44f57809ac7986e7d3bc130",
+      "raw_bytes": 148042,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_1023",
+      "file": "rotation_snap_1023.json.gz",
+      "sha256": "78108c8f6581cbd56c087c29fc86a753795f2dfc53dcc674ac9dd0e46b4c3a1f",
+      "raw_sha256": "7c544d87a9ee819fbd8b7204fa6f690da978bfb3dea7eb6dd4df35c7cbd8b192",
+      "raw_bytes": 148225,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_1028",
+      "file": "rotation_snap_1028.json.gz",
+      "sha256": "0c0a5134c92133d5a931bce5cd953d722048959a7e027b24b312ace1eb69ca93",
+      "raw_sha256": "5ae790b6a9bd45e9195266b7b95a4a37de3ec15cf948d4f8b11ab10b6f06c303",
+      "raw_bytes": 147561,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_1895",
+      "file": "rotation_snap_1895.json.gz",
+      "sha256": "9b030e699db6144d0f80a33d9acaaec1d4bc58ac309e0973ff90b23fdc8d2928",
+      "raw_sha256": "56fdba053f7a813f4a8c7a0e1fe22f7c1880fe23c47eb252497c3bbc15b3bfdc",
+      "raw_bytes": 147602,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_2031",
+      "file": "rotation_snap_2031.json.gz",
+      "sha256": "9a324d2bdadfaf445f9d1d069eef8237abb2f2192415475942bd6be8b4b882c9",
+      "raw_sha256": "2aca9003afc955b02ac7d78591622d148bc14e40c7ca40128672bd21fd40f74a",
+      "raw_bytes": 148184,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_2048",
+      "file": "rotation_snap_2048.json.gz",
+      "sha256": "e471d3c5c29f1dcb1f088789f6b6fc4bf6aebe63ce3a849a3683f9ab510dd62e",
+      "raw_sha256": "8ed9e1f8cecf6faeb714ab96c030575af9de95ba6beb97b028a8219c1611e348",
+      "raw_bytes": 135926,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_2320",
+      "file": "rotation_snap_2320.json.gz",
+      "sha256": "77eb8147d4a20eb8fe79a40be4d4199f6f9b359b039687081f4724eceb076b51",
+      "raw_sha256": "02c131ccfee1813320fc32c650476cd864edb8807405cbabc1efdd7f23e0b0cd",
+      "raw_bytes": 137767,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_2368",
+      "file": "rotation_snap_2368.json.gz",
+      "sha256": "75e0e650dce21faa84aa61f357ed2e05857bf655eb23cd32e231fc197716451b",
+      "raw_sha256": "365c92112c5a01f3ddf1ffb676403c82773bebe6d17fdfba902a79bbe1388a8b",
+      "raw_bytes": 139632,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_2464",
+      "file": "rotation_snap_2464.json.gz",
+      "sha256": "8fa9453d752b69356541055eb040a326a3ed584a3aefad6315dea60dbc782994",
+      "raw_sha256": "eaf33c6981ff5b4fad74eaae758cde9fb52fb55c6cf54ad7d7e3d916ebf6734e",
+      "raw_bytes": 149122,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "rotation_snap_2495",
+      "file": "rotation_snap_2495.json.gz",
+      "sha256": "a278a9965e0470619da4b4e38ef203aa8ce67b746c3d44f04b7cec898aff46c7",
+      "raw_sha256": "d24e98bf42310ff341c4d94cf081068dcab7c9bd16e63cec62d24fc57650bac8",
+      "raw_bytes": 149221,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}
