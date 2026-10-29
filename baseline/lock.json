@@ -18805,6 +18805,16 @@
       "path": "baseline/sources/mesh-transform-core/manifest.json",
       "url": "https://github.com/blender/blender/tree/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender",
       "sha256": "c6418c2869c057ab1f0ea38618a73a7d6f9af43a0374fa5ac7c15c3fd13c8017"
+    },
+    {
+      "path": "baseline/sources/mesh-connected-transform/math_geom.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_geom.cc",
+      "sha256": "da6e0d25220eca1385341f38ef9d844e27a72f00740ed1bb6eab501fbabeee39"
+    },
+    {
+      "path": "baseline/sources/mesh-connected-transform/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_geom.cc",
+      "sha256": "0621d647dccb4728ccd690c788c6de84a7730ab7535b6d5a0f31a00aeba4f316"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
