@@ -1,0 +1,124 @@
+[
+  {
+    "name": "full",
+    "command": [
+      "python3",
+      "tools/transform_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-full"
+    ],
+    "exit_code": 1,
+    "start_ns": 113438508014416,
+    "end_ns": 113673237176958
+  },
+  {
+    "name": "normal",
+    "command": [
+      "python3",
+      "tools/normal_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-normal"
+    ],
+    "exit_code": 0,
+    "start_ns": 113673237614166,
+    "end_ns": 113676583022500
+  },
+  {
+    "name": "primitives",
+    "command": [
+      "python3",
+      "tools/primitive_reference_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-primitives"
+    ],
+    "exit_code": 0,
+    "start_ns": 113676583389375,
+    "end_ns": 113710353237250
+  },
+  {
+    "name": "scale",
+    "command": [
+      "python3",
+      "tools/remaining_scale_regression.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-scale"
+    ],
+    "exit_code": 0,
+    "start_ns": 113710353599625,
+    "end_ns": 113713663317833
+  },
+  {
+    "name": "selection",
+    "command": [
+      "python3",
+      "tools/selection_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-selection"
+    ],
+    "exit_code": 0,
+    "start_ns": 113713663706375,
+    "end_ns": 113867576377208
+  },
+  {
+    "name": "creation",
+    "command": [
+      "python3",
+      "tools/creation_context_runtime.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-creation"
+    ],
+    "exit_code": 0,
+    "start_ns": 113867577579833,
+    "end_ns": 113999459534500
+  },
+  {
+    "name": "polygon",
+    "command": [
+      "python3",
+      "tools/polygon_reference_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-random-polygon"
+    ],
+    "exit_code": 0,
+    "start_ns": 113999461805666,
+    "end_ns": 114008848215125
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "python3",
+      "tools/mcp_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora"
+    ],
+    "exit_code": 0,
+    "start_ns": 114008848669166,
+    "end_ns": 114009650025625
+  },
+  {
+    "name": "baseline",
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      "/Users/chrischeng/faberlines/formora"
+    ],
+    "exit_code": 0,
+    "start_ns": 114009650446583,
+    "end_ns": 114014179401958
+  },
+  {
+    "name": "strict",
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      "/Users/chrischeng/faberlines/formora",
+      "--strict"
+    ],
+    "exit_code": 2,
+    "start_ns": 114014179830833,
+    "end_ns": 114018652757250
+  }
+]

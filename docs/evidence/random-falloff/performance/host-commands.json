@@ -1,0 +1,18 @@
+[
+  {
+    "name": "cpu",
+    "command": [
+      "/usr/sbin/sysctl",
+      "-n",
+      "machdep.cpu.brand_string"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "os",
+    "command": [
+      "/usr/bin/sw_vers"
+    ],
+    "exit_code": 0
+  }
+]
