@@ -18850,6 +18850,16 @@
       "path": "baseline/sources/mesh-normal-orientation/math_geom_inline.cc",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_geom_inline.cc",
       "sha256": "701ac300fd0089d163900346afe24cadba4087dd04ed0fabef34430fe3040728"
+    },
+    {
+      "path": "baseline/sources/mesh-gimbal-transform/math_rotation_c.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_rotation_c.cc",
+      "sha256": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260"
+    },
+    {
+      "path": "baseline/sources/mesh-gimbal-transform/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_rotation_c.cc",
+      "sha256": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
