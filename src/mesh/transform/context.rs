@@ -14,6 +14,9 @@ pub(super) struct Context {
     pub positions: Vec<Vector>,
     pub selected: Vec<bool>,
     pub visible: Vec<bool>,
+    pub edge_visible: Vec<bool>,
+    pub face_visible: Vec<bool>,
+    pub island_member: Vec<bool>,
     pub object: Matrix,
     pub inverse: Matrix,
     pub basis: Matrix,
@@ -138,6 +141,22 @@ impl Context {
             .zip(&visible)
             .map(|(id, visible)| *visible && editing.selected.vertices.contains(id))
             .collect();
+        let edge_visible: Vec<_> = graph
+            .edges
+            .iter()
+            .map(|e| {
+                !editing.hidden.edges.contains(&e.id) && e.vertices.iter().all(|v| visible[*v])
+            })
+            .collect();
+        let face_visible: Vec<_> = graph
+            .faces
+            .iter()
+            .map(|f| {
+                !editing.hidden.faces.contains(&f.key)
+                    && f.vertices.iter().all(|v| visible[*v])
+                    && f.edges.iter().all(|e| edge_visible[*e])
+            })
+            .collect();
         if !selected.iter().any(|v| *v) {
             return Err(SceneError(
                 "mesh transform has no visible selected vertices".into(),
@@ -186,6 +205,7 @@ impl Context {
         };
         let basis_inverse = math::inverse(basis)?;
         let mut local_islands = positions.clone();
+        let mut island_member = vec![false; positions.len()];
         if request.pivot == Pivot::Individual {
             let mut parent: Vec<_> = (0..positions.len()).collect();
             let edge_mode =
@@ -240,6 +260,12 @@ impl Context {
             for (i, island) in local_islands.iter_mut().enumerate() {
                 if let Some(centre) = groups.get(&root(&mut parent, i)) {
                     *island = *centre;
+                    island_member[i] = true;
+                } else if selected[i]
+                    && editing.mode.contains(&Domain::Vertex)
+                    && request.proportional.as_ref().is_some_and(|p| p.connected)
+                {
+                    island_member[i] = true;
                 }
             }
         }
@@ -334,6 +360,9 @@ impl Context {
             positions,
             selected,
             visible,
+            edge_visible,
+            face_visible,
+            island_member,
             object,
             inverse,
             basis,

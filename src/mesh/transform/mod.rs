@@ -7,6 +7,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 mod context;
+mod geodesic;
 mod influence;
 
 type Vector = [f32; 3];
@@ -265,6 +266,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     let mut centres = BTreeMap::new();
     let mut weights = BTreeMap::new();
     for (index, weight) in influence
+        .weights
         .iter()
         .copied()
         .enumerate()
@@ -272,7 +274,18 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     {
         let id = &context.graph.vertex_ids[index];
         let original = context.positions[index];
-        let centre = context.centres[index];
+        let centre = if request.pivot == Pivot::Individual {
+            influence
+                .origins
+                .as_ref()
+                .and_then(|origins| {
+                    let origin = origins[index];
+                    context.island_member[origin].then_some(context.centres[origin])
+                })
+                .unwrap_or(context.centres[index])
+        } else {
+            context.centres[index]
+        };
         centres.insert(id.clone(), centre.map(f64::from));
         weights.insert(id.clone(), f64::from(weight));
         let position = match request.change {

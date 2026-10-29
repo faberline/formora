@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2001-2002 NaN Holding BV. All rights reserved.
 // SPDX-License-Identifier: GPL-2.0-or-later
-use super::{Falloff, Request, Vector, context::Context, dot, finite, sub};
+use super::{Falloff, Request, Vector, context::Context, dot, finite, geodesic, sub};
 use crate::scene::{Result, SceneError};
 
 // A balanced point tree bounds sparse-selection nearest-distance work.
@@ -59,23 +59,25 @@ fn next_random(state: &mut u64) -> f32 {
     z = (z ^ (z >> 27)).wrapping_mul(0x94d049bb133111eb);
     (((z ^ (z >> 31)) >> 40) as u32) as f32 / 16_777_216.
 }
-pub(super) fn calculate(context: &Context, request: &Request) -> Result<Vec<f32>> {
+pub(super) struct Influence {
+    pub weights: Vec<f32>,
+    pub origins: Option<Vec<usize>>,
+}
+pub(super) fn calculate(context: &Context, request: &Request) -> Result<Influence> {
     let Some(p) = &request.proportional else {
-        return Ok(context
-            .selected
-            .iter()
-            .map(|s| if *s { 1. } else { 0. })
-            .collect());
+        return Ok(Influence {
+            weights: context
+                .selected
+                .iter()
+                .map(|s| if *s { 1. } else { 0. })
+                .collect(),
+            origins: None,
+        });
     };
     finite(&[p.radius])?;
     if p.radius <= 0. || p.radius as f32 == 0. {
         return Err(SceneError(
             "mesh transform proportional radius must be positive".into(),
-        ));
-    }
-    if p.connected {
-        return Err(SceneError(
-            "mesh transform connected proportional editing is not implemented yet".into(),
         ));
     }
     if p.falloff == Falloff::Random && p.seed.is_none() {
@@ -96,21 +98,27 @@ pub(super) fn calculate(context: &Context, request: &Request) -> Result<Vec<f32>
             point
         }
     };
-    let mut points: Vec<_> = context
-        .world_positions
-        .iter()
-        .zip(&context.selected)
-        .filter(|(_, s)| **s)
-        .map(|(p, _)| project(*p))
-        .collect();
-    let tree = Tree::build(&mut points, 0).expect("selected points");
+    let surface = if p.connected {
+        Some(geodesic::calculate(
+            context,
+            request.max_components.saturating_mul(64),
+        )?)
+    } else {
+        None
+    };
+    let tree = if surface.is_none() {
+        let mut points: Vec<_> = context
+            .world_positions
+            .iter()
+            .zip(&context.selected)
+            .filter(|(_, s)| **s)
+            .map(|(p, _)| project(*p))
+            .collect();
+        Tree::build(&mut points, 0)
+    } else {
+        None
+    };
     let radius = p.radius as f32;
-    let radius_squared = radius * radius;
-    if !radius_squared.is_finite() {
-        return Err(SceneError(
-            "mesh transform proportional distance exceeded finite f32 range".into(),
-        ));
-    }
     let mut state = p.seed.unwrap_or(0);
     let mut result = vec![0.; context.positions.len()];
     for (i, value) in result.iter_mut().enumerate() {
@@ -121,18 +129,27 @@ pub(super) fn calculate(context: &Context, request: &Request) -> Result<Vec<f32>
             *value = 1.;
             continue;
         }
-        // Start at infinity so outside-radius points cannot be mistaken for the boundary.
-        let mut distance = f32::INFINITY;
-        tree.nearest(project(context.world_positions[i]), &mut distance);
+        let distance = if let Some(surface) = &surface {
+            if surface.values[i] == f32::MAX {
+                continue;
+            }
+            surface.values[i]
+        } else {
+            let mut squared = f32::INFINITY;
+            tree.as_ref()
+                .expect("selected point tree")
+                .nearest(project(context.world_positions[i]), &mut squared);
+            squared.sqrt()
+        };
         if !distance.is_finite() {
             return Err(SceneError(
                 "mesh transform proportional distance exceeded finite f32 range".into(),
             ));
         }
-        if distance > radius_squared {
+        if distance > radius {
             continue;
         }
-        let ratio = ((radius - distance.sqrt()) / radius).max(0.);
+        let ratio = ((radius - distance) / radius).max(0.);
         *value = match p.falloff {
             Falloff::Smooth => (3. * ratio * ratio - 2. * ratio * ratio * ratio).min(1.),
             Falloff::Sphere => (2. * ratio - ratio * ratio).sqrt(),
@@ -144,5 +161,8 @@ pub(super) fn calculate(context: &Context, request: &Request) -> Result<Vec<f32>
             Falloff::InverseSquare => ratio * (2. - ratio),
         };
     }
-    Ok(result)
+    Ok(Influence {
+        weights: result,
+        origins: surface.map(|s| s.origins),
+    })
 }
