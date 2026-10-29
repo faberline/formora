@@ -1,0 +1,29 @@
+
+running 12 tests
+test invalid_inactive_channels_and_conflicting_cursor_state_are_rejected ... ok
+test explicit_raw_storage_does_not_relax_legacy_unit_quaternion_validation ... ok
+test axis_angle_angle_and_axis_locks_preserve_raw_nonunit_axis ... ok
+test disabled_rotation_preserves_complete_raw_state_and_real_receipts ... ok
+test legacy_partial_quaternion_assignment_promotes_explicit_raw_state ... ok
+test raw_quaternion_quarter_turn_preserves_inactive_channels_and_shared_asset ... ok
+test w_lock_is_separate_from_xyz_and_ui_flag_does_not_change_setter ... ok
+test zero_source_quaternion_evaluates_pinned_half_turn_without_rewriting_it ... ok
+test cursor_only_single_mesh_path_clears_quaternion_without_losing_inactive_euler ... ok
+test late_failure_stale_revision_and_source_range_are_atomic ... FAILED
+test partial_locks_store_nonunit_raw_quaternion_and_survive_undo_replay ... ok
+test cursor_origin_clears_only_the_active_representation_for_all_modes ... ok
+
+failures:
+
+---- late_failure_stale_revision_and_source_range_are_atomic stdout ----
+
+thread 'late_failure_stale_revision_and_source_range_are_atomic' panicked at tests/rotation_snap.rs:349:5:
+assertion failed: e.apply(&[selected()], Some(0)).is_err()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    late_failure_stale_revision_and_source_range_are_atomic
+
+test result: FAILED. 11 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

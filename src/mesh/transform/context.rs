@@ -185,7 +185,7 @@ impl Context {
                     }))?
                 }
             },
-            Orientation::Cursor => math::euler(authoring.cursor_rotation, true),
+            Orientation::Cursor => authoring.cursor_matrix(true)?,
             Orientation::View => view,
             Orientation::Custom { matrix } => {
                 for row in matrix {

@@ -45,8 +45,9 @@ pub(crate) fn euler_matrix(angles: [f32; 3], order: EulerOrder) -> [[f32; 3]; 3]
     m[k][k] = (cj * ci) as f32;
     m
 }
-fn single_rotation(rotation: TransformRotation) -> Result<[[f32; 3]; 3]> {
+pub(crate) fn single_rotation(rotation: TransformRotation) -> Result<[[f32; 3]; 3]> {
     Ok(match rotation {
+        TransformRotation::Authored(RotationAngles::Channels { channels }) => channels.matrix()?,
         TransformRotation::Authored(RotationAngles::Euler { angles, order }) => euler_matrix(
             [
                 f32_value(angles[0])?,

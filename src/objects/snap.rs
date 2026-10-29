@@ -60,6 +60,10 @@ pub struct Receipt {
     pub cursor_after: [f64; 3],
     pub cursor_rotation_before: [f64; 3],
     pub cursor_rotation_after: [f64; 3],
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cursor_orientation_before: Option<crate::rotation::Channels>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cursor_orientation_after: Option<crate::rotation::Channels>,
     pub cursor_changed: bool,
 }
 
@@ -215,32 +219,50 @@ fn set_rotation(
     context: &Context,
     id: &str,
     basis: [[f32; 3]; 3],
-    cursor: [f64; 3],
+    cursor: crate::rotation::Channels,
 ) -> Result<()> {
     let entity = scene.entities.get_mut(id).unwrap();
-    let TransformRotation::Authored(RotationAngles::Euler { angles, order }) =
-        entity.transform.rotation
-    else {
-        return Err(SceneError(
-            "scene snap cursor rotation currently requires authored Euler channels".into(),
-        ));
+    let original = entity.transform.rotation;
+    let mut target = crate::rotation::Channels::from_rotation(original);
+    let state = context.state(id);
+    crate::rotation::source::assign(
+        &mut target,
+        cursor,
+        basis,
+        entity.parent.is_none(),
+        state.lock_rotation,
+        state.lock_rotation_w,
+    )?;
+    let updated = match original {
+        TransformRotation::Authored(RotationAngles::Euler { order, .. }) => {
+            TransformRotation::Authored(RotationAngles::Euler {
+                angles: target.euler,
+                order,
+            })
+        }
+        TransformRotation::Authored(RotationAngles::AxisAngle { .. }) => {
+            TransformRotation::Authored(RotationAngles::AxisAngle {
+                axis: [
+                    target.axis_angle[1],
+                    target.axis_angle[2],
+                    target.axis_angle[3],
+                ],
+                radians: target.axis_angle[0],
+            })
+        }
+        TransformRotation::Quaternion(_) => {
+            let [w, x, y, z] = target.quaternion_wxyz;
+            TransformRotation::Quaternion([x, y, z, w])
+        }
+        _ => TransformRotation::Authored(RotationAngles::Channels { channels: target }),
     };
-    let target = if entity.parent.is_none() && order == crate::rotation::EulerOrder::Xyz {
-        point(cursor)?
+    // A protected raw assignment can cease to be a legacy unit quaternion.
+    // Preserve those channels explicitly instead of weakening legacy validity.
+    entity.transform.rotation = if updated.valid() {
+        updated
     } else {
-        math::euler(basis, order)?
+        TransformRotation::Authored(RotationAngles::Channels { channels: target })
     };
-    let locks = context.state(id).lock_rotation;
-    entity.transform.rotation = TransformRotation::Authored(RotationAngles::Euler {
-        angles: std::array::from_fn(|i| {
-            if locks[i] {
-                angles[i]
-            } else {
-                f64::from(target[i])
-            }
-        }),
-        order,
-    });
     Ok(())
 }
 
@@ -432,7 +454,7 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     match request.action {
         Action::CursorToCenter {} => {
             authoring.cursor_location = [0.; 3];
-            authoring.cursor_rotation = [0.; 3];
+            authoring.clear_cursor_rotation();
             target = Some([0.; 3]);
         }
         Action::CursorToGrid { .. } => {
@@ -491,7 +513,7 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
                         ..
                     }
                 );
-                let rotation = frame_math::euler(authoring.cursor_rotation, false);
+                let rotation = authoring.cursor_matrix(false)?;
                 let mut representatives = BTreeMap::new();
                 // Native origin data is captured for every selected data block,
                 // including selected descendants omitted by offset suppression.
@@ -586,7 +608,7 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
                             &context,
                             id,
                             target_rotation,
-                            authoring.cursor_rotation,
+                            authoring.cursor_channels(),
                         )?;
                     }
                 }
@@ -652,7 +674,10 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         cursor_after: authoring.cursor_location,
         cursor_rotation_before: original.cursor_rotation,
         cursor_rotation_after: authoring.cursor_rotation,
+        cursor_orientation_before: original.cursor_orientation,
+        cursor_orientation_after: authoring.cursor_orientation,
         cursor_changed: original.cursor_location != authoring.cursor_location
-            || original.cursor_rotation != authoring.cursor_rotation,
+            || original.cursor_rotation != authoring.cursor_rotation
+            || original.cursor_orientation != authoring.cursor_orientation,
     })
 }

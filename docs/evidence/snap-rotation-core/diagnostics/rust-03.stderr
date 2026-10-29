@@ -1,0 +1,33 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+warning: unused import: `BTreeMap`
+ --> tests/rotation_snap.rs:6:24
+  |
+6 | use std::collections::{BTreeMap, BTreeSet};
+  |                        ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: `formora` (test "rotation_snap") generated 1 warning (run `cargo fix --test "rotation_snap"` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.14s
+     Running unittests src/lib.rs (/private/tmp/formora-target-actual185/debug/deps/formora-d044e474baf8dca9)
+     Running unittests src/main.rs (/private/tmp/formora-target-actual185/debug/deps/formora-d1bc84b0bcac4854)
+     Running tests/agent.rs (/private/tmp/formora-target-actual185/debug/deps/agent-378fe3210e5c7014)
+     Running tests/baseline.rs (/private/tmp/formora-target-actual185/debug/deps/baseline-6b98b528c7762416)
+     Running tests/connected_transform.rs (/private/tmp/formora-target-actual185/debug/deps/connected_transform-36e26d7f4f518055)
+     Running tests/corrected_uv_transform.rs (/private/tmp/formora-target-actual185/debug/deps/corrected_uv_transform-cd21d9bca17b922d)
+     Running tests/creation_contexts.rs (/private/tmp/formora-target-actual185/debug/deps/creation_contexts-be3c0fee4212959a)
+     Running tests/gimbal.rs (/private/tmp/formora-target-actual185/debug/deps/gimbal-86473a6e0bf6e250)
+     Running tests/mesh.rs (/private/tmp/formora-target-actual185/debug/deps/mesh-b119e5113997de2d)
+     Running tests/mesh_snap.rs (/private/tmp/formora-target-actual185/debug/deps/mesh_snap-be684f1083bf794f)
+     Running tests/mesh_transform.rs (/private/tmp/formora-target-actual185/debug/deps/mesh_transform-ce99271b025b4336)
+     Running tests/mirrored_transform.rs (/private/tmp/formora-target-actual185/debug/deps/mirrored_transform-bdd560e4a91f7823)
+     Running tests/normal_orientation.rs (/private/tmp/formora-target-actual185/debug/deps/normal_orientation-d71b5d72dfcd7517)
+     Running tests/normals.rs (/private/tmp/formora-target-actual185/debug/deps/normals-819506aae1e49020)
+     Running tests/physical_transforms.rs (/private/tmp/formora-target-actual185/debug/deps/physical_transforms-612ccfa43f7787c8)
+     Running tests/polygons.rs (/private/tmp/formora-target-actual185/debug/deps/polygons-b7cf11b5d97a8dd3)
+     Running tests/preview.rs (/private/tmp/formora-target-actual185/debug/deps/preview-0925756f567a4e0b)
+     Running tests/primitives.rs (/private/tmp/formora-target-actual185/debug/deps/primitives-03c3efda46d693fa)
+     Running tests/random_falloff.rs (/private/tmp/formora-target-actual185/debug/deps/random_falloff-13a5acc2c1e09bce)
+     Running tests/remaining_primitives.rs (/private/tmp/formora-target-actual185/debug/deps/remaining_primitives-1708fb58cb745337)
+     Running tests/rotation_snap.rs (/private/tmp/formora-target-actual185/debug/deps/rotation_snap-f4038fd7a3de3fcd)
+error: test failed, to rerun pass `--test rotation_snap`

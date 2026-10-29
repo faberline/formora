@@ -227,21 +227,10 @@ fn no_active_error_empty_selection_cancel_and_late_batch_failure_are_atomic() {
 }
 
 #[test]
-fn unsupported_rotation_bad_context_and_budgets_reject_without_mutation() {
+fn bad_context_and_budgets_reject_without_mutation() {
     let mut s = scene();
     s.entities.get_mut("target").unwrap().transform.rotation = TransformRotation::default();
     let mut e = Editor::new(s.clone()).unwrap();
-    assert!(
-        e.apply(
-            &[command(Action::SelectedToCursor {
-                use_offset: false,
-                use_rotation: true
-            })],
-            Some(0)
-        )
-        .is_err()
-    );
-    assert_eq!(e.scene(), &s);
     for (objects, components) in [(0, 100), (2, 100), (10, 0)] {
         let cmd = Command::SnapScene {
             snap: Box::new(Request {
@@ -270,6 +259,40 @@ fn unsupported_rotation_bad_context_and_budgets_reject_without_mutation() {
     assert!(serde_json::from_str::<Command>(malformed).is_err());
     let duplicate = r#"{"selected":["target","target"]}"#;
     assert!(serde_json::from_str::<Context>(duplicate).is_err());
+}
+
+#[test]
+fn legacy_unit_quaternion_now_snaps_through_the_same_physical_core() {
+    let mut s = scene();
+    s.entities.get_mut("target").unwrap().transform.rotation = TransformRotation::default();
+    let expected = Transform {
+        translation: [4., 5., 6.],
+        rotation: TransformRotation::Authored(RotationAngles::Euler {
+            angles: s.authoring_context.as_ref().unwrap().cursor_rotation,
+            order: EulerOrder::Xyz,
+        }),
+        ..Transform::default()
+    };
+    let expected = formora::transforms::local(&expected).unwrap();
+    let mut e = Editor::new(s).unwrap();
+    e.apply(
+        &[command(Action::SelectedToCursor {
+            use_offset: false,
+            use_rotation: true,
+        })],
+        Some(0),
+    )
+    .unwrap();
+    let actual = formora::transforms::world(e.scene(), "target").unwrap();
+    for r in 0..4 {
+        for c in 0..4 {
+            assert!((actual[r][c] - expected[r][c]).abs() <= 1e-6);
+        }
+    }
+    assert!(matches!(
+        e.scene().entities["target"].transform.rotation,
+        TransformRotation::Quaternion(_)
+    ));
 }
 
 #[test]

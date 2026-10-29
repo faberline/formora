@@ -95,6 +95,22 @@ pub(super) fn basis(scene: &Scene, target: &Entity) -> Result<Matrix> {
         IDENTITY
     };
     let local = match target.transform.rotation {
+        TransformRotation::Authored(RotationAngles::Channels { channels }) => {
+            if let Some(order) = channels.mode.euler_order() {
+                euler(channels.euler, order)?
+            } else if channels.mode == crate::rotation::Mode::Quaternion {
+                return Ok(parent);
+            } else {
+                axis_angle(
+                    [
+                        channels.axis_angle[1],
+                        channels.axis_angle[2],
+                        channels.axis_angle[3],
+                    ],
+                    channels.axis_angle[0],
+                )?
+            }
+        }
         TransformRotation::Quaternion(_) => return Ok(parent),
         TransformRotation::Authored(RotationAngles::Euler { angles, order }) => {
             euler(angles, order)?
