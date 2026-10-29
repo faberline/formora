@@ -1,0 +1,1128 @@
+{
+  "passed": true,
+  "checks": 96,
+  "binary_sha256": "f30bf9095783a956dd2cb85a8b7f428e3b562c4a0722e335a040330a6df4cf66",
+  "input_hashes": {
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "baseline/lock.json": "f3b5a8f5e7ab8bfc6b5d7d4e466af79bae990bac4db112c69cf8081dc70116b8",
+    "docs/contracts/random-falloff-sequence.md": "de06331a458d8dbc6aa6f83d792b99962d1211af7b4cc5c988b2ff785110560a",
+    "tools/random_falloff_runtime.py": "5f01554600aa98a7c6dbcb308c61670baa028a2f5239bd11b4344cdda2bcb40c",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "8c9e81daf65df1686c2297e7deb6f5af970da66b76afda7c96360da6d9c8fff2",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "5d0eee4b2ccf49da077872840521e3040c3fa61b77a93873634caa177302edeb",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/frame_math.rs": "ca7a1d2d82a099a5d3a72855c49fa6a60a1747c2c0193b46625c364234ce50b5",
+    "src/mesh/normals.rs": "b2045c13fb09785e415281350f8e458ca505e2ce767c78f3be5dd930f8c158a4",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "633e3a33129be8f1b91f1ab1c6f6335ed9fe95c7f69086bbbc797c7dbce2cee5",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "432cbaee2bf8e7e83aebdc43d06f87b8232308a3f800a288b5202f8b469f6d3b",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "de1eb9861325d9b8a80948eb7d2ec44d1b0fbf6e0b24bbc9733e49085b84795a",
+    "src/session.rs": "153974655f8d46fb6802e063e91ef1d9a14d580119a94354742d7377ef34fb98",
+    "src/transforms.rs": "ee91979889ada2cd9c423d65e49710e532b61912b282b2b0da7e82e76ee03e2c",
+    "baseline/reference/blender-5.2.3/random-falloff/BLI_math_vector_types.hh": "a059a81b59cf9f49f38cd9341fa7d1049fd4a16094e1be9cd47438c47cb51b5e",
+    "baseline/reference/blender-5.2.3/random-falloff/BLI_rand.hh": "4226aa1b035ae085f87a3ac1c2467b7f2fc0235c354a5f2553e2cdd5cea82c82",
+    "baseline/reference/blender-5.2.3/random-falloff/BLI_span.hh": "0cdde0c1d32cb1508608870c73cc58dbf0b59fc4e01abb8c77fa39af99f7fb0b",
+    "baseline/reference/blender-5.2.3/random-falloff/capture-driver.py": "5e885e047e82e1634312c94b9d143fa382a0b1e1bf7f2b04bb6833b69751a855",
+    "baseline/reference/blender-5.2.3/random-falloff/compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/compiler.txt": "ea3037e0630fa16798079372fdc24f6542d021dadda4915cc979799682d78295",
+    "baseline/reference/blender-5.2.3/random-falloff/driver.cc": "76a63becf96c1350ec352435b2f6c8b8cbe24c46fdb259c516544ee232c5b5ec",
+    "baseline/reference/blender-5.2.3/random-falloff/first-distribution.bin": "b00b0ff2811ba87bdfe1eb06dca78e2dc880dfe8880d43d0098bff8aeb4439ed",
+    "baseline/reference/blender-5.2.3/random-falloff/first-sequence.bin": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee",
+    "baseline/reference/blender-5.2.3/random-falloff/first.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/oracle": "ff7e6a9fc5c59defb93da150480682213a09c8795712a4e387639274657eac82",
+    "baseline/reference/blender-5.2.3/random-falloff/repeat-distribution.bin": "b00b0ff2811ba87bdfe1eb06dca78e2dc880dfe8880d43d0098bff8aeb4439ed",
+    "baseline/reference/blender-5.2.3/random-falloff/repeat-sequence.bin": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee",
+    "baseline/reference/blender-5.2.3/random-falloff/repeat.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/report.json": "e9b7fe218304cd4d523e0879e65f83096e3ad194e53327708114100c3f6d13d5"
+  },
+  "records": [
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-000.json",
+      "sha256": "fb7f4a7605e0a690843825930511260de9498cebd79a1878175eba1852f1b335"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-001.json",
+      "sha256": "98689d0e969a0513cc11262961579e62ac09ff6716e23049b5ef22026dc577a1"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-002.json",
+      "sha256": "2ef11dc482a30be8fd8d5895852dcce4c1c84478af74e0b9e09801252dc86de6"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-003.json",
+      "sha256": "9824d37038fea1071b9d6c2ef4f9c0e1088154224a3004ad4438893ea804849d"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-004.json",
+      "sha256": "2c8b6ab41d6e293a2734c905ed3d704a6aa122ea25487f07a5b9b8839bc581a8"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-005.json",
+      "sha256": "79e2192558d1c46dc4ee2ddd7cff4b05465af2b90d23d47be2961a39a130b341"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-006.json",
+      "sha256": "f98dc28a1f80a18c4e44e41d3fabbf33fb2cda6bb41a78304902ecbc575b949c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-007.json",
+      "sha256": "6130f7289092fa6f433f795949e0ece424079b1bcb753ddf14fa106d119c4952"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-008.json",
+      "sha256": "f0c2a65f0be52381909f079fbe3d8b4712961221eadc4f5729808ca5cc0c2f22"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-009.json",
+      "sha256": "efe92da208c7896743c343e60802eeab829e3fe15513bc58c760b6cf92b8bb80"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-010.json",
+      "sha256": "38c1038564faf4533e72a3741d0c5ad316487cfd3e66ecdd31540166fb35cea0"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-011.json",
+      "sha256": "6cf16cd44f0a7b09d4673a13281a05783927b8303dea3efa73c0aefa60add9d8"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-012.json",
+      "sha256": "c960d77139ec3e12f4c618be3bbd5c4ad31fdec5ee32f1aa23e5a6e0ddf29c6c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-013.json",
+      "sha256": "5172ef4b2aaf15a4fd3c11efbc0708779517002f522369c62b3686bd4b6f0a77"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-014.json",
+      "sha256": "868859a20d3fe23b37686b86fd7ba7f71142557a108e623ba60092b0aa8a95eb"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-015.json",
+      "sha256": "d7f2f43fec893703d27cb52fa355b6c8cbe4ddeb5d22b01e7115bfc34cdd396c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-016.json",
+      "sha256": "852e62e792853d83641708049bb194af6c35d967a8eaacc87697d9ee64755105"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-017.json",
+      "sha256": "f7d78551325a9d140ff851224720074f582c024d53dfd77dc72b9260d8b4efa1"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-018.json",
+      "sha256": "9eef64e23f494dc40b1713e58e752f2a93aa79cd14f0965846bb7ff9dedf116b"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-019.json",
+      "sha256": "6033957adf3f74391ce30a5a1e73c6e2f1e45a5bf53080601226cb90766d7874"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-020.json",
+      "sha256": "3f5c7f59a468b3e7419cc18b9a235a71609c52ce9d7e8afdc07dd0d09b7de909"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-021.json",
+      "sha256": "93fab8fdb532527c93f3be6e061780017181e63c70fab637ee62084676dd792b"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-022.json",
+      "sha256": "d4af7d5884a516db1724471f705061aa47dbc05496e5f8499091eeda384ab1c2"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-023.json",
+      "sha256": "db2d7aad0547c6060526dcc3fad804d083d183f4f304860350de48f404f6446c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-024.json",
+      "sha256": "3f4ff26e62871d1fff55f576f1ec6df8635e3a71f4db23c89fabd1f044fc8021"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-025.json",
+      "sha256": "8fdd68e6d8901b2149001dcd6e42cab9388ae9ee1e686ef5fa444193c4689241"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-026.json",
+      "sha256": "99f04177d4e17d1c4b8f504851d47f8a4b2275c14321a7e5c915b245da35dc2c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-027.json",
+      "sha256": "368b3a957f0b24cba7f8813347bf1a5ba1b3bdfe3f4b1a0b762232e4cd46aff0"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-028.json",
+      "sha256": "1d487759649e7bf472ce7bcc789dcf3496c31848fe50db13d07bce2bd8d3d596"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-029.json",
+      "sha256": "196d4d3d20f9b5072db47bd545e9608025a2e29605fa9236803f32deaaf30fe7"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-030.json",
+      "sha256": "1040674385112877b8bd63d130c59b7e5b3eed89b6bd6e47402c3f37dd6f24f2"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-031.json",
+      "sha256": "a93ebd39a96f717c211a2d2fbb2cf78b634fed401c43d32079a2e0a3de3c8d06"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-032.json",
+      "sha256": "4beadaebaf554dea7fc1aa5e1c26b68dbb8401f709d5a6800bfb9a6d2fc6c3ad"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-033.json",
+      "sha256": "6caab0f49f9cff01e645ebd37f03c1bc7c29632bd5b4ebb601dd6026974230fc"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-034.json",
+      "sha256": "3bd9965aff07779b50e5c18d38c1c4ef1d19cd449b6dac2f5d99f986ae1ccf95"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-035.json",
+      "sha256": "c30b58572031fac61a53999a09670f56d6e9979070e5b0d8b329429590c65c61"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-036.json",
+      "sha256": "84bc41bb5b043b092c5b50f12dbdd5ffe631a262e5cc8455eebdd36559a493cd"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-037.json",
+      "sha256": "c1dd2444cbcaf82549e0dfbfbd31b64e05d7592f66afcdc48737c31d8902206a"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-038.json",
+      "sha256": "2f56d233c1af8ce393b5d0f1adfe0e1815796ff7f3b88de7099a69bf8d97fb1b"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-039.json",
+      "sha256": "4a285ab7add7676053294791f57a54dbd2ce6f9fda289dbca7f781d7087d6980"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-040.json",
+      "sha256": "067614337f8b72af02a1a5097079985ea7a08014f21b7d1f9e617608fae67f05"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-041.json",
+      "sha256": "9237125379c736a77b329674dbb8aee298bd7f6c700c4c7550d3fa9d04d461fb"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-042.json",
+      "sha256": "c1eefec5e2abf29a16df507f0d6ef7a2b268b586350fb33cb161ff53cdfdb36d"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-043.json",
+      "sha256": "b14e96fc9a5089d6cbf1ee5bfe672ca404acc80c809c3c0c91574166722d67e7"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967296,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-044.json",
+      "sha256": "4965cb5be643e49c654091e074646d34195579f325221c62504c81fe9e52eaa8"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967296,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-045.json",
+      "sha256": "c72165323481694a9af62a9a15b230b1ca294da9e3b48804d826dd481c7a55c4"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        18446744073709551615,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-046.json",
+      "sha256": "85a90ec67d5bddd03362a07291d1d55078030150518de230f5a03b6b9f6e9348"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        18446744073709551615,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-047.json",
+      "sha256": "a8ceae7a57e547a4a023967113b3d7efb739dee746daa88f570b3b6705945ccc"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-000.json",
+      "sha256": "77a5d2141d7a2e2e3a26a3233fc1572ee2d51c46a9fc9753164c83acd135672d"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-001.json",
+      "sha256": "3a1ada83d8d9a8f98860d808a3cf7a1606b430f19e29f58ec25605397c4d57ee"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-002.json",
+      "sha256": "471ba273f646882eb6621e8d44f648dbac5f9a63e5508461c91633222a910699"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-003.json",
+      "sha256": "484ba3b8aa3985644f732aaf173d110454c9098ecde783f81085bc84dbb84aa7"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-004.json",
+      "sha256": "f704aced2213cfb423bb63440212f0aafed808c3e6878be13aed523438c6e6ca"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-005.json",
+      "sha256": "173c9100ca2305a72d9f1aa8e3236608b5db177a9be380dbdc13e83af3c325dd"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-006.json",
+      "sha256": "84f52292f4a96e1a292b00a0e1fb6b19c37473dbecfbd590f6dce261224e3cd3"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-007.json",
+      "sha256": "d5bdf41b92e348b963a905f113dc0498e74372f53b6fbae0b4a81b4c880f66b1"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-008.json",
+      "sha256": "9537c5a87c6d9a52813a0a6c70f3091837fa7f4d0dc895014f78266379f439f8"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-009.json",
+      "sha256": "e5cceef4c75a6a4b7a75cc20899a11126fb48f0d8658ded0062e719a0eb28e77"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-010.json",
+      "sha256": "c42a9be77b6893f648ee35687a00e647d235247152fe50ff39c7b42e0758f78e"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-011.json",
+      "sha256": "99115739e9268881bdd53cf4655af2fbcb7b39984ff591e442882541aef6fc3b"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-012.json",
+      "sha256": "7878208475115c09aec29b13b877b3198b3aebe9cb5a1a8662ee4f61ff37bce6"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-013.json",
+      "sha256": "ebf667a0f823d47eabc7b97ce4f24ff72449a6143be28e3a313126c387e92d31"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-014.json",
+      "sha256": "09165a38f1ebe4262f75d2b5ebad216e7142b22804d121228f4d9e5bbc6cdfbf"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-015.json",
+      "sha256": "7ceb2987b92842c1c31eef9440379d09e1271af8312e05ef561e4e6ae20c3533"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-016.json",
+      "sha256": "f8426911c6c0c15ff410ffeeb8f04050e3cfba6d439eb6da66f2b08e526df0fb"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-017.json",
+      "sha256": "49fdf70bd92d8903af844b0f914e4aea1a8957087003fcb381d87538df17cd84"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-018.json",
+      "sha256": "07a69ebc5c6c1ecd8969fb38a9f9e8d0482ae3f577e1a40011a4053a709ac6c9"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-019.json",
+      "sha256": "716c693fa22142368fb4642ff444bca2d0d091ee52de9f8bd764ad2eb7905e63"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-020.json",
+      "sha256": "b5df1f108635f91e5de48483fd74567b83c6effc5307bc4d215b29ee2b87cee4"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-021.json",
+      "sha256": "6ca429d7f5aa424fa031f4ee8baa5ece7a0395f6f33f6a60aa021d35d7c5f15a"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-022.json",
+      "sha256": "79af4293ab023a25f20b4adc92fd16a67b70d71ea4530faac3db6d1a1ccc7827"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-023.json",
+      "sha256": "40c7931a0540916fd3a430c225db79a85ae5db48109921eb9c048e8621af2a4f"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-024.json",
+      "sha256": "61a7c2a69a9cfd7a2ee8d76d6b168760eb7c79ca7ccb7dd9d94af7a946765af8"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-025.json",
+      "sha256": "46f3f537308e54528142a7a9bd2335f4d12665071e69c5a22fda0485e473c92e"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-026.json",
+      "sha256": "f8c6d6fc8e67457972d8ea55a907502696b8cf5262a54be053bf77ac9524e0fe"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-027.json",
+      "sha256": "9eb7a6d065ec52e345ec16c6970c241c5888e1125626e8b0ec2a015f3f5d37a0"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-028.json",
+      "sha256": "64791227ee805782b1166400a2c319d9a24be3862487095a944d54d3a09942ff"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-029.json",
+      "sha256": "fd6e3602f1cca7ba51a5b699afa9c979c48d8aa21941b880c2c797db265b55b2"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-030.json",
+      "sha256": "05b278424b7e02b4f18037fe418c7aaf89f415b5ded63fc543c51928d9f0e3c1"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-031.json",
+      "sha256": "62a75bbd69fa5b0ed401118c5399f05b6aa62bb9d8f108f37865c14bc0db16b5"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-032.json",
+      "sha256": "1a71d066205f7117ede4b26d6f5491a67a2ffc5b6f097d6aedcdee748ebb1a93"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-033.json",
+      "sha256": "071552845a86dadd7a5f65569bb6bc748d8334edcd14adcfcbcc4c67a9ec86e5"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-034.json",
+      "sha256": "802109564f9f1d22fcaf2131f74851fc8d40b0b989cb08c999f801d4e4bce67e"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-035.json",
+      "sha256": "5d2439d76dffbb4abc7bbbfa6c5750c5f6e9504f9bf46c5c84e6d211e201671e"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-036.json",
+      "sha256": "d0a646095ece1b6d914f18a6d8309960ec5086344e38057596a40d1be0495a69"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-037.json",
+      "sha256": "df66221ddf6874f4dce317d25838d21e490d9942ef0b63898dfcf116808c293f"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-038.json",
+      "sha256": "92b9bc809217bca306711cb23370d33e36c44edcd0b180591f6e447d6207f8a2"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-039.json",
+      "sha256": "7f46014a1230312ceedb2631422930759a7019ed96806320453036ccef8b783f"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-040.json",
+      "sha256": "00336b0bb29b8d855bba8bc77cbead5abbbd615b8d728ff2c81b4dd3f0a0da7d"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-041.json",
+      "sha256": "60f6531abd27b64fc3f59cfb39c43a5e4cff9eab480913a374c5263718a6c546"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-042.json",
+      "sha256": "ef9c63110df7cb1f80e791cd3c99b0528fa1482c34aa8504cd1d6a00822aeb6c"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-043.json",
+      "sha256": "846d8a0f83e97b1ea271dd944452ea309ce8b5556cab290abf59b8e71022b588"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967296,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-044.json",
+      "sha256": "d65f08e79bf9012c1cf828888a8069917c196e9535e693027188ce42ca3e1eb5"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967296,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-045.json",
+      "sha256": "fc7931d43e776c89c9a2cd00625aa0bdc6b9448f6eff67e0d4e292e55ad8694b"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        18446744073709551615,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-046.json",
+      "sha256": "da9f11c0753e91b589c12e82b434cc9d63b246f5f5ef2576a24d0ca709a7e594"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        18446744073709551615,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-047.json",
+      "sha256": "965671b5d1408698ed7fefaa3c7c1c3e7f5da13eff357f78c1b3f8e369d07a05"
+    }
+  ],
+  "scene_apply_schema_sha256": "39e2a1a930118a5a4258a9a5e5e486444ef57754bc60e10aecd78e8a72c88f2f",
+  "product_acceptance": "unrun"
+}

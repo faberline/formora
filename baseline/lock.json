@@ -18965,6 +18965,106 @@
       "path": "baseline/sources/physical-transform/manifest.json",
       "sha256": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
       "url": "https://github.com/blender/blender/tree/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender"
+    },
+    {
+      "path": "baseline/sources/random-falloff/BLI_rand.hh",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "4226aa1b035ae085f87a3ac1c2467b7f2fc0235c354a5f2553e2cdd5cea82c82"
+    },
+    {
+      "path": "baseline/sources/random-falloff/rand.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/rand.cc",
+      "sha256": "5a302ebc4f0833ed1263539a285678f82070b18e8125a91e8d02dc844c026f5d"
+    },
+    {
+      "path": "baseline/sources/random-falloff/transform_convert.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_convert.cc",
+      "sha256": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015"
+    },
+    {
+      "path": "baseline/sources/random-falloff/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "9cf46ed346a075ee7453949b0cbd03e7dbd3817de8e5eca2ab15917437d21355"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/BLI_math_vector_types.hh",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "a059a81b59cf9f49f38cd9341fa7d1049fd4a16094e1be9cd47438c47cb51b5e"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/BLI_rand.hh",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "4226aa1b035ae085f87a3ac1c2467b7f2fc0235c354a5f2553e2cdd5cea82c82"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/BLI_span.hh",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "0cdde0c1d32cb1508608870c73cc58dbf0b59fc4e01abb8c77fa39af99f7fb0b"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/capture-driver.py",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "5e885e047e82e1634312c94b9d143fa382a0b1e1bf7f2b04bb6833b69751a855"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/compile.stderr",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/compile.stdout",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/compiler.txt",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "ea3037e0630fa16798079372fdc24f6542d021dadda4915cc979799682d78295"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/driver.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "76a63becf96c1350ec352435b2f6c8b8cbe24c46fdb259c516544ee232c5b5ec"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/first-distribution.bin",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "b00b0ff2811ba87bdfe1eb06dca78e2dc880dfe8880d43d0098bff8aeb4439ed"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/first-sequence.bin",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/first.stderr",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/oracle",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "ff7e6a9fc5c59defb93da150480682213a09c8795712a4e387639274657eac82"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/repeat-distribution.bin",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "b00b0ff2811ba87bdfe1eb06dca78e2dc880dfe8880d43d0098bff8aeb4439ed"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/repeat-sequence.bin",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/repeat.stderr",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "baseline/reference/blender-5.2.3/random-falloff/report.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_rand.hh",
+      "sha256": "e9b7fe218304cd4d523e0879e65f83096e3ad194e53327708114100c3f6d13d5"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"

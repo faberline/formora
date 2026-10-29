@@ -1,6 +1,9 @@
 // SPDX-FileCopyrightText: 2001-2002 NaN Holding BV. All rights reserved.
 // SPDX-License-Identifier: GPL-2.0-or-later
-use super::{Falloff, Request, Vector, context::Context, dot, finite, geodesic, sub};
+use super::{
+    Falloff, RandomAlgorithm, Request, Vector, context::Context, dot, finite, geodesic,
+    random::Stream, sub,
+};
 use crate::scene::{Result, SceneError};
 
 // A balanced point tree bounds sparse-selection nearest-distance work.
@@ -52,13 +55,6 @@ impl Tree {
         }
     }
 }
-fn next_random(state: &mut u64) -> f32 {
-    *state = state.wrapping_add(0x9e3779b97f4a7c15);
-    let mut z = *state;
-    z = (z ^ (z >> 30)).wrapping_mul(0xbf58476d1ce4e5b9);
-    z = (z ^ (z >> 27)).wrapping_mul(0x94d049bb133111eb);
-    (((z ^ (z >> 31)) >> 40) as u32) as f32 / 16_777_216.
-}
 pub(super) struct Influence {
     pub weights: Vec<f32>,
     pub origins: Option<Vec<usize>>,
@@ -90,6 +86,18 @@ pub(super) fn calculate(context: &Context, request: &Request) -> Result<Influenc
             "mesh transform seed requires random falloff".into(),
         ));
     }
+    if p.falloff != Falloff::Random && p.random_algorithm.is_some() {
+        return Err(SceneError(
+            "mesh transform random algorithm requires random falloff".into(),
+        ));
+    }
+    if p.random_algorithm == Some(RandomAlgorithm::Blender52)
+        && p.seed.is_some_and(|seed| seed > u32::MAX as u64)
+    {
+        return Err(SceneError(
+            "mesh transform Blender random seed must fit u32".into(),
+        ));
+    }
     let project = |point: Vector| {
         if p.projected {
             let along = dot(point, context.view_axis);
@@ -119,7 +127,7 @@ pub(super) fn calculate(context: &Context, request: &Request) -> Result<Influenc
         None
     };
     let radius = p.radius as f32;
-    let mut state = p.seed.unwrap_or(0);
+    let mut stream = Stream::new(p.random_algorithm, p.seed.unwrap_or(0));
     let mut result = vec![0.; context.positions.len()];
     for (i, value) in result.iter_mut().enumerate() {
         if !context.visible[i] {
@@ -157,7 +165,7 @@ pub(super) fn calculate(context: &Context, request: &Request) -> Result<Influenc
             Falloff::Sharp => ratio * ratio,
             Falloff::Linear => ratio,
             Falloff::Constant => 1.,
-            Falloff::Random => next_random(&mut state) * ratio,
+            Falloff::Random => stream.next() * ratio,
             Falloff::InverseSquare => ratio * (2. - ratio),
         };
     }

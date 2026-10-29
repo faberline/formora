@@ -13,6 +13,7 @@ mod influence;
 mod inverse;
 mod mirror;
 mod normal_orientation;
+mod random;
 mod uv;
 
 type Vector = [f32; 3];
@@ -88,6 +89,14 @@ pub enum Falloff {
     Random,
     InverseSquare,
 }
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum RandomAlgorithm {
+    #[serde(rename = "splitmix64_v1")]
+    Splitmix64V1,
+    #[serde(rename = "blender_5_2")]
+    Blender52,
+}
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 #[serde(deny_unknown_fields)]
 pub struct Proportional {
@@ -98,6 +107,8 @@ pub struct Proportional {
     #[serde(default)]
     pub projected: bool,
     pub seed: Option<u64>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub random_algorithm: Option<RandomAlgorithm>,
 }
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
 #[serde(deny_unknown_fields)]
@@ -144,6 +155,8 @@ pub struct Receipt {
     pub influence: BTreeMap<String, f64>,
     pub changed: Elements,
     pub random_seed: Option<u64>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub random_algorithm: Option<RandomAlgorithm>,
     #[serde(skip_serializing_if = "BTreeMap::is_empty")]
     pub mirror_sources: BTreeMap<String, String>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
@@ -441,6 +454,10 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         influence: weights,
         changed,
         random_seed: request.proportional.as_ref().and_then(|p| p.seed),
+        random_algorithm: request
+            .proportional
+            .as_ref()
+            .and_then(|p| p.random_algorithm),
         mirror_sources,
         attribute_faces,
         mirror_plane_vertices: mirror
