@@ -1,0 +1,6 @@
+{
+  "first_exit": 1,
+  "cause": "The retained primitive isolation report names its actual copied runtime hash copied_binary_sha256, not binary_sha256.",
+  "fix": "Read that exact required legacy field only for the primitive isolation report; still require equality to the same candidate binary hash.",
+  "evidence_or_acceptance_limits_changed": false
+}

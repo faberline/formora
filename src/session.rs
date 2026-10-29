@@ -30,6 +30,8 @@ pub struct ApplyResult {
     pub creation: Vec<crate::mesh::creation::CreationReceipt>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub transforms: Vec<crate::mesh::transform::Receipt>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub snaps: Vec<crate::mesh::snap::Receipt>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -281,6 +283,7 @@ impl Session {
             selection: applied.selection,
             creation: applied.creation,
             transforms: applied.transforms,
+            snaps: applied.snaps,
         })
     }
 

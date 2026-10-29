@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/check-evidence.py", line 93, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/check-evidence.py", line 67, in main
+    require(report['binary_sha256']==m['binary_sha256'],'native binary differs: '+name)
+            ~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'binary_sha256'

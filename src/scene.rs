@@ -458,6 +458,9 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    SnapMesh {
+        snap: Box<crate::mesh::snap::Request>,
+    },
     TransformMesh {
         transform: Box<crate::mesh::transform::Request>,
     },
@@ -547,10 +550,16 @@ enum CommandEffect {
     Selection(crate::mesh::selection::Outcome),
     Creation(Box<crate::mesh::creation::CreationReceipt>),
     Transform(Box<crate::mesh::transform::Receipt>),
+    Snap(Box<crate::mesh::snap::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::SnapMesh { snap } => {
+                return Ok(CommandEffect::Snap(Box::new(crate::mesh::snap::execute(
+                    scene, snap,
+                )?)));
+            }
             Self::TransformMesh { transform } => {
                 return Ok(CommandEffect::Transform(Box::new(
                     crate::mesh::transform::execute(scene, transform)?,
@@ -768,6 +777,7 @@ pub struct EditResult {
     pub selection: Vec<crate::mesh::selection::CommandOutcome>,
     pub creation: Vec<crate::mesh::creation::CreationReceipt>,
     pub transforms: Vec<crate::mesh::transform::Receipt>,
+    pub snaps: Vec<crate::mesh::snap::Receipt>,
 }
 
 impl Editor {
@@ -809,6 +819,7 @@ impl Editor {
         let mut selection = Vec::new();
         let mut creation = Vec::new();
         let mut transforms = Vec::new();
+        let mut snaps = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
                 CommandEffect::Selection(outcome) => {
@@ -829,6 +840,10 @@ impl Editor {
                     receipt.command_index = command_index;
                     transforms.push(*receipt);
                 }
+                CommandEffect::Snap(mut receipt) => {
+                    receipt.command_index = command_index;
+                    snaps.push(*receipt);
+                }
                 CommandEffect::None => {}
             }
             candidate.validate()?;
@@ -841,6 +856,7 @@ impl Editor {
             selection,
             creation,
             transforms,
+            snaps,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {

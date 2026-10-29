@@ -1,0 +1,21 @@
+{
+  "acceptance": false,
+  "rust_input_rejection": {
+    "command": "cargo test --locked --all-features --test mesh_snap",
+    "first_result": "5 passed; 1 failed",
+    "failure": "unknown_fields_and_nonfinite_json_are_rejected_before_dispatch accepted an answer field on a no-parameter action",
+    "fix": "Use empty struct variants so serde deny_unknown_fields rejects all unknown action fields",
+    "rerun": "6 passed; 0 failed; same required rejection assertions"
+  },
+  "first_runtime_pilot": {
+    "completed_cli_records": 7,
+    "completed_comparisons_passed": 7,
+    "terminal_exit": 1,
+    "failed_case": "snap_0150",
+    "failure": "hidden components cannot be selected during setup",
+    "cause": "The setup adapter copied raw hidden-only seed IDs into persistent edit state, but Blender clears them during its selection flush.",
+    "fix": "Map the authored hide_all seed to empty effective selection/history before Rust edit-state validation. Bind actual initial state against both unchanged frozen source captures.",
+    "authored_fixture_changed": false,
+    "acceptance_criteria_changed": false
+  }
+}
