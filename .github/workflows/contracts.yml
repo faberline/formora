@@ -29,6 +29,8 @@ jobs:
           python-version: '3.12'
       - name: Test reference comparison failure detection
         run: python -m unittest discover -s tools/tests -v
+      - name: Verify recorded selection references (not product selection)
+        run: python tools/compare_selection_reference.py --suite baseline/fixtures/mesh-selection.json --reference baseline/reference/blender-5.2.3/mesh-selection --repeat baseline/reference/blender-5.2.3/mesh-selection-repeat --output target/selection-reference-reproduction.json
       - run: python -m pip install -r tools/requirements-mcp.txt
       - name: Verify stdio with the official MCP client
         run: python tools/mcp_smoke.py target/debug/formora

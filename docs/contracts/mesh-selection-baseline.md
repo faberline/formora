@@ -16,6 +16,8 @@ a wire edge, two face regions connected only at a vertex, a three-face shared ed
 an inconsistently wound two-face edge, an isolated pentagon and a hidden component.
 Give each vertex, edge and face a logical ID before any selection operation.
 Use custom integer attributes to retain those IDs through the reference mesh.
+Keep UVs, material slots, smoothing, seams and group scenarios as explicit JSON inputs.
+Verify the captured initial data against those inputs, not just the claimed input digest.
 
 Fix these 530 runs before capturing results:
 
@@ -42,6 +44,11 @@ all 16 edge/face-mode cases reject the mode; four vertex-mode cases with absent
 or empty groups reject the missing weights. Positive and zero-weight membership
 are valid in vertex mode. Record the exact reference reason and unchanged state.
 
+The mode probes also declare 30 unchanged requests. Already-active single modes,
+enabling an active combined mode, disabling an inactive mode, and removing the
+last mode return `CANCELLED` with unchanged state. These are distinct from the
+20 poll errors. The other 480 requests must return `FINISHED`.
+
 ## Fixed result and comparison rules
 
 Record before/after topology, positions, logical IDs, selected IDs, hidden IDs,
@@ -67,6 +74,10 @@ support undo, and retain the result after save/reload. Verify CLI/MCP equivalenc
 The preview must show the selected components and respect hidden geometry.
 
 For the initial capacity sample, use a 100×100 quad grid on Apple M1 Max/macOS/release.
+Use row-major vertices at integer XY coordinates, row-major faces, and sorted edge pairs.
+Keep the two UV layers, material slots, face smoothing and seam rules of the small fixture.
+Initial selection uses domain elements whose position or midpoint has X < 50.
+Ungrouped selection assigns weight 1 only to vertices with X < 50.
 Measure three runs for each selection function and mode conversion. Core selection
 must take at most 100 ms per run. Select/save/reload must take at most 2,000 ms per run.
 These limits are fixed before product selection is implemented. They must not be increased

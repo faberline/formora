@@ -1,0 +1,132 @@
+{
+  "base_commit": "5761e683b01bb82e5efc3cfc931e40a3cc55a8c2",
+  "initial_contract_commit": "5bb8056",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "rust_version": "1.85.0",
+  "binary_sha256": "ab8c8b3af68cef81cb9b8055aec3dede82277067965d11e18915e5452045f1c3",
+  "checks": [
+    {
+      "command": "cargo fmt --check",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo clippy --locked --all-features --all-targets -- -D warnings",
+      "exit_code": 0
+    },
+    {
+      "command": "cargo test --locked --all-features --all-targets",
+      "exit_code": 0,
+      "passed": 71,
+      "failed": 0,
+      "ignored": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests",
+      "exit_code": 0,
+      "passed": 46,
+      "failed": 0
+    },
+    {
+      "command": "formora baseline check --root .",
+      "exit_code": 0,
+      "report": {
+        "structurally_valid": true,
+        "baseline_ready": false,
+        "product_acceptance": "unrun",
+        "sources": 9047,
+        "features": 23,
+        "pending_sources": 9026,
+        "pending_features": 23,
+        "uncovered_sources": 0,
+        "incomplete_products": [
+          "blender",
+          "unreal"
+        ],
+        "unverified_builds": [],
+        "problems": []
+      }
+    },
+    {
+      "command": "formora baseline check --root . --strict",
+      "exit_code": 2,
+      "report": {
+        "structurally_valid": true,
+        "baseline_ready": false,
+        "product_acceptance": "unrun",
+        "sources": 9047,
+        "features": 23,
+        "pending_sources": 9026,
+        "pending_features": 23,
+        "uncovered_sources": 0,
+        "incomplete_products": [
+          "blender",
+          "unreal"
+        ],
+        "unverified_builds": [],
+        "problems": []
+      }
+    }
+  ],
+  "files_sha256": {
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    ".github/workflows/contracts.yml": "15414bdc0a9b489308eaa596e2b7e8b8db50705300bc78f2d7751eae42c4623d",
+    "baseline/lock.json": "9feeed87d37c54bd9d5473c3664e9e4b786ee18adf0f62ef58ff343556fe640a",
+    "baseline/catalog.json": "2ca41260c257a87ae4f5c14d56e8ba0499c810f83c21b977c4864f2161002458",
+    "baseline/inventory.json": "cc5ec35b86b91d2c590a883d223fb20922977feddcb4521f1e8fda1061c81ab1",
+    "baseline/fixtures/mesh-selection.json": "ea248429adeea933c3e4c3b6a340f0d6c17df142b0679c93fed3db162a7a6cfa",
+    "docs/contracts/mesh-selection-baseline.md": "5decbd0339c79febe0d9f14a55bb9a3dd2f9fc9ba323939595ea844e9806b6a3",
+    "src/agent.rs": "93f2d6f29e839ef217ce38ba67b757c1949479563d6cf73f5ee5c5a9b6488af9",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "704c00593d80240bbe48caccedbe3e6db850bc0ab037bb0768ae08add43d1904",
+    "src/mesh.rs": "fea8ccec2995da466f9b4f9bc287d2dc89ac06ebc79aefcdb4a5284073f9e543",
+    "src/preview/math.rs": "d5df4e23afb7dddf916036b974121bd608f6351be4d6fd9b1121454e19fd2ae8",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "a8bd3d23f23ff946f01b65b30bf0a6c862741d9483f2a80d411941a351623a1a",
+    "src/session.rs": "76f6f82a44fc240c00a7df095f454ab3a824299258b336b43e9665e9ad3e692d",
+    "tests/agent.rs": "a37a4d7d4d381c34841de9a5bfc5f4acaeb4deebbbc08d05ee1694da3fb8f9f8",
+    "tests/baseline.rs": "4cb4e85c2f1b05a870fc5d92e30b26c71f487b6a6265cd39244f62249e810232",
+    "tests/fixtures/triangle-asset.json": "6a2efad7ec17330bab51ba10c05f4cc773b329aef5c6b92e353570cfaff0088c",
+    "tests/mesh.rs": "f981b228e7330d646c1fcde13edb4bb2973f9fbce515ced0ab0d233a9818f963",
+    "tests/preview.rs": "e0e86f446c1bcc2d1374cc833816ed7562dd5c9a11a20a4953852d4f34c33212",
+    "tests/scene.rs": "21c1d2da24f6699b2e77f819f3f8ffe7e04dd0a56949a4d4dbdfa4f67d156e40",
+    "tools/blender_build_probe.py": "c17ecceac0ea367d84699cab5132c2f786882bcbcaf0632f8d5a33704d23b4f3",
+    "tools/blender_mesh_context_reference.py": "4264f6007ee454de6591a6d324e8601baa56facdd21c46a24e7bac1488bb98b0",
+    "tools/blender_mesh_reference.py": "b0f87213b37da025c4ba63c10f2e36595150ec7c5e435920b3d290f5d75a248a",
+    "tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "tools/build_macos_app.py": "bdf13ae39db194a93221a8af48a2cb2733070929fddf32148fade25ab2af39d9",
+    "tools/build_mesh_selection_suite.py": "8d49e9bcb4ba02a7c8e3f328b58ebc92b712c7e7f4e74133a4e9fd48b5269e58",
+    "tools/collect_baseline.py": "a41bba6ace6c6b202ba6a0c13d95b237652b5d87bd2d91096b3ab057ce8e9695",
+    "tools/compare_mesh_reference.py": "f676c3feff8fd6e7f8389943f882808887a3f591bc0c3459d5157da12d426433",
+    "tools/compare_selection_reference.py": "4f6187468b9866bde5309a440c175124ca38f5365627390b8d00db7e5bfbcaf1",
+    "tools/mcp_smoke.py": "89808482a80716e2b6380280652a04dbc62be80a4177e52230d6386eab2d6108",
+    "tools/mesh_asset_evidence.py": "61d78358cc0170f9ee7e1c588afecb2c90f4ca9064019ddb0df66ad9e2de365a",
+    "tools/probe_reference_build.py": "1a371c683777f0e6190d9f26c2491c2b90bf3f5265b174aaa2e4fb3943e83a13",
+    "tools/requirements-mcp.txt": "f339c94a07680b28b17b8efd7f105729c36a96e34107ad8b78eeb4c570fc3929",
+    "tools/tests/test_mesh_comparison.py": "9923008c6ac4c83c9a4fa89240bcffc2cedcd7c03a8263c1b599c6e471e2e33f",
+    "tools/tests/test_mesh_context_comparison.py": "8816c2a8b028df429bcb1a2752f0ea7cef996e2d3f7a74ebbaa3ff45654fdf0e",
+    "tools/tests/test_selection_comparison.py": "501d9ccb1fb5df56871b55125f58c46ce9ef15b880381f65fa28be78ba250d33",
+    "tools/tests/test_source_collection.py": "daa7fc9da8b2f3ce90b463acd59b7da1d01c0b9efeef35140185ae17a7a562fb",
+    "tools/unreal_build_probe.py": "a51617dfb3193d19c5578f8a60030d8f3adbe124bb2267982be31ba57b043122",
+    "baseline/cases/mesh-selection-combined_modes.json": "9673bbe142891666864ba34d5442c70620aff5d17c00d6fe0c17579ac807ca56",
+    "baseline/cases/mesh-selection-contract.json": "9797e49d2e6eb66fcd10f341f28f4cf9347adec7a8f9bb285df5861f3434c149",
+    "baseline/cases/mesh-selection-expand.json": "e8357ec6ebc98836b90d6dc4d6e5382d5ef88aae566ef1f7b9fb4c79ceaf0697",
+    "baseline/cases/mesh-selection-faces_by_sides.json": "99dbdaf8c8d7854333fef2d1fdc3892452dc9ca286d864a76fb9dfd9fb24569b",
+    "baseline/cases/mesh-selection-interior_faces.json": "f91ed49f76a364ef0196667dcdd530ce5fab4fa1c8e291e8e88144fddbb58ffe",
+    "baseline/cases/mesh-selection-loose.json": "164082d97a6d02c826e0fec9409bd0f8a9d2ef6363362dadd102a625f31f735b",
+    "baseline/cases/mesh-selection-mode.json": "524cc70bcb1be05d21730d050f9947b85c5cf8763263463498886013838f25aa",
+    "baseline/cases/mesh-selection-non_manifold.json": "80f09d5f7d402f8046c6a56179021ad6902c22f60902c67ecd77c38b010905eb",
+    "baseline/cases/mesh-selection-poles.json": "3ba45d757c04ccb372f0e6b99a1eb5514a5a85bd7555d01f0a7ac672871b6904",
+    "baseline/cases/mesh-selection-ungrouped.json": "40f1d7f4de0a48321d2e952379c7e443412f3396ab806d2ac6bfa6e4e951d436"
+  },
+  "source_reference_reproduction": "530 runs, 152 independent predicates and 530 authored-state bindings per capture",
+  "product_selection_execution": "unrun",
+  "performance_samples": "unrun",
+  "three_platform_ci": "required before integration",
+  "milestone_acceptance": "unrun"
+}
