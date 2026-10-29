@@ -1,0 +1,18 @@
+{
+  "accepted": false,
+  "cause": "Moving the cursor converted an unrelated f64 rotation to f32. The frozen numeric cases use f32 inputs, so the independent unseen-input test was required to detect it.",
+  "actual_rotation": [
+    0.17000000178813934,
+    0.23000000417232513,
+    0.4099999964237213
+  ],
+  "expected_unchanged_rotation": [
+    0.17,
+    0.23,
+    0.41
+  ],
+  "first_full_2244_gate": "Passed the fixed source inputs but is retained as pre-fix diagnostic; rerun is required for the corrected candidate.",
+  "first_30_performance_samples": "All timing limits passed but these are pre-fix measurements; rerun is required.",
+  "fix": "Only cursor actions assign position; only cursor-to-origin assigns rotation. Compare actual authored before/after values for the receipt.",
+  "acceptance_criteria_changed": false
+}

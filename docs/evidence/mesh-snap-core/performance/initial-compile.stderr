@@ -1,0 +1,63 @@
+error[E0463]: can't find crate for `formora`
+ --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:2:5
+  |
+2 | use formora::mesh::{creation::AuthoringContext, selection::Component};
+  |     ^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `formora`
+ --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:3:5
+  |
+3 | use formora::scene::{Command,Editor,Scene};
+  |     ^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `formora`
+ --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:4:5
+  |
+4 | use formora::session::{ApplyRequest,Session};
+  |     ^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+ --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:5:5
+  |
+5 | use serde_json::json;
+  |     ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:29:29
+   |
+29 | ...   let command:Command=serde_json::from_value(json!({"operation":"snap_mesh","snap":{"entity":"target","action":action,"pivot":"median...
+   |                           ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:33:55
+   |
+33 |             assert_eq!(core.snaps.len(),1);assert_eq!(serde_json::to_value(core.snaps[0].status).unwrap(),"finished");
+   |                                                       ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:42:24
+   |
+42 |             assert_eq!(serde_json::to_value(&core.snaps).unwrap(),serde_json::to_value(&result.snaps).unwrap());
+   |                        ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:42:67
+   |
+42 |             assert_eq!(serde_json::to_value(&core.snaps).unwrap(),serde_json::to_value(&result.snaps).unwrap());
+   |                                                                   ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:43:81
+   |
+43 |             std::fs::write(output.join(format!("{name}-{sample}-receipt.json")),serde_json::to_vec(&result).unwrap()).unwrap();
+   |                                                                                 ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> /Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs:56:47
+   |
+56 |     std::fs::write(output.join("report.json"),serde_json::to_vec_pretty(&report).unwrap()).unwrap();if !passed {std::process::exit(1);}
+   |                                               ^^^^^^^^^^ can't find crate
+
+error: aborting due to 10 previous errors
+
+For more information about this error, try `rustc --explain E0463`.

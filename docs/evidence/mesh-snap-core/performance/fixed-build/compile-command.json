@@ -1,0 +1,36 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "--crate-name",
+    "formora_snap_performance",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "debug-assertions=no",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/capture-driver.rs",
+    "-o",
+    "/private/tmp/formora-snap-fixed-performance-driver"
+  ],
+  "exit_code": 0,
+  "source_sha256": "857be0a1ed33a7164c9a8045241e9c899d1fd889d4c5d73c0e87d3b779d9ae5d",
+  "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+  "implementation_commit": "f3403dc720a6b6e2f26d86af61ad10e9ccdc7f86",
+  "libraries": {
+    "formora": {
+      "path": "/private/tmp/formora-target-actual185/release/libformora.rlib",
+      "sha256": "c60b889e9ef84afc07b9fd571817a0b85742ff4d7ed4b54cb8081cafcd477538"
+    },
+    "serde_json": {
+      "path": "/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+      "sha256": "46eff16eb163669dad4be965dbc3267891e79f13d4fa35fd84ea5c7e6a18c17d"
+    }
+  },
+  "binary_sha256": "1343d9ce45ff3dc0f755b81fd7c601c3984a70c20ff83adadd40894a244b6922"
+}

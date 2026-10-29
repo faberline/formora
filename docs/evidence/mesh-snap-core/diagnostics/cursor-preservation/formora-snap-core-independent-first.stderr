@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/snap_independent.py", line 83, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/snap_independent.py", line 66, in main
+    assert active['snaps'][0]['target_world']==[1.,-1.,0.] and active['snaps'][0]['cursor_rotation_after']==before['authoring_context']['cursor_rotation']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

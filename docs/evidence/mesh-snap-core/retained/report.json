@@ -1,0 +1,175 @@
+{
+  "passed": true,
+  "binary_sha256": "7d7a6e54ea83d884ddab58cc99d26c0daa29b915d7839886038e373f055ec891",
+  "implementation_commit": "f3403dc720a6b6e2f26d86af61ad10e9ccdc7f86",
+  "driver_sha256": "ad2b0438c3a803f414e4796efe821fdfa38e9e65147b35eda0e516362d2d1927",
+  "source_hashes": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "8c9e81daf65df1686c2297e7deb6f5af970da66b76afda7c96360da6d9c8fff2",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "5d0eee4b2ccf49da077872840521e3040c3fa61b77a93873634caa177302edeb",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/frame_math.rs": "ca7a1d2d82a099a5d3a72855c49fa6a60a1747c2c0193b46625c364234ce50b5",
+    "src/mesh/normals.rs": "b2045c13fb09785e415281350f8e458ca505e2ce767c78f3be5dd930f8c158a4",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/snap.rs": "cb6fc506f0bd298c5822b65656a11142ddedbccde2471cffa407fb32ef3b2778",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "57a0b9465e06cfc0485c00c097bb477c24f49f01f2666f4bb4bc1703c473176c",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "f35248bcdd601164f9abfcb420dd071556f5a9de079f52657d464e1661ba334a",
+    "src/session.rs": "9881c3e0fb6c808a764cfec984520268cfba45032e471ed506fceea37b20d6d6",
+    "src/transforms.rs": "ee91979889ada2cd9c423d65e49710e532b61912b282b2b0da7e82e76ee03e2c"
+  },
+  "verification_inputs_unchanged": true,
+  "checks": [
+    {
+      "name": "primitive",
+      "command": [
+        "python3",
+        "tools/primitive_reference_smoke.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/primitive"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 162,
+      "actual_checks": 162,
+      "start_ns": 126189292446125,
+      "end_ns": 126227021158208
+    },
+    {
+      "name": "scale",
+      "command": [
+        "python3",
+        "tools/remaining_scale_regression.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/scale"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 8,
+      "actual_checks": 8,
+      "start_ns": 126227023026625,
+      "end_ns": 126230388982916
+    },
+    {
+      "name": "selection",
+      "command": [
+        "python3",
+        "tools/selection_runtime_smoke.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/selection"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 1060,
+      "actual_checks": 1060,
+      "start_ns": 126230389758208,
+      "end_ns": 126397101021625
+    },
+    {
+      "name": "creation",
+      "command": [
+        "python3",
+        "tools/creation_context_runtime.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/creation"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 262,
+      "actual_checks": 262,
+      "start_ns": 126397103504208,
+      "end_ns": 126526447220708
+    },
+    {
+      "name": "payload",
+      "command": [
+        "python3",
+        "tools/polygon_reference_smoke.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/payload"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 57,
+      "actual_checks": 57,
+      "start_ns": 126526448910500,
+      "end_ns": 126535947781208
+    },
+    {
+      "name": "normal",
+      "command": [
+        "python3",
+        "tools/normal_runtime_smoke.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/normal"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 42,
+      "actual_checks": 42,
+      "start_ns": 126535948507791,
+      "end_ns": 126539171816041
+    },
+    {
+      "name": "rng",
+      "command": [
+        "python3",
+        "tools/random_falloff_runtime.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/retained/rng"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": 96,
+      "actual_checks": 96,
+      "start_ns": 126539172439833,
+      "end_ns": 126549564801750
+    },
+    {
+      "name": "mcp",
+      "command": [
+        "python3",
+        "tools/mcp_smoke.py",
+        "/private/tmp/formora-target-actual185/debug/formora"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "expected_checks": null,
+      "actual_checks": null,
+      "start_ns": 126549565462708,
+      "end_ns": 126550390276000
+    }
+  ],
+  "product_acceptance": "unrun"
+}

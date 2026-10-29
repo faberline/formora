@@ -1,0 +1,29 @@
+[
+  {
+    "name": "metadata",
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      "."
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "passed": true
+  },
+  {
+    "name": "strict-metadata",
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      ".",
+      "--strict"
+    ],
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "passed": true
+  }
+]

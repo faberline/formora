@@ -1,0 +1,1177 @@
+{
+  "passed": true,
+  "binary_sha256": "7d7a6e54ea83d884ddab58cc99d26c0daa29b915d7839886038e373f055ec891",
+  "driver_sha256": "46f09c4546297c62669239a7d6a39c916ae16f4c1951442b125677ca4bf85661",
+  "source_hashes": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "8c9e81daf65df1686c2297e7deb6f5af970da66b76afda7c96360da6d9c8fff2",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "5d0eee4b2ccf49da077872840521e3040c3fa61b77a93873634caa177302edeb",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/frame_math.rs": "ca7a1d2d82a099a5d3a72855c49fa6a60a1747c2c0193b46625c364234ce50b5",
+    "src/mesh/normals.rs": "b2045c13fb09785e415281350f8e458ca505e2ce767c78f3be5dd930f8c158a4",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/snap.rs": "cb6fc506f0bd298c5822b65656a11142ddedbccde2471cffa407fb32ef3b2778",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "57a0b9465e06cfc0485c00c097bb477c24f49f01f2666f4bb4bc1703c473176c",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "f35248bcdd601164f9abfcb420dd071556f5a9de079f52657d464e1661ba334a",
+    "src/session.rs": "9881c3e0fb6c808a764cfec984520268cfba45032e471ed506fceea37b20d6d6",
+    "src/transforms.rs": "ee91979889ada2cd9c423d65e49710e532b61912b282b2b0da7e82e76ee03e2c"
+  },
+  "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+  "changed_vertices": 24,
+  "changed_pixels": 29269,
+  "analytic_grid_geometry_matches": true,
+  "preserved_attributes": true,
+  "fresh_reload_images_identical": true,
+  "calls": [
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "v0000": [
+                  -1.0,
+                  -1.0,
+                  -0.45
+                ],
+                "v0001": [
+                  -0.5,
+                  -1.0,
+                  -0.45
+                ],
+                "v0002": [
+                  0.0,
+                  -1.0,
+                  -0.45
+                ],
+                "v0003": [
+                  0.5,
+                  -1.0,
+                  -0.45
+                ],
+                "v0004": [
+                  1.0,
+                  -1.0,
+                  -0.45
+                ],
+                "v0005": [
+                  -1.0,
+                  -0.5,
+                  -0.225
+                ],
+                "v0006": [
+                  -0.5,
+                  -0.5,
+                  -0.225
+                ],
+                "v0007": [
+                  0.0,
+                  -0.5,
+                  -0.225
+                ],
+                "v0008": [
+                  0.5,
+                  -0.5,
+                  -0.225
+                ],
+                "v0009": [
+                  1.0,
+                  -0.5,
+                  -0.225
+                ],
+                "v0010": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "v0011": [
+                  -0.5,
+                  0.0,
+                  0.0
+                ],
+                "v0012": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "v0013": [
+                  0.5,
+                  0.0,
+                  0.0
+                ],
+                "v0014": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "v0015": [
+                  -1.0,
+                  0.5,
+                  0.225
+                ],
+                "v0016": [
+                  -0.5,
+                  0.5,
+                  0.225
+                ],
+                "v0017": [
+                  0.0,
+                  0.5,
+                  0.225
+                ],
+                "v0018": [
+                  0.5,
+                  0.5,
+                  0.225
+                ],
+                "v0019": [
+                  1.0,
+                  0.5,
+                  0.225
+                ],
+                "v0020": [
+                  -1.0,
+                  1.0,
+                  0.45
+                ],
+                "v0021": [
+                  -0.5,
+                  1.0,
+                  0.45
+                ],
+                "v0022": [
+                  0.0,
+                  1.0,
+                  0.45
+                ],
+                "v0023": [
+                  0.5,
+                  1.0,
+                  0.45
+                ],
+                "v0024": [
+                  1.0,
+                  1.0,
+                  0.45
+                ]
+              },
+              "edges": {
+                "e0000": [
+                  "v0000",
+                  "v0001"
+                ],
+                "e0001": [
+                  "v0000",
+                  "v0005"
+                ],
+                "e0002": [
+                  "v0001",
+                  "v0002"
+                ],
+                "e0003": [
+                  "v0001",
+                  "v0006"
+                ],
+                "e0004": [
+                  "v0002",
+                  "v0003"
+                ],
+                "e0005": [
+                  "v0002",
+                  "v0007"
+                ],
+                "e0006": [
+                  "v0003",
+                  "v0004"
+                ],
+                "e0007": [
+                  "v0003",
+                  "v0008"
+                ],
+                "e0008": [
+                  "v0004",
+                  "v0009"
+                ],
+                "e0009": [
+                  "v0005",
+                  "v0006"
+                ],
+                "e0010": [
+                  "v0005",
+                  "v0010"
+                ],
+                "e0011": [
+                  "v0006",
+                  "v0007"
+                ],
+                "e0012": [
+                  "v0006",
+                  "v0011"
+                ],
+                "e0013": [
+                  "v0007",
+                  "v0008"
+                ],
+                "e0014": [
+                  "v0007",
+                  "v0012"
+                ],
+                "e0015": [
+                  "v0008",
+                  "v0009"
+                ],
+                "e0016": [
+                  "v0008",
+                  "v0013"
+                ],
+                "e0017": [
+                  "v0009",
+                  "v0014"
+                ],
+                "e0018": [
+                  "v0010",
+                  "v0011"
+                ],
+                "e0019": [
+                  "v0010",
+                  "v0015"
+                ],
+                "e0020": [
+                  "v0011",
+                  "v0012"
+                ],
+                "e0021": [
+                  "v0011",
+                  "v0016"
+                ],
+                "e0022": [
+                  "v0012",
+                  "v0013"
+                ],
+                "e0023": [
+                  "v0012",
+                  "v0017"
+                ],
+                "e0024": [
+                  "v0013",
+                  "v0014"
+                ],
+                "e0025": [
+                  "v0013",
+                  "v0018"
+                ],
+                "e0026": [
+                  "v0014",
+                  "v0019"
+                ],
+                "e0027": [
+                  "v0015",
+                  "v0016"
+                ],
+                "e0028": [
+                  "v0015",
+                  "v0020"
+                ],
+                "e0029": [
+                  "v0016",
+                  "v0017"
+                ],
+                "e0030": [
+                  "v0016",
+                  "v0021"
+                ],
+                "e0031": [
+                  "v0017",
+                  "v0018"
+                ],
+                "e0032": [
+                  "v0017",
+                  "v0022"
+                ],
+                "e0033": [
+                  "v0018",
+                  "v0019"
+                ],
+                "e0034": [
+                  "v0018",
+                  "v0023"
+                ],
+                "e0035": [
+                  "v0019",
+                  "v0024"
+                ],
+                "e0036": [
+                  "v0020",
+                  "v0021"
+                ],
+                "e0037": [
+                  "v0021",
+                  "v0022"
+                ],
+                "e0038": [
+                  "v0022",
+                  "v0023"
+                ],
+                "e0039": [
+                  "v0023",
+                  "v0024"
+                ]
+              },
+              "polygons": {
+                "f0000": {
+                  "vertices": [
+                    "v0000",
+                    "v0001",
+                    "v0006",
+                    "v0005"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -1.0,
+                        -1.0
+                      ],
+                      [
+                        -0.5,
+                        -1.0
+                      ],
+                      [
+                        -0.5,
+                        -0.5
+                      ],
+                      [
+                        -1.0,
+                        -0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0001": {
+                  "vertices": [
+                    "v0001",
+                    "v0002",
+                    "v0007",
+                    "v0006"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -0.5,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        -0.5
+                      ],
+                      [
+                        -0.5,
+                        -0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0002": {
+                  "vertices": [
+                    "v0002",
+                    "v0003",
+                    "v0008",
+                    "v0007"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.5,
+                        -1.0
+                      ],
+                      [
+                        0.5,
+                        -0.5
+                      ],
+                      [
+                        0.0,
+                        -0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0003": {
+                  "vertices": [
+                    "v0003",
+                    "v0004",
+                    "v0009",
+                    "v0008"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.5,
+                        -1.0
+                      ],
+                      [
+                        1.0,
+                        -1.0
+                      ],
+                      [
+                        1.0,
+                        -0.5
+                      ],
+                      [
+                        0.5,
+                        -0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0004": {
+                  "vertices": [
+                    "v0005",
+                    "v0006",
+                    "v0011",
+                    "v0010"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -1.0,
+                        -0.5
+                      ],
+                      [
+                        -0.5,
+                        -0.5
+                      ],
+                      [
+                        -0.5,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0005": {
+                  "vertices": [
+                    "v0006",
+                    "v0007",
+                    "v0012",
+                    "v0011"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -0.5,
+                        -0.5
+                      ],
+                      [
+                        0.0,
+                        -0.5
+                      ],
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -0.5,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0006": {
+                  "vertices": [
+                    "v0007",
+                    "v0008",
+                    "v0013",
+                    "v0012"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.0,
+                        -0.5
+                      ],
+                      [
+                        0.5,
+                        -0.5
+                      ],
+                      [
+                        0.5,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0007": {
+                  "vertices": [
+                    "v0008",
+                    "v0009",
+                    "v0014",
+                    "v0013"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.5,
+                        -0.5
+                      ],
+                      [
+                        1.0,
+                        -0.5
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.5,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0008": {
+                  "vertices": [
+                    "v0010",
+                    "v0011",
+                    "v0016",
+                    "v0015"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        -0.5,
+                        0.0
+                      ],
+                      [
+                        -0.5,
+                        0.5
+                      ],
+                      [
+                        -1.0,
+                        0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0009": {
+                  "vertices": [
+                    "v0011",
+                    "v0012",
+                    "v0017",
+                    "v0016"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -0.5,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.5
+                      ],
+                      [
+                        -0.5,
+                        0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0010": {
+                  "vertices": [
+                    "v0012",
+                    "v0013",
+                    "v0018",
+                    "v0017"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.5,
+                        0.0
+                      ],
+                      [
+                        0.5,
+                        0.5
+                      ],
+                      [
+                        0.0,
+                        0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0011": {
+                  "vertices": [
+                    "v0013",
+                    "v0014",
+                    "v0019",
+                    "v0018"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.5,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.5
+                      ],
+                      [
+                        0.5,
+                        0.5
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0012": {
+                  "vertices": [
+                    "v0015",
+                    "v0016",
+                    "v0021",
+                    "v0020"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -1.0,
+                        0.5
+                      ],
+                      [
+                        -0.5,
+                        0.5
+                      ],
+                      [
+                        -0.5,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0013": {
+                  "vertices": [
+                    "v0016",
+                    "v0017",
+                    "v0022",
+                    "v0021"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        -0.5,
+                        0.5
+                      ],
+                      [
+                        0.0,
+                        0.5
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -0.5,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0014": {
+                  "vertices": [
+                    "v0017",
+                    "v0018",
+                    "v0023",
+                    "v0022"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.0,
+                        0.5
+                      ],
+                      [
+                        0.5,
+                        0.5
+                      ],
+                      [
+                        0.5,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0015": {
+                  "vertices": [
+                    "v0018",
+                    "v0019",
+                    "v0024",
+                    "v0023"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0.5,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        1.0
+                      ],
+                      [
+                        0.5,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                }
+              },
+              "triangles": {},
+              "material_slots": [],
+              "uv_layout": {
+                "layers": [
+                  "UV"
+                ],
+                "active": "UV"
+              }
+            }
+          },
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "selected": {
+                "vertices": [
+                  "v0000",
+                  "v0001",
+                  "v0002",
+                  "v0003",
+                  "v0004",
+                  "v0005",
+                  "v0006",
+                  "v0007",
+                  "v0008",
+                  "v0009",
+                  "v0010",
+                  "v0011",
+                  "v0012",
+                  "v0013",
+                  "v0014",
+                  "v0015",
+                  "v0016",
+                  "v0017",
+                  "v0018",
+                  "v0019",
+                  "v0020",
+                  "v0021",
+                  "v0022",
+                  "v0023",
+                  "v0024"
+                ]
+              },
+              "preview": false
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "surface",
+            "entity": {
+              "name": "surface",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  -4,
+                  4
+                ],
+                "rotation": [
+                  0.3826834323650898,
+                  0,
+                  0,
+                  0.9238795325112867
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  1,
+                  -3,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":1}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":1,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.3826834323650898,0.0,0.0,0.9238795325112867],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,-4.0,4.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[1.0,-3.0,5.0]}},\"surface\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"surface\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e0000\":[\"v0000\",\"v0001\"],\"e0001\":[\"v0000\",\"v0005\"],\"e0002\":[\"v0001\",\"v0002\"],\"e0003\":[\"v0001\",\"v0006\"],\"e0004\":[\"v0002\",\"v0003\"],\"e0005\":[\"v0002\",\"v0007\"],\"e0006\":[\"v0003\",\"v0004\"],\"e0007\":[\"v0003\",\"v0008\"],\"e0008\":[\"v0004\",\"v0009\"],\"e0009\":[\"v0005\",\"v0006\"],\"e0010\":[\"v0005\",\"v0010\"],\"e0011\":[\"v0006\",\"v0007\"],\"e0012\":[\"v0006\",\"v0011\"],\"e0013\":[\"v0007\",\"v0008\"],\"e0014\":[\"v0007\",\"v0012\"],\"e0015\":[\"v0008\",\"v0009\"],\"e0016\":[\"v0008\",\"v0013\"],\"e0017\":[\"v0009\",\"v0014\"],\"e0018\":[\"v0010\",\"v0011\"],\"e0019\":[\"v0010\",\"v0015\"],\"e0020\":[\"v0011\",\"v0012\"],\"e0021\":[\"v0011\",\"v0016\"],\"e0022\":[\"v0012\",\"v0013\"],\"e0023\":[\"v0012\",\"v0017\"],\"e0024\":[\"v0013\",\"v0014\"],\"e0025\":[\"v0013\",\"v0018\"],\"e0026\":[\"v0014\",\"v0019\"],\"e0027\":[\"v0015\",\"v0016\"],\"e0028\":[\"v0015\",\"v0020\"],\"e0029\":[\"v0016\",\"v0017\"],\"e0030\":[\"v0016\",\"v0021\"],\"e0031\":[\"v0017\",\"v0018\"],\"e0032\":[\"v0017\",\"v0022\"],\"e0033\":[\"v0018\",\"v0019\"],\"e0034\":[\"v0018\",\"v0023\"],\"e0035\":[\"v0019\",\"v0024\"],\"e0036\":[\"v0020\",\"v0021\"],\"e0037\":[\"v0021\",\"v0022\"],\"e0038\":[\"v0022\",\"v0023\"],\"e0039\":[\"v0023\",\"v0024\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e0000\",\"e0001\",\"e0002\",\"e0003\",\"e0004\",\"e0005\",\"e0006\",\"e0007\",\"e0008\",\"e0009\",\"e0010\",\"e0011\",\"e0012\",\"e0013\",\"e0014\",\"e0015\",\"e0016\",\"e0017\",\"e0018\",\"e0019\",\"e0020\",\"e0021\",\"e0022\",\"e0023\",\"e0024\",\"e0025\",\"e0026\",\"e0027\",\"e0028\",\"e0029\",\"e0030\",\"e0031\",\"e0032\",\"e0033\",\"e0034\",\"e0035\",\"e0036\",\"e0037\",\"e0038\",\"e0039\"],\"faces\":[{\"id\":\"f0000\",\"kind\":\"polygon\"},{\"id\":\"f0001\",\"kind\":\"polygon\"},{\"id\":\"f0002\",\"kind\":\"polygon\"},{\"id\":\"f0003\",\"kind\":\"polygon\"},{\"id\":\"f0004\",\"kind\":\"polygon\"},{\"id\":\"f0005\",\"kind\":\"polygon\"},{\"id\":\"f0006\",\"kind\":\"polygon\"},{\"id\":\"f0007\",\"kind\":\"polygon\"},{\"id\":\"f0008\",\"kind\":\"polygon\"},{\"id\":\"f0009\",\"kind\":\"polygon\"},{\"id\":\"f0010\",\"kind\":\"polygon\"},{\"id\":\"f0011\",\"kind\":\"polygon\"},{\"id\":\"f0012\",\"kind\":\"polygon\"},{\"id\":\"f0013\",\"kind\":\"polygon\"},{\"id\":\"f0014\",\"kind\":\"polygon\"},{\"id\":\"f0015\",\"kind\":\"polygon\"}],\"vertices\":[\"v0000\",\"v0001\",\"v0002\",\"v0003\",\"v0004\",\"v0005\",\"v0006\",\"v0007\",\"v0008\",\"v0009\",\"v0010\",\"v0011\",\"v0012\",\"v0013\",\"v0014\",\"v0015\",\"v0016\",\"v0017\",\"v0018\",\"v0019\",\"v0020\",\"v0021\",\"v0022\",\"v0023\",\"v0024\"]}},\"material_slots\":[],\"polygons\":{\"f0000\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,-1.0],[-0.5,-1.0],[-0.5,-0.5],[-1.0,-0.5]]},\"vertices\":[\"v0000\",\"v0001\",\"v0006\",\"v0005\"]},\"f0001\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,-1.0],[0.0,-1.0],[0.0,-0.5],[-0.5,-0.5]]},\"vertices\":[\"v0001\",\"v0002\",\"v0007\",\"v0006\"]},\"f0002\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,-1.0],[0.5,-1.0],[0.5,-0.5],[0.0,-0.5]]},\"vertices\":[\"v0002\",\"v0003\",\"v0008\",\"v0007\"]},\"f0003\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,-1.0],[1.0,-1.0],[1.0,-0.5],[0.5,-0.5]]},\"vertices\":[\"v0003\",\"v0004\",\"v0009\",\"v0008\"]},\"f0004\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,-0.5],[-0.5,-0.5],[-0.5,0.0],[-1.0,0.0]]},\"vertices\":[\"v0005\",\"v0006\",\"v0011\",\"v0010\"]},\"f0005\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,-0.5],[0.0,-0.5],[0.0,0.0],[-0.5,0.0]]},\"vertices\":[\"v0006\",\"v0007\",\"v0012\",\"v0011\"]},\"f0006\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,-0.5],[0.5,-0.5],[0.5,0.0],[0.0,0.0]]},\"vertices\":[\"v0007\",\"v0008\",\"v0013\",\"v0012\"]},\"f0007\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,-0.5],[1.0,-0.5],[1.0,0.0],[0.5,0.0]]},\"vertices\":[\"v0008\",\"v0009\",\"v0014\",\"v0013\"]},\"f0008\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,0.0],[-0.5,0.0],[-0.5,0.5],[-1.0,0.5]]},\"vertices\":[\"v0010\",\"v0011\",\"v0016\",\"v0015\"]},\"f0009\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,0.0],[0.0,0.0],[0.0,0.5],[-0.5,0.5]]},\"vertices\":[\"v0011\",\"v0012\",\"v0017\",\"v0016\"]},\"f0010\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,0.0],[0.5,0.0],[0.5,0.5],[0.0,0.5]]},\"vertices\":[\"v0012\",\"v0013\",\"v0018\",\"v0017\"]},\"f0011\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,0.0],[1.0,0.0],[1.0,0.5],[0.5,0.5]]},\"vertices\":[\"v0013\",\"v0014\",\"v0019\",\"v0018\"]},\"f0012\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,0.5],[-0.5,0.5],[-0.5,1.0],[-1.0,1.0]]},\"vertices\":[\"v0015\",\"v0016\",\"v0021\",\"v0020\"]},\"f0013\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,0.5],[0.0,0.5],[0.0,1.0],[-0.5,1.0]]},\"vertices\":[\"v0016\",\"v0017\",\"v0022\",\"v0021\"]},\"f0014\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,0.5],[0.5,0.5],[0.5,1.0],[0.0,1.0]]},\"vertices\":[\"v0017\",\"v0018\",\"v0023\",\"v0022\"]},\"f0015\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,0.5],[1.0,0.5],[1.0,1.0],[0.5,1.0]]},\"vertices\":[\"v0018\",\"v0019\",\"v0024\",\"v0023\"]}},\"triangles\":{},\"uv_layout\":{\"active\":\"UV\",\"layers\":[\"UV\"]},\"vertices\":{\"v0000\":[-1.0,-1.0,-0.45],\"v0001\":[-0.5,-1.0,-0.45],\"v0002\":[0.0,-1.0,-0.45],\"v0003\":[0.5,-1.0,-0.45],\"v0004\":[1.0,-1.0,-0.45],\"v0005\":[-1.0,-0.5,-0.225],\"v0006\":[-0.5,-0.5,-0.225],\"v0007\":[0.0,-0.5,-0.225],\"v0008\":[0.5,-0.5,-0.225],\"v0009\":[1.0,-0.5,-0.225],\"v0010\":[-1.0,0.0,0.0],\"v0011\":[-0.5,0.0,0.0],\"v0012\":[0.0,0.0,0.0],\"v0013\":[0.5,0.0,0.0],\"v0014\":[1.0,0.0,0.0],\"v0015\":[-1.0,0.5,0.225],\"v0016\":[-0.5,0.5,0.225],\"v0017\":[0.0,0.5,0.225],\"v0018\":[0.5,0.5,0.225],\"v0019\":[1.0,0.5,0.225],\"v0020\":[-1.0,1.0,0.45],\"v0021\":[-0.5,1.0,0.45],\"v0022\":[0.0,1.0,0.45],\"v0023\":[0.5,1.0,0.45],\"v0024\":[1.0,1.0,0.45]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/before.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "surface",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.6
+              },
+              "pivot": "median"
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":2,\"snaps\":[{\"action\":{\"kind\":\"selected_to_grid\",\"spacing\":0.6},\"changed\":{\"edges\":[\"e0000\",\"e0001\",\"e0002\",\"e0003\",\"e0004\",\"e0005\",\"e0006\",\"e0007\",\"e0008\",\"e0009\",\"e0010\",\"e0011\",\"e0012\",\"e0013\",\"e0014\",\"e0015\",\"e0016\",\"e0017\",\"e0018\",\"e0019\",\"e0020\",\"e0021\",\"e0022\",\"e0023\",\"e0024\",\"e0025\",\"e0026\",\"e0027\",\"e0028\",\"e0029\",\"e0030\",\"e0031\",\"e0032\",\"e0033\",\"e0034\",\"e0035\",\"e0036\",\"e0037\",\"e0038\",\"e0039\"],\"faces\":[{\"id\":\"f0000\",\"kind\":\"polygon\"},{\"id\":\"f0001\",\"kind\":\"polygon\"},{\"id\":\"f0002\",\"kind\":\"polygon\"},{\"id\":\"f0003\",\"kind\":\"polygon\"},{\"id\":\"f0004\",\"kind\":\"polygon\"},{\"id\":\"f0005\",\"kind\":\"polygon\"},{\"id\":\"f0006\",\"kind\":\"polygon\"},{\"id\":\"f0007\",\"kind\":\"polygon\"},{\"id\":\"f0008\",\"kind\":\"polygon\"},{\"id\":\"f0009\",\"kind\":\"polygon\"},{\"id\":\"f0010\",\"kind\":\"polygon\"},{\"id\":\"f0011\",\"kind\":\"polygon\"},{\"id\":\"f0012\",\"kind\":\"polygon\"},{\"id\":\"f0013\",\"kind\":\"polygon\"},{\"id\":\"f0014\",\"kind\":\"polygon\"},{\"id\":\"f0015\",\"kind\":\"polygon\"}],\"vertices\":[\"v0000\",\"v0001\",\"v0002\",\"v0003\",\"v0004\",\"v0005\",\"v0006\",\"v0007\",\"v0008\",\"v0009\",\"v0010\",\"v0011\",\"v0013\",\"v0014\",\"v0015\",\"v0016\",\"v0017\",\"v0018\",\"v0019\",\"v0020\",\"v0021\",\"v0022\",\"v0023\",\"v0024\"]},\"command_index\":0,\"cursor_after\":[0.0,0.0,0.0],\"cursor_before\":[0.0,0.0,0.0],\"cursor_changed\":false,\"cursor_rotation_after\":[0.0,0.0,0.0],\"cursor_rotation_before\":[0.0,0.0,0.0],\"entity\":\"surface\",\"grid_spacing_metres\":0.6000000238418579,\"mesh_asset\":\"mesh\",\"pivot\":\"median\",\"pivot_world\":null,\"reason\":null,\"rotation_applied\":false,\"shared_instances\":[\"surface\"],\"status\":\"finished\",\"target_world\":null}]}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":2,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.3826834323650898,0.0,0.0,0.9238795325112867],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,-4.0,4.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[1.0,-3.0,5.0]}},\"surface\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"surface\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e0000\":[\"v0000\",\"v0001\"],\"e0001\":[\"v0000\",\"v0005\"],\"e0002\":[\"v0001\",\"v0002\"],\"e0003\":[\"v0001\",\"v0006\"],\"e0004\":[\"v0002\",\"v0003\"],\"e0005\":[\"v0002\",\"v0007\"],\"e0006\":[\"v0003\",\"v0004\"],\"e0007\":[\"v0003\",\"v0008\"],\"e0008\":[\"v0004\",\"v0009\"],\"e0009\":[\"v0005\",\"v0006\"],\"e0010\":[\"v0005\",\"v0010\"],\"e0011\":[\"v0006\",\"v0007\"],\"e0012\":[\"v0006\",\"v0011\"],\"e0013\":[\"v0007\",\"v0008\"],\"e0014\":[\"v0007\",\"v0012\"],\"e0015\":[\"v0008\",\"v0009\"],\"e0016\":[\"v0008\",\"v0013\"],\"e0017\":[\"v0009\",\"v0014\"],\"e0018\":[\"v0010\",\"v0011\"],\"e0019\":[\"v0010\",\"v0015\"],\"e0020\":[\"v0011\",\"v0012\"],\"e0021\":[\"v0011\",\"v0016\"],\"e0022\":[\"v0012\",\"v0013\"],\"e0023\":[\"v0012\",\"v0017\"],\"e0024\":[\"v0013\",\"v0014\"],\"e0025\":[\"v0013\",\"v0018\"],\"e0026\":[\"v0014\",\"v0019\"],\"e0027\":[\"v0015\",\"v0016\"],\"e0028\":[\"v0015\",\"v0020\"],\"e0029\":[\"v0016\",\"v0017\"],\"e0030\":[\"v0016\",\"v0021\"],\"e0031\":[\"v0017\",\"v0018\"],\"e0032\":[\"v0017\",\"v0022\"],\"e0033\":[\"v0018\",\"v0019\"],\"e0034\":[\"v0018\",\"v0023\"],\"e0035\":[\"v0019\",\"v0024\"],\"e0036\":[\"v0020\",\"v0021\"],\"e0037\":[\"v0021\",\"v0022\"],\"e0038\":[\"v0022\",\"v0023\"],\"e0039\":[\"v0023\",\"v0024\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e0000\",\"e0001\",\"e0002\",\"e0003\",\"e0004\",\"e0005\",\"e0006\",\"e0007\",\"e0008\",\"e0009\",\"e0010\",\"e0011\",\"e0012\",\"e0013\",\"e0014\",\"e0015\",\"e0016\",\"e0017\",\"e0018\",\"e0019\",\"e0020\",\"e0021\",\"e0022\",\"e0023\",\"e0024\",\"e0025\",\"e0026\",\"e0027\",\"e0028\",\"e0029\",\"e0030\",\"e0031\",\"e0032\",\"e0033\",\"e0034\",\"e0035\",\"e0036\",\"e0037\",\"e0038\",\"e0039\"],\"faces\":[{\"id\":\"f0000\",\"kind\":\"polygon\"},{\"id\":\"f0001\",\"kind\":\"polygon\"},{\"id\":\"f0002\",\"kind\":\"polygon\"},{\"id\":\"f0003\",\"kind\":\"polygon\"},{\"id\":\"f0004\",\"kind\":\"polygon\"},{\"id\":\"f0005\",\"kind\":\"polygon\"},{\"id\":\"f0006\",\"kind\":\"polygon\"},{\"id\":\"f0007\",\"kind\":\"polygon\"},{\"id\":\"f0008\",\"kind\":\"polygon\"},{\"id\":\"f0009\",\"kind\":\"polygon\"},{\"id\":\"f0010\",\"kind\":\"polygon\"},{\"id\":\"f0011\",\"kind\":\"polygon\"},{\"id\":\"f0012\",\"kind\":\"polygon\"},{\"id\":\"f0013\",\"kind\":\"polygon\"},{\"id\":\"f0014\",\"kind\":\"polygon\"},{\"id\":\"f0015\",\"kind\":\"polygon\"}],\"vertices\":[\"v0000\",\"v0001\",\"v0002\",\"v0003\",\"v0004\",\"v0005\",\"v0006\",\"v0007\",\"v0008\",\"v0009\",\"v0010\",\"v0011\",\"v0012\",\"v0013\",\"v0014\",\"v0015\",\"v0016\",\"v0017\",\"v0018\",\"v0019\",\"v0020\",\"v0021\",\"v0022\",\"v0023\",\"v0024\"]}},\"material_slots\":[],\"polygons\":{\"f0000\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,-1.0],[-0.5,-1.0],[-0.5,-0.5],[-1.0,-0.5]]},\"vertices\":[\"v0000\",\"v0001\",\"v0006\",\"v0005\"]},\"f0001\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,-1.0],[0.0,-1.0],[0.0,-0.5],[-0.5,-0.5]]},\"vertices\":[\"v0001\",\"v0002\",\"v0007\",\"v0006\"]},\"f0002\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,-1.0],[0.5,-1.0],[0.5,-0.5],[0.0,-0.5]]},\"vertices\":[\"v0002\",\"v0003\",\"v0008\",\"v0007\"]},\"f0003\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238795638084412]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,-1.0],[1.0,-1.0],[1.0,-0.5],[0.5,-0.5]]},\"vertices\":[\"v0003\",\"v0004\",\"v0009\",\"v0008\"]},\"f0004\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,-0.5],[-0.5,-0.5],[-0.5,0.0],[-1.0,0.0]]},\"vertices\":[\"v0005\",\"v0006\",\"v0011\",\"v0010\"]},\"f0005\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,-0.5],[0.0,-0.5],[0.0,0.0],[-0.5,0.0]]},\"vertices\":[\"v0006\",\"v0007\",\"v0012\",\"v0011\"]},\"f0006\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,-0.5],[0.5,-0.5],[0.5,0.0],[0.0,0.0]]},\"vertices\":[\"v0007\",\"v0008\",\"v0013\",\"v0012\"]},\"f0007\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,-0.5],[1.0,-0.5],[1.0,0.0],[0.5,0.0]]},\"vertices\":[\"v0008\",\"v0009\",\"v0014\",\"v0013\"]},\"f0008\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,0.0],[-0.5,0.0],[-0.5,0.5],[-1.0,0.5]]},\"vertices\":[\"v0010\",\"v0011\",\"v0016\",\"v0015\"]},\"f0009\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,0.0],[0.0,0.0],[0.0,0.5],[-0.5,0.5]]},\"vertices\":[\"v0011\",\"v0012\",\"v0017\",\"v0016\"]},\"f0010\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,0.0],[0.5,0.0],[0.5,0.5],[0.0,0.5]]},\"vertices\":[\"v0012\",\"v0013\",\"v0018\",\"v0017\"]},\"f0011\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,0.0],[1.0,0.0],[1.0,0.5],[0.5,0.5]]},\"vertices\":[\"v0013\",\"v0014\",\"v0019\",\"v0018\"]},\"f0012\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,0.5],[-0.5,0.5],[-0.5,1.0],[-1.0,1.0]]},\"vertices\":[\"v0015\",\"v0016\",\"v0021\",\"v0020\"]},\"f0013\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,0.5],[0.0,0.5],[0.0,1.0],[-0.5,1.0]]},\"vertices\":[\"v0016\",\"v0017\",\"v0022\",\"v0021\"]},\"f0014\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,0.5],[0.5,0.5],[0.5,1.0],[0.0,1.0]]},\"vertices\":[\"v0017\",\"v0018\",\"v0023\",\"v0022\"]},\"f0015\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,0.5],[1.0,0.5],[1.0,1.0],[0.5,1.0]]},\"vertices\":[\"v0018\",\"v0019\",\"v0024\",\"v0023\"]}},\"triangles\":{},\"uv_layout\":{\"active\":\"UV\",\"layers\":[\"UV\"]},\"vertices\":{\"v0000\":[-1.2000000476837158,-1.2000000476837158,-0.6000000238418579],\"v0001\":[-0.6000000238418579,-1.2000000476837158,-0.6000000238418579],\"v0002\":[0.0,-1.2000000476837158,-0.6000000238418579],\"v0003\":[0.6000000238418579,-1.2000000476837158,-0.6000000238418579],\"v0004\":[1.2000000476837158,-1.2000000476837158,-0.6000000238418579],\"v0005\":[-1.2000000476837158,-0.6000000238418579,0.0],\"v0006\":[-0.6000000238418579,-0.6000000238418579,0.0],\"v0007\":[0.0,-0.6000000238418579,0.0],\"v0008\":[0.6000000238418579,-0.6000000238418579,0.0],\"v0009\":[1.2000000476837158,-0.6000000238418579,0.0],\"v0010\":[-1.2000000476837158,0.0,0.0],\"v0011\":[-0.6000000238418579,0.0,0.0],\"v0012\":[0.0,0.0,0.0],\"v0013\":[0.6000000238418579,0.0,0.0],\"v0014\":[1.2000000476837158,0.0,0.0],\"v0015\":[-1.2000000476837158,0.6000000238418579,0.0],\"v0016\":[-0.6000000238418579,0.6000000238418579,0.0],\"v0017\":[0.0,0.6000000238418579,0.0],\"v0018\":[0.6000000238418579,0.6000000238418579,0.0],\"v0019\":[1.2000000476837158,0.6000000238418579,0.0],\"v0020\":[-1.2000000476837158,1.2000000476837158,0.6000000238418579],\"v0021\":[-0.6000000238418579,1.2000000476837158,0.6000000238418579],\"v0022\":[0.0,1.2000000476837158,0.6000000238418579],\"v0023\":[0.6000000238418579,1.2000000476837158,0.6000000238418579],\"v0024\":[1.2000000476837158,1.2000000476837158,0.6000000238418579]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--normals"
+      ],
+      "request": null,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edges\":{\"e0000\":[\"v0000\",\"v0001\"],\"e0001\":[\"v0000\",\"v0005\"],\"e0002\":[\"v0001\",\"v0002\"],\"e0003\":[\"v0001\",\"v0006\"],\"e0004\":[\"v0002\",\"v0003\"],\"e0005\":[\"v0002\",\"v0007\"],\"e0006\":[\"v0003\",\"v0004\"],\"e0007\":[\"v0003\",\"v0008\"],\"e0008\":[\"v0004\",\"v0009\"],\"e0009\":[\"v0005\",\"v0006\"],\"e0010\":[\"v0005\",\"v0010\"],\"e0011\":[\"v0006\",\"v0007\"],\"e0012\":[\"v0006\",\"v0011\"],\"e0013\":[\"v0007\",\"v0008\"],\"e0014\":[\"v0007\",\"v0012\"],\"e0015\":[\"v0008\",\"v0009\"],\"e0016\":[\"v0008\",\"v0013\"],\"e0017\":[\"v0009\",\"v0014\"],\"e0018\":[\"v0010\",\"v0011\"],\"e0019\":[\"v0010\",\"v0015\"],\"e0020\":[\"v0011\",\"v0012\"],\"e0021\":[\"v0011\",\"v0016\"],\"e0022\":[\"v0012\",\"v0013\"],\"e0023\":[\"v0012\",\"v0017\"],\"e0024\":[\"v0013\",\"v0014\"],\"e0025\":[\"v0013\",\"v0018\"],\"e0026\":[\"v0014\",\"v0019\"],\"e0027\":[\"v0015\",\"v0016\"],\"e0028\":[\"v0015\",\"v0020\"],\"e0029\":[\"v0016\",\"v0017\"],\"e0030\":[\"v0016\",\"v0021\"],\"e0031\":[\"v0017\",\"v0018\"],\"e0032\":[\"v0017\",\"v0022\"],\"e0033\":[\"v0018\",\"v0019\"],\"e0034\":[\"v0018\",\"v0023\"],\"e0035\":[\"v0019\",\"v0024\"],\"e0036\":[\"v0020\",\"v0021\"],\"e0037\":[\"v0021\",\"v0022\"],\"e0038\":[\"v0022\",\"v0023\"],\"e0039\":[\"v0023\",\"v0024\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e0000\",\"e0001\",\"e0002\",\"e0003\",\"e0004\",\"e0005\",\"e0006\",\"e0007\",\"e0008\",\"e0009\",\"e0010\",\"e0011\",\"e0012\",\"e0013\",\"e0014\",\"e0015\",\"e0016\",\"e0017\",\"e0018\",\"e0019\",\"e0020\",\"e0021\",\"e0022\",\"e0023\",\"e0024\",\"e0025\",\"e0026\",\"e0027\",\"e0028\",\"e0029\",\"e0030\",\"e0031\",\"e0032\",\"e0033\",\"e0034\",\"e0035\",\"e0036\",\"e0037\",\"e0038\",\"e0039\"],\"faces\":[{\"id\":\"f0000\",\"kind\":\"polygon\"},{\"id\":\"f0001\",\"kind\":\"polygon\"},{\"id\":\"f0002\",\"kind\":\"polygon\"},{\"id\":\"f0003\",\"kind\":\"polygon\"},{\"id\":\"f0004\",\"kind\":\"polygon\"},{\"id\":\"f0005\",\"kind\":\"polygon\"},{\"id\":\"f0006\",\"kind\":\"polygon\"},{\"id\":\"f0007\",\"kind\":\"polygon\"},{\"id\":\"f0008\",\"kind\":\"polygon\"},{\"id\":\"f0009\",\"kind\":\"polygon\"},{\"id\":\"f0010\",\"kind\":\"polygon\"},{\"id\":\"f0011\",\"kind\":\"polygon\"},{\"id\":\"f0012\",\"kind\":\"polygon\"},{\"id\":\"f0013\",\"kind\":\"polygon\"},{\"id\":\"f0014\",\"kind\":\"polygon\"},{\"id\":\"f0015\",\"kind\":\"polygon\"}],\"vertices\":[\"v0000\",\"v0001\",\"v0002\",\"v0003\",\"v0004\",\"v0005\",\"v0006\",\"v0007\",\"v0008\",\"v0009\",\"v0010\",\"v0011\",\"v0012\",\"v0013\",\"v0014\",\"v0015\",\"v0016\",\"v0017\",\"v0018\",\"v0019\",\"v0020\",\"v0021\",\"v0022\",\"v0023\",\"v0024\"]}},\"material_slots\":[],\"polygons\":{\"f0000\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,-1.0],[-0.5,-1.0],[-0.5,-0.5],[-1.0,-0.5]]},\"vertices\":[\"v0000\",\"v0001\",\"v0006\",\"v0005\"]},\"f0001\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,-1.0],[0.0,-1.0],[0.0,-0.5],[-0.5,-0.5]]},\"vertices\":[\"v0001\",\"v0002\",\"v0007\",\"v0006\"]},\"f0002\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,-1.0],[0.5,-1.0],[0.5,-0.5],[0.0,-0.5]]},\"vertices\":[\"v0002\",\"v0003\",\"v0008\",\"v0007\"]},\"f0003\":{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238795638084412]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,-1.0],[1.0,-1.0],[1.0,-0.5],[0.5,-0.5]]},\"vertices\":[\"v0003\",\"v0004\",\"v0009\",\"v0008\"]},\"f0004\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,-0.5],[-0.5,-0.5],[-0.5,0.0],[-1.0,0.0]]},\"vertices\":[\"v0005\",\"v0006\",\"v0011\",\"v0010\"]},\"f0005\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,-0.5],[0.0,-0.5],[0.0,0.0],[-0.5,0.0]]},\"vertices\":[\"v0006\",\"v0007\",\"v0012\",\"v0011\"]},\"f0006\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,-0.5],[0.5,-0.5],[0.5,0.0],[0.0,0.0]]},\"vertices\":[\"v0007\",\"v0008\",\"v0013\",\"v0012\"]},\"f0007\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,-0.5],[1.0,-0.5],[1.0,0.0],[0.5,0.0]]},\"vertices\":[\"v0008\",\"v0009\",\"v0014\",\"v0013\"]},\"f0008\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,0.0],[-0.5,0.0],[-0.5,0.5],[-1.0,0.5]]},\"vertices\":[\"v0010\",\"v0011\",\"v0016\",\"v0015\"]},\"f0009\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,0.0],[0.0,0.0],[0.0,0.5],[-0.5,0.5]]},\"vertices\":[\"v0011\",\"v0012\",\"v0017\",\"v0016\"]},\"f0010\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,0.0],[0.5,0.0],[0.5,0.5],[0.0,0.5]]},\"vertices\":[\"v0012\",\"v0013\",\"v0018\",\"v0017\"]},\"f0011\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,0.0],[1.0,0.0],[1.0,0.5],[0.5,0.5]]},\"vertices\":[\"v0013\",\"v0014\",\"v0019\",\"v0018\"]},\"f0012\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-1.0,0.5],[-0.5,0.5],[-0.5,1.0],[-1.0,1.0]]},\"vertices\":[\"v0015\",\"v0016\",\"v0021\",\"v0020\"]},\"f0013\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[-0.5,0.5],[0.0,0.5],[0.0,1.0],[-0.5,1.0]]},\"vertices\":[\"v0016\",\"v0017\",\"v0022\",\"v0021\"]},\"f0014\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.0,0.5],[0.5,0.5],[0.5,1.0],[0.0,1.0]]},\"vertices\":[\"v0017\",\"v0018\",\"v0023\",\"v0022\"]},\"f0015\":{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"material_slot\":null,\"normal\":[0.0,-0.7071068286895752,0.7071068286895752],\"smooth\":true,\"uv_layers\":{\"UV\":[[0.5,0.5],[1.0,0.5],[1.0,1.0],[0.5,1.0]]},\"vertices\":[\"v0018\",\"v0019\",\"v0024\",\"v0023\"]}},\"triangles\":{},\"uv_layout\":{\"active\":\"UV\",\"layers\":[\"UV\"]},\"vertices\":{\"v0000\":[-1.2000000476837158,-1.2000000476837158,-0.6000000238418579],\"v0001\":[-0.6000000238418579,-1.2000000476837158,-0.6000000238418579],\"v0002\":[0.0,-1.2000000476837158,-0.6000000238418579],\"v0003\":[0.6000000238418579,-1.2000000476837158,-0.6000000238418579],\"v0004\":[1.2000000476837158,-1.2000000476837158,-0.6000000238418579],\"v0005\":[-1.2000000476837158,-0.6000000238418579,0.0],\"v0006\":[-0.6000000238418579,-0.6000000238418579,0.0],\"v0007\":[0.0,-0.6000000238418579,0.0],\"v0008\":[0.6000000238418579,-0.6000000238418579,0.0],\"v0009\":[1.2000000476837158,-0.6000000238418579,0.0],\"v0010\":[-1.2000000476837158,0.0,0.0],\"v0011\":[-0.6000000238418579,0.0,0.0],\"v0012\":[0.0,0.0,0.0],\"v0013\":[0.6000000238418579,0.0,0.0],\"v0014\":[1.2000000476837158,0.0,0.0],\"v0015\":[-1.2000000476837158,0.6000000238418579,0.0],\"v0016\":[-0.6000000238418579,0.6000000238418579,0.0],\"v0017\":[0.0,0.6000000238418579,0.0],\"v0018\":[0.6000000238418579,0.6000000238418579,0.0],\"v0019\":[1.2000000476837158,0.6000000238418579,0.0],\"v0020\":[-1.2000000476837158,1.2000000476837158,0.6000000238418579],\"v0021\":[-0.6000000238418579,1.2000000476837158,0.6000000238418579],\"v0022\":[0.0,1.2000000476837158,0.6000000238418579],\"v0023\":[0.6000000238418579,1.2000000476837158,0.6000000238418579],\"v0024\":[1.2000000476837158,1.2000000476837158,0.6000000238418579]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238794445991516]],\"face\":{\"id\":\"f0000\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412]],\"face\":{\"id\":\"f0001\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412]],\"face\":{\"id\":\"f0002\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238795638084412]],\"face\":{\"id\":\"f0003\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"f0004\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"f0005\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238795638084412],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"f0006\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238795638084412],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"f0007\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"face\":{\"id\":\"f0008\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"face\":{\"id\":\"f0009\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"face\":{\"id\":\"f0010\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516]],\"face\":{\"id\":\"f0011\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"face\":{\"id\":\"f0012\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"face\":{\"id\":\"f0013\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"face\":{\"id\":\"f0014\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]},{\"corner_normals\":[[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.3826834559440613,0.9238794445991516],[0.0,-0.7071067690849304,0.7071067690849304],[0.0,-0.7071067690849304,0.7071067690849304]],\"face\":{\"id\":\"f0015\",\"kind\":\"polygon\"},\"normal\":[0.0,-0.7071068286895752,0.7071068286895752]}]},\"revision\":2}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/after.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/after.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu/reloaded.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": {
+    "normals-query.json": "9fa226576956297e902e675fa2b86dc6d90d945c3f5e94aa710678f9030f1987",
+    "before.png": "fca5264dcb7bbe19ef89a376d618b8d108e9569ac6d9e651cfef7223b6973490",
+    "reloaded.png": "717feb632c776430b9a938d17179252801f5bba7cc1b3dcd8572a107a5af2496",
+    "after.png": "717feb632c776430b9a938d17179252801f5bba7cc1b3dcd8572a107a5af2496",
+    "before-scene.json": "4ad4e7d840b0aeefbf722a5e5b32beab23c7c062bfcf9340fd449a97a6f2da88",
+    "scene.json": "661b0475c14fb0f8a8d5fa8e0c80d931b427c0fdfe8aab20e728e4070fee7e99",
+    "receipt.json": "ba4475957e01d35112e25f3bbb75a44fa6ea4a1ca1e20450fe09db6931d770ed"
+  },
+  "scope": "Actual native Metal snapped surface and saved fresh reload; full feature and milestone acceptance remain unrun."
+}

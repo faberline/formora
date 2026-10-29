@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/snap_independent.py", line 84, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/snap_independent.py", line 67, in main
+    assert active['snaps'][0]['target_world']==[1.,-1.,0.] and active['snaps'][0]['cursor_rotation_after']==before['authoring_context']['cursor_rotation'],(active['snaps'][0],before['authoring_context'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'action': {'kind': 'cursor_to_active'}, 'changed': {'edges': [], 'faces': [], 'vertices': []}, 'command_index': 0, 'cursor_after': [1.0, -1.0, 0.0], 'cursor_before': [0.37, -0.62, 0.87], 'cursor_changed': True, 'cursor_rotation_after': [0.17000000178813934, 0.23000000417232513, 0.4099999964237213], 'cursor_rotation_before': [0.17, 0.23, 0.41], 'entity': 'target', 'grid_spacing_metres': None, 'mesh_asset': 'mesh', 'pivot': 'median', 'pivot_world': None, 'reason': None, 'rotation_applied': False, 'shared_instances': ['shared', 'target'], 'status': 'finished', 'target_world': [1.0, -1.0, 0.0]}, {'cursor_location': [0.37, -0.62, 0.87], 'cursor_rotation': [0.17, 0.23, 0.41], 'view_rotation': [0.1, 0.2, 0.3]})

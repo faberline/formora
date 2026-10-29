@@ -1,0 +1,3071 @@
+{
+  "passed": true,
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /Users/chrischeng/faberlines/formora/baseline/fixtures/snap-menu.json: Operation not permitted\n",
+  "source_repository_reads": "denied by macOS sandbox",
+  "binary_sha256": "7d7a6e54ea83d884ddab58cc99d26c0daa29b915d7839886038e373f055ec891",
+  "driver_sha256": "7fb7dcfb9b07113bc8eae8840ef88bfeaef1349653bf03d6e369147209299272",
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "fresh_reload_equal": true,
+  "unseen_geometry_analytic_match": true,
+  "normal_analytic_match": true,
+  "shared_asset_preserved": true,
+  "stale_budget_unknown_field_and_batch_rejections_atomic": true,
+  "undo_replay_checked": true,
+  "cursor_origin_active_checked": true,
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "mesh",
+        "asset": {
+          "vertices": {
+            "a": [
+              -0.5,
+              -1.5,
+              0.5
+            ],
+            "b": [
+              1.375,
+              -0.625,
+              0.375
+            ],
+            "c": [
+              0.25,
+              1.75,
+              0.125
+            ],
+            "hidden": [
+              -0.5,
+              -1.5,
+              0.5
+            ]
+          },
+          "triangles": {
+            "t": {
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ]
+              },
+              "corner_normals": null,
+              "material_slot": null
+            }
+          },
+          "polygons": {},
+          "material_slots": [],
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.75
+            }
+          }
+        }
+      },
+      {
+        "operation": "set_mesh_editing",
+        "id": "mesh",
+        "editing": {
+          "mode": [
+            "vertex"
+          ],
+          "selected": {
+            "vertices": [
+              "a",
+              "b"
+            ]
+          },
+          "hidden": {
+            "vertices": [
+              "hidden"
+            ]
+          },
+          "history": [
+            {
+              "domain": "vertex",
+              "id": "b"
+            }
+          ],
+          "active_face": null
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "target",
+        "entity": {
+          "name": "Unseen",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "shared",
+        "entity": {
+          "name": "Shared",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "set_authoring_context",
+        "context": {
+          "cursor_location": [
+            0.37,
+            -0.62,
+            0.87
+          ],
+          "cursor_rotation": [
+            0.17,
+            0.23,
+            0.41
+          ],
+          "view_rotation": [
+            0.1,
+            0.2,
+            0.3
+          ]
+        }
+      }
+    ]
+  },
+  "calls": [
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "a": [
+                  -0.5,
+                  -1.5,
+                  0.5
+                ],
+                "b": [
+                  1.375,
+                  -0.625,
+                  0.375
+                ],
+                "c": [
+                  0.25,
+                  1.75,
+                  0.125
+                ],
+                "hidden": [
+                  -0.5,
+                  -1.5,
+                  0.5
+                ]
+              },
+              "triangles": {
+                "t": {
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c"
+                  ],
+                  "uv_layers": {
+                    "UV": [
+                      [
+                        0,
+                        0
+                      ],
+                      [
+                        1,
+                        0
+                      ],
+                      [
+                        0.5,
+                        1
+                      ]
+                    ]
+                  },
+                  "corner_normals": null,
+                  "material_slot": null
+                }
+              },
+              "polygons": {},
+              "material_slots": [],
+              "vertex_groups": [
+                "Keep"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "Keep": 0.75
+                }
+              }
+            }
+          },
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [
+                  "a",
+                  "b"
+                ]
+              },
+              "hidden": {
+                "vertices": [
+                  "hidden"
+                ]
+              },
+              "history": [
+                {
+                  "domain": "vertex",
+                  "id": "b"
+                }
+              ],
+              "active_face": null
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "target",
+            "entity": {
+              "name": "Unseen",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "shared",
+            "entity": {
+              "name": "Shared",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "set_authoring_context",
+            "context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 1,
+        "ok": true,
+        "result": {
+          "revision": 1
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 2,
+        "ok": true,
+        "result": {
+          "revision": 1,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": null,
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ],
+                  "b": [
+                    1.375,
+                    -0.625,
+                    0.375
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 1,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 3,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "snaps": [
+            {
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 1.0
+              },
+              "changed": {
+                "edges": [
+                  "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+                  "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+                  "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+                ],
+                "faces": [
+                  {
+                    "id": "t",
+                    "kind": "triangle"
+                  }
+                ],
+                "vertices": [
+                  "a",
+                  "b"
+                ]
+              },
+              "command_index": 0,
+              "cursor_after": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_before": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_changed": false,
+              "cursor_rotation_after": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "cursor_rotation_before": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "entity": "target",
+              "grid_spacing_metres": 1.0,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "shared",
+                "target"
+              ],
+              "status": "finished",
+              "target_world": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 4,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 2,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {
+        "mesh_asset": "mesh",
+        "normals": true
+      },
+      "response": {
+        "id": 5,
+        "ok": true,
+        "result": {
+          "id": "mesh",
+          "mesh_asset": {
+            "editing": {
+              "active_face": null,
+              "hidden": {
+                "edges": [],
+                "faces": [],
+                "vertices": [
+                  "hidden"
+                ]
+              },
+              "history": [
+                {
+                  "domain": "vertex",
+                  "id": "b"
+                }
+              ],
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "edges": [
+                  "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                ],
+                "faces": [],
+                "vertices": [
+                  "a",
+                  "b"
+                ]
+              }
+            },
+            "material_slots": [],
+            "triangles": {
+              "t": {
+                "corner_normals": [
+                  [
+                    0.6981489062309265,
+                    0.15867021679878235,
+                    0.6981489062309265
+                  ],
+                  [
+                    0.6981489062309265,
+                    0.15867021679878235,
+                    0.6981489062309265
+                  ],
+                  [
+                    0.6981489062309265,
+                    0.15867021679878235,
+                    0.6981489062309265
+                  ]
+                ],
+                "material_slot": null,
+                "uv_layers": {
+                  "UV": [
+                    [
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      1.0,
+                      0.0
+                    ],
+                    [
+                      0.5,
+                      1.0
+                    ]
+                  ]
+                },
+                "vertices": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              }
+            },
+            "vertex_groups": [
+              "Keep"
+            ],
+            "vertex_weights": {
+              "a": {
+                "Keep": 0.75
+              }
+            },
+            "vertices": {
+              "a": [
+                0.0,
+                -1.0,
+                1.0
+              ],
+              "b": [
+                1.0,
+                -1.0,
+                0.0
+              ],
+              "c": [
+                0.25,
+                1.75,
+                0.125
+              ],
+              "hidden": [
+                -0.5,
+                -1.5,
+                0.5
+              ]
+            }
+          },
+          "normals": {
+            "faces": [
+              {
+                "corner_normals": [
+                  [
+                    0.6981489062309265,
+                    0.15867021679878235,
+                    0.6981489062309265
+                  ],
+                  [
+                    0.6981489062309265,
+                    0.15867021679878235,
+                    0.6981489062309265
+                  ],
+                  [
+                    0.6981489062309265,
+                    0.15867021679878235,
+                    0.6981489062309265
+                  ]
+                ],
+                "face": {
+                  "id": "t",
+                  "kind": "triangle"
+                },
+                "normal": [
+                  0.6981489062309265,
+                  0.15867021679878235,
+                  0.6981489062309265
+                ]
+              }
+            ]
+          },
+          "revision": 2
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.5
+              }
+            }
+          },
+          {
+            "operation": "delete_entity",
+            "id": "missing"
+          }
+        ]
+      },
+      "response": {
+        "error": "unknown entity: missing",
+        "id": 6,
+        "ok": false
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 7,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 2,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "cursor_to_center"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "error": "stale scene revision",
+        "id": 8,
+        "ok": false
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 9,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 2,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "cursor_to_center"
+              },
+              "max_components": 1
+            }
+          }
+        ]
+      },
+      "response": {
+        "error": "mesh snap exceeds its component budget",
+        "id": 10,
+        "ok": false
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 11,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 2,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "cursor_to_center",
+                "answer": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "error": "unknown field `answer`, there are no fields",
+        "id": 12,
+        "ok": false
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 13,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 2,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 2
+      },
+      "response": {
+        "id": 14,
+        "ok": true,
+        "result": {
+          "revision": 3
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 15,
+        "ok": true,
+        "result": {
+          "revision": 3,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": null,
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ],
+                  "b": [
+                    1.375,
+                    -0.625,
+                    0.375
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 3,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 3,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 1.0
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 16,
+        "ok": true,
+        "result": {
+          "revision": 4,
+          "snaps": [
+            {
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 1.0
+              },
+              "changed": {
+                "edges": [
+                  "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+                  "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+                  "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+                ],
+                "faces": [
+                  {
+                    "id": "t",
+                    "kind": "triangle"
+                  }
+                ],
+                "vertices": [
+                  "a",
+                  "b"
+                ]
+              },
+              "command_index": 0,
+              "cursor_after": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_before": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_changed": false,
+              "cursor_rotation_after": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "cursor_rotation_before": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "entity": "target",
+              "grid_spacing_metres": 1.0,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "shared",
+                "target"
+              ],
+              "status": "finished",
+              "target_world": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 17,
+        "ok": true,
+        "result": {
+          "revision": 4,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 4,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 4,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "cursor_to_center"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 18,
+        "ok": true,
+        "result": {
+          "revision": 5,
+          "snaps": [
+            {
+              "action": {
+                "kind": "cursor_to_center"
+              },
+              "changed": {
+                "edges": [],
+                "faces": [],
+                "vertices": []
+              },
+              "command_index": 0,
+              "cursor_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_before": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_changed": true,
+              "cursor_rotation_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation_before": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "entity": "target",
+              "grid_spacing_metres": null,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "shared",
+                "target"
+              ],
+              "status": "finished",
+              "target_world": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 19,
+        "ok": true,
+        "result": {
+          "revision": 5,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 5,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 5
+      },
+      "response": {
+        "id": 20,
+        "ok": true,
+        "result": {
+          "revision": 6
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 6,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "target",
+              "action": {
+                "kind": "cursor_to_active"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 21,
+        "ok": true,
+        "result": {
+          "revision": 7,
+          "snaps": [
+            {
+              "action": {
+                "kind": "cursor_to_active"
+              },
+              "changed": {
+                "edges": [],
+                "faces": [],
+                "vertices": []
+              },
+              "command_index": 0,
+              "cursor_after": [
+                1.0,
+                -1.0,
+                0.0
+              ],
+              "cursor_before": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_changed": true,
+              "cursor_rotation_after": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "cursor_rotation_before": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "entity": "target",
+              "grid_spacing_metres": null,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "shared",
+                "target"
+              ],
+              "status": "finished",
+              "target_world": [
+                1.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 7
+      },
+      "response": {
+        "id": 22,
+        "ok": true,
+        "result": {
+          "revision": 8
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 23,
+        "ok": true,
+        "result": {
+          "revision": 8,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.37,
+                -0.62,
+                0.87
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.1,
+                0.2,
+                0.3
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "shared": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Shared",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Unseen",
+                "parent": null,
+                "transform": {
+                  "precision": "f32",
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [
+                    {
+                      "domain": "vertex",
+                      "id": "b"
+                    }
+                  ],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "selected": {
+                    "edges": [
+                      "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5"
+                    ],
+                    "faces": [],
+                    "vertices": [
+                      "a",
+                      "b"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "triangles": {
+                  "t": {
+                    "corner_normals": [
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ],
+                      [
+                        0.6981489062309265,
+                        0.15867021679878235,
+                        0.6981489062309265
+                      ]
+                    ],
+                    "material_slot": null,
+                    "uv_layers": {
+                      "UV": [
+                        [
+                          0.0,
+                          0.0
+                        ],
+                        [
+                          1.0,
+                          0.0
+                        ],
+                        [
+                          0.5,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "a",
+                      "b",
+                      "c"
+                    ]
+                  }
+                },
+                "vertex_groups": [
+                  "Keep"
+                ],
+                "vertex_weights": {
+                  "a": {
+                    "Keep": 0.75
+                  }
+                },
+                "vertices": {
+                  "a": [
+                    0.0,
+                    -1.0,
+                    1.0
+                  ],
+                  "b": [
+                    1.0,
+                    -1.0,
+                    0.0
+                  ],
+                  "c": [
+                    0.25,
+                    1.75,
+                    0.125
+                  ],
+                  "hidden": [
+                    -0.5,
+                    -1.5,
+                    0.5
+                  ]
+                }
+              }
+            },
+            "revision": 8,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "artifacts": {
+    "before.json": "a09e5a142482c01f16c77991f19701b0043d6dc33353deb02cdc94ece51ec2fa",
+    "normal-query.json": "ff26d89bcd121cce20fec6112204193b3dee371228c693737078ad9c93825c9a",
+    "after.json": "c4f090d4617b4ed12b5c1cc28f74aec0a0784a18f21cf0e272cddc4310d3f91b",
+    "final.json": "2540e6f2facbbe67d7401dadda0b746a119d03b956d4bc3fed088fb4e18e9b58",
+    "calls.jsonl": "2755bb1981446c35033a8cdb939de8aeae5e103bc62ca5f1c7be5bac02b49528",
+    "receipt.json": "21753cc3e6e61ccb77c504a303522eb9dbdef1c84f2963a8fa0db7b4a5817bd4"
+  },
+  "product_acceptance": "unrun"
+}

@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/snap_runtime_smoke.py", line 174, in <module>
+    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk')))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/snap_runtime_smoke.py", line 139, in run
+    values=await exercise(call)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/snap_runtime_smoke.py", line 120, in exercise
+    _,error=await call('scene_apply',create);assert error is None,(case['id'],error)
+                                                    ^^^^^^^^^^^^^
+AssertionError: ('snap_0150', 'hidden components cannot be selected')
