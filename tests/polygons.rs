@@ -204,7 +204,7 @@ fn topology_uv_order_loose_edges_and_nonmanifold_connections_round_trip_and_undo
         .apply(
             &[Command::SetMeshAsset {
                 id: "shared".into(),
-                asset: asset.clone(),
+                asset: Box::new(asset.clone()),
             }],
             Some(0),
         )

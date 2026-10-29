@@ -1,6 +1,7 @@
+use crate::mesh::selection::{Domain, FaceRef};
 use crate::scene::{EntityKind, Geometry, Result, Scene, SceneError};
 use glam::{DMat4, DQuat, DVec3, DVec4};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 
 #[repr(C)]
 #[derive(Clone, Copy, bytemuck::Pod, bytemuck::Zeroable)]
@@ -159,15 +160,40 @@ struct SurfaceTriangle<'a> {
     points: [DVec3; 3],
     normals: Option<[[f64; 3]; 3]>,
     material: Option<&'a str>,
+    selected: bool,
 }
 
 fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTriangle<'a>>> {
     if let Geometry::Asset { id } = geometry {
         let asset = &scene.mesh_assets[id];
+        let editing = asset.editing.as_ref();
+        let mut hidden = BTreeSet::new();
+        if let Some(editing) = editing {
+            for face in crate::mesh::selection::topology(asset)?.faces {
+                if editing.hidden.faces.contains(&face.face)
+                    || face
+                        .vertices
+                        .iter()
+                        .any(|id| editing.hidden.vertices.contains(id))
+                    || face
+                        .edges
+                        .iter()
+                        .any(|id| editing.hidden.edges.contains(id))
+                {
+                    hidden.insert(face.face);
+                }
+            }
+        }
+        let selected = |face: &FaceRef| {
+            editing.is_some_and(|state| {
+                state.mode.contains(&Domain::Face) && state.selected.faces.contains(face)
+            })
+        };
         let mut result: Vec<_> = asset
             .triangles
-            .values()
-            .map(|triangle| SurfaceTriangle {
+            .iter()
+            .filter(|(id, _)| !hidden.contains(&FaceRef::Triangle((*id).clone())))
+            .map(|(id, triangle)| SurfaceTriangle {
                 points: triangle
                     .vertices
                     .each_ref()
@@ -176,9 +202,17 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTri
                 material: triangle
                     .material_slot
                     .and_then(|slot| asset.material_slots[slot].as_deref()),
+                selected: selected(&FaceRef::Triangle(id.clone())),
             })
             .collect();
-        for t in asset.tessellate()?.triangles {
+        let hidden_polygons = hidden
+            .iter()
+            .filter_map(|face| match face {
+                FaceRef::Polygon(id) => Some(id.clone()),
+                _ => None,
+            })
+            .collect();
+        for t in asset.tessellate_without(&hidden_polygons)?.triangles {
             let polygon = &asset.polygons[&t.polygon];
             result.push(SurfaceTriangle {
                 points: t
@@ -192,6 +226,7 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTri
                 material: polygon
                     .material_slot
                     .and_then(|slot| asset.material_slots[slot].as_deref()),
+                selected: selected(&FaceRef::Polygon(t.polygon)),
             });
         }
         return Ok(result);
@@ -203,6 +238,7 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTri
                 points: indices.map(|i| quad[i]),
                 normals: None,
                 material: None,
+                selected: false,
             })
         })
         .collect())
@@ -259,7 +295,15 @@ pub fn vertices(scene: &Scene) -> Result<Vec<Vertex>> {
                     ),
                     None => ([0.65, 0.68, 0.72, 1.0], [0.6, 0.0]),
                 };
+                let color = if triangle.selected {
+                    [1.0, 0.55, 0.03, 1.0]
+                } else {
+                    color
+                };
                 append_triangle(&mut result, triangle, world[id], color, surface)?;
+            }
+            if let Geometry::Asset { id: asset_id } = geometry {
+                append_selection(&mut result, scene, &scene.mesh_assets[asset_id], world[id])?;
             }
         }
     }
@@ -275,6 +319,90 @@ pub fn vertices(scene: &Scene) -> Result<Vec<Vertex>> {
         }
     }
     Ok(result)
+}
+
+// These camera-facing markers are render data only. Surface picking uses triangles().
+fn append_selection(
+    output: &mut Vec<Vertex>,
+    scene: &Scene,
+    asset: &crate::mesh::MeshAsset,
+    matrix: DMat4,
+) -> Result<()> {
+    let Some(editing) = &asset.editing else {
+        return Ok(());
+    };
+    if !editing.mode.contains(&Domain::Vertex) && !editing.mode.contains(&Domain::Edge) {
+        return Ok(());
+    }
+    let camera = camera(scene, 1, 1)?;
+    let inverse = camera.view_projection.inverse();
+    let right = inverse.transform_vector3(DVec3::X).normalize();
+    let up = inverse.transform_vector3(DVec3::Y).normalize();
+    let marker = |output: &mut Vec<Vertex>, center: DVec3, a: DVec3, b: DVec3| -> Result<()> {
+        let toward = (camera.position - center).normalize_or_zero();
+        let center = center + toward * (camera.position.distance(center) * 0.0002);
+        let corners = [
+            center - a - b,
+            center + a - b,
+            center + a + b,
+            center - a + b,
+        ];
+        for indices in [[0, 1, 2], [0, 2, 3]] {
+            append_triangle(
+                output,
+                SurfaceTriangle {
+                    points: indices.map(|i| corners[i]),
+                    normals: None,
+                    material: None,
+                    selected: false,
+                },
+                DMat4::IDENTITY,
+                [1.0, 0.7, 0.02, 1.0],
+                [1.0, 0.0],
+            )?;
+        }
+        Ok(())
+    };
+    if editing.mode.contains(&Domain::Vertex) {
+        for id in &editing.selected.vertices {
+            if editing.hidden.vertices.contains(id) {
+                continue;
+            }
+            let point = matrix.transform_point3(DVec3::from_array(asset.vertices[id]));
+            let size = camera.position.distance(point) * 0.004;
+            marker(output, point, right * size, up * size)?;
+        }
+    }
+    if editing.mode.contains(&Domain::Edge) {
+        let topology = crate::mesh::selection::topology(asset)?;
+        for id in &editing.selected.edges {
+            let pair = &topology.edges[id];
+            if editing.hidden.edges.contains(id)
+                || pair.iter().any(|v| editing.hidden.vertices.contains(v))
+            {
+                continue;
+            }
+            let [a, b] = pair
+                .each_ref()
+                .map(|v| matrix.transform_point3(DVec3::from_array(asset.vertices[v])));
+            let center = (a + b) * 0.5;
+            let half = (b - a) * 0.5;
+            if half.length_squared() == 0. {
+                continue;
+            }
+            let side = half.cross(camera.position - center).normalize_or_zero();
+            if side.length_squared() == 0. {
+                continue;
+            }
+            marker(
+                output,
+                center,
+                half,
+                side * camera.position.distance(center) * 0.0018,
+            )?;
+        }
+    }
+    Ok(())
 }
 
 pub fn ray(scene: &Scene, width: u32, height: u32, x: f64, y: f64) -> Result<(DVec3, DVec3)> {

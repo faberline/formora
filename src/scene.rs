@@ -185,6 +185,21 @@ where
     deserializer.deserialize_map(Visitor(std::marker::PhantomData))
 }
 
+pub(crate) fn unique_set<'de, D, T>(deserializer: D) -> std::result::Result<BTreeSet<T>, D::Error>
+where
+    D: Deserializer<'de>,
+    T: Deserialize<'de> + Ord,
+{
+    let values = Vec::<T>::deserialize(deserializer)?;
+    let mut result = BTreeSet::new();
+    for value in values {
+        if !result.insert(value) {
+            return Err(de::Error::custom("duplicate component in set"));
+        }
+    }
+    Ok(result)
+}
+
 pub(crate) fn valid_id(id: &str) -> bool {
     !id.is_empty()
         && id.len() <= 128
@@ -425,6 +440,14 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    SetMeshEditing {
+        id: String,
+        editing: Option<crate::mesh::selection::Editing>,
+    },
+    SelectMesh {
+        id: String,
+        selector: crate::mesh::selection::Selector,
+    },
     CreateMeshPrimitive {
         id: String,
         primitive: crate::mesh::primitives::Primitive,
@@ -438,7 +461,7 @@ pub enum Command {
     },
     SetMeshAsset {
         id: String,
-        asset: MeshAsset,
+        asset: Box<MeshAsset>,
     },
     SetMeshVertices {
         id: String,
@@ -490,8 +513,22 @@ pub enum Command {
 }
 
 impl Command {
-    fn apply(&self, scene: &mut Scene) -> Result<()> {
+    fn apply(&self, scene: &mut Scene) -> Result<Option<crate::mesh::selection::Outcome>> {
         match self {
+            Self::SetMeshEditing { id, editing } => {
+                let asset = scene
+                    .mesh_assets
+                    .get_mut(id)
+                    .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
+                crate::mesh::selection::set_editing(asset, editing.clone())?;
+            }
+            Self::SelectMesh { id, selector } => {
+                let asset = scene
+                    .mesh_assets
+                    .get_mut(id)
+                    .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
+                return Ok(Some(crate::mesh::selection::apply(asset, selector)?));
+            }
             Self::CreateMeshPrimitive {
                 id,
                 primitive,
@@ -532,7 +569,7 @@ impl Command {
                 scene.mesh_assets.insert(id.clone(), generated);
             }
             Self::SetMeshAsset { id, asset } => {
-                scene.mesh_assets.insert(id.clone(), asset.clone());
+                scene.mesh_assets.insert(id.clone(), asset.as_ref().clone());
             }
             Self::SetMeshVertices { id, positions } => {
                 if positions.is_empty() {
@@ -656,7 +693,7 @@ impl Command {
             }
             Self::Annotate { annotation } => scene.annotations.push(annotation.clone()),
         }
-        Ok(())
+        Ok(None)
     }
 }
 
@@ -664,6 +701,11 @@ impl Command {
 pub struct Editor {
     scene: Scene,
     undo: Vec<Scene>,
+}
+
+pub struct EditResult {
+    pub revision: u64,
+    pub selection: Vec<crate::mesh::selection::CommandOutcome>,
 }
 
 impl Editor {
@@ -688,19 +730,41 @@ impl Editor {
     }
     /// A batch commits once. Any invalid command leaves both scene and undo history unchanged.
     pub fn apply(&mut self, commands: &[Command], expected_revision: Option<u64>) -> Result<u64> {
+        Ok(self
+            .apply_with_outcomes(commands, expected_revision)?
+            .revision)
+    }
+    pub fn apply_with_outcomes(
+        &mut self,
+        commands: &[Command],
+        expected_revision: Option<u64>,
+    ) -> Result<EditResult> {
         if commands.is_empty() {
             return fail("empty command batch");
         }
         let revision = self.next_revision(expected_revision)?;
         let mut candidate = self.scene.clone();
-        for command in commands {
-            command.apply(&mut candidate)?;
+        let mut selection = Vec::new();
+        for (command_index, command) in commands.iter().enumerate() {
+            if let Some(outcome) = command.apply(&mut candidate)? {
+                let Command::SelectMesh { id, .. } = command else {
+                    unreachable!("only selectors return an outcome")
+                };
+                selection.push(crate::mesh::selection::CommandOutcome {
+                    command_index,
+                    mesh_asset: id.clone(),
+                    outcome,
+                });
+            }
             candidate.validate()?;
         }
         candidate.revision = revision;
         self.undo
             .push(std::mem::replace(&mut self.scene, candidate));
-        Ok(revision)
+        Ok(EditResult {
+            revision,
+            selection,
+        })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {
         let revision = self.next_revision(expected_revision)?;
