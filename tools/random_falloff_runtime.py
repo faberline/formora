@@ -14,6 +14,7 @@ from jsonschema import Draft202012Validator
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from random_falloff_reference import SEEDS, DRAWS
+from transform_source_policy import ERROR as UNDEFINED_ROTATION_ERROR
 
 ROOT = Path(__file__).resolve().parents[1]
 VERTICES = {'z_selected': [0, 0, 0], 'h_depth': [0, 0, 2], 'g_coincident': [0, 0, 0],
@@ -80,6 +81,7 @@ async def run(binary, output):
     output.mkdir(parents=True, exist_ok=False)
     inputs = [ROOT / 'Cargo.toml', ROOT / 'Cargo.lock', ROOT / 'baseline/lock.json',
               ROOT / 'docs/contracts/random-falloff-sequence.md', Path(__file__),
+              ROOT / 'tools/transform_source_policy.py',
               *sorted((ROOT / 'src').rglob('*.rs')),
               *sorted((ROOT / 'baseline/reference/blender-5.2.3/random-falloff').iterdir())]
     inputs = [p for p in inputs if p.is_file()]
@@ -114,6 +116,7 @@ async def run(binary, output):
                         Draft202012Validator(schema).validate(request)
                         encoded_schema = json.dumps(schema)
                         assert 'blender_5_2' in encoded_schema and 'splitmix64_v1' in encoded_schema
+                        assert 'Rotation rejects three true flags.' in encoded_schema
                     applied, error = await call('scene_apply', request)
                     assert not error and applied['revision'] == 2
                     after, error = await call('scene_inspect', {})
@@ -141,6 +144,15 @@ async def run(binary, output):
                         failure, error = await call('scene_apply', {'expected_revision': 2, 'commands': [bad]})
                         assert error and scene.read_bytes() == saved
                         rejected.append({'command': bad, 'error': failure})
+                    bad_rotation = {'operation': 'transform_mesh', 'transform': {
+                        'entity': 'target', 'change': {'kind': 'rotate', 'radians': 0.61, 'axis': 'z'},
+                        'constraint_axis': [True, True, True]}}
+                    failure, error = await call('scene_apply', {'expected_revision': 2, 'commands': [bad_rotation]})
+                    assert error and failure == UNDEFINED_ROTATION_ERROR and scene.read_bytes() == saved
+                    rejected.append({'command': bad_rotation, 'error': failure})
+                    failed_rotation_batch, error = await call('scene_apply', {
+                        'expected_revision': 2, 'commands': [operation(*case), bad_rotation]})
+                    assert error and failed_rotation_batch == UNDEFINED_ROTATION_ERROR and scene.read_bytes() == saved
                     invalid = {'expected_revision': 2, 'commands': [operation(*case), operation(4294967296, 'blender_5_2')]}
                     failure, error = await call('scene_apply', invalid)
                     assert error and scene.read_bytes() == saved
@@ -160,7 +172,8 @@ async def run(binary, output):
                     assert not failed and fresh == final
                     return {'request': request, 'setup': setup(), 'before': before, 'result': applied,
                             'after': after, 'failed_batch': failure, 'replay': repeated,
-                            'rejected_requests': rejected, 'fresh_reload': fresh, 'passed': True}
+                            'rejected_requests': rejected, 'failed_rotation_batch': failed_rotation_batch,
+                            'fresh_reload': fresh, 'passed': True}
                 if interface == 'cli':
                     # Undo belongs to a live session. One-shot apply processes
                     # intentionally do not retain undo history after exit.
@@ -192,6 +205,10 @@ async def run(binary, output):
                     assert not error and one_shot['transforms'] == result['result']['transforms']
                     loaded, error = cli('inspect')
                     assert not error and loaded['scene']['mesh_assets'] == result['after']['scene']['mesh_assets']
+                    saved = scene.read_bytes()
+                    rejected, error = cli('apply', {'expected_revision': 2, 'commands': [
+                        result['rejected_requests'][-1]['command']]})
+                    assert error and rejected == {'error': UNDEFINED_ROTATION_ERROR} and scene.read_bytes() == saved
                     result['one_shot_cli'] = {'result': one_shot, 'fresh_reload': loaded}
                 else:
                     params = StdioServerParameters(command=str(binary), args=['mcp', '--scene', str(scene)])

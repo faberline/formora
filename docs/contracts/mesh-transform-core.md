@@ -37,7 +37,11 @@ Full custom-normal authoring remains a distinct required roadmap function.
 
 - Execute all 1,203 source cases through each of CLI and official MCP: 2,406 cases.
 - Keep the source comparer and componentwise 1e-6 position, normal and UV limits.
-  Compare all 1,179 deterministic cases and separately check all 24 stochastic cases.
+  Compare all 1,172 defined deterministic cases and separately check all 24
+  stochastic cases. The human-approved policy in `undefined-rotation-rejection.md`
+  requires exact atomic rejection for the seven undefined all-axis rotations.
+  Retain their complete source observations and earlier failures. Count those
+  rejection checks separately from numerical source comparisons. No case is removed.
 - Initial data come only from authored fixture values. The executable must work
   without Blender, Python, reference outputs or repository reads.
 - Add independent geometric normal, mixed topology, shared instance, frame,

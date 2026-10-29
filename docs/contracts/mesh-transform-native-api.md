@@ -37,7 +37,10 @@ authored point. This mapping keeps the native and source semantics explicit.
 `constraint_axis` is a three-boolean mask. All false means unconstrained.
 Translation masks displacement components in the working basis. Resize leaves
 unconstrained factors at one. Rotation uses a single constrained axis, or the
-normal of a constrained plane. Three true leaves the requested rotation axis.
+normal of a constrained plane. Three true is an explicit rotation error.
+The fixed Blender source does not initialize the axis for that combination.
+The human-approved boundary and atomic rejection checks are specified in
+`undefined-rotation-rejection.md`. This changes the previous native extension.
 The source EXEC translation and resize arrays already contain final values.
 Its initializer enables all three axes. Its adapter must therefore omit the
 native mask for both operations. This is an authored request
