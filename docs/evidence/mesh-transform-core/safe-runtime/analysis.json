@@ -1,0 +1,34 @@
+{
+  "scope": "complete source run after certified singular transforms and explicit source centre mapping",
+  "matched": 2314,
+  "matched_finished": 2302,
+  "matched_expected_cancellations": 12,
+  "failed": 92,
+  "newly_matched": 36,
+  "improvements": {
+    "source_center_mapping": 12,
+    "singular_frames": 24
+  },
+  "regressions": 0,
+  "adapter_changed_only_source_override_pivot": true,
+  "all_seven_undefined_axis_cases_retained": true,
+  "per_interface_failures": {
+    "cli": {
+      "mesh transform face attribute correction is not implemented yet": 18,
+      "mesh transform mirror is not implemented yet": 6,
+      "numeric/geometry": 10,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 6
+    },
+    "official_mcp_sdk": {
+      "mesh transform face attribute correction is not implemented yet": 18,
+      "mesh transform mirror is not implemented yet": 6,
+      "numeric/geometry": 10,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 6
+    }
+  },
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false,
+  "source_report_sha256": "0eb32f912506104a2a96a2ac8eac0889ad14878fcce9d30adc08a2611c259dab"
+}
