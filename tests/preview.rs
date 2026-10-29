@@ -28,7 +28,9 @@ fn world_transform_and_picking_include_parent_rotation_and_scale() {
             parent: None,
             transform: Transform {
                 translation: [10.0, 0.0, 0.0],
-                rotation: DQuat::from_rotation_z(std::f64::consts::FRAC_PI_2).to_array(),
+                rotation: DQuat::from_rotation_z(std::f64::consts::FRAC_PI_2)
+                    .to_array()
+                    .into(),
                 scale: [2.0, 1.0, 1.0],
             },
             content: EntityKind::Empty,

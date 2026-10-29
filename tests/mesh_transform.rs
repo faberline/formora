@@ -245,7 +245,7 @@ fn global_local_parent_cursor_view_and_custom_frames_are_derived_from_actual_sta
                 .get_mut("target")
                 .unwrap()
                 .transform
-                .rotation = [0., 0., half, half];
+                .rotation = [0., 0., half, half].into();
             before.entities.get_mut("target").unwrap().transform.scale = [2., 3., 1.];
         }
         if kind == "parent" {
@@ -255,7 +255,7 @@ fn global_local_parent_cursor_view_and_custom_frames_are_derived_from_actual_sta
                     name: "Parent".into(),
                     parent: None,
                     transform: Transform {
-                        rotation: [0., 0., half, half],
+                        rotation: [0., 0., half, half].into(),
                         ..Default::default()
                     },
                     content: EntityKind::Empty,
@@ -267,7 +267,7 @@ fn global_local_parent_cursor_view_and_custom_frames_are_derived_from_actual_sta
                 .get_mut("target")
                 .unwrap()
                 .transform
-                .rotation = [0., 0., -half, half];
+                .rotation = [0., 0., -half, half].into();
         }
         let mut editor = Editor::new(before).unwrap();
         let result = editor
@@ -505,7 +505,6 @@ fn invalid_unsupported_stale_and_failed_batch_requests_have_no_effect_or_undo_en
         json!({"proportional":{"radius":0,"falloff":"linear"}}),
         json!({"proportional":{"radius":1,"falloff":"random"}}),
         json!({"proportional":{"radius":1,"falloff":"linear","seed":1}}),
-        json!({"orientation":{"kind":"gimbal"}}),
         json!({"mirror":{"axis":"x"}}),
         json!({"correct_face_attributes":true}),
     ] {

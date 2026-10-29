@@ -51,12 +51,28 @@ class TransformRuntimeTests(unittest.TestCase):
             with self.subTest(missing=key),self.assertRaisesRegex(AssertionError,'incomplete'):
                 runtime.compare_output(run,source,broken,copy.deepcopy(broken),None,'mesh transform has no visible selected vertices',runtime.request_for(run))
 
-    def test_pose_and_world_are_derived_from_actual_queried_quaternions(self):
+    def test_pose_and_world_are_derived_from_actual_queried_rotation_state(self):
         pose=runtime.pose({'location':[2,3,4],'rotation':[0,0,1.5707963267948966],'scale':[2,3,4]})
         matrix=runtime.world({'entities':{'object':{'transform':pose,'parent':None}}},'object')
         expected=[[0,-3,0,2],[2,0,0,3],[0,0,4,4],[0,0,0,1]]
         for actual,row in zip(matrix,expected):
             for a,e in zip(actual,row):self.assertLessEqual(abs(a-e),1e-6)
+
+    def test_setup_preserves_authored_source_euler_state_without_recovering_angles(self):
+        for run in SUITE['runs']:
+            setup=runtime.setup(SUITE,run);profile=SUITE['profiles'][run['context']['profile']]
+            target=next(c['entity'] for c in setup['commands'] if c.get('id')=='target')
+            self.assertEqual(target['transform']['rotation'],{'kind':'euler','angles':[runtime.f32(v) for v in profile['rotation']],'order':'xyz'})
+
+    def test_world_observer_uses_queried_mode_and_order_and_accepts_legacy_arrays(self):
+        t={'translation':[0,0,0],'scale':[1,1,1],'rotation':[0,0,0,1]};scene={'entities':{'object':{'transform':t,'parent':None}}}
+        self.assertEqual(runtime.world(scene,'object'),[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]])
+        t['rotation']={'kind':'euler','angles':[0.31,-0.47,0.83],'order':'xyz'};xyz=runtime.world(scene,'object')
+        t['rotation']['order']='zyx';self.assertNotEqual(runtime.world(scene,'object'),xyz)
+        t['rotation']={'kind':'axis_angle','axis':[0,0,5],'radians':1.5707963267948966}
+        expected=[[0,-1,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,1]]
+        for actual,row in zip(runtime.world(scene,'object'),expected):
+            for a,e in zip(actual,row):self.assertLessEqual(abs(a-e),1e-12)
 
 
 if __name__=='__main__':unittest.main()

@@ -88,8 +88,9 @@ pub(super) fn quaternion(matrix: Mat3) -> [f64; 4] {
     q.map(|v| v / length)
 }
 fn local(t: &Transform) -> Mat4 {
-    let norm = t.rotation.iter().map(|v| v * v).sum::<f64>().sqrt();
-    let [x, y, z, w] = t.rotation.map(|v| v / norm);
+    let rotation = t.rotation.quaternion();
+    let norm = rotation.iter().map(|v| v * v).sum::<f64>().sqrt();
+    let [x, y, z, w] = rotation.map(|v| v / norm);
     let m = [
         [
             1. - 2. * (y * y + z * z),

@@ -308,7 +308,8 @@ fn fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs() {
                 0.,
                 std::f64::consts::FRAC_1_SQRT_2,
                 std::f64::consts::FRAC_1_SQRT_2,
-            ],
+            ]
+            .into(),
             scale: [2., 0.5, 1.5],
         };
         scene.entities.insert("instance".into(), instance);

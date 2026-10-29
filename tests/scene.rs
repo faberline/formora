@@ -198,7 +198,7 @@ fn nonfinite_values_and_nonunit_rotations_are_rejected_before_saving() {
         .unwrap()
         .transform
         .translation[0] = 0.0;
-    scene.entities.get_mut("floor").unwrap().transform.rotation = [0.0; 4];
+    scene.entities.get_mut("floor").unwrap().transform.rotation = [0.0; 4].into();
     assert!(scene.validate().is_err());
 }
 

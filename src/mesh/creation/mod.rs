@@ -346,7 +346,7 @@ pub fn create(scene: &mut Scene, request: &ObjectCreation) -> Result<CreationRec
         parent: None,
         transform: Transform {
             translation: location,
-            rotation: math::quaternion(basis),
+            rotation: math::quaternion(basis).into(),
             scale: [1.; 3],
         },
         content: EntityKind::Mesh {

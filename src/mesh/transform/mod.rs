@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 mod context;
 mod geodesic;
+mod gimbal;
 mod influence;
 mod normal_orientation;
 
@@ -260,9 +261,15 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     };
     let axis = if let Change::Rotate { radians, .. } = request.change {
         finite(&[radians])?;
-        Some(normalized(std::array::from_fn(|i| {
-            context.basis[i][axis_index]
-        }))?)
+        let axis = std::array::from_fn(|i| context.basis[i][axis_index]);
+        Some(if request.orientation == Orientation::Gimbal {
+            if axis.iter().any(|v| !v.is_finite()) || dot(axis, axis) == 0. {
+                return Err(SceneError("unsafe mesh transform gimbal axis".into()));
+            }
+            axis
+        } else {
+            normalized(axis)?
+        })
     } else {
         None
     };

@@ -23,10 +23,25 @@ def f32(v):return struct.unpack('<f',struct.pack('<f',v))[0]
 
 
 def pose(profile):
-    x,y,z=[f32(v)/2 for v in profile['rotation']]
-    sx,cx=math.sin(x),math.cos(x);sy,cy=math.sin(y),math.cos(y);sz,cz=math.sin(z),math.cos(z)
-    q=[sx*cy*cz-cx*sy*sz,cx*sy*cz+sx*cy*sz,cx*cy*sz-sx*sy*cz,cx*cy*cz+sx*sy*sz]
-    return {'translation':[f32(v) for v in profile['location']],'rotation':q,'scale':[f32(v) for v in profile['scale']]}
+    return {'translation':[f32(v) for v in profile['location']],
+            'rotation':{'kind':'euler','angles':[f32(v) for v in profile['rotation']],'order':'xyz'},
+            'scale':[f32(v) for v in profile['scale']]}
+
+
+def quaternion(rotation):
+    if isinstance(rotation,list):return rotation
+    if rotation['kind']=='axis_angle':
+        axis=rotation['axis'];scale=max(abs(v) for v in axis);axis=[v/scale for v in axis];length=math.sqrt(sum(v*v for v in axis))
+        s,c=math.sin(rotation['radians']/2),math.cos(rotation['radians']/2)
+        return [v/length*s for v in axis]+[c]
+    assert rotation['kind']=='euler'
+    (i,j,k),parity={'xyz':((0,1,2),False),'xzy':((0,2,1),True),'yxz':((1,0,2),True),
+                     'yzx':((1,2,0),False),'zxy':((2,0,1),False),'zyx':((2,1,0),True)}[rotation.get('order','xyz')]
+    e=rotation['angles'];si,ci=math.sin(e[i]/2),math.cos(e[i]/2);sj,cj=math.sin(e[j]*(-0.5 if parity else 0.5)),math.cos(e[j]*(-0.5 if parity else 0.5));sh,ch=math.sin(e[k]/2),math.cos(e[k]/2)
+    cc,cs,sc,ss=ci*ch,ci*sh,si*ch,si*sh;q=[0.0]*4
+    q[i]=cj*sc-sj*cs;q[j]=cj*ss+sj*cc;q[k]=cj*cs-sj*sc;q[3]=cj*cc+sj*ss
+    if parity:q[j]=-q[j]
+    return q
 
 
 def setup(suite,run):
@@ -90,7 +105,7 @@ def request_for(run):
 
 
 def world(scene,id):
-    entity=scene['entities'][id];t=entity['transform'];q=t['rotation'];norm=math.sqrt(sum(v*v for v in q));x,y,z,w=[v/norm for v in q]
+    entity=scene['entities'][id];t=entity['transform'];q=quaternion(t['rotation']);norm=math.sqrt(sum(v*v for v in q));x,y,z,w=[v/norm for v in q]
     r=[[1-2*(y*y+z*z),2*(x*y-z*w),2*(x*z+y*w)],
        [2*(x*y+z*w),1-2*(x*x+z*z),2*(y*z-x*w)],
        [2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]]

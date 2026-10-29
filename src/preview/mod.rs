@@ -45,7 +45,7 @@ impl Playback {
                         .get_mut(&door.entity)
                         .expect("authored scene is valid")
                         .transform
-                        .rotation = door.rotation();
+                        .rotation = door.rotation().into();
                 }
             }
         }

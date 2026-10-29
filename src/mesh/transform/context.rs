@@ -205,11 +205,7 @@ impl Context {
                 inverse,
                 request.pivot,
             )?,
-            Orientation::Gimbal => {
-                return Err(SceneError(
-                    "mesh transform gimbal orientation is not implemented yet".into(),
-                ));
-            }
+            Orientation::Gimbal => super::gimbal::basis(scene, target)?,
         };
         let basis_inverse = math::inverse(basis)?;
         let mut local_islands = positions.clone();

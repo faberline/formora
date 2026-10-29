@@ -1,5 +1,6 @@
 //! Versioned scene data and transactional authoring commands.
 use crate::mesh::MeshAsset;
+use crate::rotation::TransformRotation;
 use schemars::JsonSchema;
 use serde::{Deserialize, Deserializer, Serialize, de};
 use std::collections::{BTreeMap, BTreeSet};
@@ -31,8 +32,8 @@ fn fail<T>(message: impl Into<String>) -> Result<T> {
 #[serde(deny_unknown_fields)]
 pub struct Transform {
     pub translation: [f64; 3],
-    /// Unit quaternion, x/y/z/w order. Coordinates use metres and a right-handed Z-up space.
-    pub rotation: Rotation,
+    /// Actual authored mode. Coordinates use metres and a right-handed Z-up space.
+    pub rotation: TransformRotation,
     pub scale: [f64; 3],
 }
 
@@ -40,7 +41,7 @@ impl Default for Transform {
     fn default() -> Self {
         Self {
             translation: [0.0; 3],
-            rotation: [0.0, 0.0, 0.0, 1.0],
+            rotation: TransformRotation::default(),
             scale: [1.0; 3],
         }
     }
@@ -274,7 +275,7 @@ impl Scene {
                 return fail(format!("invalid entity ID: {id}"));
             }
             let t = &entity.transform;
-            if !finite(&t.translation) || !finite(&t.scale) || !unit_rotation(&t.rotation) {
+            if !finite(&t.translation) || !finite(&t.scale) || !t.rotation.valid() {
                 return fail(format!("invalid transform: {id}"));
             }
             let mut seen = BTreeSet::from([id.as_str()]);
@@ -378,7 +379,7 @@ impl Scene {
                 interpolate_rotation(door.closed_rotation, door.open_rotation, door.progress);
             let alignment = expected
                 .iter()
-                .zip(entity.transform.rotation)
+                .zip(entity.transform.rotation.quaternion())
                 .map(|(a, b)| a * b)
                 .sum::<f64>()
                 .abs();
@@ -679,7 +680,7 @@ impl Command {
                     .get_mut(entity)
                     .ok_or_else(|| SceneError(format!("unknown entity: {entity}")))?
                     .transform
-                    .rotation = *closed_rotation;
+                    .rotation = (*closed_rotation).into();
                 scene.doors.insert(
                     id.clone(),
                     Door {
@@ -735,7 +736,8 @@ impl Command {
                         door.closed_rotation,
                         door.open_rotation,
                         door.progress,
-                    );
+                    )
+                    .into();
                 }
             }
             Self::Annotate { annotation } => scene.annotations.push(annotation.clone()),
@@ -948,7 +950,7 @@ pub fn room_demo() -> Result<Scene> {
     commands.push(Command::CreateDoor {
         id: "front_door".into(),
         entity: "door_hinge".into(),
-        closed_rotation: Transform::default().rotation,
+        closed_rotation: Transform::default().rotation.quaternion(),
         open_rotation: [0.0, 0.0, sin, cos],
         duration_seconds: 1.0,
     });
@@ -960,7 +962,7 @@ pub fn room_demo() -> Result<Scene> {
             parent: None,
             transform: Transform {
                 translation: [0.0, -8.0, 4.0],
-                rotation: [sin, 0.0, 0.0, cos],
+                rotation: [sin, 0.0, 0.0, cos].into(),
                 ..Transform::default()
             },
             content: EntityKind::Camera {

@@ -39,7 +39,7 @@ pub fn world_transforms(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
             let t = &entity.transform;
             chain.push(DMat4::from_scale_rotation_translation(
                 DVec3::from_array(t.scale),
-                DQuat::from_array(t.rotation).normalize(),
+                DQuat::from_array(t.rotation.quaternion()).normalize(),
                 DVec3::from_array(t.translation),
             ));
             current = entity.parent.as_deref();
