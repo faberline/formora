@@ -124,6 +124,12 @@ def check_receipt(result,request,before,after):
     assert all(receipt['influence'][id]==1 for id in before['selected']['VERT'])
     assert receipt['random_seed']==request['commands'][0]['transform'].get('proportional',{}).get('seed')
     for vector in [receipt['pivot_world'],*receipt['basis_world'],*receipt['centres_local'].values()]:assert len(vector)==3 and all(math.isfinite(v) for v in vector)
+    transform=request['commands'][0]['transform']
+    if transform['orientation']['kind']=='normal' and transform['pivot']=='individual':
+        assert set(receipt['component_basis_local'])==set(receipt['influence'])
+        for matrix in receipt['component_basis_local'].values():
+            assert len(matrix)==3 and all(len(row)==3 and all(math.isfinite(v) for v in row) for row in matrix)
+    else:assert 'component_basis_local' not in receipt
 
 
 def compare_output(run,reference,before,after,result,error,request):

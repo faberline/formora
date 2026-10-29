@@ -21,6 +21,8 @@ pub(super) struct Context {
     pub inverse: Matrix,
     pub basis: Matrix,
     pub basis_inverse: Matrix,
+    pub component_bases: Option<Vec<Matrix>>,
+    pub object_axes: Matrix,
     pub pivot: Vector,
     pub centres: Vec<Vector>,
     pub world_positions: Vec<Vector>,
@@ -192,11 +194,17 @@ impl Context {
                 }
                 matrix.map(|r| r.map(|v| v as f32))
             }
-            Orientation::Normal => {
-                return Err(SceneError(
-                    "mesh transform normal orientation is not implemented yet".into(),
-                ));
-            }
+            Orientation::Normal => super::normal_orientation::basis(
+                asset,
+                &graph,
+                &positions,
+                &selected,
+                &edge_visible,
+                &face_visible,
+                object,
+                inverse,
+                request.pivot,
+            )?,
             Orientation::Gimbal => {
                 return Err(SceneError(
                     "mesh transform gimbal orientation is not implemented yet".into(),
@@ -206,8 +214,8 @@ impl Context {
         let basis_inverse = math::inverse(basis)?;
         let mut local_islands = positions.clone();
         let mut island_member = vec![false; positions.len()];
+        let mut parent: Vec<_> = (0..positions.len()).collect();
         if request.pivot == Pivot::Individual {
-            let mut parent: Vec<_> = (0..positions.len()).collect();
             let edge_mode =
                 editing.mode.contains(&Domain::Vertex) || editing.mode.contains(&Domain::Edge);
             if edge_mode {
@@ -342,6 +350,20 @@ impl Context {
         } else {
             vec![local_pivot; positions.len()]
         };
+        let component_bases =
+            if request.pivot == Pivot::Individual && request.orientation == Orientation::Normal {
+                let roots: Vec<_> = (0..positions.len()).map(|v| root(&mut parent, v)).collect();
+                Some(super::normal_orientation::individual(
+                    asset,
+                    &graph,
+                    &positions,
+                    &selected,
+                    &roots,
+                    &island_member,
+                )?)
+            } else {
+                None
+            };
         if pivot
             .iter()
             .chain(centres.iter().flatten())
@@ -352,6 +374,11 @@ impl Context {
                 "mesh transform frame arithmetic exceeded finite f32 range".into(),
             ));
         }
+        let object_axes = if component_bases.is_some() {
+            axes(object)?
+        } else {
+            IDENTITY
+        };
         let instances=scene.entities.iter().filter(|(_,e)|matches!(&e.content,EntityKind::Mesh {geometry:Geometry::Asset {id:asset},..} if asset==id)).map(|(id,_)|id.clone()).collect();
         Ok(Self {
             asset: id.clone(),
@@ -367,6 +394,8 @@ impl Context {
             inverse,
             basis,
             basis_inverse,
+            component_bases,
+            object_axes,
             pivot,
             centres,
             world_positions,

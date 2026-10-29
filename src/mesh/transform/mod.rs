@@ -9,6 +9,7 @@ use std::collections::BTreeMap;
 mod context;
 mod geodesic;
 mod influence;
+mod normal_orientation;
 
 type Vector = [f32; 3];
 type Matrix = [[f32; 3]; 3];
@@ -132,6 +133,8 @@ pub struct Receipt {
     pub mesh_asset: String,
     pub shared_instances: Vec<String>,
     pub basis_world: [[f64; 3]; 3],
+    #[serde(skip_serializing_if = "BTreeMap::is_empty")]
+    pub component_basis_local: BTreeMap<String, [[f64; 3]; 3]>,
     pub pivot_world: [f64; 3],
     pub centres_local: BTreeMap<String, [f64; 3]>,
     pub influence: BTreeMap<String, f64>,
@@ -264,6 +267,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         None
     };
     let mut centres = BTreeMap::new();
+    let mut component_bases = BTreeMap::new();
     let mut weights = BTreeMap::new();
     for (index, weight) in influence
         .weights
@@ -274,34 +278,84 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     {
         let id = &context.graph.vertex_ids[index];
         let original = context.positions[index];
-        let centre = if request.pivot == Pivot::Individual {
+        let origin = if request.pivot == Pivot::Individual {
             influence
                 .origins
                 .as_ref()
                 .and_then(|origins| {
                     let origin = origins[index];
-                    context.island_member[origin].then_some(context.centres[origin])
+                    context.island_member[origin].then_some(origin)
                 })
-                .unwrap_or(context.centres[index])
+                .unwrap_or(index)
         } else {
-            context.centres[index]
+            index
         };
+        let centre = context.centres[origin];
+        let component_basis = context.component_bases.as_ref().map(|bases| bases[origin]);
+        if let Some(basis) = component_basis {
+            component_bases.insert(id.clone(), basis.map(|row| row.map(f64::from)));
+        }
         centres.insert(id.clone(), centre.map(f64::from));
         weights.insert(id.clone(), f64::from(weight));
         let position = match request.change {
             Change::Translate { .. } => {
-                add(original, delta.expect("translation").map(|v| v * weight))
+                let delta = if let Some(basis) = component_basis {
+                    let Change::Translate { value } = request.change else {
+                        unreachable!()
+                    };
+                    let vector = std::array::from_fn(|i| {
+                        if constrained && !request.constraint_axis[i] {
+                            0.
+                        } else {
+                            value[i] as f32
+                        }
+                    });
+                    let world = math::vector(context.basis, vector);
+                    let vector = math::vector(context.basis_inverse, world);
+                    math::vector(
+                        context.inverse,
+                        math::vector(context.object_axes, math::vector(basis, vector)),
+                    )
+                } else {
+                    delta.expect("translation")
+                };
+                add(original, delta.map(|v| v * weight))
             }
             Change::Rotate { radians, .. } => {
-                let world = rotation(axis.expect("rotation axis"), radians as f32 * weight);
+                let axis = if let Some(basis) = component_basis.filter(|_| constrained && count < 3)
+                {
+                    let world = math::multiply(context.object_axes, basis);
+                    std::array::from_fn(|i| world[i][axis_index])
+                } else {
+                    axis.expect("rotation axis")
+                };
+                let world = rotation(axis, radians as f32 * weight);
                 let local = math::multiply(context.inverse, math::multiply(world, context.object));
                 add(math::vector(local, sub(original, centre)), centre)
             }
             Change::Resize { .. } => {
-                let moved = add(
-                    math::vector(resize.expect("resize"), sub(original, centre)),
-                    centre,
-                );
+                let resize = if let Some(basis) = component_basis {
+                    let Change::Resize { value } = request.change else {
+                        unreachable!()
+                    };
+                    let diagonal = std::array::from_fn(|i| {
+                        std::array::from_fn(|j| {
+                            if i != j {
+                                0.
+                            } else if constrained && !request.constraint_axis[i] {
+                                1.
+                            } else {
+                                value[i] as f32
+                            }
+                        })
+                    });
+                    let local =
+                        math::multiply(context.inverse, math::multiply(diagonal, context.object));
+                    math::multiply(basis, math::multiply(local, math::inverse(basis)?))
+                } else {
+                    resize.expect("resize")
+                };
+                let moved = add(math::vector(resize, sub(original, centre)), centre);
                 add(original, sub(moved, original).map(|v| v * weight))
             }
         };
@@ -347,6 +401,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         mesh_asset: context.asset.clone(),
         shared_instances: context.instances,
         basis_world: context.basis.map(|r| r.map(f64::from)),
+        component_basis_local: component_bases,
         pivot_world: context.pivot.map(f64::from),
         centres_local: centres,
         influence: weights,
