@@ -209,12 +209,10 @@ impl Primitive {
                     [7, 3, 1, 5],
                 ];
                 for (i, face) in faces.into_iter().enumerate() {
-                    let (u, v) = if i < 4 {
-                        (0.375, i as f64 * 0.25)
-                    } else if i == 4 {
-                        (0.125, 0.5)
-                    } else {
-                        (0.625, 0.5)
+                    let (u, v) = match i.cmp(&4) {
+                        std::cmp::Ordering::Less => (0.375, i as f64 * 0.25),
+                        std::cmp::Ordering::Equal => (0.125, 0.5),
+                        std::cmp::Ordering::Greater => (0.625, 0.5),
                     };
                     let points = face.map(|v| builder.asset.vertices[&vertex_id(v)]);
                     let a: [f64; 3] = std::array::from_fn(|i| points[1][i] - points[0][i]);
