@@ -30,7 +30,7 @@ def author():
           'face_materials':[i%2 for i in range(len(faces))],'face_smooth':[bool(i%2) for i in range(len(faces))],
           'edge_seams':[i%3==0 for i in range(len(edges))],
           'uv_layers':[{'name':name,'faces':[[[sign*(i*0.125+j*0.25),0.125+j*0.125] for j in range(len(face))] for i,face in enumerate(faces)]} for name,sign in [('Detail',1),('Layout',-1)]],
-          'active_uv_index':1,'group_scenarios':{'authored':{'names':['pin','soft'],'weights':{'v000004':{'pin':1},'v000000':{'soft':0.75},'v000002':{'soft':0.5},'v000011':{'pin':0,'soft':0.25}}}}}
+          'active_uv_index':1,'active_material_index':1,'group_scenarios':{'authored':{'names':['pin','soft'],'weights':{'v000004':{'pin':1},'v000000':{'soft':0.75},'v000002':{'soft':0.5},'v000011':{'pin':0,'soft':0.25}}}}}
     profiles={
         'identity':{'location':[0,0,0],'rotation':[0,0,0],'scale':[1,1,1],'parent':None},
         'rotated':{'location':[2.25,-1.75,0.625],'rotation':[0.21,-0.31,0.47],'scale':[1.5,0.65,1.2],'parent':None},
@@ -78,6 +78,8 @@ def author():
         add(op,'singular target',profile='singular',parameters={'orient_type':orientation,'constraint_axis':[True,False,False]},tags=['mesh.transform.orientation'])
     for op,keep,mode in itertools.product(OPERATORS,[False,True],['VERT','EDGE','FACE']):
         add(op,'correct face attributes',mode,context={'correct_face_attributes':True,'keep_connected':keep})
+    for axis,profile in itertools.product(['X','Y','Z'],['identity','rotated','reflected','parent']):
+        add('rotate','explicit rotation axis',profile=profile,parameters={'orient_axis':axis},tags=['mesh.transform.orientation'])
     for i,run in enumerate(runs):
         assert run['id']==f'transform_{i:04}'
         assert set(run['features'])<=set(FEATURES)

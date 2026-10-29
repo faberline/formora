@@ -33,6 +33,7 @@ def authored_mesh(suite,run):
 
 def create(suite,run):
     obj=base.create(authored_mesh(suite,run),run)
+    obj.active_material_index=suite['mesh']['active_material_index']
     scene=bpy.context.scene;environment=suite['environment'];profile=suite['profiles'][run['context']['profile']]
     obj.location=profile['location'];obj.rotation_euler=profile['rotation'];obj.scale=profile['scale']
     if profile['parent'] is not None:
@@ -57,6 +58,7 @@ def create(suite,run):
 
 def snapshot(obj,area):
     state=base.snapshot(obj);bm=bmesh.from_edit_mesh(obj.data)
+    state['active_material_index']=obj.active_material_index
     vertex_layer=bm.verts.layers.int[base.LAYERS[0]]
     state['world_vertices']={f'v{v[vertex_layer]:06}':list(obj.matrix_world@v.co) for v in bm.verts}
     temporary=bpy.data.meshes.new('TransformNormalSnapshot')
@@ -106,7 +108,7 @@ def main():
     args=parser.parse_args(sys.argv[sys.argv.index('--')+1:]);suite=json.loads(args.suite.read_text());build=bpy.app.build_hash.decode()
     assert not bpy.app.background,'viewport transforms require an actual initialized window/GPU context'
     assert list(bpy.app.version)==suite['reference']['version'] and build==suite['reference']['build_hash']
-    assert not args.output.exists(),'never overwrite reference capture';assert len(suite['runs'])==1191
+    assert not args.output.exists(),'never overwrite reference capture';assert len(suite['runs'])==1203
     runs=suite['runs']
     if args.case_ids:
         assert set(args.case_ids)<={r['id'] for r in runs},'unknown run ID'
@@ -135,7 +137,8 @@ def main():
             if (i+1)%100==0:print(json.dumps({'captured':i+1,'total':len(runs)}),flush=True)
         assert inputs=={str(p.resolve()):base.digest(p) for p in files},'capture inputs changed'
         base.write(stage/'manifest.json',{'schema_version':1,'product':'blender','version':list(bpy.app.version),'build_hash':build,'process_id':os.getpid(),
-            'scope':'focused' if args.case_ids else 'complete_1191_authored_transform_cases','started_utc':started,'platform':platform.platform(),'binary_sha256':base.digest(bpy.app.binary_path),
+            'scope':'focused' if args.case_ids else 'complete_1203_authored_transform_cases','started_utc':started,'platform':platform.platform(),'binary_sha256':base.digest(bpy.app.binary_path),
+            'command_line':sys.argv,'background':bpy.app.background,
             'suite_sha256':base.digest(args.suite),'adapter_sha256':base.digest(__file__),'base_adapter_sha256':base.digest(BASE_PATH),'operator_properties_sha256':base.digest(stage/'operator-properties.json'),
             'runs':records,'product_acceptance':'unrun','random_acceptance':'support_only; RNG sequence and distribution unrun'})
         stage.rename(args.output)

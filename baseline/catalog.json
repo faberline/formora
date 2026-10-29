@@ -238,6 +238,103 @@
       "milestone": "0.2",
       "case_path": "baseline/cases/mesh-selection-ungrouped.json",
       "review": "pending"
+    },
+    {
+      "id": "mesh.transform.translate",
+      "title": "網格元件移動",
+      "source_ids": [
+        "blender:09c0abad1e5d670f87f7",
+        "blender:292e17d3ee336e9b6d7d",
+        "blender:666aabf985117f6731f7"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-translate.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.rotate",
+      "title": "網格元件旋轉",
+      "source_ids": [
+        "blender:09c0abad1e5d670f87f7",
+        "blender:af45f106bd655a0a40b1",
+        "blender:7e070425350e3eadca14"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-rotate.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.resize",
+      "title": "網格元件縮放",
+      "source_ids": [
+        "blender:09c0abad1e5d670f87f7",
+        "blender:4eea2a580e74a3991ea8",
+        "blender:95b91441a3142b2f3e1d"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-resize.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.orientation",
+      "title": "網格變換方向與明確矩陣",
+      "source_ids": [
+        "blender:eb3646d327ae5bea491c",
+        "blender:d449a625ea4c988a8bd1"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-orientation.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.pivot",
+      "title": "網格變換中心",
+      "source_ids": [
+        "blender:7f1fc6e3e7c60929a804",
+        "blender:15da0fa09f02e6dd07a6",
+        "blender:a8d6eb4b858838cacb6a",
+        "blender:794a08176d0fc3949653",
+        "blender:cda6901d300faa18170a",
+        "blender:c268ad6e82c114895d2a",
+        "blender:c0637ceb01424a9c3f4a",
+        "blender:0ec4a4268c31426c7bb9"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-pivot.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.falloff",
+      "title": "比例編輯衰減",
+      "source_ids": [
+        "blender:8ae4f179fa3439a27bbc",
+        "blender:b279e4e1a9d294c2db58",
+        "blender:04067644b1e760383aa0",
+        "blender:5efcc28a4c57d71ee2fe"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-falloff.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.connected",
+      "title": "比例編輯的連接距離",
+      "source_ids": [
+        "blender:8e1b263f44c523c0cc4a"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-connected.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.transform.projected",
+      "title": "比例編輯的視角投影距離",
+      "source_ids": [
+        "blender:d8584df5562e3aa05cea"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-transform-projected.json",
+      "review": "pending"
     }
   ]
 }

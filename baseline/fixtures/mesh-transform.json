@@ -553,6 +553,7 @@
       }
     ],
     "active_uv_index": 1,
+    "active_material_index": 1,
     "group_scenarios": {
       "authored": {
         "names": [
@@ -54296,6 +54297,462 @@
         "mirror": false,
         "use_proportional_edit": false,
         "snap": false
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1191",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "identity",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "X"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1192",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "rotated",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "X"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1193",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "reflected",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "X"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1194",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "parent",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "X"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1195",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "identity",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Y"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1196",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "rotated",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Y"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1197",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "reflected",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Y"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1198",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "parent",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Y"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1199",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "identity",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Z"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1200",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "rotated",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Z"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1201",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "reflected",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Z"
+      },
+      "repeat_policy": "deterministic"
+    },
+    {
+      "id": "transform_1202",
+      "label": "explicit rotation axis",
+      "operator": "rotate",
+      "feature": "mesh.transform.rotate",
+      "features": [
+        "mesh.transform.rotate",
+        "mesh.transform.orientation"
+      ],
+      "groups": "authored",
+      "initial_mode": [
+        "VERT"
+      ],
+      "seed": {
+        "domain": "VERT",
+        "indices": [
+          0,
+          2
+        ]
+      },
+      "context": {
+        "profile": "parent",
+        "pivot": "MEDIAN_POINT",
+        "mirror_x": false,
+        "mirror_topology": false,
+        "correct_face_attributes": false,
+        "keep_connected": true
+      },
+      "parameters": {
+        "value": 0.61,
+        "orient_type": "GLOBAL",
+        "mirror": false,
+        "use_proportional_edit": false,
+        "snap": false,
+        "orient_axis": "Z"
       },
       "repeat_policy": "deterministic"
     }

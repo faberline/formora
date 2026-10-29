@@ -37,7 +37,28 @@ def rotation(q):
             [2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]]
 
 
+def euler_rotation(angles):
+    x,y,z=angles;sx,cx=math.sin(x),math.cos(x);sy,cy=math.sin(y),math.cos(y);sz,cz=math.sin(z),math.cos(z)
+    return [[cy*cz,cz*sy*sx-sz*cx,cz*sy*cx+sz*sx],
+            [cy*sz,sz*sy*sx+cz*cx,sz*sy*cx-cz*sx],[-sy,cy*sx,cy*cx]]
+
+
+def matrix(profile):
+    r=euler_rotation(profile['rotation'])
+    return [[r[i][j]*profile['scale'][j] for j in range(3)]+[profile['location'][i]] for i in range(3)]+[[0,0,0,1]]
+
+
+def frame(state,profile):
+    require(set(state)=={'location','rotation','scale','matrix_world'},'object frame fields differ')
+    for field in ['location','rotation','scale']:near(state[field],profile[field],message='authored object frame differs')
+    expected=matrix(profile)
+    if profile.get('parent') is not None:
+        parent=matrix(profile['parent']);expected=[[sum(parent[i][k]*expected[k][j] for k in range(4)) for j in range(4)] for i in range(4)]
+    tree(expected,state['matrix_world'],path='authored world matrix')
+
+
 def validate(run,data,suite):
+    require(set(data)=={'run_id','operator','parameters','context','repeat_policy','before','after','result','clock_before_ns','clock_after_ns'},'unexpected capture fields')
     require(data['run_id']==run['id'] and data['operator']==run['operator'],'run identity differs')
     require(data['parameters']==run['parameters'] and data['context']==run['context'],'operation inputs differ')
     require(data['repeat_policy']==run['repeat_policy'],'repeat policy differs')
@@ -45,6 +66,7 @@ def validate(run,data,suite):
     if run['context'].get('hide_all'):mesh['hidden']={key:list(range(len(mesh[key]))) for key in ['vertices','edges','faces']}
     before,after=data['before'],data['after']
     for state in [before,after]:
+        require(set(state)==set(STATE_KEYS)|{'world_vertices','normals','objects','environment','active_material_index'},'unexpected state fields')
         validate_state(selection(state))
         g=state['geometry'];require(set(state['world_vertices'])==set(g['vertices']),'world vertex IDs differ')
         require(set(state['normals'])=={'faces','corners'},'normal fields differ')
@@ -55,7 +77,11 @@ def validate(run,data,suite):
             require(all(len(n)==3 for n in state['normals']['corners'][id]),'corner normal size differs')
         view=state['environment'];r=rotation(view['view_rotation'])
         for i in range(3):near(view['view_matrix'][i][:3],[r[j][i] for j in range(3)],message='stale viewport matrix')
+        target=state['objects']['target']['matrix_world'];require(len(target)==4 and all(len(row)==4 for row in target),'world matrix dimensions differ')
+        for id,p in g['vertices'].items():
+            near(state['world_vertices'][id],[sum(target[i][j]*p[j] for j in range(3))+target[i][3] for i in range(3)],message='world positions do not match local geometry and frame')
     bind_initial_state(mesh,run,selection(before))
+    require(type(before['active_material_index']) is int and before['active_material_index']==mesh['active_material_index'],'authored active material differs')
     # A complete independent selection closure, not merely inclusion of the seed.
     g=before['geometry'];domain=run['seed']['domain'];prefix={'VERT':'v','EDGE':'e','FACE':'f'}[domain]
     seeds={prefix+f'{i:06}' for i in run['seed']['indices']};v=set();e=set();f=set()
@@ -68,16 +94,26 @@ def validate(run,data,suite):
         f=seeds;v={id for face in f for id in g['faces'][face]};pairs={tuple(sorted(pair)) for id in f for face in [g['faces'][id]] for pair in zip(face,face[1:]+face[:1])};e={id for id,pair in g['edges'].items() if tuple(pair) in pairs}
     require(before['selected']=={'VERT':sorted(v),'EDGE':sorted(e),'FACE':sorted(f)},'authored selection closure differs')
     profile=suite['profiles'][run['context']['profile']]
-    for field in ['location','rotation','scale']:near(before['objects']['target'][field],profile[field],message='authored object frame differs')
+    frame(before['objects']['target'],profile)
+    if profile['parent'] is None:require(before['objects']['parent'] is None,'unexpected parent object')
+    else:frame(before['objects']['parent'],profile['parent'])
     for field in ['cursor_location','cursor_rotation','view_location']:near(before['environment'][field],suite['environment'][field],message='authored environment differs')
     require(before['environment']['pivot']==run['context']['pivot'],'authored pivot differs')
+    r=euler_rotation(suite['environment']['view_rotation'])
+    for i in range(3):near(before['environment']['view_matrix'][i][:3],[r[j][i] for j in range(3)],message='view differs from authored angles')
+    for field in ['correct_face_attributes','keep_connected','mirror_x','mirror_topology']:
+        require(before['environment'][field]==run['context'][field],'authored context flag differs')
+    near([before['environment']['view_distance']],[suite['environment']['view_distance']],message='authored view distance differs')
+    require(before['environment']['view_perspective']==suite['environment']['view_perspective'],'authored projection differs')
     for key in ['edges','faces','face_smooth','face_materials','edge_seams','material_slots','uv_layer_order','active_uv_index']:
         require(g[key]==after['geometry'][key],'transform changed preserved topology/attribute: '+key)
-    for key in ['groups','selected','hidden','mode','history','active_face','objects','environment']:
+    for key in ['groups','selected','hidden','mode','history','active_face','objects','environment','active_material_index']:
         require(before[key]==after[key],'transform changed unrelated state: '+key)
     if not run['context']['correct_face_attributes']:require(g['uv_layers']==after['geometry']['uv_layers'],'UVs changed with correction disabled')
     for id in before['hidden']['VERT']:require(g['vertices'][id]==after['geometry']['vertices'][id],'hidden vertex moved')
     status=data['result']['status'];require(status in [['FINISHED'],['CANCELLED'],['ERROR']],'unknown source result')
+    require(set(data['result'])=={'status','error'},'unexpected result fields')
+    if status!=['ERROR']:require(data['result']['error'] is None,'successful or unchanged result has an error')
     if status!=['FINISHED']:require(before==after,'cancelled/rejected operation changed state')
     if status==['ERROR']:require(run['label']=='singular target' and bool(data['result']['error']),'unexpected source error')
     return analytic(run,data)
@@ -112,8 +148,12 @@ def analytic(run,data):
             if run['operator']=='translate':expected=[point[j]+p['value'][j] for j in range(3)]
             elif run['operator']=='resize':expected=[center[j]+(point[j]-center[j])*p['value'][j] for j in range(3)]
             else:
-                angle=p['value'];x,y=point[0]-center[0],point[1]-center[1]
-                expected=[center[0]+math.cos(angle)*x-math.sin(angle)*y,center[1]+math.sin(angle)*x+math.cos(angle)*y,point[2]]
+                # transform_mode_rotation_axis_get flips an unconstrained
+                # viewport rotation axis, including numeric EXEC requests.
+                angle=-p['value'];axis='XYZ'.index(p.get('orient_axis','Z'));j,k=(axis+1)%3,(axis+2)%3
+                x,y=point[j]-center[j],point[k]-center[k]
+                expected[j]=center[j]+math.cos(angle)*x-math.sin(angle)*y
+                expected[k]=center[k]+math.sin(angle)*x+math.cos(angle)*y
         near(after['geometry']['vertices'][id],expected,message='independent basic transform differs')
     return 1
 
@@ -126,7 +166,7 @@ def stochastic(run,data):
             x,y=point[0]-center[0],point[1]-center[1];u,v=actual[0]-center[0],actual[1]-center[1]
             # Bound support componentwise through an inferred rotation angle.
             angle=math.atan2(x*v-y*u,x*u+y*v) if x*x+y*y>1e-14 else 0.
-            require(-1e-6<=angle<=p['value']+1e-6,'random angle outside support')
+            require(-p['value']-1e-6<=angle<=1e-6,'random angle outside support')
             expected=[center[0]+math.cos(angle)*x-math.sin(angle)*y,center[1]+math.sin(angle)*x+math.cos(angle)*y,point[2]]
         else:
             delta=p['value'] if run['operator']=='translate' else [(point[j]-center[j])*(p['value'][j]-1) for j in range(3)]
@@ -142,10 +182,15 @@ def compare(suite,reference,repeat,suite_sha):
     require(a['process_id']!=b['process_id'],'reference processes are not independent')
     expected_version=suite['reference']['version'];expected_build=suite['reference']['build_hash']
     runs=suite['runs'];records=[];analytic_checks=stochastic_checks=0
+    require(suite['schema_version']==1 and len(runs)==1203,'complete authored suite is required')
+    require(suite['comparison']=={'positions_absolute_tolerance_metres':1e-6,'normals_absolute_tolerance':1e-6,'uv_absolute_tolerance':1e-6},'fixed comparison tolerances differ')
     root=Path(__file__).resolve().parents[1];build_pin=load(root/'baseline/reference/builds/blender-5.2.3/report.json')
     executable_sha=build_pin['files'][build_pin['entry_executable']]['sha256']
     for folder,m in [(reference,a),(repeat,b)]:
-        require(m['scope']=='complete_1191_authored_transform_cases','focused capture cannot accept the suite')
+        require(m['schema_version']==1 and m['product']=='blender','reference identity differs')
+        require(type(m['process_id']) is int and m['process_id']>0,'invalid reference process ID')
+        require(m['background'] is False,'background context cannot prove viewport transforms')
+        require(m['scope']=='complete_1203_authored_transform_cases','focused capture cannot accept the suite')
         require(m['version']==expected_version and m['build_hash']==expected_build,'reference build differs')
         require(m['binary_sha256']==executable_sha,'reference executable pin differs')
         require(m['suite_sha256']==suite_sha,'suite pin differs')

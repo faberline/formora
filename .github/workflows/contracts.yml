@@ -33,6 +33,8 @@ jobs:
         run: python tools/polygon_reference_smoke.py target/debug/formora target/polygon-reference-smoke
       - name: Verify recorded selection references (not product selection)
         run: python tools/compare_selection_reference.py --suite baseline/fixtures/mesh-selection.json --reference baseline/reference/blender-5.2.3/mesh-selection --repeat baseline/reference/blender-5.2.3/mesh-selection-repeat --output target/selection-reference-reproduction.json
+      - name: Verify recorded transform references (not product transforms)
+        run: python tools/compare_transform_reference.py baseline/fixtures/mesh-transform.json baseline/reference/blender-5.2.3/mesh-transform baseline/reference/blender-5.2.3/mesh-transform-repeat target/transform-reference-reproduction.json
       - run: python -m pip install -r tools/requirements-mcp.txt
       - name: Verify stdio with the official MCP client
         run: python tools/mcp_smoke.py target/debug/formora
@@ -42,6 +44,11 @@ jobs:
         run: python tools/remaining_scale_regression.py target/debug/formora target/remaining-scale-cases
       - name: Execute selection cases through CLI and official MCP
         run: python tools/selection_runtime_smoke.py target/debug/formora target/selection-runtime-cases
+      - name: Execute primitive creation contexts through CLI and official MCP
+        run: python tools/creation_context_runtime.py target/debug/formora target/creation-context-cases
       - name: Verify generation without source repository access
         if: runner.os == 'macOS'
         run: python tools/primitive_independent.py target/debug/formora target/independent-primitive-generation
+      - name: Verify creation and insertion without source repository access
+        if: runner.os == 'macOS'
+        run: python tools/creation_context_independent.py target/debug/formora target/independent-creation-contexts
