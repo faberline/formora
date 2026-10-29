@@ -1,0 +1,116 @@
+{
+  "snapshot": "completed gates before remaining full API and performance verification",
+  "implementation_commit": "c67d2370c00d2031adb7d896c978b25ffdd3d885",
+  "binary_sha256": "093b46f00749eddde3930d4aa5377315a553bafb878807f8ecb8f42db37e54fa",
+  "completed": [
+    {
+      "directory": "runtime-scene",
+      "report": "report.json",
+      "sha256": "57e81179aa5b887288ac6794eff8a69e2ec36abba2fe313634a2cdcb05d49f66",
+      "passed": true
+    },
+    {
+      "directory": "runtime-single",
+      "report": "report.json",
+      "sha256": "7f1808e22b5bfb2d272304144dbd91d3e51fe71359f741265cbb365377fef143",
+      "passed": true
+    },
+    {
+      "directory": "runtime-transform",
+      "report": "report.json",
+      "sha256": "3963ce61b7a8a84963742b00de1d1ce9b329c688763fe1b4d785836e736b4093",
+      "passed": true
+    },
+    {
+      "directory": "retained",
+      "report": "report.json",
+      "sha256": "400ec659652d072c1839ac3ab87600568f1f0876057e8997ab3ca9bf753dd682",
+      "passed": true
+    },
+    {
+      "directory": "isolation",
+      "report": "report.json",
+      "sha256": "9e66372a72ac997a3e914a62417b0c97979003180e4ee4ad6e05e02a1904f880",
+      "passed": true
+    },
+    {
+      "directory": "isolation-scene",
+      "report": "report.json",
+      "sha256": "93df50ea4c831b6c22058e3527e8d147f333f0608972b04dc264f508841d963b",
+      "passed": true
+    },
+    {
+      "directory": "isolation-primitive",
+      "report": "report.json",
+      "sha256": "e49387bf4fae7207bc7c4b6cf27810d5f5aa88bc4f6d41e29c98a13814b34b14",
+      "passed": true
+    },
+    {
+      "directory": "isolation-selection",
+      "report": "report.json",
+      "sha256": "fb4beb5aaab542c5a00caa441c3a06616af2f168648d1ad431dde81d8fca5325",
+      "passed": true
+    },
+    {
+      "directory": "isolation-creation",
+      "report": "report.json",
+      "sha256": "921bee8bc80f6595ebcb457c83ebee361f6801321470373ed75708925dbfb0bb",
+      "passed": true
+    },
+    {
+      "directory": "rng-rotation-isolation",
+      "report": "report.json",
+      "sha256": "6a69a95d350e8b82e349c4cde61467d355c7300df14c161dd0054799cf1287a8",
+      "passed": true
+    },
+    {
+      "directory": "rng-one-shot",
+      "report": "report.json",
+      "sha256": "ee92641cebf74c681f6d2ff0df2be20f05feb0bec032a0478db204fcd959459c",
+      "passed": true
+    },
+    {
+      "directory": "source-oracle",
+      "report": "report.json",
+      "sha256": "0bb49cb1b33a6750bbcf3f25e947b1ccd45d14444f1c4d499c4b6f6709a0aac2",
+      "passed": true
+    },
+    {
+      "directory": "recipe",
+      "report": "report.json",
+      "sha256": "ce650d4b38e481abe5e195f883421d5b5a1b534fef0fabd9c15832a0c9f3f527",
+      "passed": true
+    },
+    {
+      "directory": "recipe-legacy",
+      "report": "report.json",
+      "sha256": "7edc3c2af995f8124660cde606fe0137d213a2e379ddad7804e2ae11ce56e93b",
+      "passed": true
+    },
+    {
+      "directory": "gpu",
+      "report": "manifest.json",
+      "sha256": "67d8cd44570cab8be73801e95c09ee9e5f4f608ded665da21e8b2e8f0a079729",
+      "passed": true
+    },
+    {
+      "directory": "gpu-rng-legacy",
+      "report": "manifest.json",
+      "sha256": "1a10862bbbdc423e01f817c100667a9419aa2aab59a5d406a14216b32e5a9530",
+      "passed": true
+    },
+    {
+      "directory": "gpu-mirror-legacy",
+      "report": "manifest.json",
+      "sha256": "daff29e6bfe8f488105b99ae66c0509ec56ebb610e68500bbaaec915a46671b9",
+      "passed": true
+    }
+  ],
+  "full_4992_new_requests": "running_at_snapshot",
+  "required_24_plus_90_plus_30_plus_9_performance": "unrun",
+  "three_platform_ci": "unrun",
+  "integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

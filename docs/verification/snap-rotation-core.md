@@ -17,8 +17,8 @@ parent inverse. Every raw and gzip hash and all capture inputs were checked.
 
 Source files, terminal receipts and checks are in
 docs/evidence/snap-rotation-core/performance. The 24 Rust performance samples
-are UNRUN. The full 4,992-request gate and required retained product suites
-remain UNRUN for this slice.
+are now complete as local gates. The final results below do not grant
+three-platform, integration or independent Codex acceptance.
 
 ## Rust candidate and local checks
 
@@ -48,6 +48,61 @@ At debug binary SHA-256
   channels, boundaries, cursor clearing and mesh editing. Raw data and complete
   before/after queries are retained. This is not the full 4,992-request gate.
 
+The complete 4,992 new CLI/MCP requests passed on the same binary. Every case
+compares raw modes/channels/locks, actual Rust frames and cursor matrices,
+geometry, normals, attributes and real receipts against both fixed native
+captures. Each new request has an actual fresh-process reload check. The
+retained 5,750 request gate also passed: 1,100 object/multi-edit snaps,
+2,244 single-mesh snaps and 2,406 transforms. Cancellations and expected atomic
+rejections remain distinct. The 14 approved undefined-source rotation cases
+are explicit rejections and are not numeric source matches.
+
+All 1,591 retained primitive/scale/selection/creation/payload/normal checks,
+96 RNG checks and official MCP smoke passed. All 48 one-shot RNG cases and
+all six retained Euler-order frame checks passed. Both raw scene-snap and
+legacy mesh-snap recipe proofs passed, including rollback, undo/replay,
+regeneration and reload. Six native source-read-denied proofs passed. The new
+27-call proof uses unseen nonunit channels, analytic physical rotation and
+parent conversion, actual child inverse changes and complete fresh reload.
+
+The new native Metal scene changed 25 real shared vertices and 20,350 pixels.
+It preserves the selected surface and child's world frames through actual
+geometry compensation and parent-inverse changes. Stored nonunit quaternion
+channels and inactive data remain intact. Fresh reload PNGs are byte-identical.
+Both retained RNG/mirror Metal proofs also passed, changing 12,532 and 14,302
+pixels respectively with identical reload PNGs. The before/after new images
+were visually inspected. Opening the after image in the app returned queued.
+
+## Fixed performance and preserved preparation failure
+
+All final 153 release samples passed the original time limits and fresh
+source comparisons. Inputs, raw saved scenes, receipts, monotonic intervals,
+compiler/library hashes, controller receipts and source results are retained.
+The original one-process method writes outside the watched checkout on the
+same filesystem. No priority, host setting, grid, case or limit was changed.
+
+| Gate | Samples | Maximum core / full pipeline (ms) | Original limits (ms) |
+|---|---:|---:|---:|
+| Raw rotation modes | 24 | 139.497292 / 364.165 | 250 / 2,000 |
+| Retained scene classes | 90 | 295.215125 / 583.332208 | A/B: 250 / 2,000; C: 500 / 4,000 |
+| Retained single snaps | 30 | 249.506792 / 407.804791 | 250 / 2,000 |
+| Retained transforms | 9 | 229.908 / 440.53675 | 250 / 2,000 |
+
+The first 24 raw-mode timings passed, but source input binding failed. The
+prepared Rust child state omitted the native child's four-dimensional UI flag
+(true in the already frozen capture). The strict checker rejected the trial
+before accepting any output. All 24 original raw samples and the original
+driver remain under performance/diagnostics/raw-01 with an unaccepted
+disposition. The second driver maps that existing native child flag explicitly.
+Product code, source capture, geometry, physical transforms, actions, timing
+intervals, sample counts and limits are unchanged. All 24 cases were rerun;
+none was selected from the invalid preparation trial. The final checker is
+unchanged and compares both initial and final raw state.
+
+All three final performance directories were renamed losslessly into this
+evidence folder after their comparisons completed. Every file hash was checked
+before and after each rename. No raw sample was deleted.
+
 New Rust cases test raw quarter-turn geometry, shared asset preservation,
 nonunit channels after locks, undo/replay, legacy promotion, W locks, raw axis
 locks, cursor origin across all modes, disabled rotation, atomic late/stale/
@@ -63,10 +118,10 @@ F64 object pose rather than an invalid source cursor. These were corrected
 without changing a source capture or acceptance limit. Their original logs
 remain in diagnostics. All final checks above have actual terminal exit 0.
 
-Next run the full frozen request set, native isolation/Metal/recipe proofs,
-all retained gates and all 24+90+30+9 fixed release samples. Keep every failed
-sample and all source captures unchanged. Integration and independent
-acceptance remain required.
+The final evidence auditor rechecks complete raw artifacts, authored-only
+setup, both native references and real receipts. This local audit is not
+independent product acceptance. Keep every failed sample and source capture.
+Three-platform CI, integration and independent acceptance remain required.
 
 PR #61 is draft at c425d470c78825412f182d39ae658f7c323c118c above draft PR #59.
 Its push 40951169057 and PR 40951283364 CI runs failed before all six jobs

@@ -1,0 +1,77 @@
+{
+  "implementation_commit": "c67d2370c00d2031adb7d896c978b25ffdd3d885",
+  "binary_sha256": "093b46f00749eddde3930d4aa5377315a553bafb878807f8ecb8f42db37e54fa",
+  "rust_toolchain": "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin",
+  "commands": {
+    "rust": {
+      "arguments": [
+        "cargo",
+        "test",
+        "--locked",
+        "--all-features"
+      ],
+      "terminal_exit_code": 0,
+      "passed": 263,
+      "ignored": 0
+    },
+    "python": {
+      "arguments": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-v"
+      ],
+      "terminal_exit_code": 0,
+      "passed": 152
+    },
+    "clippy": {
+      "terminal_exit_code": 0,
+      "warnings_denied": true
+    },
+    "format": {
+      "terminal_exit_code": 0
+    },
+    "build": {
+      "terminal_exit_code": 0
+    },
+    "release-build": {
+      "terminal_exit_code": 0
+    },
+    "performance-compile": {
+      "terminal_exit_code": 0
+    },
+    "metadata": {
+      "terminal_exit_code": 0,
+      "baseline_ready": false
+    },
+    "strict-metadata": {
+      "terminal_exit_code": 2,
+      "status": "baseline_not_ready"
+    }
+  },
+  "artifacts": {
+    "rust.stdout": "2c9d256fb82efa63808ddff4ee574c289ee451c501b0e7a7970b029a0b17fb63",
+    "rust.stderr": "611fc65c7187cf5b9266760e5ea4680d6ec6df9385247f5ab893f81b00e1f0c2",
+    "python.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "python.stderr": "389afb67ec97b74ef0586d2f3efc06b033ed665556b6e97bb3694a4943e25adb",
+    "clippy.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clippy.stderr": "cd319cc7f2f17d98b981b63502e8a95587825c4a46384e30d4081bc7b702e5a8",
+    "format.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "format.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.stderr": "c92508a29848820f033cd2ea015c85dde0953c88b07cc967ce34b7c08f610549",
+    "release-build.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "release-build.stderr": "c9ed0a4182e0d148d73583c078fcefadedd9578330bdbdac9b7ce56d02beb4aa",
+    "performance-compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "performance-compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "metadata.json": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00",
+    "metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "strict-metadata.json": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00",
+    "strict-metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

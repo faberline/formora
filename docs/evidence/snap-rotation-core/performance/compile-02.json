@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "--crate-name",
+    "formora_rotation_performance_02",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "debug-assertions=no",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "docs/evidence/snap-rotation-core/performance/capture-driver-02.rs",
+    "-o",
+    "/private/tmp/formora-rotation-performance-driver-02"
+  ],
+  "terminal_exit_code": 0,
+  "source_sha256": "125e7510aabeb825773e718c7b280ccac2cb4e3b25d2ededfc1a8b390984aaf7",
+  "binary_sha256": "e0d159d3359b2254b4255882fbb87cf7dce1db3fc7809aedbf484a68f014301c",
+  "implementation_commit": "c67d2370c00d2031adb7d896c978b25ffdd3d885",
+  "mapping_correction": "preserve the frozen native child lock_rotations_4d default true; no product code, source capture, grid, timer, case, limit or physical transform change"
+}

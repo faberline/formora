@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/compare-performance.py", line 127, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/compare-performance.py", line 102, in main
+    compare_state(references[mode]['before'],scene,inspection,worlds,meshes);inputs[mode]=initial
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/compare-performance.py", line 62, in compare_state
+    tree({k:expected['rotation_channels'][id][k] for k in raw},raw,'raw channels/'+id)
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 34, in tree
+    for key in a:tree(a[key],b[key],path+'/'+key,tolerance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 41, in tree
+    else:require(type(a) is type(b) and a==b,'discrete value differs: '+path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_selection_reference.py", line 16, in require
+    raise ValueError(message)
+ValueError: discrete value differs: raw channels/child/lock_rotations_4d
