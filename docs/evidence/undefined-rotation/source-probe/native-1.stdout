@@ -1,0 +1,108 @@
+
+/Applications/Blender.app/Contents/MacOS/Blender:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+000000010253b0c4 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE>:
+10253b0c4: aa0103e3    	mov	x3, x1
+10253b0c8: 39426008    	ldrb	w8, [x0, #0x98]
+10253b0cc: 360000c8    	tbz	w8, #0x0, 0x10253b0e4 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE+0x20>
+10253b0d0: f9405c04    	ldr	x4, [x0, #0xb8]
+10253b0d4: b4000084    	cbz	x4, 0x10253b0e4 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE+0x20>
+10253b0d8: d2800001    	mov	x1, #0x0                ; =0
+10253b0dc: d2800002    	mov	x2, #0x0                ; =0
+10253b0e0: d61f0080    	br	x4
+10253b0e4: 52800188    	mov	w8, #0xc                ; =12
+10253b0e8: b9852809    	ldrsw	x9, [x0, #0x528]
+10253b0ec: 9b280128    	smaddl	x8, w9, w8, x0
+10253b0f0: fd41ed00    	ldr	d0, [x8, #0x3d8]
+10253b0f4: bd43e101    	ldr	s1, [x8, #0x3e0]
+10253b0f8: fd000060    	str	d0, [x3]
+10253b0fc: bd000861    	str	s1, [x3, #0x8]
+10253b100: b9401808    	ldr	w8, [x0, #0x18]
+10253b104: 7100091f    	cmp	w8, #0x2
+10253b108: 54000181    	b.ne	0x10253b138 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE+0x74>
+10253b10c: 39426008    	ldrb	w8, [x0, #0x98]
+10253b110: 37000148    	tbnz	w8, #0x0, 0x10253b138 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE+0x74>
+10253b114: 394e9008    	ldrb	w8, [x0, #0x3a4]
+10253b118: 7100191f    	cmp	w8, #0x6
+10253b11c: 54000060    	b.eq	0x10253b128 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE+0x64>
+10253b120: 7100051f    	cmp	w8, #0x1
+10253b124: 540000a1    	b.ne	0x10253b138 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE+0x74>
+10253b128: 2ea0f800    	fneg.2s	v0, v0
+10253b12c: 1e214021    	fneg	s1, s1
+10253b130: fd000060    	str	d0, [x3]
+10253b134: bd000861    	str	s1, [x3, #0x8]
+10253b138: d65f03c0    	ret
+
+000000010253b13c <__ZN7blender2ed9transform41transform_mode_is_axis_pointing_to_screenEPKNS1_9TransInfoERKNS_7VecBaseIfLi3EEE>:
+10253b13c: d10103ff    	sub	sp, sp, #0x40
+10253b140: a9024ff4    	stp	x20, x19, [sp, #0x20]
+10253b144: a9037bfd    	stp	x29, x30, [sp, #0x30]
+10253b148: 9100c3fd    	add	x29, sp, #0x30
+10253b14c: aa0103f3    	mov	x19, x1
+10253b150: b0028c88    	adrp	x8, 0x1076cc000 <idct16_shift_2+0x1076cbff4>
+10253b154: f9425908    	ldr	x8, [x8, #0x4b0]
+10253b158: f9400108    	ldr	x8, [x8]
+10253b15c: f9000fe8    	str	x8, [sp, #0x18]
+10253b160: 91099001    	add	x1, x0, #0x264
+10253b164: 910033e2    	add	x2, sp, #0xc
+10253b168: 97ff0cdc    	bl	0x1024fe4d8 <__ZN7blender2ed9transform16view_vector_calcEPKNS1_9TransInfoEPKfPf>
+10253b16c: bd400260    	ldr	s0, [x19]
+10253b170: bd400fe1    	ldr	s1, [sp, #0xc]
+10253b174: 1e210800    	fmul	s0, s0, s1
+10253b178: fc404261    	ldur	d1, [x19, #0x4]
+10253b17c: fc4103e2    	ldur	d2, [sp, #0x10]
+10253b180: 2e22dc21    	fmul.2s	v1, v1, v2
+10253b184: 1e212800    	fadd	s0, s0, s1
+10253b188: 5e0c0421    	mov	s1, v1[1]
+10253b18c: 1e212800    	fadd	s0, s0, s1
+10253b190: 1e202008    	fcmp	s0, #0.0
+10253b194: 1a9fd7e0    	cset	w0, gt
+10253b198: f9400fe8    	ldr	x8, [sp, #0x18]
+10253b19c: b0028c89    	adrp	x9, 0x1076cc000 <idct16_shift_2+0x1076cbff4>
+10253b1a0: f9425929    	ldr	x9, [x9, #0x4b0]
+10253b1a4: f9400129    	ldr	x9, [x9]
+10253b1a8: eb08013f    	cmp	x9, x8
+10253b1ac: 540000a1    	b.ne	0x10253b1c0 <__ZN7blender2ed9transform41transform_mode_is_axis_pointing_to_screenEPKNS1_9TransInfoERKNS_7VecBaseIfLi3EEE+0x84>
+10253b1b0: a9437bfd    	ldp	x29, x30, [sp, #0x30]
+10253b1b4: a9424ff4    	ldp	x20, x19, [sp, #0x20]
+10253b1b8: 910103ff    	add	sp, sp, #0x40
+10253b1bc: d65f03c0    	ret
+10253b1c0: 94da2619    	bl	0x105bc4a24 <idct16_shift_2+0x105bc4a18>
+
+000000010253b1c4 <__ZN7blender2ed9transformL9initAlignEPNS1_9TransInfoEPNS_10wmOperatorE>:
+10253b1c4: 91078001    	add	x1, x0, #0x1e0
+10253b1c8: 52800002    	mov	w2, #0x0                ; =0
+10253b1cc: 17fff4ce    	b	0x102538504 <__ZN7blender2ed9transform18initMouseInputModeEPNS1_9TransInfoEPNS1_10MouseInputENS1_14MouseInputModeE>
+
+000000010253b1d0 <__ZN7blender2ed9transformL10applyAlignEPNS1_9TransInfoE>:
+10253b1d0: d102c3ff    	sub	sp, sp, #0xb0
+10253b1d4: 6d0523e9    	stp	d9, d8, [sp, #0x50]
+10253b1d8: a90667fa    	stp	x26, x25, [sp, #0x60]
+10253b1dc: a9075ff8    	stp	x24, x23, [sp, #0x70]
+10253b1e0: a90857f6    	stp	x22, x21, [sp, #0x80]
+10253b1e4: a9094ff4    	stp	x20, x19, [sp, #0x90]
+10253b1e8: a90a7bfd    	stp	x29, x30, [sp, #0xa0]
+10253b1ec: 910283fd    	add	x29, sp, #0xa0
+10253b1f0: aa0003f3    	mov	x19, x0
+10253b1f4: b0028c88    	adrp	x8, 0x1076cc000 <idct16_shift_2+0x1076cbff4>
+10253b1f8: f9425908    	ldr	x8, [x8, #0x4b0]
+10253b1fc: f9400108    	ldr	x8, [x8]
+10253b200: f90027e8    	str	x8, [sp, #0x48]
+10253b204: b9800808    	ldrsw	x8, [x0, #0x8]
+10253b208: 34000748    	cbz	w8, 0x10253b2f0 <__ZN7blender2ed9transformL10applyAlignEPNS1_9TransInfoE+0x120>
+10253b20c: f9400274    	ldr	x20, [x19]
+10253b210: 52803009    	mov	w9, #0x180              ; =384
+10253b214: 9b295116    	smaddl	x22, w8, w9, x20
+10253b218: 52802817    	mov	w23, #0x140             ; =320
+10253b21c: 14000006    	b	0x10253b234 <__ZN7blender2ed9transformL10applyAlignEPNS1_9TransInfoE+0x64>
+10253b220: fd009a88    	str	d8, [x20, #0x130]
+10253b224: bd013a89    	str	s9, [x20, #0x138]
+10253b228: 91060294    	add	x20, x20, #0x180
+10253b22c: eb16029f    	cmp	x20, x22
+10253b230: 54000600    	b.eq	0x10253b2f0 <__ZN7blender2ed9transformL10applyAlignEPNS1_9TransInfoE+0x120>
+10253b234: fd409a88    	ldr	d8, [x20, #0x130]
+10253b238: bd413a89    	ldr	s9, [x20, #0x138]
+10253b23c: b9402288    	ldr	w8, [x20, #0x20]
+10253b240: 7100051f    	cmp	w8, #0x1

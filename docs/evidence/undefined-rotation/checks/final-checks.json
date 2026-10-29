@@ -1,0 +1,57 @@
+[
+  {
+    "name": "rust",
+    "command": [
+      "cargo",
+      "test",
+      "--all-targets",
+      "--features",
+      "preview"
+    ],
+    "exit_code": 0,
+    "start_ns": 116751965882583,
+    "end_ns": 116775717670083
+  },
+  {
+    "name": "python",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "start_ns": 116775717736625,
+    "end_ns": 116790081796958
+  },
+  {
+    "name": "format",
+    "command": [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    "exit_code": 0,
+    "start_ns": 116790081849833,
+    "end_ns": 116790374327708
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "cargo",
+      "clippy",
+      "--all-targets",
+      "--features",
+      "preview",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0,
+    "start_ns": 116790374380666,
+    "end_ns": 116794591364625
+  }
+]

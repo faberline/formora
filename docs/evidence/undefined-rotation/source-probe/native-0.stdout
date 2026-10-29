@@ -1,0 +1,38 @@
+
+/Applications/Blender.app/Contents/MacOS/Blender:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+00000001025423d4 <__ZN7blender2ed9transformL13applyRotationEPNS1_9TransInfoE>:
+1025423d4: 6db73bef    	stp	d15, d14, [sp, #-0x90]!
+1025423d8: 6d0133ed    	stp	d13, d12, [sp, #0x10]
+1025423dc: 6d022beb    	stp	d11, d10, [sp, #0x20]
+1025423e0: 6d0323e9    	stp	d9, d8, [sp, #0x30]
+1025423e4: a9046ffc    	stp	x28, x27, [sp, #0x40]
+1025423e8: a9055ff8    	stp	x24, x23, [sp, #0x50]
+1025423ec: a90657f6    	stp	x22, x21, [sp, #0x60]
+1025423f0: a9074ff4    	stp	x20, x19, [sp, #0x70]
+1025423f4: a9087bfd    	stp	x29, x30, [sp, #0x80]
+1025423f8: 910203fd    	add	x29, sp, #0x80
+1025423fc: d10903ff    	sub	sp, sp, #0x240
+102542400: aa0003f3    	mov	x19, x0
+102542404: d0028c48    	adrp	x8, 0x1076cc000 <idct16_shift_2+0x1076cbff4>
+102542408: f9425908    	ldr	x8, [x8, #0x4b0]
+10254240c: f9400108    	ldr	x8, [x8]
+102542410: f81783a8    	stur	x8, [x29, #-0x88]
+102542414: 910013e1    	add	x1, sp, #0x4
+102542418: 97ffe32b    	bl	0x10253b0c4 <__ZN7blender2ed9transform32transform_mode_rotation_axis_getEPKNS1_9TransInfoERNS_7VecBaseIfLi3EEE>
+10254241c: 9104e260    	add	x0, x19, #0x138
+102542420: 910003e1    	mov	x1, sp
+102542424: 94124d0c    	bl	0x1029d5854 <__ZN7blender13applyNumInputEPNS_8NumInputEPf>
+102542428: 34000300    	cbz	w0, 0x102542488 <__ZN7blender2ed9transformL13applyRotationEPNS1_9TransInfoE+0xb4>
+10254242c: bd4003e8    	ldr	s8, [sp]
+102542430: 1e20c100    	fabs	s0, s8
+102542434: 528b2f88    	mov	w8, #0x597c             ; =22908
+102542438: 72a8b888    	movk	w8, #0x45c4, lsl #16
+10254243c: 1e270101    	fmov	s1, w8
+102542440: 1e212000    	fcmp	s0, s1
+102542444: 1e204101    	fmov	s1, s8
+102542448: 5400018d    	b.le	0x102542478 <__ZN7blender2ed9transformL13applyRotationEPNS1_9TransInfoE+0xa4>
+10254244c: 5281fb68    	mov	w8, #0xfdb              ; =4059
+102542450: 72a81928    	movk	w8, #0x40c9, lsl #16

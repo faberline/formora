@@ -1,0 +1,5258 @@
+{
+  "scope": "Rust procedural generation, saved parameters and process reload. Finite cases only.",
+  "passed": true,
+  "primitive_cases_per_interface": 57,
+  "boundary_geometry_subchecks_per_interface": 24,
+  "interfaces": [
+    "cli",
+    "official_mcp_sdk"
+  ],
+  "full_feature_acceptance": "unrun",
+  "full_context_acceptance": "unrun",
+  "binary_sha256": "e8e1b9d512278e5180a7d01cafb0a25c819db59e2561bde45c4a853d75119d80",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "8c9e81daf65df1686c2297e7deb6f5af970da66b76afda7c96360da6d9c8fff2",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "5d0eee4b2ccf49da077872840521e3040c3fa61b77a93873634caa177302edeb",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/frame_math.rs": "ca7a1d2d82a099a5d3a72855c49fa6a60a1747c2c0193b46625c364234ce50b5",
+    "src/mesh/normals.rs": "b2045c13fb09785e415281350f8e458ca505e2ce767c78f3be5dd930f8c158a4",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "432cbaee2bf8e7e83aebdc43d06f87b8232308a3f800a288b5202f8b469f6d3b",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "de1eb9861325d9b8a80948eb7d2ec44d1b0fbf6e0b24bbc9733e49085b84795a",
+    "src/session.rs": "153974655f8d46fb6802e063e91ef1d9a14d580119a94354742d7377ef34fb98",
+    "src/transforms.rs": "ee91979889ada2cd9c423d65e49710e532b61912b282b2b0da7e82e76ee03e2c"
+  },
+  "adapter_files_sha256": {
+    "tools/primitive_reference_smoke.py": "0c7b2d74f8e53c8c2bdd2e5185beed333e15ae65e0bfd158f5f85fc826fef95f",
+    "tools/polygon_reference_smoke.py": "b862a1417bd83dd5bdcafa2a97431b567b556a97b732746cabaa2100cb704d70",
+    "tools/compare_mesh_reference.py": "ad303a9cbb161a64584e2d733d12bdc6171d901452eb29a28752a20e2abfa396",
+    "docs/contracts/primitive-generation.md": "7aae300f3c41fa360a27f34e08058a13a221c7111a44a7ad39771e684f7dadb2",
+    "docs/contracts/rotational-primitives.md": "c3dbeab3fab8766d9a753f3c3442309b43deab84a66a7a38e91ea292ec062dbb",
+    "docs/contracts/remaining-primitives.md": "99084fa111e582561127773c7bdfc6af643212e8e29da45bbe860709092f9bcb"
+  },
+  "runs": [
+    {
+      "id": "plane_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_default.json",
+      "reference_sha256": "4a9b074581ed6d67d0a9926b498532e37dfd269bb45d3b5a3cd4f3052a510744",
+      "candidate_sha256": "732eb24195666ba6fcb0f1fb9a601d693eb1d8969a2170dfc11159d56a6ef5a7",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_no_uv.json",
+      "reference_sha256": "abb6af3b6964afe8acbdf5ab9b9a4fe6adfb5b4eb1574544b08ab3ea2455f0e4",
+      "candidate_sha256": "2b30c3c08fbc387146695c280329c3e6e749583f63f58a76a3bc00192d80d101",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_placed.json",
+      "reference_sha256": "df975a8fb126a93352cda3093f86bdec64d06edf88f964f1e34da7884fd2a929",
+      "candidate_sha256": "a5f50ac9429719e440dfe79b39f5683627c618e3e0bfbfaa09b8059e881f73f3",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_default.json",
+      "reference_sha256": "950a78dd24c941d8b27b9901d255eb717f0e0d851e0be12186926c64d655edf6",
+      "candidate_sha256": "d782927260094d42a4b355d2561c9700a261ecd22a60302a109b91f1d34f265a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_no_uv.json",
+      "reference_sha256": "bb2f6114f1e124c63319b72f9a8e64732fffd43e39cd70c0d5073eb097b739ac",
+      "candidate_sha256": "aed79def17509700164a6df5dbd1d1bbc892b77a7aca98eeeeb650c33b6bc511",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_placed.json",
+      "reference_sha256": "4ed6cc3b7c99e116609b645c38e97037c316408d4dfe2f1d6d2a3604f948e69e",
+      "candidate_sha256": "4de8305ccaba820f6b3ccca8fc64e4a911d476d676e2b602cc913abc1dc604dc",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 3.5762786865234375e-07,
+      "maximum_world_position_error_metres": 4.551819001719082e-07,
+      "maximum_normal_error": 7.947287627985133e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_default.json",
+      "reference_sha256": "903145a0fa123d67557875ac967c0ebdd9b7a76cda1c0d07ad3a8f7cb55304e2",
+      "candidate_sha256": "6f4de55842333264c9d1cc159988754a917d81294a081293b777c434858039ce",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_no_uv.json",
+      "reference_sha256": "3923aa8e974ed9b0abb888b50e6010ba449fb5493e20872bd54bb17a3164e45b",
+      "candidate_sha256": "37af2616109099289cebf2602dff4eb0f2cbe9e785589b81bfaf6a3aea574c92",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_placed.json",
+      "reference_sha256": "76da9eda0c6c54f4b4985077501444f71b5b99c2d67dbe15aa185739249e9ddb",
+      "candidate_sha256": "c15c4aa112b5044305bc63d408eec358bbb85b0d7423c1dac00b11e383f2e80d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.037581561282643e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-uv_sphere_default.json",
+      "reference_sha256": "a2d8070f78aeda9f68ed95c47e3acaaa155cec6b4e27db7ef08fb586430f7bbf",
+      "candidate_sha256": "00bfc09e7e3318a707f3c34ea0c76538e850324e980c1d030decd31c3bbee183",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.0,
+          "ring_count": 16,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.7881393432617188e-07
+    },
+    {
+      "id": "uv_sphere_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-uv_sphere_no_uv.json",
+      "reference_sha256": "f4526592e4fdb9b3b30eb1ef550b4cf5fbc5a7798b451a903a40b7ddcf89c4fe",
+      "candidate_sha256": "99f8d3ff20065967a15bfe8677dbbc11f47117209f560ca96900306ef3ada8cb",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.0,
+          "ring_count": 16,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-uv_sphere_placed.json",
+      "reference_sha256": "7fdb03e388bf2d07ed07b0058c3958d3ff93efda7c833057c892901ab08b5c11",
+      "candidate_sha256": "6eec13062e211ad955c234369ef3f732951d7f6be22c49b8a2d4540ec3903401",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.0,
+          "ring_count": 16,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "segments": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 2.950157029779632e-08,
+      "maximum_normal_error": 1.7881393432617188e-07,
+      "maximum_face_corner_uv_error": 1.7881393432617188e-07
+    },
+    {
+      "id": "ico_sphere_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_default.json",
+      "reference_sha256": "a4ecbe40842799a9425e02d63c7acaf2f89b4274df4edba460976c008621f112",
+      "candidate_sha256": "3d9cf106d879263030a6d62458ba8566d018020badd56675bcd97eba58373cb5",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 2.2351741790771484e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_no_uv.json",
+      "reference_sha256": "1da5cb7a4acc33ce5961a93881b450ec30214d7d32daf036feddeb3d3b5f78f1",
+      "candidate_sha256": "dd3c4630df2ac87e5611dc4c01d91fb5ec20480096916f247e1a091fcb4ab8f4",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 2.2351741790771484e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_placed.json",
+      "reference_sha256": "577823a55f7bfb6cd15f0048324c59e39ae68ef834b12c7c28bd9149df2d8078",
+      "candidate_sha256": "c8154014b11d735b3c382980dbd8b5bec1859367de1167c0d9ad3b6372cd7226",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.0,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 2.864870801699837e-08,
+      "maximum_normal_error": 2.682209014892578e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_default.json",
+      "reference_sha256": "75caab4f2ecf441e50a34ff2e80476baf3839081318c86b88a4ec9c10a404f8b",
+      "candidate_sha256": "de05e40d18b22d192c5900bb7e9825131e404bee40fd1e09e9e90a8f8163e149",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 8.940696716308594e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_no_uv.json",
+      "reference_sha256": "0b429870fbdf8278fdf7d1c0abdd69e21c9d6314780ef206be5e6d24923290be",
+      "candidate_sha256": "65c6b00fa15ad01c875c8d8981ad19c84e4e1a6b9bd5a017651796e39e5218a1",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 8.940696716308594e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_placed.json",
+      "reference_sha256": "a2dc9348291533c0c042f4268d917a1242f405c829145b75e3c2d6cccbd80bfb",
+      "candidate_sha256": "8d2a7e486e9b5e723e807db04c6ea4882077148c825a51a67f74261ce2d124de",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 6.688700304735562e-08,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "cone_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_default.json",
+      "reference_sha256": "73165630194d16450fc9e1fb27077356f5b9c953b20eb70cd608cf0d3e1801db",
+      "candidate_sha256": "8824ecf986f2644d8e90e97f11050f0549905fe98038bee876c1b5c0d1401509",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 7.812142210905648e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cone_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_no_uv.json",
+      "reference_sha256": "235d868432b494ce001729344445af2adc628c37b345d9af3e3608f3b93b9c0d",
+      "candidate_sha256": "29ebae65d4a3ae2dcad018c8f4b6bb8e5cfbc31eb059d0c33c5a2618612d55e8",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 7.812142210905648e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_placed.json",
+      "reference_sha256": "9af98a1cf2c2159f2c0ae5464adf1c974621abe8f55cb714d66c1a39e4fe2a51",
+      "candidate_sha256": "6c1961fe3c6cccbd3e332be65b07a15aafebf9b7642b800b2e3da3755a386326",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 6.688700304735562e-08,
+      "maximum_normal_error": 1.9123126338005392e-07,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "torus_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_default.json",
+      "reference_sha256": "a1461f0a000839d230411c419ba6d040f3e2e8ba8ab63afcf478890346d0891d",
+      "candidate_sha256": "7216b39ebc03af6336409224f1e7b247ca8e4a53ed13947f1b5b69a9f84db189",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 48,
+          "minor_radius": 0.25,
+          "minor_segments": 12,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_no_uv.json",
+      "reference_sha256": "b62c9a97f4c1371bda1f13ea9d27835ddc02824f5b44e8905bd7d1448867139e",
+      "candidate_sha256": "a4a90026b1c8491fed132a9a5c8c5e113f5d826b417c516451b01571e5fc8310",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": false,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 48,
+          "minor_radius": 0.25,
+          "minor_segments": 12,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "torus_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_placed.json",
+      "reference_sha256": "7d9ca6f4909fd4ee9d9e60e53854441aa101a176749197879cf873aa4e577dfc",
+      "candidate_sha256": "397be7cae5b5bdb18aa105cad5fafc6bb11ec1c6d80061bccdd559a75321b500",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 48,
+          "minor_radius": 0.25,
+          "minor_segments": 12,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 6.860509049744223e-09,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "grid_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_default.json",
+      "reference_sha256": "dea74fd70ff4037192da1d143606c757a89bf84eacdd32369bccf8d38dbc99c3",
+      "candidate_sha256": "50b9ecbd929ddfd14cd74b0c5d153f5123dadfc52bd7ba51c9127cc0300b0fd6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "grid_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_no_uv.json",
+      "reference_sha256": "018870b62c3a4c18f4aa39ba0a895593164347d8c9b8582dc48276e9cb36b3cb",
+      "candidate_sha256": "3e171dd67f7c29caf60e0b578c3b0f7231b7237a7c88e3d0a1b753b880810c4f",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_placed.json",
+      "reference_sha256": "edb693d3e221975f378f40364a5ac26b04833c87c529c2c393604e3508824ccc",
+      "candidate_sha256": "fa479cfd2ecd186f8110ef959336b7461a4d57a5acc187fbe7f57920b7f0d05b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "monkey_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-monkey_default.json",
+      "reference_sha256": "f79585d8039504d031dbaa842ffe899cf6c684058e1691438c0d922ca864780d",
+      "candidate_sha256": "b03e4b7ac6ccd5915285a75ccb57b2397f9a194e316899daf20c3578e4c3726a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-monkey_no_uv.json",
+      "reference_sha256": "d0a387c380ad774870f374ec37fdff197819331d8a16ddbcc0146d4288fdb314",
+      "candidate_sha256": "315eb1557d8118efc0f8043da748ad5d785088d80222929521c9dcab0e007fee",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-monkey_placed.json",
+      "reference_sha256": "e708b47a7687f1ebb7b3bdb20fde2306425e4f7c87065bbd937b9efa7c8403bc",
+      "candidate_sha256": "ec5e3d1181dbbc30f4ff5efad1faea9573bb2518b519e5257ea77b8ae0329b26",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "kind": "monkey",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 3.0982929555278815e-08,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_size",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_size.json",
+      "reference_sha256": "4a080326881ff743092d335b562946ed2bc19c838957ba55fcfa538f004a936f",
+      "candidate_sha256": "2b693bfe8c083524504de929c66a4290d5ecf9784d940207155e97c5edbf6663",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_size",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_size.json",
+      "reference_sha256": "38c7cc2353567e089218240e9d407ba3a20ea1e30565431abe49965c1dc6bd37",
+      "candidate_sha256": "bdfc2428ded54339456c244d2b794c4e45e74a80eca6a96a7dc767c988828157",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_size",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-monkey_size.json",
+      "reference_sha256": "df415eee7f42ef3c71b8c14e7377bc8d12566a980a0c8cf50ea28e366394b843",
+      "candidate_sha256": "0cf7f288f8594b6efce66d7f31886eb95e791a5a457d598cb4463da55a6ab165",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_nothing",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_nothing.json",
+      "reference_sha256": "e59caa3266f76e19372e6d4b9b00e7cb50cefba1aff927c7cc463880d06e1280",
+      "candidate_sha256": "f48d85b11f47336be2cdaf398c0da61566c83c6dc346b8a8a336c2272bc5ddc9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_ngon",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_ngon.json",
+      "reference_sha256": "844aac94721d7a35e692f2ff26902f815fe604714ba1d303c91a76ebd847d7a0",
+      "candidate_sha256": "793916ec784268bdb524927cca7354be346449cc1464a28d03bee71013ebadfb",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_trifan",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_trifan.json",
+      "reference_sha256": "9fc3ecc3748fd5e5d838a2762e946dece286ab6c8b1990c7ecb820e5d2e3905e",
+      "candidate_sha256": "ae99565d53bc469045d20f719c5a19e907c7c1387cc6c13b10633ab457f2bcf9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_minimum.json",
+      "reference_sha256": "81778d68a0a242ee7ad82d22b5bf0c7567880735438ae62f61f30ad70ea93dfa",
+      "candidate_sha256": "12aa8b4082bdbac33cda6f298cbbe11d584f53e03c5f1bae4a990785d3c6c34d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.5,
+          "vertices": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_coarse",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-uv_sphere_coarse.json",
+      "reference_sha256": "6c13c4767fc915e45e8a7f144975aa13d3b10cfed80067adb83003717444e9c7",
+      "candidate_sha256": "dbf3e1e73a643c61566a8891469a05ffb483f1ee619b94443114c1950ba72e57",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.25,
+          "ring_count": 4,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "uv_sphere_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-uv_sphere_minimum.json",
+      "reference_sha256": "1a9fa2ed83bc896cdf377d0caab17ecf417e63f5514769954cebf0abf95c1248",
+      "candidate_sha256": "ec1d6523a46d6395e40d022e116d6af1653dc9d1d554d0d9f6f4936dadb2446d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 0.5,
+          "ring_count": 3,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 1.2356036316329977e-07,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "ico_sphere_level1",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_level1.json",
+      "reference_sha256": "077cb958600f8580a825412097eb530bf4851f823eeaaf35adccca8ac0672349",
+      "candidate_sha256": "c4e77949219b92529e0e547f7e2a4aab01fb3b85d0e9c5269bdae4d5de448c0a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_level2",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_level2.json",
+      "reference_sha256": "aa8786ddebedf058133eb6b01fc50de7f1a430ca7a3fc8b88b1866e435062cc3",
+      "candidate_sha256": "dbbe1a75951842418a7d6eec1ef53e1b2f48c001fd6da786e0f343a8c3a07387",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.7881393432617188e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_level3",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_level3.json",
+      "reference_sha256": "4b70709cf421c30d8ae6c15660cbbfb3f065856c2d9561ac9788bdc1b0aeae2f",
+      "candidate_sha256": "b43fd32e3b437ebbde640153eae1332a8b3320b2434267ffbfdd9b0645480059",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 3.2782554626464844e-07,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_nothing",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_nothing.json",
+      "reference_sha256": "e607e008a367c76755a9aca2e70f6207dc6d627a7453986c6d40e8b75fe38ead",
+      "candidate_sha256": "ed1e2c82063fad20b6a9b0e73503581876a8e90c0d20acdce478f332047634d9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cylinder",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.706600656578246e-08,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "cone_nothing",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_nothing.json",
+      "reference_sha256": "e46beac3274a2fe343a627906d2ebc556e6976af6f7927eedf8d00f65de70e93",
+      "candidate_sha256": "0b7f97cd30c62ef77a3d8f4d125ddd6731df3e9c1b3b657f4b19ff25e2ab2141",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.625275809721501e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_ngon",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_ngon.json",
+      "reference_sha256": "a2302d705f5daee5b18ecaa9d76281735f8b2953a510bf94da237a1f5d7ec75e",
+      "candidate_sha256": "720a72efdfe75fdbc247e9fe21aa5ff4ab540362bffadce0ee91b951025b3487",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.706600656578246e-08,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "cone_ngon",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_ngon.json",
+      "reference_sha256": "b572f5cd730b428a371606334fba492f517d00975e582389bb49a5a638ae2a59",
+      "candidate_sha256": "3111cb3a8e411a91cadec9851910a87076ff41b50a8dfbe24221b9ec6363929e",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.625275809721501e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_trifan",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_trifan.json",
+      "reference_sha256": "698153262bcc3915ce2c61c36d735d9a47eb785b031aaaccf26577228805e022",
+      "candidate_sha256": "f91d4f978069329e92993ae4730a4e19d6d16425a5511fbb04097c15c9ee73b5",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cylinder",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 1.9516724591994716e-07,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "cone_trifan",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_trifan.json",
+      "reference_sha256": "2271cab307fbea575c24170c12d03f04b9c01ef1270c1febb3543aaad8851f94",
+      "candidate_sha256": "0977230ec7dcb73cdd515f6601438996b9891f0f45d690b03f4c4c1566f59114",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 1.9516724591994716e-07,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_minimum.json",
+      "reference_sha256": "8264497b4181696b68e5e020ca60f2caffc86c5d79334d4ea4bb29cb84d4d1c3",
+      "candidate_sha256": "4b9fbae97fa3a83e0b8c68faa3f5c55dbf36c6bd5c86f8ff7ccc31378f9671d2",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 1.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 0.5,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "cone_frustum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_frustum.json",
+      "reference_sha256": "1f24a4303739db932c3b0021c9e0e14076f7fe1222497f8bf360a5d5a8280586",
+      "candidate_sha256": "5878236862a320722e27f004bfade0881e8d690679abd3b93e499a4789b2d588",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.5,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.296212616986618e-16,
+      "maximum_world_position_error_metres": 2.296212616986618e-16,
+      "maximum_normal_error": 1.556792883494751e-08,
+      "maximum_face_corner_uv_error": 1.4901161193847656e-08
+    },
+    {
+      "id": "cone_pyramid",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_pyramid.json",
+      "reference_sha256": "0e78dc993e803270efb0f322803845cd676f0ce83b169946a8c969e2a32615b6",
+      "candidate_sha256": "91781da60c1df7a78ade981c39b07edf99ef72f873611db2abab44904887a57c",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 4
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.8369701465288538e-16,
+      "maximum_world_position_error_metres": 1.8369701465288538e-16,
+      "maximum_normal_error": 1.9868215073159945e-08,
+      "maximum_face_corner_uv_error": 5.587935447692871e-09
+    },
+    {
+      "id": "cone_inverted",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_inverted.json",
+      "reference_sha256": "20104beeec6c081f34a6f921c6793096890306bf7aa2919ef0f62124493c6384",
+      "candidate_sha256": "9849afff05201e5080391657e31bce8ab6d025cfed298d89aef944e2b1541242",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.296212616986618e-16,
+      "maximum_world_position_error_metres": 2.296212616986618e-16,
+      "maximum_normal_error": 2.519687097857215e-08,
+      "maximum_face_corner_uv_error": 9.313225746154785e-09
+    },
+    {
+      "id": "torus_major_minor",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_major_minor.json",
+      "reference_sha256": "3b2ef10b890f286d1c7ce03a2f41676325d9760bd36331637d160a3bb6342180",
+      "candidate_sha256": "9eb4ca4a57e78aee932c6b3fa45ab70b8f95a688d409ce04cb049ee2c3a3a9f0",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 2.0,
+          "major_segments": 12,
+          "minor_radius": 0.5,
+          "minor_segments": 6,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_exterior_interior",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_exterior_interior.json",
+      "reference_sha256": "57e65758e6ebcbd02f5de83d2d290a103ff3b2cdc41b23e3c64aa05c66b90711",
+      "candidate_sha256": "d371a2de090f1fd8dc7227a109e3bf4dc6feb36066f4b18c89305df0e9f1271b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 2.5,
+          "abso_minor_rad": 1.5,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 12,
+          "minor_radius": 0.25,
+          "minor_segments": 6,
+          "mode": "ext_int"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_minimum.json",
+      "reference_sha256": "10aaec9d9ee5a19317a49e6dcd77670176069ef39a7fd7360893a97094804322",
+      "candidate_sha256": "55b58d28500f75ef1867fb719098f994d62eb94822e13cff3f6e745e5de6715d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 3,
+          "minor_radius": 0.25,
+          "minor_segments": 3,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "grid_rectangular",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_rectangular.json",
+      "reference_sha256": "b8bcea3f21e953eff65e775f370efe964aaa95fe5dd267ba1f735242cb146542",
+      "candidate_sha256": "116dc12e140781241f91b90fcf344a5a79c43d7b2e9fbd38cc513da3af542aed",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 3.5,
+          "x_subdivisions": 3,
+          "y_subdivisions": 5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_minimum.json",
+      "reference_sha256": "d21280da2b1aa10c4e63fff2d769bb5fa8f7955aaa392f02d62e302667886ca7",
+      "candidate_sha256": "fe083f26521c24cb7fcd7e843a11b85c149597549dabf3a6535d0c4b23ef70d9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 1.0,
+          "x_subdivisions": 1,
+          "y_subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_radius",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_radius.json",
+      "reference_sha256": "a9f186cbdb50a172c97db79c0a180f4e01ae237d94d7b5f3d2bdd59520a37fcf",
+      "candidate_sha256": "8d2b17155c2129d96ac783fcf64e3a8dd8d44b20c905a0770509edbb916d32c6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_depth",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_zero_depth.json",
+      "reference_sha256": "6eb1b12f269bb2bccb235713e22b839776ce9347bfd1f041d3db5451a4031549",
+      "candidate_sha256": "4c6af9def14168d1ed342ae829232491921913dd1209b533453ce0344feb7e88",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 0.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cube_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_zero_size.json",
+      "reference_sha256": "bd422e91fd482ba0e62661dff1f1cdafa523182d9e6cf71c3c5651fb20409f3f",
+      "candidate_sha256": "66294bc224739b17903a5897dbeb106cd4f8862d88db8d007f6d54d4047e8e8e",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_zero_radius",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_zero_radius.json",
+      "reference_sha256": "0208e7986fbab2e27c53c9d818f170daf68853ac85dd1d7c05f4f8dd7377f590",
+      "candidate_sha256": "35b37baa1ed33e4d992e135378a4d3a307b9e0e27a7b11fb80b33662b6c130f6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_zero_depth",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_zero_depth.json",
+      "reference_sha256": "cc3af9d1b57fc7338b67bc7539e77daa28dc9b69df37b5205350e0bdd23e22f4",
+      "candidate_sha256": "2695ae35fc98be59575f2190bd33f7ef99a27cde40545dee620f088ae8e33bda",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 0.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "grid_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_zero_size.json",
+      "reference_sha256": "2dfd19f0d4c8f5469a59f71958f71c82a3c455565aedd7388e55c0ba24e93961",
+      "candidate_sha256": "305698a301412efd8ff63b4ad5d3f410e61a3f416bf33c5d7a9262f9ff1449ae",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 0.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "ico_sphere_zero_radius",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-ico_sphere_zero_radius.json",
+      "reference_sha256": "8e9c766fe08757d07185d10a2e958331e4a8a5d259158e1e9bafd8b24addaf94",
+      "candidate_sha256": "0283084aee7639ff85edc93700443bfad18a5b8860e361524cb46e657d5d4253",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-monkey_zero_size.json",
+      "reference_sha256": "565adac5c8e98c1aa9eded468ad07aa561332845d1f115b6ca573b907ffcab48",
+      "candidate_sha256": "cc8e13feac25af820f4b1e0e0e67847a5bfb283ee584da8c0b9c147c2fce8c9d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_zero_size.json",
+      "reference_sha256": "5baaddf5d094f861e6d5de9b2f74f0b4aff841623a97eb345c3a972c50acfc15",
+      "candidate_sha256": "c7459df54bcd88ed95e1db1502e48530814597012c5858f07005efc5d092064d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_zero_radius",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-uv_sphere_zero_radius.json",
+      "reference_sha256": "eaa5c55813fd8cb8f23ef132fdc9378b5e3a502888b97664ce73b46fa09063d7",
+      "candidate_sha256": "54720c11b08b3c99b74573af7798681b70db78929253cfe72a1629624d44c689",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 0.0,
+          "ring_count": 4,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_nothing",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_nothing.json",
+      "reference_sha256": "435e6ea93f3f859081d978af792702f6c752213666fdc0119da3211dcd9f01e0",
+      "candidate_sha256": "5a07738d911ffa8111c7c506d6697af987b7060b96db74896fed0f2ac0f10e30",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_zero_nothing",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_zero_nothing.json",
+      "reference_sha256": "de8eae3eadc7c29fa7ece81ce3b498797d2794c934b6ae1eca0dcaab989c056f",
+      "candidate_sha256": "16e94ee8713077e4ff368d5fb25380ddc25b5570db8dd5da32e91a5037ab7fa3",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_nothing",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_zero_nothing.json",
+      "reference_sha256": "559b3d76cc10e26af12166c9fa3c5b6e10849162389b380afb72c139c37827cc",
+      "candidate_sha256": "52e45986f8ce0a5fb44e3f940d7562713ad5d4bc04b375d8269e881543c16b7f",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_ngon",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_ngon.json",
+      "reference_sha256": "06ef98e7488179b5d11d8715d145695339a6b256a9adb4bec69ce554c84cac61",
+      "candidate_sha256": "56ac898ed968ff3d92446c31a4162d82cd99ef9e991e71c7deb0c043328e0492",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 14,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "cylinder_zero_ngon",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_zero_ngon.json",
+      "reference_sha256": "b2666ec9ae0bfb885870257d3054d8979cfc0b92ce849a8df7b1fbea844acd9f",
+      "candidate_sha256": "2efa7fcb1f42e7aa488213f28ea83f957bad1d28fd978d14f6115ed4a92b39ed",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_ngon",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_zero_ngon.json",
+      "reference_sha256": "175ee4924679b15886e530c84681d3e1c920e0a5cbd6b2f0f8473c4aec2f70b2",
+      "candidate_sha256": "7fc2dd7b7c3a2e2de1323b22864ec623a2428f6176bfaccb561baf4aa7d5b36b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_trifan",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_trifan.json",
+      "reference_sha256": "2ba52b40663f29be1f6921a07ede854406b52aaab1b0f2134d94a53df450c4b1",
+      "candidate_sha256": "5271cabb2257fa9bd5ba1ecbe0ac320a1eb9b75b239eadfc69e336bdc050128d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 42,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "cylinder_zero_trifan",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cylinder_zero_trifan.json",
+      "reference_sha256": "2ae647374ad53c9c57975c8aade4399d147a45da2232523d967cb1abad0b6dae",
+      "candidate_sha256": "06c194a177f7438d658a478d8b3cec017cde3067d97977c1e90d098cde39f19c",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_trifan",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_zero_trifan.json",
+      "reference_sha256": "343b52fcff80a4e67b3467801922b3639fcac6c555ec3e410ccb14969bf203e8",
+      "candidate_sha256": "f7b7753df25169dacb56695b3f9d504d446ce8454ab7a88ce630fe3da19d6589",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_equal_radii",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cone_equal_radii.json",
+      "reference_sha256": "d4cc4354a11fe7396febbd2fe523ad7aca777d22289e950205f58b6bde65a782",
+      "candidate_sha256": "c564245fe98827e1f45c53990b5beab9553d280a9d7b4e3f5ddefd701991cab4",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.706600656578246e-08,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "torus_zero_major",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_zero_major.json",
+      "reference_sha256": "0283a46af4abce6ab6c89d80a210253371d06ebf5e9639278f301b42352a957b",
+      "candidate_sha256": "6a9a6ec9cfcc766d275a9cb8c243592041f90780af8c66b981dbe1bbd42f7483",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 0.0,
+          "major_segments": 6,
+          "minor_radius": 0.5,
+          "minor_segments": 4,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 6.883405567759127e-08,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_zero_minor",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_zero_minor.json",
+      "reference_sha256": "57d9d8cdc0cdcbf18d9e0199d8f0edb606cfd5079ed642a0e1130f70b21fe905",
+      "candidate_sha256": "8fbe667f8eec3fa5fcb46ea229c19db27c900ca24a50fc827b04971e287f315d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 6,
+          "minor_radius": 0.0,
+          "minor_segments": 4,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_zero_both",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_zero_both.json",
+      "reference_sha256": "038e81723469c37b849c563de1f54df7f49bb813f510557609e435cca8377926",
+      "candidate_sha256": "e3b9579b91a7f1b81ef59899057bc46b32ad0fb0433357f56d14c6dd9821d39b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 0.0,
+          "major_segments": 3,
+          "minor_radius": 0.0,
+          "minor_segments": 3,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_inverted_radii",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-torus_inverted_radii.json",
+      "reference_sha256": "98e1a757261bcbf9f8640e704aa6cbea4ac60c5e123e10fb9876422d49d9bc70",
+      "candidate_sha256": "d9ed64c60e9b5cc8d262a6ba28f528d3508927e5632336cd0d61d6c9c2abeaf7",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.0,
+          "abso_minor_rad": 2.0,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 6,
+          "minor_radius": 0.25,
+          "minor_segments": 4,
+          "mode": "ext_int"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "plane_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_default.json",
+      "reference_sha256": "4a9b074581ed6d67d0a9926b498532e37dfd269bb45d3b5a3cd4f3052a510744",
+      "candidate_sha256": "732eb24195666ba6fcb0f1fb9a601d693eb1d8969a2170dfc11159d56a6ef5a7",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_no_uv.json",
+      "reference_sha256": "abb6af3b6964afe8acbdf5ab9b9a4fe6adfb5b4eb1574544b08ab3ea2455f0e4",
+      "candidate_sha256": "2b30c3c08fbc387146695c280329c3e6e749583f63f58a76a3bc00192d80d101",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_placed.json",
+      "reference_sha256": "df975a8fb126a93352cda3093f86bdec64d06edf88f964f1e34da7884fd2a929",
+      "candidate_sha256": "a5f50ac9429719e440dfe79b39f5683627c618e3e0bfbfaa09b8059e881f73f3",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_default.json",
+      "reference_sha256": "950a78dd24c941d8b27b9901d255eb717f0e0d851e0be12186926c64d655edf6",
+      "candidate_sha256": "d782927260094d42a4b355d2561c9700a261ecd22a60302a109b91f1d34f265a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_no_uv.json",
+      "reference_sha256": "bb2f6114f1e124c63319b72f9a8e64732fffd43e39cd70c0d5073eb097b739ac",
+      "candidate_sha256": "aed79def17509700164a6df5dbd1d1bbc892b77a7aca98eeeeb650c33b6bc511",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_placed.json",
+      "reference_sha256": "4ed6cc3b7c99e116609b645c38e97037c316408d4dfe2f1d6d2a3604f948e69e",
+      "candidate_sha256": "4de8305ccaba820f6b3ccca8fc64e4a911d476d676e2b602cc913abc1dc604dc",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 3.5762786865234375e-07,
+      "maximum_world_position_error_metres": 4.551819001719082e-07,
+      "maximum_normal_error": 7.947287627985133e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_default.json",
+      "reference_sha256": "903145a0fa123d67557875ac967c0ebdd9b7a76cda1c0d07ad3a8f7cb55304e2",
+      "candidate_sha256": "6f4de55842333264c9d1cc159988754a917d81294a081293b777c434858039ce",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_no_uv.json",
+      "reference_sha256": "3923aa8e974ed9b0abb888b50e6010ba449fb5493e20872bd54bb17a3164e45b",
+      "candidate_sha256": "37af2616109099289cebf2602dff4eb0f2cbe9e785589b81bfaf6a3aea574c92",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_placed.json",
+      "reference_sha256": "76da9eda0c6c54f4b4985077501444f71b5b99c2d67dbe15aa185739249e9ddb",
+      "candidate_sha256": "c15c4aa112b5044305bc63d408eec358bbb85b0d7423c1dac00b11e383f2e80d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.037581561282643e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-uv_sphere_default.json",
+      "reference_sha256": "a2d8070f78aeda9f68ed95c47e3acaaa155cec6b4e27db7ef08fb586430f7bbf",
+      "candidate_sha256": "00bfc09e7e3318a707f3c34ea0c76538e850324e980c1d030decd31c3bbee183",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.0,
+          "ring_count": 16,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.7881393432617188e-07
+    },
+    {
+      "id": "uv_sphere_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-uv_sphere_no_uv.json",
+      "reference_sha256": "f4526592e4fdb9b3b30eb1ef550b4cf5fbc5a7798b451a903a40b7ddcf89c4fe",
+      "candidate_sha256": "99f8d3ff20065967a15bfe8677dbbc11f47117209f560ca96900306ef3ada8cb",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.0,
+          "ring_count": 16,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-uv_sphere_placed.json",
+      "reference_sha256": "7fdb03e388bf2d07ed07b0058c3958d3ff93efda7c833057c892901ab08b5c11",
+      "candidate_sha256": "6eec13062e211ad955c234369ef3f732951d7f6be22c49b8a2d4540ec3903401",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.0,
+          "ring_count": 16,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "segments": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 2.950157029779632e-08,
+      "maximum_normal_error": 1.7881393432617188e-07,
+      "maximum_face_corner_uv_error": 1.7881393432617188e-07
+    },
+    {
+      "id": "ico_sphere_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_default.json",
+      "reference_sha256": "a4ecbe40842799a9425e02d63c7acaf2f89b4274df4edba460976c008621f112",
+      "candidate_sha256": "3d9cf106d879263030a6d62458ba8566d018020badd56675bcd97eba58373cb5",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 2.2351741790771484e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_no_uv.json",
+      "reference_sha256": "1da5cb7a4acc33ce5961a93881b450ec30214d7d32daf036feddeb3d3b5f78f1",
+      "candidate_sha256": "dd3c4630df2ac87e5611dc4c01d91fb5ec20480096916f247e1a091fcb4ab8f4",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 2.2351741790771484e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_placed.json",
+      "reference_sha256": "577823a55f7bfb6cd15f0048324c59e39ae68ef834b12c7c28bd9149df2d8078",
+      "candidate_sha256": "c8154014b11d735b3c382980dbd8b5bec1859367de1167c0d9ad3b6372cd7226",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.0,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 2.864870801699837e-08,
+      "maximum_normal_error": 2.682209014892578e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_default.json",
+      "reference_sha256": "75caab4f2ecf441e50a34ff2e80476baf3839081318c86b88a4ec9c10a404f8b",
+      "candidate_sha256": "de05e40d18b22d192c5900bb7e9825131e404bee40fd1e09e9e90a8f8163e149",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 8.940696716308594e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_no_uv.json",
+      "reference_sha256": "0b429870fbdf8278fdf7d1c0abdd69e21c9d6314780ef206be5e6d24923290be",
+      "candidate_sha256": "65c6b00fa15ad01c875c8d8981ad19c84e4e1a6b9bd5a017651796e39e5218a1",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 8.940696716308594e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_placed.json",
+      "reference_sha256": "a2dc9348291533c0c042f4268d917a1242f405c829145b75e3c2d6cccbd80bfb",
+      "candidate_sha256": "8d2a7e486e9b5e723e807db04c6ea4882077148c825a51a67f74261ce2d124de",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 6.688700304735562e-08,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "cone_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_default.json",
+      "reference_sha256": "73165630194d16450fc9e1fb27077356f5b9c953b20eb70cd608cf0d3e1801db",
+      "candidate_sha256": "8824ecf986f2644d8e90e97f11050f0549905fe98038bee876c1b5c0d1401509",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 7.812142210905648e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cone_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_no_uv.json",
+      "reference_sha256": "235d868432b494ce001729344445af2adc628c37b345d9af3e3608f3b93b9c0d",
+      "candidate_sha256": "29ebae65d4a3ae2dcad018c8f4b6bb8e5cfbc31eb059d0c33c5a2618612d55e8",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 7.812142210905648e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_placed.json",
+      "reference_sha256": "9af98a1cf2c2159f2c0ae5464adf1c974621abe8f55cb714d66c1a39e4fe2a51",
+      "candidate_sha256": "6c1961fe3c6cccbd3e332be65b07a15aafebf9b7642b800b2e3da3755a386326",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 6.688700304735562e-08,
+      "maximum_normal_error": 1.9123126338005392e-07,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "torus_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_default.json",
+      "reference_sha256": "a1461f0a000839d230411c419ba6d040f3e2e8ba8ab63afcf478890346d0891d",
+      "candidate_sha256": "7216b39ebc03af6336409224f1e7b247ca8e4a53ed13947f1b5b69a9f84db189",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 48,
+          "minor_radius": 0.25,
+          "minor_segments": 12,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_no_uv.json",
+      "reference_sha256": "b62c9a97f4c1371bda1f13ea9d27835ddc02824f5b44e8905bd7d1448867139e",
+      "candidate_sha256": "a4a90026b1c8491fed132a9a5c8c5e113f5d826b417c516451b01571e5fc8310",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": false,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 48,
+          "minor_radius": 0.25,
+          "minor_segments": 12,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "torus_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_placed.json",
+      "reference_sha256": "7d9ca6f4909fd4ee9d9e60e53854441aa101a176749197879cf873aa4e577dfc",
+      "candidate_sha256": "397be7cae5b5bdb18aa105cad5fafc6bb11ec1c6d80061bccdd559a75321b500",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 48,
+          "minor_radius": 0.25,
+          "minor_segments": 12,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 6.860509049744223e-09,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "grid_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_default.json",
+      "reference_sha256": "dea74fd70ff4037192da1d143606c757a89bf84eacdd32369bccf8d38dbc99c3",
+      "candidate_sha256": "50b9ecbd929ddfd14cd74b0c5d153f5123dadfc52bd7ba51c9127cc0300b0fd6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "grid_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_no_uv.json",
+      "reference_sha256": "018870b62c3a4c18f4aa39ba0a895593164347d8c9b8582dc48276e9cb36b3cb",
+      "candidate_sha256": "3e171dd67f7c29caf60e0b578c3b0f7231b7237a7c88e3d0a1b753b880810c4f",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_placed.json",
+      "reference_sha256": "edb693d3e221975f378f40364a5ac26b04833c87c529c2c393604e3508824ccc",
+      "candidate_sha256": "fa479cfd2ecd186f8110ef959336b7461a4d57a5acc187fbe7f57920b7f0d05b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "monkey_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-monkey_default.json",
+      "reference_sha256": "f79585d8039504d031dbaa842ffe899cf6c684058e1691438c0d922ca864780d",
+      "candidate_sha256": "b03e4b7ac6ccd5915285a75ccb57b2397f9a194e316899daf20c3578e4c3726a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-monkey_no_uv.json",
+      "reference_sha256": "d0a387c380ad774870f374ec37fdff197819331d8a16ddbcc0146d4288fdb314",
+      "candidate_sha256": "315eb1557d8118efc0f8043da748ad5d785088d80222929521c9dcab0e007fee",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-monkey_placed.json",
+      "reference_sha256": "e708b47a7687f1ebb7b3bdb20fde2306425e4f7c87065bbd937b9efa7c8403bc",
+      "candidate_sha256": "ec5e3d1181dbbc30f4ff5efad1faea9573bb2518b519e5257ea77b8ae0329b26",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.25,
+            -0.5,
+            1.0
+          ],
+          "kind": "monkey",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 3.0982929555278815e-08,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_size",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_size.json",
+      "reference_sha256": "4a080326881ff743092d335b562946ed2bc19c838957ba55fcfa538f004a936f",
+      "candidate_sha256": "2b693bfe8c083524504de929c66a4290d5ecf9784d940207155e97c5edbf6663",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_size",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_size.json",
+      "reference_sha256": "38c7cc2353567e089218240e9d407ba3a20ea1e30565431abe49965c1dc6bd37",
+      "candidate_sha256": "bdfc2428ded54339456c244d2b794c4e45e74a80eca6a96a7dc767c988828157",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_size",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-monkey_size.json",
+      "reference_sha256": "df415eee7f42ef3c71b8c14e7377bc8d12566a980a0c8cf50ea28e366394b843",
+      "candidate_sha256": "0cf7f288f8594b6efce66d7f31886eb95e791a5a457d598cb4463da55a6ab165",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_nothing",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_nothing.json",
+      "reference_sha256": "e59caa3266f76e19372e6d4b9b00e7cb50cefba1aff927c7cc463880d06e1280",
+      "candidate_sha256": "f48d85b11f47336be2cdaf398c0da61566c83c6dc346b8a8a336c2272bc5ddc9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_ngon",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_ngon.json",
+      "reference_sha256": "844aac94721d7a35e692f2ff26902f815fe604714ba1d303c91a76ebd847d7a0",
+      "candidate_sha256": "793916ec784268bdb524927cca7354be346449cc1464a28d03bee71013ebadfb",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_trifan",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_trifan.json",
+      "reference_sha256": "9fc3ecc3748fd5e5d838a2762e946dece286ab6c8b1990c7ecb820e5d2e3905e",
+      "candidate_sha256": "ae99565d53bc469045d20f719c5a19e907c7c1387cc6c13b10633ab457f2bcf9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_minimum.json",
+      "reference_sha256": "81778d68a0a242ee7ad82d22b5bf0c7567880735438ae62f61f30ad70ea93dfa",
+      "candidate_sha256": "12aa8b4082bdbac33cda6f298cbbe11d584f53e03c5f1bae4a990785d3c6c34d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.5,
+          "vertices": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_coarse",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-uv_sphere_coarse.json",
+      "reference_sha256": "6c13c4767fc915e45e8a7f144975aa13d3b10cfed80067adb83003717444e9c7",
+      "candidate_sha256": "dbf3e1e73a643c61566a8891469a05ffb483f1ee619b94443114c1950ba72e57",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 1.25,
+          "ring_count": 4,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "uv_sphere_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-uv_sphere_minimum.json",
+      "reference_sha256": "1a9fa2ed83bc896cdf377d0caab17ecf417e63f5514769954cebf0abf95c1248",
+      "candidate_sha256": "ec1d6523a46d6395e40d022e116d6af1653dc9d1d554d0d9f6f4936dadb2446d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 0.5,
+          "ring_count": 3,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 1.2356036316329977e-07,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "ico_sphere_level1",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_level1.json",
+      "reference_sha256": "077cb958600f8580a825412097eb530bf4851f823eeaaf35adccca8ac0672349",
+      "candidate_sha256": "c4e77949219b92529e0e547f7e2a4aab01fb3b85d0e9c5269bdae4d5de448c0a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_level2",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_level2.json",
+      "reference_sha256": "aa8786ddebedf058133eb6b01fc50de7f1a430ca7a3fc8b88b1866e435062cc3",
+      "candidate_sha256": "dbbe1a75951842418a7d6eec1ef53e1b2f48c001fd6da786e0f343a8c3a07387",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 2
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.7881393432617188e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_level3",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_level3.json",
+      "reference_sha256": "4b70709cf421c30d8ae6c15660cbbfb3f065856c2d9561ac9788bdc1b0aeae2f",
+      "candidate_sha256": "b43fd32e3b437ebbde640153eae1332a8b3320b2434267ffbfdd9b0645480059",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 3.2782554626464844e-07,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_nothing",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_nothing.json",
+      "reference_sha256": "e607e008a367c76755a9aca2e70f6207dc6d627a7453986c6d40e8b75fe38ead",
+      "candidate_sha256": "ed1e2c82063fad20b6a9b0e73503581876a8e90c0d20acdce478f332047634d9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cylinder",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.706600656578246e-08,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "cone_nothing",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_nothing.json",
+      "reference_sha256": "e46beac3274a2fe343a627906d2ebc556e6976af6f7927eedf8d00f65de70e93",
+      "candidate_sha256": "0b7f97cd30c62ef77a3d8f4d125ddd6731df3e9c1b3b657f4b19ff25e2ab2141",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.625275809721501e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_ngon",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_ngon.json",
+      "reference_sha256": "a2302d705f5daee5b18ecaa9d76281735f8b2953a510bf94da237a1f5d7ec75e",
+      "candidate_sha256": "720a72efdfe75fdbc247e9fe21aa5ff4ab540362bffadce0ee91b951025b3487",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.706600656578246e-08,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "cone_ngon",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_ngon.json",
+      "reference_sha256": "b572f5cd730b428a371606334fba492f517d00975e582389bb49a5a638ae2a59",
+      "candidate_sha256": "3111cb3a8e411a91cadec9851910a87076ff41b50a8dfbe24221b9ec6363929e",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.625275809721501e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_trifan",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_trifan.json",
+      "reference_sha256": "698153262bcc3915ce2c61c36d735d9a47eb785b031aaaccf26577228805e022",
+      "candidate_sha256": "f91d4f978069329e92993ae4730a4e19d6d16425a5511fbb04097c15c9ee73b5",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cylinder",
+          "radius": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 1.9516724591994716e-07,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "cone_trifan",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_trifan.json",
+      "reference_sha256": "2271cab307fbea575c24170c12d03f04b9c01ef1270c1febb3543aaad8851f94",
+      "candidate_sha256": "0977230ec7dcb73cdd515f6601438996b9891f0f45d690b03f4c4c1566f59114",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 1.9516724591994716e-07,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cylinder_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_minimum.json",
+      "reference_sha256": "8264497b4181696b68e5e020ca60f2caffc86c5d79334d4ea4bb29cb84d4d1c3",
+      "candidate_sha256": "4b9fbae97fa3a83e0b8c68faa3f5c55dbf36c6bd5c86f8ff7ccc31378f9671d2",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 1.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 0.5,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "cone_frustum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_frustum.json",
+      "reference_sha256": "1f24a4303739db932c3b0021c9e0e14076f7fe1222497f8bf360a5d5a8280586",
+      "candidate_sha256": "5878236862a320722e27f004bfade0881e8d690679abd3b93e499a4789b2d588",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 0.5,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.296212616986618e-16,
+      "maximum_world_position_error_metres": 2.296212616986618e-16,
+      "maximum_normal_error": 1.556792883494751e-08,
+      "maximum_face_corner_uv_error": 1.4901161193847656e-08
+    },
+    {
+      "id": "cone_pyramid",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_pyramid.json",
+      "reference_sha256": "0e78dc993e803270efb0f322803845cd676f0ce83b169946a8c969e2a32615b6",
+      "candidate_sha256": "91781da60c1df7a78ade981c39b07edf99ef72f873611db2abab44904887a57c",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 4
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.8369701465288538e-16,
+      "maximum_world_position_error_metres": 1.8369701465288538e-16,
+      "maximum_normal_error": 1.9868215073159945e-08,
+      "maximum_face_corner_uv_error": 5.587935447692871e-09
+    },
+    {
+      "id": "cone_inverted",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_inverted.json",
+      "reference_sha256": "20104beeec6c081f34a6f921c6793096890306bf7aa2919ef0f62124493c6384",
+      "candidate_sha256": "9849afff05201e5080391657e31bce8ab6d025cfed298d89aef944e2b1541242",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.296212616986618e-16,
+      "maximum_world_position_error_metres": 2.296212616986618e-16,
+      "maximum_normal_error": 2.519687097857215e-08,
+      "maximum_face_corner_uv_error": 9.313225746154785e-09
+    },
+    {
+      "id": "torus_major_minor",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_major_minor.json",
+      "reference_sha256": "3b2ef10b890f286d1c7ce03a2f41676325d9760bd36331637d160a3bb6342180",
+      "candidate_sha256": "9eb4ca4a57e78aee932c6b3fa45ab70b8f95a688d409ce04cb049ee2c3a3a9f0",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 2.0,
+          "major_segments": 12,
+          "minor_radius": 0.5,
+          "minor_segments": 6,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_exterior_interior",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_exterior_interior.json",
+      "reference_sha256": "57e65758e6ebcbd02f5de83d2d290a103ff3b2cdc41b23e3c64aa05c66b90711",
+      "candidate_sha256": "d371a2de090f1fd8dc7227a109e3bf4dc6feb36066f4b18c89305df0e9f1271b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 2.5,
+          "abso_minor_rad": 1.5,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 12,
+          "minor_radius": 0.25,
+          "minor_segments": 6,
+          "mode": "ext_int"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_minimum.json",
+      "reference_sha256": "10aaec9d9ee5a19317a49e6dcd77670176069ef39a7fd7360893a97094804322",
+      "candidate_sha256": "55b58d28500f75ef1867fb719098f994d62eb94822e13cff3f6e745e5de6715d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 3,
+          "minor_radius": 0.25,
+          "minor_segments": 3,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "grid_rectangular",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_rectangular.json",
+      "reference_sha256": "b8bcea3f21e953eff65e775f370efe964aaa95fe5dd267ba1f735242cb146542",
+      "candidate_sha256": "116dc12e140781241f91b90fcf344a5a79c43d7b2e9fbd38cc513da3af542aed",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 3.5,
+          "x_subdivisions": 3,
+          "y_subdivisions": 5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_minimum.json",
+      "reference_sha256": "d21280da2b1aa10c4e63fff2d769bb5fa8f7955aaa392f02d62e302667886ca7",
+      "candidate_sha256": "fe083f26521c24cb7fcd7e843a11b85c149597549dabf3a6535d0c4b23ef70d9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 1.0,
+          "x_subdivisions": 1,
+          "y_subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_radius",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_radius.json",
+      "reference_sha256": "a9f186cbdb50a172c97db79c0a180f4e01ae237d94d7b5f3d2bdd59520a37fcf",
+      "candidate_sha256": "8d2b17155c2129d96ac783fcf64e3a8dd8d44b20c905a0770509edbb916d32c6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_depth",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_zero_depth.json",
+      "reference_sha256": "6eb1b12f269bb2bccb235713e22b839776ce9347bfd1f041d3db5451a4031549",
+      "candidate_sha256": "4c6af9def14168d1ed342ae829232491921913dd1209b533453ce0344feb7e88",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 0.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 2.9802322387695312e-08
+    },
+    {
+      "id": "cube_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_zero_size.json",
+      "reference_sha256": "bd422e91fd482ba0e62661dff1f1cdafa523182d9e6cf71c3c5651fb20409f3f",
+      "candidate_sha256": "66294bc224739b17903a5897dbeb106cd4f8862d88db8d007f6d54d4047e8e8e",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_zero_radius",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_zero_radius.json",
+      "reference_sha256": "0208e7986fbab2e27c53c9d818f170daf68853ac85dd1d7c05f4f8dd7377f590",
+      "candidate_sha256": "35b37baa1ed33e4d992e135378a4d3a307b9e0e27a7b11fb80b33662b6c130f6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_zero_depth",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_zero_depth.json",
+      "reference_sha256": "cc3af9d1b57fc7338b67bc7539e77daa28dc9b69df37b5205350e0bdd23e22f4",
+      "candidate_sha256": "2695ae35fc98be59575f2190bd33f7ef99a27cde40545dee620f088ae8e33bda",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 0.0,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 1.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "grid_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_zero_size.json",
+      "reference_sha256": "2dfd19f0d4c8f5469a59f71958f71c82a3c455565aedd7388e55c0ba24e93961",
+      "candidate_sha256": "305698a301412efd8ff63b4ad5d3f410e61a3f416bf33c5d7a9262f9ff1449ae",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 0.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "ico_sphere_zero_radius",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-ico_sphere_zero_radius.json",
+      "reference_sha256": "8e9c766fe08757d07185d10a2e958331e4a8a5d259158e1e9bafd8b24addaf94",
+      "candidate_sha256": "0283084aee7639ff85edc93700443bfad18a5b8860e361524cb46e657d5d4253",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-monkey_zero_size.json",
+      "reference_sha256": "565adac5c8e98c1aa9eded468ad07aa561332845d1f115b6ca573b907ffcab48",
+      "candidate_sha256": "cc8e13feac25af820f4b1e0e0e67847a5bfb283ee584da8c0b9c147c2fce8c9d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_zero_size.json",
+      "reference_sha256": "5baaddf5d094f861e6d5de9b2f74f0b4aff841623a97eb345c3a972c50acfc15",
+      "candidate_sha256": "c7459df54bcd88ed95e1db1502e48530814597012c5858f07005efc5d092064d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "uv_sphere_zero_radius",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-uv_sphere_zero_radius.json",
+      "reference_sha256": "eaa5c55813fd8cb8f23ef132fdc9378b5e3a502888b97664ce73b46fa09063d7",
+      "candidate_sha256": "54720c11b08b3c99b74573af7798681b70db78929253cfe72a1629624d44c689",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 0.0,
+          "ring_count": 4,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 8
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_nothing",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_nothing.json",
+      "reference_sha256": "435e6ea93f3f859081d978af792702f6c752213666fdc0119da3211dcd9f01e0",
+      "candidate_sha256": "5a07738d911ffa8111c7c506d6697af987b7060b96db74896fed0f2ac0f10e30",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cylinder_zero_nothing",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_zero_nothing.json",
+      "reference_sha256": "de8eae3eadc7c29fa7ece81ce3b498797d2794c934b6ae1eca0dcaab989c056f",
+      "candidate_sha256": "16e94ee8713077e4ff368d5fb25380ddc25b5570db8dd5da32e91a5037ab7fa3",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_nothing",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_zero_nothing.json",
+      "reference_sha256": "559b3d76cc10e26af12166c9fa3c5b6e10849162389b380afb72c139c37827cc",
+      "candidate_sha256": "52e45986f8ce0a5fb44e3f940d7562713ad5d4bc04b375d8269e881543c16b7f",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "nothing",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_ngon",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_ngon.json",
+      "reference_sha256": "06ef98e7488179b5d11d8715d145695339a6b256a9adb4bec69ce554c84cac61",
+      "candidate_sha256": "56ac898ed968ff3d92446c31a4162d82cd99ef9e991e71c7deb0c043328e0492",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 14,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "cylinder_zero_ngon",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_zero_ngon.json",
+      "reference_sha256": "b2666ec9ae0bfb885870257d3054d8979cfc0b92ce849a8df7b1fbea844acd9f",
+      "candidate_sha256": "2efa7fcb1f42e7aa488213f28ea83f957bad1d28fd978d14f6115ed4a92b39ed",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_ngon",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_zero_ngon.json",
+      "reference_sha256": "175ee4924679b15886e530c84681d3e1c920e0a5cbd6b2f0f8473c4aec2f70b2",
+      "candidate_sha256": "7fc2dd7b7c3a2e2de1323b22864ec623a2428f6176bfaccb561baf4aa7d5b36b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_trifan",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_trifan.json",
+      "reference_sha256": "2ba52b40663f29be1f6921a07ede854406b52aaab1b0f2134d94a53df450c4b1",
+      "candidate_sha256": "5271cabb2257fa9bd5ba1ecbe0ac320a1eb9b75b239eadfc69e336bdc050128d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 42,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "cylinder_zero_trifan",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cylinder_zero_trifan.json",
+      "reference_sha256": "2ae647374ad53c9c57975c8aade4399d147a45da2232523d967cb1abad0b6dae",
+      "candidate_sha256": "06c194a177f7438d658a478d8b3cec017cde3067d97977c1e90d098cde39f19c",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cylinder",
+          "radius": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_zero_trifan",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_zero_trifan.json",
+      "reference_sha256": "343b52fcff80a4e67b3467801922b3639fcac6c555ec3e410ccb14969bf203e8",
+      "candidate_sha256": "f7b7753df25169dacb56695b3f9d504d446ce8454ab7a88ce630fe3da19d6589",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "trifan",
+          "kind": "cone",
+          "radius1": 0.0,
+          "radius2": 0.0,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cone_equal_radii",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cone_equal_radii.json",
+      "reference_sha256": "d4cc4354a11fe7396febbd2fe523ad7aca777d22289e950205f58b6bde65a782",
+      "candidate_sha256": "c564245fe98827e1f45c53990b5beab9553d280a9d7b4e3f5ddefd701991cab4",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 3.5,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 1.25,
+          "radius2": 1.25,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 9.706600656578246e-08,
+      "maximum_face_corner_uv_error": 4.257474628399649e-08
+    },
+    {
+      "id": "torus_zero_major",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_zero_major.json",
+      "reference_sha256": "0283a46af4abce6ab6c89d80a210253371d06ebf5e9639278f301b42352a957b",
+      "candidate_sha256": "6a9a6ec9cfcc766d275a9cb8c243592041f90780af8c66b981dbe1bbd42f7483",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 0.0,
+          "major_segments": 6,
+          "minor_radius": 0.5,
+          "minor_segments": 4,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 6.883405567759127e-08,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_zero_minor",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_zero_minor.json",
+      "reference_sha256": "57d9d8cdc0cdcbf18d9e0199d8f0edb606cfd5079ed642a0e1130f70b21fe905",
+      "candidate_sha256": "8fbe667f8eec3fa5fcb46ea229c19db27c900ca24a50fc827b04971e287f315d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 6,
+          "minor_radius": 0.0,
+          "minor_segments": 4,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_zero_both",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_zero_both.json",
+      "reference_sha256": "038e81723469c37b849c563de1f54df7f49bb813f510557609e435cca8377926",
+      "candidate_sha256": "e3b9579b91a7f1b81ef59899057bc46b32ad0fb0433357f56d14c6dd9821d39b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 0.0,
+          "major_segments": 3,
+          "minor_radius": 0.0,
+          "minor_segments": 3,
+          "mode": "major_minor"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    },
+    {
+      "id": "torus_inverted_radii",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-torus_inverted_radii.json",
+      "reference_sha256": "98e1a757261bcbf9f8640e704aa6cbea4ac60c5e123e10fb9876422d49d9bc70",
+      "candidate_sha256": "d9ed64c60e9b5cc8d262a6ba28f528d3508927e5632336cd0d61d6c9c2abeaf7",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.0,
+          "abso_minor_rad": 2.0,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.0,
+          "major_segments": 6,
+          "minor_radius": 0.25,
+          "minor_segments": 4,
+          "mode": "ext_int"
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 1.9868214962137642e-08
+    }
+  ]
+}
