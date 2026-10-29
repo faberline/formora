@@ -94,10 +94,19 @@ fn smooth(asset: &MeshAsset, face: &FaceRef) -> bool {
 /// Derive automatic values without changing explicit payloads, IDs or editing state.
 pub fn automatic(asset: &MeshAsset) -> Result<MeshNormals> {
     let graph = asset.validated_topology()?;
+    automatic_with_topology(asset, &graph)
+}
+
+// Only incidence/identity is reused. Read every position from the current asset.
+// Callers retain the topology and perform final asset/scene validation.
+fn automatic_with_topology(
+    asset: &MeshAsset,
+    graph: &super::selection::Graph,
+) -> Result<MeshNormals> {
     let positions: Vec<_> = graph
-        .positions
+        .vertex_ids
         .iter()
-        .map(|p| p.map(|v| v as f32))
+        .map(|id| asset.vertices[id].map(|v| v as f32))
         .collect();
     if positions.iter().flatten().any(|v| !v.is_finite()) {
         return Err(SceneError(
@@ -243,7 +252,23 @@ pub fn resolved(asset: &MeshAsset) -> Result<MeshNormals> {
 
 /// Replace only geometry-dependent normals after a successful geometry edit.
 pub fn apply_automatic(asset: &mut MeshAsset) -> Result<()> {
-    for face in automatic(asset)?.faces {
+    let normals = automatic(asset)?;
+    store_automatic(asset, normals);
+    Ok(())
+}
+
+/// Internal geometry-only operation: the validated topology is unchanged.
+pub(crate) fn apply_automatic_with_topology(
+    asset: &mut MeshAsset,
+    graph: &super::selection::Graph,
+) -> Result<()> {
+    let normals = automatic_with_topology(asset, graph)?;
+    store_automatic(asset, normals);
+    Ok(())
+}
+
+fn store_automatic(asset: &mut MeshAsset, normals: MeshNormals) {
+    for face in normals.faces {
         match face.face {
             FaceRef::Polygon(id) => {
                 let p = asset.polygons.get_mut(&id).expect("calculated polygon");
@@ -263,5 +288,4 @@ pub fn apply_automatic(asset: &mut MeshAsset) -> Result<()> {
             }
         }
     }
-    Ok(())
 }

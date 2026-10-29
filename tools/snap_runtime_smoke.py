@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
+from runtime_artifacts import write_json
 
 from compare_snap_menu_reference import compare as verify_source, digest, load, tree, grid_step, f32
 from transform_runtime_smoke import setup as transform_setup, snapshot, PIVOTS, RUNTIME_KEYS
@@ -98,7 +99,7 @@ def compare_output(run,reference,before,after,result,error,request,scene_before,
     return {'source_outcome':outcome,'comparison_kind':'explicit_cancellation' if outcome=='CANCELLED' else 'defined_numeric_source_comparison'}
 
 
-async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
+async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gzip_output=False):
     from jsonschema import Draft202012Validator
     from mcp import ClientSession,StdioServerParameters
     from mcp.client.stdio import stdio_client
@@ -121,7 +122,8 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
     with tempfile.TemporaryDirectory(prefix='formora-snap-runtime-') as temporary:
         for interface in interfaces:
             for index,case in enumerate(cases):
-                scene=Path(temporary)/(interface+'-'+case['id']+'.json');_,error=cli(scene,'init');assert error is None
+                case_workspace=tempfile.TemporaryDirectory(prefix=interface+'-'+case['id']+'-',dir=temporary)
+                scene=Path(case_workspace.name)/(interface+'-'+case['id']+'.json');_,error=cli(scene,'init');assert error is None
                 create=setup(suite,case);request=request_for(case)
                 async def exercise(call):
                     _,error=await call('scene_apply',create);assert error is None,(case['id'],error)
@@ -164,11 +166,13 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
                             tree(expected,query['world_matrix'],phase+'/world frame')
                 except (AssertionError,ValueError,KeyError) as issue:failure=str(issue)
                 file=interface+'-'+case['id']+'.json';path=output/file
-                path.write_text(json.dumps({'case':case,'setup':create,'request':request,'before':before,'after':after,'result':result,'error':error,
+                path=write_json(path,{'case':case,'setup':create,'request':request,'before':before,'after':after,'result':result,'error':error,
                     'before_scene':scene_before,'after_scene':scene_after,'world_queries':{'before':world_before,'after':world_after},
                     'saved_before_sha256':saved_before,'saved_after_sha256':saved_after,'fresh_reload_matches':True,
-                    'status':'passed' if failure is None else 'failed','comparison_error':failure},allow_nan=False)+'\n')
+                    'status':'passed' if failure is None else 'failed','comparison_error':failure},gzip_output)
+                file=path.name
                 records.append({'id':case['id'],'interface':interface,'file':file,'sha256':digest(path),'status':'passed' if failure is None else 'failed','error':failure,**comparison})
+                case_workspace.cleanup()
                 if (index+1)%50==0:print(json.dumps({'interface':interface,'executed':index+1,'failed':sum(r['status']=='failed' for r in records)}),flush=True)
     unchanged=hashes=={p.relative_to(ROOT).as_posix():digest(p) for p in inputs()} and binary_sha==digest(binary)
     passed=unchanged and all(r['status']=='passed' for r in records);full=not case_ids and set(interfaces)=={'cli','official_mcp_sdk'}
@@ -184,4 +188,5 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--case',action='append',default=[],dest='case_ids');parser.add_argument('--interface',action='append',choices=['cli','official_mcp_sdk'])
-    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk')))
+    parser.add_argument('--gzip-output',action='store_true',help='retain exact raw JSON bytes in lossless gzip files')
+    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk'),args.gzip_output))

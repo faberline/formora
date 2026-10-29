@@ -194,11 +194,25 @@ pub fn world(scene: &Scene, id: &str) -> Result<Matrix> {
         if chain.len() > scene.entities.len() {
             return Err(SceneError("physical transform parent cycle".into()));
         }
-        chain.push((local(&entity.transform)?, entity.transform.precision));
+        let inverse = entity.parent.as_ref().and_then(|_| {
+            scene
+                .object_context
+                .as_ref()
+                .and_then(|c| c.states.get(id))
+                .and_then(|s| s.parent_inverse)
+        });
+        chain.push((
+            inverse,
+            local(&entity.transform)?,
+            entity.transform.precision,
+        ));
         current = entity.parent.as_deref();
     }
     let mut result = std::array::from_fn(|r| std::array::from_fn(|c| if r == c { 1. } else { 0. }));
-    for (matrix, precision) in chain.into_iter().rev() {
+    for (inverse, matrix, precision) in chain.into_iter().rev() {
+        if let Some(inverse) = inverse {
+            result = compose(result, inverse, precision)?;
+        }
         result = compose(result, matrix, precision)?;
     }
     Ok(result)

@@ -54,6 +54,8 @@ jobs:
         run: python tools/transform_runtime_smoke.py target/debug/formora target/transform-runtime-cases
       - name: Execute all supported single edit-mesh snaps through CLI and official MCP
         run: python tools/snap_runtime_smoke.py target/debug/formora target/snap-runtime-cases
+      - name: Execute object and multi-edit snaps through CLI and official MCP
+        run: python tools/scene_snap_runtime_smoke.py target/debug/formora target/scene-snap-runtime-cases
       - name: Verify generation without source repository access
         if: runner.os == 'macOS'
         run: python tools/primitive_independent.py target/debug/formora target/independent-primitive-generation

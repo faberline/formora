@@ -5,6 +5,7 @@ pub mod agent;
 pub mod baseline;
 mod json;
 pub mod mesh;
+pub mod objects;
 #[cfg(feature = "preview")]
 pub mod preview;
 pub mod rotation;
