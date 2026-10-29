@@ -38,3 +38,13 @@ or coincident identity, shading-normal independence, reflected/nonuniform
 object frames and save/undo/reload/failure atomicity. Run all source NORMAL
 cases through CLI and official MCP. Then rerun all 2,406 source comparisons.
 All remaining failures must remain visible with their unchanged limits.
+
+For individual NORMAL orientation, use the source's per-island axis matrices.
+Derive them by summing active-element geometric normals and tangents within the
+actual selected edge/face groups. Use the source's tangent or dominant-axis
+fallback. Ungrouped vertices use their own geometric normal frame. Connected
+proportional vertices inherit the originating island's centre and axis matrix.
+Keep distinct source translation, rotation and resize multiplication orders.
+Report these derived local matrices per influenced vertex as
+`component_basis_local`, while `basis_world` remains the common display frame.
+No per-vertex direction may come from a reference result.

@@ -18844,7 +18844,12 @@
     {
       "path": "baseline/sources/mesh-normal-orientation/manifest.json",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_polygon.cc",
-      "sha256": "473d812e9f5e8c1e11c19b26a45c3f17b01e38a20b1e9dbb6a443e0959aef099"
+      "sha256": "57d786569a2bb9f70e1578f379699887e4583674be228d106388e9f54b0e9fe3"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/math_geom_inline.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_geom_inline.cc",
+      "sha256": "701ac300fd0089d163900346afe24cadba4087dd04ed0fabef34430fe3040728"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
