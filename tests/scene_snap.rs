@@ -474,3 +474,43 @@ fn origin_rotation_reuses_incidence_but_computes_normals_from_changed_positions(
         "{normal:?}"
     );
 }
+
+#[test]
+fn multi_edit_normal_overflow_rejects_without_publishing_scene_revision_or_undo() {
+    let mut s = scene();
+    let mesh = s.mesh_assets.get_mut("mesh").unwrap();
+    mesh.vertices = BTreeMap::from([
+        ("a".into(), [1e20, 0., 0.]),
+        ("b".into(), [0., 1e20, 0.]),
+        ("c".into(), [0., 0., 1e20]),
+    ]);
+    mesh.triangles.insert(
+        "face".into(),
+        formora::mesh::Triangle {
+            vertices: ["a".into(), "b".into(), "c".into()],
+            uv_layers: BTreeMap::new(),
+            corner_normals: None,
+            material_slot: None,
+        },
+    );
+    mesh.editing
+        .as_mut()
+        .unwrap()
+        .selected
+        .vertices
+        .insert("c".into());
+    s.object_context
+        .as_mut()
+        .unwrap()
+        .edit_objects
+        .insert("target".into());
+    let before = s.clone();
+    let mut editor = Editor::new(s).unwrap();
+    let error = editor
+        .apply_with_outcomes(&[command(Action::SelectedToGrid { spacing: 1. })], Some(0))
+        .err()
+        .expect("normal overflow must reject the operation");
+    assert!(error.0.contains("automatic normal"), "{error}");
+    assert_eq!(editor.scene(), &before);
+    assert!(editor.undo(Some(0)).is_err());
+}

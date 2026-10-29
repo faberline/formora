@@ -412,9 +412,18 @@ pub(crate) fn execute_with_targets(
         if let Some(recipe) = &mut next.recipe {
             recipe.edited = true;
         }
-        super::normals::apply_automatic(&mut next)?;
+        if let Some(graph) = prepared {
+            super::normals::apply_automatic_with_topology(&mut next, graph)?;
+        } else {
+            super::normals::apply_automatic(&mut next)?;
+        }
     }
-    next.validate()?;
+    // Prepared topology is private to the enclosing scene command, whose
+    // mandatory Scene::validate runs before any effect can be published.
+    // Keep independent validation for the public single-mesh entry point.
+    if prepared.is_none() {
+        next.validate()?;
+    }
     let writes_cursor = status == Status::Finished
         && matches!(
             request.action,
