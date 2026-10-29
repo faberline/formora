@@ -2,10 +2,7 @@
 // SPDX-FileCopyrightText: 2022 Blender Authors
 // SPDX-License-Identifier: GPL-2.0-or-later
 //! Automatic normals and read-only resolution of explicit normal payloads.
-use super::{
-    MeshAsset,
-    selection::{FaceRef, Graph},
-};
+use super::{MeshAsset, selection::FaceRef};
 use crate::scene::{Result, SceneError};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
@@ -96,8 +93,7 @@ fn smooth(asset: &MeshAsset, face: &FaceRef) -> bool {
 
 /// Derive automatic values without changing explicit payloads, IDs or editing state.
 pub fn automatic(asset: &MeshAsset) -> Result<MeshNormals> {
-    asset.validate()?;
-    let graph = Graph::new(asset)?;
+    let graph = asset.validated_topology()?;
     let positions: Vec<_> = graph
         .positions
         .iter()

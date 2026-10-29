@@ -90,7 +90,7 @@ impl Context {
             .mesh_assets
             .get(id)
             .ok_or_else(|| SceneError(format!("unknown transform mesh asset: {id}")))?;
-        asset.validate()?;
+        let graph = asset.validated_topology()?;
         if request.max_components == 0 {
             return Err(SceneError(
                 "mesh transform component budget must be positive".into(),
@@ -103,7 +103,6 @@ impl Context {
             .chain(asset.triangles.values().map(|_| 3))
             .try_fold(0usize, |a, b| a.checked_add(b))
             .ok_or_else(|| SceneError("mesh transform component count overflow".into()))?;
-        let graph = Graph::new(asset)?;
         let count = [
             graph.vertex_ids.len(),
             graph.edges.len(),
