@@ -94,7 +94,9 @@ def request_for(run):
     transform={'entity':'target','change':change,'orientation':orientation,'pivot':PIVOTS[run['context']['pivot']],
                'constraint_axis':[False]*3 if kind in ['translate','resize'] else mask,
                'correct_face_attributes':run['context']['correct_face_attributes'],'keep_connected':run['context']['keep_connected']}
-    if 'center_override' in p:transform['center_override']=p['center_override']
+    if 'center_override' in p:
+        # Source t_around_get disables individual/active setup for an explicit point.
+        transform['center_override']=p['center_override'];transform['pivot']='bounds'
     if p.get('use_proportional_edit'):
         falloff=p.get('proportional_edit_falloff','SMOOTH').lower()
         transform['proportional']={'radius':p['proportional_size'],'falloff':falloff,

@@ -166,7 +166,7 @@ impl Context {
         }
         let world = math::world(scene, &request.entity)?;
         let object = std::array::from_fn(|i| std::array::from_fn(|j| world[i][j] as f32));
-        let inverse = math::inverse(object)?;
+        let (inverse, singular) = super::inverse::object(object)?;
         let translation = std::array::from_fn(|i| world[i][3] as f32);
         let world_positions: Vec<_> = positions
             .iter()
@@ -176,7 +176,7 @@ impl Context {
         let view = math::euler(authoring.view_rotation, true);
         let basis = match &request.orientation {
             Orientation::Global => IDENTITY,
-            Orientation::Local => axes(object)?,
+            Orientation::Local => super::inverse::local_axes(object)?,
             Orientation::Parent => match &target.parent {
                 None => IDENTITY,
                 Some(parent) => {
@@ -202,7 +202,7 @@ impl Context {
                 &edge_visible,
                 &face_visible,
                 object,
-                inverse,
+                super::inverse::normal(object)?,
                 request.pivot,
             )?,
             Orientation::Gimbal => super::gimbal::basis(scene, target)?,
@@ -340,7 +340,11 @@ impl Context {
                 ),
             }
         };
-        let local_pivot = math::vector(inverse, sub(pivot, translation));
+        let local_pivot = if singular {
+            super::inverse::pivot(world.map(|row| row.map(|v| v as f32)), pivot)?
+        } else {
+            math::vector(inverse, sub(pivot, translation))
+        };
         let centres = if request.pivot == Pivot::Individual {
             local_islands
         } else {
@@ -371,7 +375,7 @@ impl Context {
             ));
         }
         let object_axes = if component_bases.is_some() {
-            axes(object)?
+            super::inverse::columns(object)?
         } else {
             IDENTITY
         };

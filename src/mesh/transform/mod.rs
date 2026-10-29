@@ -10,6 +10,7 @@ mod context;
 mod geodesic;
 mod gimbal;
 mod influence;
+mod inverse;
 mod normal_orientation;
 
 type Vector = [f32; 3];

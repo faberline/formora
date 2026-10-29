@@ -38,6 +38,16 @@ class TransformRuntimeTests(unittest.TestCase):
             run=copy.deepcopy(SUITE['runs'][0]);run['parameters'][key]=value
             with self.subTest(key=key),self.assertRaises(AssertionError):runtime.request_for(run)
 
+    def test_source_explicit_center_disables_every_source_pivot_before_native_setup(self):
+        for pivot in runtime.PIVOTS:
+            run=copy.deepcopy(SUITE['runs'][0]);run['context']['pivot']=pivot
+            run['parameters']['center_override']=[0.375,-0.625,0.875]
+            actual=runtime.request_for(run)['commands'][0]['transform']
+            self.assertEqual(actual['pivot'],'bounds');self.assertEqual(actual['center_override'],[0.375,-0.625,0.875])
+            self.assertEqual(actual['change']['value'],run['parameters']['value'])
+            run['parameters'].pop('center_override')
+            self.assertEqual(runtime.request_for(run)['commands'][0]['transform']['pivot'],runtime.PIVOTS[pivot])
+
     def test_only_the_specific_empty_selection_error_can_match_source_cancellation(self):
         run=next(r for r in SUITE['runs'] if r['label']=='empty selection')
         source=json.loads((ROOT/'baseline/reference/blender-5.2.3/mesh-transform'/(run['id']+'.json')).read_text())
