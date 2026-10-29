@@ -2,6 +2,7 @@
 use crate::scene::{Command, Editor, Result, Scene, SceneError};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
+use std::collections::{BTreeMap, BTreeSet};
 use std::fs::{File, OpenOptions};
 use std::path::{Path, PathBuf};
 
@@ -16,6 +17,13 @@ pub struct ApplyRequest {
 #[serde(deny_unknown_fields)]
 pub struct UndoRequest {
     pub expected_revision: u64,
+}
+
+#[derive(Debug, Serialize)]
+pub struct ApplyResult {
+    pub revision: u64,
+    #[serde(skip_serializing_if = "BTreeMap::is_empty")]
+    pub generation_diagnostics: BTreeMap<String, Vec<String>>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -139,6 +147,34 @@ impl Session {
         candidate.scene().save(&self.path)?;
         self.editor = candidate;
         Ok(revision)
+    }
+
+    /// Return warnings only after the successful batch has been saved.
+    pub fn apply_with_result(&mut self, request: ApplyRequest) -> Result<ApplyResult> {
+        let generated: BTreeSet<_> = request
+            .commands
+            .iter()
+            .filter_map(|command| match command {
+                Command::CreateMeshPrimitive { id, .. }
+                | Command::RegenerateMeshPrimitive { id, .. } => Some(id.clone()),
+                _ => None,
+            })
+            .collect();
+        let revision = self.apply(request)?;
+        let generation_diagnostics = generated
+            .into_iter()
+            .filter_map(|id| {
+                self.scene()
+                    .mesh_assets
+                    .get(&id)
+                    .filter(|asset| !asset.diagnostics.is_empty())
+                    .map(|asset| (id, asset.diagnostics.clone()))
+            })
+            .collect();
+        Ok(ApplyResult {
+            revision,
+            generation_diagnostics,
+        })
     }
 
     pub fn undo(&mut self, request: UndoRequest) -> Result<u64> {

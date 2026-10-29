@@ -1,0 +1,304 @@
+{
+  "expected_revision": 0,
+  "commands": [
+    {
+      "operation": "set_material",
+      "id": "plane_material",
+      "material": {
+        "base_color": [
+          0.1,
+          0.5,
+          0.9,
+          1
+        ],
+        "roughness": 0.6,
+        "metallic": 0
+      }
+    },
+    {
+      "operation": "create_mesh_primitive",
+      "id": "plane",
+      "primitive": {
+        "kind": "plane",
+        "size": 1.5
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "plane_entity",
+      "entity": {
+        "name": "plane",
+        "parent": null,
+        "transform": {
+          "translation": [
+            -3,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "plane"
+          },
+          "material": "plane_material"
+        }
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "cube_material",
+      "material": {
+        "base_color": [
+          0.9,
+          0.3,
+          0.1,
+          1
+        ],
+        "roughness": 0.6,
+        "metallic": 0
+      }
+    },
+    {
+      "operation": "create_mesh_primitive",
+      "id": "cube",
+      "primitive": {
+        "kind": "cube",
+        "size": 1.5
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "cube_entity",
+      "entity": {
+        "name": "cube",
+        "parent": null,
+        "transform": {
+          "translation": [
+            -1,
+            0,
+            0.75
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "cube"
+          },
+          "material": "cube_material"
+        }
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "grid_material",
+      "material": {
+        "base_color": [
+          0.2,
+          0.8,
+          0.3,
+          1
+        ],
+        "roughness": 0.6,
+        "metallic": 0
+      }
+    },
+    {
+      "operation": "create_mesh_primitive",
+      "id": "grid",
+      "primitive": {
+        "kind": "grid",
+        "size": 1.5,
+        "x_subdivisions": 4,
+        "y_subdivisions": 4
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "grid_entity",
+      "entity": {
+        "name": "grid",
+        "parent": null,
+        "transform": {
+          "translation": [
+            1,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "grid"
+          },
+          "material": "grid_material"
+        }
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "circle_material",
+      "material": {
+        "base_color": [
+          0.8,
+          0.3,
+          0.8,
+          1
+        ],
+        "roughness": 0.6,
+        "metallic": 0
+      }
+    },
+    {
+      "operation": "create_mesh_primitive",
+      "id": "circle",
+      "primitive": {
+        "kind": "circle",
+        "vertices": 16,
+        "radius": 0.75,
+        "fill_type": "ngon"
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "circle_entity",
+      "entity": {
+        "name": "circle",
+        "parent": null,
+        "transform": {
+          "translation": [
+            3,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "circle"
+          },
+          "material": "circle_material"
+        }
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "camera",
+      "entity": {
+        "name": "Camera",
+        "parent": null,
+        "transform": {
+          "translation": [
+            0,
+            -8,
+            6
+          ],
+          "rotation": [
+            0.4655486962246456,
+            0,
+            0,
+            0.8850222660721778
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "camera",
+          "vertical_fov_degrees": 55,
+          "near": 0.1,
+          "far": 100
+        }
+      }
+    },
+    {
+      "operation": "set_active_camera",
+      "id": "camera"
+    },
+    {
+      "operation": "create_entity",
+      "id": "light",
+      "entity": {
+        "name": "Light",
+        "parent": null,
+        "transform": {
+          "translation": [
+            -2,
+            -3,
+            6
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "light",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "intensity": 120
+        }
+      }
+    }
+  ]
+}

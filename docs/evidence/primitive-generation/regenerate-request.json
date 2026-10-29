@@ -1,0 +1,41 @@
+{
+  "expected_revision": 1,
+  "commands": [
+    {
+      "operation": "regenerate_mesh_primitive",
+      "id": "plane",
+      "primitive": {
+        "kind": "plane",
+        "size": 2
+      }
+    },
+    {
+      "operation": "regenerate_mesh_primitive",
+      "id": "cube",
+      "primitive": {
+        "kind": "cube",
+        "size": 2.25
+      }
+    },
+    {
+      "operation": "regenerate_mesh_primitive",
+      "id": "grid",
+      "primitive": {
+        "kind": "grid",
+        "size": 2,
+        "x_subdivisions": 6,
+        "y_subdivisions": 3
+      }
+    },
+    {
+      "operation": "regenerate_mesh_primitive",
+      "id": "circle",
+      "primitive": {
+        "kind": "circle",
+        "vertices": 7,
+        "radius": 1,
+        "fill_type": "ngon"
+      }
+    }
+  ]
+}

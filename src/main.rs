@@ -157,8 +157,8 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
                 let request = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
                 let mut session =
                     formora::session::Session::open(Path::new(path)).map_err(map_err)?;
-                let revision = session.apply(request).map_err(map_err)?;
-                Ok(Some(serde_json::json!({"revision":revision})))
+                let result = session.apply_with_result(request).map_err(map_err)?;
+                Ok(Some(serde_json::json!(result)))
             }
             "serve" | "mcp" => {
                 let mut session =

@@ -3,6 +3,7 @@ use crate::scene::{Result, SceneError, unique_map, valid_id};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
+pub mod primitives;
 mod tessellation;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
@@ -75,6 +76,10 @@ pub struct MeshAsset {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub uv_layout: Option<UvLayout>,
     pub material_slots: Vec<Option<String>>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub recipe: Option<primitives::PrimitiveRecipe>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub diagnostics: Vec<String>,
 }
 
 impl MeshAsset {
@@ -113,6 +118,16 @@ impl MeshAsset {
     }
 
     pub fn validate(&self) -> Result<()> {
+        if let Some(recipe) = &self.recipe {
+            if recipe.primitive.component_count()? > recipe.max_components {
+                return Err(SceneError(
+                    "primitive recipe exceeds its generation budget".into(),
+                ));
+            }
+        }
+        if self.diagnostics.iter().any(|code| !valid_id(code)) {
+            return Err(SceneError("invalid mesh diagnostic code".into()));
+        }
         let layout = self
             .uv_layout
             .as_ref()

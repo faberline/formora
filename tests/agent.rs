@@ -427,3 +427,60 @@ fn polygon_tessellation_queries_match_cli_mcp_and_fail_without_changing_undo() {
         "degenerate_polygon"
     );
 }
+
+#[test]
+fn primitive_creation_edit_regeneration_and_failure_use_the_same_cli_mcp_core() {
+    let native = Project::new();
+    native.create();
+    let mcp = Project::new();
+    mcp.create();
+    let arguments = json!({"expected_revision":1,"commands":[{"operation":"create_mesh_primitive","id":"generated","primitive":{"kind":"grid","x_subdivisions":3,"y_subdivisions":5,"size":3.5}}]});
+    let output = native.process(
+        &["scene", "apply", "--request", "-"],
+        &arguments.to_string(),
+    );
+    assert!(output.status.success());
+    let messages = requests(&[
+        initialize(),
+        initialized(),
+        json!({"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"scene_apply","arguments":arguments}}),
+        json!({"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"scene_apply","arguments":{"expected_revision":2,"commands":[{"operation":"create_mesh_primitive","id":"huge","primitive":{"kind":"grid","x_subdivisions":10000000,"y_subdivisions":10000000}}]}}}),
+    ]);
+    let output = mcp.process(&["mcp"], &messages);
+    assert!(output.status.success());
+    assert_eq!(lines(&output)[1]["result"]["isError"], false);
+    assert_eq!(lines(&output)[2]["result"]["isError"], true);
+    assert_eq!(
+        Scene::load(&native.scene()).unwrap(),
+        Scene::load(&mcp.scene()).unwrap()
+    );
+    let output=mcp.process(&["mcp"],&requests(&[initialize(),initialized(),
+        json!({"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"scene_apply","arguments":{"expected_revision":2,"commands":[{"operation":"set_mesh_vertices","id":"generated","positions":{"v000000":[0,0,1]}}]}}}),
+        json!({"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"scene_inspect","arguments":{"mesh_asset":"generated"}}}),
+        json!({"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"scene_apply","arguments":{"expected_revision":3,"commands":[{"operation":"regenerate_mesh_primitive","id":"generated"}]}}}),
+        json!({"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"scene_inspect","arguments":{"mesh_asset":"generated"}}}),
+        json!({"jsonrpc":"2.0","id":6,"method":"tools/call","params":{"name":"scene_undo","arguments":{"expected_revision":4}}}),
+    ]));
+    let replies = lines(&output);
+    assert_eq!(
+        replies[2]["result"]["structuredContent"]["mesh_asset"]["recipe"]["edited"],
+        true
+    );
+    assert_eq!(
+        replies[4]["result"]["structuredContent"]["mesh_asset"]["recipe"]["edited"],
+        false
+    );
+    assert_eq!(replies[5]["result"]["isError"], false);
+    let saved = Scene::load(&mcp.scene()).unwrap();
+    assert!(
+        saved.mesh_assets["generated"]
+            .recipe
+            .as_ref()
+            .unwrap()
+            .edited
+    );
+    assert_eq!(
+        saved.mesh_assets["generated"].vertices["v000000"],
+        [0., 0., 1.]
+    );
+}

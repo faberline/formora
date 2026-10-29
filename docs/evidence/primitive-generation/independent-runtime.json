@@ -1,0 +1,114 @@
+{
+  "source_repository_reads": "denied by macOS sandbox",
+  "repository_path": "/Users/chrischeng/faberlines/formora",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-primitives.json: Operation not permitted\n",
+  "copied_binary_sha256": "904a0ec4040403a97e839c875e89bf4340f14f97ec2ef3bb381996cbcdfa66d5",
+  "cwd": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-independent-generation-5idnssth",
+  "inputs": [
+    {
+      "kind": "plane",
+      "size": 3.25
+    },
+    {
+      "kind": "cube",
+      "size": 5.125
+    },
+    {
+      "kind": "grid",
+      "size": 4.125,
+      "x_subdivisions": 17,
+      "y_subdivisions": 19
+    },
+    {
+      "kind": "circle",
+      "radius": 0.875,
+      "vertices": 37,
+      "fill_type": "trifan"
+    }
+  ],
+  "results": [
+    {
+      "kind": "plane",
+      "counts": [
+        4,
+        4,
+        1
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 3.25
+        }
+      }
+    },
+    {
+      "kind": "cube",
+      "counts": [
+        8,
+        12,
+        6
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 5.125
+        }
+      }
+    },
+    {
+      "kind": "grid",
+      "counts": [
+        360,
+        682,
+        323
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 4.125,
+          "x_subdivisions": 17,
+          "y_subdivisions": 19
+        }
+      }
+    },
+    {
+      "kind": "circle",
+      "counts": [
+        38,
+        74,
+        37
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 0.875,
+          "vertices": 37
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "full_feature_acceptance": "unrun",
+  "adapter_sha256": "d002cb9192a5466a9e2ac1ad1cf18b6397df1fed2a27839206bef698990ae8de",
+  "contract_sha256": "7aae300f3c41fa360a27f34e08058a13a221c7111a44a7ad39771e684f7dadb2"
+}

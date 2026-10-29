@@ -14,8 +14,8 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
             .inspect(parse::<InspectRequest>(arguments)?)
             .map_err(|e| e.to_string()),
         "scene_apply" => session
-            .apply(parse::<ApplyRequest>(arguments)?)
-            .map(|revision| json!({"revision":revision}))
+            .apply_with_result(parse::<ApplyRequest>(arguments)?)
+            .map(|result| json!(result))
             .map_err(|e| e.to_string()),
         "scene_undo" => session
             .undo(parse::<UndoRequest>(arguments)?)
