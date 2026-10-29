@@ -1,0 +1,1466 @@
+{
+  "scope": "Rust procedural generation, saved parameters and process reload. Finite cases only.",
+  "passed": true,
+  "primitive_cases_per_interface": 20,
+  "boundary_geometry_subchecks_per_interface": 7,
+  "interfaces": [
+    "cli",
+    "official_mcp_sdk"
+  ],
+  "full_feature_acceptance": "unrun",
+  "full_context_acceptance": "unrun",
+  "binary_sha256": "8fa477690941acff645609b02be49759b65d688426ae02f9f5feecc0dc24880b",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "89f019bed0b2073b2628f3634efd90ba583600377ba3bba25edc57bf3c77320e",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "7bd095eb520518bc87e758a1ff224cdc61ce6644e8829dcce971440e805a585d",
+    "src/mesh/primitives.rs": "e3e508a2b164877d38cbfbea42ded0dc5a80ff418aef0fd84280792650a4f33c",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh.rs": "5b59d1ce767fa417e3ab2a985e13e688c918742571b6b3eb202c370ff81ab8e7",
+    "src/preview/math.rs": "a1c1e97e48884f64c5dd97bdc065b3e8b454e6c23ccbff0f697bc1570ad40d71",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "e4bfcd26f46dfa7486e795650106c56604c575db85adb8c6149a5bc50f3f1681",
+    "src/session.rs": "1eca8fad470aff65a80fa5dc7909b332c46518711222546d3468f2d952f1c2ea"
+  },
+  "adapter_files_sha256": {
+    "tools/primitive_reference_smoke.py": "c35ff56560e57d3d0bdb15529a81db0701ebc365a8d1ed3813c2ffa6c34d9263",
+    "tools/polygon_reference_smoke.py": "b862a1417bd83dd5bdcafa2a97431b567b556a97b732746cabaa2100cb704d70",
+    "tools/compare_mesh_reference.py": "ad303a9cbb161a64584e2d733d12bdc6171d901452eb29a28752a20e2abfa396",
+    "docs/contracts/primitive-generation.md": "7aae300f3c41fa360a27f34e08058a13a221c7111a44a7ad39771e684f7dadb2"
+  },
+  "runs": [
+    {
+      "id": "plane_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_default.json",
+      "reference_sha256": "4a9b074581ed6d67d0a9926b498532e37dfd269bb45d3b5a3cd4f3052a510744",
+      "candidate_sha256": "732eb24195666ba6fcb0f1fb9a601d693eb1d8969a2170dfc11159d56a6ef5a7",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_no_uv.json",
+      "reference_sha256": "abb6af3b6964afe8acbdf5ab9b9a4fe6adfb5b4eb1574544b08ab3ea2455f0e4",
+      "candidate_sha256": "2b30c3c08fbc387146695c280329c3e6e749583f63f58a76a3bc00192d80d101",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_placed.json",
+      "reference_sha256": "df975a8fb126a93352cda3093f86bdec64d06edf88f964f1e34da7884fd2a929",
+      "candidate_sha256": "a5f50ac9429719e440dfe79b39f5683627c618e3e0bfbfaa09b8059e881f73f3",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_default.json",
+      "reference_sha256": "950a78dd24c941d8b27b9901d255eb717f0e0d851e0be12186926c64d655edf6",
+      "candidate_sha256": "d782927260094d42a4b355d2561c9700a261ecd22a60302a109b91f1d34f265a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_no_uv.json",
+      "reference_sha256": "bb2f6114f1e124c63319b72f9a8e64732fffd43e39cd70c0d5073eb097b739ac",
+      "candidate_sha256": "aed79def17509700164a6df5dbd1d1bbc892b77a7aca98eeeeb650c33b6bc511",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_placed.json",
+      "reference_sha256": "4ed6cc3b7c99e116609b645c38e97037c316408d4dfe2f1d6d2a3604f948e69e",
+      "candidate_sha256": "4de8305ccaba820f6b3ccca8fc64e4a911d476d676e2b602cc913abc1dc604dc",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 3.5762786865234375e-07,
+      "maximum_world_position_error_metres": 4.551819001719082e-07,
+      "maximum_normal_error": 7.947287627985133e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_default.json",
+      "reference_sha256": "903145a0fa123d67557875ac967c0ebdd9b7a76cda1c0d07ad3a8f7cb55304e2",
+      "candidate_sha256": "6f4de55842333264c9d1cc159988754a917d81294a081293b777c434858039ce",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_no_uv.json",
+      "reference_sha256": "3923aa8e974ed9b0abb888b50e6010ba449fb5493e20872bd54bb17a3164e45b",
+      "candidate_sha256": "37af2616109099289cebf2602dff4eb0f2cbe9e785589b81bfaf6a3aea574c92",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_placed.json",
+      "reference_sha256": "76da9eda0c6c54f4b4985077501444f71b5b99c2d67dbe15aa185739249e9ddb",
+      "candidate_sha256": "c15c4aa112b5044305bc63d408eec358bbb85b0d7423c1dac00b11e383f2e80d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.037581561282643e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_default",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_default.json",
+      "reference_sha256": "dea74fd70ff4037192da1d143606c757a89bf84eacdd32369bccf8d38dbc99c3",
+      "candidate_sha256": "50b9ecbd929ddfd14cd74b0c5d153f5123dadfc52bd7ba51c9127cc0300b0fd6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "grid_no_uv",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_no_uv.json",
+      "reference_sha256": "018870b62c3a4c18f4aa39ba0a895593164347d8c9b8582dc48276e9cb36b3cb",
+      "candidate_sha256": "3e171dd67f7c29caf60e0b578c3b0f7231b7237a7c88e3d0a1b753b880810c4f",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_placed",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_placed.json",
+      "reference_sha256": "edb693d3e221975f378f40364a5ac26b04833c87c529c2c393604e3508824ccc",
+      "candidate_sha256": "fa479cfd2ecd186f8110ef959336b7461a4d57a5acc187fbe7f57920b7f0d05b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "plane_size",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_size.json",
+      "reference_sha256": "4a080326881ff743092d335b562946ed2bc19c838957ba55fcfa538f004a936f",
+      "candidate_sha256": "2b693bfe8c083524504de929c66a4290d5ecf9784d940207155e97c5edbf6663",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_size",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_size.json",
+      "reference_sha256": "38c7cc2353567e089218240e9d407ba3a20ea1e30565431abe49965c1dc6bd37",
+      "candidate_sha256": "bdfc2428ded54339456c244d2b794c4e45e74a80eca6a96a7dc767c988828157",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_nothing",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_nothing.json",
+      "reference_sha256": "e59caa3266f76e19372e6d4b9b00e7cb50cefba1aff927c7cc463880d06e1280",
+      "candidate_sha256": "f48d85b11f47336be2cdaf398c0da61566c83c6dc346b8a8a336c2272bc5ddc9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_ngon",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_ngon.json",
+      "reference_sha256": "844aac94721d7a35e692f2ff26902f815fe604714ba1d303c91a76ebd847d7a0",
+      "candidate_sha256": "793916ec784268bdb524927cca7354be346449cc1464a28d03bee71013ebadfb",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_trifan",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_trifan.json",
+      "reference_sha256": "9fc3ecc3748fd5e5d838a2762e946dece286ab6c8b1990c7ecb820e5d2e3905e",
+      "candidate_sha256": "ae99565d53bc469045d20f719c5a19e907c7c1387cc6c13b10633ab457f2bcf9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_minimum.json",
+      "reference_sha256": "81778d68a0a242ee7ad82d22b5bf0c7567880735438ae62f61f30ad70ea93dfa",
+      "candidate_sha256": "12aa8b4082bdbac33cda6f298cbbe11d584f53e03c5f1bae4a990785d3c6c34d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.5,
+          "vertices": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_rectangular",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_rectangular.json",
+      "reference_sha256": "b8bcea3f21e953eff65e775f370efe964aaa95fe5dd267ba1f735242cb146542",
+      "candidate_sha256": "116dc12e140781241f91b90fcf344a5a79c43d7b2e9fbd38cc513da3af542aed",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 3.5,
+          "x_subdivisions": 3,
+          "y_subdivisions": 5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_minimum",
+      "interface": "cli",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_minimum.json",
+      "reference_sha256": "d21280da2b1aa10c4e63fff2d769bb5fa8f7955aaa392f02d62e302667886ca7",
+      "candidate_sha256": "fe083f26521c24cb7fcd7e843a11b85c149597549dabf3a6535d0c4b23ef70d9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 1.0,
+          "x_subdivisions": 1,
+          "y_subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_radius",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_radius.json",
+      "reference_sha256": "a9f186cbdb50a172c97db79c0a180f4e01ae237d94d7b5f3d2bdd59520a37fcf",
+      "candidate_sha256": "8d2b17155c2129d96ac783fcf64e3a8dd8d44b20c905a0770509edbb916d32c6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-cube_zero_size.json",
+      "reference_sha256": "bd422e91fd482ba0e62661dff1f1cdafa523182d9e6cf71c3c5651fb20409f3f",
+      "candidate_sha256": "66294bc224739b17903a5897dbeb106cd4f8862d88db8d007f6d54d4047e8e8e",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-grid_zero_size.json",
+      "reference_sha256": "2dfd19f0d4c8f5469a59f71958f71c82a3c455565aedd7388e55c0ba24e93961",
+      "candidate_sha256": "305698a301412efd8ff63b4ad5d3f410e61a3f416bf33c5d7a9262f9ff1449ae",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 0.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "plane_zero_size",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-plane_zero_size.json",
+      "reference_sha256": "5baaddf5d094f861e6d5de9b2f74f0b4aff841623a97eb345c3a972c50acfc15",
+      "candidate_sha256": "c7459df54bcd88ed95e1db1502e48530814597012c5858f07005efc5d092064d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_nothing",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_nothing.json",
+      "reference_sha256": "435e6ea93f3f859081d978af792702f6c752213666fdc0119da3211dcd9f01e0",
+      "candidate_sha256": "5a07738d911ffa8111c7c506d6697af987b7060b96db74896fed0f2ac0f10e30",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_ngon",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_ngon.json",
+      "reference_sha256": "06ef98e7488179b5d11d8715d145695339a6b256a9adb4bec69ce554c84cac61",
+      "candidate_sha256": "56ac898ed968ff3d92446c31a4162d82cd99ef9e991e71c7deb0c043328e0492",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 14,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "circle_zero_trifan",
+      "interface": "cli",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "cli-circle_zero_trifan.json",
+      "reference_sha256": "2ba52b40663f29be1f6921a07ede854406b52aaab1b0f2134d94a53df450c4b1",
+      "candidate_sha256": "5271cabb2257fa9bd5ba1ecbe0ac320a1eb9b75b239eadfc69e336bdc050128d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 42,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "plane_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_default.json",
+      "reference_sha256": "4a9b074581ed6d67d0a9926b498532e37dfd269bb45d3b5a3cd4f3052a510744",
+      "candidate_sha256": "732eb24195666ba6fcb0f1fb9a601d693eb1d8969a2170dfc11159d56a6ef5a7",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_no_uv.json",
+      "reference_sha256": "abb6af3b6964afe8acbdf5ab9b9a4fe6adfb5b4eb1574544b08ab3ea2455f0e4",
+      "candidate_sha256": "2b30c3c08fbc387146695c280329c3e6e749583f63f58a76a3bc00192d80d101",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "plane_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_placed.json",
+      "reference_sha256": "df975a8fb126a93352cda3093f86bdec64d06edf88f964f1e34da7884fd2a929",
+      "candidate_sha256": "a5f50ac9429719e440dfe79b39f5683627c618e3e0bfbfaa09b8059e881f73f3",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_default.json",
+      "reference_sha256": "950a78dd24c941d8b27b9901d255eb717f0e0d851e0be12186926c64d655edf6",
+      "candidate_sha256": "d782927260094d42a4b355d2561c9700a261ecd22a60302a109b91f1d34f265a",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_no_uv.json",
+      "reference_sha256": "bb2f6114f1e124c63319b72f9a8e64732fffd43e39cd70c0d5073eb097b739ac",
+      "candidate_sha256": "aed79def17509700164a6df5dbd1d1bbc892b77a7aca98eeeeb650c33b6bc511",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_placed.json",
+      "reference_sha256": "4ed6cc3b7c99e116609b645c38e97037c316408d4dfe2f1d6d2a3604f948e69e",
+      "candidate_sha256": "4de8305ccaba820f6b3ccca8fc64e4a911d476d676e2b602cc913abc1dc604dc",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.5,
+            0.75,
+            2.0
+          ],
+          "size": 2.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 3.5762786865234375e-07,
+      "maximum_world_position_error_metres": 4.551819001719082e-07,
+      "maximum_normal_error": 7.947287627985133e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_default.json",
+      "reference_sha256": "903145a0fa123d67557875ac967c0ebdd9b7a76cda1c0d07ad3a8f7cb55304e2",
+      "candidate_sha256": "6f4de55842333264c9d1cc159988754a917d81294a081293b777c434858039ce",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_no_uv.json",
+      "reference_sha256": "3923aa8e974ed9b0abb888b50e6010ba449fb5493e20872bd54bb17a3164e45b",
+      "candidate_sha256": "37af2616109099289cebf2602dff4eb0f2cbe9e785589b81bfaf6a3aea574c92",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.9802322387695312e-08,
+      "maximum_world_position_error_metres": 2.9802322387695312e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_placed.json",
+      "reference_sha256": "76da9eda0c6c54f4b4985077501444f71b5b99c2d67dbe15aa185739249e9ddb",
+      "candidate_sha256": "c15c4aa112b5044305bc63d408eec358bbb85b0d7423c1dac00b11e383f2e80d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.0,
+          "vertices": 32
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.037581561282643e-07,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_default",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_default.json",
+      "reference_sha256": "dea74fd70ff4037192da1d143606c757a89bf84eacdd32369bccf8d38dbc99c3",
+      "candidate_sha256": "50b9ecbd929ddfd14cd74b0c5d153f5123dadfc52bd7ba51c9127cc0300b0fd6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "grid_no_uv",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_no_uv.json",
+      "reference_sha256": "018870b62c3a4c18f4aa39ba0a895593164347d8c9b8582dc48276e9cb36b3cb",
+      "candidate_sha256": "3e171dd67f7c29caf60e0b578c3b0f7231b7237a7c88e3d0a1b753b880810c4f",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": false,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 1.1920928955078125e-07,
+      "maximum_world_position_error_metres": 1.1920928955078125e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_placed",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_placed.json",
+      "reference_sha256": "edb693d3e221975f378f40364a5ac26b04833c87c529c2c393604e3508824ccc",
+      "candidate_sha256": "fa479cfd2ecd186f8110ef959336b7461a4d57a5acc187fbe7f57920b7f0d05b",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 2.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 2.980232238769531e-07,
+      "maximum_world_position_error_metres": 3.7658499751902497e-07,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "plane_size",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_size.json",
+      "reference_sha256": "4a080326881ff743092d335b562946ed2bc19c838957ba55fcfa538f004a936f",
+      "candidate_sha256": "2b693bfe8c083524504de929c66a4290d5ecf9784d940207155e97c5edbf6663",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_size",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_size.json",
+      "reference_sha256": "38c7cc2353567e089218240e9d407ba3a20ea1e30565431abe49965c1dc6bd37",
+      "candidate_sha256": "bdfc2428ded54339456c244d2b794c4e45e74a80eca6a96a7dc767c988828157",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 3.5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_nothing",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_nothing.json",
+      "reference_sha256": "e59caa3266f76e19372e6d4b9b00e7cb50cefba1aff927c7cc463880d06e1280",
+      "candidate_sha256": "f48d85b11f47336be2cdaf398c0da61566c83c6dc346b8a8a336c2272bc5ddc9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_ngon",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_ngon.json",
+      "reference_sha256": "844aac94721d7a35e692f2ff26902f815fe604714ba1d303c91a76ebd847d7a0",
+      "candidate_sha256": "793916ec784268bdb524927cca7354be346449cc1464a28d03bee71013ebadfb",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_trifan",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_trifan.json",
+      "reference_sha256": "9fc3ecc3748fd5e5d838a2762e946dece286ab6c8b1990c7ecb820e5d2e3905e",
+      "candidate_sha256": "ae99565d53bc469045d20f719c5a19e907c7c1387cc6c13b10633ab457f2bcf9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 1.25,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 5.960464477539063e-08,
+      "maximum_world_position_error_metres": 5.960464477539063e-08,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "circle_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_minimum.json",
+      "reference_sha256": "81778d68a0a242ee7ad82d22b5bf0c7567880735438ae62f61f30ad70ea93dfa",
+      "candidate_sha256": "12aa8b4082bdbac33cda6f298cbbe11d584f53e03c5f1bae4a990785d3c6c34d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.5,
+          "vertices": 3
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_rectangular",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_rectangular.json",
+      "reference_sha256": "b8bcea3f21e953eff65e775f370efe964aaa95fe5dd267ba1f735242cb146542",
+      "candidate_sha256": "116dc12e140781241f91b90fcf344a5a79c43d7b2e9fbd38cc513da3af542aed",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 3.5,
+          "x_subdivisions": 3,
+          "y_subdivisions": 5
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_minimum",
+      "interface": "mcp",
+      "scope": "primitive_geometry",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_minimum.json",
+      "reference_sha256": "d21280da2b1aa10c4e63fff2d769bb5fa8f7955aaa392f02d62e302667886ca7",
+      "candidate_sha256": "fe083f26521c24cb7fcd7e843a11b85c149597549dabf3a6535d0c4b23ef70d9",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 1.0,
+          "x_subdivisions": 1,
+          "y_subdivisions": 1
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_radius",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_radius.json",
+      "reference_sha256": "a9f186cbdb50a172c97db79c0a180f4e01ae237d94d7b5f3d2bdd59520a37fcf",
+      "candidate_sha256": "8d2b17155c2129d96ac783fcf64e3a8dd8d44b20c905a0770509edbb916d32c6",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "cube_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-cube_zero_size.json",
+      "reference_sha256": "bd422e91fd482ba0e62661dff1f1cdafa523182d9e6cf71c3c5651fb20409f3f",
+      "candidate_sha256": "66294bc224739b17903a5897dbeb106cd4f8862d88db8d007f6d54d4047e8e8e",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "grid_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-grid_zero_size.json",
+      "reference_sha256": "2dfd19f0d4c8f5469a59f71958f71c82a3c455565aedd7388e55c0ba24e93961",
+      "candidate_sha256": "305698a301412efd8ff63b4ad5d3f410e61a3f416bf33c5d7a9262f9ff1449ae",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 0.0,
+          "x_subdivisions": 10,
+          "y_subdivisions": 10
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 5.960464477539063e-08
+    },
+    {
+      "id": "plane_zero_size",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-plane_zero_size.json",
+      "reference_sha256": "5baaddf5d094f861e6d5de9b2f74f0b4aff841623a97eb345c3a972c50acfc15",
+      "candidate_sha256": "c7459df54bcd88ed95e1db1502e48530814597012c5858f07005efc5d092064d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 0.0
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_nothing",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_nothing.json",
+      "reference_sha256": "435e6ea93f3f859081d978af792702f6c752213666fdc0119da3211dcd9f01e0",
+      "candidate_sha256": "5a07738d911ffa8111c7c506d6697af987b7060b96db74896fed0f2ac0f10e30",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "nothing",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "circle_zero_ngon",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_ngon.json",
+      "reference_sha256": "06ef98e7488179b5d11d8715d145695339a6b256a9adb4bec69ce554c84cac61",
+      "candidate_sha256": "56ac898ed968ff3d92446c31a4162d82cd99ef9e991e71c7deb0c043328e0492",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "ngon",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 14,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    },
+    {
+      "id": "circle_zero_trifan",
+      "interface": "mcp",
+      "scope": "boundary_geometry_only",
+      "status": "passed",
+      "full_context_acceptance": "unrun",
+      "file": "mcp-circle_zero_trifan.json",
+      "reference_sha256": "2ba52b40663f29be1f6921a07ede854406b52aaab1b0f2134d94a53df450c4b1",
+      "candidate_sha256": "5271cabb2257fa9bd5ba1ecbe0ac320a1eb9b75b239eadfc69e336bdc050128d",
+      "generated_recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 0.0,
+          "vertices": 7
+        }
+      },
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 0.0,
+      "maximum_face_corner_uv_error": null,
+      "undefined_reference_uv_components": 42,
+      "compared_finite_uv_components": 0,
+      "undefined_uv_fallback_verified": true
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Polygon asset verification
 
+Compiler qualification correction: the historical local Rust 1.85 claim below was withdrawn after a child-tool PATH audit. Use the [actual minimum-version recheck](dependency-minimum-rust.md) for the exact pending candidate and its verified tools. The old records remain historical functional evidence. Required CI and integrated acceptance remain open.
+
 Scope: [issue #32](https://github.com/faberline/formora/issues/32).
 The [fixed contract](../contracts/polygon-assets.md) was committed as `dfd8f9d` before feature code.
 This does not complete a product milestone. The full source baseline and predecessor gates remain open.

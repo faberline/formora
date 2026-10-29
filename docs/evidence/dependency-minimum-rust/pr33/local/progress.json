@@ -1,0 +1,157 @@
+[
+  {
+    "name": "format",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "fmt",
+      "--all",
+      "--check"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75679430711208,
+    "end_ns": 75679524124083
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "clippy",
+      "--locked",
+      "--all-features",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75679524762500,
+    "end_ns": 75681314617916
+  },
+  {
+    "name": "rust-tests",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "test",
+      "--locked",
+      "--all-features",
+      "--all-targets"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75681315255833,
+    "end_ns": 75690259994166,
+    "tests_passed": 79
+  },
+  {
+    "name": "python-tests",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75690260824916,
+    "end_ns": 75695292627916,
+    "tests_passed": 32
+  },
+  {
+    "name": "build",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "build",
+      "--locked",
+      "--all-features"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75695293377583,
+    "end_ns": 75695414550333
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "python3",
+      "tools/mcp_smoke.py",
+      "/private/tmp/formora-dependency-target185/debug/formora"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75695415165750,
+    "end_ns": 75696762467750
+  },
+  {
+    "name": "strict-baseline",
+    "command": [
+      "/private/tmp/formora-dependency-target185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      ".",
+      "--strict"
+    ],
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "command_contract_met": true,
+    "start_ns": 75696763179791,
+    "end_ns": 75697769431750
+  },
+  {
+    "name": "polygon-payload",
+    "command": [
+      "python3",
+      "tools/polygon_reference_smoke.py",
+      "/private/tmp/formora-dependency-target185/debug/formora",
+      "/private/tmp/formora-dependency-pr33-actual185/polygon-payload"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75697770250416,
+    "end_ns": 75707386921041
+  },
+  {
+    "name": "triangle-performance",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "run",
+      "--locked",
+      "--release",
+      "--example",
+      "mesh_asset_bench"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75707387620625,
+    "end_ns": 75716144293625
+  },
+  {
+    "name": "polygon-performance",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "run",
+      "--locked",
+      "--release",
+      "--example",
+      "polygon_asset_bench"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75716146369708,
+    "end_ns": 75720943110541
+  }
+]

@@ -4,6 +4,7 @@ Scope: issue #40. The fixed contract is commit `673a7a4`.
 The implementation candidate is `7848233`.
 The branch includes pending PRs #33, #35, #37 and #39.
 This does not integrate those changes into main.
+The [dependency toolchain audit](dependency-minimum-rust.md) now qualifies each exact pending dependency with actual Rust 1.85 tools.
 Every full feature and milestone acceptance gate remains open.
 
 ## Measured local results

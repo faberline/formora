@@ -1,0 +1,131 @@
+[
+  {
+    "name": "format",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "fmt",
+      "--all",
+      "--check"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75809203214916,
+    "end_ns": 75809363765916
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "clippy",
+      "--locked",
+      "--all-features",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75809364370041,
+    "end_ns": 75811472146125
+  },
+  {
+    "name": "rust-tests",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "test",
+      "--locked",
+      "--all-features",
+      "--all-targets"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75811472710750,
+    "end_ns": 75825045992916,
+    "tests_passed": 71
+  },
+  {
+    "name": "python-tests",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75825047051541,
+    "end_ns": 75846616608250,
+    "tests_passed": 46
+  },
+  {
+    "name": "build",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "build",
+      "--locked",
+      "--all-features"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75846618607000,
+    "end_ns": 75847422531458
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "python3",
+      "tools/mcp_smoke.py",
+      "/private/tmp/formora-dependency-target185/debug/formora"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75847424056916,
+    "end_ns": 75850930632416
+  },
+  {
+    "name": "strict-baseline",
+    "command": [
+      "/private/tmp/formora-dependency-target185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      ".",
+      "--strict"
+    ],
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "command_contract_met": true,
+    "start_ns": 75850931445541,
+    "end_ns": 75854330751291
+  },
+  {
+    "name": "selection-reference",
+    "command": [
+      "python3",
+      "tools/compare_selection_reference.py",
+      "--suite",
+      "baseline/fixtures/mesh-selection.json",
+      "--reference",
+      "baseline/reference/blender-5.2.3/mesh-selection",
+      "--repeat",
+      "baseline/reference/blender-5.2.3/mesh-selection-repeat",
+      "--output",
+      "/private/tmp/formora-dependency-pr39-actual185/selection-reference.json"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75854333899791,
+    "end_ns": 75862004701333
+  }
+]

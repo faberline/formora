@@ -1,0 +1,187 @@
+[
+  {
+    "name": "format",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "fmt",
+      "--all",
+      "--check"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75374642457333,
+    "end_ns": 75374757042583
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "clippy",
+      "--locked",
+      "--all-features",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75374757592666,
+    "end_ns": 75395277547041
+  },
+  {
+    "name": "rust-tests",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "test",
+      "--locked",
+      "--all-features",
+      "--all-targets"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75395278199000,
+    "end_ns": 75427686417875,
+    "tests_passed": 85
+  },
+  {
+    "name": "python-tests",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75427687227500,
+    "end_ns": 75432838918000,
+    "tests_passed": 33
+  },
+  {
+    "name": "build",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "build",
+      "--locked",
+      "--all-features"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75432840332375,
+    "end_ns": 75433017152875
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "python3",
+      "tools/mcp_smoke.py",
+      "/private/tmp/formora-dependency-target185/debug/formora"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75433017760541,
+    "end_ns": 75435104852708
+  },
+  {
+    "name": "strict-baseline",
+    "command": [
+      "/private/tmp/formora-dependency-target185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      ".",
+      "--strict"
+    ],
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "command_contract_met": true,
+    "start_ns": 75435105541791,
+    "end_ns": 75436127753625
+  },
+  {
+    "name": "polygon-payload",
+    "command": [
+      "python3",
+      "tools/polygon_reference_smoke.py",
+      "/private/tmp/formora-dependency-target185/debug/formora",
+      "/private/tmp/formora-dependency-pr35-actual185/polygon-payload"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75436128562583,
+    "end_ns": 75446467747500
+  },
+  {
+    "name": "triangle-performance",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "run",
+      "--locked",
+      "--release",
+      "--example",
+      "mesh_asset_bench"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75446468473416,
+    "end_ns": 75460058807333
+  },
+  {
+    "name": "polygon-performance",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "run",
+      "--locked",
+      "--release",
+      "--example",
+      "polygon_asset_bench"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75460059572916,
+    "end_ns": 75462747246625
+  },
+  {
+    "name": "primitive-comparison",
+    "command": [
+      "python3",
+      "tools/primitive_reference_smoke.py",
+      "/private/tmp/formora-dependency-target185/debug/formora",
+      "/private/tmp/formora-dependency-pr35-actual185/primitive-comparison"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75462747962333,
+    "end_ns": 75467054907041
+  },
+  {
+    "name": "primitive-performance",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/cargo",
+      "run",
+      "--locked",
+      "--release",
+      "--example",
+      "primitive_generation_bench"
+    ],
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "command_contract_met": true,
+    "start_ns": 75467055757458,
+    "end_ns": 75469315357791
+  }
+]
