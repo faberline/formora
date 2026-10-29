@@ -1,0 +1,19 @@
+[
+  "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+  "--edition=2024",
+  "--crate-name",
+  "formora_transform_performance",
+  "-C",
+  "opt-level=3",
+  "-C",
+  "debug-assertions=no",
+  "-L",
+  "dependency=/private/tmp/formora-target-actual185/release/deps",
+  "--extern",
+  "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+  "--extern",
+  "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+  "/private/tmp/formora-transform-performance.rs",
+  "-o",
+  "/private/tmp/formora-undefined-performance-binary"
+]

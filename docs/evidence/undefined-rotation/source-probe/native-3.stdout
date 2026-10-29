@@ -1,0 +1,102 @@
+
+/Applications/Blender.app/Contents/MacOS/Blender:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+00000001024ffc34 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf>:
+1024ffc34: d10183ff    	sub	sp, sp, #0x60
+1024ffc38: a90357f6    	stp	x22, x21, [sp, #0x30]
+1024ffc3c: a9044ff4    	stp	x20, x19, [sp, #0x40]
+1024ffc40: a9057bfd    	stp	x29, x30, [sp, #0x50]
+1024ffc44: 910143fd    	add	x29, sp, #0x50
+1024ffc48: b0028e68    	adrp	x8, 0x1076cc000 <idct16_shift_2+0x1076cbff4>
+1024ffc4c: f9425908    	ldr	x8, [x8, #0x4b0]
+1024ffc50: f9400108    	ldr	x8, [x8]
+1024ffc54: f90017e8    	str	x8, [sp, #0x28]
+1024ffc58: b9409808    	ldr	w8, [x0, #0x98]
+1024ffc5c: 36000988    	tbz	w8, #0x0, 0x1024ffd8c <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x158>
+1024ffc60: b4000362    	cbz	x2, 0x1024ffccc <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x98>
+1024ffc64: 3940b009    	ldrb	w9, [x0, #0x2c]
+1024ffc68: 370003a9    	tbnz	w9, #0x0, 0x1024ffcdc <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0xa8>
+1024ffc6c: 91119009    	add	x9, x0, #0x464
+1024ffc70: b944dc0a    	ldr	w10, [x0, #0x4dc]
+1024ffc74: 5280050b    	mov	w11, #0x28              ; =40
+1024ffc78: 9bab7d4a    	umull	x10, w10, w11
+1024ffc7c: 786a692a    	ldrh	w10, [x9, x10]
+1024ffc80: 710ffd5f    	cmp	w10, #0x3ff
+1024ffc84: 54000041    	b.ne	0x1024ffc8c <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x58>
+1024ffc88: 7940012a    	ldrh	w10, [x9]
+1024ffc8c: 7100115f    	cmp	w10, #0x4
+1024ffc90: 540003a1    	b.ne	0x1024ffd04 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0xd0>
+1024ffc94: 79405009    	ldrh	w9, [x0, #0x28]
+1024ffc98: 5280280a    	mov	w10, #0x140             ; =320
+1024ffc9c: 6a0a013f    	tst	w9, w10
+1024ffca0: 54000320    	b.eq	0x1024ffd04 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0xd0>
+1024ffca4: a940242a    	ldp	x10, x9, [x1]
+1024ffca8: cb0a004a    	sub	x10, x2, x10
+1024ffcac: d343fd4a    	lsr	x10, x10, #3
+1024ffcb0: d290a60b    	mov	x11, #0x8530            ; =34096
+1024ffcb4: f2aa3d6b    	movk	x11, #0x51eb, lsl #16
+1024ffcb8: f2c3d70b    	movk	x11, #0x1eb8, lsl #32
+1024ffcbc: f2fd70ab    	movk	x11, #0xeb85, lsl #48
+1024ffcc0: 9b0b2549    	madd	x9, x10, x11, x9
+1024ffcc4: 91035133    	add	x19, x9, #0xd4
+1024ffcc8: 14000010    	b	0x1024ffd08 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0xd4>
+1024ffccc: f9400001    	ldr	x1, [x0]
+1024ffcd0: f9400022    	ldr	x2, [x1]
+1024ffcd4: 3940b009    	ldrb	w9, [x0, #0x2c]
+1024ffcd8: 3607fca9    	tbz	w9, #0x0, 0x1024ffc6c <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x38>
+1024ffcdc: 910013f3    	add	x19, sp, #0x4
+1024ffce0: aa0003f5    	mov	x21, x0
+1024ffce4: 910013e0    	add	x0, sp, #0x4
+1024ffce8: 91040021    	add	x1, x1, #0x100
+1024ffcec: 91023042    	add	x2, x2, #0x8c
+1024ffcf0: aa0303f4    	mov	x20, x3
+1024ffcf4: 978e2f72    	bl	0x10088babc <__ZN7blender11mul_m3_m3m3EPA3_fPA3_KfS4_>
+1024ffcf8: aa1403e3    	mov	x3, x20
+1024ffcfc: b9409aa8    	ldr	w8, [x21, #0x98]
+1024ffd00: 14000002    	b	0x1024ffd08 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0xd4>
+1024ffd04: 91023053    	add	x19, x2, #0x8c
+1024ffd08: 121f0908    	and	w8, w8, #0xe
+1024ffd0c: 7100311f    	cmp	w8, #0xc
+1024ffd10: 540003e8    	b.hi	0x1024ffd8c <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x158>
+1024ffd14: 52800029    	mov	w9, #0x1                ; =1
+1024ffd18: 1ac82129    	lsl	w9, w9, w8
+1024ffd1c: 5280280a    	mov	w10, #0x140             ; =320
+1024ffd20: 6a0a013f    	tst	w9, w10
+1024ffd24: 54000221    	b.ne	0x1024ffd68 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x134>
+1024ffd28: 5280820a    	mov	w10, #0x410             ; =1040
+1024ffd2c: 6a0a013f    	tst	w9, w10
+1024ffd30: 54000141    	b.ne	0x1024ffd58 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x124>
+1024ffd34: 52800029    	mov	w9, #0x1                ; =1
+1024ffd38: 1ac82128    	lsl	w8, w9, w8
+1024ffd3c: 52820089    	mov	w9, #0x1004             ; =4100
+1024ffd40: 6a09011f    	tst	w8, w9
+1024ffd44: 54000240    	b.eq	0x1024ffd8c <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x158>
+1024ffd48: 52800108    	mov	w8, #0x8                ; =8
+1024ffd4c: 5280008a    	mov	w10, #0x4               ; =4
+1024ffd50: aa1303e9    	mov	x9, x19
+1024ffd54: 14000008    	b	0x1024ffd74 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x140>
+1024ffd58: 91003269    	add	x9, x19, #0xc
+1024ffd5c: 52800288    	mov	w8, #0x14               ; =20
+1024ffd60: 5280020a    	mov	w10, #0x10              ; =16
+1024ffd64: 14000004    	b	0x1024ffd74 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x140>
+1024ffd68: 91006269    	add	x9, x19, #0x18
+1024ffd6c: 52800408    	mov	w8, #0x20               ; =32
+1024ffd70: 5280038a    	mov	w10, #0x1c              ; =28
+1024ffd74: bd400120    	ldr	s0, [x9]
+1024ffd78: bd000060    	str	s0, [x3]
+1024ffd7c: bc6a6a60    	ldr	s0, [x19, x10]
+1024ffd80: bd000460    	str	s0, [x3, #0x4]
+1024ffd84: bc686a60    	ldr	s0, [x19, x8]
+1024ffd88: bd000860    	str	s0, [x3, #0x8]
+1024ffd8c: f94017e8    	ldr	x8, [sp, #0x28]
+1024ffd90: b0028e69    	adrp	x9, 0x1076cc000 <idct16_shift_2+0x1076cbff4>
+1024ffd94: f9425929    	ldr	x9, [x9, #0x4b0]
+1024ffd98: f9400129    	ldr	x9, [x9]
+1024ffd9c: eb08013f    	cmp	x9, x8
+1024ffda0: 540000c1    	b.ne	0x1024ffdb8 <__ZN7blender2ed9transformL24applyObjectConstraintRotEPKNS1_9TransInfoEPKNS1_18TransDataContainerEPKNS1_9TransDataEPf+0x184>
+1024ffda4: a9457bfd    	ldp	x29, x30, [sp, #0x50]
+1024ffda8: a9444ff4    	ldp	x20, x19, [sp, #0x40]
+1024ffdac: a94357f6    	ldp	x22, x21, [sp, #0x30]
+1024ffdb0: 910183ff    	add	sp, sp, #0x60

@@ -130,6 +130,7 @@ pub struct Request {
     #[serde(default)]
     pub pivot: Pivot,
     pub center_override: Option<[f64; 3]>,
+    /// Rotation rejects three true flags. Use all false for an unconstrained rotation.
     #[serde(default)]
     pub constraint_axis: [bool; 3],
     pub proportional: Option<Proportional>,
@@ -204,6 +205,12 @@ fn rotation(axis: Vector, radians: f32) -> Matrix {
 
 /// Compute on a private asset. Publish only after all calculations validate.
 pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
+    if matches!(&request.change, Change::Rotate { .. }) && request.constraint_axis == [true; 3] {
+        return Err(SceneError(
+            "mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior"
+                .into(),
+        ));
+    }
     let context = context::Context::new(scene, request)?;
     let asset = &scene.mesh_assets[&context.asset];
     let influence = influence::calculate(&context, request)?;

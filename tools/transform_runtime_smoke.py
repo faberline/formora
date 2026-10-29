@@ -13,6 +13,7 @@ import tempfile
 
 from compare_transform_reference import compare as verify_source, digest, load, tree, stochastic
 from normal_runtime_smoke import asset_from_case
+from transform_source_policy import POLICY, undefined_rotation, require_rejection
 
 DOMAINS={'VERT':'vertex','EDGE':'edge','FACE':'face'}
 PIVOTS={'MEDIAN_POINT':'median','BOUNDING_BOX_CENTER':'bounds','CURSOR':'cursor','ACTIVE_ELEMENT':'active','INDIVIDUAL_ORIGINS':'individual'}
@@ -168,6 +169,9 @@ def compare_output(run,reference,before,after,result,error,request):
     assert set(before)==set(after)==RUNTIME_KEYS, 'runtime snapshot fields are incomplete'
     keys=sorted(RUNTIME_KEYS)
     tree({k:reference['before'][k] for k in keys},before,path='before')
+    if undefined_rotation(run):
+        assert request==request_for(run), 'policy rejection request differs from the authored mapping'
+        return require_rejection(run,request,before,after,result,error)
     if error is not None:
         assert error.strip()=='mesh transform has no visible selected vertices' and reference['result']['status']==['CANCELLED'],error
         assert before==after
@@ -207,7 +211,7 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
         for interface in interfaces:
             for index,case in enumerate(cases):
                 scene=Path(temporary)/(interface+'-'+case['id']+'.json');initialized,error=cli(scene,'init');assert error is None
-                create=setup(suite,case);request=request_for(case)
+                create=setup(suite,case);request=request_for(case);policy_evidence={}
                 async def exercise(call):
                     result,error=await call('scene_apply',create);assert error is None,(case['id'],error)
                     before_query,error=await call('scene_inspect',{'mesh_asset':'mesh','normals':True});assert error is None
@@ -219,7 +223,12 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
                     after_scene,inspect_error=await call('scene_inspect',{});assert inspect_error is None
                     after_world,inspect_error=await call('scene_inspect',{'entity':'target','world':True});assert inspect_error is None
                     assert before_scene['scene']['entities']==after_scene['scene']['entities']
-                    if error is not None:assert saved==scene.read_bytes() and before_scene==after_scene
+                    if error is not None:
+                        assert saved==scene.read_bytes() and before_scene==after_scene
+                        if undefined_rotation(case):
+                            policy_evidence.update({'before_scene':before_scene,'after_scene':after_scene,
+                                'saved_scene_before_sha256':hashlib.sha256(saved).hexdigest(),
+                                'saved_scene_after_sha256':digest(scene)})
                     else:assert after_query['revision']==2
                     return before,snapshot(after_query,after_scene['scene'],after_world),result,error,before_world,after_world
                 if interface=='cli':
@@ -240,13 +249,20 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
                             before,after,result,error,before_world,after_world=await exercise(call)
                 try:comparison=compare_output(case,load(reference/(case['id']+'.json')),before,after,result,error,request);status='passed';failure=None
                 except (AssertionError,ValueError,KeyError) as e:comparison={};status='failed';failure=str(e)
-                path=output/(interface+'-'+case['id']+'.json');path.write_text(json.dumps({'case':case,'setup':create,'request':request,'before':before,'after':after,'world_queries':{'before':before_world,'after':after_world},'result':result,'error':error,'status':status,'comparison_error':failure},allow_nan=False)+'\n')
+                path=output/(interface+'-'+case['id']+'.json');data={'case':case,'setup':create,'request':request,'before':before,'after':after,'world_queries':{'before':before_world,'after':after_world},'result':result,'error':error,'status':status,'comparison_error':failure}
+                if undefined_rotation(case):data.update({'comparison_policy':comparison,'policy_evidence':policy_evidence})
+                path.write_text(json.dumps(data,allow_nan=False)+'\n')
                 records.append({'id':case['id'],'interface':interface,'status':status,'error':failure,'file':path.name,'sha256':digest(path),'reference_sha256':digest(reference/(case['id']+'.json')),**comparison})
                 if (index+1)%50==0:print(json.dumps({'interface':interface,'executed':index+1,'failed':sum(r['status']=='failed' for r in records)}),flush=True)
     assert hashes=={str(p.relative_to(root)):digest(p) for p in sorted(paths)} and binary_sha==digest(binary),'capture inputs changed'
     full=not case_ids and set(interfaces)=={'cli','official_mcp_sdk'};passed=all(r['status']=='passed' for r in records)
+    authored={case['id']:case for case in cases};defined=[r for r in records if r.get('comparison_kind')!=POLICY]
     report={'passed':passed,'checks':len(records),'scope':'full_1203_cases_both_interfaces' if full else 'focused_diagnostic',
             'required_full_gate_passed':full and passed and len(records)==2406,'binary_sha256':binary_sha,'input_hashes':hashes,'runs':records,
+            'defined_deterministic_source_checks':sum(authored[r['id']]['repeat_policy']=='deterministic' for r in defined),
+            'stochastic_support_checks':sum(authored[r['id']]['repeat_policy']!='deterministic' for r in defined),
+            'approved_source_rejection_checks':len(records)-len(defined),
+            'source_rejection_policy':'human-approved exact rejection, not a numeric source match',
             'source_reference_checked':source_checked,'product_acceptance':'unrun','three_platform_ci':'unrun','integrated_acceptance':'unrun'}
     (output/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:report[k] for k in ['passed','checks','scope','required_full_gate_passed']}))
     if not passed:raise SystemExit(1)

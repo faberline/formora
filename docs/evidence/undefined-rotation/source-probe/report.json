@@ -1,0 +1,151 @@
+{
+  "passed": true,
+  "source_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "input_hashes": {
+    "baseline/sources/undefined-rotation/transform.hh": "b5e2afd32d93a4c03504cbfb18c1177c3b6e5b8bfb449b71fddeb55158577e51",
+    "baseline/sources/mesh-transform-core/transform_constraints.cc": "f4e7a61b69fec4bf226f7c39c4ae841366d1a824afe4343a55bfee9fccb0e791",
+    "baseline/sources/mesh-transform/transform_mode.cc": "f8a5e48c4976b6202eb7220c89c49146ffbfeefd2f396ff52e0bb2a76305ac52",
+    "baseline/sources/mesh-transform/transform_mode_rotate.cc": "72945f4b60d9a6e198ba12d1a058fcd6d130942261a9d49b5f348fcee388787c",
+    "docs/contracts/undefined-rotation-rejection.md": "c01d8a57a16b742fbfd3bae1d4471cca1ff9e512b8205d7005dde36426ab4b81",
+    "tools/undefined_rotation_source_probe.py": "50252560574f3952e5dbcdae16329572c6f25d63db0b07a2f06188878ab5b1c7"
+  },
+  "compile_command": [
+    "xcrun",
+    "clang++",
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "/private/tmp/formora-rotation-proof-hsturbat/evidence/driver.cc",
+    "-o",
+    "/private/tmp/formora-rotation-proof-hsturbat/evidence/probe"
+  ],
+  "disassembly_commands": [
+    [
+      "xcrun",
+      "llvm-objdump",
+      "-d",
+      "--start-address=0x1025423d4",
+      "--stop-address=0x102542454",
+      "/Applications/Blender.app/Contents/MacOS/Blender"
+    ],
+    [
+      "xcrun",
+      "llvm-objdump",
+      "-d",
+      "--start-address=0x10253b0c4",
+      "--stop-address=0x10253b244",
+      "/Applications/Blender.app/Contents/MacOS/Blender"
+    ],
+    [
+      "xcrun",
+      "llvm-objdump",
+      "-d",
+      "--start-address=0x1024ff570",
+      "--stop-address=0x1024ff6f0",
+      "/Applications/Blender.app/Contents/MacOS/Blender"
+    ],
+    [
+      "xcrun",
+      "llvm-objdump",
+      "-d",
+      "--start-address=0x1024ffc34",
+      "--stop-address=0x1024ffdb4",
+      "/Applications/Blender.app/Contents/MacOS/Blender"
+    ]
+  ],
+  "callback_sha256": "34b9476ddc65906b28664126e36b08473643a0a4c92f64db808ca2db5c5ad2d1",
+  "unmodified_callback_body": true,
+  "probe_reads_uninitialized_memory": false,
+  "cases": [
+    {
+      "mask": 0,
+      "axis": [
+        41,
+        -43,
+        47
+      ]
+    },
+    {
+      "mask": 1,
+      "axis": [
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "mask": 2,
+      "axis": [
+        7,
+        11,
+        13
+      ]
+    },
+    {
+      "mask": 3,
+      "axis": [
+        17,
+        19,
+        23
+      ]
+    },
+    {
+      "mask": 4,
+      "axis": [
+        17,
+        19,
+        23
+      ]
+    },
+    {
+      "mask": 5,
+      "axis": [
+        7,
+        11,
+        13
+      ]
+    },
+    {
+      "mask": 6,
+      "axis": [
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "mask": 7,
+      "axis": [
+        41,
+        -43,
+        47
+      ]
+    }
+  ],
+  "all_three_axis_callback_writes_output": false,
+  "source_review": "Caller passes its uninitialized stack axis to the callback. The all-axis callback returns without storing to the output. Disassembly is retained for manual inspection.",
+  "operator_numeric_parity_claim": false,
+  "artifacts": {
+    "callback.cc": "7605cf19e1ee7a23dd51b3e029ca08d10477af9606f2c6aacf6d2a0972e464a6",
+    "capture-driver.py": "50252560574f3952e5dbcdae16329572c6f25d63db0b07a2f06188878ab5b1c7",
+    "compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compiler.txt": "ea3037e0630fa16798079372fdc24f6542d021dadda4915cc979799682d78295",
+    "driver.cc": "d657f9d19eb2ab122833497efa8d39681e54d83559b899846950d0d67934fe32",
+    "native-0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native-0.stdout": "aa50e30de503926d122d991449ee32ec903088d60fd3df0d19583736bcfeae05",
+    "native-1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native-1.stdout": "bb6d1a9e9ce70871003ba78aff7342809bf22a81420fe9416cede2ccc2485c5f",
+    "native-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native-2.stdout": "20db3cbdb15efa130a1da46438a81bb078264c2d5bea838c3e6545eea33aae0f",
+    "native-3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native-3.stdout": "e5e5b38d70f23c6953db1600ba006c33edbbe4f52037982e7576c1639d1b494e",
+    "native-symbols.txt": "70ef59c0a2fb7e6b9e80e387561b330f7ba9eb34dcd14c5725c22a5e9ea72c78",
+    "probe": "0b8590710bca3f4c0e7ec9f5419aba578d2716ed9fc259cc7724ec839b53e5cb",
+    "probe.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "probe.stdout": "ececbd238ae0e554570d440a109df76a896c91204c69850c01242298e9155d21"
+  }
+}
