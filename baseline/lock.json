@@ -35890,6 +35890,21 @@
       "path": "baseline/reference/blender-5.2.3/snap-menu-reproduction.json",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/space_view3d/view3d_snap.cc",
       "sha256": "c1585246aeb428f63687d12f2eb2bcb79cdfe0cecf5c60577e5339adc0f9ebbf"
+    },
+    {
+      "path": "baseline/sources/mesh-snap-core/bmesh_marking.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/object/object_utils.cc",
+      "sha256": "4b41a9e6e1962fbd83b81016cff50913759f15b1f3482161d7ea704bfc8127b2"
+    },
+    {
+      "path": "baseline/sources/mesh-snap-core/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/object/object_utils.cc",
+      "sha256": "afad649d8b92a01c822814dfc57c398ae5069175ce3a3b19211eca0443d70dbf"
+    },
+    {
+      "path": "baseline/sources/mesh-snap-core/object_utils.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/object/object_utils.cc",
+      "sha256": "3959cf1fc761142ec6714909470226acc4d2dda933a23576586b69dbad9c1936"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
