@@ -18815,6 +18815,36 @@
       "path": "baseline/sources/mesh-connected-transform/manifest.json",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_geom.cc",
       "sha256": "0621d647dccb4728ccd690c788c6de84a7730ab7535b6d5a0f31a00aeba4f316"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/bmesh_polygon.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_polygon.cc",
+      "sha256": "444eca79dca99c63d328d7f543504c66507b50b375370745cd61b610fd35ae72"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/bmesh_marking.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_marking.cc",
+      "sha256": "4b41a9e6e1962fbd83b81016cff50913759f15b1f3482161d7ea704bfc8127b2"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/bmesh_query.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_query.cc",
+      "sha256": "d512075c4394faf5e156f1bce8de51b3c4a674fdeb154282e0c3b8931877694f"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/math_vector_inline.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_vector_inline.cc",
+      "sha256": "c1b6d85efbfe2824d7a2f330d7961f5dd1b0f32b2d00ad9d94c644f00ea239b9"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/math_vector.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_vector.cc",
+      "sha256": "9f3c8dc57239ba1cbc11e40c57e897a83f66291550185d1af08076a433fdab38"
+    },
+    {
+      "path": "baseline/sources/mesh-normal-orientation/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_polygon.cc",
+      "sha256": "473d812e9f5e8c1e11c19b26a45c3f17b01e38a20b1e9dbb6a443e0959aef099"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
