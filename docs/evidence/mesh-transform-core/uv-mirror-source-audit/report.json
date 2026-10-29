@@ -1,0 +1,25 @@
+{
+  "primary_source_sha256": "d2b745fd51db708c2075c7598e0f69afbb804216dc3de5b9b34af73baa42d875",
+  "literal_function_sha256": "56d0fd0a469b4015cdc98e3c42aa1180e04f0c769246f9e928969a45cd3aa051",
+  "compiler_command": [
+    "clang++",
+    "-std=c++17",
+    "-O2",
+    "/private/tmp/formora-mirror-source-probe/probe.cc",
+    "-o",
+    "/private/tmp/formora-mirror-source-probe/probe"
+  ],
+  "returncode": 0,
+  "observed_order": "unchanged",
+  "passed": true,
+  "cross_platform": "unrun",
+  "candidate": "32bd336d8dd708b5dc59c7fdb82c414a08d0adaf",
+  "artifacts": {
+    "compiler.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compiler.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "probe.cc": "bff54760360d6aca779e367aec68ba9ea4a764dbfe38cef659d626b6ec1103db",
+    "probe.stdout": "f6ceceeefa4ceb567886f2a78960b1f6575ea06c9b4b8699b47c2dd8d4163bec",
+    "probe.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compiler-identity.txt": "ea3037e0630fa16798079372fdc24f6542d021dadda4915cc979799682d78295"
+  }
+}

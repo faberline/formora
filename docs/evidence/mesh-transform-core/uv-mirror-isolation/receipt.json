@@ -1,0 +1,98 @@
+{
+  "revision": 2,
+  "transforms": [
+    {
+      "attribute_faces": [
+        {
+          "id": "lower",
+          "kind": "polygon"
+        },
+        {
+          "id": "upper",
+          "kind": "polygon"
+        }
+      ],
+      "basis_world": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "centres_local": {
+        "apricot": [
+          1.2200000286102295,
+          0.5850034356117249,
+          0.19999998807907104
+        ],
+        "plane": [
+          1.2200000286102295,
+          0.5850034356117249,
+          0.19999998807907104
+        ],
+        "umber": [
+          1.2200000286102295,
+          0.5850034356117249,
+          0.19999998807907104
+        ]
+      },
+      "changed": {
+        "edges": [
+          "edge0",
+          "edge1",
+          "edge4",
+          "edge5"
+        ],
+        "faces": [
+          {
+            "id": "lower",
+            "kind": "polygon"
+          },
+          {
+            "id": "upper",
+            "kind": "polygon"
+          }
+        ],
+        "vertices": [
+          "apricot",
+          "plane",
+          "umber"
+        ]
+      },
+      "command_index": 0,
+      "entity": "target",
+      "influence": {
+        "apricot": 1.0,
+        "plane": 1.0,
+        "umber": 1.0
+      },
+      "mesh_asset": "mesh",
+      "mirror_plane_vertices": [
+        "plane"
+      ],
+      "mirror_sources": {
+        "umber": "apricot"
+      },
+      "pivot_world": [
+        -1.664000153541565,
+        -0.027995795011520386,
+        0.44999998807907104
+      ],
+      "random_seed": null,
+      "shared_instances": [
+        "other",
+        "target"
+      ]
+    }
+  ]
+}

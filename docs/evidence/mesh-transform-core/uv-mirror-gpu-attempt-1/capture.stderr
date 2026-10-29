@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-uv-mirror-gpu.py", line 18, in <module>
+    query=call('scene','inspect','--scene',scene,'--mesh-asset','mesh','--normals');assert all(abs(a-e)<=1e-6 for a,e in zip(query['mesh_asset']['vertices']['v0013'],[0.3,0,0.6]));assert all(query['mesh_asset']['vertices'][id][1]==p[1] for id,p in vertices.items())
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
