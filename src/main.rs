@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID [--tessellate] [--selection-topology]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -26,6 +26,7 @@ fn options(
             "--preview",
             "--tessellate",
             "--selection-topology",
+            "--normals",
         ]
         .contains(&key.as_str())
         {
@@ -49,6 +50,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
             "--mesh-asset",
             "--tessellate",
             "--selection-topology",
+            "--normals",
         ],
         "apply" => &["--scene", "--request"],
         "serve" => &["--scene"],
@@ -147,6 +149,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
                     mesh_asset: options.get("--mesh-asset").cloned(),
                     tessellate: options.contains_key("--tessellate"),
                     selection_topology: options.contains_key("--selection-topology"),
+                    normals: options.contains_key("--normals"),
                 }
                 .inspect(&scene)
                 .map_err(map_err)?;

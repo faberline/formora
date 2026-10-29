@@ -39,6 +39,8 @@ pub struct InspectRequest {
     pub tessellate: bool,
     #[serde(default)]
     pub selection_topology: bool,
+    #[serde(default)]
+    pub normals: bool,
 }
 
 impl InspectRequest {
@@ -52,7 +54,10 @@ impl InspectRequest {
                 "selection_topology requires only mesh_asset".into(),
             ));
         }
-        if self.tessellate || self.selection_topology {
+        if self.normals && (self.mesh_asset.is_none() || self.entity.is_some()) {
+            return Err(SceneError("normals requires only mesh_asset".into()));
+        }
+        if self.tessellate || self.selection_topology || self.normals {
             let id = self.mesh_asset.as_ref().expect("checked mesh asset");
             let asset = scene
                 .mesh_assets
@@ -68,6 +73,10 @@ impl InspectRequest {
                 result["selection_topology"] =
                     serde_json::to_value(crate::mesh::selection::topology(asset)?)
                         .map_err(|e| SceneError(e.to_string()))?;
+            }
+            if self.normals {
+                result["normals"] = serde_json::to_value(crate::mesh::normals::resolved(asset)?)
+                    .map_err(|e| SceneError(e.to_string()))?;
             }
             return Ok(result);
         }

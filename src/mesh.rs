@@ -4,6 +4,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
 pub mod creation;
+pub mod normals;
 pub mod primitives;
 pub mod selection;
 mod tessellation;

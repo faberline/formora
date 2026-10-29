@@ -53,6 +53,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
         mesh_asset: Some("shared".into()),
         tessellate: false,
         selection_topology: false,
+        normals: false,
     }
     .inspect(&restored)
     .unwrap();
@@ -63,6 +64,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
             mesh_asset: Some("shared".into()),
             tessellate: false,
             selection_topology: false,
+            normals: false,
         }
         .inspect(&restored)
         .is_err()
