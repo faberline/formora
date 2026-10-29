@@ -9772,9 +9772,11 @@
       "product": "blender",
       "title": "Transform Orientation",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/orientation.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.orientation"
+      ]
     },
     {
       "id": "blender:4938ec00ef0233a99fad",
@@ -9817,54 +9819,66 @@
       "product": "blender",
       "title": "Orientations",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/orientation.html#bpy-types-transformorientationslot-type",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.orientation"
+      ]
     },
     {
       "id": "blender:a8d6eb4b858838cacb6a",
       "product": "blender",
       "title": "3D Cursor",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/3d_cursor.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:794a08176d0fc3949653",
       "product": "blender",
       "title": "Active Element",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/active_element.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:cda6901d300faa18170a",
       "product": "blender",
       "title": "Bounding Box Center",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/bounding_box_center.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:7f1fc6e3e7c60929a804",
       "product": "blender",
       "title": "Transform Pivot Point",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/index.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:15da0fa09f02e6dd07a6",
       "product": "blender",
       "title": "Transform Pivot Point",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/index.html#bpy-types-toolsettings-transform-pivot-point",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:257438c8a835514d68d2",
@@ -9880,27 +9894,33 @@
       "product": "blender",
       "title": "Individual Origins",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/individual_origins.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:c0637ceb01424a9c3f4a",
       "product": "blender",
       "title": "Median Point",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/median_point.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:0ec4a4268c31426c7bb9",
       "product": "blender",
       "title": "Median points in Edit Mode.",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/pivot_point/median_point.html#fig-view3d-median-point-edit-mode",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.pivot"
+      ]
     },
     {
       "id": "blender:57df465eb4915b7439dd",
@@ -9916,45 +9936,55 @@
       "product": "blender",
       "title": "Proportional Editing",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/proportional_editing.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.falloff"
+      ]
     },
     {
       "id": "blender:b279e4e1a9d294c2db58",
       "product": "blender",
       "title": "Proportional Size",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/proportional_editing.html#bpy-types-toolsettings-proportional-distance",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.falloff"
+      ]
     },
     {
       "id": "blender:04067644b1e760383aa0",
       "product": "blender",
       "title": "Falloff",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/proportional_editing.html#bpy-types-toolsettings-proportional-edit-falloff",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.falloff"
+      ]
     },
     {
       "id": "blender:8e1b263f44c523c0cc4a",
       "product": "blender",
       "title": "Connected Only Alt-O",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/proportional_editing.html#bpy-types-toolsettings-use-proportional-connected",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.connected"
+      ]
     },
     {
       "id": "blender:5efcc28a4c57d71ee2fe",
       "product": "blender",
       "title": "Proportional Editing",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/proportional_editing.html#bpy-types-toolsettings-use-proportional-edit",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.falloff"
+      ]
     },
     {
       "id": "blender:adb1976ec92e73be8c0c",
@@ -9970,9 +10000,11 @@
       "product": "blender",
       "title": "Projected from View",
       "url": "https://docs.blender.org/manual/en/5.2/editors/3dview/controls/proportional_editing.html#bpy-types-toolsettings-use-proportional-projected",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.projected"
+      ]
     },
     {
       "id": "blender:ac851b1c0c56001bc395",
@@ -41110,9 +41142,13 @@
       "product": "blender",
       "title": "Move, Rotate, Scale",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/editing/mesh/transform/basic.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.translate",
+        "mesh.transform.rotate",
+        "mesh.transform.resize"
+      ]
     },
     {
       "id": "blender:eb639d59f57f3de7f09d",
@@ -63662,18 +63698,22 @@
       "product": "blender",
       "title": "Move",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/transform/move.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.translate"
+      ]
     },
     {
       "id": "blender:666aabf985117f6731f7",
       "product": "blender",
       "title": "Move",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/transform/move.html#bpy-ops-transform-translate",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.translate"
+      ]
     },
     {
       "id": "blender:cc728228f3b9e9f79404",
@@ -63698,18 +63738,22 @@
       "product": "blender",
       "title": "Rotate",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/transform/rotate.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.rotate"
+      ]
     },
     {
       "id": "blender:7e070425350e3eadca14",
       "product": "blender",
       "title": "Rotate",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/transform/rotate.html#bpy-ops-transform-rotate",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.rotate"
+      ]
     },
     {
       "id": "blender:e5c003b19327d9bdc490",
@@ -63734,18 +63778,22 @@
       "product": "blender",
       "title": "Scale",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/transform/scale.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.resize"
+      ]
     },
     {
       "id": "blender:95b91441a3142b2f3e1d",
       "product": "blender",
       "title": "Scale",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/transform/scale.html#bpy-ops-transform-resize",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "Mesh-edit transform behavior is assigned to explicit source-backed cases. Other page sections/modes, full domains and unassigned anchors remain required and pending. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.transform.resize"
+      ]
     },
     {
       "id": "blender:7bb77e347551b0db37c5",

@@ -1,0 +1,221 @@
+
+running 2 tests
+test mesh::creation::inverse4::tests::block_inverse_preserves_translation_and_singular_rejection ... ok
+test session::tests::closing_session_releases_lock_even_if_a_child_inherited_its_descriptor ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 14 tests
+test failed_disk_commit_rolls_back_in_memory_and_undo_history ... ok
+test mcp_startup_errors_only_write_to_stderr ... ok
+test mcp_requires_initialization_and_notifications_cannot_mutate_the_scene ... ok
+test malformed_mcp_requests_do_not_end_the_session_or_write_nonprotocol_output ... ok
+test invalid_cli_request_and_stale_revision_do_not_change_the_file ... ok
+test initialization_never_overwrites_an_existing_scene ... ok
+test duplicate_mesh_ids_in_raw_native_and_mcp_messages_cannot_mutate_the_scene ... ok
+test one_writer_owns_the_scene_until_its_session_exits ... ok
+test native_and_mcp_processes_apply_the_same_commands_and_save_the_same_scene ... ok
+test mcp_initialization_discovery_edits_errors_and_undo_work_in_a_real_process ... ok
+test mesh_assets_have_the_same_cli_and_mcp_results_and_can_be_queried_and_reopened ... ok
+test duplicate_selection_ids_are_rejected_by_cli_native_and_mcp_before_mutation ... ok
+test polygon_tessellation_queries_match_cli_mcp_and_fail_without_changing_undo ... ok
+test primitive_creation_edit_regeneration_and_failure_use_the_same_cli_mcp_core ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.18s
+
+
+running 28 tests
+test build_evidence_cannot_bypass_the_artifact_hash_pin ... ok
+test case_symlinks_cannot_leave_the_repository ... ok
+test case_paths_cannot_leave_the_repository ... ok
+test an_empty_catalog_cannot_pass ... ok
+test complete_contract_does_not_claim_product_acceptance ... ok
+test exclusion_requires_a_reason_and_cannot_also_claim_coverage ... ok
+test duplicate_feature_and_source_ids_are_rejected ... ok
+test case_identity_and_numeric_tolerances_are_checked ... ok
+test included_source_needs_coverage ... ok
+test floating_latest_manual_is_rejected ... ok
+test incomplete_retrieval_cannot_be_declared_complete ... ok
+test build_evidence_must_identify_a_measured_executable ... ok
+test incomplete_upstream_inventory_cannot_pass_even_when_known_sources_are_covered ... ok
+test missing_build_probe_keeps_the_strict_baseline_closed ... ok
+test legacy_lock_schema_cannot_claim_the_full_build_baseline ... ok
+test patch_product_versions_use_the_matching_manual_family ... ok
+test pending_feature_review_is_not_readiness ... ok
+test source_artifact_tampering_is_rejected ... ok
+test pending_source_keeps_strict_gate_closed ... ok
+test source_manifest_cannot_be_replaced_without_updating_its_pin ... ok
+test removing_an_upstream_source_cannot_reduce_the_acceptance_scope ... ok
+test source_cannot_claim_a_nonexistent_feature ... ok
+test unknown_fields_are_not_silently_ignored ... ok
+test cli_distinguishes_invalid_incomplete_and_ready_contracts ... ok
+test unknown_or_wrong_version_sources_are_rejected ... ok
+test incomplete_or_prerelease_product_versions_cannot_be_frozen_as_stable ... ok
+test tests_require_actions_assertions_and_evidence ... ok
+test hash_pinned_build_evidence_must_match_the_declared_reference ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 8 tests
+test legacy_json_remains_unchanged_and_context_is_queryable_and_undoable ... ok
+test parent_world_frames_and_shared_assets_preserve_entity_ownership ... ok
+test receipts_are_ordered_real_components_and_created_objects_are_editable ... ok
+test collisions_singular_targets_budgets_and_invalid_batches_leave_no_undo ... ok
+test creation_markers_can_be_hidden_without_changing_selection_or_surface_picking ... ok
+test regenerate_keeps_the_creation_frame_after_context_changes_and_reload ... ok
+test creation_save_failure_has_no_receipt_memory_change_or_undo_entry ... ok
+test existing_triangle_ids_uvs_materials_and_implicit_edges_survive_insertion ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+
+running 5 tests
+test invalid_geometry_attributes_and_dangling_references_are_rejected ... ok
+test fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs ... ok
+test stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_trip ... ok
+test duplicate_component_layer_asset_and_edit_ids_are_rejected ... ok
+test failure_preserves_disk_memory_and_undo_and_reference_deletion_is_atomic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 7 tests
+test crossing_projection_fails_instead_of_publishing_partial_triangles ... ok
+test collinear_and_coincident_corners_are_only_removed_from_preview ... ok
+test tessellation_maps_each_original_corner_normal_to_its_render_vertex ... ok
+test preview_and_picking_share_concave_surface_and_preserve_corner_normals ... ok
+test topology_uv_order_loose_edges_and_nonmanifold_connections_round_trip_and_undo ... ok
+test polygon_validation_rejects_broken_topology_corner_data_and_uv_layout ... ok
+test concave_faces_keep_winding_area_and_notch_across_planes_scales_and_order ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 10 tests
+test playback_does_not_change_authored_state_or_revision ... ok
+test picking_selects_the_nearest_visible_mesh ... ok
+test world_transform_and_picking_include_parent_rotation_and_scale ... ok
+test agent_duration_edit_preserves_playback_pose_and_changes_remaining_speed ... ok
+test explicit_agent_playback_commands_override_preview_state ... ok
+test preview_rejects_geometry_that_cannot_be_represented_on_the_gpu ... ok
+test explicit_same_value_agent_trigger_closes_from_current_live_position ... ok
+test shared_triangle_assets_render_pick_edit_materials_and_skip_zero_area ... ok
+test camera_center_ray_matches_authored_orientation_and_door_is_clickable ... ok
+test paused_playback_is_stable_and_room_generates_real_triangles ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 5 tests
+test bad_parameters_and_huge_requests_fail_before_allocation ... ok
+test raw_assets_need_explicit_generation_parameters_and_rejected_recipes_do_not_commit ... ok
+test edits_mark_the_recipe_and_regeneration_preserves_shared_asset_identity_and_undo ... ok
+test zero_dimension_behavior_and_undefined_circle_uv_are_explicit ... ok
+test defaults_generate_real_topology_uv_and_saved_parameters ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 6 tests
+test invalid_parameters_and_failed_multi_command_batches_leave_scene_and_history_unchanged ... ok
+test defaults_preserve_real_source_topology_uvs_and_suzanne_mirror_identity ... ok
+test zero_dimensions_and_axis_scaling_preserve_authored_ids_and_topology ... ok
+test subdivision_estimates_cover_the_rna_range_and_reject_over_budget_before_allocation ... ok
+test shared_instances_and_selection_survive_undo_of_recipe_replacement ... ok
+test recipes_rebuild_save_reload_and_undo_for_both_models ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.45s
+
+
+running 5 tests
+test invalid_rotational_parameters_and_budgets_fail_without_partial_changes ... ok
+test conic_fill_modes_apices_and_resource_estimates_agree ... ok
+test torus_preserves_coincident_ids_and_converts_external_internal_radii ... ok
+test rotational_shapes_generate_real_polygons_and_persist_recipes ... ok
+test each_rotational_shape_rebuilds_saves_reloads_and_undoes ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.30s
+
+
+running 16 tests
+test exhausted_revisions_do_not_modify_scene_or_undo_history ... ok
+test invalid_batch_rolls_back_every_command_and_preserves_undo_history ... ok
+test dangling_references_cannot_be_created_or_deleted ... ok
+test conflicting_door_controllers_and_inconsistent_saved_progress_are_rejected ... ok
+test nonfinite_values_and_nonunit_rotations_are_rejected_before_saving ... ok
+test invalid_durations_and_time_steps_leave_scene_unchanged ... ok
+test duplicate_commands_cannot_replace_an_existing_entity ... ok
+test parent_cycles_and_missing_parents_are_rejected ... ok
+test door_reversal_continues_from_current_progress_without_jumping ... ok
+test stale_agent_revision_cannot_overwrite_newer_work ... ok
+test duplicate_ids_in_json_are_rejected_instead_of_silently_overwritten ... ok
+test schema_errors_and_unknown_fields_are_rejected ... ok
+test annotations_are_saved_and_invalid_targets_do_not_change_the_scene ... ok
+test existing_version_one_door_scenes_load_without_a_trigger_counter ... ok
+test room_door_opens_slower_after_agent_edit_and_survives_reopening ... ok
+test persistence_preserves_finite_float_bits_instead_of_rounding_scene_data ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+
+running 7 tests
+test unmatched_additive_trait_preserves_independent_flags_from_prior_operations ... ok
+test no_op_and_mode_conversion_preserve_isolated_vertices_and_history_rules ... ok
+test invalid_component_references_groups_weights_and_duplicate_input_are_rejected ... ok
+test legacy_edges_are_stable_queries_are_read_only_and_face_kinds_do_not_alias ... ok
+test ordered_receipts_shared_assets_and_multi_command_failure_are_atomic ... ok
+test zero_weight_is_membership_and_missing_layer_is_distinct_from_empty_layer ... ok
+test failed_persistence_does_not_emit_receipts_change_memory_or_push_undo ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 3 tests
+test hidden_crossing_polygon_does_not_prevent_other_surfaces_from_previewing ... ok
+test hidden_components_remove_incident_surfaces_from_rendering_and_picking ... ok
+test markers_and_face_tint_do_not_change_authored_materials_or_surface_picking ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
