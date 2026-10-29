@@ -1,0 +1,412 @@
+{
+  "grid_input_sha256": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+  "grid_input_origin": "docs/evidence/snap-rotation-core/performance/authored-grid.json",
+  "samples_per_mode": 3,
+  "maximum_core_ms": 250,
+  "maximum_pipeline_ms": 2000,
+  "operation": "snap_selected_to_cursor",
+  "parameters": {
+    "use_offset": false,
+    "use_rotation": true
+  },
+  "lock_rotation": [
+    true,
+    false,
+    false
+  ],
+  "lock_rotation_w": false,
+  "lock_rotations_4d": true,
+  "modes": [
+    {
+      "object": {
+        "mode": "XYZ",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "XYZ",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "XZY",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "XZY",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "YXZ",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "YXZ",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "YZX",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "YZX",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "ZXY",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "ZXY",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "ZYX",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "ZYX",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "QUATERNION",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "QUATERNION",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    },
+    {
+      "object": {
+        "mode": "AXIS_ANGLE",
+        "euler": [
+          0.31,
+          -0.23,
+          0.47
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ],
+        "axis_angle": [
+          -0.45,
+          -2.0,
+          1.0,
+          3.0
+        ]
+      },
+      "cursor": {
+        "mode": "AXIS_ANGLE",
+        "euler": [
+          0.2,
+          -0.4,
+          0.6
+        ],
+        "quaternion_wxyz": [
+          0.5,
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "axis_angle": [
+          0.65,
+          1.0,
+          -2.0,
+          3.0
+        ]
+      }
+    }
+  ],
+  "target_delta": {
+    "location": [
+      0.125,
+      -0.25,
+      0.375
+    ],
+    "euler": [
+      0.17,
+      -0.11,
+      0.29
+    ],
+    "quaternion_wxyz": [
+      -1.0,
+      1.0,
+      1.0,
+      -1.0
+    ],
+    "scale": [
+      1.2,
+      0.75,
+      1.1
+    ]
+  },
+  "child_delta": {
+    "location": [
+      -0.25,
+      0.125,
+      0.0625
+    ],
+    "euler": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "quaternion_wxyz": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "child_lock_rotations_4d": false,
+  "child_lock_rotation_w": false,
+  "child_lock_rotation": [
+    false,
+    false,
+    false
+  ],
+  "contract": "docs/contracts/snap-delta-core.md",
+  "contract_commit": "d3a3857232a9bc4de12180235894c488a0a1f518"
+}
