@@ -18895,6 +18895,31 @@
       "path": "baseline/sources/mesh-safe-transform/manifest.json",
       "sha256": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_matrix_c.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/editmesh_utils.cc",
+      "sha256": "0d4596e19d981be506f4634f18eea5d2f2148a019ef99123b9b6e222003b6225",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/editmesh_utils.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/mesh_mirror.cc",
+      "sha256": "d2b745fd51db708c2075c7598e0f69afbb804216dc3de5b9b34af73baa42d875",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/mesh_mirror.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/bmesh_interp.cc",
+      "sha256": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_interp.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/bmesh_query_uv.cc",
+      "sha256": "21a7d210631505365c190491c0de5d9ac9489a81a2a9275f54e46639b193cbac",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_query_uv.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/manifest.json",
+      "sha256": "bb155682b9ba2839b91f494c3867fc8d20f2338000c27d06853ba4d28c2da2b9",
+      "url": "https://github.com/blender/blender/tree/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
