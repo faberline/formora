@@ -31,6 +31,14 @@ orientation uses `invert_m3_m3`'s adjugate result on singular matrices, rather
 than the operation's pseudo-inverse. Explicit singular custom working matrices
 and unsafe Gimbal frames keep their existing rejection policy.
 
+The pinned float32 SVD can produce a small false singular value for exact rank
+loss. Independent Moore-Penrose identity tests exposed this in a dense rank-one
+matrix. Certify the rank of the actual float32 input using exact dyadic
+determinant arithmetic and exact two-term minors. Deflate only structurally zero
+dimensions before applying the unchanged `1e-8` cutoff. Do not raise the cutoff,
+truncate a full-rank input from a rounded determinant, or feed measured outputs
+to this decision. Preserve the pinned iteration and arithmetic paths otherwise.
+
 Independent tests must cover rank zero, one and two matrices, non-axis-aligned
 rank loss, full-rank tiny scales, the distinct affine pivot path, missing local
 axes, nonfinite arithmetic, convergence limits, actual zero-scale transforms,
