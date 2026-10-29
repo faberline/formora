@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "--crate-name",
+    "formora_single_30",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "debug-assertions=no",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "docs/evidence/snap-rotation-core/performance/legacy-single-driver.rs",
+    "-o",
+    "/private/tmp/formora-rotation-single-30-driver"
+  ],
+  "terminal_exit_code": 0,
+  "source_sha256": "857be0a1ed33a7164c9a8045241e9c899d1fd889d4c5d73c0e87d3b779d9ae5d",
+  "binary_sha256": "0e130d283ac54d2ab29a973886bfed2fb1cb319103d877480724f54467393d58",
+  "implementation_commit": "c67d2370c00d2031adb7d896c978b25ffdd3d885"
+}

@@ -75,6 +75,10 @@ pub struct Receipt {
     pub cursor_after: [f64; 3],
     pub cursor_rotation_before: [f64; 3],
     pub cursor_rotation_after: [f64; 3],
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cursor_orientation_before: Option<crate::rotation::Channels>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cursor_orientation_after: Option<crate::rotation::Channels>,
     pub cursor_changed: bool,
     pub rotation_applied: bool,
 }
@@ -298,6 +302,7 @@ pub(crate) fn execute_with_targets(
     let mut authoring = scene.authoring_context.clone().unwrap_or_default();
     authoring.validate()?;
     let before = point(authoring.cursor_location)?;
+    let stored_rotation_before = authoring.cursor_rotation;
     let rotation_before = point(authoring.cursor_rotation)?;
     let mut cursor = before;
     let mut cursor_rotation = rotation_before;
@@ -437,13 +442,16 @@ pub(crate) fn execute_with_targets(
     } else {
         authoring.cursor_location
     };
+    let cursor_orientation_before = authoring.cursor_orientation;
     let cursor_rotation_after = if matches!(request.action, Action::CursorToCenter {}) {
-        [0.; 3]
+        authoring.clear_cursor_rotation();
+        authoring.cursor_rotation
     } else {
         authoring.cursor_rotation
     };
     let cursor_changed = cursor_after != authoring.cursor_location
-        || cursor_rotation_after != authoring.cursor_rotation;
+        || cursor_rotation_after != stored_rotation_before
+        || authoring.cursor_orientation != cursor_orientation_before;
     let shared_instances = scene
         .entities
         .iter()
@@ -470,8 +478,10 @@ pub(crate) fn execute_with_targets(
         changed,
         cursor_before: authoring.cursor_location,
         cursor_after,
-        cursor_rotation_before: authoring.cursor_rotation,
+        cursor_rotation_before: stored_rotation_before,
         cursor_rotation_after,
+        cursor_orientation_before,
+        cursor_orientation_after: authoring.cursor_orientation,
         cursor_changed,
         rotation_applied: false,
     };

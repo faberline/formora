@@ -1,0 +1,35 @@
+
+running 12 tests
+test invalid_inactive_channels_and_conflicting_cursor_state_are_rejected ... ok
+test explicit_raw_storage_does_not_relax_legacy_unit_quaternion_validation ... ok
+test disabled_rotation_preserves_complete_raw_state_and_real_receipts ... ok
+test raw_quaternion_quarter_turn_preserves_inactive_channels_and_shared_asset ... ok
+test axis_angle_angle_and_axis_locks_preserve_raw_nonunit_axis ... ok
+test late_failure_stale_revision_and_source_range_are_atomic ... ok
+test cursor_only_single_mesh_path_clears_quaternion_without_losing_inactive_euler ... ok
+test w_lock_is_separate_from_xyz_and_ui_flag_does_not_change_setter ... ok
+test legacy_partial_quaternion_assignment_promotes_explicit_raw_state ... ok
+test zero_source_quaternion_evaluates_pinned_half_turn_without_rewriting_it ... ok
+test partial_locks_store_nonunit_raw_quaternion_and_survive_undo_replay ... ok
+test cursor_origin_clears_only_the_active_representation_for_all_modes ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 13 tests
+test legacy_unit_quaternion_now_snaps_through_the_same_physical_core ... ok
+test multi_edit_unique_data_uses_active_representative_and_common_centre ... ok
+test origins_only_edits_shared_data_once_and_keeps_other_users_shared ... ok
+test aggregate_budget_counts_each_unique_mesh_and_does_not_mutate_on_failure ... ok
+test object_grid_respects_locks_and_reports_actual_changes_and_undo ... ok
+test no_active_error_empty_selection_cancel_and_late_batch_failure_are_atomic ... ok
+test multi_edit_normal_overflow_rejects_without_publishing_scene_revision_or_undo ... ok
+test origins_only_compensates_a_selected_descendant_suppressed_by_offset ... ok
+test parent_conversion_refreshes_the_evaluated_snapshot_before_later_siblings ... ok
+test origin_rotation_reuses_incidence_but_computes_normals_from_changed_positions ... ok
+test bad_context_and_budgets_reject_without_mutation ... ok
+test skip_children_changes_real_parent_inverse_and_query_frame ... ok
+test save_failure_keeps_scene_undo_and_original_disk_then_replays_after_recovery ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+

@@ -22,6 +22,8 @@ pub struct AuthoringContext {
     pub cursor_location: [f64; 3],
     #[serde(default)]
     pub cursor_rotation: [f64; 3],
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub cursor_orientation: Option<crate::rotation::Channels>,
     #[serde(default)]
     pub view_rotation: [f64; 3],
 }
@@ -29,7 +31,54 @@ impl AuthoringContext {
     pub fn validate(&self) -> Result<()> {
         finite(&self.cursor_location)?;
         finite(&self.cursor_rotation)?;
+        if let Some(channels) = self.cursor_orientation {
+            if !channels.valid() || channels.euler != self.cursor_rotation {
+                return Err(SceneError(
+                    "cursor orientation has invalid or conflicting stored channels".into(),
+                ));
+            }
+            channels.matrix()?;
+        }
         finite(&self.view_rotation)
+    }
+    pub(crate) fn cursor_matrix(&self, single_legacy: bool) -> Result<math::Mat3> {
+        match self.cursor_orientation {
+            Some(channels) => channels.matrix(),
+            None => Ok(math::euler(self.cursor_rotation, single_legacy)),
+        }
+    }
+    pub(crate) fn cursor_channels(&self) -> crate::rotation::Channels {
+        self.cursor_orientation.unwrap_or_else(|| {
+            crate::rotation::Channels::from_rotation(crate::rotation::TransformRotation::Authored(
+                crate::rotation::RotationAngles::Euler {
+                    angles: self.cursor_rotation,
+                    order: crate::rotation::EulerOrder::Xyz,
+                },
+            ))
+        })
+    }
+    pub(crate) fn cursor_world_matrix(&self) -> Result<math::Mat4> {
+        self.validate()?;
+        let rotation = self.cursor_matrix(false)?;
+        Ok(std::array::from_fn(|r| {
+            std::array::from_fn(|c| {
+                if r == 3 {
+                    if c == 3 { 1. } else { 0. }
+                } else if c == 3 {
+                    f64::from(self.cursor_location[r] as f32)
+                } else {
+                    f64::from(rotation[r][c])
+                }
+            })
+        }))
+    }
+    pub(crate) fn clear_cursor_rotation(&mut self) {
+        if let Some(channels) = &mut self.cursor_orientation {
+            channels.clear();
+            self.cursor_rotation = channels.euler;
+        } else {
+            self.cursor_rotation = [0.; 3];
+        }
     }
 }
 #[derive(Debug, Clone, Copy, Default, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -244,7 +293,17 @@ fn resolve(
     } else {
         match placement.align {
             Alignment::World => placement.rotation.unwrap_or([0.; 3]),
-            Alignment::Cursor => context.cursor_rotation,
+            Alignment::Cursor => {
+                if context.cursor_orientation.is_some() {
+                    crate::rotation::source::euler(
+                        context.cursor_matrix(false)?,
+                        crate::rotation::EulerOrder::Xyz,
+                    )
+                    .map(f64::from)
+                } else {
+                    context.cursor_rotation
+                }
+            }
             Alignment::View => {
                 let mut rotation = context.view_rotation;
                 if matches!(primitive, Primitive::Monkey { .. }) {

@@ -1,0 +1,381 @@
+
+running 16 tests
+test mesh::transform::geodesic::tests::virtual_source_crosses_triangle_interior_instead_of_walking_both_edges ... ok
+test mesh::transform::inverse::tests::singular_normal_keeps_adjugate_instead_of_linear_pseudoinverse ... ok
+test mesh::transform::inverse::tests::singular_affine_pivot_retains_column_major_partial_elimination ... ok
+test mesh::transform::inverse::tests::rank_zero_one_two_and_dense_rank_loss_satisfy_moore_penrose_identities ... ok
+test mesh::transform::inverse::tests::regular_inverse_preserves_full_rank_scales_below_svd_cutoff ... ok
+test mesh::transform::inverse::rank::tests::exact_dyadic_rank_does_not_drop_a_small_genuine_determinant ... ok
+test mesh::creation::inverse4::tests::block_inverse_preserves_translation_and_singular_rejection ... ok
+test mesh::transform::geodesic::tests::degenerate_triangle_falls_back_and_overflow_is_an_error ... ok
+test mesh::transform::random::tests::source_float_rounding_can_reach_one_without_clamping_or_resampling ... ok
+test mesh::transform::inverse::tests::missing_local_axes_follow_cross_projection_and_identity_fallbacks ... ok
+test mesh::transform::inverse::tests::arithmetic_overflow_and_nonconvergence_are_explicit_errors ... ok
+test mesh::transform::random::tests::explicit_legacy_stream_preserves_all_seed_bits ... ok
+test mesh::transform::geodesic::tests::work_budget_rejects_propagation_without_changing_context ... ok
+test mesh::transform::random::tests::complete_pinned_cpp_sequences_match_float_bits_and_restart ... ok
+test session::tests::closing_session_releases_lock_even_if_a_child_inherited_its_descriptor ... ok
+test mesh::transform::random::tests::complete_million_draw_source_sample_matches_float_bits ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 14 tests
+test failed_disk_commit_rolls_back_in_memory_and_undo_history ... ok
+test mcp_startup_errors_only_write_to_stderr ... ok
+test initialization_never_overwrites_an_existing_scene ... ok
+test malformed_mcp_requests_do_not_end_the_session_or_write_nonprotocol_output ... ok
+test mcp_requires_initialization_and_notifications_cannot_mutate_the_scene ... ok
+test invalid_cli_request_and_stale_revision_do_not_change_the_file ... ok
+test mcp_initialization_discovery_edits_errors_and_undo_work_in_a_real_process ... ok
+test native_and_mcp_processes_apply_the_same_commands_and_save_the_same_scene ... ok
+test duplicate_mesh_ids_in_raw_native_and_mcp_messages_cannot_mutate_the_scene ... ok
+test one_writer_owns_the_scene_until_its_session_exits ... ok
+test mesh_assets_have_the_same_cli_and_mcp_results_and_can_be_queried_and_reopened ... ok
+test duplicate_selection_ids_are_rejected_by_cli_native_and_mcp_before_mutation ... ok
+test polygon_tessellation_queries_match_cli_mcp_and_fail_without_changing_undo ... ok
+test primitive_creation_edit_regeneration_and_failure_use_the_same_cli_mcp_core ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.86s
+
+
+running 28 tests
+test case_symlinks_cannot_leave_the_repository ... ok
+test an_empty_catalog_cannot_pass ... ok
+test build_evidence_cannot_bypass_the_artifact_hash_pin ... ok
+test complete_contract_does_not_claim_product_acceptance ... ok
+test exclusion_requires_a_reason_and_cannot_also_claim_coverage ... ok
+test duplicate_feature_and_source_ids_are_rejected ... ok
+test case_paths_cannot_leave_the_repository ... ok
+test case_identity_and_numeric_tolerances_are_checked ... ok
+test floating_latest_manual_is_rejected ... ok
+test included_source_needs_coverage ... ok
+test incomplete_retrieval_cannot_be_declared_complete ... ok
+test build_evidence_must_identify_a_measured_executable ... ok
+test incomplete_upstream_inventory_cannot_pass_even_when_known_sources_are_covered ... ok
+test missing_build_probe_keeps_the_strict_baseline_closed ... ok
+test legacy_lock_schema_cannot_claim_the_full_build_baseline ... ok
+test patch_product_versions_use_the_matching_manual_family ... ok
+test pending_feature_review_is_not_readiness ... ok
+test source_artifact_tampering_is_rejected ... ok
+test pending_source_keeps_strict_gate_closed ... ok
+test removing_an_upstream_source_cannot_reduce_the_acceptance_scope ... ok
+test source_manifest_cannot_be_replaced_without_updating_its_pin ... ok
+test source_cannot_claim_a_nonexistent_feature ... ok
+test unknown_fields_are_not_silently_ignored ... ok
+test cli_distinguishes_invalid_incomplete_and_ready_contracts ... ok
+test unknown_or_wrong_version_sources_are_rejected ... ok
+test incomplete_or_prerelease_product_versions_cannot_be_frozen_as_stable ... ok
+test tests_require_actions_assertions_and_evidence ... ok
+test hash_pinned_build_evidence_must_match_the_declared_reference ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 7 tests
+test edge_mode_without_a_selected_island_keeps_the_source_per_vertex_centre_fallback ... ok
+test individual_centres_follow_selected_islands_and_vertex_mode_singletons ... ok
+test surface_crosses_quad_interior_while_wire_walks_edges_and_coincident_disconnected_ids_stay_fixed ... ok
+test seeded_connected_replay_is_exact_and_distance_overflow_is_atomic ... ok
+test connected_distance_uses_reflected_nonuniform_world_scale_and_ignores_translation_and_projection ... ok
+test hidden_face_blocks_surface_shortcut_hidden_edge_forces_detour_and_hidden_vertex_blocks_incident_edges ... ok
+test connected_results_save_reload_undo_and_roll_back_when_save_fails ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 12 tests
+test equal_uvs_on_disconnected_vertices_do_not_join ... ok
+test hidden_neighbour_faces_still_contribute_to_the_visible_vertex_uv_fan ... ok
+test nonmanifold_radial_fan_merges_original_corner_angles ... ok
+test correction_runs_after_mirror_copy_and_reports_both_uv_faces ... ok
+test uv_arithmetic_overflow_rejects_the_entire_edit_without_an_undo_entry ... ok
+test original_face_projection_preserves_two_affine_uv_fields_and_ignores_stored_normals ... ok
+test no_uv_asset_matches_ordinary_transform_and_disabling_correction_preserves_uvs ... ok
+test uv_only_float_storage_changes_are_reported_without_fake_geometry_changes ... ok
+test connected_fans_reweight_inside_corner_and_keep_each_layer_independent ... ok
+test zero_area_face_uses_its_real_nondegenerate_neighbour_and_corrects_all_corners ... ok
+test triangle_and_ngon_interpolation_reproduce_authored_affine_coordinates ... ok
+test uv_edits_reopen_undo_and_roll_back_failed_saves_and_batches ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 8 tests
+test legacy_json_remains_unchanged_and_context_is_queryable_and_undoable ... ok
+test parent_world_frames_and_shared_assets_preserve_entity_ownership ... ok
+test receipts_are_ordered_real_components_and_created_objects_are_editable ... ok
+test collisions_singular_targets_budgets_and_invalid_batches_leave_no_undo ... ok
+test regenerate_keeps_the_creation_frame_after_context_changes_and_reload ... ok
+test creation_markers_can_be_hidden_without_changing_selection_or_surface_picking ... ok
+test creation_save_failure_has_no_receipt_memory_change_or_undo_entry ... ok
+test existing_triangle_ids_uvs_materials_and_implicit_edges_survive_insertion ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+
+running 12 tests
+test all_rotation_orders_resolve_the_same_physical_pose_as_sequential_axis_rotations ... ok
+test door_animation_replaces_equivalent_euler_state_with_its_actual_quaternion ... ok
+test preview_world_and_surface_picking_use_all_stored_rotation_modes ... ok
+test axis_angle_gimbal_uses_its_authored_axis_and_rotation ... ok
+test quaternion_mode_falls_back_to_actual_parent_orientation ... ok
+test reflected_parent_columns_affect_gimbal_but_child_scale_and_translation_do_not ... ok
+test stored_rotations_reject_invalid_values_orders_and_mixed_fields_without_weakening_legacy_validation ... ok
+test invalid_new_rotation_batch_and_unsafe_gimbal_frame_preserve_scene_and_undo ... ok
+test sheared_parent_gimbal_axes_are_not_normalized_again_for_constrained_rotation ... ok
+test equivalent_physical_poses_keep_their_distinct_authored_gimbal_modes ... ok
+test all_gimbal_orders_keep_first_local_second_partial_and_last_global_axes ... ok
+test full_turns_and_rotation_mode_survive_save_reload_and_undo_with_atomic_failed_save ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 5 tests
+test invalid_geometry_attributes_and_dangling_references_are_rejected ... ok
+test duplicate_component_layer_asset_and_edit_ids_are_rejected ... ok
+test stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_trip ... ok
+test fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs ... ok
+test failure_preserves_disk_memory_and_undo_and_reference_deletion_is_atomic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 9 tests
+test unknown_fields_and_nonfinite_json_are_rejected_before_dispatch ... ok
+test missing_entity_asset_or_edit_state_rejects_without_a_receipt_or_mutation ... ok
+test moving_cursor_preserves_actual_authored_rotation_without_unrelated_rounding ... ok
+test edit_rotation_flag_is_explicitly_not_applied_and_receipt_index_is_real ... ok
+test invalid_grid_budget_stale_and_late_batch_failure_are_atomic ... ok
+test grid_uses_source_half_rounding_and_keeps_hidden_duplicates_and_shared_ids ... ok
+test cursor_origin_clears_rotation_and_replays_without_changing_geometry ... ok
+test missing_active_rejects_and_empty_cursor_selection_cancels_explicitly ... ok
+test saved_snap_receipts_reload_and_failed_save_preserves_scene_disk_and_undo ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+
+running 11 tests
+test projected_distance_uses_actual_view_and_random_seed_replays_exactly ... ok
+test native_axis_and_plane_constraints_apply_to_actual_displacement_rotation_and_scale ... ok
+test basic_changes_edit_real_shared_geometry_preserve_other_data_and_publish_actual_receipts ... ok
+test individual_edge_island_uses_element_centres_and_keeps_an_isolated_vertex_fixed ... ok
+test mixed_face_kinds_keep_separate_identity_with_an_authored_world_pivot ... ok
+test created_recipes_are_marked_edited_and_receipts_keep_batch_indices ... ok
+test invalid_unsupported_stale_and_failed_batch_requests_have_no_effect_or_undo_entry ... ok
+test proportional_falloffs_preserve_hidden_vertices_and_apply_fixed_radius_boundaries ... ok
+test median_bounds_active_and_cursor_pivots_have_independent_geometric_results ... ok
+test global_local_parent_cursor_view_and_custom_frames_are_derived_from_actual_state ... ok
+test saved_receipts_reload_and_failed_save_are_atomic ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 8 tests
+test proportional_destination_inherits_source_weight_instead_of_its_own_distance ... ok
+test hidden_partners_are_not_found_or_modified ... ok
+test selecting_both_sides_uses_positive_half_space_without_double_transform ... ok
+test ambiguous_topology_groups_do_not_invent_pairs ... ok
+test near_plane_clamp_is_strict_and_applies_outside_proportional_radius ... ok
+test topology_pairs_use_edges_and_can_match_different_positions ... ok
+test each_local_axis_copies_the_source_result_and_reports_both_instances ... ok
+test saved_mirror_changes_reopen_undo_and_roll_back_stale_or_failed_batches ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 12 tests
+test more_than_three_loose_vertices_use_their_geometric_normal_sum ... ok
+test loose_edge_alignment_uses_orthogonal_fallback_and_active_degenerate_uses_identity ... ok
+test active_face_takes_precedence_over_last_face_history ... ok
+test normal_overflow_and_failed_batch_leave_no_change_or_undo_entry ... ok
+test individual_face_axes_have_their_own_tangent_and_connected_vertices_inherit_it ... ok
+test face_orientation_uses_actual_geometry_and_ignores_shading_payloads_and_smoothing ... ok
+test normal_frame_uses_inverse_transpose_under_reflected_nonuniform_scale ... ok
+test ngon_uses_longest_edge_and_legacy_triangle_keeps_its_typed_face_identity ... ok
+test zero_normal_and_coincident_pair_fall_back_without_merging_identity ... ok
+test three_vertex_plane_uses_complete_reverse_history_and_keeps_disconnected_identity ... ok
+test active_vertex_uses_all_incident_geometry_including_hidden_flat_faces ... ok
+test normal_results_save_reload_undo_and_failed_save_are_atomic ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 9 tests
+test degenerate_faces_keep_source_face_fallback_and_zero_angle_smooth_corners ... ok
+test coincident_positions_and_equal_triangle_polygon_names_keep_distinct_identity ... ok
+test smooth_joint_uses_angle_weighted_normals_with_or_without_unrelated_flat_faces ... ok
+test unsupported_float_range_and_arithmetic_overflow_fail_without_asset_changes ... ok
+test explicit_corner_then_face_payloads_take_precedence_without_mutating_attributes ... ok
+test flat_faces_wrong_winding_and_nonmanifold_edges_split_mixed_smooth_fans ... ok
+test all_smooth_point_domain_accumulates_disconnected_and_nonmanifold_incident_faces ... ok
+test preview_uses_resolved_smooth_and_explicit_normals_without_changing_picking ... ok
+test resolved_query_is_read_only_and_does_not_create_revision_disk_or_undo_changes ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+
+running 8 tests
+test balanced_parent_products_and_observed_point_accumulation_have_distinct_rounding ... ok
+test single_precision_quaternion_and_axis_angle_frames_share_the_expected_axes ... ok
+test all_euler_orders_keep_authored_angles_and_match_sequential_physical_rotations ... ok
+test native_default_keeps_legacy_json_and_high_precision_world_coordinates ... ok
+test world_query_rejects_ambiguous_options_and_handles_builtin_and_empty_entities ... ok
+test preview_and_world_query_share_single_precision_frames_for_parented_objects ... ok
+test shared_asset_queries_use_actual_instance_precision_parent_and_zero_scale ... ok
+test precision_changes_save_reopen_undo_and_reject_overflow_or_failed_saves_atomically ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+
+running 7 tests
+test tessellation_maps_each_original_corner_normal_to_its_render_vertex ... ok
+test crossing_projection_fails_instead_of_publishing_partial_triangles ... ok
+test preview_and_picking_share_concave_surface_and_preserve_corner_normals ... ok
+test polygon_validation_rejects_broken_topology_corner_data_and_uv_layout ... ok
+test collinear_and_coincident_corners_are_only_removed_from_preview ... ok
+test topology_uv_order_loose_edges_and_nonmanifold_connections_round_trip_and_undo ... ok
+test concave_faces_keep_winding_area_and_notch_across_planes_scales_and_order ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 10 tests
+test picking_selects_the_nearest_visible_mesh ... ok
+test agent_duration_edit_preserves_playback_pose_and_changes_remaining_speed ... ok
+test explicit_agent_playback_commands_override_preview_state ... ok
+test camera_center_ray_matches_authored_orientation_and_door_is_clickable ... ok
+test paused_playback_is_stable_and_room_generates_real_triangles ... ok
+test playback_does_not_change_authored_state_or_revision ... ok
+test preview_rejects_geometry_that_cannot_be_represented_on_the_gpu ... ok
+test world_transform_and_picking_include_parent_rotation_and_scale ... ok
+test explicit_same_value_agent_trigger_closes_from_current_live_position ... ok
+test shared_triangle_assets_render_pick_edit_materials_and_skip_zero_area ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test bad_parameters_and_huge_requests_fail_before_allocation ... ok
+test raw_assets_need_explicit_generation_parameters_and_rejected_recipes_do_not_commit ... ok
+test edits_mark_the_recipe_and_regeneration_preserves_shared_asset_identity_and_undo ... ok
+test zero_dimension_behavior_and_undefined_circle_uv_are_explicit ... ok
+test defaults_generate_real_topology_uv_and_saved_parameters ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+
+running 5 tests
+test actual_geometry_uses_source_draws_in_sorted_identity_order_with_boundary_consumption ... ok
+test invalid_algorithm_and_seed_requests_and_failed_batches_are_atomic ... ok
+test connected_and_projected_influence_keep_their_distance_rules_and_skip_unreachable_draws ... ok
+test explicit_legacy_option_preserves_full_width_seeds_and_omitted_receipt_shape ... ok
+test saved_requests_replay_exactly_and_failed_saves_publish_no_state ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+
+running 6 tests
+test invalid_parameters_and_failed_multi_command_batches_leave_scene_and_history_unchanged ... ok
+test defaults_preserve_real_source_topology_uvs_and_suzanne_mirror_identity ... ok
+test zero_dimensions_and_axis_scaling_preserve_authored_ids_and_topology ... ok
+test subdivision_estimates_cover_the_rna_range_and_reject_over_budget_before_allocation ... ok
+test shared_instances_and_selection_survive_undo_of_recipe_replacement ... ok
+test recipes_rebuild_save_reload_and_undo_for_both_models ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s
+
+
+running 12 tests
+test disabled_rotation_preserves_complete_raw_state_and_real_receipts ... FAILED
+test invalid_inactive_channels_and_conflicting_cursor_state_are_rejected ... FAILED
+test late_failure_stale_revision_and_source_range_are_atomic ... FAILED
+test legacy_partial_quaternion_assignment_promotes_explicit_raw_state ... FAILED
+test axis_angle_angle_and_axis_locks_preserve_raw_nonunit_axis ... FAILED
+test cursor_only_single_mesh_path_clears_quaternion_without_losing_inactive_euler ... FAILED
+test explicit_raw_storage_does_not_relax_legacy_unit_quaternion_validation ... ok
+test partial_locks_store_nonunit_raw_quaternion_and_survive_undo_replay ... FAILED
+test cursor_origin_clears_only_the_active_representation_for_all_modes ... FAILED
+test w_lock_is_separate_from_xyz_and_ui_flag_does_not_change_setter ... FAILED
+test zero_source_quaternion_evaluates_pinned_half_turn_without_rewriting_it ... FAILED
+test raw_quaternion_quarter_turn_preserves_inactive_channels_and_shared_asset ... FAILED
+
+failures:
+
+---- disabled_rotation_preserves_complete_raw_state_and_real_receipts stdout ----
+
+thread 'disabled_rotation_preserves_complete_raw_state_and_real_receipts' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- invalid_inactive_channels_and_conflicting_cursor_state_are_rejected stdout ----
+
+thread 'invalid_inactive_channels_and_conflicting_cursor_state_are_rejected' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- late_failure_stale_revision_and_source_range_are_atomic stdout ----
+
+thread 'late_failure_stale_revision_and_source_range_are_atomic' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- legacy_partial_quaternion_assignment_promotes_explicit_raw_state stdout ----
+
+thread 'legacy_partial_quaternion_assignment_promotes_explicit_raw_state' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- axis_angle_angle_and_axis_locks_preserve_raw_nonunit_axis stdout ----
+
+thread 'axis_angle_angle_and_axis_locks_preserve_raw_nonunit_axis' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- cursor_only_single_mesh_path_clears_quaternion_without_losing_inactive_euler stdout ----
+
+thread 'cursor_only_single_mesh_path_clears_quaternion_without_losing_inactive_euler' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- partial_locks_store_nonunit_raw_quaternion_and_survive_undo_replay stdout ----
+
+thread 'partial_locks_store_nonunit_raw_quaternion_and_survive_undo_replay' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- cursor_origin_clears_only_the_active_representation_for_all_modes stdout ----
+
+thread 'cursor_origin_clears_only_the_active_representation_for_all_modes' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- w_lock_is_separate_from_xyz_and_ui_flag_does_not_change_setter stdout ----
+
+thread 'w_lock_is_separate_from_xyz_and_ui_flag_does_not_change_setter' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- zero_source_quaternion_evaluates_pinned_half_turn_without_rewriting_it stdout ----
+
+thread 'zero_source_quaternion_evaluates_pinned_half_turn_without_rewriting_it' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+---- raw_quaternion_quarter_turn_preserves_inactive_channels_and_shared_asset stdout ----
+
+thread 'raw_quaternion_quarter_turn_preserves_inactive_channels_and_shared_asset' panicked at tests/rotation_snap.rs:25:9:
+called `Result::unwrap()` on an `Err` value: Error("unknown field `material_index`, expected one of `vertices`, `uv_layers`, `corner_normals`, `normal`, `smooth`, `material_slot`", line: 0, column: 0)
+
+
+failures:
+    axis_angle_angle_and_axis_locks_preserve_raw_nonunit_axis
+    cursor_only_single_mesh_path_clears_quaternion_without_losing_inactive_euler
+    cursor_origin_clears_only_the_active_representation_for_all_modes
+    disabled_rotation_preserves_complete_raw_state_and_real_receipts
+    invalid_inactive_channels_and_conflicting_cursor_state_are_rejected
+    late_failure_stale_revision_and_source_range_are_atomic
+    legacy_partial_quaternion_assignment_promotes_explicit_raw_state
+    partial_locks_store_nonunit_raw_quaternion_and_survive_undo_replay
+    raw_quaternion_quarter_turn_preserves_inactive_channels_and_shared_asset
+    w_lock_is_separate_from_xyz_and_ui_flag_does_not_change_setter
+    zero_source_quaternion_evaluates_pinned_half_turn_without_rewriting_it
+
+test result: FAILED. 1 passed; 11 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

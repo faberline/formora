@@ -17,6 +17,14 @@ pub struct State {
     pub lock_location: [bool; 3],
     #[serde(default)]
     pub lock_rotation: [bool; 3],
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub lock_rotation_w: bool,
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub lock_rotations_4d: bool,
+}
+
+fn is_false(value: &bool) -> bool {
+    !value
 }
 
 #[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -52,6 +60,10 @@ pub struct Frames {
     pub edit_mode: bool,
     pub lock_location: [bool; 3],
     pub lock_rotation: [bool; 3],
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub lock_rotation_w: bool,
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub lock_rotations_4d: bool,
 }
 
 /// Query the same parent-inverse frames used by rendering and authoring.
@@ -88,6 +100,8 @@ pub fn frames(scene: &Scene, id: &str) -> Result<Frames> {
         edit_mode: context.is_some_and(|c| c.edit_objects.contains(id)),
         lock_location: state.lock_location,
         lock_rotation: state.lock_rotation,
+        lock_rotation_w: state.lock_rotation_w,
+        lock_rotations_4d: state.lock_rotations_4d,
     })
 }
 

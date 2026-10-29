@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "operation": "translate",
+      "run": 1,
+      "scene_sha256": "f7d35fd4608f6912fcabe529c79d84ca52260265251a5c5b46da78ba49d41e91",
+      "reference_sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96",
+      "repeat_reference_sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "translate",
+      "run": 2,
+      "scene_sha256": "f7d35fd4608f6912fcabe529c79d84ca52260265251a5c5b46da78ba49d41e91",
+      "reference_sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96",
+      "repeat_reference_sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "translate",
+      "run": 3,
+      "scene_sha256": "f7d35fd4608f6912fcabe529c79d84ca52260265251a5c5b46da78ba49d41e91",
+      "reference_sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96",
+      "repeat_reference_sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "rotate",
+      "run": 1,
+      "scene_sha256": "3053907d049c6baf9b12880911f147fe627f21de71253ee730ee88983b4c6520",
+      "reference_sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751",
+      "repeat_reference_sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "rotate",
+      "run": 2,
+      "scene_sha256": "3053907d049c6baf9b12880911f147fe627f21de71253ee730ee88983b4c6520",
+      "reference_sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751",
+      "repeat_reference_sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "rotate",
+      "run": 3,
+      "scene_sha256": "3053907d049c6baf9b12880911f147fe627f21de71253ee730ee88983b4c6520",
+      "reference_sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751",
+      "repeat_reference_sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "resize",
+      "run": 1,
+      "scene_sha256": "0d69d460cb5b8319bced61fa3204b21a51857bf156efb3c3f6d2757a0d7352fa",
+      "reference_sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2",
+      "repeat_reference_sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "resize",
+      "run": 2,
+      "scene_sha256": "0d69d460cb5b8319bced61fa3204b21a51857bf156efb3c3f6d2757a0d7352fa",
+      "reference_sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2",
+      "repeat_reference_sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    {
+      "operation": "resize",
+      "run": 3,
+      "scene_sha256": "0d69d460cb5b8319bced61fa3204b21a51857bf156efb3c3f6d2757a0d7352fa",
+      "reference_sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2",
+      "repeat_reference_sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2",
+      "vertices": 10201,
+      "faces": 10000,
+      "components": 180603,
+      "maximum_absolute_errors": {
+        "position": 0.0,
+        "face_normal": 0.0,
+        "corner_normal": 0.0
+      },
+      "tolerance": 1e-06,
+      "passed": true
+    }
+  ],
+  "reference_processes": [
+    3011,
+    57484
+  ],
+  "reference_binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "authored_input_sha256": "535eeca8f5b47f33a7e214c0f200d84e446e06f0769a4f5187e9a239dc2f5681",
+  "reference_driver_sha256": "3078d9087d6aa3c56c56989112519bc6ef36536738076293042eecb2fd52c978",
+  "comparison_driver_sha256": "ae88b3b79ef655ecb21b5929a8ac001c76b10fe76b1a3e399afdaa1eb6283431",
+  "fixed_tolerance": 1e-06,
+  "source_repeat_geometry_and_normals_exact": true,
+  "scope": "independent source comparison for all nine frozen performance-grid outputs; not issue or milestone acceptance"
+}

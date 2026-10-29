@@ -1,0 +1,40 @@
+{
+  "source_cases_valid": 8,
+  "source_process_id": 55824,
+  "product_performance_samples": "unrun",
+  "product_acceptance": "unrun",
+  "runs": [
+    {
+      "mode": "XYZ",
+      "source_case_valid": true
+    },
+    {
+      "mode": "XZY",
+      "source_case_valid": true
+    },
+    {
+      "mode": "YXZ",
+      "source_case_valid": true
+    },
+    {
+      "mode": "YZX",
+      "source_case_valid": true
+    },
+    {
+      "mode": "ZXY",
+      "source_case_valid": true
+    },
+    {
+      "mode": "ZYX",
+      "source_case_valid": true
+    },
+    {
+      "mode": "QUATERNION",
+      "source_case_valid": true
+    },
+    {
+      "mode": "AXIS_ANGLE",
+      "source_case_valid": true
+    }
+  ]
+}

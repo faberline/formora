@@ -157,7 +157,15 @@ impl InspectRequest {
             (Some(_), Some(_)) => Err(SceneError("inspect accepts either entity or mesh_asset".into())),
             (Some(id), None) => scene.entities.get(id).map(|entity| serde_json::json!({"revision":scene.revision,"id":id,"entity":entity})).ok_or_else(|| SceneError(format!("unknown entity: {id}"))),
             (None, Some(id)) => scene.mesh_assets.get(id).map(|asset| serde_json::json!({"revision":scene.revision,"id":id,"mesh_asset":asset})).ok_or_else(|| SceneError(format!("unknown mesh asset: {id}"))),
-            (None, None) => Ok(serde_json::json!({"revision":scene.revision,"scene":scene})),
+            (None, None) => {
+                let mut result=serde_json::json!({"revision":scene.revision,"scene":scene});
+                if let Some(context)=&scene.authoring_context {
+                    if context.cursor_orientation.is_some() {
+                        result["cursor_matrix"]=serde_json::to_value(context.cursor_world_matrix()?).map_err(|e| SceneError(e.to_string()))?;
+                    }
+                }
+                Ok(result)
+            },
         }
     }
 }
