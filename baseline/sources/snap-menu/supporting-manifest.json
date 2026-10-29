@@ -1,0 +1,36 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "purpose": "Additional unit conversion, RNA matrix-local and singular inverse definitions; authored inputs and criteria unchanged",
+  "files": [
+    {
+      "file": "unit.cc",
+      "path": "source/blender/blenkernel/intern/unit.cc",
+      "git_blob": "5593f4988f6d7a5527d1edc43e68a32c9c62c863",
+      "sha256": "26015e1202116553cb8b0aab61c23fdbd3f03ebd7c0d21c988d5adbcc89968fb",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/unit.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "file": "rna_object.cc",
+      "path": "source/blender/makesrna/intern/rna_object.cc",
+      "git_blob": "3661c45587a208627e8f5a8fd0f496c77b77ba2e",
+      "sha256": "de0c7ab9abe8127dd0c534e94fec469d21fdca7d33d6991c61c1c7667eee9886",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesrna/intern/rna_object.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "file": "eigen_matrix.cc",
+      "path": "intern/eigen/intern/matrix.cc",
+      "git_blob": "ed7c7963efd1e3af04684484ac019ca4d0cbc6f0",
+      "sha256": "944b71d3ea4da068a6105b75bec3c9675e500c8a45b6ad420952b50f3adeed49",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/intern/eigen/intern/matrix.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    }
+  ],
+  "supporting_existing_sources": [
+    "baseline/sources/physical-transform/object.cc",
+    "baseline/sources/physical-transform/mathutils_Vector.cc",
+    "baseline/sources/physical-transform/mathutils_Matrix.cc",
+    "baseline/sources/mesh-safe-transform/math_matrix_c.cc"
+  ]
+}
