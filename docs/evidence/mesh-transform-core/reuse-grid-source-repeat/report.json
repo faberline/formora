@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "process_id": 57484,
+  "build_hash": "e13b728c6880",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "input_sha256": "535eeca8f5b47f33a7e214c0f200d84e446e06f0769a4f5187e9a239dc2f5681",
+  "driver_sha256": "3078d9087d6aa3c56c56989112519bc6ef36536738076293042eecb2fd52c978",
+  "reference_adapter_hashes": {
+    "blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a"
+  },
+  "records": [
+    {
+      "operator": "translate",
+      "file": "translate.json",
+      "sha256": "f5ff4f308969f2d025dffd0e83d85228e50c956eb710d4120e785df7f2c3da96"
+    },
+    {
+      "operator": "rotate",
+      "file": "rotate.json",
+      "sha256": "f4e5b166de50eb92d92c356b2cd95471274a4f80f2253781f205f8a9ee857751"
+    },
+    {
+      "operator": "resize",
+      "file": "resize.json",
+      "sha256": "f44824c16a1c8710fd0a38c95fb7c9dd092fcf755228eac14fcc907c91dab7e2"
+    }
+  ],
+  "scope": "additional fixed performance-grid source geometry; no product acceptance"
+}

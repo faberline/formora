@@ -1,0 +1,100 @@
+{
+  "scope": "diagnostic component timings before optimization; not an acceptance gate",
+  "baseline_candidate": "4d7bc95bf988442cc95885ed4518d8ecd37e04fd",
+  "profile_binary_sha256": "fbc77c8011f2bff834db4a3d998f5ef14b936b80dfcb68fc7ee132904630b2ea",
+  "driver_sha256": "c8aa0ef60ba44fc63209b4fcc2a7460bf73e9a86ba5318b3cf020006091d0c53",
+  "input_sha256": "535eeca8f5b47f33a7e214c0f200d84e446e06f0769a4f5187e9a239dc2f5681",
+  "baseline_library_sha256": "21558d165c3ba3cd4cc2aab9811f5df6e0ecea747f6050fa2f8cec5a22599468",
+  "samples": [
+    {
+      "ms": 6.706791999999999,
+      "part": "asset_clone",
+      "run": 0
+    },
+    {
+      "ms": 48.948541,
+      "part": "asset_validate",
+      "run": 0
+    },
+    {
+      "ms": 48.315875,
+      "part": "scene_validate",
+      "run": 0
+    },
+    {
+      "ms": 78.236417,
+      "part": "automatic_normals",
+      "run": 0
+    },
+    {
+      "ms": 29.580708,
+      "part": "topology_description",
+      "run": 0
+    },
+    {
+      "ms": 53.667834,
+      "part": "editor_prepare",
+      "run": 0
+    },
+    {
+      "ms": 5.686916,
+      "part": "asset_clone",
+      "run": 1
+    },
+    {
+      "ms": 47.336957999999996,
+      "part": "asset_validate",
+      "run": 1
+    },
+    {
+      "ms": 47.226875,
+      "part": "scene_validate",
+      "run": 1
+    },
+    {
+      "ms": 75.336208,
+      "part": "automatic_normals",
+      "run": 1
+    },
+    {
+      "ms": 31.822207999999996,
+      "part": "topology_description",
+      "run": 1
+    },
+    {
+      "ms": 52.729375000000005,
+      "part": "editor_prepare",
+      "run": 1
+    },
+    {
+      "ms": 5.556167,
+      "part": "asset_clone",
+      "run": 2
+    },
+    {
+      "ms": 47.227792,
+      "part": "asset_validate",
+      "run": 2
+    },
+    {
+      "ms": 47.869291000000004,
+      "part": "scene_validate",
+      "run": 2
+    },
+    {
+      "ms": 76.36375,
+      "part": "automatic_normals",
+      "run": 2
+    },
+    {
+      "ms": 30.760208000000002,
+      "part": "topology_description",
+      "run": 2
+    },
+    {
+      "ms": 58.945040999999996,
+      "part": "editor_prepare",
+      "run": 2
+    }
+  ]
+}

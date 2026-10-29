@@ -1,0 +1,510 @@
+{
+  "passed": true,
+  "checks": 8,
+  "scope": "additional geometry-only scale checks",
+  "runs": [
+    {
+      "id": "ico_sphere_negative_scale",
+      "interface": "cli",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "ico_sphere",
+              "scale": [
+                -1.25,
+                0.75,
+                2.0
+              ]
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "ico_sphere_negative_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "cli-ico_sphere_negative_scale.json",
+      "candidate_sha256": "9ebe83893a7e27a777bc249b4864c99b401a61fd2975c37126bc007b3161e372",
+      "source_sha256": "fb9e10bd28d24a0b789a4809342564197aa69deb4ec4625aae4251bbc29a4cb3",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 2.086162567138672e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_zero_axis_scale",
+      "interface": "cli",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "ico_sphere",
+              "scale": [
+                1.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "ico_sphere_zero_axis_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "cli-ico_sphere_zero_axis_scale.json",
+      "candidate_sha256": "9506c159d2ea68792e46264c2b348ce9f69b881762a70d1107e7a652adfe71b8",
+      "source_sha256": "255a91298d1d678e2db90358b0e47f5e73a2f0b4650f6a1600646d2dec260516",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_negative_scale",
+      "interface": "cli",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "monkey"
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "monkey_negative_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "cli-monkey_negative_scale.json",
+      "candidate_sha256": "e3012fd8082c000d278d25738af9ca51f4bf6d730398e871c2c22a758f586a05",
+      "source_sha256": "33dc7122bb211c3fecc81f2c91fd15bf6f52d6e04a943baf21ed3c5ce8072c0b",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_zero_axis_scale",
+      "interface": "cli",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "monkey"
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "monkey_zero_axis_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "cli-monkey_zero_axis_scale.json",
+      "candidate_sha256": "4616c0da06173156e4cd0662b4941b97ed39e8039eaa28ce474140abf7045d72",
+      "source_sha256": "364dd4687de05e2b37ad110b6b8898d98db8112a0329016f91981d6510b58ccf",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_negative_scale",
+      "interface": "mcp",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "ico_sphere",
+              "scale": [
+                -1.25,
+                0.75,
+                2.0
+              ]
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "ico_sphere_negative_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "mcp-ico_sphere_negative_scale.json",
+      "candidate_sha256": "9ebe83893a7e27a777bc249b4864c99b401a61fd2975c37126bc007b3161e372",
+      "source_sha256": "fb9e10bd28d24a0b789a4809342564197aa69deb4ec4625aae4251bbc29a4cb3",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 2.086162567138672e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "ico_sphere_zero_axis_scale",
+      "interface": "mcp",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "ico_sphere",
+              "scale": [
+                1.0,
+                0.0,
+                1.0
+              ]
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "ico_sphere_zero_axis_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "mcp-ico_sphere_zero_axis_scale.json",
+      "candidate_sha256": "9506c159d2ea68792e46264c2b348ce9f69b881762a70d1107e7a652adfe71b8",
+      "source_sha256": "255a91298d1d678e2db90358b0e47f5e73a2f0b4650f6a1600646d2dec260516",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 5.960464477539063e-08,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_negative_scale",
+      "interface": "mcp",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "monkey"
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "monkey_negative_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "mcp-monkey_negative_scale.json",
+      "candidate_sha256": "e3012fd8082c000d278d25738af9ca51f4bf6d730398e871c2c22a758f586a05",
+      "source_sha256": "33dc7122bb211c3fecc81f2c91fd15bf6f52d6e04a943baf21ed3c5ce8072c0b",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    },
+    {
+      "id": "monkey_zero_axis_scale",
+      "interface": "mcp",
+      "status": "passed",
+      "error": null,
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_primitive",
+            "id": "generated",
+            "primitive": {
+              "kind": "monkey"
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "instance",
+            "entity": {
+              "name": "monkey_zero_axis_scale",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.0,
+                  -2.0,
+                  1.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "generated"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "file": "mcp-monkey_zero_axis_scale.json",
+      "candidate_sha256": "4616c0da06173156e4cd0662b4941b97ed39e8039eaa28ce474140abf7045d72",
+      "source_sha256": "364dd4687de05e2b37ad110b6b8898d98db8112a0329016f91981d6510b58ccf",
+      "oriented_topology_matches_reference": true,
+      "maximum_position_error_metres": 0.0,
+      "maximum_world_position_error_metres": 0.0,
+      "maximum_normal_error": 1.1920928955078125e-07,
+      "maximum_face_corner_uv_error": 0.0
+    }
+  ],
+  "binary_sha256": "01201adcbd4f3d392df7d7cb6c8ab4fb302612d486cccb4378ad9ef3996cfce2",
+  "full_creation_context_acceptance": "unrun",
+  "full_feature_acceptance": "unrun"
+}

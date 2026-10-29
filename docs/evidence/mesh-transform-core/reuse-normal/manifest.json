@@ -1,0 +1,414 @@
+{
+  "passed": true,
+  "cases": 42,
+  "binary_sha256": "01201adcbd4f3d392df7d7cb6c8ab4fb302612d486cccb4378ad9ef3996cfce2",
+  "input_hashes": {
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "src/scene.rs": "de1eb9861325d9b8a80948eb7d2ec44d1b0fbf6e0b24bbc9733e49085b84795a",
+    "src/session.rs": "153974655f8d46fb6802e063e91ef1d9a14d580119a94354742d7377ef34fb98",
+    "src/mesh.rs": "432cbaee2bf8e7e83aebdc43d06f87b8232308a3f800a288b5202f8b469f6d3b",
+    "src/lib.rs": "8c9e81daf65df1686c2297e7deb6f5af970da66b76afda7c96360da6d9c8fff2",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/transforms.rs": "ee91979889ada2cd9c423d65e49710e532b61912b282b2b0da7e82e76ee03e2c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/normals.rs": "b2045c13fb09785e415281350f8e458ca505e2ce767c78f3be5dd930f8c158a4",
+    "src/mesh/frame_math.rs": "ca7a1d2d82a099a5d3a72855c49fa6a60a1747c2c0193b46625c364234ce50b5",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/creation/inverse4.rs": "5d0eee4b2ccf49da077872840521e3040c3fa61b77a93873634caa177302edeb",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/transform/influence.rs": "0e95fd7cd106d529e004c946f987f174f36900ab62530cdd2cc87fdb77b89c40",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/mod.rs": "55be742f3806c663ef830f80bbb73eefd28843bb495ed9bdede5a45cf522419d",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "tools/normal_runtime_smoke.py": "fd9cae0c30be849c817155e97c20d3b525873c1ce0ba9de0cdc242ed185c3d35",
+    "tools/generate_mesh_normal_cases.py": "66db493ea93c496e71ff176518c8b2c0a182216243ea09643ea6c23b0f4f97c4",
+    "tools/blender_normal_reference.py": "bc50d3d8731eb2f0f0bd9f9d545a9cb0f373159e31d100d4cef087163161933f",
+    "baseline/fixtures/mesh-normals.json": "b5d2dcf6bdb55558a70ffda0f59d9f4787fac75299d50a0baf1c39a79906e76f",
+    "baseline/reference/blender-5.2.3/mesh-normals/bowtie-mixed-domain.json": "64e5fe0a3fa055291c45b6a8dc8aea58b365664ccb6d980b5d39e0386abc0aeb",
+    "baseline/reference/blender-5.2.3/mesh-normals/bowtie-smooth.json": "b5a3391ea599b9741c87ab1275abde54c6475136aadc380e23a1395b990f9d85",
+    "baseline/reference/blender-5.2.3/mesh-normals/coincident-distinct-vertices.json": "d5857f81495954a5455513d30c999d872efb13bf57e2b48b93c33563ee1b925b",
+    "baseline/reference/blender-5.2.3/mesh-normals/collinear-flat.json": "86964cc8ffb5b24458744e0bbbe419d49178549c8ec658d42a025228701b1972",
+    "baseline/reference/blender-5.2.3/mesh-normals/collinear-mixed-domain.json": "125cb3882fb705d17ea915370cd83a7a9db32eb38da145c8ff5081c583e2e8d6",
+    "baseline/reference/blender-5.2.3/mesh-normals/collinear-smooth.json": "0983cc253cdf31c1dbd15fd2c1d0bf9f0a3022ef5118f577deba5b6d84a37ffd",
+    "baseline/reference/blender-5.2.3/mesh-normals/concave-pentagon.json": "a702e9ec6ce0c46f1a5214ab4ff4e14509919cc05f3acd08fc5105d029b88f1c",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-flat.json": "5afa72b06f53c212e882792cb3bf7f039c4942139cc991820ce42d5f8cb02600",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-mixed-domain.json": "b661a99fbbf1d2e1ba8e5a5d8c8075cde85699c9b300ca9993ad3050156f70f5",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-mixed.json": "2e2bcd495f5264f3beb6add321e622765be66a258bc20a72b1ee0ec435ffebf7",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-scale-0.0001.json": "33ade49043b8a4ad846d382788dfdd7e085680f47098aa9c65f68e763b171cce",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-scale-1000000.0.json": "50a08d387391a604b67fe26c5e166a0686673e36fc6ac13491a8425f85c313ba",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-scale-1e-12.json": "fa46377cac8682c2dc7e3e8061bdb68d5ecf7590e3c9b96c4c688bc1cf3cf1e8",
+    "baseline/reference/blender-5.2.3/mesh-normals/fold-smooth.json": "5bc3314a750d9c60aadefe4c03fbcb821a0260e2c7ce79dd903da20c7878859b",
+    "baseline/reference/blender-5.2.3/mesh-normals/legacy-triangle-and-polygon.json": "94519fcf8aac0637ca94411fcffa00825245ea31881808f1fe7bc9c462a40156",
+    "baseline/reference/blender-5.2.3/mesh-normals/manifest.json": "aa0432b9b4fb0481c04fab6a5c909a6f268d75dcc4cbacadbe335b33925322a9",
+    "baseline/reference/blender-5.2.3/mesh-normals/nonmanifold-mixed-domain.json": "68e6477bea20dd1e52d4eac1ac0f5ffd0f7e667604611fbcb5b50385c9f58449",
+    "baseline/reference/blender-5.2.3/mesh-normals/nonmanifold-smooth.json": "7567f86d8d7d5c93ea2f96d1bb704085f807b116d9461aa36170fc68f3145338",
+    "baseline/reference/blender-5.2.3/mesh-normals/nonplanar-quad.json": "58ce316717fa87fa95225436056cbf2c9b028f8502e67d56bd63690a152dd494",
+    "baseline/reference/blender-5.2.3/mesh-normals/sliver-quad.json": "be7e193828c1eef6dce074a92bcdeb3f376d9f30c152628a4ff481b552f9374b",
+    "baseline/reference/blender-5.2.3/mesh-normals/transform-authored-before.json": "2cfb8f9ff32dcfc0b9e1c4d47c6a635397afea87f05d7848c4f2b72c4203f65f",
+    "baseline/reference/blender-5.2.3/mesh-normals/winding-mixed-domain.json": "dad573636234276be809f966d0241cc135074384a43b75da5d1478a5068e672b"
+  },
+  "records": [
+    {
+      "id": "fold-smooth",
+      "interface": "cli",
+      "file": "cli-fold-smooth.json",
+      "sha256": "913864acbcbf65bad5f1e6a059ef5899663d73700f0078ea026b1d350e015a04",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-flat",
+      "interface": "cli",
+      "file": "cli-fold-flat.json",
+      "sha256": "77ecafe0076521f92131177ad8ce33ce7d6b5141de0c312f5a652c4abb686531",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-mixed",
+      "interface": "cli",
+      "file": "cli-fold-mixed.json",
+      "sha256": "4c7d0444353fc520a7301371f327b00c6afc66c261922b690143f9977cb387a6",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-mixed-domain",
+      "interface": "cli",
+      "file": "cli-fold-mixed-domain.json",
+      "sha256": "b3903effa18a90de5f5ac3cd2e3b9c6610234780faef4b9dc937e59a459d808b",
+      "maximum_absolute_error": 0.0,
+      "components": 42
+    },
+    {
+      "id": "winding-mixed-domain",
+      "interface": "cli",
+      "file": "cli-winding-mixed-domain.json",
+      "sha256": "ac72313f926f282b2ff3b4ecafe104c5bf39eaf4497a484cfd0751848dcc0410",
+      "maximum_absolute_error": 0.0,
+      "components": 42
+    },
+    {
+      "id": "nonmanifold-smooth",
+      "interface": "cli",
+      "file": "cli-nonmanifold-smooth.json",
+      "sha256": "e910e57e9d0478e9307d778be64149199d8daf4a75ace19ff4b17b19fb29f707",
+      "maximum_absolute_error": 0.0,
+      "components": 45
+    },
+    {
+      "id": "nonmanifold-mixed-domain",
+      "interface": "cli",
+      "file": "cli-nonmanifold-mixed-domain.json",
+      "sha256": "1cab3562dedb8457ce810aa1cb244238a7b5e8df8567c04427718d8df07f073c",
+      "maximum_absolute_error": 0.0,
+      "components": 57
+    },
+    {
+      "id": "bowtie-smooth",
+      "interface": "cli",
+      "file": "cli-bowtie-smooth.json",
+      "sha256": "cef2bfc630f2ebed13dc5b5aee54a72bab73abf0ab57f8eca649acc216c989b6",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "bowtie-mixed-domain",
+      "interface": "cli",
+      "file": "cli-bowtie-mixed-domain.json",
+      "sha256": "a5152fed0ae043c2c56cf3841b44007ed02e178954f677e66f0d260e7bcd0594",
+      "maximum_absolute_error": 0.0,
+      "components": 42
+    },
+    {
+      "id": "collinear-flat",
+      "interface": "cli",
+      "file": "cli-collinear-flat.json",
+      "sha256": "f5dbb052fcd421c3a189708aa900043632f15abbb25edf6f83fcb7c374a26ca0",
+      "maximum_absolute_error": 0.0,
+      "components": 12
+    },
+    {
+      "id": "collinear-smooth",
+      "interface": "cli",
+      "file": "cli-collinear-smooth.json",
+      "sha256": "672ac24048e23d47b86895d810927cc6245f26282de90495fb266d03f5c64e41",
+      "maximum_absolute_error": 0.0,
+      "components": 12
+    },
+    {
+      "id": "collinear-mixed-domain",
+      "interface": "cli",
+      "file": "cli-collinear-mixed-domain.json",
+      "sha256": "d0b25c3374108774b863ec79ebfd719a647b45e19a9471b271771f722c3906bf",
+      "maximum_absolute_error": 0.0,
+      "components": 24
+    },
+    {
+      "id": "legacy-triangle-and-polygon",
+      "interface": "cli",
+      "file": "cli-legacy-triangle-and-polygon.json",
+      "sha256": "1e9ff1fbb5a56af0ce6b7f24b1fcd5ce2d4789cd25a26bf49ec7ca8053eb82fe",
+      "maximum_absolute_error": 0.0,
+      "components": 27
+    },
+    {
+      "id": "coincident-distinct-vertices",
+      "interface": "cli",
+      "file": "cli-coincident-distinct-vertices.json",
+      "sha256": "97edda7f06cb8e0eaa8d3fe43ece12ec51c5543ddea314b12bc96292ae1f5e01",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "nonplanar-quad",
+      "interface": "cli",
+      "file": "cli-nonplanar-quad.json",
+      "sha256": "d0731af3a2759aa129e91782a7cef33c7195f3b9abd46536fa05a8ef02abe090",
+      "maximum_absolute_error": 0.0,
+      "components": 15
+    },
+    {
+      "id": "concave-pentagon",
+      "interface": "cli",
+      "file": "cli-concave-pentagon.json",
+      "sha256": "51e14b7eb3ac8a1e970b931e0df7b8e65578f7ad25cbae2eaffbff2b1a5b70c2",
+      "maximum_absolute_error": 0.0,
+      "components": 18
+    },
+    {
+      "id": "fold-scale-1e-12",
+      "interface": "cli",
+      "file": "cli-fold-scale-1e-12.json",
+      "sha256": "14cfc5516e501fa19d1783b7eb8aa7bd621f30db278542857706f63c0e6613b2",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-scale-0.0001",
+      "interface": "cli",
+      "file": "cli-fold-scale-0.0001.json",
+      "sha256": "269c06514665501f291e40ba5c5cd18c0c5ec59e38bc3893f9306c0e9ac3d5f4",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-scale-1000000.0",
+      "interface": "cli",
+      "file": "cli-fold-scale-1000000.0.json",
+      "sha256": "5e1255ac7288d82b7bdd74c067b936b02b3d5dbe7a6a648c22fc9cdfbcea3642",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "sliver-quad",
+      "interface": "cli",
+      "file": "cli-sliver-quad.json",
+      "sha256": "3a1fcf51d7014586c6855ef900ed2f6e872d4683ac14384bcb4f56010c6ef706",
+      "maximum_absolute_error": 0.0,
+      "components": 15
+    },
+    {
+      "id": "transform-authored-before",
+      "interface": "cli",
+      "file": "cli-transform-authored-before.json",
+      "sha256": "30e4242602f8235e03f43858753cd6edf52eb3e9b154da7c4fc145368ecc27cc",
+      "maximum_absolute_error": 0.0,
+      "components": 90
+    },
+    {
+      "id": "fold-smooth",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-smooth.json",
+      "sha256": "dbeea509b619bdf98c0c3ce9d4d77086c76374cf09c19e171040111d52e2103e",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-flat",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-flat.json",
+      "sha256": "81dc66fed0ef21234e665be0bcf710c1290e5612e7952e633f826a3af9d6740c",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-mixed",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-mixed.json",
+      "sha256": "e5fb94c113cdcfa9d493701ca62c15b9471aa2634bb019ecdba6e6626663965b",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-mixed-domain",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-mixed-domain.json",
+      "sha256": "30e51ddb4fd10d26ba4496a6caad4e78725202713506bb710ade214297c159f8",
+      "maximum_absolute_error": 0.0,
+      "components": 42
+    },
+    {
+      "id": "winding-mixed-domain",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-winding-mixed-domain.json",
+      "sha256": "68dc04bf6a068ba0139cc1882dc7e9de336c6f26810099b2dfef86910bcdc367",
+      "maximum_absolute_error": 0.0,
+      "components": 42
+    },
+    {
+      "id": "nonmanifold-smooth",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-nonmanifold-smooth.json",
+      "sha256": "af57d281db7c2630fb3b447c37f9a56af00738da74067eca3230e16f8967d3dc",
+      "maximum_absolute_error": 0.0,
+      "components": 45
+    },
+    {
+      "id": "nonmanifold-mixed-domain",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-nonmanifold-mixed-domain.json",
+      "sha256": "531d9f63a333ccb5b19fcb82ad57bbf7146fe4175b69184318cff05c7accc140",
+      "maximum_absolute_error": 0.0,
+      "components": 57
+    },
+    {
+      "id": "bowtie-smooth",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-bowtie-smooth.json",
+      "sha256": "320916f29f97b5cc35a12d921f7339016fe6c8ecada53f8a01993543f4259b24",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "bowtie-mixed-domain",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-bowtie-mixed-domain.json",
+      "sha256": "d8a472f2f89106c81a23e4ee7654970541a88cf7778d0cf583b9654f742d98dc",
+      "maximum_absolute_error": 0.0,
+      "components": 42
+    },
+    {
+      "id": "collinear-flat",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-collinear-flat.json",
+      "sha256": "954f83ef21d9d20b4322681481f744c7d558ca9d5467ed5815077e92a7f23c40",
+      "maximum_absolute_error": 0.0,
+      "components": 12
+    },
+    {
+      "id": "collinear-smooth",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-collinear-smooth.json",
+      "sha256": "4d3ee78218a24bff73438e4c820f6be8fdf379beb8dd7739a3a96ca2a78bfa3b",
+      "maximum_absolute_error": 0.0,
+      "components": 12
+    },
+    {
+      "id": "collinear-mixed-domain",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-collinear-mixed-domain.json",
+      "sha256": "745c115cdb4ae6c04f2757deeb4ca5cafa697554b8ef8e9aa9f5828f18d56579",
+      "maximum_absolute_error": 0.0,
+      "components": 24
+    },
+    {
+      "id": "legacy-triangle-and-polygon",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-legacy-triangle-and-polygon.json",
+      "sha256": "0dc3839c7ddb17315f3d86f0fb6bf3ca7377f3b343acce895cf282dd7d950605",
+      "maximum_absolute_error": 0.0,
+      "components": 27
+    },
+    {
+      "id": "coincident-distinct-vertices",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-coincident-distinct-vertices.json",
+      "sha256": "282f0ed1918a92784afe6908979e7055f3838e6a7d53dfd30601462f6bf6bfd3",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "nonplanar-quad",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-nonplanar-quad.json",
+      "sha256": "23263072a78eccfc30a218501db5bd52e6d00b603fdb06a35e81a4cb22dc2de3",
+      "maximum_absolute_error": 0.0,
+      "components": 15
+    },
+    {
+      "id": "concave-pentagon",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-concave-pentagon.json",
+      "sha256": "ae5fca7bc3a9b7f510271385dca22cf9e1660f422cc4b7903de5f1313a348ea8",
+      "maximum_absolute_error": 0.0,
+      "components": 18
+    },
+    {
+      "id": "fold-scale-1e-12",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-scale-1e-12.json",
+      "sha256": "51acbd3c2d43175cd0ec7c6f691d406ed28a23ef36315f439f67f1d9d82f6014",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-scale-0.0001",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-scale-0.0001.json",
+      "sha256": "60785282d7b514b96fb4058333a6043c914d96d83b19e2cfbc4a6f83d740da26",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "fold-scale-1000000.0",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-fold-scale-1000000.0.json",
+      "sha256": "05bd4fc6117a31c71c2e07953be5d2defc2c2086539c4b4cfbdce76a0af39f10",
+      "maximum_absolute_error": 0.0,
+      "components": 30
+    },
+    {
+      "id": "sliver-quad",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-sliver-quad.json",
+      "sha256": "5e44bdc5268f6c0bf7283b90cf58b263e5a2b2dd929918d288a97e08ec7cdddd",
+      "maximum_absolute_error": 0.0,
+      "components": 15
+    },
+    {
+      "id": "transform-authored-before",
+      "interface": "official_mcp_sdk",
+      "file": "official_mcp_sdk-transform-authored-before.json",
+      "sha256": "dc342cd543848ad6600fb02b439eb154ba3d8deb50aab556782f5d40c88c153b",
+      "maximum_absolute_error": 0.0,
+      "components": 90
+    }
+  ],
+  "scope": "Automatic normal queries only; product transforms, full custom normals and integrated acceptance remain unrun."
+}
