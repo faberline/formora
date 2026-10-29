@@ -1,0 +1,29 @@
+# Blender 5.2.3, Commit date: 2026-10-21 09:21, Hash e13b728c6880
+
+# backtrace
+0   Blender                             0x000000010172370c _ZN7blender33BLI_system_backtrace_with_os_infoEP7__sFILEPKv + 56
+1   Blender                             0x0000000100e1f184 _ZNSt3__117__call_once_proxyB8ne200100INS_5tupleIJRZN7blenderL19sig_handle_crash_fnEiE3$_0EEEEEvPv + 376
+2   libc++.1.dylib                      0x00000001836273b8 _ZNSt3__111__call_onceERVmPvPFvS2_E + 196
+3   Blender                             0x0000000100e1ef80 _ZN7blenderL19sig_handle_crash_fnEi + 84
+4   libsystem_platform.dylib            0x000000018371f744 _sigtramp + 56
+5   Blender                             0x00000001018aba38 _ZN7blender20GPU_matrix_ortho_setEffffff + 52
+6   Blender                             0x0000000103719928 _ZN7blender20view3d_winmatrix_setEPKNS_9DepsgraphEPNS_7ARegionEPKNS_6View3DEPKNS_4rctiE + 204
+7   Blender                             0x00000001036d9170 _ZN7blender24ED_view3d_update_viewmatEPKNS_9DepsgraphEPKNS_5SceneEPNS_6View3DEPNS_7ARegionEPA4_KfSC_PKNS_4rctiEb + 132
+8   Blender                             0x00000001020f7460 _ZN7blender17RNA_function_callEPNS_8bContextEPNS_10ReportListEPNS_10PointerRNAEPNS_11FunctionRNAEPNS_13ParameterListE + 24
+9   Blender                             0x0000000102776d94 _ZN7blenderL21pyrna_func_vectorcallEP7_objectPKS1_mS1_ + 1132
+10  Blender                             0x0000000106385310 PyObject_Vectorcall + 88
+11  Blender                             0x00000001064b413c _PyEval_EvalFrameDefault + 7716
+12  Blender                             0x00000001064b1dec PyEval_EvalCode + 252
+13  Blender                             0x000000010651f974 run_eval_code_obj + 180
+14  Blender                             0x000000010651f628 run_mod + 328
+15  Blender                             0x000000010651ea40 PyRun_FileExFlags + 176
+16  Blender                             0x000000010276184c _ZN7blenderL18python_script_execEPNS_8bContextEPKcPNS_4TextEPNS_10ReportListEb + 472
+17  Blender                             0x0000000100e1d428 _ZN7blenderL26arg_handle_python_file_runEiPPKcPv + 256
+18  Blender                             0x000000010172e5c0 _ZN7blender14BLI_args_parseEPNS_5bArgsEiPFiiPPKcPvES5_ + 188
+19  Blender                             0x0000000100e19764 main + 964
+20  dyld                                0x0000000183357e00 start + 6992
+
+# Python backtrace
+  File "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py", line 53 in create
+  File "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py", line 118 in main
+  File "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py", line 143 in <module>
