@@ -1,0 +1,1145 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "domain": "vertex",
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "different_pixels": 25,
+      "visible_pixels": 53840,
+      "hidden_visible_pixels": 0,
+      "reloaded_identical": true,
+      "asset_attributes_unchanged": true
+    },
+    {
+      "domain": "edge",
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "different_pixels": 464,
+      "visible_pixels": 54056,
+      "hidden_visible_pixels": 0,
+      "reloaded_identical": true,
+      "asset_attributes_unchanged": true
+    },
+    {
+      "domain": "face",
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "different_pixels": 53824,
+      "visible_pixels": 53824,
+      "hidden_visible_pixels": 0,
+      "reloaded_identical": true,
+      "asset_attributes_unchanged": true
+    }
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "binary_sha256": "d33b3981a1c768436d156b55e6e18b71265c10c038f31ec4b62c8a4ac28f45da",
+  "source_files_sha256": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "89f019bed0b2073b2628f3634efd90ba583600377ba3bba25edc57bf3c77320e",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "f5e5d2ceccd376faa92655385f4e5a1a8e0ebc555ca8051e908d5640eca612ff",
+    "src/mesh/primitives/rotational.rs": "663f762de8c5723168566c3e604afa42d4f7c7ef311c2f776ae1f95039b91414",
+    "src/mesh/primitives.rs": "b13ea3cd8c44f86852e8e7dcda9424a0ff1418416b0dd882da5e40effcc912a2",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "15472be089e71e0e81b0bc68f08d00715901c4939667647da7e64b50a8baad93",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh.rs": "127f5f0a5f192b3a4c425dd34ceeee031b6156a7f02543f3b896a2f67b92fc26",
+    "src/preview/math.rs": "fe5389cdc32bb9e714b83c6ffa355a32f4906957bd68b894d12523f305360950",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "3532a782ca9b8c57328974d7becf57df6fbc20467dd01494031ddf5a6bd73669",
+    "src/session.rs": "73eed765a0c8f0196ac31cae54225af5389f74cd2b1aea3d29cf46a4fcc17298"
+  },
+  "capture_inputs_sha256": {
+    "tools/selection_gpu_evidence.py": "f9ba1726d3e8f862ff28d453159a4ee19268523e16c8c076a99d25bd6ac5beb4",
+    "tools/png_pixels.py": "d75c0dbab5bfa901153cea78dddf99899085eb396a8fd5c098b27b615be5562f",
+    "docs/contracts/mesh-selection-core.md": "125800ed0ef676c5be02cf49e7aae591d3468737a813abe88eaffc2eebbbd5e3"
+  },
+  "artifacts": {
+    "edge/before.png": "ad6ec6ba835e60a29017f1529934c6e9842b39a877387cd9cfb0d51000ecd524",
+    "edge/hidden.png": "139ac7d49ce96822b255510d3ff63d7c142dcc2795bf0417fb2b2ca15294acbb",
+    "edge/reloaded.png": "14750f6f0b5782be045b9597c79ba0fe9090adf7c101c04b332761b3c2058c00",
+    "edge/scene.json": "129b9368b27f611b65e754438f96d9e96328e59e2304cafaee88859830fb7bf2",
+    "edge/selected-scene.json": "60c4b14bb6ad6921e2dc7512634964d30382d505f5a7dd07688fb42e69b7d868",
+    "edge/selected.png": "14750f6f0b5782be045b9597c79ba0fe9090adf7c101c04b332761b3c2058c00",
+    "face/before.png": "ad6ec6ba835e60a29017f1529934c6e9842b39a877387cd9cfb0d51000ecd524",
+    "face/hidden.png": "139ac7d49ce96822b255510d3ff63d7c142dcc2795bf0417fb2b2ca15294acbb",
+    "face/reloaded.png": "218b64442f10391899d132581de63dc3bf215694669b76a178a2d548fdb1dfcb",
+    "face/scene.json": "a08c3fe0b35eac9d5993ed8c325740a31ca43360b4b3ab573ab3f1a71d369cea",
+    "face/selected-scene.json": "fbb0359a34c08c58e72487b20060eca829e21383f13b12c8fbab6baf3ac31eb8",
+    "face/selected.png": "218b64442f10391899d132581de63dc3bf215694669b76a178a2d548fdb1dfcb",
+    "vertex/before.png": "ad6ec6ba835e60a29017f1529934c6e9842b39a877387cd9cfb0d51000ecd524",
+    "vertex/hidden.png": "139ac7d49ce96822b255510d3ff63d7c142dcc2795bf0417fb2b2ca15294acbb",
+    "vertex/reloaded.png": "1bfe44d404adec360ce5fce6ea2d4ff1f101ae620ab33941ca853503bdb275c4",
+    "vertex/scene.json": "94d73b4419be43fe173852f19446d0248619e40815f420d3b06804fdc149278f",
+    "vertex/selected-scene.json": "9b051c851e39f07de486a330a9ccd787880d4023dc3d9671d1f1196b492449ba",
+    "vertex/selected.png": "1bfe44d404adec360ce5fce6ea2d4ff1f101ae620ab33941ca853503bdb275c4"
+  },
+  "commands": [
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"revision\":0}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "a": [
+                  -1,
+                  -1,
+                  0
+                ],
+                "b": [
+                  1,
+                  -1,
+                  0
+                ],
+                "c": [
+                  1,
+                  1,
+                  0
+                ],
+                "d": [
+                  -1,
+                  1,
+                  0
+                ]
+              },
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "da": [
+                  "d",
+                  "a"
+                ]
+              },
+              "triangles": {},
+              "polygons": {
+                "square": {
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "normal": null,
+                  "smooth": false,
+                  "material_slot": null
+                }
+              },
+              "material_slots": []
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "surface",
+            "entity": {
+              "name": "surface",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  1,
+                  -2,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":1}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/vertex/before.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [
+                  "a"
+                ],
+                "edges": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":2}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--selection-topology"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"da\":[\"d\",\"a\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"material_slots\":[],\"polygons\":{\"square\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}},\"triangles\":{},\"vertices\":{\"a\":[-1.0,-1.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[1.0,1.0,0.0],\"d\":[-1.0,1.0,0.0]}},\"revision\":2,\"selection_topology\":{\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"da\":[\"a\",\"d\"]},\"faces\":[{\"edges\":[\"ab\",\"bc\",\"cd\",\"da\"],\"face\":{\"id\":\"square\",\"kind\":\"polygon\"},\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}],\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/selected.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/vertex/selected.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/vertex/reloaded.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {},
+              "hidden": {
+                "vertices": [],
+                "edges": [],
+                "faces": [
+                  {
+                    "kind": "polygon",
+                    "id": "square"
+                  }
+                ]
+              },
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":3}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/vertex/hidden.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/vertex/hidden.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"revision\":0}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "a": [
+                  -1,
+                  -1,
+                  0
+                ],
+                "b": [
+                  1,
+                  -1,
+                  0
+                ],
+                "c": [
+                  1,
+                  1,
+                  0
+                ],
+                "d": [
+                  -1,
+                  1,
+                  0
+                ]
+              },
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "da": [
+                  "d",
+                  "a"
+                ]
+              },
+              "triangles": {},
+              "polygons": {
+                "square": {
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "normal": null,
+                  "smooth": false,
+                  "material_slot": null
+                }
+              },
+              "material_slots": []
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "surface",
+            "entity": {
+              "name": "surface",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  1,
+                  -2,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":1}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/edge/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/edge/before.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "edge"
+              ],
+              "selected": {
+                "vertices": [],
+                "edges": [
+                  "ab"
+                ],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":2}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--selection-topology"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"da\":[\"d\",\"a\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"edge\"],\"selected\":{\"edges\":[\"ab\"],\"faces\":[],\"vertices\":[\"a\",\"b\"]}},\"material_slots\":[],\"polygons\":{\"square\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}},\"triangles\":{},\"vertices\":{\"a\":[-1.0,-1.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[1.0,1.0,0.0],\"d\":[-1.0,1.0,0.0]}},\"revision\":2,\"selection_topology\":{\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"da\":[\"a\",\"d\"]},\"faces\":[{\"edges\":[\"ab\",\"bc\",\"cd\",\"da\"],\"face\":{\"id\":\"square\",\"kind\":\"polygon\"},\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}],\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/edge/selected.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/edge/selected.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/edge/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/edge/reloaded.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "edge"
+              ],
+              "selected": {},
+              "hidden": {
+                "vertices": [],
+                "edges": [],
+                "faces": [
+                  {
+                    "kind": "polygon",
+                    "id": "square"
+                  }
+                ]
+              },
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":3}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/edge/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/edge/hidden.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/edge/hidden.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"revision\":0}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "a": [
+                  -1,
+                  -1,
+                  0
+                ],
+                "b": [
+                  1,
+                  -1,
+                  0
+                ],
+                "c": [
+                  1,
+                  1,
+                  0
+                ],
+                "d": [
+                  -1,
+                  1,
+                  0
+                ]
+              },
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "da": [
+                  "d",
+                  "a"
+                ]
+              },
+              "triangles": {},
+              "polygons": {
+                "square": {
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "normal": null,
+                  "smooth": false,
+                  "material_slot": null
+                }
+              },
+              "material_slots": []
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "surface",
+            "entity": {
+              "name": "surface",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  1,
+                  -2,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":1}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/face/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/face/before.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "face"
+              ],
+              "selected": {
+                "vertices": [],
+                "edges": [],
+                "faces": [
+                  {
+                    "kind": "polygon",
+                    "id": "square"
+                  }
+                ]
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": {
+                "kind": "polygon",
+                "id": "square"
+              }
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":2}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--selection-topology"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"da\":[\"d\",\"a\"]},\"editing\":{\"active_face\":{\"id\":\"square\",\"kind\":\"polygon\"},\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"face\"],\"selected\":{\"edges\":[\"ab\",\"bc\",\"cd\",\"da\"],\"faces\":[{\"id\":\"square\",\"kind\":\"polygon\"}],\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}},\"material_slots\":[],\"polygons\":{\"square\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}},\"triangles\":{},\"vertices\":{\"a\":[-1.0,-1.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[1.0,1.0,0.0],\"d\":[-1.0,1.0,0.0]}},\"revision\":2,\"selection_topology\":{\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"da\":[\"a\",\"d\"]},\"faces\":[{\"edges\":[\"ab\",\"bc\",\"cd\",\"da\"],\"face\":{\"id\":\"square\",\"kind\":\"polygon\"},\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}],\"vertices\":[\"a\",\"b\",\"c\",\"d\"]}}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/face/selected.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/face/selected.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/face/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/face/reloaded.png\",\"width\":640}\n"
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "face"
+              ],
+              "selected": {},
+              "hidden": {
+                "vertices": [],
+                "edges": [],
+                "faces": [
+                  {
+                    "kind": "polygon",
+                    "id": "square"
+                  }
+                ]
+              },
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":3}\n"
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/private/tmp/formora-selection-gpu-actual185/face/scene.json",
+        "--output",
+        "/private/tmp/formora-selection-gpu-actual185/face/hidden.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-selection-gpu-actual185/face/hidden.png\",\"width\":640}\n"
+    }
+  ],
+  "full_feature_acceptance": "unrun",
+  "unrun": [
+    "native window input",
+    "Windows GPU",
+    "Linux GPU",
+    "full modeling parity"
+  ]
+}
