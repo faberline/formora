@@ -1,0 +1,9 @@
+unknown argument, loading as file: --noaudio
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py", line 166, in start
+    try:capture(args)
+        ~~~~~~~^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py", line 117, in capture
+    for row in json.loads((ROOT/name).read_text())['files']:
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'files'

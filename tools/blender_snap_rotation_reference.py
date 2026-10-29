@@ -114,7 +114,10 @@ def capture(args):
     source_manifest = json.loads((ROOT/'baseline/sources/snap-rotation/manifest.json').read_text())
     for name in source_manifest['reused_source_manifests']:
         paths.append(ROOT/name)
-        for row in json.loads((ROOT/name).read_text())['files']:
+        manifest=json.loads((ROOT/name).read_text())
+        records=manifest['files'] if 'files' in manifest else manifest['source_files']
+        assert records
+        for row in records:
             p=(ROOT/name).parent/row['file'];assert digest(p)==row['sha256'];paths.append(p)
     for row in source_manifest['files']:
         p=ROOT/'baseline/sources/snap-rotation'/row['file'];assert digest(p)==row['sha256'];paths.append(p)

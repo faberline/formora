@@ -1,0 +1,198 @@
+{
+  "operators": {
+    "snap_selected_to_grid": {},
+    "snap_selected_to_cursor": {
+      "use_offset": {
+        "type": "BOOLEAN",
+        "description": "If the selection should be snapped as a whole or by each object center",
+        "array_length": 0,
+        "is_enum_flag": false,
+        "default": true
+      },
+      "use_rotation": {
+        "type": "BOOLEAN",
+        "description": "If the selection should be rotated to match the cursor",
+        "array_length": 0,
+        "is_enum_flag": false,
+        "default": false
+      }
+    },
+    "snap_selected_to_active": {},
+    "snap_cursor_to_grid": {},
+    "snap_cursor_to_selected": {},
+    "snap_cursor_to_active": {},
+    "snap_cursor_to_center": {}
+  },
+  "rotation": {
+    "object": {
+      "rotation_quaternion": {
+        "type": "FLOAT",
+        "description": "Rotation in Quaternions",
+        "array_length": 4,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rotation_axis_angle": {
+        "type": "FLOAT",
+        "description": "Angle of Rotation for Axis-Angle rotation representation",
+        "array_length": 4,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "rotation_euler": {
+        "type": "FLOAT",
+        "description": "Rotation in Eulers",
+        "array_length": 3,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rotation_mode": {
+        "type": "ENUM",
+        "description": "The kind of rotation to apply, values from other rotation modes are not used",
+        "is_enum_flag": false,
+        "enum": [
+          "QUATERNION",
+          "XYZ",
+          "XZY",
+          "YXZ",
+          "YZX",
+          "ZXY",
+          "ZYX",
+          "AXIS_ANGLE"
+        ],
+        "default": "XYZ"
+      },
+      "delta_rotation_euler": {
+        "type": "FLOAT",
+        "description": "Extra rotation added to the rotation of the object (when using Euler rotations)",
+        "array_length": 3,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "delta_rotation_quaternion": {
+        "type": "FLOAT",
+        "description": "Extra rotation added to the rotation of the object (when using Quaternion rotations)",
+        "array_length": 4,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "lock_rotation": {
+        "type": "BOOLEAN",
+        "description": "Lock editing of rotation when transforming",
+        "array_length": 3,
+        "is_enum_flag": false,
+        "default": [
+          false,
+          false,
+          false
+        ]
+      },
+      "lock_rotation_w": {
+        "type": "BOOLEAN",
+        "description": "Lock editing of 'angle' component of four-component rotations when transforming",
+        "array_length": 0,
+        "is_enum_flag": false,
+        "default": false
+      },
+      "lock_rotations_4d": {
+        "type": "BOOLEAN",
+        "description": "Lock editing of four component rotations by components (instead of as Eulers)",
+        "array_length": 0,
+        "is_enum_flag": false,
+        "default": true
+      }
+    },
+    "cursor": {
+      "rotation_quaternion": {
+        "type": "FLOAT",
+        "description": "Rotation in quaternions (keep normalized)",
+        "array_length": 4,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rotation_axis_angle": {
+        "type": "FLOAT",
+        "description": "Angle of Rotation for Axis-Angle rotation representation",
+        "array_length": 4,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "rotation_euler": {
+        "type": "FLOAT",
+        "description": "3D rotation",
+        "array_length": 3,
+        "hard_min": -3.4028234663852886e+38,
+        "hard_max": 3.4028234663852886e+38,
+        "is_enum_flag": false,
+        "default": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rotation_mode": {
+        "type": "ENUM",
+        "description": "The kind of rotation to apply, values from other rotation modes are not used",
+        "is_enum_flag": false,
+        "enum": [
+          "QUATERNION",
+          "XYZ",
+          "XZY",
+          "YXZ",
+          "YZX",
+          "ZXY",
+          "ZYX",
+          "AXIS_ANGLE"
+        ],
+        "default": "XYZ"
+      }
+    }
+  }
+}
