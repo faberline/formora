@@ -11,7 +11,7 @@ import subprocess
 import time
 
 
-def main():
+def main(expected_rust_tests=101, expected_python_tests=47, extra_examples=()):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('toolchain_bin',type=Path);parser.add_argument('target',type=Path);parser.add_argument('output',type=Path)
     args=parser.parse_args();toolchain=args.toolchain_bin.resolve();target=args.target.resolve();output=args.output.resolve()
@@ -26,9 +26,11 @@ def main():
     assert versions['cargo'].startswith('cargo 1.85.0 '),versions
     assert versions['clippy'].startswith('clippy 0.1.85 '),versions
     assert versions['rustfmt'].startswith('rustfmt 1.8.0-stable '),versions
-    files=[root/'Cargo.toml',root/'Cargo.lock',root/'.github/workflows/contracts.yml',
-           *[p for directory in ['src','tests','examples','tools','docs/contracts'] for p in (root/directory).rglob('*')
-             if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']]
+    def input_files():
+        return [root/'Cargo.toml',root/'Cargo.lock',root/'.gitattributes',root/'.github/workflows/contracts.yml',
+                *[p for directory in ['src','tests','examples','tools','docs/contracts','docs/evidence/remaining-primitives/source']
+                  for p in (root/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']]
+    files=input_files()
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     snapshot={str(p.relative_to(root)):sha(p) for p in sorted(files)}
     binary=target/'debug/formora';records=[]
@@ -41,7 +43,8 @@ def main():
               ('strict-baseline',[str(binary),'baseline','check','--root','.', '--strict'],2),
               *[(name,[cargo,'run','--locked','--release','--example',example],0) for name,example in [
                   ('triangle-performance','mesh_asset_bench'),('polygon-performance','polygon_asset_bench'),
-                  ('primitive-performance','primitive_generation_bench')]]]
+                  ('primitive-performance','primitive_generation_bench')]],
+              *[(example,[cargo,'run','--locked','--release','--example',example],0) for example in extra_examples]]
     for name,command,expected in commands:
         start=time.monotonic_ns();result=subprocess.run(command,cwd=root,env=env,capture_output=True,text=True);end=time.monotonic_ns()
         (output/(name+'.stdout')).write_text(result.stdout);(output/(name+'.stderr')).write_text(result.stderr)
@@ -51,8 +54,11 @@ def main():
         assert result.returncode==expected,(name,result.stderr)
         if name=='rust-tests':
             totals=re.findall(r'test result: ok\. (\d+) passed; 0 failed; 0 ignored;',result.stdout)
-            records[-1]['tests_passed']=sum(map(int,totals));assert records[-1]['tests_passed']==101
-    assert snapshot=={str(p.relative_to(root)):sha(p) for p in sorted(files)},'source changed during checks'
+            records[-1]['tests_passed']=sum(map(int,totals));assert records[-1]['tests_passed']==expected_rust_tests
+        if name=='python-tests':
+            totals=re.findall(r'Ran (\d+) tests? in ',result.stderr);assert totals
+            records[-1]['tests_passed']=int(totals[-1]);assert records[-1]['tests_passed']==expected_python_tests
+    assert snapshot=={str(p.relative_to(root)):sha(p) for p in sorted(input_files())},'source changed during checks'
     rust_info=json.loads((target/'.rustc_info.json').read_text())
     outputs=[value.get('stdout','') for value in rust_info['outputs'].values()]
     assert any(value.startswith('rustc 1.85.0 ') for value in outputs),rust_info

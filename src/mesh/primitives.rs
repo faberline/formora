@@ -5,6 +5,8 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 
+mod legacy;
+mod legacy_tables;
 mod rotational;
 pub use rotational::TorusMode;
 
@@ -48,6 +50,29 @@ pub enum CircleFill {
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Primitive {
+    IcoSphere {
+        #[serde(default = "legacy::subdivisions")]
+        #[schemars(range(min = 1, max = 10))]
+        subdivisions: u32,
+        #[serde(default = "radius")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        radius: f64,
+        #[serde(default = "enabled")]
+        calc_uvs: bool,
+        #[serde(default = "unit_scale")]
+        scale: [f64; 3],
+        #[serde(default = "zero_rotation")]
+        creation_rotation: [f64; 3],
+    },
+    Monkey {
+        #[serde(default = "size")]
+        #[schemars(range(min = 0., max = MAX_DIMENSION))]
+        size: f64,
+        #[serde(default = "enabled")]
+        calc_uvs: bool,
+        #[serde(default = "zero_rotation")]
+        creation_rotation: [f64; 3],
+    },
     Plane {
         #[serde(default = "size")]
         #[schemars(range(min = 0., max = MAX_DIMENSION))]
@@ -185,6 +210,7 @@ impl Primitive {
     /// Vertex + edge + polygon + face-corner count. Checked before allocation.
     pub fn component_count(&self) -> Result<usize> {
         if let Self::Cube { scale, .. }
+        | Self::IcoSphere { scale, .. }
         | Self::UvSphere { scale, .. }
         | Self::Cylinder { scale, .. }
         | Self::Cone { scale, .. } = self
@@ -199,6 +225,7 @@ impl Primitive {
             }
         }
         let dimension = match self {
+            Self::IcoSphere { .. } | Self::Monkey { .. } => return legacy::component_count(self),
             Self::Plane { size, .. } | Self::Cube { size, .. } | Self::Grid { size, .. } => *size,
             Self::Circle { radius, .. } => *radius,
             Self::UvSphere { .. }
@@ -213,6 +240,9 @@ impl Primitive {
         }
         let checked = || -> Option<usize> {
             Some(match self {
+                Self::IcoSphere { .. } | Self::Monkey { .. } => {
+                    unreachable!("legacy count returned above")
+                }
                 Self::UvSphere { .. }
                 | Self::Cylinder { .. }
                 | Self::Cone { .. }
@@ -268,7 +298,9 @@ impl Primitive {
             )));
         }
         let calc_uvs = match self {
-            Self::Plane { calc_uvs, .. }
+            Self::IcoSphere { calc_uvs, .. }
+            | Self::Monkey { calc_uvs, .. }
+            | Self::Plane { calc_uvs, .. }
             | Self::Cube { calc_uvs, .. }
             | Self::Grid { calc_uvs, .. }
             | Self::Circle { calc_uvs, .. }
@@ -279,6 +311,7 @@ impl Primitive {
         };
         let mut builder = Builder::new(calc_uvs);
         match self {
+            Self::IcoSphere { .. } | Self::Monkey { .. } => legacy::generate(self, &mut builder)?,
             Self::UvSphere { .. }
             | Self::Cylinder { .. }
             | Self::Cone { .. }

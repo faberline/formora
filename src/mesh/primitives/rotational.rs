@@ -154,7 +154,7 @@ fn conic_count(r1: f64, r2: f64, depth: f64, n: u32, fill: CircleFill) -> Option
 }
 
 impl Builder {
-    fn surface(&mut self, indices: &[usize], uv: Vec<[f64; 2]>) {
+    pub(super) fn surface(&mut self, indices: &[usize], uv: Vec<[f64; 2]>) {
         let points: Vec<_> = indices
             .iter()
             .map(|i| self.asset.vertices[&vertex_id(*i)])
@@ -304,7 +304,7 @@ pub(super) fn generate(p: &Primitive, b: &mut Builder) -> Result<()> {
 // The creation frame uses float trigonometry promoted to double products.
 // The object frame uses double trigonometry. Convert between those rounded
 // frames before applying local scale. Zero rotation gives an exact identity.
-fn creation_basis(rotation: [f64; 3], scale: [f64; 3]) -> [[f32; 3]; 3] {
+pub(super) fn creation_basis(rotation: [f64; 3], scale: [f64; 3]) -> [[f32; 3]; 3] {
     fn euler(rotation: [f64; 3], single: bool) -> [[f32; 3]; 3] {
         let trig = rotation.map(|angle| {
             let angle = angle as f32;
