@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py",
+    "--",
+    "--suite",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-delta.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/baseline/reference/blender-5.2.3/snap-delta-repeat"
+  ],
+  "started_utc": "2026-10-29T22:30:59.405377+00:00",
+  "launcher_sha256": "72eeaf92aaf9d97af586729aca9b9f56b6b09260f60767094315e88ee3672758",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "capture": "/Users/chrischeng/faberlines/formora/baseline/reference/blender-5.2.3/snap-delta-repeat",
+  "terminal_exit_code": null,
+  "process_id": 55401
+}

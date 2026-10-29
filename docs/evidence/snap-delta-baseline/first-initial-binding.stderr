@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_delta_reference.py", line 162, in validate_run
+    tree(world_point(state['objects'][name]['matrix_world'], p), m[key][id], 'actual world vertex', 0.)
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 37, in tree
+    for i,(x,y) in enumerate(zip(a,b)):tree(x,y,path+'/'+str(i),tolerance)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 39, in tree
+    require(math.isfinite(a) and math.isfinite(b) and abs(a-b)<=tolerance,
+  File "/Users/chrischeng/faberlines/formora/tools/compare_selection_reference.py", line 16, in require
+    raise ValueError(message)
+ValueError: component differs: actual world vertex/1: 0.5250000953674316 != 0.5250000357627869

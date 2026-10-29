@@ -1,0 +1,11 @@
+{
+  "tool_session_id": 94365,
+  "terminal_exit_code": 1,
+  "tests_reported": 163,
+  "errors": 2,
+  "cause": "Full test command omitted the installed official MCP SDK PYTHONPATH; two test modules could not import mcp",
+  "original_stdout": "python-tests.stdout",
+  "original_stderr": "python-tests.stderr",
+  "product_or_test_changes": "none",
+  "retry_pythonpath": "/private/tmp/formora-mcp-sdk-2"
+}
