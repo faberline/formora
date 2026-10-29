@@ -18,7 +18,8 @@ class NormalComparisonTests(unittest.TestCase):
         self.references=load_reference(ROOT,self.suite)
         self.case=self.suite['cases'][0]
         self.reference=self.references[self.case['id']]
-        self.query={'normals':{'faces':[{'face':{'kind':self.case['kinds'][i],'id':f'f{i:06}'},**copy.deepcopy(normal)} for i,normal in enumerate(self.reference['normals'])]}}
+        asset=asset_from_case(self.case);asset.pop('smooth_triangles')
+        self.query={'mesh_asset':asset,'normals':{'faces':[{'face':{'kind':self.case['kinds'][i],'id':f'f{i:06}'},**copy.deepcopy(normal)} for i,normal in enumerate(self.reference['normals'])]}}
 
     def test_authored_fixture_is_reproducible_and_runtime_inputs_have_no_measured_normals(self):
         self.assertEqual(author(),self.suite)
@@ -32,6 +33,17 @@ class NormalComparisonTests(unittest.TestCase):
     def test_exact_source_normals_pass_and_all_components_are_counted(self):
         result=compare(self.case,self.reference,self.query)
         self.assertEqual(result,{'components':30,'maximum_absolute_error':0})
+
+    def test_matching_normals_cannot_hide_changed_geometry_or_attributes(self):
+        for mutation in ['position','edge','face','smooth','payload']:
+            query=copy.deepcopy(self.query);asset=query['mesh_asset']
+            if mutation=='position':asset['vertices']['v000000'][0]+=0.25
+            elif mutation=='edge':asset['edges']['e000000'].reverse()
+            elif mutation=='face':asset['polygons']['f000000']['vertices'].reverse()
+            elif mutation=='smooth':asset['polygons']['f000000']['smooth']=False
+            else:asset['polygons']['f000000']['normal']=[0,0,1]
+            with self.subTest(mutation=mutation),self.assertRaisesRegex(AssertionError,'authored geometry'):
+                compare(self.case,self.reference,query)
 
     def test_wrong_normal_nonfinite_missing_extra_and_wrong_identity_fail(self):
         for mutation in ['normal','corner','nonfinite','missing','extra','identity','duplicate','corner_count']:

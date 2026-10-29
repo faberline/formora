@@ -66,6 +66,10 @@ def asset_from_case(case):
 
 
 def compare(case, reference, query):
+    authored=asset_from_case(case)
+    # Match the asset serializer's omitted empty optional collections.
+    authored={key:value for key,value in authored.items() if value or key not in {'edges','polygons','edge_seams','smooth_triangles'}}
+    assert query['mesh_asset']==authored, 'query changed the authored geometry or attributes'
     faces=query['normals']['faces'];assert len(faces)==len(case['faces'])
     by_key={(f['face']['kind'],f['face']['id']):f for f in faces}
     assert len(by_key)==len(faces);maximum=0.;components=0

@@ -78,3 +78,28 @@ python3 tools/normal_gpu_evidence.py /absolute/formora /absolute/new-gpu-output
 All original primitive, selection, creation-context, performance and GPU gates
 remain required for issue #48. Failed, skipped and unrun jobs cannot pass.
 Three-platform CI, integration and independent acceptance remain required.
+
+## Recorded local results
+
+Rust source candidate `5b8cbadd419cde91f8f5518dfe9790493047c0de`
+passed formatting, Clippy and 125 Rust tests with actual Rust 1.85 child tools.
+The initial Python suite passed 68 tests. The final comparer adds an authored
+asset identity check and passes 69 tests. Rust source and the executable did
+not change between these checks.
+
+All 42 final CLI/MCP normal queries pass. Their maximum component error is zero.
+The final comparer rejects a changed input asset even when its normals match.
+The original 162 generation, eight scale, 1,060 selection, 262 creation-context
+and 57 payload cases also pass. Their complete raw records remain under
+`docs/evidence/mesh-transform-core/normals/local/`.
+
+The native Metal normal sample changes 20,305 pixels from smooth to flat shading.
+The geometry edit changes 19,009 pixels. Its fresh reload is byte-identical.
+All eight original Metal samples and both original repository-read-denied
+execution checks pass with the same executable.
+
+The initial verification manifest binds the earlier comparer and baseline lock.
+The final verification manifest separately binds the stricter comparer, its
+69-test Python run, the unchanged Rust source, and all final source pins.
+The strict baseline still exits 2: 9,003 sources and all 31 feature contracts
+remain pending. No product transform, issue or milestone is accepted here.
