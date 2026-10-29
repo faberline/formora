@@ -340,7 +340,9 @@ impl Context {
                 ),
             }
         };
-        let local_pivot = if singular {
+        let local_pivot = if target.transform.precision == crate::transforms::Precision::F32 {
+            super::inverse::source_pivot(world.map(|row| row.map(|v| v as f32)), pivot)?
+        } else if singular {
             super::inverse::pivot(world.map(|row| row.map(|v| v as f32)), pivot)?
         } else {
             math::vector(inverse, sub(pivot, translation))

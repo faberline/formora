@@ -54,6 +54,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
         tessellate: false,
         selection_topology: false,
         normals: false,
+        world: false,
     }
     .inspect(&restored)
     .unwrap();
@@ -65,6 +66,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
             tessellate: false,
             selection_topology: false,
             normals: false,
+            world: false,
         }
         .inspect(&restored)
         .is_err()
@@ -311,6 +313,7 @@ fn fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs() {
             ]
             .into(),
             scale: [2., 0.5, 1.5],
+            ..Default::default()
         };
         scene.entities.insert("instance".into(), instance);
         scene.validate().unwrap();

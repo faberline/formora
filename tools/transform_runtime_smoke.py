@@ -25,7 +25,7 @@ def f32(v):return struct.unpack('<f',struct.pack('<f',v))[0]
 def pose(profile):
     return {'translation':[f32(v) for v in profile['location']],
             'rotation':{'kind':'euler','angles':[f32(v) for v in profile['rotation']],'order':'xyz'},
-            'scale':[f32(v) for v in profile['scale']]}
+            'scale':[f32(v) for v in profile['scale']],'precision':'f32'}
 
 
 def quaternion(rotation):
@@ -117,13 +117,15 @@ def world(scene,id):
     return m
 
 
-def snapshot(query,scene):
+def snapshot(query,scene,world_query):
     from selection_runtime_smoke import snapshot as selected_snapshot
-    result=selected_snapshot(query);matrix=world(scene,'target')
+    result=selected_snapshot(query)
+    assert world_query['id']=='target' and world_query['entity']==scene['entities']['target']
+    assert set(world_query['world_vertices'])==set(query['mesh_asset']['vertices'])
     result['normals']={'faces':{},'corners':{}}
     for f in query['normals']['faces']:
         assert f['face']['kind']=='polygon';id=f['face']['id'];result['normals']['faces'][id]=f['normal'];result['normals']['corners'][id]=f['corner_normals']
-    result['world_vertices']={id:[sum(matrix[i][j]*p[j] for j in range(3))+matrix[i][3] for i in range(3)] for id,p in query['mesh_asset']['vertices'].items()}
+    result['world_vertices']=world_query['world_vertices']
     result['active_material_index']=query['mesh_asset'].get('active_material_index',0)
     return result
 
@@ -210,19 +212,22 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
                     result,error=await call('scene_apply',create);assert error is None,(case['id'],error)
                     before_query,error=await call('scene_inspect',{'mesh_asset':'mesh','normals':True});assert error is None
                     before_scene,error=await call('scene_inspect',{});assert error is None
-                    saved=scene.read_bytes();before=snapshot(before_query,before_scene['scene'])
+                    before_world,error=await call('scene_inspect',{'entity':'target','world':True});assert error is None
+                    saved=scene.read_bytes();before=snapshot(before_query,before_scene['scene'],before_world)
                     result,error=await call('scene_apply',request)
                     after_query,inspect_error=await call('scene_inspect',{'mesh_asset':'mesh','normals':True});assert inspect_error is None
                     after_scene,inspect_error=await call('scene_inspect',{});assert inspect_error is None
+                    after_world,inspect_error=await call('scene_inspect',{'entity':'target','world':True});assert inspect_error is None
                     assert before_scene['scene']['entities']==after_scene['scene']['entities']
                     if error is not None:assert saved==scene.read_bytes() and before_scene==after_scene
                     else:assert after_query['revision']==2
-                    return before,snapshot(after_query,after_scene['scene']),result,error
+                    return before,snapshot(after_query,after_scene['scene'],after_world),result,error,before_world,after_world
                 if interface=='cli':
                     async def call(name,arguments):
                         if name=='scene_apply':return cli(scene,'apply','--request','-',request=arguments)
+                        if 'entity' in arguments:return cli(scene,'inspect','--entity',arguments['entity'],'--world')
                         return cli(scene,'inspect',*(['--mesh-asset',arguments['mesh_asset'],'--normals'] if arguments else []))
-                    before,after,result,error=await exercise(call)
+                    before,after,result,error,before_world,after_world=await exercise(call)
                 else:
                     parameters=StdioServerParameters(command=str(binary),args=['mcp','--scene',str(scene)])
                     async with stdio_client(parameters) as (reader,writer):
@@ -232,10 +237,10 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk')):
                                 Draft202012Validator(schemas[name]).validate(arguments)
                                 response=await client.call_tool(name,arguments)
                                 return (None,response.content[0].text) if response.is_error else (response.structured_content,None)
-                            before,after,result,error=await exercise(call)
+                            before,after,result,error,before_world,after_world=await exercise(call)
                 try:comparison=compare_output(case,load(reference/(case['id']+'.json')),before,after,result,error,request);status='passed';failure=None
                 except (AssertionError,ValueError,KeyError) as e:comparison={};status='failed';failure=str(e)
-                path=output/(interface+'-'+case['id']+'.json');path.write_text(json.dumps({'case':case,'setup':create,'request':request,'before':before,'after':after,'result':result,'error':error,'status':status,'comparison_error':failure},allow_nan=False)+'\n')
+                path=output/(interface+'-'+case['id']+'.json');path.write_text(json.dumps({'case':case,'setup':create,'request':request,'before':before,'after':after,'world_queries':{'before':before_world,'after':after_world},'result':result,'error':error,'status':status,'comparison_error':failure},allow_nan=False)+'\n')
                 records.append({'id':case['id'],'interface':interface,'status':status,'error':failure,'file':path.name,'sha256':digest(path),'reference_sha256':digest(reference/(case['id']+'.json')),**comparison})
                 if (index+1)%50==0:print(json.dumps({'interface':interface,'executed':index+1,'failed':sum(r['status']=='failed' for r in records)}),flush=True)
     assert hashes=={str(p.relative_to(root)):digest(p) for p in sorted(paths)} and binary_sha==digest(binary),'capture inputs changed'

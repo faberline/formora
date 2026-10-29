@@ -1,6 +1,6 @@
 use crate::mesh::selection::{Domain, FaceRef};
 use crate::scene::{EntityKind, Geometry, Result, Scene, SceneError};
-use glam::{DMat4, DQuat, DVec3, DVec4};
+use glam::{DMat4, DVec3, DVec4};
 use std::collections::{BTreeMap, BTreeSet};
 
 #[repr(C)]
@@ -28,26 +28,10 @@ pub fn world_transforms(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
     scene.validate()?;
     let mut result = BTreeMap::new();
     for id in scene.entities.keys() {
-        let mut chain = Vec::new();
-        let mut current = Some(id.as_str());
-        while let Some(key) = current {
-            if let Some(matrix) = result.get(key) {
-                chain.push(*matrix);
-                break;
-            }
-            let entity = &scene.entities[key];
-            let t = &entity.transform;
-            chain.push(DMat4::from_scale_rotation_translation(
-                DVec3::from_array(t.scale),
-                DQuat::from_array(t.rotation.quaternion()).normalize(),
-                DVec3::from_array(t.translation),
-            ));
-            current = entity.parent.as_deref();
-        }
-        let matrix = chain
-            .into_iter()
-            .rev()
-            .fold(DMat4::IDENTITY, |parent, local| parent * local);
+        let world = crate::transforms::world(scene, id)?;
+        let matrix = DMat4::from_cols_array_2d(&std::array::from_fn(|c| {
+            std::array::from_fn(|r| world[r][c])
+        }));
         if !matrix.is_finite() {
             return Err(SceneError(format!("transform exceeds preview range: {id}")));
         }

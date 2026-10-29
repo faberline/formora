@@ -103,6 +103,23 @@ pub(super) fn local_axes(m: Matrix) -> Result<Matrix> {
     Ok(IDENTITY)
 }
 
+/// Production first tries the already verified pinned Eigen inverse.
+pub(super) fn source_pivot(world: [[f32; 4]; 4], point: Vector) -> Result<Vector> {
+    if let Ok(inverse) = crate::mesh::creation::inverse4::inverse(world) {
+        let result = std::array::from_fn(|r| {
+            inverse[r][0] * point[0]
+                + inverse[r][1] * point[1]
+                + inverse[r][2] * point[2]
+                + inverse[r][3]
+        });
+        if result.iter().all(|v| v.is_finite()) {
+            return Ok(result);
+        }
+        return Err(error());
+    }
+    pivot(world, point)
+}
+
 /// Source fallback operates on column-major storage and retains partial elimination.
 pub(super) fn pivot(world: [[f32; 4]; 4], point: Vector) -> Result<Vector> {
     checked(world)?;

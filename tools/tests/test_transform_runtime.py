@@ -11,6 +11,15 @@ SUITE=json.loads((ROOT/'baseline/fixtures/mesh-transform.json').read_text())
 
 
 class TransformRuntimeTests(unittest.TestCase):
+    def test_source_precision_is_authored_for_every_profile_and_parent(self):
+        for profile in SUITE['profiles'].values():
+            for authored in [profile,*([profile['parent']] if profile['parent'] is not None else [])]:
+                pose=runtime.pose(authored)
+                self.assertEqual(pose['precision'],'f32')
+                self.assertEqual(pose['translation'],[runtime.f32(v) for v in authored['location']])
+                self.assertEqual(pose['scale'],[runtime.f32(v) for v in authored['scale']])
+                self.assertEqual(pose['rotation']['angles'],[runtime.f32(v) for v in authored['rotation']])
+
     def test_attribute_receipts_must_match_actual_changed_uv_faces(self):
         raw=json.loads((ROOT/'docs/evidence/mesh-transform-core/safe-runtime/cli-transform_0000.json').read_text())
         args=[copy.deepcopy(raw[k]) for k in ['result','request','before','after']]

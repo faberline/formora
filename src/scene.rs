@@ -35,6 +35,11 @@ pub struct Transform {
     /// Actual authored mode. Coordinates use metres and a right-handed Z-up space.
     pub rotation: TransformRotation,
     pub scale: [f64; 3],
+    #[serde(
+        default,
+        skip_serializing_if = "crate::transforms::Precision::is_default"
+    )]
+    pub precision: crate::transforms::Precision,
 }
 
 impl Default for Transform {
@@ -43,6 +48,7 @@ impl Default for Transform {
             translation: [0.0; 3],
             rotation: TransformRotation::default(),
             scale: [1.0; 3],
+            precision: crate::transforms::Precision::default(),
         }
     }
 }
@@ -396,6 +402,11 @@ impl Scene {
                     .is_some_and(|id| !self.entities.contains_key(id))
             {
                 return fail("invalid annotation");
+            }
+        }
+        for (id, entity) in &self.entities {
+            if entity.transform.precision == crate::transforms::Precision::F32 {
+                crate::transforms::world(self, id)?;
             }
         }
         Ok(())

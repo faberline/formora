@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2004 Blender Authors
 // SPDX-License-Identifier: GPL-2.0-or-later
 // Shared authoring matrix order, with explicit single-precision steps.
-use crate::scene::{Result, Scene, SceneError, Transform};
+use crate::scene::{Result, Scene, SceneError};
 pub(super) type Mat3 = [[f32; 3]; 3];
 pub(super) type Mat4 = [[f64; 4]; 4];
 
@@ -87,65 +87,8 @@ pub(super) fn quaternion(matrix: Mat3) -> [f64; 4] {
     let length = q.iter().map(|v| v * v).sum::<f64>().sqrt();
     q.map(|v| v / length)
 }
-fn local(t: &Transform) -> Mat4 {
-    let rotation = t.rotation.quaternion();
-    let norm = rotation.iter().map(|v| v * v).sum::<f64>().sqrt();
-    let [x, y, z, w] = rotation.map(|v| v / norm);
-    let m = [
-        [
-            1. - 2. * (y * y + z * z),
-            2. * (x * y - z * w),
-            2. * (x * z + y * w),
-        ],
-        [
-            2. * (x * y + z * w),
-            1. - 2. * (x * x + z * z),
-            2. * (y * z - x * w),
-        ],
-        [
-            2. * (x * z - y * w),
-            2. * (y * z + x * w),
-            1. - 2. * (x * x + y * y),
-        ],
-    ];
-    std::array::from_fn(|r| {
-        std::array::from_fn(|c| {
-            if r == 3 {
-                if c == 3 { 1. } else { 0. }
-            } else if c == 3 {
-                t.translation[r]
-            } else {
-                m[r][c] * t.scale[c]
-            }
-        })
-    })
-}
 pub(super) fn world(scene: &Scene, id: &str) -> Result<Mat4> {
-    let mut chain = Vec::new();
-    let mut current = Some(id);
-    while let Some(id) = current {
-        let entity = scene
-            .entities
-            .get(id)
-            .ok_or_else(|| SceneError(format!("unknown creation entity: {id}")))?;
-        if chain.len() > scene.entities.len() {
-            return Err(SceneError("creation target parent cycle".into()));
-        }
-        chain.push(local(&entity.transform));
-        current = entity.parent.as_deref();
-    }
-    let mut result: Mat4 =
-        std::array::from_fn(|r| std::array::from_fn(|c| if r == c { 1. } else { 0. }));
-    for matrix in chain.into_iter().rev() {
-        result = std::array::from_fn(|r| {
-            std::array::from_fn(|c| {
-                result[r][0] * matrix[0][c]
-                    + result[r][1] * matrix[1][c]
-                    + result[r][2] * matrix[2][c]
-                    + result[r][3] * matrix[3][c]
-            })
-        });
-    }
+    let result = crate::transforms::world(scene, id)?;
     if result
         .iter()
         .flatten()

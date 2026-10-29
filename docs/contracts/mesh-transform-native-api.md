@@ -78,3 +78,8 @@ limit; exhaustion is an explicit atomic error.
 No operation may receive measured reference geometry, normals, bases, centres or
 influences as inputs. Invalid and stale requests, unsafe frames, budget failures,
 batch failures and save failures must leave disk, memory and undo unchanged.
+
+`physical-transform-precision.md` defines the shared world-frame builder.
+Transforms preserve the target's authored `precision` (`f64` by default).
+The source adapter requests `f32` for every Blender object profile and parent.
+World observations use the read-only entity query with `world: true`.

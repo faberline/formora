@@ -199,6 +199,7 @@ fn reflected_parent_columns_affect_gimbal_but_child_scale_and_translation_do_not
                     translation: [17., -23., 9.],
                     rotation: euler([0., 0., std::f64::consts::FRAC_PI_2], EulerOrder::Xyz),
                     scale: [-2., 3., 4.],
+                    ..Default::default()
                 },
                 content: EntityKind::Empty,
             },
