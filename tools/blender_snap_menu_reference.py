@@ -114,7 +114,9 @@ def create(suite,run):
 
 
 def mesh_state(obj,factor):
-    edit=obj.mode=='EDIT'
+    # A linked object can stay in OBJECT mode while its shared Mesh has a live
+    # edit BMesh. Read the live data for every user of that Mesh.
+    edit=obj.data.is_editmode
     bm=bmesh.from_edit_mesh(obj.data) if edit else bmesh.new()
     if not edit:bm.from_mesh(obj.data)
     try:
@@ -146,7 +148,7 @@ def mesh_state(obj,factor):
                 normals['corners'][id]=[list(corners[index].vector) for index in face.loop_indices]
         finally:bpy.data.meshes.remove(temporary)
         world={key(v):list(obj.matrix_world@v.co) for v in bm.verts}
-        return {'geometry':geometry,'groups':groups,
+        return {'geometry':geometry,'groups':groups,'data_edit_mode':edit,
                 'selected':{domain:sorted(key(item) for item in items if item.select) for domain,items in zip(base.DOMAINS,collections)},
                 'hidden':{domain:sorted(key(item) for item in items if item.hide) for domain,items in zip(base.DOMAINS,collections)},
                 'mode':[domain for domain,on in zip(base.DOMAINS,bpy.context.tool_settings.mesh_select_mode) if on] if edit else [],
