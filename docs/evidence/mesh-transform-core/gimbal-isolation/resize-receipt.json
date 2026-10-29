@@ -1,0 +1,85 @@
+{
+  "revision": 6,
+  "transforms": [
+    {
+      "basis_world": [
+        [
+          -0.9007892608642578,
+          -0.39860934019088745,
+          0.2733982801437378
+        ],
+        [
+          -0.41765284538269043,
+          0.9039003252983093,
+          -0.332650363445282
+        ],
+        [
+          0.11893171072006226,
+          0.15516065061092377,
+          0.9025503396987915
+        ]
+      ],
+      "centres_local": {
+        "apricot": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "birch": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cedar": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "dogwood": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "changed": {
+        "edges": [
+          "ab",
+          "bc",
+          "cd",
+          "da"
+        ],
+        "faces": [
+          {
+            "id": "surface",
+            "kind": "polygon"
+          }
+        ],
+        "vertices": [
+          "apricot",
+          "birch",
+          "cedar",
+          "dogwood"
+        ]
+      },
+      "command_index": 0,
+      "entity": "target",
+      "influence": {
+        "apricot": 1.0,
+        "birch": 1.0,
+        "cedar": 1.0,
+        "dogwood": 1.0
+      },
+      "mesh_asset": "mesh",
+      "pivot_world": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "random_seed": null,
+      "shared_instances": [
+        "other",
+        "target"
+      ]
+    }
+  ]
+}

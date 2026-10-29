@@ -1,0 +1,32 @@
+{
+  "scope": "complete source run after stored rotation modes and Gimbal orientation",
+  "matched": 2278,
+  "matched_finished": 2266,
+  "matched_expected_cancellations": 12,
+  "failed": 128,
+  "newly_matched": 226,
+  "regressions": 0,
+  "new_matches_all_gimbal_orientation": true,
+  "adapter_changed_only_authored_rotation_representation": true,
+  "per_interface_failures": {
+    "cli": {
+      "mesh transform face attribute correction is not implemented yet": 18,
+      "mesh transform mirror is not implemented yet": 6,
+      "numeric/geometry": 16,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 6,
+      "singular or nonfinite creation target transform": 12
+    },
+    "official_mcp_sdk": {
+      "mesh transform face attribute correction is not implemented yet": 18,
+      "mesh transform mirror is not implemented yet": 6,
+      "numeric/geometry": 16,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 6,
+      "singular or nonfinite creation target transform": 12
+    }
+  },
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false,
+  "source_report_sha256": "1e032198dfbf7eb042fb7fc08f6bfca9f95931d5e3cf439a23e152c00ec40b17"
+}

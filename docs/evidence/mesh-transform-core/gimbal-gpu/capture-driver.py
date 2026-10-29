@@ -1,0 +1,30 @@
+from pathlib import Path
+import hashlib,json,math,subprocess,sys
+root=Path('/Users/chrischeng/faberlines/formora');sys.path.insert(0,str(root/'tools'));from png_pixels import read_rgba8
+binary=Path('/private/tmp/formora-target-actual185/debug/formora');output=root/'docs/evidence/mesh-transform-core/gimbal-gpu';output.mkdir(parents=True,exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary);source={str(p.relative_to(root)):sha(p) for p in sorted([root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]])};calls=[]
+vertices={f'v{5*y+x:04}':[(x-2)*0.5,(y-2)*0.5,0] for y in range(5) for x in range(5)};faces={};pairs=set()
+for y in range(4):
+ for x in range(4):
+  ids=[f'v{5*y+x:04}',f'v{5*y+x+1:04}',f'v{5*(y+1)+x+1:04}',f'v{5*(y+1)+x:04}'];faces[f'f{4*y+x:04}']={'vertices':ids,'uv_layers':{},'normal':None,'corner_normals':None,'smooth':True,'material_slot':None}
+  for i in range(4):pairs.add(tuple(sorted([ids[i-1],ids[i]])))
+asset={'vertices':vertices,'edges':{f'e{i:04}':list(pair) for i,pair in enumerate(sorted(pairs))},'polygons':faces,'triangles':{},'material_slots':[]};identity={'translation':[0,0,0],'rotation':[0,0,0,1],'scale':[1,1,1]};scene=output/'scene.json'
+
+angles=[0.21,-0.31,0.47];pose={'translation':[0,0,0],'rotation':{'kind':'euler','angles':angles,'order':'xyz'},'scale':[1.5,0.65,1.2]}
+si,ci=math.sin(angles[0]/2),math.cos(angles[0]/2);sj,cj=math.sin(angles[1]/2),math.cos(angles[1]/2);sh,ch=math.sin(angles[2]/2),math.cos(angles[2]/2);cc,cs,sc,ss=ci*ch,ci*sh,si*ch,si*sh
+q=[cj*sc-sj*cs,cj*ss+sj*cc,cj*cs-sj*sc,cj*cc+sj*ss];norm=math.sqrt(sum(v*v for v in q));x,y,z,w=[v/norm for v in q]
+r=[[1-2*(y*y+z*z),2*(x*y-z*w),2*(x*z+y*w)],[2*(x*y+z*w),1-2*(x*x+z*z),2*(y*z-x*w)],[2*(x*z-y*w),2*(y*z+x*w),1-2*(x*x+y*y)]]
+expected_seed=[r[2][i]*1.2/pose['scale'][i] for i in range(3)]
+
+def call(*args,request=None):
+ r=subprocess.run([str(binary),*map(str,args)],input=None if request is None else json.dumps(request),capture_output=True,text=True);calls.append({'arguments':list(map(str,args)),'request':request,'stdout':r.stdout,'stderr':r.stderr,'exit_code':r.returncode});assert r.returncode==0,r.stdout+r.stderr;return json.loads(r.stdout)
+def entity(id,content,transform):return {'operation':'create_entity','id':id,'entity':{'name':id,'parent':None,'transform':transform,'content':content}}
+call('scene','init','--scene',scene);call('scene','apply','--scene',scene,'--request','-',request={'expected_revision':0,'commands':[
+ {'operation':'set_mesh_asset','id':'mesh','asset':asset},{'operation':'set_mesh_editing','id':'mesh','editing':{'selected':{'vertices':['v0012']},'preview':False}},entity('surface',{'kind':'mesh','geometry':{'kind':'asset','id':'mesh'},'material':None},pose),entity('camera',{'kind':'camera','vertical_fov_degrees':45,'near':0.1,'far':100},{**identity,'translation':[0,-4,4],'rotation':[math.sin(math.pi/8),0,0,math.cos(math.pi/8)]}),{'operation':'set_active_camera','id':'camera'},entity('light',{'kind':'light','color':[1,1,1],'intensity':2},{**identity,'translation':[1,-3,5]})]})
+before=call('scene','inspect','--scene',scene);(output/'before-scene.json').write_bytes(scene.read_bytes());gpu=call('render','--scene',scene,'--output',output/'before.png','--width',640,'--height',480)['gpu'];assert '(Metal,' in gpu,gpu
+receipt=call('scene','apply','--scene',scene,'--request','-',request={'expected_revision':1,'commands':[{'operation':'transform_mesh','transform':{'entity':'surface','change':{'kind':'translate','value':[0,0,1.2]},'orientation':{'kind':'gimbal'},'proportional':{'radius':1.2,'falloff':'smooth','connected':True}}}]});assert 1<len(receipt['transforms'][0]['changed']['vertices'])<25
+query=call('scene','inspect','--scene',scene,'--mesh-asset','mesh','--normals');assert all(abs(a-e)<=1e-6 for a,e in zip(query['mesh_asset']['vertices']['v0012'],expected_seed))
+for id in ['v0000','v0004','v0020','v0024']:assert query['mesh_asset']['vertices'][id]==vertices[id]
+for name in ['after','reloaded']:call('render','--scene',scene,'--output',output/(name+'.png'),'--width',640,'--height',480)
+assert (output/'after.png').read_bytes()==(output/'reloaded.png').read_bytes();control=output/'quaternion-control.json';control.write_bytes(scene.read_bytes());call('scene','apply','--scene',control,'--request','-',request={'expected_revision':2,'commands':[{'operation':'set_transform','id':'surface','transform':{**pose,'rotation':q}}]});call('render','--scene',control,'--output',output/'quaternion-control.png','--width',640,'--height',480);assert (output/'after.png').read_bytes()==(output/'quaternion-control.png').read_bytes();w,h,a=read_rgba8(output/'before.png');wb,hb,b=read_rgba8(output/'after.png');assert (w,h)==(wb,hb)==(640,480);changed=sum(a(x,y)!=b(x,y) for y in range(h) for x in range(w));assert changed>500,changed
+(output/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');(output/'normals-query.json').write_text(json.dumps(query,indent=2)+'\n');assert source=={name:sha(root/name) for name in source} and binary_sha==sha(binary)
+manifest={'passed':True,'gpu':gpu,'binary_sha256':binary_sha,'source_files':source,'driver_sha256':sha(Path(__file__)),'changed_pixels':changed,'changed_vertices':len(receipt['transforms'][0]['changed']['vertices']),'fresh_reload_identical':True,'equivalent_quaternion_render_identical':True,'expected_seed_local':expected_seed,'commands':calls,'artifacts':{p.name:sha(p) for p in output.iterdir() if p.is_file() and not p.name.endswith('.formora.lock')},'scope':'native Euler-mode Gimbal deformation and equivalent physical quaternion render; full feature and milestone acceptance remain unrun'};(output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');print(json.dumps({'passed':True,'gpu':gpu,'changed_pixels':changed,'changed_vertices':manifest['changed_vertices'],'fresh_reload_identical':True}))
