@@ -1,0 +1,347 @@
+{
+  "passed": true,
+  "samples": 90,
+  "groups": [
+    {
+      "class": "A",
+      "form": "selected-grid",
+      "report": "report-A-selected-grid.json",
+      "report_sha256": "d817c4c9551be73ba14aaf81e3ba671536d945cbbf6f04d991b46af1bdad513f",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-active",
+      "report": "report-A-selected-active.json",
+      "report_sha256": "865c791ce06f2a48a153858178185a751913f5031835d304778b138268129021",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-grid",
+      "report": "report-A-cursor-grid.json",
+      "report_sha256": "17d21b0dff923b463e03864c8d827b659b54baa7aee6e2f2219519a915229fa1",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-selected",
+      "report": "report-A-cursor-selected.json",
+      "report_sha256": "c3ed5f37ca0dd571219991a7aa16a6d691ecdbefdf21e1418495c96f6a57b92f",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-active",
+      "report": "report-A-cursor-active.json",
+      "report_sha256": "b4ab50ce33b1363aa529c44ffbe3ffb96b35fe92f88458269941ce8a34665f53",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-origin",
+      "report": "report-A-cursor-origin.json",
+      "report_sha256": "3f5f19c0259e5ac091b4b75d84851d8a3f3dc2b0a843fe4097c60adba87d0055",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-false-false",
+      "report": "report-A-selected-cursor-false-false.json",
+      "report_sha256": "5c94d244efc26eba5ee66e1718b231a8ca13d3bbb09034518a842549eb99355a",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-false-true",
+      "report": "report-A-selected-cursor-false-true.json",
+      "report_sha256": "c3324ce78808e88ebc53c21a621d8df2b5afe94bc5c995789ce6b339f358ebd9",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-true-false",
+      "report": "report-A-selected-cursor-true-false.json",
+      "report_sha256": "966441e9c53500b915f0ab47e8cbd1da2a2f361ffe29f0bbfa5f82d3df7c91cd",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-true-true",
+      "report": "report-A-selected-cursor-true-true.json",
+      "report_sha256": "8fecabc10011ee20228a88c5a8089dc6c13e0b51074ab948e12b48116795f17d",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-grid",
+      "report": "report-B-selected-grid.json",
+      "report_sha256": "932032b087a05068000b4c6d4fcd6ec592cd76f8d766af5db634c0724889d04d",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-active",
+      "report": "report-B-selected-active.json",
+      "report_sha256": "68faa19eb9453e67abedf11209fe385b9d0e3a6f49f312b37f5a8396d9582e02",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-grid",
+      "report": "report-B-cursor-grid.json",
+      "report_sha256": "1d8bef28fc88f940b0202f29790b5557738f5e12bbf3b4e8ac7f90fa6005bdea",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-selected",
+      "report": "report-B-cursor-selected.json",
+      "report_sha256": "bf4c4101e63b47c5b19ede0f1e896b28fe6a552185cd7e58a08c72534996e9d0",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-active",
+      "report": "report-B-cursor-active.json",
+      "report_sha256": "0d098359638db9153cc0c71a5041999473143300c296dd1d21f2cc83d83632a5",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-origin",
+      "report": "report-B-cursor-origin.json",
+      "report_sha256": "a6cb546069764bc99fefbef31978651b1a9520bcf4fb87a203b0cfdd29d950ad",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-false-false",
+      "report": "report-B-selected-cursor-false-false.json",
+      "report_sha256": "dad519952138d0822aab2ae7f552c25298599e453ecc2afbf526492c26968df7",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-false-true",
+      "report": "report-B-selected-cursor-false-true.json",
+      "report_sha256": "f298ee26f3a7e3f10487f7e0afaa47615d96cc29dd4aaf49031e6caf69f489dd",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-true-false",
+      "report": "report-B-selected-cursor-true-false.json",
+      "report_sha256": "6a406ecfb43dcdda75b1e70065475c2656c969767f12d06e90afeb095ea817d3",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-true-true",
+      "report": "report-B-selected-cursor-true-true.json",
+      "report_sha256": "ce20ec4173d9cac7806f3d07cb3fadb545d6b9009fae713bea39d89a0941fcc2",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-grid",
+      "report": "report-C-selected-grid.json",
+      "report_sha256": "72b99385b56f7513a40317a1ce139b37a3e294f612a886f5145379607ffb0a4b",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-active",
+      "report": "report-C-selected-active.json",
+      "report_sha256": "cf03cd9f9a4c04b2cb49ff5af866666702c1415562fae900abb7cfc86dbfb257",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-grid",
+      "report": "report-C-cursor-grid.json",
+      "report_sha256": "c961c1a35e0d4b5f534beb4528694191bd6c210adafe200f6814a35cbe6370ed",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-selected",
+      "report": "report-C-cursor-selected.json",
+      "report_sha256": "bd6799da4004a23b217cd651a704213bd7a6ef10d40fea29d8b34aff974e4fef",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-active",
+      "report": "report-C-cursor-active.json",
+      "report_sha256": "8a7ed6fa0ac6fe1d11fa2baa05609509f5ae8bd639163e5d90bd412163095bca",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-origin",
+      "report": "report-C-cursor-origin.json",
+      "report_sha256": "60c038f815e64b972d9d187f37e0b6ad888d58e6dc8b5838c3c4465fc560295e",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-false-false",
+      "report": "report-C-selected-cursor-false-false.json",
+      "report_sha256": "00a63ac87c2b140daf233c7989b3731e28bec3f42db6b0f92a70c0bbdd761995",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-false-true",
+      "report": "report-C-selected-cursor-false-true.json",
+      "report_sha256": "96fd952152d0266522b85f07a0857d44920bdca02ae371e3bbcf801181722e09",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-true-false",
+      "report": "report-C-selected-cursor-true-false.json",
+      "report_sha256": "aa0d1672f65c527208449c18466c9c77535555c741c54668bff0e9e965010d34",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-true-true",
+      "report": "report-C-selected-cursor-true-true.json",
+      "report_sha256": "8e614e0de952129aab25e0ab035b54146b3c30368c2c1785b1d8d10af613e0d7",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    }
+  ],
+  "command": [
+    "/private/tmp/formora-scene-snap-performance-one-process-driver-10",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples",
+    "/private/tmp/formora-scene-snap-performance-one-process-10/samples"
+  ],
+  "terminal_exit_code": 0,
+  "native_process_id": 94712,
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "/Users/chrischeng/faberlines/formora/Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "/Users/chrischeng/faberlines/formora/src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "/Users/chrischeng/faberlines/formora/src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "/Users/chrischeng/faberlines/formora/src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "/Users/chrischeng/faberlines/formora/src/lib.rs": "a19af3f508640cd3d3be6cda197aacf63b126c34b3a69c2b7bc904ccf43e4fe5",
+    "/Users/chrischeng/faberlines/formora/src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "/Users/chrischeng/faberlines/formora/src/mesh/creation/inverse4.rs": "9f7ca7d8ac959b822c3e71bb03d2c148f4b71afef42d4ad829445d7c4dbf5877",
+    "/Users/chrischeng/faberlines/formora/src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "/Users/chrischeng/faberlines/formora/src/mesh/frame_math.rs": "6678c8019d118f60cfaaa3b6b4e0340048a24863f70a46a3aae91b95e26b2f0c",
+    "/Users/chrischeng/faberlines/formora/src/mesh/normals.rs": "7930ebabaf4c3bbb35bdba65bf3a058e4a643350fb32a1cd37f6dc924bb52bc3",
+    "/Users/chrischeng/faberlines/formora/src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "/Users/chrischeng/faberlines/formora/src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "/Users/chrischeng/faberlines/formora/src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "/Users/chrischeng/faberlines/formora/src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "/Users/chrischeng/faberlines/formora/src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "/Users/chrischeng/faberlines/formora/src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "/Users/chrischeng/faberlines/formora/src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "/Users/chrischeng/faberlines/formora/src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "/Users/chrischeng/faberlines/formora/src/mesh/snap.rs": "baae310b7e15b2a3f996a9894392132cc12b36a6056b579ae877c5f761e93fe1",
+    "/Users/chrischeng/faberlines/formora/src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "/Users/chrischeng/faberlines/formora/src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "/Users/chrischeng/faberlines/formora/src/mesh.rs": "1d930614efd69a4c8591cc7b7d417d2b489a1cb541b18e633372b9b6227e0a44",
+    "/Users/chrischeng/faberlines/formora/src/objects/math.rs": "40efde2f839c3e097c4914c2711d633b3d853c6c9495a28dab98d84e61171cb2",
+    "/Users/chrischeng/faberlines/formora/src/objects/snap.rs": "8ed5c5e8a6f5202cec54f6ff0829fe27afe19bc6cfe40030974fb03d5f64de56",
+    "/Users/chrischeng/faberlines/formora/src/objects.rs": "bd4a288820ec53b9a76653a96607c424c07c63dd98bd23a798b31942d900dc71",
+    "/Users/chrischeng/faberlines/formora/src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "/Users/chrischeng/faberlines/formora/src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "/Users/chrischeng/faberlines/formora/src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "/Users/chrischeng/faberlines/formora/src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "/Users/chrischeng/faberlines/formora/src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "/Users/chrischeng/faberlines/formora/src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "/Users/chrischeng/faberlines/formora/src/scene.rs": "7780abeec1b3f227b8a541d5b5f57ae9ce612f24d18901acc0d3742ae4cc6ab5",
+    "/Users/chrischeng/faberlines/formora/src/session.rs": "e3fbd199f919510366f288bdbe2bd261df65a3d86010a49fcb08582158d3f242",
+    "/Users/chrischeng/faberlines/formora/src/transforms.rs": "3e212f74793d37f28ded8b34d737c57a33e8c6b79c5f12173bcde8e0d6d8b4cb",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/run-one-process-trial.py": "69aed28a85ef7e1cacd9620fb3dbb679da001c917b0ea3323cd1a62c5ca87630",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/capture-driver-one-process.rs": "2986aa4061ad2c7601463533eca53a49a99b9d42e3e4100600ef48627151b4bf",
+    "/private/tmp/formora-scene-snap-performance-one-process-driver-10": "4fc33211bd6a0ace0e19ce81ecd26dafaec3a0bbf3a3b7205b959ebca4ad88e3",
+    "/private/tmp/formora-target-actual185/release/libformora.rlib": "aa630f92f6316bacfb88949ff54c61a7afdf41eaca9e0ab17703ebe7e639b203",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples/input-A.json": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples/input-B.json": "d10ba60aec9b520c563b187226d54619b67cbbefd64b6b5e8aa9a50148198b51",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples/input-C.json": "4a5a566461e482e0088b611d60541849121c7fb429578ec1fb4f1958353e427a"
+  },
+  "verification_inputs_unchanged": true,
+  "implementation_commit": "dcb484218708959ac28b4a1ac79d5ef8b4156a02",
+  "same_filesystem_as_checkout": true,
+  "timing_summary_sha256": "c73337bb8400ac005ab973972207357613371d93056ac01dde37be3ec65960a3",
+  "method": "all fixed groups in one native process; original clocks, counts and limits; output on same filesystem outside checkout",
+  "source_comparison": "required separately for every output",
+  "product_acceptance": "unrun",
+  "milestone_acceptance": "unrun"
+}

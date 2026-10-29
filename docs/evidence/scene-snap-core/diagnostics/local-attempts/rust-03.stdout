@@ -1,0 +1,15 @@
+
+running 10 tests
+test parent_conversion_refreshes_the_evaluated_snapshot_before_later_siblings ... ok
+test aggregate_budget_counts_each_unique_mesh_and_does_not_mutate_on_failure ... ok
+test object_grid_respects_locks_and_reports_actual_changes_and_undo ... ok
+test origins_only_edits_shared_data_once_and_keeps_other_users_shared ... ok
+test multi_edit_unique_data_uses_active_representative_and_common_centre ... ok
+test origins_only_compensates_a_selected_descendant_suppressed_by_offset ... ok
+test no_active_error_empty_selection_cancel_and_late_batch_failure_are_atomic ... ok
+test unsupported_rotation_bad_context_and_budgets_reject_without_mutation ... ok
+test skip_children_changes_real_parent_inverse_and_query_frame ... ok
+test save_failure_keeps_scene_undo_and_original_disk_then_replays_after_recovery ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+

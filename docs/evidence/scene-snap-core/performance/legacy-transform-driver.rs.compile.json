@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "--crate-name",
+    "formora_scene_snap_performance",
+    "-C",
+    "opt-level=3",
+    "-C",
+    "debug-assertions=no",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/legacy-transform-driver.rs",
+    "-o",
+    "/private/tmp/formora-scene-snap-legacy-transform-performance-driver"
+  ],
+  "exit_code": 0,
+  "source_sha256": "14aab843190d88368d0322986f9fb0ddc2b72b9add5bbde8f2cf56fec3394510",
+  "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+  "libraries": {
+    "/private/tmp/formora-target-actual185/release/libformora.rlib": "aa630f92f6316bacfb88949ff54c61a7afdf41eaca9e0ab17703ebe7e639b203",
+    "/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib": "46eff16eb163669dad4be965dbc3267891e79f13d4fa35fd84ea5c7e6a18c17d"
+  },
+  "binary_sha256": "58f0bc577c5061c43fadf806c0a5a647e504e28ad931b77c8f2a10cbd17d179c",
+  "implementation_commit": "dcb484218708959ac28b4a1ac79d5ef8b4156a02"
+}

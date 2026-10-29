@@ -1,0 +1,30 @@
+    Checking formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error: this expression creates a reference which is immediately dereferenced by the compiler
+   --> src/mesh/snap.rs:269:29
+    |
+269 |     let selected = selected(&graph, editing);
+    |                             ^^^^^^ help: change this to: `graph`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow
+    = note: `-D clippy::needless-borrow` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_borrow)]`
+
+error: this expression creates a reference which is immediately dereferenced by the compiler
+   --> src/mesh/snap.rs:296:25
+    |
+296 |     let active = active(&graph, editing, &positions).map(to_world);
+    |                         ^^^^^^ help: change this to: `graph`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow
+
+error: this expression creates a reference which is immediately dereferenced by the compiler
+   --> src/objects/snap.rs:142:9
+    |
+142 |         &graph,
+    |         ^^^^^^ help: change this to: `graph`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_borrow
+
+error: could not compile `formora` (lib) due to 3 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `formora` (lib test) due to 3 previous errors

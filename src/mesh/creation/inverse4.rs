@@ -52,6 +52,15 @@ fn reciprocal(value: f32) -> f32 {
     result
 }
 pub(crate) fn inverse(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
+    inverse_impl(m, false)
+}
+
+/// Direct object operations retain the fixed Eigen singular zero output.
+pub(crate) fn inverse_or_zero(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
+    inverse_impl(m, true)
+}
+
+fn inverse_impl(m: [[f32; 4]; 4], singular_zero: bool) -> Result<[[f32; 4]; 4]> {
     let col: [Lane; 4] = std::array::from_fn(|c| std::array::from_fn(|r| m[r][c]));
     let a = low(col[0], col[1]);
     let b = high(col[1], col[0]);
@@ -70,6 +79,9 @@ pub(crate) fn inverse(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
     let trace = add(trace, high(trace, trace));
     let trace = add(trace, sw(trace, trace, [1, 0, 0, 0]));
     let determinant = sub(add(mul(da, dd), mul(db, dc_det)), trace)[0];
+    if determinant == 0. && singular_zero {
+        return Ok([[0.; 4]; 4]);
+    }
     if !determinant.is_finite() || determinant == 0. {
         return Err(SceneError(
             "singular or nonfinite creation target transform".into(),

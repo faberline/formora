@@ -2,10 +2,10 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 // Shared authoring matrix order, with explicit single-precision steps.
 use crate::scene::{Result, Scene, SceneError};
-pub(super) type Mat3 = [[f32; 3]; 3];
-pub(super) type Mat4 = [[f64; 4]; 4];
+pub(crate) type Mat3 = [[f32; 3]; 3];
+pub(crate) type Mat4 = [[f64; 4]; 4];
 
-pub(super) fn euler(angles: [f64; 3], single: bool) -> Mat3 {
+pub(crate) fn euler(angles: [f64; 3], single: bool) -> Mat3 {
     let trig = angles.map(|angle| {
         let angle = angle as f32;
         if single {
@@ -51,12 +51,12 @@ pub(super) fn inverse(m: Mat3) -> Result<Mat3> {
     }
     Ok(result)
 }
-pub(super) fn multiply(a: Mat3, b: Mat3) -> Mat3 {
+pub(crate) fn multiply(a: Mat3, b: Mat3) -> Mat3 {
     std::array::from_fn(|i| {
         std::array::from_fn(|j| a[i][0] * b[0][j] + a[i][1] * b[1][j] + a[i][2] * b[2][j])
     })
 }
-pub(super) fn vector(m: Mat3, p: [f32; 3]) -> [f32; 3] {
+pub(crate) fn vector(m: Mat3, p: [f32; 3]) -> [f32; 3] {
     m.map(|r| r[0] * p[0] + r[1] * p[1] + r[2] * p[2])
 }
 pub(super) fn quaternion(matrix: Mat3) -> [f64; 4] {
@@ -87,7 +87,7 @@ pub(super) fn quaternion(matrix: Mat3) -> [f64; 4] {
     let length = q.iter().map(|v| v * v).sum::<f64>().sqrt();
     q.map(|v| v / length)
 }
-pub(super) fn world(scene: &Scene, id: &str) -> Result<Mat4> {
+pub(crate) fn world(scene: &Scene, id: &str) -> Result<Mat4> {
     let result = crate::transforms::world(scene, id)?;
     if result
         .iter()

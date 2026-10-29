@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/compare-performance.py", line 15, in <module>
+    from scene_snap_runtime_smoke import frame_snapshot
+  File "/Users/chrischeng/faberlines/formora/tools/scene_snap_runtime_smoke.py", line 16, in <module>
+    from selection_runtime_smoke import snapshot as selection_snapshot
+  File "/Users/chrischeng/faberlines/formora/tools/selection_runtime_smoke.py", line 14, in <module>
+    from mcp import ClientSession, StdioServerParameters
+ModuleNotFoundError: No module named 'mcp'

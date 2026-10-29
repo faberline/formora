@@ -32,6 +32,8 @@ pub struct ApplyResult {
     pub transforms: Vec<crate::mesh::transform::Receipt>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub snaps: Vec<crate::mesh::snap::Receipt>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub scene_snaps: Vec<crate::objects::snap::Receipt>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -68,6 +70,10 @@ impl InspectRequest {
                 .ok_or_else(|| SceneError(format!("unknown entity: {id}")))?;
             let matrix = crate::transforms::world(scene, id)?;
             let mut result = serde_json::json!({"revision":scene.revision,"id":id,"entity":entity,"world_matrix":matrix});
+            if scene.object_context.is_some() {
+                result["object_frames"] = serde_json::to_value(crate::objects::frames(scene, id)?)
+                    .map_err(|e| SceneError(e.to_string()))?;
+            }
             if let crate::scene::EntityKind::Mesh { geometry, .. } = &entity.content {
                 let vertices: BTreeMap<String, [f64; 3]> = match geometry {
                     crate::scene::Geometry::Asset { id } => scene
@@ -284,6 +290,7 @@ impl Session {
             creation: applied.creation,
             transforms: applied.transforms,
             snaps: applied.snaps,
+            scene_snaps: applied.scene_snaps,
         })
     }
 

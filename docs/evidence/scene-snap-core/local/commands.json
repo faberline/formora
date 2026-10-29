@@ -1,0 +1,105 @@
+{
+  "implementation_commit": "dcb484218708959ac28b4a1ac79d5ef8b4156a02",
+  "binary_sha256": "896fdd2583d684a1170e95fd4475351f7da254a9044d0174a5fb67eed840d1d5",
+  "rust_toolchain": "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin",
+  "commands": [
+    {
+      "name": "rust",
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--all-features"
+      ],
+      "terminal_exit_code": 0,
+      "passed_tests": 250,
+      "ignored_tests": 0
+    },
+    {
+      "name": "python",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests"
+      ],
+      "terminal_exit_code": 0,
+      "passed_tests": 118
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--all-features",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--check"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "metadata",
+      "command": [
+        "formora",
+        "baseline",
+        "check",
+        "--root",
+        "."
+      ],
+      "terminal_exit_code": 0,
+      "structurally_valid": true,
+      "baseline_ready": false
+    },
+    {
+      "name": "strict-metadata-02",
+      "command": [
+        "formora",
+        "baseline",
+        "check",
+        "--root",
+        ".",
+        "--strict"
+      ],
+      "terminal_exit_code": 2,
+      "status": "baseline_not_ready",
+      "product_acceptance": "unrun"
+    }
+  ],
+  "artifacts": {
+    "strict-metadata-02.json": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00",
+    "release-build.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clippy.stderr": "b714e67cd3b409d4ba4e5b89cfbd0d2a22782138040366d48ac1a33992775c55",
+    "rust.stderr": "fc63885b2d4e888284c4e0bd6c88d946b7526dea6edf3522ae384fa9f1e98525",
+    "strict-metadata.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "strict-metadata-02.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rust.stdout": "36393f5098472ecc257e6123f5d1a59d2f409d71d4040edf465cb4c7dc9f0cd9",
+    "metadata.json": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00",
+    "clippy.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.stderr": "23fd7102a65add042d4711ff1f86a439459e776252e1ac206705d6d6de5c2b19",
+    "release-build.stderr": "adec9c04febf6ea8781a5b39284666a1209afe8879cfa9730fb7c4148c41e115",
+    "metadata.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "python.stderr": "178d869d06e052bbee9409e629c881e44b4ca49b6592ba6c14188cc05b9114a5",
+    "format.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "strict-metadata.stderr": "ef231f232f4f751a5d02352c1bfdcad0c0590463c8b6196a2718c2758dfeabe8",
+    "python.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "format.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

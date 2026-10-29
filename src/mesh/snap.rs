@@ -79,7 +79,7 @@ pub struct Receipt {
     pub rotation_applied: bool,
 }
 
-fn finite(value: f64) -> Result<f32> {
+pub(crate) fn finite(value: f64) -> Result<f32> {
     let result = value as f32;
     if result.is_finite() {
         Ok(result)
@@ -89,16 +89,16 @@ fn finite(value: f64) -> Result<f32> {
         ))
     }
 }
-fn point(value: [f64; 3]) -> Result<Vector> {
+pub(crate) fn point(value: [f64; 3]) -> Result<Vector> {
     Ok([finite(value[0])?, finite(value[1])?, finite(value[2])?])
 }
-fn add(a: Vector, b: Vector) -> Vector {
+pub(crate) fn add(a: Vector, b: Vector) -> Vector {
     std::array::from_fn(|i| a[i] + b[i])
 }
-fn sub(a: Vector, b: Vector) -> Vector {
+pub(crate) fn sub(a: Vector, b: Vector) -> Vector {
     std::array::from_fn(|i| a[i] - b[i])
 }
-fn average(points: impl IntoIterator<Item = Vector>) -> Vector {
+pub(crate) fn average(points: impl IntoIterator<Item = Vector>) -> Vector {
     let mut sum = [0.; 3];
     let mut count = 0;
     for p in points {
@@ -112,13 +112,13 @@ fn average(points: impl IntoIterator<Item = Vector>) -> Vector {
         sum
     }
 }
-fn grid(point: Vector, spacing: f32) -> Vector {
+pub(crate) fn grid(point: Vector, spacing: f32) -> Vector {
     point.map(|v| spacing * (0.5 + v / spacing).floor())
 }
 
 // The direct source ignores invert_m3_m3's false result and retains its
 // adjugate. Its determinant expression/order differs from the safe inverse.
-fn inverse(m: Matrix) -> Matrix {
+pub(crate) fn inverse(m: Matrix) -> Matrix {
     let [[a, b, c], [d, e, f], [g, h, i]] = m;
     let adj = [
         [e * i - f * h, -b * i + c * h, b * f - c * e],
@@ -134,7 +134,7 @@ fn inverse(m: Matrix) -> Matrix {
     }
 }
 
-fn selected(graph: &Graph, editing: &Editing) -> Vec<bool> {
+pub(crate) fn selected(graph: &Graph, editing: &Editing) -> Vec<bool> {
     let mut result = vec![false; graph.vertex_ids.len()];
     if editing.mode.contains(&Domain::Vertex) {
         for (i, id) in graph.vertex_ids.iter().enumerate() {
@@ -164,7 +164,7 @@ fn selected(graph: &Graph, editing: &Editing) -> Vec<bool> {
     result
 }
 
-fn active(graph: &Graph, editing: &Editing, positions: &[Vector]) -> Option<Vector> {
+pub(crate) fn active(graph: &Graph, editing: &Editing, positions: &[Vector]) -> Option<Vector> {
     let face = editing
         .active_face
         .as_ref()
@@ -193,6 +193,17 @@ fn active(graph: &Graph, editing: &Editing, positions: &[Vector]) -> Option<Vect
 
 /// Compute privately. Editor and Session provide revision, batch and save rollback.
 pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
+    execute_with_targets(scene, request, None, None)
+}
+
+/// A scene operation freezes one centre/active target across unique edit data.
+/// These values come only from actual scene state, never from an agent request.
+pub(crate) fn execute_with_targets(
+    scene: &mut Scene,
+    request: &Request,
+    targets: Option<(Option<Vector>, Option<Vector>)>,
+    prepared: Option<&Graph>,
+) -> Result<Receipt> {
     let target = scene
         .entities
         .get(&request.entity)
@@ -211,7 +222,13 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         .mesh_assets
         .get(&id)
         .ok_or_else(|| SceneError("unknown mesh snap asset".into()))?;
-    let graph = asset.validated_topology()?;
+    let owned_graph;
+    let graph = if let Some(graph) = prepared {
+        graph
+    } else {
+        owned_graph = asset.validated_topology()?;
+        &owned_graph
+    };
     let corners = graph
         .faces
         .iter()
@@ -249,7 +266,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         .copied()
         .map(point)
         .collect::<Result<Vec<_>>>()?;
-    let selected = selected(&graph, editing);
+    let selected = selected(graph, editing);
     let world = math::world(scene, &request.entity)?;
     let basis: Matrix = std::array::from_fn(|i| std::array::from_fn(|j| world[i][j] as f32));
     let translation = std::array::from_fn(|i| world[i][3] as f32);
@@ -276,7 +293,8 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     } else {
         Some(average(points))
     };
-    let active = active(&graph, editing, &positions).map(to_world);
+    let active = active(graph, editing, &positions).map(to_world);
+    let (center, active) = targets.unwrap_or((center, active));
     let mut authoring = scene.authoring_context.clone().unwrap_or_default();
     authoring.validate()?;
     let before = point(authoring.cursor_location)?;
@@ -394,9 +412,18 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         if let Some(recipe) = &mut next.recipe {
             recipe.edited = true;
         }
-        super::normals::apply_automatic(&mut next)?;
+        if let Some(graph) = prepared {
+            super::normals::apply_automatic_with_topology(&mut next, graph)?;
+        } else {
+            super::normals::apply_automatic(&mut next)?;
+        }
     }
-    next.validate()?;
+    // Prepared topology is private to the enclosing scene command, whose
+    // mandatory Scene::validate runs before any effect can be published.
+    // Keep independent validation for the public single-mesh entry point.
+    if prepared.is_none() {
+        next.validate()?;
+    }
     let writes_cursor = status == Status::Finished
         && matches!(
             request.action,

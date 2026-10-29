@@ -1,0 +1,79 @@
+{
+  "class": "B",
+  "complete_gate": "requires all 30 class/form reports and all 90 source comparisons",
+  "edges_per_mesh": 20200,
+  "faces_per_mesh": 10000,
+  "form": "cursor-grid",
+  "grid": [
+    100,
+    100
+  ],
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun",
+  "passed": true,
+  "profile": "release",
+  "runs": [
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 153542375,
+      "core_ms": 103.524791,
+      "core_start_ns": 50017584,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 254.189209,
+      "passed": true,
+      "pipeline_end_ns": 523174709,
+      "pipeline_start_ns": 268985500,
+      "receipt_equal": true,
+      "sample": 1
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 701141959,
+      "core_ms": 107.279834,
+      "core_start_ns": 593862125,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 250.753542,
+      "passed": true,
+      "pipeline_end_ns": 1079146667,
+      "pipeline_start_ns": 828393125,
+      "receipt_equal": true,
+      "sample": 2
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 1249056167,
+      "core_ms": 104.85975,
+      "core_start_ns": 1144196417,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 256.894792,
+      "passed": true,
+      "pipeline_end_ns": 1622529792,
+      "pipeline_start_ns": 1365635000,
+      "receipt_equal": true,
+      "sample": 3
+    }
+  ],
+  "samples": 3,
+  "vertices_per_mesh": 10201
+}

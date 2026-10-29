@@ -147,6 +147,8 @@ pub struct Scene {
     pub annotations: Vec<Annotation>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub authoring_context: Option<crate::mesh::creation::AuthoringContext>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub object_context: Option<crate::objects::Context>,
 }
 
 impl Default for Scene {
@@ -162,6 +164,7 @@ impl Default for Scene {
             active_camera: None,
             annotations: Vec::new(),
             authoring_context: None,
+            object_context: None,
         }
     }
 }
@@ -253,6 +256,9 @@ impl Scene {
     }
 
     pub fn validate(&self) -> Result<()> {
+        if let Some(context) = &self.object_context {
+            context.validate(self)?;
+        }
         if let Some(context) = &self.authoring_context {
             context.validate()?;
         }
@@ -458,6 +464,12 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    SetObjectContext {
+        context: Option<crate::objects::Context>,
+    },
+    SnapScene {
+        snap: Box<crate::objects::snap::Request>,
+    },
     SnapMesh {
         snap: Box<crate::mesh::snap::Request>,
     },
@@ -551,10 +563,17 @@ enum CommandEffect {
     Creation(Box<crate::mesh::creation::CreationReceipt>),
     Transform(Box<crate::mesh::transform::Receipt>),
     Snap(Box<crate::mesh::snap::Receipt>),
+    SceneSnap(Box<crate::objects::snap::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::SetObjectContext { context } => scene.object_context = context.clone(),
+            Self::SnapScene { snap } => {
+                return Ok(CommandEffect::SceneSnap(Box::new(
+                    crate::objects::snap::execute(scene, snap)?,
+                )));
+            }
             Self::SnapMesh { snap } => {
                 return Ok(CommandEffect::Snap(Box::new(crate::mesh::snap::execute(
                     scene, snap,
@@ -778,6 +797,7 @@ pub struct EditResult {
     pub creation: Vec<crate::mesh::creation::CreationReceipt>,
     pub transforms: Vec<crate::mesh::transform::Receipt>,
     pub snaps: Vec<crate::mesh::snap::Receipt>,
+    pub scene_snaps: Vec<crate::objects::snap::Receipt>,
 }
 
 impl Editor {
@@ -820,6 +840,7 @@ impl Editor {
         let mut creation = Vec::new();
         let mut transforms = Vec::new();
         let mut snaps = Vec::new();
+        let mut scene_snaps = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
                 CommandEffect::Selection(outcome) => {
@@ -844,6 +865,10 @@ impl Editor {
                     receipt.command_index = command_index;
                     snaps.push(*receipt);
                 }
+                CommandEffect::SceneSnap(mut receipt) => {
+                    receipt.command_index = command_index;
+                    scene_snaps.push(*receipt);
+                }
                 CommandEffect::None => {}
             }
             candidate.validate()?;
@@ -857,6 +882,7 @@ impl Editor {
             creation,
             transforms,
             snaps,
+            scene_snaps,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {

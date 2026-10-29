@@ -1,0 +1,11 @@
+{"runtime": "full", "audited": 500}
+{"runtime": "full", "audited": 1000}
+{"runtime": "single", "audited": 500}
+{"runtime": "single", "audited": 1000}
+{"runtime": "single", "audited": 1500}
+{"runtime": "single", "audited": 2000}
+{"runtime": "transform", "audited": 500}
+{"runtime": "transform", "audited": 1000}
+{"runtime": "transform", "audited": 1500}
+{"runtime": "transform", "audited": 2000}
+{"local_evidence_valid": true, "implementation_commit": "dcb484218708959ac28b4a1ac79d5ef8b4156a02", "runtime_checks": 5750, "rust_tests": 250, "python_tests": 118, "new_performance_samples": 90, "retained_performance_samples": 39, "baseline_ready": false, "milestones_accepted": 0, "required_cross_platform_ci": "unrun", "integration": "unrun", "independent_codex_acceptance": "unrun", "product_acceptance": "unrun"}
