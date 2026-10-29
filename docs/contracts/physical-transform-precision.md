@@ -54,6 +54,13 @@ Keep those internal operations unchanged unless separately
 verified. The source adapter must observe the actual native query. It may not
 rebuild a world frame with a different quaternion or arithmetic path.
 
+The source's local transform centre uses `calculateCenterLocal` and the actual
+container `invert_m4_m4_fallback` result. In explicit `f32` mode use this verified
+affine Gauss path for nonsingular frames as well as singular frames. Preserve
+the existing native `f64` nonsingular inverse-times-offset rule. The earlier
+safe-inverse contract's default native behaviour remains unchanged. Do not
+replace the operation's linear inverse with this distinct pivot matrix.
+
 Independent tests must cover all rotation representations and Euler orders,
 nonuniform reflected parent chains, balanced cancellation, point accumulation,
 zero scales, shared instances, saved reload, query purity, overflow and failed
