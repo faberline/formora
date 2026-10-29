@@ -11,6 +11,26 @@ SUITE=json.loads((ROOT/'baseline/fixtures/mesh-transform.json').read_text())
 
 
 class TransformRuntimeTests(unittest.TestCase):
+    def test_attribute_receipts_must_match_actual_changed_uv_faces(self):
+        raw=json.loads((ROOT/'docs/evidence/mesh-transform-core/safe-runtime/cli-transform_0000.json').read_text())
+        args=[copy.deepcopy(raw[k]) for k in ['result','request','before','after']]
+        runtime.check_receipt(*args)
+        args[1]['commands'][0]['transform']['correct_face_attributes']=True
+        args[3]['geometry']['uv_layers']['Detail']['f000000'][0][0]+=0.1
+        with self.assertRaises(AssertionError):runtime.check_receipt(*args)
+        args[0]['transforms'][0]['attribute_faces']=[{'kind':'polygon','id':'f000000'}]
+        runtime.check_receipt(*args)
+        args[0]['transforms'][0]['attribute_faces'].append({'kind':'polygon','id':'f000005'})
+        with self.assertRaises(AssertionError):runtime.check_receipt(*args)
+
+    def test_mirror_receipts_cannot_hide_wrong_copies_or_false_plane_clamps(self):
+        raw=json.loads((ROOT/'docs/evidence/mesh-transform-core/safe-runtime/cli-transform_0000.json').read_text())
+        for extra in [{'mirror_plane_vertices':['v000000']},{'mirror_sources':{'v000000':'v000002'}}]:
+            args=[copy.deepcopy(raw[k]) for k in ['result','request','before','after']]
+            args[1]['commands'][0]['transform']['mirror']={'axis':'x','topology':False}
+            args[0]['transforms'][0].update(extra)
+            with self.subTest(extra=extra),self.assertRaises(AssertionError):runtime.check_receipt(*args)
+
     def test_every_authored_request_has_a_mapping_and_setup_has_no_measured_normals(self):
         for run in SUITE['runs']:
             with self.subTest(id=run['id']):

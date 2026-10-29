@@ -505,8 +505,6 @@ fn invalid_unsupported_stale_and_failed_batch_requests_have_no_effect_or_undo_en
         json!({"proportional":{"radius":0,"falloff":"linear"}}),
         json!({"proportional":{"radius":1,"falloff":"random"}}),
         json!({"proportional":{"radius":1,"falloff":"linear","seed":1}}),
-        json!({"mirror":{"axis":"x"}}),
-        json!({"correct_face_attributes":true}),
     ] {
         assert!(
             editor

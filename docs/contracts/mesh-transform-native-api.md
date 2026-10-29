@@ -55,8 +55,10 @@ Source random comparison retains the fixed support policy. Full source sequence
 and distribution parity remain unrun.
 
 `mirror` optionally supplies `axis` and `topology`. `correct_face_attributes`
-defaults to false. `keep_connected` defaults to true. These options require
-their actual implementation. A request for an unsupported option fails.
+defaults to false. `keep_connected` defaults to true. Their implemented rules
+are fixed in `mirrored-mesh-transform.md` and `corrected-mesh-uvs.md`.
+UV correction applies to all stored UV layers. Other corner attribute types
+and multiresolution displacement still require separate support.
 `max_components` defaults to 1,000,000. Count vertices, resolved edges, faces and
 face corners before transformation. Reject a zero or exceeded budget.
 
@@ -66,6 +68,12 @@ world pivot, local per-vertex centres, influence weights, changed typed componen
 IDs and preserved random seed. Receipts must not survive failed batches or saves.
 No selected visible vertices is an explicit error. It leaves the scene unchanged.
 The source adapter may recognize that specific error as its expected cancellation.
+
+Optional `mirror_sources` and `mirror_plane_vertices` describe actual mirror
+copies and clamps. Optional `attribute_faces` lists faces whose UV values
+changed. The normal changed-face set includes these UV changes. These fields
+are omitted when empty. Both mirror and UV work have a 64-times-component-budget
+limit; exhaustion is an explicit atomic error.
 
 No operation may receive measured reference geometry, normals, bases, centres or
 influences as inputs. Invalid and stale requests, unsafe frames, budget failures,

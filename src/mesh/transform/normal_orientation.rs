@@ -93,7 +93,7 @@ fn face_normal(p: &[Vector]) -> Result<Vector> {
     };
     unit(normal)
 }
-fn normals(graph: &Graph, p: &[Vector]) -> Result<(Vec<Vector>, Vec<Vector>)> {
+pub(super) fn normals(graph: &Graph, p: &[Vector]) -> Result<(Vec<Vector>, Vec<Vector>)> {
     let faces: Vec<_> = graph
         .faces
         .iter()
@@ -155,7 +155,7 @@ fn unique_triangle_edge(p: &[Vector]) -> Result<usize> {
     }
     Ok(order[0])
 }
-fn tangent_pair(p: &[Vector], active: bool) -> Result<[Vector; 2]> {
+pub(super) fn tangent_pair(p: &[Vector], active: bool) -> Result<[Vector; 2]> {
     if p.len() == 4 {
         let a = add(sub(p[3], p[2]), sub(p[0], p[1]));
         let b = add(sub(p[0], p[3]), sub(p[1], p[2]));

@@ -11,7 +11,9 @@ mod geodesic;
 mod gimbal;
 mod influence;
 mod inverse;
+mod mirror;
 mod normal_orientation;
+mod uv;
 
 type Vector = [f32; 3];
 type Matrix = [[f32; 3]; 3];
@@ -142,6 +144,12 @@ pub struct Receipt {
     pub influence: BTreeMap<String, f64>,
     pub changed: Elements,
     pub random_seed: Option<u64>,
+    #[serde(skip_serializing_if = "BTreeMap::is_empty")]
+    pub mirror_sources: BTreeMap<String, String>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub mirror_plane_vertices: Vec<String>,
+    #[serde(skip_serializing_if = "std::collections::BTreeSet::is_empty")]
+    pub attribute_faces: std::collections::BTreeSet<super::selection::FaceRef>,
 }
 fn finite(values: &[f64]) -> Result<()> {
     if values
@@ -183,19 +191,10 @@ fn rotation(axis: Vector, radians: f32) -> Matrix {
 
 /// Compute on a private asset. Publish only after all calculations validate.
 pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
-    if request.mirror.is_some() {
-        return Err(SceneError(
-            "mesh transform mirror is not implemented yet".into(),
-        ));
-    }
-    if request.correct_face_attributes {
-        return Err(SceneError(
-            "mesh transform face attribute correction is not implemented yet".into(),
-        ));
-    }
     let context = context::Context::new(scene, request)?;
     let asset = &scene.mesh_assets[&context.asset];
     let influence = influence::calculate(&context, request)?;
+    let mirror = mirror::Plan::new(&context, request)?;
     let mut next = asset.clone();
     let mut changed = Elements::default();
     let constrained = request.constraint_axis.iter().any(|v| *v);
@@ -282,7 +281,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         .iter()
         .copied()
         .enumerate()
-        .filter(|(_, w)| *w > 0.)
+        .filter(|(i, w)| *w > 0. && mirror.sources[*i].is_none())
     {
         let id = &context.graph.vertex_ids[index];
         let original = context.positions[index];
@@ -378,6 +377,29 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
             next.vertices.insert(id.clone(), position);
         }
     }
+    mirror.apply(&context, &mut next);
+    let mut mirror_sources = BTreeMap::new();
+    for (destination, source) in mirror.sources.iter().enumerate() {
+        if let Some(source) = source {
+            let id = &context.graph.vertex_ids[destination];
+            let source_id = &context.graph.vertex_ids[*source];
+            mirror_sources.insert(id.clone(), source_id.clone());
+            if let Some(weight) = weights.get(source_id).copied() {
+                weights.insert(id.clone(), weight);
+                centres.insert(id.clone(), context.centres[destination].map(f64::from));
+                if let Some(bases) = &context.component_bases {
+                    component_bases
+                        .insert(id.clone(), bases[destination].map(|r| r.map(f64::from)));
+                }
+            }
+        }
+    }
+    changed.vertices = next
+        .vertices
+        .iter()
+        .filter(|(id, p)| asset.vertices[*id] != **p)
+        .map(|(id, _)| id.clone())
+        .collect();
     for edge in &context.graph.edges {
         if edge
             .vertices
@@ -396,11 +418,15 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
             changed.faces.insert(face.key.clone());
         }
     }
-    if !changed.vertices.is_empty() {
+    let attribute_faces = uv::apply(&context, request, &mirror, asset, &mut next)?;
+    changed.faces.extend(attribute_faces.iter().cloned());
+    if !changed.vertices.is_empty() || !attribute_faces.is_empty() {
         if let Some(recipe) = &mut next.recipe {
             recipe.edited = true;
         }
-        super::normals::apply_automatic(&mut next)?;
+        if !changed.vertices.is_empty() {
+            super::normals::apply_automatic(&mut next)?;
+        }
     }
     next.validate()?;
     let receipt = Receipt {
@@ -415,6 +441,13 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         influence: weights,
         changed,
         random_seed: request.proportional.as_ref().and_then(|p| p.seed),
+        mirror_sources,
+        attribute_faces,
+        mirror_plane_vertices: mirror
+            .plane
+            .iter()
+            .map(|i| context.graph.vertex_ids[*i].clone())
+            .collect(),
     };
     scene.mesh_assets.insert(context.asset, next);
     Ok(receipt)

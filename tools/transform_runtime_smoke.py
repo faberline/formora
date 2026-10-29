@@ -134,14 +134,27 @@ def check_receipt(result,request,before,after):
     vertices=before['geometry']['vertices'];changed={id for id,p in vertices.items() if p!=after['geometry']['vertices'][id]}
     assert set(receipt['changed']['vertices'])==changed
     assert set(receipt['changed']['edges'])=={id for id,pair in before['geometry']['edges'].items() if changed & set(pair)}
-    assert receipt['changed']['faces']==[{'kind':'polygon','id':id} for id,face in before['geometry']['faces'].items() if changed & set(face)]
+    attribute_faces={id for id in before['geometry']['faces'] if any(before['geometry']['uv_layers'][layer][id]!=after['geometry']['uv_layers'][layer][id] for layer in before['geometry']['uv_layers'])}
+    assert receipt.get('attribute_faces',[])==[{'kind':'polygon','id':id} for id in sorted(attribute_faces)]
+    assert receipt['changed']['faces']==[{'kind':'polygon','id':id} for id,face in before['geometry']['faces'].items() if changed & set(face) or id in attribute_faces]
     assert set(receipt['centres_local'])==set(receipt['influence'])
-    assert changed<=set(receipt['influence']) and not (set(before['hidden']['VERT'])&set(receipt['influence']))
+    plane=set(receipt.get('mirror_plane_vertices',[]));sources=receipt.get('mirror_sources',{})
+    assert changed<=set(receipt['influence'])|plane|set(sources)
+    assert not (set(before['hidden']['VERT'])&(set(receipt['influence'])|plane|set(sources)|set(sources.values())))
     assert all(math.isfinite(w) and 0<w<=1 for w in receipt['influence'].values())
     assert all(receipt['influence'][id]==1 for id in before['selected']['VERT'])
     assert receipt['random_seed']==request['commands'][0]['transform'].get('proportional',{}).get('seed')
     for vector in [receipt['pivot_world'],*receipt['basis_world'],*receipt['centres_local'].values()]:assert len(vector)==3 and all(math.isfinite(v) for v in vector)
     transform=request['commands'][0]['transform']
+    if 'mirror' in transform:
+        axis='xyz'.index(transform['mirror']['axis'])
+        assert all(abs(vertices[id][axis])<f32(0.00002) and after['geometry']['vertices'][id][axis]==0 for id in plane)
+        for destination,source in sources.items():
+            assert destination!=source and source not in sources
+            expected=list(after['geometry']['vertices'][source]);expected[axis]*=-1
+            assert after['geometry']['vertices'][destination]==expected
+            if source in receipt['influence']:assert receipt['influence'][destination]==receipt['influence'][source]
+    else:assert not plane and not sources
     if transform['orientation']['kind']=='normal' and transform['pivot']=='individual':
         assert set(receipt['component_basis_local'])==set(receipt['influence'])
         for matrix in receipt['component_basis_local'].values():
