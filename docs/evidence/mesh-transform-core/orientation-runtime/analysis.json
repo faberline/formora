@@ -1,0 +1,33 @@
+{
+  "scope": "complete source run after geometric normal and individual island orientation",
+  "matched": 2052,
+  "matched_finished": 2040,
+  "matched_expected_cancellations": 12,
+  "failed": 354,
+  "newly_matched": 222,
+  "regressions": 0,
+  "new_matches_all_normal_orientation": true,
+  "per_interface_failures": {
+    "cli": {
+      "mesh transform face attribute correction is not implemented yet": 18,
+      "mesh transform gimbal orientation is not implemented yet": 114,
+      "mesh transform mirror is not implemented yet": 6,
+      "numeric/geometry": 15,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 6,
+      "singular or nonfinite creation target transform": 12
+    },
+    "official_mcp_sdk": {
+      "mesh transform face attribute correction is not implemented yet": 18,
+      "mesh transform gimbal orientation is not implemented yet": 114,
+      "mesh transform mirror is not implemented yet": 6,
+      "numeric/geometry": 15,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 6,
+      "singular or nonfinite creation target transform": 12
+    }
+  },
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false,
+  "source_report_sha256": "c822c9be9f85b19c403e40496f63d9a35e854d50d1beef9fd34170d8cb0d187b"
+}
