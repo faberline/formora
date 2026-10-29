@@ -80,7 +80,14 @@ Existing numerical, MCP, native preview, isolation and performance checks remain
 
 Apple M1 Max / macOS / release: transform a 100×100 quad grid with each of the
 three basic operations three times. Core <=250 ms; operation/save/reload <=2000 ms.
-Prepare input before timing. Retain monotonic raw timestamps.
+Use row-major integer XY vertices from (0,0,0) to (100,100,0), all vertices selected,
+GLOBAL orientation, MEDIAN_POINT pivot, an identity object frame, no proportional
+influence, no snapping and no UV correction. Translate by (0.375,-0.625,0.25),
+rotate by 0.61 radians about the source's unconstrained Z axis, and resize by
+(1.25,0.65,1.1). Keep the complete 10,201/20,200/10,000 topology and stable IDs.
+Core timing includes the validated atomic editor operation and actual result receipt.
+Prepare input before timing. Pipeline timing includes the operation, saving and a
+fresh complete reload equality check. Retain monotonic raw timestamps.
 Metal must show a real modification and byte-identical fresh reload output.
 Required three-platform CI, dependency integration and integrated independent
 acceptance remain necessary. All milestones stay open until their complete gates pass.

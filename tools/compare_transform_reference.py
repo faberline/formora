@@ -75,6 +75,9 @@ def validate(run,data,suite):
             require(len(state['normals']['faces'][id])==3,'normal size differs')
             require(len(state['normals']['corners'][id])==len(face),'corner normal count differs')
             require(all(len(n)==3 for n in state['normals']['corners'][id]),'corner normal size differs')
+            for normal in [state['normals']['faces'][id],*state['normals']['corners'][id]]:
+                length=math.sqrt(sum(v*v for v in normal))
+                require(length<=1e-6 or abs(length-1)<=1e-6,'normal is neither zero nor unit length')
         view=state['environment'];r=rotation(view['view_rotation'])
         for i in range(3):near(view['view_matrix'][i][:3],[r[j][i] for j in range(3)],message='stale viewport matrix')
         target=state['objects']['target']['matrix_world'];require(len(target)==4 and all(len(row)==4 for row in target),'world matrix dimensions differ')
@@ -174,14 +177,32 @@ def stochastic(run,data):
             require(-1e-6<=factor<=1+1e-6,'random influence outside support')
             expected=[point[j]+delta[j]*factor for j in range(3)]
         near(actual,expected,message='random result leaves requested transform path');checks+=1
-    return checks
+        if id in selected:
+            full=[point[j]+p['value'][j] for j in range(3)] if run['operator']=='translate' else point
+            near(actual,full,message='random falloff changed full influence of an authored selected vertex')
+    if p.get('use_proportional_connected'):
+        reachable=set(selected)
+        while True:
+            expanded=reachable|{v for pair in before['geometry']['edges'].values() if set(pair)&reachable for v in pair}
+            if expanded==reachable:break
+            reachable=expanded
+        for id,point in before['geometry']['vertices'].items():
+            if id not in reachable:near(after['geometry']['vertices'][id],point,message='random connected influence crossed disconnected geometry')
+    faces_checked=0
+    for id,face in after['geometry']['faces'].items():
+        vertices=after['geometry']['vertices'];a,b,c,d=[vertices[v] for v in face]
+        u=[a[j]-c[j] for j in range(3)];v=[b[j]-d[j] for j in range(3)]
+        normal=[u[(j+1)%3]*v[(j+2)%3]-u[(j+2)%3]*v[(j+1)%3] for j in range(3)];length=math.sqrt(sum(x*x for x in normal))
+        require(length>0,'random support case unexpectedly collapsed a face')
+        near(after['normals']['faces'][id],[x/length for x in normal],message='random face normal does not match actual geometry');faces_checked+=1
+    return {'vertices':checks,'face_normals':faces_checked}
 
 
 def compare(suite,reference,repeat,suite_sha):
     a=load(reference/'manifest.json');b=load(repeat/'manifest.json')
     require(a['process_id']!=b['process_id'],'reference processes are not independent')
     expected_version=suite['reference']['version'];expected_build=suite['reference']['build_hash']
-    runs=suite['runs'];records=[];analytic_checks=stochastic_checks=0
+    runs=suite['runs'];records=[];analytic_checks=stochastic_checks=stochastic_normals=0
     require(suite['schema_version']==1 and len(runs)==1203,'complete authored suite is required')
     require(suite['comparison']=={'positions_absolute_tolerance_metres':1e-6,'normals_absolute_tolerance':1e-6,'uv_absolute_tolerance':1e-6},'fixed comparison tolerances differ')
     root=Path(__file__).resolve().parents[1];build_pin=load(root/'baseline/reference/builds/blender-5.2.3/report.json')
@@ -211,10 +232,12 @@ def compare(suite,reference,repeat,suite_sha):
         require(first['result']==second['result'],'reference outcomes differ')
         if run['repeat_policy']=='deterministic':tree(first['after'],second['after'])
         else:
-            for capture in captures:stochastic_checks+=stochastic(run,capture)
+            for capture in captures:
+                checked=stochastic(run,capture);stochastic_checks+=checked['vertices'];stochastic_normals+=checked['face_normals']
         records.append({'id':run['id'],'status':'checked','repeat_policy':run['repeat_policy'],'source_result':first['result']['status']})
     return {'passed':True,'scope':'source reference and finite analytic checks only','runs':records,'cases':len(records),'analytic_checks':analytic_checks,
             'stochastic_vertex_path_checks':stochastic_checks,'reference_process_ids':[a['process_id'],b['process_id']],
+            'stochastic_face_normal_checks':stochastic_normals,
             'random_sequence_or_distribution_acceptance':'unrun','product_acceptance':'unrun','full_feature_acceptance':'unrun'}
 
 

@@ -120,7 +120,7 @@ metadata 記錄文件版本、摘要與子連結。
 
 [網格基本形狀紀錄](verification/mesh-primitives-reference.md)保留十種形狀的 57 組參考輸入與結果。
 參考結果來自實際 Blender 5.2.3 執行檔。
-Formora 尚未執行這些對齊測試。
+這是原始來源基準。後續有限實作驗證見[生成紀錄](verification/remaining-primitives.md)與[建立情境紀錄](verification/creation-contexts.md)。
 十項功能的契約仍為 `pending`。
 這批案例不代表完整參數範圍、共同選項或 0.0 已完成。
 
@@ -133,4 +133,12 @@ Formora 尚未執行這些對齊測試。
 [選取基準紀錄](verification/mesh-selection-reference.md)新增十項待審契約。
 固定參考程序的 530 組案例已由另一個程序重現。
 完成操作、保持不變及預期拒絕分開記錄。
-這些是參考資料檢查。Formora 選取功能與其效能仍未執行驗收。
+這些是參考資料檢查。後續有限實作驗證見[選取核心紀錄](verification/mesh-selection-core.md)。完整功能與整合驗收仍未完成。
+
+## 網格變換案例
+
+[變換基準紀錄](verification/mesh-transform-reference.md)新增八項待審契約。
+兩個原生參考程序各執行 1,203 組輸入。確定性結果與隨機支援範圍分開檢查。
+輸入涵蓋移動、旋轉、縮放、方向、中心與比例編輯。Rust 變換實作仍未執行。
+所有 9,047 個來源 ID 都保留。現有 31 項功能契約仍全部待審，9,003 個來源仍待分類。
+吸附、合併／切割、其他模式與完整數值範圍都保持在後續必要範圍。

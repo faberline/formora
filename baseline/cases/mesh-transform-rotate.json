@@ -443,10 +443,37 @@
       "maximum_core_ms": 250,
       "maximum_operation_save_reload_ms": 2000,
       "measurement": "Prepare input before timing. Record monotonic start/end values. Query, save and reopen actual results.",
-      "status": "unrun"
+      "status": "unrun",
+      "initial_selection": "all grid vertices; complete logical edge/face selection from vertex closure",
+      "object_frame": "identity",
+      "orientation": "GLOBAL",
+      "pivot": "MEDIAN_POINT",
+      "proportional_edit": false,
+      "snap": false,
+      "correct_face_attributes": false,
+      "parameters": {
+        "translate": {
+          "value": [
+            0.375,
+            -0.625,
+            0.25
+          ]
+        },
+        "rotate": {
+          "value": 0.61,
+          "orient_axis": "Z"
+        },
+        "resize": {
+          "value": [
+            1.25,
+            0.65,
+            1.1
+          ]
+        }
+      }
     },
     "execution_status": {
-      "reference": "unrun until both complete captures and independent checks pass",
+      "reference": "1203 cases captured in two independent native processes; 1179 deterministic repeats plus 24 stochastic support cases; product unrun",
       "formora": "unrun"
     },
     "remaining": [
@@ -456,7 +483,13 @@
       "RANDOM sequence and distribution acceptance",
       "modal axis-control input and native window interaction",
       "three-platform product execution"
-    ]
+    ],
+    "comparison": {
+      "positions_absolute_tolerance_metres": 1e-06,
+      "normals_absolute_tolerance": 1e-06,
+      "uv_absolute_tolerance": 1e-06,
+      "random_policy": "support and geometry checks only; no numeric sequence or distribution acceptance"
+    }
   },
   "steps": [
     "Load the authored fixture. Independently check logical topology, all attributes, initial selection and frame against the JSON input.",
@@ -471,18 +504,18 @@
       "absolute_tolerance": null
     },
     {
-      "target": "local and world positions",
-      "expected": "deterministic source outputs match componentwise; RANDOM checks support only and cannot prove numeric sequence parity",
+      "target": "deterministic local/world position maximum absolute error",
+      "expected": 0,
       "absolute_tolerance": 1e-06
     },
     {
-      "target": "face and corner normals and UV values",
-      "expected": "finite values match fixed deterministic source outputs; preserve layer order and active layer",
+      "target": "deterministic face/corner normal and UV maximum absolute error",
+      "expected": 0,
       "absolute_tolerance": 1e-06
     },
     {
-      "target": "reference view matrices",
-      "expected": "match the authored quaternion and a real initialized viewport; stale cache data are invalid",
+      "target": "authored/actual view matrix maximum absolute error",
+      "expected": 0,
       "absolute_tolerance": 1e-06
     },
     {
