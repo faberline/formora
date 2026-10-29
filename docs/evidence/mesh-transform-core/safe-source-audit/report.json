@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "scope": "source behavior audit; not product acceptance",
+  "candidate": "263fe1d7652e344e84ccb30a0d4e7c1ab5046def",
+  "source_path": "baseline/sources/mesh-safe-transform/math_matrix_c.cc",
+  "source_sha256": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+  "svd_function_sha256": "883da1494f88da5bc7c6a14f235437bc4fc14009d424d910a47eaa66d791a5d6",
+  "pivot_function_sha256": "34e51efaf8ee01724b2730acee905e0a8efe27d7a42a0f862a8a0e46260b5775",
+  "extracted_functions_unchanged": true,
+  "compile_command": [
+    "clang++",
+    "-O2",
+    "-std=c++17",
+    "-ffp-contract=off",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/safe-source-audit/source-oracle.cc",
+    "-o",
+    "/private/tmp/formora-safe-source-oracle-evidence"
+  ],
+  "compile_exit": 0,
+  "run_exit": 0,
+  "oracle_binary_sha256": "d7739d33e003da7ba514359467830839219102ef967e9c7ba57755124c5e79a8",
+  "source_spurious_rank_one_value": 2.46786612e-07,
+  "source_spurious_rank_two_value": 1.14532583e-07,
+  "source_affine_pivot": [
+    0,
+    1,
+    0
+  ],
+  "all_axis_rotation_assignment": "unproven; seven required source cases retained as failures",
+  "files": {
+    "run.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compiler-version.txt": "ea3037e0630fa16798079372fdc24f6542d021dadda4915cc979799682d78295",
+    "build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run.stdout": "f6591afbc9c5a916b51e4b0cedc304431e53aa73ffefd9e6cf235be9c126d162",
+    "source-oracle.cc": "03a6ff099cb4b0bb9e32a2c35dcf8de01a0f9974c5302a255eace429ffd2f14a"
+  }
+}

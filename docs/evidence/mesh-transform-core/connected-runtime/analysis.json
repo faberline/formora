@@ -1,0 +1,35 @@
+{
+  "scope": "complete source run after connected surface propagation",
+  "matched": 1830,
+  "matched_finished": 1818,
+  "matched_expected_cancellations": 12,
+  "failed": 576,
+  "newly_matched": 228,
+  "regressions": 0,
+  "upgraded_exactly_connected_cases": true,
+  "per_interface_failures": {
+    "cli": {
+      "mesh transform normal orientation is not implemented yet": 114,
+      "mesh transform gimbal orientation is not implemented yet": 114,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 4,
+      "numeric/geometry": 14,
+      "mesh transform mirror is not implemented yet": 6,
+      "singular or nonfinite creation target transform": 12,
+      "mesh transform face attribute correction is not implemented yet": 18
+    },
+    "official_mcp_sdk": {
+      "mesh transform normal orientation is not implemented yet": 114,
+      "mesh transform gimbal orientation is not implemented yet": 114,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 4,
+      "numeric/geometry": 14,
+      "mesh transform mirror is not implemented yet": 6,
+      "singular or nonfinite creation target transform": 12,
+      "mesh transform face attribute correction is not implemented yet": 18
+    }
+  },
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false,
+  "source_report_sha256": "901a8131ea6f370826df31716d6cc420b92dfa5903dcdc428b72a8fcb9ec9b9e"
+}

@@ -1,0 +1,308 @@
+{
+  "active_camera": null,
+  "annotations": [],
+  "doors": {},
+  "entities": {
+    "other": {
+      "content": {
+        "geometry": {
+          "id": "mesh",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": null
+      },
+      "name": "other",
+      "parent": null,
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          3.17,
+          0.12,
+          0.63
+        ]
+      }
+    },
+    "target": {
+      "content": {
+        "geometry": {
+          "id": "mesh",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": null
+      },
+      "name": "target",
+      "parent": null,
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          -1.7,
+          1.2,
+          0.8
+        ],
+        "translation": [
+          0.41,
+          -0.73,
+          0.29
+        ]
+      }
+    }
+  },
+  "materials": {},
+  "mesh_assets": {
+    "mesh": {
+      "edges": {
+        "edge0": [
+          "apricot",
+          "birch"
+        ],
+        "edge1": [
+          "apricot",
+          "dogwood"
+        ],
+        "edge2": [
+          "birch",
+          "cedar"
+        ],
+        "edge3": [
+          "cedar",
+          "dogwood"
+        ],
+        "edge4": [
+          "umber",
+          "violet"
+        ],
+        "edge5": [
+          "umber",
+          "xenia"
+        ],
+        "edge6": [
+          "violet",
+          "willow"
+        ],
+        "edge7": [
+          "willow",
+          "xenia"
+        ]
+      },
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": [
+            "hidden"
+          ]
+        },
+        "history": [],
+        "mode": [
+          "vertex"
+        ],
+        "preview": false,
+        "selected": {
+          "edges": [],
+          "faces": [],
+          "vertices": [
+            "apricot",
+            "plane"
+          ]
+        }
+      },
+      "material_slots": [],
+      "polygons": {
+        "lower": {
+          "corner_normals": null,
+          "material_slot": null,
+          "normal": null,
+          "smooth": false,
+          "uv_layers": {
+            "Ribbon": [
+              [
+                0.37,
+                -0.19
+              ],
+              [
+                0.37,
+                3.4099999999999997
+              ],
+              [
+                2.97,
+                3.4099999999999997
+              ],
+              [
+                2.97,
+                -0.19
+              ]
+            ],
+            "UV": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.2
+              ],
+              [
+                1.3,
+                1.2
+              ],
+              [
+                1.3,
+                0.0
+              ]
+            ]
+          },
+          "vertices": [
+            "umber",
+            "violet",
+            "willow",
+            "xenia"
+          ]
+        },
+        "upper": {
+          "corner_normals": null,
+          "material_slot": null,
+          "normal": null,
+          "smooth": false,
+          "uv_layers": {
+            "Ribbon": [
+              [
+                0.37,
+                -0.19
+              ],
+              [
+                2.97,
+                -0.19
+              ],
+              [
+                2.97,
+                3.4099999999999997
+              ],
+              [
+                0.37,
+                3.4099999999999997
+              ]
+            ],
+            "UV": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.3,
+                0.0
+              ],
+              [
+                1.3,
+                1.2
+              ],
+              [
+                0.0,
+                1.2
+              ]
+            ]
+          },
+          "vertices": [
+            "apricot",
+            "birch",
+            "cedar",
+            "dogwood"
+          ]
+        }
+      },
+      "triangles": {},
+      "uv_layout": {
+        "active": "UV",
+        "layers": [
+          "Ribbon",
+          "UV"
+        ]
+      },
+      "vertex_groups": [
+        "keep"
+      ],
+      "vertex_weights": {
+        "birch": {
+          "keep": 0.375
+        }
+      },
+      "vertices": {
+        "apart": [
+          0.31,
+          1.17,
+          0.2
+        ],
+        "apricot": [
+          0.31,
+          1.17,
+          0.2
+        ],
+        "birch": [
+          1.61,
+          1.17,
+          0.2
+        ],
+        "cedar": [
+          1.61,
+          2.37,
+          0.2
+        ],
+        "dogwood": [
+          0.31,
+          2.37,
+          0.2
+        ],
+        "hidden": [
+          2.31,
+          -2.11,
+          0.4
+        ],
+        "plane": [
+          2.13,
+          7e-06,
+          0.2
+        ],
+        "umber": [
+          0.31,
+          -1.17,
+          0.2
+        ],
+        "violet": [
+          0.31,
+          -2.37,
+          0.2
+        ],
+        "willow": [
+          1.61,
+          -2.37,
+          0.2
+        ],
+        "xenia": [
+          1.61,
+          -1.17,
+          0.2
+        ]
+      }
+    }
+  },
+  "revision": 1,
+  "schema_version": 1,
+  "time_seconds": 0.0
+}

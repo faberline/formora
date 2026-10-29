@@ -1,6 +1,6 @@
 use crate::mesh::selection::{Domain, FaceRef};
 use crate::scene::{EntityKind, Geometry, Result, Scene, SceneError};
-use glam::{DMat4, DQuat, DVec3, DVec4};
+use glam::{DMat4, DVec3, DVec4};
 use std::collections::{BTreeMap, BTreeSet};
 
 #[repr(C)]
@@ -28,26 +28,10 @@ pub fn world_transforms(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
     scene.validate()?;
     let mut result = BTreeMap::new();
     for id in scene.entities.keys() {
-        let mut chain = Vec::new();
-        let mut current = Some(id.as_str());
-        while let Some(key) = current {
-            if let Some(matrix) = result.get(key) {
-                chain.push(*matrix);
-                break;
-            }
-            let entity = &scene.entities[key];
-            let t = &entity.transform;
-            chain.push(DMat4::from_scale_rotation_translation(
-                DVec3::from_array(t.scale),
-                DQuat::from_array(t.rotation).normalize(),
-                DVec3::from_array(t.translation),
-            ));
-            current = entity.parent.as_deref();
-        }
-        let matrix = chain
-            .into_iter()
-            .rev()
-            .fold(DMat4::IDENTITY, |parent, local| parent * local);
+        let world = crate::transforms::world(scene, id)?;
+        let matrix = DMat4::from_cols_array_2d(&std::array::from_fn(|c| {
+            std::array::from_fn(|r| world[r][c])
+        }));
         if !matrix.is_finite() {
             return Err(SceneError(format!("transform exceeds preview range: {id}")));
         }
@@ -163,9 +147,29 @@ struct SurfaceTriangle<'a> {
     selected: bool,
 }
 
-fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTriangle<'a>>> {
+fn triangles<'a>(
+    scene: &'a Scene,
+    geometry: &Geometry,
+    resolve_normals: bool,
+) -> Result<Vec<SurfaceTriangle<'a>>> {
     if let Geometry::Asset { id } = geometry {
         let asset = &scene.mesh_assets[id];
+        let needs_automatic = resolve_normals
+            && (asset.triangles.values().any(|f| f.corner_normals.is_none())
+                || asset
+                    .polygons
+                    .values()
+                    .any(|f| f.corner_normals.is_none() && f.normal.is_none()));
+        let automatic = if needs_automatic {
+            Some(crate::mesh::normals::resolved(asset)?)
+        } else {
+            None
+        };
+        let normal_map: std::collections::BTreeMap<_, _> = automatic
+            .as_ref()
+            .into_iter()
+            .flat_map(|n| n.faces.iter().map(|f| (f.face.clone(), f)))
+            .collect();
         let editing = asset.editing.as_ref();
         let mut hidden = BTreeSet::new();
         if let Some(editing) = editing {
@@ -200,7 +204,14 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTri
                     .vertices
                     .each_ref()
                     .map(|id| DVec3::from_array(asset.vertices[id])),
-                normals: triangle.corner_normals,
+                normals: triangle.corner_normals.or_else(|| {
+                    normal_map.get(&FaceRef::Triangle(id.clone())).map(|n| {
+                        n.corner_normals
+                            .clone()
+                            .try_into()
+                            .expect("three triangle corners")
+                    })
+                }),
                 material: triangle
                     .material_slot
                     .and_then(|slot| asset.material_slots[slot].as_deref()),
@@ -224,7 +235,12 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTri
                     .corner_normals
                     .as_ref()
                     .map(|ns| t.corners.map(|c| ns[c]))
-                    .or(polygon.normal.map(|n| [n; 3])),
+                    .or(polygon.normal.map(|n| [n; 3]))
+                    .or_else(|| {
+                        normal_map
+                            .get(&FaceRef::Polygon(t.polygon.clone()))
+                            .map(|n| t.corners.map(|c| n.corner_normals[c]))
+                    }),
                 material: polygon
                     .material_slot
                     .and_then(|slot| asset.material_slots[slot].as_deref()),
@@ -287,7 +303,7 @@ pub fn vertices(scene: &Scene) -> Result<Vec<Vertex>> {
     let mut result = Vec::new();
     for (id, entity) in &scene.entities {
         if let EntityKind::Mesh { geometry, material } = &entity.content {
-            for triangle in triangles(scene, geometry)? {
+            for triangle in triangles(scene, geometry, true)? {
                 // An entity material is an explicit override of all asset slots.
                 let binding = material.as_deref().or(triangle.material);
                 let (color, surface) = match binding.and_then(|id| scene.materials.get(id)) {
@@ -310,7 +326,7 @@ pub fn vertices(scene: &Scene) -> Result<Vec<Vertex>> {
         }
     }
     for note in &scene.annotations {
-        for triangle in triangles(scene, &Geometry::Cube { size: [0.06; 3] })? {
+        for triangle in triangles(scene, &Geometry::Cube { size: [0.06; 3] }, false)? {
             append_triangle(
                 &mut result,
                 triangle,
@@ -441,7 +457,7 @@ pub fn pick(scene: &Scene, origin: DVec3, direction: DVec3) -> Result<Option<Hit
         let EntityKind::Mesh { geometry, .. } = &entity.content else {
             continue;
         };
-        for triangle in triangles(scene, geometry)? {
+        for triangle in triangles(scene, geometry, false)? {
             let [a, b, c] = triangle.points.map(|p| world[id].transform_point3(p));
             let edge1 = b - a;
             let edge2 = c - a;

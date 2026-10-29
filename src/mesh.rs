@@ -4,9 +4,12 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
 pub mod creation;
+mod frame_math;
+pub mod normals;
 pub mod primitives;
 pub mod selection;
 mod tessellation;
+pub mod transform;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 pub struct PolygonTriangle {
@@ -147,6 +150,16 @@ impl MeshAsset {
     }
 
     pub fn validate(&self) -> Result<()> {
+        self.validate_with_topology(false).map(|_| ())
+    }
+
+    pub(crate) fn validated_topology(&self) -> Result<selection::Graph> {
+        Ok(self
+            .validate_with_topology(true)?
+            .expect("requested topology"))
+    }
+
+    fn validate_with_topology(&self, require_graph: bool) -> Result<Option<selection::Graph>> {
         if (self.material_slots.is_empty() && self.active_material_index != 0)
             || (!self.material_slots.is_empty()
                 && self.active_material_index >= self.material_slots.len())
@@ -277,8 +290,7 @@ impl MeshAsset {
                 }
             }
         }
-        selection::validate_attributes(self)?;
-        Ok(())
+        selection::validate_attributes(self, require_graph)
     }
 }
 

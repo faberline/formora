@@ -12,8 +12,8 @@ use crate::scene::{Entity, EntityKind, Geometry, Result, Scene, SceneError, Tran
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
-mod inverse4;
-mod math;
+pub(crate) mod inverse4;
+use super::frame_math as math;
 
 #[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize, JsonSchema)]
 #[serde(deny_unknown_fields)]
@@ -346,8 +346,9 @@ pub fn create(scene: &mut Scene, request: &ObjectCreation) -> Result<CreationRec
         parent: None,
         transform: Transform {
             translation: location,
-            rotation: math::quaternion(basis),
+            rotation: math::quaternion(basis).into(),
             scale: [1.; 3],
+            ..Default::default()
         },
         content: EntityKind::Mesh {
             geometry: Geometry::Asset {

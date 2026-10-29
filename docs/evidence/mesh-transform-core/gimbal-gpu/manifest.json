@@ -1,0 +1,898 @@
+{
+  "passed": true,
+  "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+  "binary_sha256": "ccbed86911e56b09881d65c30a54fe496b86c4348ead7aa6445fa267cd3c3b75",
+  "source_files": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "91f1c44cf47f4257e48b808b7fa426f1ba6e72318326d68790fb93486b4e398d",
+    "src/main.rs": "55ac271c8ad763f10501ab39ec3afe7fa2b0d80b8a606405fdf2808e9a4075ce",
+    "src/mesh/creation/inverse4.rs": "b7aa2892ec0034c8c167451355deb854753b343cfcd3008f74b8ddb2d6ffa1cb",
+    "src/mesh/creation/mod.rs": "cade8dc3deead1bf9588fa657f044d4de3933cc2752b8395ea2428a6e35bd79e",
+    "src/mesh/frame_math.rs": "7b711885ef3b10167bd08cd05b0e303209e4d98723cb972c9eb51474beea16f5",
+    "src/mesh/normals.rs": "1caee1caa1e79cba1c3f1f7d288b6d9b745df882d86096cf05b60373575cb878",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "01341c275e2275b303944637d54ce8fe64ccc2a79f18579e81736b65abdc536b",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "be3542aea4bba01c885562fc41195c141aca3bb7b517c9d9be888f9e29d015db",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "38773f091dff0e724d4546f5df590152c9166283ac2338a64776d0ba8cadab2c",
+    "src/mesh/transform/influence.rs": "0e95fd7cd106d529e004c946f987f174f36900ab62530cdd2cc87fdb77b89c40",
+    "src/mesh/transform/mod.rs": "20c30fbf347dcea03e1ba121dd9b5a14600ae559601986717978d2f2357f1101",
+    "src/mesh/transform/normal_orientation.rs": "8d8232937536a48da99317b71b0981a1456f8d7cbde9d3125a9837382fb6448c",
+    "src/mesh.rs": "5bd850d159b280a8f1a028468398d2105dc8880fccee5e9d5478009524b5e355",
+    "src/preview/math.rs": "58012a2fb35cd4f4e8d939cd9b5b0aea86e35b4036ff470bd69f83b5fefed1cd",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "a7280cafb24f9905d0da40edd98303935d090860baeff029e6e856c534d982a1",
+    "src/session.rs": "35b95d38f7025e7c66359b8ad9155701c11d1215d061e079ac5b5ab535a8f13b"
+  },
+  "driver_sha256": "f51ca16d9acb521375b39df5fdbfa0b79b777b1b09aa0873baadb9f83843d1f8",
+  "changed_pixels": 26438,
+  "changed_vertices": 15,
+  "fresh_reload_identical": true,
+  "equivalent_quaternion_render_identical": true,
+  "expected_seed_local": [
+    0.2440469091547548,
+    0.3665046657202233,
+    0.9314116724778378
+  ],
+  "commands": [
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "v0000": [
+                  -1.0,
+                  -1.0,
+                  0
+                ],
+                "v0001": [
+                  -0.5,
+                  -1.0,
+                  0
+                ],
+                "v0002": [
+                  0.0,
+                  -1.0,
+                  0
+                ],
+                "v0003": [
+                  0.5,
+                  -1.0,
+                  0
+                ],
+                "v0004": [
+                  1.0,
+                  -1.0,
+                  0
+                ],
+                "v0005": [
+                  -1.0,
+                  -0.5,
+                  0
+                ],
+                "v0006": [
+                  -0.5,
+                  -0.5,
+                  0
+                ],
+                "v0007": [
+                  0.0,
+                  -0.5,
+                  0
+                ],
+                "v0008": [
+                  0.5,
+                  -0.5,
+                  0
+                ],
+                "v0009": [
+                  1.0,
+                  -0.5,
+                  0
+                ],
+                "v0010": [
+                  -1.0,
+                  0.0,
+                  0
+                ],
+                "v0011": [
+                  -0.5,
+                  0.0,
+                  0
+                ],
+                "v0012": [
+                  0.0,
+                  0.0,
+                  0
+                ],
+                "v0013": [
+                  0.5,
+                  0.0,
+                  0
+                ],
+                "v0014": [
+                  1.0,
+                  0.0,
+                  0
+                ],
+                "v0015": [
+                  -1.0,
+                  0.5,
+                  0
+                ],
+                "v0016": [
+                  -0.5,
+                  0.5,
+                  0
+                ],
+                "v0017": [
+                  0.0,
+                  0.5,
+                  0
+                ],
+                "v0018": [
+                  0.5,
+                  0.5,
+                  0
+                ],
+                "v0019": [
+                  1.0,
+                  0.5,
+                  0
+                ],
+                "v0020": [
+                  -1.0,
+                  1.0,
+                  0
+                ],
+                "v0021": [
+                  -0.5,
+                  1.0,
+                  0
+                ],
+                "v0022": [
+                  0.0,
+                  1.0,
+                  0
+                ],
+                "v0023": [
+                  0.5,
+                  1.0,
+                  0
+                ],
+                "v0024": [
+                  1.0,
+                  1.0,
+                  0
+                ]
+              },
+              "edges": {
+                "e0000": [
+                  "v0000",
+                  "v0001"
+                ],
+                "e0001": [
+                  "v0000",
+                  "v0005"
+                ],
+                "e0002": [
+                  "v0001",
+                  "v0002"
+                ],
+                "e0003": [
+                  "v0001",
+                  "v0006"
+                ],
+                "e0004": [
+                  "v0002",
+                  "v0003"
+                ],
+                "e0005": [
+                  "v0002",
+                  "v0007"
+                ],
+                "e0006": [
+                  "v0003",
+                  "v0004"
+                ],
+                "e0007": [
+                  "v0003",
+                  "v0008"
+                ],
+                "e0008": [
+                  "v0004",
+                  "v0009"
+                ],
+                "e0009": [
+                  "v0005",
+                  "v0006"
+                ],
+                "e0010": [
+                  "v0005",
+                  "v0010"
+                ],
+                "e0011": [
+                  "v0006",
+                  "v0007"
+                ],
+                "e0012": [
+                  "v0006",
+                  "v0011"
+                ],
+                "e0013": [
+                  "v0007",
+                  "v0008"
+                ],
+                "e0014": [
+                  "v0007",
+                  "v0012"
+                ],
+                "e0015": [
+                  "v0008",
+                  "v0009"
+                ],
+                "e0016": [
+                  "v0008",
+                  "v0013"
+                ],
+                "e0017": [
+                  "v0009",
+                  "v0014"
+                ],
+                "e0018": [
+                  "v0010",
+                  "v0011"
+                ],
+                "e0019": [
+                  "v0010",
+                  "v0015"
+                ],
+                "e0020": [
+                  "v0011",
+                  "v0012"
+                ],
+                "e0021": [
+                  "v0011",
+                  "v0016"
+                ],
+                "e0022": [
+                  "v0012",
+                  "v0013"
+                ],
+                "e0023": [
+                  "v0012",
+                  "v0017"
+                ],
+                "e0024": [
+                  "v0013",
+                  "v0014"
+                ],
+                "e0025": [
+                  "v0013",
+                  "v0018"
+                ],
+                "e0026": [
+                  "v0014",
+                  "v0019"
+                ],
+                "e0027": [
+                  "v0015",
+                  "v0016"
+                ],
+                "e0028": [
+                  "v0015",
+                  "v0020"
+                ],
+                "e0029": [
+                  "v0016",
+                  "v0017"
+                ],
+                "e0030": [
+                  "v0016",
+                  "v0021"
+                ],
+                "e0031": [
+                  "v0017",
+                  "v0018"
+                ],
+                "e0032": [
+                  "v0017",
+                  "v0022"
+                ],
+                "e0033": [
+                  "v0018",
+                  "v0019"
+                ],
+                "e0034": [
+                  "v0018",
+                  "v0023"
+                ],
+                "e0035": [
+                  "v0019",
+                  "v0024"
+                ],
+                "e0036": [
+                  "v0020",
+                  "v0021"
+                ],
+                "e0037": [
+                  "v0021",
+                  "v0022"
+                ],
+                "e0038": [
+                  "v0022",
+                  "v0023"
+                ],
+                "e0039": [
+                  "v0023",
+                  "v0024"
+                ]
+              },
+              "polygons": {
+                "f0000": {
+                  "vertices": [
+                    "v0000",
+                    "v0001",
+                    "v0006",
+                    "v0005"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0001": {
+                  "vertices": [
+                    "v0001",
+                    "v0002",
+                    "v0007",
+                    "v0006"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0002": {
+                  "vertices": [
+                    "v0002",
+                    "v0003",
+                    "v0008",
+                    "v0007"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0003": {
+                  "vertices": [
+                    "v0003",
+                    "v0004",
+                    "v0009",
+                    "v0008"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0004": {
+                  "vertices": [
+                    "v0005",
+                    "v0006",
+                    "v0011",
+                    "v0010"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0005": {
+                  "vertices": [
+                    "v0006",
+                    "v0007",
+                    "v0012",
+                    "v0011"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0006": {
+                  "vertices": [
+                    "v0007",
+                    "v0008",
+                    "v0013",
+                    "v0012"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0007": {
+                  "vertices": [
+                    "v0008",
+                    "v0009",
+                    "v0014",
+                    "v0013"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0008": {
+                  "vertices": [
+                    "v0010",
+                    "v0011",
+                    "v0016",
+                    "v0015"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0009": {
+                  "vertices": [
+                    "v0011",
+                    "v0012",
+                    "v0017",
+                    "v0016"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0010": {
+                  "vertices": [
+                    "v0012",
+                    "v0013",
+                    "v0018",
+                    "v0017"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0011": {
+                  "vertices": [
+                    "v0013",
+                    "v0014",
+                    "v0019",
+                    "v0018"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0012": {
+                  "vertices": [
+                    "v0015",
+                    "v0016",
+                    "v0021",
+                    "v0020"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0013": {
+                  "vertices": [
+                    "v0016",
+                    "v0017",
+                    "v0022",
+                    "v0021"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0014": {
+                  "vertices": [
+                    "v0017",
+                    "v0018",
+                    "v0023",
+                    "v0022"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                },
+                "f0015": {
+                  "vertices": [
+                    "v0018",
+                    "v0019",
+                    "v0024",
+                    "v0023"
+                  ],
+                  "uv_layers": {},
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": true,
+                  "material_slot": null
+                }
+              },
+              "triangles": {},
+              "material_slots": []
+            }
+          },
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "selected": {
+                "vertices": [
+                  "v0012"
+                ]
+              },
+              "preview": false
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "surface",
+            "entity": {
+              "name": "surface",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": {
+                  "kind": "euler",
+                  "angles": [
+                    0.21,
+                    -0.31,
+                    0.47
+                  ],
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.5,
+                  0.65,
+                  1.2
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  -4,
+                  4
+                ],
+                "rotation": [
+                  0.3826834323650898,
+                  0,
+                  0,
+                  0.9238795325112867
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  1,
+                  -3,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":1}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":1,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.3826834323650898,0.0,0.0,0.9238795325112867],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,-4.0,4.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[1.0,-3.0,5.0]}},\"surface\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"surface\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.21,-0.31,0.47],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.5,0.65,1.2],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e0000\":[\"v0000\",\"v0001\"],\"e0001\":[\"v0000\",\"v0005\"],\"e0002\":[\"v0001\",\"v0002\"],\"e0003\":[\"v0001\",\"v0006\"],\"e0004\":[\"v0002\",\"v0003\"],\"e0005\":[\"v0002\",\"v0007\"],\"e0006\":[\"v0003\",\"v0004\"],\"e0007\":[\"v0003\",\"v0008\"],\"e0008\":[\"v0004\",\"v0009\"],\"e0009\":[\"v0005\",\"v0006\"],\"e0010\":[\"v0005\",\"v0010\"],\"e0011\":[\"v0006\",\"v0007\"],\"e0012\":[\"v0006\",\"v0011\"],\"e0013\":[\"v0007\",\"v0008\"],\"e0014\":[\"v0007\",\"v0012\"],\"e0015\":[\"v0008\",\"v0009\"],\"e0016\":[\"v0008\",\"v0013\"],\"e0017\":[\"v0009\",\"v0014\"],\"e0018\":[\"v0010\",\"v0011\"],\"e0019\":[\"v0010\",\"v0015\"],\"e0020\":[\"v0011\",\"v0012\"],\"e0021\":[\"v0011\",\"v0016\"],\"e0022\":[\"v0012\",\"v0013\"],\"e0023\":[\"v0012\",\"v0017\"],\"e0024\":[\"v0013\",\"v0014\"],\"e0025\":[\"v0013\",\"v0018\"],\"e0026\":[\"v0014\",\"v0019\"],\"e0027\":[\"v0015\",\"v0016\"],\"e0028\":[\"v0015\",\"v0020\"],\"e0029\":[\"v0016\",\"v0017\"],\"e0030\":[\"v0016\",\"v0021\"],\"e0031\":[\"v0017\",\"v0018\"],\"e0032\":[\"v0017\",\"v0022\"],\"e0033\":[\"v0018\",\"v0019\"],\"e0034\":[\"v0018\",\"v0023\"],\"e0035\":[\"v0019\",\"v0024\"],\"e0036\":[\"v0020\",\"v0021\"],\"e0037\":[\"v0021\",\"v0022\"],\"e0038\":[\"v0022\",\"v0023\"],\"e0039\":[\"v0023\",\"v0024\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"v0012\"]}},\"material_slots\":[],\"polygons\":{\"f0000\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0000\",\"v0001\",\"v0006\",\"v0005\"]},\"f0001\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0001\",\"v0002\",\"v0007\",\"v0006\"]},\"f0002\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0002\",\"v0003\",\"v0008\",\"v0007\"]},\"f0003\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0003\",\"v0004\",\"v0009\",\"v0008\"]},\"f0004\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0005\",\"v0006\",\"v0011\",\"v0010\"]},\"f0005\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0006\",\"v0007\",\"v0012\",\"v0011\"]},\"f0006\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0007\",\"v0008\",\"v0013\",\"v0012\"]},\"f0007\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0008\",\"v0009\",\"v0014\",\"v0013\"]},\"f0008\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0010\",\"v0011\",\"v0016\",\"v0015\"]},\"f0009\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0011\",\"v0012\",\"v0017\",\"v0016\"]},\"f0010\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0012\",\"v0013\",\"v0018\",\"v0017\"]},\"f0011\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0013\",\"v0014\",\"v0019\",\"v0018\"]},\"f0012\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0015\",\"v0016\",\"v0021\",\"v0020\"]},\"f0013\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0016\",\"v0017\",\"v0022\",\"v0021\"]},\"f0014\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0017\",\"v0018\",\"v0023\",\"v0022\"]},\"f0015\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0018\",\"v0019\",\"v0024\",\"v0023\"]}},\"triangles\":{},\"vertices\":{\"v0000\":[-1.0,-1.0,0.0],\"v0001\":[-0.5,-1.0,0.0],\"v0002\":[0.0,-1.0,0.0],\"v0003\":[0.5,-1.0,0.0],\"v0004\":[1.0,-1.0,0.0],\"v0005\":[-1.0,-0.5,0.0],\"v0006\":[-0.5,-0.5,0.0],\"v0007\":[0.0,-0.5,0.0],\"v0008\":[0.5,-0.5,0.0],\"v0009\":[1.0,-0.5,0.0],\"v0010\":[-1.0,0.0,0.0],\"v0011\":[-0.5,0.0,0.0],\"v0012\":[0.0,0.0,0.0],\"v0013\":[0.5,0.0,0.0],\"v0014\":[1.0,0.0,0.0],\"v0015\":[-1.0,0.5,0.0],\"v0016\":[-0.5,0.5,0.0],\"v0017\":[0.0,0.5,0.0],\"v0018\":[0.5,0.5,0.0],\"v0019\":[1.0,0.5,0.0],\"v0020\":[-1.0,1.0,0.0],\"v0021\":[-0.5,1.0,0.0],\"v0022\":[0.0,1.0,0.0],\"v0023\":[0.5,1.0,0.0],\"v0024\":[1.0,1.0,0.0]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/before.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "surface",
+              "change": {
+                "kind": "translate",
+                "value": [
+                  0,
+                  0,
+                  1.2
+                ]
+              },
+              "orientation": {
+                "kind": "gimbal"
+              },
+              "proportional": {
+                "radius": 1.2,
+                "falloff": "smooth",
+                "connected": true
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":2,\"transforms\":[{\"basis_world\":[[0.8490704298019409,-0.45288628339767456,0.0],[0.4312988221645355,0.8915683031082153,0.0],[0.30505862832069397,0.0,1.0]],\"centres_local\":{\"v0001\":[0.0,0.0,0.0],\"v0002\":[0.0,0.0,0.0],\"v0003\":[0.0,0.0,0.0],\"v0006\":[0.0,0.0,0.0],\"v0007\":[0.0,0.0,0.0],\"v0008\":[0.0,0.0,0.0],\"v0011\":[0.0,0.0,0.0],\"v0012\":[0.0,0.0,0.0],\"v0013\":[0.0,0.0,0.0],\"v0016\":[0.0,0.0,0.0],\"v0017\":[0.0,0.0,0.0],\"v0018\":[0.0,0.0,0.0],\"v0021\":[0.0,0.0,0.0],\"v0022\":[0.0,0.0,0.0],\"v0023\":[0.0,0.0,0.0]},\"changed\":{\"edges\":[\"e0000\",\"e0002\",\"e0003\",\"e0004\",\"e0005\",\"e0006\",\"e0007\",\"e0009\",\"e0011\",\"e0012\",\"e0013\",\"e0014\",\"e0015\",\"e0016\",\"e0018\",\"e0020\",\"e0021\",\"e0022\",\"e0023\",\"e0024\",\"e0025\",\"e0027\",\"e0029\",\"e0030\",\"e0031\",\"e0032\",\"e0033\",\"e0034\",\"e0036\",\"e0037\",\"e0038\",\"e0039\"],\"faces\":[{\"id\":\"f0000\",\"kind\":\"polygon\"},{\"id\":\"f0001\",\"kind\":\"polygon\"},{\"id\":\"f0002\",\"kind\":\"polygon\"},{\"id\":\"f0003\",\"kind\":\"polygon\"},{\"id\":\"f0004\",\"kind\":\"polygon\"},{\"id\":\"f0005\",\"kind\":\"polygon\"},{\"id\":\"f0006\",\"kind\":\"polygon\"},{\"id\":\"f0007\",\"kind\":\"polygon\"},{\"id\":\"f0008\",\"kind\":\"polygon\"},{\"id\":\"f0009\",\"kind\":\"polygon\"},{\"id\":\"f0010\",\"kind\":\"polygon\"},{\"id\":\"f0011\",\"kind\":\"polygon\"},{\"id\":\"f0012\",\"kind\":\"polygon\"},{\"id\":\"f0013\",\"kind\":\"polygon\"},{\"id\":\"f0014\",\"kind\":\"polygon\"},{\"id\":\"f0015\",\"kind\":\"polygon\"}],\"vertices\":[\"v0001\",\"v0002\",\"v0003\",\"v0006\",\"v0007\",\"v0008\",\"v0011\",\"v0012\",\"v0013\",\"v0016\",\"v0017\",\"v0018\",\"v0021\",\"v0022\",\"v0023\"]},\"command_index\":0,\"entity\":\"surface\",\"influence\":{\"v0001\":0.07938036322593689,\"v0002\":0.43764472007751465,\"v0003\":0.07938036322593689,\"v0006\":0.24015408754348755,\"v0007\":0.8196795582771301,\"v0008\":0.2401541769504547,\"v0011\":0.3164063096046448,\"v0012\":1.0,\"v0013\":0.3164063096046448,\"v0016\":0.2401541769504547,\"v0017\":0.8196795582771301,\"v0018\":0.24015408754348755,\"v0021\":0.07938036322593689,\"v0022\":0.43764472007751465,\"v0023\":0.07938036322593689},\"mesh_asset\":\"mesh\",\"pivot_world\":[0.0,0.0,0.0],\"random_seed\":null,\"shared_instances\":[\"surface\"]}]}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--normals"
+      ],
+      "request": null,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edges\":{\"e0000\":[\"v0000\",\"v0001\"],\"e0001\":[\"v0000\",\"v0005\"],\"e0002\":[\"v0001\",\"v0002\"],\"e0003\":[\"v0001\",\"v0006\"],\"e0004\":[\"v0002\",\"v0003\"],\"e0005\":[\"v0002\",\"v0007\"],\"e0006\":[\"v0003\",\"v0004\"],\"e0007\":[\"v0003\",\"v0008\"],\"e0008\":[\"v0004\",\"v0009\"],\"e0009\":[\"v0005\",\"v0006\"],\"e0010\":[\"v0005\",\"v0010\"],\"e0011\":[\"v0006\",\"v0007\"],\"e0012\":[\"v0006\",\"v0011\"],\"e0013\":[\"v0007\",\"v0008\"],\"e0014\":[\"v0007\",\"v0012\"],\"e0015\":[\"v0008\",\"v0009\"],\"e0016\":[\"v0008\",\"v0013\"],\"e0017\":[\"v0009\",\"v0014\"],\"e0018\":[\"v0010\",\"v0011\"],\"e0019\":[\"v0010\",\"v0015\"],\"e0020\":[\"v0011\",\"v0012\"],\"e0021\":[\"v0011\",\"v0016\"],\"e0022\":[\"v0012\",\"v0013\"],\"e0023\":[\"v0012\",\"v0017\"],\"e0024\":[\"v0013\",\"v0014\"],\"e0025\":[\"v0013\",\"v0018\"],\"e0026\":[\"v0014\",\"v0019\"],\"e0027\":[\"v0015\",\"v0016\"],\"e0028\":[\"v0015\",\"v0020\"],\"e0029\":[\"v0016\",\"v0017\"],\"e0030\":[\"v0016\",\"v0021\"],\"e0031\":[\"v0017\",\"v0018\"],\"e0032\":[\"v0017\",\"v0022\"],\"e0033\":[\"v0018\",\"v0019\"],\"e0034\":[\"v0018\",\"v0023\"],\"e0035\":[\"v0019\",\"v0024\"],\"e0036\":[\"v0020\",\"v0021\"],\"e0037\":[\"v0021\",\"v0022\"],\"e0038\":[\"v0022\",\"v0023\"],\"e0039\":[\"v0023\",\"v0024\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"v0012\"]}},\"material_slots\":[],\"polygons\":{\"f0000\":{\"corner_normals\":[[-0.2512144148349762,-0.1263984888792038,0.9596430063247681],[-0.357477605342865,-0.19552694261074066,0.913224458694458],[-0.45641806721687317,-0.1617836207151413,0.8749334812164307],[-0.3228272795677185,-0.09466735273599625,0.9417115449905396]],\"material_slot\":null,\"normal\":[-0.2512144446372986,-0.126398503780365,0.9596430063247681],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0000\",\"v0001\",\"v0006\",\"v0005\"]},\"f0001\":{\"corner_normals\":[[-0.357477605342865,-0.19552694261074066,0.913224458694458],[0.05677645653486252,-0.3932463526725769,0.9176785349845886],[0.12110694497823715,-0.28262224793434143,0.9515554904937744],[-0.45641806721687317,-0.1617836207151413,0.8749334812164307]],\"material_slot\":null,\"normal\":[-0.4995581805706024,-0.28915268182754517,0.8165979981422424],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0001\",\"v0002\",\"v0007\",\"v0006\"]},\"f0002\":{\"corner_normals\":[[0.05677645653486252,-0.3932463526725769,0.9176785349845886],[0.44577816128730774,-0.24535922706127167,0.8608604073524475],[0.5730271339416504,-0.20439374446868896,0.7936391830444336],[0.12110694497823715,-0.28262224793434143,0.9515554904937744]],\"material_slot\":null,\"normal\":[0.6239686012268066,-0.3611636757850647,0.6929819583892822],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0002\",\"v0003\",\"v0008\",\"v0007\"]},\"f0003\":{\"corner_normals\":[[0.44577816128730774,-0.24535922706127167,0.8608604073524475],[0.28728240728378296,-0.14454616606235504,0.946876585483551],[0.38506442308425903,-0.11167085915803909,0.9161086082458496],[0.5730271339416504,-0.20439374446868896,0.7936391830444336]],\"material_slot\":null,\"normal\":[0.28728240728378296,-0.14454615116119385,0.946876585483551],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0003\",\"v0004\",\"v0009\",\"v0008\"]},\"f0004\":{\"corner_normals\":[[-0.3228272795677185,-0.09466735273599625,0.9417115449905396],[-0.45641806721687317,-0.1617836207151413,0.8749334812164307],[-0.5553860664367676,-0.004628933034837246,0.8315798044204712],[-0.4144101142883301,-0.005258934106677771,0.9100750088691711]],\"material_slot\":null,\"normal\":[-0.40626391768455505,-0.055660683661699295,0.9120588302612305],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0005\",\"v0006\",\"v0011\",\"v0010\"]},\"f0005\":{\"corner_normals\":[[-0.45641806721687317,-0.1617836207151413,0.8749334812164307],[0.12110694497823715,-0.28262224793434143,0.9515554904937744],[0.1698627471923828,0.05977615341544151,0.9836531281471252],[-0.5553860664367676,-0.004628933034837246,0.8315798044204712]],\"material_slot\":null,\"normal\":[-0.6373208165168762,-0.12945662438869476,0.7596467137336731],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0006\",\"v0007\",\"v0012\",\"v0011\"]},\"f0006\":{\"corner_normals\":[[0.12110694497823715,-0.28262224793434143,0.9515554904937744],[0.5730271339416504,-0.20439374446868896,0.7936391830444336],[0.7150659561157227,-0.009429032914340496,0.6989933252334595],[0.1698627471923828,0.05977615341544151,0.9836531281471252]],\"material_slot\":null,\"normal\":[0.8199608325958252,-0.16655555367469788,0.5476527214050293],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0007\",\"v0008\",\"v0013\",\"v0012\"]},\"f0007\":{\"corner_normals\":[[0.5730271339416504,-0.20439374446868896,0.7936391830444336],[0.38506442308425903,-0.11167085915803909,0.9161086082458496],[0.5129569172859192,-0.008267494849860668,0.8583744764328003],[0.7150659561157227,-0.009429032914340496,0.6989933252334595]],\"material_slot\":null,\"normal\":[0.5012261867523193,-0.06867099553346634,0.8625871539115906],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0008\",\"v0009\",\"v0014\",\"v0013\"]},\"f0008\":{\"corner_normals\":[[-0.4144101142883301,-0.005258934106677771,0.9100750088691711],[-0.5553860664367676,-0.004628933034837246,0.8315798044204712],[-0.5185803174972534,0.17796547710895538,0.8363029956817627],[-0.3584050238132477,0.09539744257926941,0.9286792874336243]],\"material_slot\":null,\"normal\":[-0.4230964779853821,0.057966768741607666,0.9042285084724426],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0010\",\"v0011\",\"v0016\",\"v0015\"]},\"f0009\":{\"corner_normals\":[[-0.5553860664367676,-0.004628933034837246,0.8315798044204712],[0.1698627471923828,0.05977615341544151,0.9836531281471252],[0.13608889281749725,0.4044618606567383,0.9043728709220886],[-0.5185803174972534,0.17796547710895538,0.8363029956817627]],\"material_slot\":null,\"normal\":[-0.689008355140686,0.13995565474033356,0.7111117243766785],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0011\",\"v0012\",\"v0017\",\"v0016\"]},\"f0010\":{\"corner_normals\":[[0.1698627471923828,0.05977615341544151,0.9836531281471252],[0.7150659561157227,-0.009429032914340496,0.6989933252334595],[0.6617549657821655,0.22302746772766113,0.7157787084579468],[0.13608889281749725,0.4044618606567383,0.9043728709220886]],\"material_slot\":null,\"normal\":[0.877271294593811,0.17819681763648987,0.4456917643547058],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0012\",\"v0013\",\"v0018\",\"v0017\"]},\"f0011\":{\"corner_normals\":[[0.7150659561157227,-0.009429032914340496,0.6989933252334595],[0.5129569172859192,-0.008267494849860668,0.8583744764328003],[0.43811139464378357,0.11268839240074158,0.8918294310569763],[0.6617549657821655,0.22302746772766113,0.7157787084579468]],\"material_slot\":null,\"normal\":[0.5255182981491089,0.07199923694133759,0.847730278968811],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0013\",\"v0014\",\"v0019\",\"v0018\"]},\"f0012\":{\"corner_normals\":[[-0.3584050238132477,0.09539744257926941,0.9286792874336243],[-0.5185803174972534,0.17796547710895538,0.8363029956817627],[-0.44707679748535156,0.2475719302892685,0.8595523834228516],[-0.27759337425231934,0.13967107236385345,0.9504914283752441]],\"material_slot\":null,\"normal\":[-0.2775934040546417,0.13967111706733704,0.9504914283752441],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0015\",\"v0016\",\"v0021\",\"v0020\"]},\"f0013\":{\"corner_normals\":[[-0.5185803174972534,0.17796547710895538,0.8363029956817627],[0.13608889281749725,0.4044618606567383,0.9043728709220886],[0.03759830817580223,0.537787914276123,0.8422413468360901],[-0.44707679748535156,0.2475719302892685,0.8595523834228516]],\"material_slot\":null,\"normal\":[-0.6057436466217041,0.3506146967411041,0.7142437696456909],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0016\",\"v0017\",\"v0022\",\"v0021\"]},\"f0014\":{\"corner_normals\":[[0.13608889281749725,0.4044618606567383,0.9043728709220886],[0.6617549657821655,0.22302746772766113,0.7157787084579468],[0.5840250849723816,0.3258803188800812,0.7434492111206055],[0.03759830817580223,0.537787914276123,0.8422413468360901]],\"material_slot\":null,\"normal\":[0.7528887391090393,0.43578478693962097,0.4932039976119995],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0017\",\"v0018\",\"v0023\",\"v0022\"]},\"f0015\":{\"corner_normals\":[[0.6617549657821655,0.22302746772766113,0.7157787084579468],[0.43811139464378357,0.11268839240074158,0.8918294310569763],[0.3216915726661682,0.16185905039310455,0.9329073429107666],[0.5840250849723816,0.3258803188800812,0.7434492111206055]],\"material_slot\":null,\"normal\":[0.3216915428638458,0.16185908019542694,0.9329074621200562],\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v0018\",\"v0019\",\"v0024\",\"v0023\"]}},\"triangles\":{},\"vertices\":{\"v0000\":[-1.0,-1.0,0.0],\"v0001\":[-0.48062747716903687,-0.9709067344665527,0.07393579185009003],\"v0002\":[0.10680583864450455,-0.8396011590957642,0.4076273441314697],\"v0003\":[0.5193725228309631,-0.9709067344665527,0.07393579185009003],\"v0004\":[1.0,-1.0,0.0],\"v0005\":[-1.0,-0.5,0.0],\"v0006\":[-0.44139114022254944,-0.4119824171066284,0.22368229925632477],\"v0007\":[0.20004025101661682,-0.19958364963531494,0.7634590268135071],\"v0008\":[0.558608889579773,-0.41198238730430603,0.22368237376213074],\"v0009\":[1.0,-0.5,0.0],\"v0010\":[-1.0,0.0,0.0],\"v0011\":[-0.4227820038795471,0.1159643679857254,0.29470449686050415],\"v0012\":[0.2440468966960907,0.36650460958480835,0.9314115643501282],\"v0013\":[0.5772179961204529,0.1159643679857254,0.29470449686050415],\"v0014\":[1.0,0.0,0.0],\"v0015\":[-1.0,0.5,0.0],\"v0016\":[-0.44139111042022705,0.5880175828933716,0.22368237376213074],\"v0017\":[0.20004025101661682,0.8004163503646851,0.7634590268135071],\"v0018\":[0.558608889579773,0.5880175828933716,0.22368229925632477],\"v0019\":[1.0,0.5,0.0],\"v0020\":[-1.0,1.0,0.0],\"v0021\":[-0.48062747716903687,1.0290932655334473,0.07393579185009003],\"v0022\":[0.10680583864450455,1.1603988409042358,0.4076273441314697],\"v0023\":[0.5193725228309631,1.0290932655334473,0.07393579185009003],\"v0024\":[1.0,1.0,0.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[-0.2512144148349762,-0.1263984888792038,0.9596430063247681],[-0.357477605342865,-0.19552694261074066,0.913224458694458],[-0.45641806721687317,-0.1617836207151413,0.8749334812164307],[-0.3228272795677185,-0.09466735273599625,0.9417115449905396]],\"face\":{\"id\":\"f0000\",\"kind\":\"polygon\"},\"normal\":[-0.2512144446372986,-0.126398503780365,0.9596430063247681]},{\"corner_normals\":[[-0.357477605342865,-0.19552694261074066,0.913224458694458],[0.05677645653486252,-0.3932463526725769,0.9176785349845886],[0.12110694497823715,-0.28262224793434143,0.9515554904937744],[-0.45641806721687317,-0.1617836207151413,0.8749334812164307]],\"face\":{\"id\":\"f0001\",\"kind\":\"polygon\"},\"normal\":[-0.4995581805706024,-0.28915268182754517,0.8165979981422424]},{\"corner_normals\":[[0.05677645653486252,-0.3932463526725769,0.9176785349845886],[0.44577816128730774,-0.24535922706127167,0.8608604073524475],[0.5730271339416504,-0.20439374446868896,0.7936391830444336],[0.12110694497823715,-0.28262224793434143,0.9515554904937744]],\"face\":{\"id\":\"f0002\",\"kind\":\"polygon\"},\"normal\":[0.6239686012268066,-0.3611636757850647,0.6929819583892822]},{\"corner_normals\":[[0.44577816128730774,-0.24535922706127167,0.8608604073524475],[0.28728240728378296,-0.14454616606235504,0.946876585483551],[0.38506442308425903,-0.11167085915803909,0.9161086082458496],[0.5730271339416504,-0.20439374446868896,0.7936391830444336]],\"face\":{\"id\":\"f0003\",\"kind\":\"polygon\"},\"normal\":[0.28728240728378296,-0.14454615116119385,0.946876585483551]},{\"corner_normals\":[[-0.3228272795677185,-0.09466735273599625,0.9417115449905396],[-0.45641806721687317,-0.1617836207151413,0.8749334812164307],[-0.5553860664367676,-0.004628933034837246,0.8315798044204712],[-0.4144101142883301,-0.005258934106677771,0.9100750088691711]],\"face\":{\"id\":\"f0004\",\"kind\":\"polygon\"},\"normal\":[-0.40626391768455505,-0.055660683661699295,0.9120588302612305]},{\"corner_normals\":[[-0.45641806721687317,-0.1617836207151413,0.8749334812164307],[0.12110694497823715,-0.28262224793434143,0.9515554904937744],[0.1698627471923828,0.05977615341544151,0.9836531281471252],[-0.5553860664367676,-0.004628933034837246,0.8315798044204712]],\"face\":{\"id\":\"f0005\",\"kind\":\"polygon\"},\"normal\":[-0.6373208165168762,-0.12945662438869476,0.7596467137336731]},{\"corner_normals\":[[0.12110694497823715,-0.28262224793434143,0.9515554904937744],[0.5730271339416504,-0.20439374446868896,0.7936391830444336],[0.7150659561157227,-0.009429032914340496,0.6989933252334595],[0.1698627471923828,0.05977615341544151,0.9836531281471252]],\"face\":{\"id\":\"f0006\",\"kind\":\"polygon\"},\"normal\":[0.8199608325958252,-0.16655555367469788,0.5476527214050293]},{\"corner_normals\":[[0.5730271339416504,-0.20439374446868896,0.7936391830444336],[0.38506442308425903,-0.11167085915803909,0.9161086082458496],[0.5129569172859192,-0.008267494849860668,0.8583744764328003],[0.7150659561157227,-0.009429032914340496,0.6989933252334595]],\"face\":{\"id\":\"f0007\",\"kind\":\"polygon\"},\"normal\":[0.5012261867523193,-0.06867099553346634,0.8625871539115906]},{\"corner_normals\":[[-0.4144101142883301,-0.005258934106677771,0.9100750088691711],[-0.5553860664367676,-0.004628933034837246,0.8315798044204712],[-0.5185803174972534,0.17796547710895538,0.8363029956817627],[-0.3584050238132477,0.09539744257926941,0.9286792874336243]],\"face\":{\"id\":\"f0008\",\"kind\":\"polygon\"},\"normal\":[-0.4230964779853821,0.057966768741607666,0.9042285084724426]},{\"corner_normals\":[[-0.5553860664367676,-0.004628933034837246,0.8315798044204712],[0.1698627471923828,0.05977615341544151,0.9836531281471252],[0.13608889281749725,0.4044618606567383,0.9043728709220886],[-0.5185803174972534,0.17796547710895538,0.8363029956817627]],\"face\":{\"id\":\"f0009\",\"kind\":\"polygon\"},\"normal\":[-0.689008355140686,0.13995565474033356,0.7111117243766785]},{\"corner_normals\":[[0.1698627471923828,0.05977615341544151,0.9836531281471252],[0.7150659561157227,-0.009429032914340496,0.6989933252334595],[0.6617549657821655,0.22302746772766113,0.7157787084579468],[0.13608889281749725,0.4044618606567383,0.9043728709220886]],\"face\":{\"id\":\"f0010\",\"kind\":\"polygon\"},\"normal\":[0.877271294593811,0.17819681763648987,0.4456917643547058]},{\"corner_normals\":[[0.7150659561157227,-0.009429032914340496,0.6989933252334595],[0.5129569172859192,-0.008267494849860668,0.8583744764328003],[0.43811139464378357,0.11268839240074158,0.8918294310569763],[0.6617549657821655,0.22302746772766113,0.7157787084579468]],\"face\":{\"id\":\"f0011\",\"kind\":\"polygon\"},\"normal\":[0.5255182981491089,0.07199923694133759,0.847730278968811]},{\"corner_normals\":[[-0.3584050238132477,0.09539744257926941,0.9286792874336243],[-0.5185803174972534,0.17796547710895538,0.8363029956817627],[-0.44707679748535156,0.2475719302892685,0.8595523834228516],[-0.27759337425231934,0.13967107236385345,0.9504914283752441]],\"face\":{\"id\":\"f0012\",\"kind\":\"polygon\"},\"normal\":[-0.2775934040546417,0.13967111706733704,0.9504914283752441]},{\"corner_normals\":[[-0.5185803174972534,0.17796547710895538,0.8363029956817627],[0.13608889281749725,0.4044618606567383,0.9043728709220886],[0.03759830817580223,0.537787914276123,0.8422413468360901],[-0.44707679748535156,0.2475719302892685,0.8595523834228516]],\"face\":{\"id\":\"f0013\",\"kind\":\"polygon\"},\"normal\":[-0.6057436466217041,0.3506146967411041,0.7142437696456909]},{\"corner_normals\":[[0.13608889281749725,0.4044618606567383,0.9043728709220886],[0.6617549657821655,0.22302746772766113,0.7157787084579468],[0.5840250849723816,0.3258803188800812,0.7434492111206055],[0.03759830817580223,0.537787914276123,0.8422413468360901]],\"face\":{\"id\":\"f0014\",\"kind\":\"polygon\"},\"normal\":[0.7528887391090393,0.43578478693962097,0.4932039976119995]},{\"corner_normals\":[[0.6617549657821655,0.22302746772766113,0.7157787084579468],[0.43811139464378357,0.11268839240074158,0.8918294310569763],[0.3216915726661682,0.16185905039310455,0.9329073429107666],[0.5840250849723816,0.3258803188800812,0.7434492111206055]],\"face\":{\"id\":\"f0015\",\"kind\":\"polygon\"},\"normal\":[0.3216915428638458,0.16185908019542694,0.9329074621200562]}]},\"revision\":2}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/after.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/after.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/reloaded.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/quaternion-control.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_transform",
+            "id": "surface",
+            "transform": {
+              "translation": [
+                0,
+                0,
+                0
+              ],
+              "rotation": [
+                0.13645288345768475,
+                -0.12519893912156196,
+                0.24451997933882483,
+                0.9517960999831105
+              ],
+              "scale": [
+                1.5,
+                0.65,
+                1.2
+              ]
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":3}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/quaternion-control.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/quaternion-control.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gimbal-gpu/quaternion-control.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": {
+    "normals-query.json": "a02121cce59e6281b7a6f01d3307003e7eb679f323a4d2aed53da6954885d816",
+    "before.png": "f39c6a2c35afdc77877cd1e9288163ea32058f8f0301c43ac971a75e43f3ea11",
+    "quaternion-control.png": "833c376d4072cbd92080eab6a09166698b2120cd3a3aeeb977cebb0d65388372",
+    "reloaded.png": "833c376d4072cbd92080eab6a09166698b2120cd3a3aeeb977cebb0d65388372",
+    "after.png": "833c376d4072cbd92080eab6a09166698b2120cd3a3aeeb977cebb0d65388372",
+    "before-scene.json": "7d4b1f2ad978c20005b9b8e649d90798958f6ad8c35f842ef35661412e2a5612",
+    "scene.json": "4bd0c0f4d0a8231b519c047c2a40a5ce0b2bbee2deff9aee3ee6770109786d85",
+    "quaternion-control.json": "8efda5194cb7a10284783a77f8bd30355160ee88b0bbf1706d64f9008a08f76e",
+    "receipt.json": "6e9815c749c219470e94a4c678b879dbb5bb23a38d069b0349186ca10c7d5691"
+  },
+  "scope": "native Euler-mode Gimbal deformation and equivalent physical quaternion render; full feature and milestone acceptance remain unrun"
+}

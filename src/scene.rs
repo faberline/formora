@@ -1,5 +1,6 @@
 //! Versioned scene data and transactional authoring commands.
 use crate::mesh::MeshAsset;
+use crate::rotation::TransformRotation;
 use schemars::JsonSchema;
 use serde::{Deserialize, Deserializer, Serialize, de};
 use std::collections::{BTreeMap, BTreeSet};
@@ -31,17 +32,23 @@ fn fail<T>(message: impl Into<String>) -> Result<T> {
 #[serde(deny_unknown_fields)]
 pub struct Transform {
     pub translation: [f64; 3],
-    /// Unit quaternion, x/y/z/w order. Coordinates use metres and a right-handed Z-up space.
-    pub rotation: Rotation,
+    /// Actual authored mode. Coordinates use metres and a right-handed Z-up space.
+    pub rotation: TransformRotation,
     pub scale: [f64; 3],
+    #[serde(
+        default,
+        skip_serializing_if = "crate::transforms::Precision::is_default"
+    )]
+    pub precision: crate::transforms::Precision,
 }
 
 impl Default for Transform {
     fn default() -> Self {
         Self {
             translation: [0.0; 3],
-            rotation: [0.0, 0.0, 0.0, 1.0],
+            rotation: TransformRotation::default(),
             scale: [1.0; 3],
+            precision: crate::transforms::Precision::default(),
         }
     }
 }
@@ -274,7 +281,7 @@ impl Scene {
                 return fail(format!("invalid entity ID: {id}"));
             }
             let t = &entity.transform;
-            if !finite(&t.translation) || !finite(&t.scale) || !unit_rotation(&t.rotation) {
+            if !finite(&t.translation) || !finite(&t.scale) || !t.rotation.valid() {
                 return fail(format!("invalid transform: {id}"));
             }
             let mut seen = BTreeSet::from([id.as_str()]);
@@ -378,7 +385,7 @@ impl Scene {
                 interpolate_rotation(door.closed_rotation, door.open_rotation, door.progress);
             let alignment = expected
                 .iter()
-                .zip(entity.transform.rotation)
+                .zip(entity.transform.rotation.quaternion())
                 .map(|(a, b)| a * b)
                 .sum::<f64>()
                 .abs();
@@ -395,6 +402,11 @@ impl Scene {
                     .is_some_and(|id| !self.entities.contains_key(id))
             {
                 return fail("invalid annotation");
+            }
+        }
+        for (id, entity) in &self.entities {
+            if entity.transform.precision == crate::transforms::Precision::F32 {
+                crate::transforms::world(self, id)?;
             }
         }
         Ok(())
@@ -446,6 +458,9 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    TransformMesh {
+        transform: Box<crate::mesh::transform::Request>,
+    },
     SetAuthoringContext {
         context: Option<crate::mesh::creation::AuthoringContext>,
     },
@@ -531,10 +546,16 @@ enum CommandEffect {
     None,
     Selection(crate::mesh::selection::Outcome),
     Creation(Box<crate::mesh::creation::CreationReceipt>),
+    Transform(Box<crate::mesh::transform::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::TransformMesh { transform } => {
+                return Ok(CommandEffect::Transform(Box::new(
+                    crate::mesh::transform::execute(scene, transform)?,
+                )));
+            }
             Self::SetAuthoringContext { context } => scene.authoring_context = context.clone(),
             Self::CreateMeshObject { creation } => {
                 return Ok(CommandEffect::Creation(Box::new(
@@ -670,7 +691,7 @@ impl Command {
                     .get_mut(entity)
                     .ok_or_else(|| SceneError(format!("unknown entity: {entity}")))?
                     .transform
-                    .rotation = *closed_rotation;
+                    .rotation = (*closed_rotation).into();
                 scene.doors.insert(
                     id.clone(),
                     Door {
@@ -726,7 +747,8 @@ impl Command {
                         door.closed_rotation,
                         door.open_rotation,
                         door.progress,
-                    );
+                    )
+                    .into();
                 }
             }
             Self::Annotate { annotation } => scene.annotations.push(annotation.clone()),
@@ -745,6 +767,7 @@ pub struct EditResult {
     pub revision: u64,
     pub selection: Vec<crate::mesh::selection::CommandOutcome>,
     pub creation: Vec<crate::mesh::creation::CreationReceipt>,
+    pub transforms: Vec<crate::mesh::transform::Receipt>,
 }
 
 impl Editor {
@@ -785,6 +808,7 @@ impl Editor {
         let mut candidate = self.scene.clone();
         let mut selection = Vec::new();
         let mut creation = Vec::new();
+        let mut transforms = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
                 CommandEffect::Selection(outcome) => {
@@ -801,6 +825,10 @@ impl Editor {
                     receipt.command_index = command_index;
                     creation.push(*receipt);
                 }
+                CommandEffect::Transform(mut receipt) => {
+                    receipt.command_index = command_index;
+                    transforms.push(*receipt);
+                }
                 CommandEffect::None => {}
             }
             candidate.validate()?;
@@ -812,6 +840,7 @@ impl Editor {
             revision,
             selection,
             creation,
+            transforms,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {
@@ -932,7 +961,7 @@ pub fn room_demo() -> Result<Scene> {
     commands.push(Command::CreateDoor {
         id: "front_door".into(),
         entity: "door_hinge".into(),
-        closed_rotation: Transform::default().rotation,
+        closed_rotation: Transform::default().rotation.quaternion(),
         open_rotation: [0.0, 0.0, sin, cos],
         duration_seconds: 1.0,
     });
@@ -944,7 +973,7 @@ pub fn room_demo() -> Result<Scene> {
             parent: None,
             transform: Transform {
                 translation: [0.0, -8.0, 4.0],
-                rotation: [sin, 0.0, 0.0, cos],
+                rotation: [sin, 0.0, 0.0, cos].into(),
                 ..Transform::default()
             },
             content: EntityKind::Camera {

@@ -1,0 +1,25 @@
+{
+  "candidate": "4d7bc95bf988442cc95885ed4518d8ecd37e04fd",
+  "checks": 2406,
+  "matched": 2392,
+  "matched_finished": 2380,
+  "matched_expected_cancellations": 12,
+  "failed": 14,
+  "improved": 30,
+  "regressions": 0,
+  "remaining_ids": [
+    "transform_0693",
+    "transform_0701",
+    "transform_0709",
+    "transform_0717",
+    "transform_0725",
+    "transform_0733",
+    "transform_0741"
+  ],
+  "source_expected_results_unchanged": true,
+  "source_requests_unchanged": true,
+  "setup_changed_only_authored_f32_precision": true,
+  "world_observer": "actual native entity query",
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false
+}

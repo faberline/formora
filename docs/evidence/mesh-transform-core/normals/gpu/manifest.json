@@ -1,0 +1,596 @@
+{
+  "passed": true,
+  "gpu": [
+    "Apple M1 Max (Metal, IntegratedGpu)",
+    "Apple M1 Max (Metal, IntegratedGpu)",
+    "Apple M1 Max (Metal, IntegratedGpu)",
+    "Apple M1 Max (Metal, IntegratedGpu)"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "binary_sha256": "0c8df8c89b1392b88ecfeb984fd7cb307f3b0b2159b196034226fccd70aa855d",
+  "input_hashes": {
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "src/scene.rs": "efbaf0bbd1463428e77052fc169f09d77b3a78b2b183f899944190dc58713dcd",
+    "src/session.rs": "e4beeaad6f290520c0086d7e9fdf488d672affb3a67e6a11e71edd0d09101c77",
+    "src/mesh.rs": "ef0725f448150b0c6dfff4ef5cf882be897ce778892899cdf6e1422b269b6314",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/main.rs": "55ac271c8ad763f10501ab39ec3afe7fa2b0d80b8a606405fdf2808e9a4075ce",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/normals.rs": "1caee1caa1e79cba1c3f1f7d288b6d9b745df882d86096cf05b60373575cb878",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/math.rs": "350cc7f85642ba899bd3c2d47a71b8a46786a6697d303fee4b0decdff425efbc",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/creation/mod.rs": "b909e608b6c2c7c2ded49fc42a0112fbf9d51d1f3b49ce971cd38e839a29713d",
+    "src/mesh/creation/math.rs": "3321e070bdd910ce657405849022308a76bcb9e5e8fb385cab477ca89fd7189a",
+    "src/mesh/creation/inverse4.rs": "b7aa2892ec0034c8c167451355deb854753b343cfcd3008f74b8ddb2d6ffa1cb",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "01341c275e2275b303944637d54ce8fe64ccc2a79f18579e81736b65abdc536b",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "tools/normal_gpu_evidence.py": "53c5fb31b266273cdaf9758532cdb7077c9c7aaea81273854c5e16dd840f47a5",
+    "tools/normal_runtime_smoke.py": "6a8dc00c2b3fedba937e32da6331787861b882e159ba3de7437243ff161d62fa",
+    "tools/generate_mesh_normal_cases.py": "66db493ea93c496e71ff176518c8b2c0a182216243ea09643ea6c23b0f4f97c4",
+    "tools/png_pixels.py": "d75c0dbab5bfa901153cea78dddf99899085eb396a8fd5c098b27b615be5562f",
+    "baseline/fixtures/mesh-normals.json": "b5d2dcf6bdb55558a70ffda0f59d9f4787fac75299d50a0baf1c39a79906e76f",
+    "docs/contracts/mesh-transform-core.md": "c5fb8f559195a9f3b728207c75419bc0fc13afd01afdf654aafee31e8fef5c17"
+  },
+  "normal_only_changed_pixels": 20305,
+  "geometry_edit_changed_pixels": 19009,
+  "fresh_reload_identical": true,
+  "commands": [
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "v000000": [
+                  0,
+                  0,
+                  0
+                ],
+                "v000001": [
+                  0,
+                  1,
+                  0
+                ],
+                "v000002": [
+                  -1,
+                  1,
+                  0
+                ],
+                "v000003": [
+                  -1,
+                  0,
+                  0
+                ],
+                "v000004": [
+                  0,
+                  0,
+                  1
+                ],
+                "v000005": [
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "edges": {
+                "e000000": [
+                  "v000000",
+                  "v000001"
+                ],
+                "e000001": [
+                  "v000000",
+                  "v000003"
+                ],
+                "e000002": [
+                  "v000000",
+                  "v000004"
+                ],
+                "e000003": [
+                  "v000001",
+                  "v000002"
+                ],
+                "e000004": [
+                  "v000001",
+                  "v000005"
+                ],
+                "e000005": [
+                  "v000002",
+                  "v000003"
+                ],
+                "e000006": [
+                  "v000004",
+                  "v000005"
+                ]
+              },
+              "triangles": {},
+              "polygons": {
+                "f000000": {
+                  "vertices": [
+                    "v000000",
+                    "v000001",
+                    "v000002",
+                    "v000003"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "material_slot": null,
+                  "normal": null,
+                  "smooth": true
+                },
+                "f000001": {
+                  "vertices": [
+                    "v000000",
+                    "v000004",
+                    "v000005",
+                    "v000001"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "material_slot": null,
+                  "normal": null,
+                  "smooth": true
+                }
+              },
+              "material_slots": [],
+              "edge_seams": [
+                "e000000",
+                "e000003",
+                "e000006"
+              ],
+              "smooth_triangles": []
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "surface",
+            "entity": {
+              "name": "surface",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  -0.5,
+                  0.5,
+                  4
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  2,
+                  1,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":1}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--normals"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"e000000\",\"e000003\",\"e000006\"],\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000000\",\"v000003\"],\"e000002\":[\"v000000\",\"v000004\"],\"e000003\":[\"v000001\",\"v000002\"],\"e000004\":[\"v000001\",\"v000005\"],\"e000005\":[\"v000002\",\"v000003\"],\"e000006\":[\"v000004\",\"v000005\"]},\"material_slots\":[],\"polygons\":{\"f000000\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\"]},\"f000001\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":true,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000004\",\"v000005\",\"v000001\"]}},\"triangles\":{},\"vertices\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,1.0,0.0],\"v000002\":[-1.0,1.0,0.0],\"v000003\":[-1.0,0.0,0.0],\"v000004\":[0.0,0.0,1.0],\"v000005\":[0.0,1.0,1.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[-0.7071067690849304,0.0,0.7071067690849304],[-0.7071067690849304,0.0,0.7071067690849304],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"f000000\",\"kind\":\"polygon\"},\"normal\":[-0.0,0.0,1.0]},{\"corner_normals\":[[-0.7071067690849304,0.0,0.7071067690849304],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-0.7071067690849304,0.0,0.7071067690849304]],\"face\":{\"id\":\"f000001\",\"kind\":\"polygon\"},\"normal\":[-1.0,-0.0,0.0]}]},\"revision\":1}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/smooth.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/smooth.png\",\"width\":640}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "v000000": [
+                  0,
+                  0,
+                  0
+                ],
+                "v000001": [
+                  0,
+                  1,
+                  0
+                ],
+                "v000002": [
+                  -1,
+                  1,
+                  0
+                ],
+                "v000003": [
+                  -1,
+                  0,
+                  0
+                ],
+                "v000004": [
+                  0,
+                  0,
+                  1
+                ],
+                "v000005": [
+                  0,
+                  1,
+                  1
+                ]
+              },
+              "edges": {
+                "e000000": [
+                  "v000000",
+                  "v000001"
+                ],
+                "e000001": [
+                  "v000000",
+                  "v000003"
+                ],
+                "e000002": [
+                  "v000000",
+                  "v000004"
+                ],
+                "e000003": [
+                  "v000001",
+                  "v000002"
+                ],
+                "e000004": [
+                  "v000001",
+                  "v000005"
+                ],
+                "e000005": [
+                  "v000002",
+                  "v000003"
+                ],
+                "e000006": [
+                  "v000004",
+                  "v000005"
+                ]
+              },
+              "triangles": {},
+              "polygons": {
+                "f000000": {
+                  "vertices": [
+                    "v000000",
+                    "v000001",
+                    "v000002",
+                    "v000003"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "material_slot": null,
+                  "normal": null,
+                  "smooth": false
+                },
+                "f000001": {
+                  "vertices": [
+                    "v000000",
+                    "v000004",
+                    "v000005",
+                    "v000001"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "material_slot": null,
+                  "normal": null,
+                  "smooth": false
+                }
+              },
+              "material_slots": [],
+              "edge_seams": [
+                "e000000",
+                "e000003",
+                "e000006"
+              ],
+              "smooth_triangles": []
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":2}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--normals"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"e000000\",\"e000003\",\"e000006\"],\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000000\",\"v000003\"],\"e000002\":[\"v000000\",\"v000004\"],\"e000003\":[\"v000001\",\"v000002\"],\"e000004\":[\"v000001\",\"v000005\"],\"e000005\":[\"v000002\",\"v000003\"],\"e000006\":[\"v000004\",\"v000005\"]},\"material_slots\":[],\"polygons\":{\"f000000\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\"]},\"f000001\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000004\",\"v000005\",\"v000001\"]}},\"triangles\":{},\"vertices\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,1.0,0.0],\"v000002\":[-1.0,1.0,0.0],\"v000003\":[-1.0,0.0,0.0],\"v000004\":[0.0,0.0,1.0],\"v000005\":[0.0,1.0,1.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"f000000\",\"kind\":\"polygon\"},\"normal\":[-0.0,0.0,1.0]},{\"corner_normals\":[[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0]],\"face\":{\"id\":\"f000001\",\"kind\":\"polygon\"},\"normal\":[-1.0,-0.0,0.0]}]},\"revision\":2}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/flat.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/flat.png\",\"width\":640}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_vertices",
+            "id": "mesh",
+            "positions": {
+              "v000002": [
+                -1,
+                1,
+                0.5
+              ],
+              "v000004": [
+                0.4,
+                0,
+                1
+              ],
+              "v000005": [
+                0.4,
+                1,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "exit_code": 0,
+      "stdout": "{\"revision\":3}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--normals"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"e000000\",\"e000003\",\"e000006\"],\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000000\",\"v000003\"],\"e000002\":[\"v000000\",\"v000004\"],\"e000003\":[\"v000001\",\"v000002\"],\"e000004\":[\"v000001\",\"v000005\"],\"e000005\":[\"v000002\",\"v000003\"],\"e000006\":[\"v000004\",\"v000005\"]},\"material_slots\":[],\"polygons\":{\"f000000\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\"]},\"f000001\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000004\",\"v000005\",\"v000001\"]}},\"triangles\":{},\"vertices\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,1.0,0.0],\"v000002\":[-1.0,1.0,0.5],\"v000003\":[-1.0,0.0,0.0],\"v000004\":[0.4,0.0,1.0],\"v000005\":[0.4,1.0,1.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.2357022762298584,-0.2357022762298584,0.9428091049194336],[0.2357022762298584,-0.2357022762298584,0.9428091049194336],[0.2357022762298584,-0.2357022762298584,0.9428091049194336],[0.2357022762298584,-0.2357022762298584,0.9428091049194336]],\"face\":{\"id\":\"f000000\",\"kind\":\"polygon\"},\"normal\":[0.2357022762298584,-0.2357022762298584,0.9428091049194336]},{\"corner_normals\":[[-0.9284767508506775,0.0,0.371390700340271],[-0.9284767508506775,0.0,0.371390700340271],[-0.9284767508506775,0.0,0.371390700340271],[-0.9284767508506775,0.0,0.371390700340271]],\"face\":{\"id\":\"f000001\",\"kind\":\"polygon\"},\"normal\":[-0.9284767508506775,0.0,0.371390700340271]}]},\"revision\":3}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/edited.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/edited.png\",\"width\":640}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--mesh-asset",
+        "mesh",
+        "--normals"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"e000000\",\"e000003\",\"e000006\"],\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000000\",\"v000003\"],\"e000002\":[\"v000000\",\"v000004\"],\"e000003\":[\"v000001\",\"v000002\"],\"e000004\":[\"v000001\",\"v000005\"],\"e000005\":[\"v000002\",\"v000003\"],\"e000006\":[\"v000004\",\"v000005\"]},\"material_slots\":[],\"polygons\":{\"f000000\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\"]},\"f000001\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{},\"vertices\":[\"v000000\",\"v000004\",\"v000005\",\"v000001\"]}},\"triangles\":{},\"vertices\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,1.0,0.0],\"v000002\":[-1.0,1.0,0.5],\"v000003\":[-1.0,0.0,0.0],\"v000004\":[0.4,0.0,1.0],\"v000005\":[0.4,1.0,1.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.2357022762298584,-0.2357022762298584,0.9428091049194336],[0.2357022762298584,-0.2357022762298584,0.9428091049194336],[0.2357022762298584,-0.2357022762298584,0.9428091049194336],[0.2357022762298584,-0.2357022762298584,0.9428091049194336]],\"face\":{\"id\":\"f000000\",\"kind\":\"polygon\"},\"normal\":[0.2357022762298584,-0.2357022762298584,0.9428091049194336]},{\"corner_normals\":[[-0.9284767508506775,0.0,0.371390700340271],[-0.9284767508506775,0.0,0.371390700340271],[-0.9284767508506775,0.0,0.371390700340271],[-0.9284767508506775,0.0,0.371390700340271]],\"face\":{\"id\":\"f000001\",\"kind\":\"polygon\"},\"normal\":[-0.9284767508506775,0.0,0.371390700340271]}]},\"revision\":3}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit_code": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/normals/gpu/reloaded.png\",\"width\":640}\n",
+      "stderr": ""
+    }
+  ],
+  "artifacts": {
+    "edited-normals.json": "f8b9723f8bad92570baa217f7d61e1c6aa7b6d9974bd3c873d92ddb3166e4dec",
+    "edited-scene.json": "e16927cc81c56f27900abd655933b30c689412cc7f393cc2d09dd6a55445777f",
+    "edited.png": "770f444ad0f001aeceb359750f34ed150425c38ec8bb1da6365d6fd954eab476",
+    "flat-normals.json": "c5cc330a1c9b43f277ff489819db0bb753f5162814cc4cd320d053eeb12beb4f",
+    "flat-scene.json": "1ba8f6eab407bb12442244ffe016dcb9439e0ed9258147cceeba1aaa53abce6f",
+    "flat.png": "219b9d3f89cc5bf5b6fa5e33f605c5050ebcd0528dc672918ec2badc6555ba72",
+    "reloaded-normals.json": "f8b9723f8bad92570baa217f7d61e1c6aa7b6d9974bd3c873d92ddb3166e4dec",
+    "reloaded-scene.json": "e16927cc81c56f27900abd655933b30c689412cc7f393cc2d09dd6a55445777f",
+    "reloaded.png": "770f444ad0f001aeceb359750f34ed150425c38ec8bb1da6365d6fd954eab476",
+    "scene.json": "e16927cc81c56f27900abd655933b30c689412cc7f393cc2d09dd6a55445777f",
+    "smooth-normals.json": "476f6e6ad2f3348739fb5abc1c93e68d1afec64f96351547ab42132a8363a81a",
+    "smooth-scene.json": "bf6693d56ece139977b683ae7ea097e59255ac3a7a679e33aa1f483caad4a2e8",
+    "smooth.png": "26b37bd4a464c345cadba6842ab79027b378176bfa1cea45f25e28152f81e126"
+  },
+  "scope": "Automatic normal shading only. Native window input, product transforms, other GPU platforms and full product acceptance remain unrun."
+}

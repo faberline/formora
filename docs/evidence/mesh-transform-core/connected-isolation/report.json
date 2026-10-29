@@ -1,0 +1,2003 @@
+{
+  "passed": true,
+  "scope": "unseen connected translate, rotate and reflected resize with source repository reads denied",
+  "binary_sha256": "dfc4734249e629cd8d0badbcd7167f16d3de6415ca29d6bba1cd2f72d87f2ba0",
+  "driver_sha256": "09701542317aefd88f3455d8760eb5a773cba4cb5469f1b750b4d0fd901cd441",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /Users/chrischeng/faberlines/formora/Cargo.toml: Operation not permitted\n",
+  "commands": [
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "apricot": [
+                  0.17,
+                  -0.29,
+                  0.31
+                ],
+                "birch": [
+                  1.37,
+                  0.09,
+                  -0.11
+                ],
+                "cedar": [
+                  0.97,
+                  1.81,
+                  0.11
+                ],
+                "dogwood": [
+                  -0.23,
+                  1.43,
+                  0.53
+                ],
+                "apart": [
+                  0.17,
+                  -0.29,
+                  0.31
+                ],
+                "hidden": [
+                  0.2,
+                  0.2,
+                  0.2
+                ]
+              },
+              "edges": {
+                "ab": [
+                  "apricot",
+                  "birch"
+                ],
+                "bc": [
+                  "birch",
+                  "cedar"
+                ],
+                "cd": [
+                  "cedar",
+                  "dogwood"
+                ],
+                "da": [
+                  "dogwood",
+                  "apricot"
+                ]
+              },
+              "triangles": {},
+              "polygons": {
+                "surface": {
+                  "vertices": [
+                    "apricot",
+                    "birch",
+                    "cedar",
+                    "dogwood"
+                  ],
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.031,
+                        0.9
+                      ],
+                      [
+                        0.83,
+                        0.71
+                      ],
+                      [
+                        0.97,
+                        0.16
+                      ],
+                      [
+                        0.13,
+                        0.21
+                      ]
+                    ]
+                  },
+                  "normal": null,
+                  "corner_normals": null,
+                  "smooth": false,
+                  "material_slot": null
+                }
+              },
+              "uv_layout": {
+                "layers": [
+                  "Detail"
+                ],
+                "active": "Detail"
+              },
+              "material_slots": [],
+              "vertex_groups": [
+                "keep"
+              ],
+              "vertex_weights": {
+                "birch": {
+                  "keep": 0.375
+                }
+              }
+            }
+          },
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "selected": {
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              },
+              "hidden": {
+                "vertices": [
+                  "hidden"
+                ]
+              },
+              "preview": false
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "target",
+            "entity": {
+              "name": "target",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "other",
+            "entity": {
+              "name": "other",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  -2.4,
+                  1.8,
+                  0.9
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh"
+                },
+                "material": null
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 1,
+        "ok": true,
+        "result": {
+          "revision": 1
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 2,
+        "ok": true,
+        "result": {
+          "revision": 1,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "doors": {},
+            "entities": {
+              "other": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "other",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    -2.4,
+                    1.8,
+                    0.9
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "target",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "ab": [
+                    "apricot",
+                    "birch"
+                  ],
+                  "bc": [
+                    "birch",
+                    "cedar"
+                  ],
+                  "cd": [
+                    "cedar",
+                    "dogwood"
+                  ],
+                  "da": [
+                    "dogwood",
+                    "apricot"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "apricot"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "surface": {
+                    "corner_normals": null,
+                    "material_slot": null,
+                    "normal": null,
+                    "smooth": false,
+                    "uv_layers": {
+                      "Detail": [
+                        [
+                          0.031,
+                          0.9
+                        ],
+                        [
+                          0.83,
+                          0.71
+                        ],
+                        [
+                          0.97,
+                          0.16
+                        ],
+                        [
+                          0.13,
+                          0.21
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "Detail",
+                  "layers": [
+                    "Detail"
+                  ]
+                },
+                "vertex_groups": [
+                  "keep"
+                ],
+                "vertex_weights": {
+                  "birch": {
+                    "keep": 0.375
+                  }
+                },
+                "vertices": {
+                  "apart": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "apricot": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "birch": [
+                    1.37,
+                    0.09,
+                    -0.11
+                  ],
+                  "cedar": [
+                    0.97,
+                    1.81,
+                    0.11
+                  ],
+                  "dogwood": [
+                    -0.23,
+                    1.43,
+                    0.53
+                  ],
+                  "hidden": [
+                    0.2,
+                    0.2,
+                    0.2
+                  ]
+                }
+              }
+            },
+            "revision": 1,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "target",
+              "change": {
+                "kind": "translate",
+                "value": [
+                  0.217,
+                  -0.439,
+                  0.713
+                ]
+              },
+              "proportional": {
+                "radius": 4,
+                "falloff": "linear",
+                "connected": true
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 3,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "transforms": [
+            {
+              "basis_world": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              ],
+              "centres_local": {
+                "apricot": [
+                  0.17000000178813934,
+                  -0.28999999165534973,
+                  0.3100000023841858
+                ],
+                "birch": [
+                  0.17000000178813934,
+                  -0.28999999165534973,
+                  0.3100000023841858
+                ],
+                "cedar": [
+                  0.17000000178813934,
+                  -0.28999999165534973,
+                  0.3100000023841858
+                ],
+                "dogwood": [
+                  0.17000000178813934,
+                  -0.28999999165534973,
+                  0.3100000023841858
+                ]
+              },
+              "changed": {
+                "edges": [
+                  "ab",
+                  "bc",
+                  "cd",
+                  "da"
+                ],
+                "faces": [
+                  {
+                    "id": "surface",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              },
+              "command_index": 0,
+              "entity": "target",
+              "influence": {
+                "apricot": 1.0,
+                "birch": 0.6682621240615845,
+                "cedar": 0.4359743595123291,
+                "dogwood": 0.555112361907959
+              },
+              "mesh_asset": "mesh",
+              "pivot_world": [
+                0.17000000178813934,
+                -0.28999999165534973,
+                0.3100000023841858
+              ],
+              "random_seed": null,
+              "shared_instances": [
+                "other",
+                "target"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 4,
+        "ok": true,
+        "result": {
+          "revision": 2,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "doors": {},
+            "entities": {
+              "other": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "other",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    -2.4,
+                    1.8,
+                    0.9
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "target",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "ab": [
+                    "apricot",
+                    "birch"
+                  ],
+                  "bc": [
+                    "birch",
+                    "cedar"
+                  ],
+                  "cd": [
+                    "cedar",
+                    "dogwood"
+                  ],
+                  "da": [
+                    "dogwood",
+                    "apricot"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "apricot"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "surface": {
+                    "corner_normals": [
+                      [
+                        0.4092538058757782,
+                        0.11406970769166946,
+                        0.9052621126174927
+                      ],
+                      [
+                        0.4092538058757782,
+                        0.11406970769166946,
+                        0.9052621126174927
+                      ],
+                      [
+                        0.4092538058757782,
+                        0.11406970769166946,
+                        0.9052621126174927
+                      ],
+                      [
+                        0.4092538058757782,
+                        0.11406970769166946,
+                        0.9052621126174927
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.4092537462711334,
+                      0.11406970769166946,
+                      0.9052621126174927
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "Detail": [
+                        [
+                          0.031,
+                          0.9
+                        ],
+                        [
+                          0.83,
+                          0.71
+                        ],
+                        [
+                          0.97,
+                          0.16
+                        ],
+                        [
+                          0.13,
+                          0.21
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "Detail",
+                  "layers": [
+                    "Detail"
+                  ]
+                },
+                "vertex_groups": [
+                  "keep"
+                ],
+                "vertex_weights": {
+                  "birch": {
+                    "keep": 0.375
+                  }
+                },
+                "vertices": {
+                  "apart": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "apricot": [
+                    0.3869999945163727,
+                    -0.7289999723434448,
+                    1.0230000019073486
+                  ],
+                  "birch": [
+                    1.5150128602981567,
+                    -0.20336708426475525,
+                    0.3664708733558655
+                  ],
+                  "cedar": [
+                    1.0646064281463623,
+                    1.6186071634292603,
+                    0.4208497405052185
+                  ],
+                  "dogwood": [
+                    -0.10954062640666962,
+                    1.1863056421279907,
+                    0.9257950782775879
+                  ],
+                  "hidden": [
+                    0.2,
+                    0.2,
+                    0.2
+                  ]
+                }
+              }
+            },
+            "revision": 2,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 2
+      },
+      "response": {
+        "id": 5,
+        "ok": true,
+        "result": {
+          "revision": 3
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 6,
+        "ok": true,
+        "result": {
+          "revision": 3,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "doors": {},
+            "entities": {
+              "other": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "other",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    -2.4,
+                    1.8,
+                    0.9
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "target",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "ab": [
+                    "apricot",
+                    "birch"
+                  ],
+                  "bc": [
+                    "birch",
+                    "cedar"
+                  ],
+                  "cd": [
+                    "cedar",
+                    "dogwood"
+                  ],
+                  "da": [
+                    "dogwood",
+                    "apricot"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "apricot"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "surface": {
+                    "corner_normals": null,
+                    "material_slot": null,
+                    "normal": null,
+                    "smooth": false,
+                    "uv_layers": {
+                      "Detail": [
+                        [
+                          0.031,
+                          0.9
+                        ],
+                        [
+                          0.83,
+                          0.71
+                        ],
+                        [
+                          0.97,
+                          0.16
+                        ],
+                        [
+                          0.13,
+                          0.21
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "Detail",
+                  "layers": [
+                    "Detail"
+                  ]
+                },
+                "vertex_groups": [
+                  "keep"
+                ],
+                "vertex_weights": {
+                  "birch": {
+                    "keep": 0.375
+                  }
+                },
+                "vertices": {
+                  "apart": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "apricot": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "birch": [
+                    1.37,
+                    0.09,
+                    -0.11
+                  ],
+                  "cedar": [
+                    0.97,
+                    1.81,
+                    0.11
+                  ],
+                  "dogwood": [
+                    -0.23,
+                    1.43,
+                    0.53
+                  ],
+                  "hidden": [
+                    0.2,
+                    0.2,
+                    0.2
+                  ]
+                }
+              }
+            },
+            "revision": 3,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 3,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "selected": {
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              },
+              "hidden": {
+                "vertices": [
+                  "hidden"
+                ]
+              },
+              "preview": false
+            }
+          },
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "target",
+              "change": {
+                "kind": "rotate",
+                "radians": 0.37,
+                "axis": "z"
+              },
+              "center_override": [
+                0.31,
+                -0.19,
+                0.23
+              ]
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 7,
+        "ok": true,
+        "result": {
+          "revision": 4,
+          "transforms": [
+            {
+              "basis_world": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              ],
+              "centres_local": {
+                "apricot": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ],
+                "birch": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ],
+                "cedar": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ],
+                "dogwood": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ]
+              },
+              "changed": {
+                "edges": [
+                  "ab",
+                  "bc",
+                  "cd",
+                  "da"
+                ],
+                "faces": [
+                  {
+                    "id": "surface",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              },
+              "command_index": 1,
+              "entity": "target",
+              "influence": {
+                "apricot": 1.0,
+                "birch": 1.0,
+                "cedar": 1.0,
+                "dogwood": 1.0
+              },
+              "mesh_asset": "mesh",
+              "pivot_world": [
+                0.3100000023841858,
+                -0.1899999976158142,
+                0.23000000417232513
+              ],
+              "random_seed": null,
+              "shared_instances": [
+                "other",
+                "target"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 8,
+        "ok": true,
+        "result": {
+          "revision": 4,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "doors": {},
+            "entities": {
+              "other": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "other",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    -2.4,
+                    1.8,
+                    0.9
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "target",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "ab": [
+                    "apricot",
+                    "birch"
+                  ],
+                  "bc": [
+                    "birch",
+                    "cedar"
+                  ],
+                  "cd": [
+                    "cedar",
+                    "dogwood"
+                  ],
+                  "da": [
+                    "dogwood",
+                    "apricot"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "ab",
+                      "bc",
+                      "cd",
+                      "da"
+                    ],
+                    "faces": [
+                      {
+                        "id": "surface",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "surface": {
+                    "corner_normals": [
+                      [
+                        0.3331260681152344,
+                        0.08557640761137009,
+                        0.9389908313751221
+                      ],
+                      [
+                        0.3331260681152344,
+                        0.08557640761137009,
+                        0.9389908313751221
+                      ],
+                      [
+                        0.3331260681152344,
+                        0.08557640761137009,
+                        0.9389908313751221
+                      ],
+                      [
+                        0.3331260681152344,
+                        0.08557640761137009,
+                        0.9389908313751221
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.3331260085105896,
+                      0.08557639271020889,
+                      0.9389907717704773
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "Detail": [
+                        [
+                          0.031,
+                          0.9
+                        ],
+                        [
+                          0.83,
+                          0.71
+                        ],
+                        [
+                          0.97,
+                          0.16
+                        ],
+                        [
+                          0.13,
+                          0.21
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "Detail",
+                  "layers": [
+                    "Detail"
+                  ]
+                },
+                "vertex_groups": [
+                  "keep"
+                ],
+                "vertex_weights": {
+                  "birch": {
+                    "keep": 0.375
+                  }
+                },
+                "vertices": {
+                  "apart": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "apricot": [
+                    0.21563571691513062,
+                    -0.3338589072227478,
+                    0.3100000023841858
+                  ],
+                  "birch": [
+                    1.197014570236206,
+                    0.45436400175094604,
+                    -0.10999999940395355
+                  ],
+                  "cedar": [
+                    0.20210516452789307,
+                    1.913320779800415,
+                    0.10999999940395355
+                  ],
+                  "dogwood": [
+                    -0.7792736887931824,
+                    1.1250977516174316,
+                    0.5299999713897705
+                  ],
+                  "hidden": [
+                    0.2,
+                    0.2,
+                    0.2
+                  ]
+                }
+              }
+            },
+            "revision": 4,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 4,
+        "commands": [
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "target",
+              "change": {
+                "kind": "resize",
+                "value": [
+                  -0.83,
+                  1.23,
+                  0.67
+                ]
+              },
+              "center_override": [
+                0.31,
+                -0.19,
+                0.23
+              ]
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 9,
+        "ok": true,
+        "result": {
+          "revision": 5,
+          "transforms": [
+            {
+              "basis_world": [
+                [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              ],
+              "centres_local": {
+                "apricot": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ],
+                "birch": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ],
+                "cedar": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ],
+                "dogwood": [
+                  0.3100000023841858,
+                  -0.1899999976158142,
+                  0.23000000417232513
+                ]
+              },
+              "changed": {
+                "edges": [
+                  "ab",
+                  "bc",
+                  "cd",
+                  "da"
+                ],
+                "faces": [
+                  {
+                    "id": "surface",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              },
+              "command_index": 0,
+              "entity": "target",
+              "influence": {
+                "apricot": 1.0,
+                "birch": 1.0,
+                "cedar": 1.0,
+                "dogwood": 1.0
+              },
+              "mesh_asset": "mesh",
+              "pivot_world": [
+                0.3100000023841858,
+                -0.1899999976158142,
+                0.23000000417232513
+              ],
+              "random_seed": null,
+              "shared_instances": [
+                "other",
+                "target"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 10,
+        "ok": true,
+        "result": {
+          "revision": 5,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "doors": {},
+            "entities": {
+              "other": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "other",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    -2.4,
+                    1.8,
+                    0.9
+                  ]
+                }
+              },
+              "target": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "target",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "ab": [
+                    "apricot",
+                    "birch"
+                  ],
+                  "bc": [
+                    "birch",
+                    "cedar"
+                  ],
+                  "cd": [
+                    "cedar",
+                    "dogwood"
+                  ],
+                  "da": [
+                    "dogwood",
+                    "apricot"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": [
+                      "hidden"
+                    ]
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "ab",
+                      "bc",
+                      "cd",
+                      "da"
+                    ],
+                    "faces": [
+                      {
+                        "id": "surface",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "surface": {
+                    "corner_normals": [
+                      [
+                        0.27500054240226746,
+                        -0.04767073690891266,
+                        -0.9602615237236023
+                      ],
+                      [
+                        0.27500054240226746,
+                        -0.04767073690891266,
+                        -0.9602615237236023
+                      ],
+                      [
+                        0.27500054240226746,
+                        -0.04767073690891266,
+                        -0.9602615237236023
+                      ],
+                      [
+                        0.27500054240226746,
+                        -0.04767073690891266,
+                        -0.9602615237236023
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.27500054240226746,
+                      -0.04767073690891266,
+                      -0.9602615237236023
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "Detail": [
+                        [
+                          0.031,
+                          0.9
+                        ],
+                        [
+                          0.83,
+                          0.71
+                        ],
+                        [
+                          0.97,
+                          0.16
+                        ],
+                        [
+                          0.13,
+                          0.21
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "apricot",
+                      "birch",
+                      "cedar",
+                      "dogwood"
+                    ]
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "Detail",
+                  "layers": [
+                    "Detail"
+                  ]
+                },
+                "vertex_groups": [
+                  "keep"
+                ],
+                "vertex_weights": {
+                  "birch": {
+                    "keep": 0.375
+                  }
+                },
+                "vertices": {
+                  "apart": [
+                    0.17,
+                    -0.29,
+                    0.31
+                  ],
+                  "apricot": [
+                    0.3883223533630371,
+                    -0.3669464588165283,
+                    0.28360000252723694
+                  ],
+                  "birch": [
+                    -0.4262220859527588,
+                    0.602567732334137,
+                    0.002199992537498474
+                  ],
+                  "cedar": [
+                    0.39955270290374756,
+                    2.3970847129821777,
+                    0.14959999918937683
+                  ],
+                  "dogwood": [
+                    1.214097023010254,
+                    1.4275703430175781,
+                    0.4309999942779541
+                  ],
+                  "hidden": [
+                    0.2,
+                    0.2,
+                    0.2
+                  ]
+                }
+              }
+            },
+            "revision": 5,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {
+        "mesh_asset": "mesh",
+        "normals": true
+      },
+      "response": {
+        "id": 11,
+        "ok": true,
+        "result": {
+          "id": "mesh",
+          "mesh_asset": {
+            "edges": {
+              "ab": [
+                "apricot",
+                "birch"
+              ],
+              "bc": [
+                "birch",
+                "cedar"
+              ],
+              "cd": [
+                "cedar",
+                "dogwood"
+              ],
+              "da": [
+                "dogwood",
+                "apricot"
+              ]
+            },
+            "editing": {
+              "active_face": null,
+              "hidden": {
+                "edges": [],
+                "faces": [],
+                "vertices": [
+                  "hidden"
+                ]
+              },
+              "history": [],
+              "mode": [
+                "vertex"
+              ],
+              "preview": false,
+              "selected": {
+                "edges": [
+                  "ab",
+                  "bc",
+                  "cd",
+                  "da"
+                ],
+                "faces": [
+                  {
+                    "id": "surface",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              }
+            },
+            "material_slots": [],
+            "polygons": {
+              "surface": {
+                "corner_normals": [
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ],
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ],
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ],
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ]
+                ],
+                "material_slot": null,
+                "normal": [
+                  0.27500054240226746,
+                  -0.04767073690891266,
+                  -0.9602615237236023
+                ],
+                "smooth": false,
+                "uv_layers": {
+                  "Detail": [
+                    [
+                      0.031,
+                      0.9
+                    ],
+                    [
+                      0.83,
+                      0.71
+                    ],
+                    [
+                      0.97,
+                      0.16
+                    ],
+                    [
+                      0.13,
+                      0.21
+                    ]
+                  ]
+                },
+                "vertices": [
+                  "apricot",
+                  "birch",
+                  "cedar",
+                  "dogwood"
+                ]
+              }
+            },
+            "triangles": {},
+            "uv_layout": {
+              "active": "Detail",
+              "layers": [
+                "Detail"
+              ]
+            },
+            "vertex_groups": [
+              "keep"
+            ],
+            "vertex_weights": {
+              "birch": {
+                "keep": 0.375
+              }
+            },
+            "vertices": {
+              "apart": [
+                0.17,
+                -0.29,
+                0.31
+              ],
+              "apricot": [
+                0.3883223533630371,
+                -0.3669464588165283,
+                0.28360000252723694
+              ],
+              "birch": [
+                -0.4262220859527588,
+                0.602567732334137,
+                0.002199992537498474
+              ],
+              "cedar": [
+                0.39955270290374756,
+                2.3970847129821777,
+                0.14959999918937683
+              ],
+              "dogwood": [
+                1.214097023010254,
+                1.4275703430175781,
+                0.4309999942779541
+              ],
+              "hidden": [
+                0.2,
+                0.2,
+                0.2
+              ]
+            }
+          },
+          "normals": {
+            "faces": [
+              {
+                "corner_normals": [
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ],
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ],
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ],
+                  [
+                    0.27500054240226746,
+                    -0.04767073690891266,
+                    -0.9602615237236023
+                  ]
+                ],
+                "face": {
+                  "id": "surface",
+                  "kind": "polygon"
+                },
+                "normal": [
+                  0.27500054240226746,
+                  -0.04767073690891266,
+                  -0.9602615237236023
+                ]
+              }
+            ]
+          },
+          "revision": 5
+        }
+      }
+    }
+  ],
+  "fresh_reload_equal": true,
+  "undo_checked": true,
+  "all_initial_points_authored_in_driver": true,
+  "normal_payloads_in_input": false,
+  "source_files": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "55ac271c8ad763f10501ab39ec3afe7fa2b0d80b8a606405fdf2808e9a4075ce",
+    "src/mesh/creation/inverse4.rs": "b7aa2892ec0034c8c167451355deb854753b343cfcd3008f74b8ddb2d6ffa1cb",
+    "src/mesh/creation/mod.rs": "e8f6437775cb76875ae23f600686f8820af9cdbac52ca92dc8381c19fc88ddf4",
+    "src/mesh/frame_math.rs": "ec5f9c0840ad2791464fbd800f4e87e0ddf95bf448370dffd48877ff31d92ae8",
+    "src/mesh/normals.rs": "1caee1caa1e79cba1c3f1f7d288b6d9b745df882d86096cf05b60373575cb878",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "01341c275e2275b303944637d54ce8fe64ccc2a79f18579e81736b65abdc536b",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "2e0f72d7cb743c6544a722cf575ea5749318497032420379a6d90eaa38fb144a",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/influence.rs": "0e95fd7cd106d529e004c946f987f174f36900ab62530cdd2cc87fdb77b89c40",
+    "src/mesh/transform/mod.rs": "620647df1a6026dcfae80e9dde6958b2f41cbed7ee3662a7b1bcf3adbd7278d3",
+    "src/mesh.rs": "5bd850d159b280a8f1a028468398d2105dc8880fccee5e9d5478009524b5e355",
+    "src/preview/math.rs": "350cc7f85642ba899bd3c2d47a71b8a46786a6697d303fee4b0decdff425efbc",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "2b207223632d94d3222f2c09072082154ac678eb8cf01c40703ccc1934d8fc24",
+    "src/session.rs": "35b95d38f7025e7c66359b8ad9155701c11d1215d061e079ac5b5ab535a8f13b"
+  },
+  "artifacts": {
+    "before.json": "c216b3eb53b53e1ac41e842aaf4079edb66be7a97c8c67bd9b4dd678b5a00466",
+    "connected-receipt.json": "8eebdb268248bb239280279cc5a7360d627b755eec058a7852ae4aa5835aa2d0",
+    "rotated.json": "b896b59a51ca8c262f138650456238083ec8b54bf7583677e7f8b52a303f0c4b",
+    "normals.json": "2e8271e4133746ad423c870d7ca231c85aef1c925b813c88063038bac70d4e33",
+    "connected-after.json": "9683102b839c5a401b0bc2479dfb8e0f922ae521bd421ab4732856467854b84b",
+    "rotate-receipt.json": "dda7c2f06c377f32bdca640632d4e24edb445c4165e11a2387376bf5809f3b1a",
+    "resize-receipt.json": "4c213d04f26e0a7beed5908092e2cbcdc0724a6096b4e844b84b3ff7314a7e76",
+    "final.json": "a6e637c6522b51e63ee6e4bebe24965cf7f4624aac2b981c255cce6e54eef12d"
+  },
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun"
+}

@@ -1,0 +1,986 @@
+{
+  "passed": true,
+  "binary_sha256": "01201adcbd4f3d392df7d7cb6c8ab4fb302612d486cccb4378ad9ef3996cfce2",
+  "driver_sha256": "f7c02d3dd6ac773b7902f1a8b1f836e9b7941d534558235a553c81969591d3f6",
+  "reference_binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "cases": [
+    {
+      "id": "XYZ",
+      "matrix_exact": true,
+      "point_exact": true,
+      "queries_preserve_disk": true,
+      "commands": [
+        {
+          "arguments": [
+            "scene",
+            "init",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XYZ.json"
+          ],
+          "request": null,
+          "stdout": "{\"revision\":0}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "apply",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XYZ.json",
+            "--request",
+            "-"
+          ],
+          "request": {
+            "expected_revision": 0,
+            "commands": [
+              {
+                "operation": "set_mesh_asset",
+                "id": "mesh",
+                "asset": {
+                  "vertices": {
+                    "probe": [
+                      3.25,
+                      -1.7,
+                      0.9
+                    ]
+                  },
+                  "edges": {},
+                  "triangles": {},
+                  "material_slots": []
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "parent",
+                "entity": {
+                  "name": "parent",
+                  "parent": null,
+                  "transform": {
+                    "translation": [
+                      1.25,
+                      -0.75,
+                      2
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.37,
+                        -0.23,
+                        0.51
+                      ],
+                      "order": "xyz"
+                    },
+                    "scale": [
+                      1.2,
+                      0.7,
+                      1.6
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "empty"
+                  }
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "child",
+                "entity": {
+                  "name": "child",
+                  "parent": "parent",
+                  "transform": {
+                    "translation": [
+                      -0.7,
+                      0.35,
+                      0.6
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.13,
+                        0.29,
+                        -0.41
+                      ],
+                      "order": "xyz"
+                    },
+                    "scale": [
+                      0.9,
+                      1.4,
+                      0.8
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "mesh",
+                    "geometry": {
+                      "kind": "asset",
+                      "id": "mesh"
+                    },
+                    "material": null
+                  }
+                }
+              }
+            ]
+          },
+          "stdout": "{\"revision\":1}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XYZ.json",
+            "--entity",
+            "parent",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"kind\":\"empty\"},\"name\":\"parent\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.37,-0.23,0.51],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.2,0.7,1.6],\"translation\":[1.25,-0.75,2.0]}},\"id\":\"parent\",\"revision\":1,\"world_matrix\":[[1.0197144746780396,-0.3689631223678589,-0.014350630342960358,1.25],[0.5703861713409424,0.5414066910743713,-0.6709756851196289,-0.75],[0.27357304096221924,0.24646495282649994,1.4524413347244263,2.0],[0.0,0.0,0.0,1.0]]}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XYZ.json",
+            "--entity",
+            "child",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"child\",\"parent\":\"parent\",\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.13,0.29,-0.41],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[0.9,1.4,0.8],\"translation\":[-0.7,0.35,0.6]}},\"id\":\"child\",\"revision\":1,\"world_matrix\":[[0.9370670318603516,0.14818406105041504,0.22752459347248077,0.39845240116119385],[0.4377046227455139,0.9041625261306763,-0.5153937339782715,-1.362363338470459],[-0.24214214086532593,0.7256789803504944,1.1039154529571533,2.766226291656494],[0.0,0.0,0.0,1.0]],\"world_vertices\":{\"probe\":[3.3967795372009277,-1.9407539367675781,1.7391339540481567]}}\n",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "id": "XZY",
+      "matrix_exact": true,
+      "point_exact": true,
+      "queries_preserve_disk": true,
+      "commands": [
+        {
+          "arguments": [
+            "scene",
+            "init",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XZY.json"
+          ],
+          "request": null,
+          "stdout": "{\"revision\":0}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "apply",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XZY.json",
+            "--request",
+            "-"
+          ],
+          "request": {
+            "expected_revision": 0,
+            "commands": [
+              {
+                "operation": "set_mesh_asset",
+                "id": "mesh",
+                "asset": {
+                  "vertices": {
+                    "probe": [
+                      3.25,
+                      -1.7,
+                      0.9
+                    ]
+                  },
+                  "edges": {},
+                  "triangles": {},
+                  "material_slots": []
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "parent",
+                "entity": {
+                  "name": "parent",
+                  "parent": null,
+                  "transform": {
+                    "translation": [
+                      1.25,
+                      -0.75,
+                      2
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.37,
+                        -0.23,
+                        0.51
+                      ],
+                      "order": "xzy"
+                    },
+                    "scale": [
+                      1.2,
+                      0.7,
+                      1.6
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "empty"
+                  }
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "child",
+                "entity": {
+                  "name": "child",
+                  "parent": "parent",
+                  "transform": {
+                    "translation": [
+                      -0.7,
+                      0.35,
+                      0.6
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.13,
+                        0.29,
+                        -0.41
+                      ],
+                      "order": "xzy"
+                    },
+                    "scale": [
+                      0.9,
+                      1.4,
+                      0.8
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "mesh",
+                    "geometry": {
+                      "kind": "asset",
+                      "id": "mesh"
+                    },
+                    "material": null
+                  }
+                }
+              }
+            ]
+          },
+          "stdout": "{\"revision\":1}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XZY.json",
+            "--entity",
+            "parent",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"kind\":\"empty\"},\"name\":\"parent\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.37,-0.23,0.51],\"kind\":\"euler\",\"order\":\"xzy\"},\"scale\":[1.2,0.7,1.6],\"translation\":[1.25,-0.75,2.0]}},\"id\":\"parent\",\"revision\":1,\"world_matrix\":[[1.0197144746780396,-0.3679169714450836,-0.06506558507680893,1.25],[0.5858126878738403,0.5695784687995911,-0.5049566626548767,-0.75],[0.2387593686580658,0.17383161187171936,1.516834020614624,2.0],[0.0,0.0,0.0,1.0]]}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/XZY.json",
+            "--entity",
+            "child",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"child\",\"parent\":\"parent\",\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.13,0.29,-0.41],\"kind\":\"euler\",\"order\":\"xzy\"},\"scale\":[0.9,1.4,0.8],\"translation\":[-0.7,0.35,0.6]}},\"id\":\"child\",\"revision\":1,\"world_matrix\":[[0.9538827538490295,0.12418391555547714,0.17567598819732666,0.3683895468711853],[0.37819263339042664,1.0582550764083862,-0.33429861068725586,-1.2636903524398804],[-0.23153123259544373,0.38408470153808594,1.199082851409912,2.803809881210327],[0.0,0.0,0.0,1.0]],\"world_vertices\":{\"probe\":[3.415504217147827,-2.1344666481018066,2.4775638580322266]}}\n",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "id": "YXZ",
+      "matrix_exact": true,
+      "point_exact": true,
+      "queries_preserve_disk": true,
+      "commands": [
+        {
+          "arguments": [
+            "scene",
+            "init",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YXZ.json"
+          ],
+          "request": null,
+          "stdout": "{\"revision\":0}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "apply",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YXZ.json",
+            "--request",
+            "-"
+          ],
+          "request": {
+            "expected_revision": 0,
+            "commands": [
+              {
+                "operation": "set_mesh_asset",
+                "id": "mesh",
+                "asset": {
+                  "vertices": {
+                    "probe": [
+                      3.25,
+                      -1.7,
+                      0.9
+                    ]
+                  },
+                  "edges": {},
+                  "triangles": {},
+                  "material_slots": []
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "parent",
+                "entity": {
+                  "name": "parent",
+                  "parent": null,
+                  "transform": {
+                    "translation": [
+                      1.25,
+                      -0.75,
+                      2
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.37,
+                        -0.23,
+                        0.51
+                      ],
+                      "order": "yxz"
+                    },
+                    "scale": [
+                      1.2,
+                      0.7,
+                      1.6
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "empty"
+                  }
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "child",
+                "entity": {
+                  "name": "child",
+                  "parent": "parent",
+                  "transform": {
+                    "translation": [
+                      -0.7,
+                      0.35,
+                      0.6
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.13,
+                        0.29,
+                        -0.41
+                      ],
+                      "order": "yxz"
+                    },
+                    "scale": [
+                      0.9,
+                      1.4,
+                      0.8
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "mesh",
+                    "geometry": {
+                      "kind": "asset",
+                      "id": "mesh"
+                    },
+                    "material": null
+                  }
+                }
+              }
+            ]
+          },
+          "stdout": "{\"revision\":1}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YXZ.json",
+            "--entity",
+            "parent",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"kind\":\"empty\"},\"name\":\"parent\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.37,-0.23,0.51],\"kind\":\"euler\",\"order\":\"yxz\"},\"scale\":[1.2,0.7,1.6],\"translation\":[1.25,-0.75,2.0]}},\"id\":\"parent\",\"revision\":1,\"world_matrix\":[[1.0680090188980103,-0.3185986876487732,-0.04333191737532616,1.25],[0.4840470850467682,0.5695784687995911,-0.6697288155555725,-0.75],[0.2550596296787262,0.25313082337379456,1.4524413347244263,2.0],[0.0,0.0,0.0,1.0]]}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YXZ.json",
+            "--entity",
+            "child",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"child\",\"parent\":\"parent\",\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.13,0.29,-0.41],\"kind\":\"euler\",\"order\":\"yxz\"},\"scale\":[0.9,1.4,0.8],\"translation\":[-0.7,0.35,0.6]}},\"id\":\"child\",\"revision\":1,\"world_matrix\":[[0.9697706699371338,0.17749324440956116,0.20691552758216858,0.36488497257232666],[0.38182011246681213,0.8714472055435181,-0.5305484533309937,-1.2913178205490112],[-0.2447856068611145,0.7270058393478394,1.1012951135635376,2.7815186977386475],[0.0,0.0,0.0,1.0]],\"world_vertices\":{\"probe\":[3.401124954223633,-2.0093562602996826,1.7412211894989014]}}\n",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "id": "YZX",
+      "matrix_exact": true,
+      "point_exact": true,
+      "queries_preserve_disk": true,
+      "commands": [
+        {
+          "arguments": [
+            "scene",
+            "init",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YZX.json"
+          ],
+          "request": null,
+          "stdout": "{\"revision\":0}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "apply",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YZX.json",
+            "--request",
+            "-"
+          ],
+          "request": {
+            "expected_revision": 0,
+            "commands": [
+              {
+                "operation": "set_mesh_asset",
+                "id": "mesh",
+                "asset": {
+                  "vertices": {
+                    "probe": [
+                      3.25,
+                      -1.7,
+                      0.9
+                    ]
+                  },
+                  "edges": {},
+                  "triangles": {},
+                  "material_slots": []
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "parent",
+                "entity": {
+                  "name": "parent",
+                  "parent": null,
+                  "transform": {
+                    "translation": [
+                      1.25,
+                      -0.75,
+                      2
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.37,
+                        -0.23,
+                        0.51
+                      ],
+                      "order": "yzx"
+                    },
+                    "scale": [
+                      1.2,
+                      0.7,
+                      1.6
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "empty"
+                  }
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "child",
+                "entity": {
+                  "name": "child",
+                  "parent": "parent",
+                  "transform": {
+                    "translation": [
+                      -0.7,
+                      0.35,
+                      0.6
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.13,
+                        0.29,
+                        -0.41
+                      ],
+                      "order": "yzx"
+                    },
+                    "scale": [
+                      0.9,
+                      1.4,
+                      0.8
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "mesh",
+                    "geometry": {
+                      "kind": "asset",
+                      "id": "mesh"
+                    },
+                    "material": null
+                  }
+                }
+              }
+            ]
+          },
+          "stdout": "{\"revision\":1}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YZX.json",
+            "--entity",
+            "parent",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"kind\":\"empty\"},\"name\":\"parent\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.37,-0.23,0.51],\"kind\":\"euler\",\"order\":\"yzx\"},\"scale\":[1.2,0.7,1.6],\"translation\":[1.25,-0.75,2.0]}},\"id\":\"parent\",\"revision\":1,\"world_matrix\":[[1.0197144746780396,-0.34172406792640686,-0.3183458149433136,1.25],[0.4328583776950836,0.5695784687995911,-0.7293675541877747,-0.75],[0.46132004261016846,0.22091852128505707,1.3880486488342285,2.0],[0.0,0.0,0.0,1.0]]}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/YZX.json",
+            "--entity",
+            "child",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"child\",\"parent\":\"parent\",\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.13,0.29,-0.41],\"kind\":\"euler\",\"order\":\"yzx\"},\"scale\":[0.9,1.4,0.8],\"translation\":[-0.7,0.35,0.6]}},\"id\":\"child\",\"revision\":1,\"world_matrix\":[[1.0070419311523438,0.08100646734237671,0.0405755490064621,0.22558891773223877],[0.3858453631401062,0.8453075885772705,-0.5630778074264526,-1.2912689447402954],[-0.11912277340888977,0.76973557472229,1.0935415029525757,2.587226629257202],[0.0,0.0,0.0,1.0]],\"world_vertices\":{\"probe\":[3.397282123565674,-1.9810644388198853,1.8757144212722778]}}\n",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "id": "ZXY",
+      "matrix_exact": true,
+      "point_exact": true,
+      "queries_preserve_disk": true,
+      "commands": [
+        {
+          "arguments": [
+            "scene",
+            "init",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZXY.json"
+          ],
+          "request": null,
+          "stdout": "{\"revision\":0}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "apply",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZXY.json",
+            "--request",
+            "-"
+          ],
+          "request": {
+            "expected_revision": 0,
+            "commands": [
+              {
+                "operation": "set_mesh_asset",
+                "id": "mesh",
+                "asset": {
+                  "vertices": {
+                    "probe": [
+                      3.25,
+                      -1.7,
+                      0.9
+                    ]
+                  },
+                  "edges": {},
+                  "triangles": {},
+                  "material_slots": []
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "parent",
+                "entity": {
+                  "name": "parent",
+                  "parent": null,
+                  "transform": {
+                    "translation": [
+                      1.25,
+                      -0.75,
+                      2
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.37,
+                        -0.23,
+                        0.51
+                      ],
+                      "order": "zxy"
+                    },
+                    "scale": [
+                      1.2,
+                      0.7,
+                      1.6
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "empty"
+                  }
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "child",
+                "entity": {
+                  "name": "child",
+                  "parent": "parent",
+                  "transform": {
+                    "translation": [
+                      -0.7,
+                      0.35,
+                      0.6
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.13,
+                        0.29,
+                        -0.41
+                      ],
+                      "order": "zxy"
+                    },
+                    "scale": [
+                      0.9,
+                      1.4,
+                      0.8
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "mesh",
+                    "geometry": {
+                      "kind": "asset",
+                      "id": "mesh"
+                    },
+                    "material": null
+                  }
+                }
+              }
+            ]
+          },
+          "stdout": "{\"revision\":1}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZXY.json",
+            "--entity",
+            "parent",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"kind\":\"empty\"},\"name\":\"parent\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.37,-0.23,0.51],\"kind\":\"euler\",\"order\":\"zxy\"},\"scale\":[1.2,0.7,1.6],\"translation\":[1.25,-0.75,2.0]}},\"id\":\"parent\",\"revision\":1,\"world_matrix\":[[0.9714198708534241,-0.38308969140052795,-0.34007951617240906,1.25],[0.5461692214012146,0.5695784687995911,-0.5785847306251526,-0.75],[0.44501981139183044,0.13719552755355835,1.4524413347244263,2.0],[0.0,0.0,0.0,1.0]]}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZXY.json",
+            "--entity",
+            "child",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"child\",\"parent\":\"parent\",\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.13,0.29,-0.41],\"kind\":\"euler\",\"order\":\"zxy\"},\"scale\":[0.9,1.4,0.8],\"translation\":[-0.7,0.35,0.6]}},\"id\":\"child\",\"revision\":1,\"world_matrix\":[[0.987115740776062,0.0780056044459343,0.0015743374824523926,0.23187696933746338],[0.3844602704048157,1.0432565212249756,-0.3749786913394928,-1.2801167964935303],[-0.11027902364730835,0.4337073862552643,1.1907554864883423,2.607969284057617],[0.0,0.0,0.0,1.0]],\"world_vertices\":{\"probe\":[3.3088104724884033,-2.1416378021240234,2.583939790725708]}}\n",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "id": "ZYX",
+      "matrix_exact": true,
+      "point_exact": true,
+      "queries_preserve_disk": true,
+      "commands": [
+        {
+          "arguments": [
+            "scene",
+            "init",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZYX.json"
+          ],
+          "request": null,
+          "stdout": "{\"revision\":0}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "apply",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZYX.json",
+            "--request",
+            "-"
+          ],
+          "request": {
+            "expected_revision": 0,
+            "commands": [
+              {
+                "operation": "set_mesh_asset",
+                "id": "mesh",
+                "asset": {
+                  "vertices": {
+                    "probe": [
+                      3.25,
+                      -1.7,
+                      0.9
+                    ]
+                  },
+                  "edges": {},
+                  "triangles": {},
+                  "material_slots": []
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "parent",
+                "entity": {
+                  "name": "parent",
+                  "parent": null,
+                  "transform": {
+                    "translation": [
+                      1.25,
+                      -0.75,
+                      2
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.37,
+                        -0.23,
+                        0.51
+                      ],
+                      "order": "zyx"
+                    },
+                    "scale": [
+                      1.2,
+                      0.7,
+                      1.6
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "empty"
+                  }
+                }
+              },
+              {
+                "operation": "create_entity",
+                "id": "child",
+                "entity": {
+                  "name": "child",
+                  "parent": "parent",
+                  "transform": {
+                    "translation": [
+                      -0.7,
+                      0.35,
+                      0.6
+                    ],
+                    "rotation": {
+                      "kind": "euler",
+                      "angles": [
+                        0.13,
+                        0.29,
+                        -0.41
+                      ],
+                      "order": "zyx"
+                    },
+                    "scale": [
+                      0.9,
+                      1.4,
+                      0.8
+                    ],
+                    "precision": "f32"
+                  },
+                  "content": {
+                    "kind": "mesh",
+                    "geometry": {
+                      "kind": "asset",
+                      "id": "mesh"
+                    },
+                    "material": null
+                  }
+                }
+              }
+            ]
+          },
+          "stdout": "{\"revision\":1}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZYX.json",
+            "--entity",
+            "parent",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"kind\":\"empty\"},\"name\":\"parent\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.37,-0.23,0.51],\"kind\":\"euler\",\"order\":\"zyx\"},\"scale\":[1.2,0.7,1.6],\"translation\":[1.25,-0.75,2.0]}},\"id\":\"parent\",\"revision\":1,\"world_matrix\":[[1.0197144746780396,-0.3327252268791199,-0.3647640645503998,1.25],[0.4598301351070404,0.5977503061294556,-0.5633484721183777,-0.75],[0.43444082140922546,0.1482851803302765,1.4524413347244263,2.0],[0.0,0.0,0.0,1.0]]}\n",
+          "stderr": "",
+          "exit_code": 0
+        },
+        {
+          "arguments": [
+            "scene",
+            "inspect",
+            "--scene",
+            "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-frame-oracle-zt9e43vq/ZYX.json",
+            "--entity",
+            "child",
+            "--world"
+          ],
+          "request": null,
+          "stdout": "{\"entity\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"child\",\"parent\":\"parent\",\"transform\":{\"precision\":\"f32\",\"rotation\":{\"angles\":[0.13,0.29,-0.41],\"kind\":\"euler\",\"order\":\"zyx\"},\"scale\":[0.9,1.4,0.8],\"translation\":[-0.7,0.35,0.6]}},\"id\":\"child\",\"revision\":1,\"world_matrix\":[[1.0170444250106812,0.11180923879146576,-0.01092994213104248,0.2008875608444214],[0.32739919424057007,1.0146480798721313,-0.3824271559715271,-1.2006776332855225],[-0.11206382513046265,0.4361058175563812,1.188686490058899,2.619256019592285],[0.0,0.0,0.0,1.0]],\"world_vertices\":{\"probe\":[3.3063693046569824,-2.205716609954834,2.583486557006836]}}\n",
+          "stderr": "",
+          "exit_code": 0
+        }
+      ]
+    }
+  ],
+  "inputs_authored_in_driver": true,
+  "measured_outputs_used_as_product_inputs": false,
+  "source_files": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "8c9e81daf65df1686c2297e7deb6f5af970da66b76afda7c96360da6d9c8fff2",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "5d0eee4b2ccf49da077872840521e3040c3fa61b77a93873634caa177302edeb",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/frame_math.rs": "ca7a1d2d82a099a5d3a72855c49fa6a60a1747c2c0193b46625c364234ce50b5",
+    "src/mesh/normals.rs": "b2045c13fb09785e415281350f8e458ca505e2ce767c78f3be5dd930f8c158a4",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/influence.rs": "0e95fd7cd106d529e004c946f987f174f36900ab62530cdd2cc87fdb77b89c40",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "55be742f3806c663ef830f80bbb73eefd28843bb495ed9bdede5a45cf522419d",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "432cbaee2bf8e7e83aebdc43d06f87b8232308a3f800a288b5202f8b469f6d3b",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "de1eb9861325d9b8a80948eb7d2ec44d1b0fbf6e0b24bbc9733e49085b84795a",
+    "src/session.rs": "153974655f8d46fb6802e063e91ef1d9a14d580119a94354742d7377ef34fb98",
+    "src/transforms.rs": "ee91979889ada2cd9c423d65e49710e532b61912b282b2b0da7e82e76ee03e2c"
+  },
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun"
+}

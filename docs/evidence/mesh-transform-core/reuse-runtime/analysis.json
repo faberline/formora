@@ -1,0 +1,23 @@
+{
+  "candidate": "08d370df5dca83c5d892b9a8411e60db9dddf621",
+  "checks": 2406,
+  "matched": 2392,
+  "matched_finished": 2380,
+  "matched_expected_cancellations": 12,
+  "failed": 14,
+  "changed_raw_results": 0,
+  "regressions": 0,
+  "remaining_ids": [
+    "transform_0693",
+    "transform_0701",
+    "transform_0709",
+    "transform_0717",
+    "transform_0725",
+    "transform_0733",
+    "transform_0741"
+  ],
+  "all_2406_raw_results_byte_identical_to_previous_candidate": true,
+  "source_cases_requests_setups_and_expected_results_unchanged": true,
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false
+}

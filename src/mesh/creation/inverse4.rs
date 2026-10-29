@@ -51,7 +51,7 @@ fn reciprocal(value: f32) -> f32 {
     }
     result
 }
-pub(super) fn inverse(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
+pub(crate) fn inverse(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
     let col: [Lane; 4] = std::array::from_fn(|c| std::array::from_fn(|r| m[r][c]));
     let a = low(col[0], col[1]);
     let b = high(col[1], col[0]);

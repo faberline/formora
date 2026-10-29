@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "time_seconds": 0.0,
+  "entities": {
+    "camera": {
+      "name": "camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          5.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 45.0,
+        "near": 0.1,
+        "far": 100.0
+      }
+    },
+    "light": {
+      "name": "light",
+      "parent": null,
+      "transform": {
+        "translation": [
+          1.0,
+          -2.0,
+          5.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "intensity": 2.0
+      }
+    },
+    "surface": {
+      "name": "surface",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "mesh"
+        },
+        "material": null
+      }
+    }
+  },
+  "materials": {},
+  "mesh_assets": {
+    "mesh": {
+      "vertices": {
+        "a": [
+          -1.0,
+          -1.0,
+          0.0
+        ],
+        "b": [
+          1.0,
+          -1.0,
+          0.0
+        ],
+        "c": [
+          1.0,
+          1.0,
+          0.0
+        ],
+        "d": [
+          -1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "triangles": {},
+      "edges": {
+        "ab": [
+          "a",
+          "b"
+        ],
+        "bc": [
+          "b",
+          "c"
+        ],
+        "cd": [
+          "c",
+          "d"
+        ],
+        "da": [
+          "d",
+          "a"
+        ]
+      },
+      "polygons": {
+        "square": {
+          "vertices": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        }
+      },
+      "material_slots": [],
+      "editing": {
+        "mode": [
+          "face"
+        ],
+        "selected": {
+          "vertices": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "edges": [
+            "ab",
+            "bc",
+            "cd",
+            "da"
+          ],
+          "faces": [
+            {
+              "kind": "polygon",
+              "id": "square"
+            }
+          ]
+        },
+        "hidden": {
+          "vertices": [],
+          "edges": [],
+          "faces": []
+        },
+        "history": [],
+        "active_face": {
+          "kind": "polygon",
+          "id": "square"
+        }
+      }
+    }
+  },
+  "doors": {},
+  "active_camera": "camera",
+  "annotations": []
+}

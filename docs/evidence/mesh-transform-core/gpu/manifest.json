@@ -1,0 +1,1108 @@
+{
+  "passed": true,
+  "source_commit": "19d2470b9d7891d81c27906ca99358bc7f01b327",
+  "binary_sha256": "74eed79df6e27580de2dee4d06d0045bf3ace02b800d499d7a2c8c8ef2915dcd",
+  "source_files": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "bc17f0f1102630f184d2d0705afacac21540293a2fbf881d0e9f5e65321c32b0",
+    "src/main.rs": "55ac271c8ad763f10501ab39ec3afe7fa2b0d80b8a606405fdf2808e9a4075ce",
+    "src/mesh/creation/inverse4.rs": "b7aa2892ec0034c8c167451355deb854753b343cfcd3008f74b8ddb2d6ffa1cb",
+    "src/mesh/creation/mod.rs": "e8f6437775cb76875ae23f600686f8820af9cdbac52ca92dc8381c19fc88ddf4",
+    "src/mesh/frame_math.rs": "ec5f9c0840ad2791464fbd800f4e87e0ddf95bf448370dffd48877ff31d92ae8",
+    "src/mesh/normals.rs": "1caee1caa1e79cba1c3f1f7d288b6d9b745df882d86096cf05b60373575cb878",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "01341c275e2275b303944637d54ce8fe64ccc2a79f18579e81736b65abdc536b",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "f64736017c080764924fe84623ba835e20119bb0769a2a75d31622ef8d6ae0f8",
+    "src/mesh/transform/influence.rs": "599ad60db2fb28d6a1bb82f426b458ab758f116741f1277e8ffa85a0a746ad70",
+    "src/mesh/transform/mod.rs": "858c01cef478c0204afec65dc0e5289f8cbe1533eedf66711dc923baa1a45c2d",
+    "src/mesh.rs": "5bd850d159b280a8f1a028468398d2105dc8880fccee5e9d5478009524b5e355",
+    "src/preview/math.rs": "350cc7f85642ba899bd3c2d47a71b8a46786a6697d303fee4b0decdff425efbc",
+    "src/preview/mod.rs": "dd63405a26dce6a3e93d3587c7df346b91ca36578e85dbdf76ed5f901d5ca848",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/scene.rs": "2b207223632d94d3222f2c09072082154ac678eb8cf01c40703ccc1934d8fc24",
+    "src/session.rs": "35b95d38f7025e7c66359b8ad9155701c11d1215d061e079ac5b5ab535a8f13b"
+  },
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "runs": [
+    {
+      "kind": "translate",
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "different_pixels": 43460,
+      "marker_pixels": 95,
+      "fresh_reload_identical": true,
+      "picking_identical_with_markers": true,
+      "pick_point": [
+        0.0,
+        0.0,
+        0.75
+      ],
+      "pick_distance": 4.25,
+      "render_vertices_before_markers": 36,
+      "render_vertices_after_markers": 84
+    },
+    {
+      "kind": "rotate",
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "different_pixels": 36375,
+      "marker_pixels": 108,
+      "fresh_reload_identical": true,
+      "picking_identical_with_markers": true,
+      "pick_point": [
+        0.0,
+        0.0,
+        0.915026935632584
+      ],
+      "pick_distance": 4.084973064367416,
+      "render_vertices_before_markers": 36,
+      "render_vertices_after_markers": 84
+    },
+    {
+      "kind": "resize",
+      "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+      "different_pixels": 20920,
+      "marker_pixels": 100,
+      "fresh_reload_identical": true,
+      "picking_identical_with_markers": true,
+      "pick_point": [
+        0.0,
+        0.0,
+        0.6000000238418579
+      ],
+      "pick_distance": 4.399999976158142,
+      "render_vertices_before_markers": 36,
+      "render_vertices_after_markers": 84
+    }
+  ],
+  "commands": [
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_object",
+            "creation": {
+              "id": "target",
+              "asset": "mesh",
+              "name": "translate",
+              "primitive": {
+                "kind": "cube",
+                "size": 1.5
+              },
+              "preview_selection": false
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  2,
+                  3,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"creation\":[{\"command_index\":0,\"created\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]},\"edit_ready\":true,\"entity\":\"target\",\"kind\":\"new_object\",\"mesh_asset\":\"mesh\"}],\"revision\":1}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":1,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,5.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,5.0]}},\"target\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"translate\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000001\",\"v000003\"],\"e000002\":[\"v000003\",\"v000002\"],\"e000003\":[\"v000002\",\"v000000\"],\"e000004\":[\"v000003\",\"v000007\"],\"e000005\":[\"v000007\",\"v000006\"],\"e000006\":[\"v000006\",\"v000002\"],\"e000007\":[\"v000007\",\"v000005\"],\"e000008\":[\"v000005\",\"v000004\"],\"e000009\":[\"v000004\",\"v000006\"],\"e000010\":[\"v000005\",\"v000001\"],\"e000011\":[\"v000000\",\"v000004\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]}},\"material_slots\":[],\"polygons\":{\"p000000\":{\"corner_normals\":[[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[-1.0,0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.0],[0.625,0.0],[0.625,0.25],[0.375,0.25]]},\"vertices\":[\"v000000\",\"v000001\",\"v000003\",\"v000002\"]},\"p000001\":{\"corner_normals\":[[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.25],[0.625,0.25],[0.625,0.5],[0.375,0.5]]},\"vertices\":[\"v000002\",\"v000003\",\"v000007\",\"v000006\"]},\"p000002\":{\"corner_normals\":[[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[1.0,0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.5],[0.625,0.5],[0.625,0.75],[0.375,0.75]]},\"vertices\":[\"v000006\",\"v000007\",\"v000005\",\"v000004\"]},\"p000003\":{\"corner_normals\":[[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,-1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.75],[0.625,0.75],[0.625,1.0],[0.375,1.0]]},\"vertices\":[\"v000004\",\"v000005\",\"v000001\",\"v000000\"]},\"p000004\":{\"corner_normals\":[[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,-1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.125,0.5],[0.375,0.5],[0.375,0.75],[0.125,0.75]]},\"vertices\":[\"v000002\",\"v000006\",\"v000004\",\"v000000\"]},\"p000005\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.625,0.5],[0.875,0.5],[0.875,0.75],[0.625,0.75]]},\"vertices\":[\"v000007\",\"v000003\",\"v000001\",\"v000005\"]}},\"recipe\":{\"creation_frame\":{\"matrix\":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0]]},\"edited\":false,\"max_components\":1000000,\"primitive\":{\"calc_uvs\":true,\"kind\":\"cube\",\"scale\":[1.0,1.0,1.0],\"size\":1.5}},\"triangles\":{},\"uv_layout\":{\"active\":\"UVMap\",\"layers\":[\"UVMap\"]},\"vertices\":{\"v000000\":[-0.75,-0.75,-0.75],\"v000001\":[-0.75,-0.75,0.75],\"v000002\":[-0.75,0.75,-0.75],\"v000003\":[-0.75,0.75,0.75],\"v000004\":[0.75,-0.75,-0.75],\"v000005\":[0.75,-0.75,0.75],\"v000006\":[0.75,0.75,-0.75],\"v000007\":[0.75,0.75,0.75]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/before.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "target",
+              "change": {
+                "kind": "translate",
+                "value": [
+                  0.6,
+                  0.3,
+                  0
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":2,\"transforms\":[{\"basis_world\":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],\"centres_local\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,0.0,0.0],\"v000002\":[0.0,0.0,0.0],\"v000003\":[0.0,0.0,0.0],\"v000004\":[0.0,0.0,0.0],\"v000005\":[0.0,0.0,0.0],\"v000006\":[0.0,0.0,0.0],\"v000007\":[0.0,0.0,0.0]},\"changed\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]},\"command_index\":0,\"entity\":\"target\",\"influence\":{\"v000000\":1.0,\"v000001\":1.0,\"v000002\":1.0,\"v000003\":1.0,\"v000004\":1.0,\"v000005\":1.0,\"v000006\":1.0,\"v000007\":1.0},\"mesh_asset\":\"mesh\",\"pivot_world\":[0.0,0.0,0.0],\"random_seed\":null,\"shared_instances\":[\"target\"]}]}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":2,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,5.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,5.0]}},\"target\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"translate\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000001\",\"v000003\"],\"e000002\":[\"v000003\",\"v000002\"],\"e000003\":[\"v000002\",\"v000000\"],\"e000004\":[\"v000003\",\"v000007\"],\"e000005\":[\"v000007\",\"v000006\"],\"e000006\":[\"v000006\",\"v000002\"],\"e000007\":[\"v000007\",\"v000005\"],\"e000008\":[\"v000005\",\"v000004\"],\"e000009\":[\"v000004\",\"v000006\"],\"e000010\":[\"v000005\",\"v000001\"],\"e000011\":[\"v000000\",\"v000004\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]}},\"material_slots\":[],\"polygons\":{\"p000000\":{\"corner_normals\":[[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[-1.0,-0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.0],[0.625,0.0],[0.625,0.25],[0.375,0.25]]},\"vertices\":[\"v000000\",\"v000001\",\"v000003\",\"v000002\"]},\"p000001\":{\"corner_normals\":[[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.25],[0.625,0.25],[0.625,0.5],[0.375,0.5]]},\"vertices\":[\"v000002\",\"v000003\",\"v000007\",\"v000006\"]},\"p000002\":{\"corner_normals\":[[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[1.0,-0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.5],[0.625,0.5],[0.625,0.75],[0.375,0.75]]},\"vertices\":[\"v000006\",\"v000007\",\"v000005\",\"v000004\"]},\"p000003\":{\"corner_normals\":[[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,-1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.75],[0.625,0.75],[0.625,1.0],[0.375,1.0]]},\"vertices\":[\"v000004\",\"v000005\",\"v000001\",\"v000000\"]},\"p000004\":{\"corner_normals\":[[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,-1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.125,0.5],[0.375,0.5],[0.375,0.75],[0.125,0.75]]},\"vertices\":[\"v000002\",\"v000006\",\"v000004\",\"v000000\"]},\"p000005\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,-0.0,1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.625,0.5],[0.875,0.5],[0.875,0.75],[0.625,0.75]]},\"vertices\":[\"v000007\",\"v000003\",\"v000001\",\"v000005\"]}},\"recipe\":{\"creation_frame\":{\"matrix\":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0]]},\"edited\":true,\"max_components\":1000000,\"primitive\":{\"calc_uvs\":true,\"kind\":\"cube\",\"scale\":[1.0,1.0,1.0],\"size\":1.5}},\"triangles\":{},\"uv_layout\":{\"active\":\"UVMap\",\"layers\":[\"UVMap\"]},\"vertices\":{\"v000000\":[-0.1499999761581421,-0.44999998807907104,-0.75],\"v000001\":[-0.1499999761581421,-0.44999998807907104,0.75],\"v000002\":[-0.1499999761581421,1.0499999523162842,-0.75],\"v000003\":[-0.1499999761581421,1.0499999523162842,0.75],\"v000004\":[1.350000023841858,-0.44999998807907104,-0.75],\"v000005\":[1.350000023841858,-0.44999998807907104,0.75],\"v000006\":[1.350000023841858,1.0499999523162842,-0.75],\"v000007\":[1.350000023841858,1.0499999523162842,0.75]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/after.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/after.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/reloaded.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "active_face": null,
+              "hidden": {
+                "edges": [],
+                "faces": [],
+                "vertices": []
+              },
+              "history": [],
+              "mode": [
+                "vertex"
+              ],
+              "preview": true,
+              "selected": {
+                "edges": [
+                  "e000000",
+                  "e000001",
+                  "e000002",
+                  "e000003",
+                  "e000004",
+                  "e000005",
+                  "e000006",
+                  "e000007",
+                  "e000008",
+                  "e000009",
+                  "e000010",
+                  "e000011"
+                ],
+                "faces": [
+                  {
+                    "id": "p000000",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000001",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000002",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000003",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000004",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000005",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":3}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/markers.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/translate/markers.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_object",
+            "creation": {
+              "id": "target",
+              "asset": "mesh",
+              "name": "rotate",
+              "primitive": {
+                "kind": "cube",
+                "size": 1.5
+              },
+              "preview_selection": false
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  2,
+                  3,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"creation\":[{\"command_index\":0,\"created\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]},\"edit_ready\":true,\"entity\":\"target\",\"kind\":\"new_object\",\"mesh_asset\":\"mesh\"}],\"revision\":1}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":1,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,5.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,5.0]}},\"target\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"rotate\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000001\",\"v000003\"],\"e000002\":[\"v000003\",\"v000002\"],\"e000003\":[\"v000002\",\"v000000\"],\"e000004\":[\"v000003\",\"v000007\"],\"e000005\":[\"v000007\",\"v000006\"],\"e000006\":[\"v000006\",\"v000002\"],\"e000007\":[\"v000007\",\"v000005\"],\"e000008\":[\"v000005\",\"v000004\"],\"e000009\":[\"v000004\",\"v000006\"],\"e000010\":[\"v000005\",\"v000001\"],\"e000011\":[\"v000000\",\"v000004\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]}},\"material_slots\":[],\"polygons\":{\"p000000\":{\"corner_normals\":[[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[-1.0,0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.0],[0.625,0.0],[0.625,0.25],[0.375,0.25]]},\"vertices\":[\"v000000\",\"v000001\",\"v000003\",\"v000002\"]},\"p000001\":{\"corner_normals\":[[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.25],[0.625,0.25],[0.625,0.5],[0.375,0.5]]},\"vertices\":[\"v000002\",\"v000003\",\"v000007\",\"v000006\"]},\"p000002\":{\"corner_normals\":[[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[1.0,0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.5],[0.625,0.5],[0.625,0.75],[0.375,0.75]]},\"vertices\":[\"v000006\",\"v000007\",\"v000005\",\"v000004\"]},\"p000003\":{\"corner_normals\":[[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,-1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.75],[0.625,0.75],[0.625,1.0],[0.375,1.0]]},\"vertices\":[\"v000004\",\"v000005\",\"v000001\",\"v000000\"]},\"p000004\":{\"corner_normals\":[[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,-1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.125,0.5],[0.375,0.5],[0.375,0.75],[0.125,0.75]]},\"vertices\":[\"v000002\",\"v000006\",\"v000004\",\"v000000\"]},\"p000005\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.625,0.5],[0.875,0.5],[0.875,0.75],[0.625,0.75]]},\"vertices\":[\"v000007\",\"v000003\",\"v000001\",\"v000005\"]}},\"recipe\":{\"creation_frame\":{\"matrix\":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0]]},\"edited\":false,\"max_components\":1000000,\"primitive\":{\"calc_uvs\":true,\"kind\":\"cube\",\"scale\":[1.0,1.0,1.0],\"size\":1.5}},\"triangles\":{},\"uv_layout\":{\"active\":\"UVMap\",\"layers\":[\"UVMap\"]},\"vertices\":{\"v000000\":[-0.75,-0.75,-0.75],\"v000001\":[-0.75,-0.75,0.75],\"v000002\":[-0.75,0.75,-0.75],\"v000003\":[-0.75,0.75,0.75],\"v000004\":[0.75,-0.75,-0.75],\"v000005\":[0.75,-0.75,0.75],\"v000006\":[0.75,0.75,-0.75],\"v000007\":[0.75,0.75,0.75]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/before.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "target",
+              "change": {
+                "kind": "rotate",
+                "radians": 0.61,
+                "axis": "y"
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":2,\"transforms\":[{\"basis_world\":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],\"centres_local\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,0.0,0.0],\"v000002\":[0.0,0.0,0.0],\"v000003\":[0.0,0.0,0.0],\"v000004\":[0.0,0.0,0.0],\"v000005\":[0.0,0.0,0.0],\"v000006\":[0.0,0.0,0.0],\"v000007\":[0.0,0.0,0.0]},\"changed\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]},\"command_index\":0,\"entity\":\"target\",\"influence\":{\"v000000\":1.0,\"v000001\":1.0,\"v000002\":1.0,\"v000003\":1.0,\"v000004\":1.0,\"v000005\":1.0,\"v000006\":1.0,\"v000007\":1.0},\"mesh_asset\":\"mesh\",\"pivot_world\":[0.0,0.0,0.0],\"random_seed\":null,\"shared_instances\":[\"target\"]}]}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":2,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,5.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,5.0]}},\"target\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"rotate\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000001\",\"v000003\"],\"e000002\":[\"v000003\",\"v000002\"],\"e000003\":[\"v000002\",\"v000000\"],\"e000004\":[\"v000003\",\"v000007\"],\"e000005\":[\"v000007\",\"v000006\"],\"e000006\":[\"v000006\",\"v000002\"],\"e000007\":[\"v000007\",\"v000005\"],\"e000008\":[\"v000005\",\"v000004\"],\"e000009\":[\"v000004\",\"v000006\"],\"e000010\":[\"v000005\",\"v000001\"],\"e000011\":[\"v000000\",\"v000004\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]}},\"material_slots\":[],\"polygons\":{\"p000000\":{\"corner_normals\":[[-0.819648027420044,0.0,0.5728675127029419],[-0.819648027420044,0.0,0.5728675127029419],[-0.819648027420044,0.0,0.5728675127029419],[-0.819648027420044,0.0,0.5728675127029419]],\"material_slot\":null,\"normal\":[-0.819648027420044,0.0,0.5728675127029419],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.0],[0.625,0.0],[0.625,0.25],[0.375,0.25]]},\"vertices\":[\"v000000\",\"v000001\",\"v000003\",\"v000002\"]},\"p000001\":{\"corner_normals\":[[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.25],[0.625,0.25],[0.625,0.5],[0.375,0.5]]},\"vertices\":[\"v000002\",\"v000003\",\"v000007\",\"v000006\"]},\"p000002\":{\"corner_normals\":[[0.819648027420044,0.0,-0.5728675127029419],[0.819648027420044,0.0,-0.5728675127029419],[0.819648027420044,0.0,-0.5728675127029419],[0.819648027420044,0.0,-0.5728675127029419]],\"material_slot\":null,\"normal\":[0.819648027420044,0.0,-0.5728675127029419],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.5],[0.625,0.5],[0.625,0.75],[0.375,0.75]]},\"vertices\":[\"v000006\",\"v000007\",\"v000005\",\"v000004\"]},\"p000003\":{\"corner_normals\":[[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,-1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.75],[0.625,0.75],[0.625,1.0],[0.375,1.0]]},\"vertices\":[\"v000004\",\"v000005\",\"v000001\",\"v000000\"]},\"p000004\":{\"corner_normals\":[[-0.5728675127029419,0.0,-0.819648027420044],[-0.5728675127029419,0.0,-0.819648027420044],[-0.5728675127029419,0.0,-0.819648027420044],[-0.5728675127029419,0.0,-0.819648027420044]],\"material_slot\":null,\"normal\":[-0.5728675127029419,0.0,-0.819648027420044],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.125,0.5],[0.375,0.5],[0.375,0.75],[0.125,0.75]]},\"vertices\":[\"v000002\",\"v000006\",\"v000004\",\"v000000\"]},\"p000005\":{\"corner_normals\":[[0.5728675127029419,0.0,0.819648027420044],[0.5728675127029419,0.0,0.819648027420044],[0.5728675127029419,0.0,0.819648027420044],[0.5728675127029419,0.0,0.819648027420044]],\"material_slot\":null,\"normal\":[0.5728675127029419,0.0,0.819648027420044],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.625,0.5],[0.875,0.5],[0.875,0.75],[0.625,0.75]]},\"vertices\":[\"v000007\",\"v000003\",\"v000001\",\"v000005\"]}},\"recipe\":{\"creation_frame\":{\"matrix\":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0]]},\"edited\":true,\"max_components\":1000000,\"primitive\":{\"calc_uvs\":true,\"kind\":\"cube\",\"scale\":[1.0,1.0,1.0],\"size\":1.5}},\"triangles\":{},\"uv_layout\":{\"active\":\"UVMap\",\"layers\":[\"UVMap\"]},\"vertices\":{\"v000000\":[-1.044386625289917,-0.75,-0.18508541584014893],\"v000001\":[-0.18508541584014893,-0.75,1.044386625289917],\"v000002\":[-1.044386625289917,0.75,-0.18508541584014893],\"v000003\":[-0.18508541584014893,0.75,1.044386625289917],\"v000004\":[0.18508541584014893,-0.75,-1.044386625289917],\"v000005\":[1.044386625289917,-0.75,0.18508541584014893],\"v000006\":[0.18508541584014893,0.75,-1.044386625289917],\"v000007\":[1.044386625289917,0.75,0.18508541584014893]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/after.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/after.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/reloaded.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "active_face": null,
+              "hidden": {
+                "edges": [],
+                "faces": [],
+                "vertices": []
+              },
+              "history": [],
+              "mode": [
+                "vertex"
+              ],
+              "preview": true,
+              "selected": {
+                "edges": [
+                  "e000000",
+                  "e000001",
+                  "e000002",
+                  "e000003",
+                  "e000004",
+                  "e000005",
+                  "e000006",
+                  "e000007",
+                  "e000008",
+                  "e000009",
+                  "e000010",
+                  "e000011"
+                ],
+                "faces": [
+                  {
+                    "id": "p000000",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000001",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000002",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000003",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000004",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000005",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":3}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/markers.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/rotate/markers.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "init",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_object",
+            "creation": {
+              "id": "target",
+              "asset": "mesh",
+              "name": "resize",
+              "primitive": {
+                "kind": "cube",
+                "size": 1.5
+              },
+              "preview_selection": false
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "camera",
+            "entity": {
+              "name": "camera",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  0,
+                  0,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "camera",
+                "vertical_fov_degrees": 45,
+                "near": 0.1,
+                "far": 100
+              }
+            }
+          },
+          {
+            "operation": "set_active_camera",
+            "id": "camera"
+          },
+          {
+            "operation": "create_entity",
+            "id": "light",
+            "entity": {
+              "name": "light",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  2,
+                  3,
+                  5
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "content": {
+                "kind": "light",
+                "color": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 2
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"creation\":[{\"command_index\":0,\"created\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]},\"edit_ready\":true,\"entity\":\"target\",\"kind\":\"new_object\",\"mesh_asset\":\"mesh\"}],\"revision\":1}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":1,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,5.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,5.0]}},\"target\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"resize\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000001\",\"v000003\"],\"e000002\":[\"v000003\",\"v000002\"],\"e000003\":[\"v000002\",\"v000000\"],\"e000004\":[\"v000003\",\"v000007\"],\"e000005\":[\"v000007\",\"v000006\"],\"e000006\":[\"v000006\",\"v000002\"],\"e000007\":[\"v000007\",\"v000005\"],\"e000008\":[\"v000005\",\"v000004\"],\"e000009\":[\"v000004\",\"v000006\"],\"e000010\":[\"v000005\",\"v000001\"],\"e000011\":[\"v000000\",\"v000004\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]}},\"material_slots\":[],\"polygons\":{\"p000000\":{\"corner_normals\":[[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[-1.0,0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.0],[0.625,0.0],[0.625,0.25],[0.375,0.25]]},\"vertices\":[\"v000000\",\"v000001\",\"v000003\",\"v000002\"]},\"p000001\":{\"corner_normals\":[[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.25],[0.625,0.25],[0.625,0.5],[0.375,0.5]]},\"vertices\":[\"v000002\",\"v000003\",\"v000007\",\"v000006\"]},\"p000002\":{\"corner_normals\":[[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[1.0,0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.5],[0.625,0.5],[0.625,0.75],[0.375,0.75]]},\"vertices\":[\"v000006\",\"v000007\",\"v000005\",\"v000004\"]},\"p000003\":{\"corner_normals\":[[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,-1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.75],[0.625,0.75],[0.625,1.0],[0.375,1.0]]},\"vertices\":[\"v000004\",\"v000005\",\"v000001\",\"v000000\"]},\"p000004\":{\"corner_normals\":[[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,-1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.125,0.5],[0.375,0.5],[0.375,0.75],[0.125,0.75]]},\"vertices\":[\"v000002\",\"v000006\",\"v000004\",\"v000000\"]},\"p000005\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.625,0.5],[0.875,0.5],[0.875,0.75],[0.625,0.75]]},\"vertices\":[\"v000007\",\"v000003\",\"v000001\",\"v000005\"]}},\"recipe\":{\"creation_frame\":{\"matrix\":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0]]},\"edited\":false,\"max_components\":1000000,\"primitive\":{\"calc_uvs\":true,\"kind\":\"cube\",\"scale\":[1.0,1.0,1.0],\"size\":1.5}},\"triangles\":{},\"uv_layout\":{\"active\":\"UVMap\",\"layers\":[\"UVMap\"]},\"vertices\":{\"v000000\":[-0.75,-0.75,-0.75],\"v000001\":[-0.75,-0.75,0.75],\"v000002\":[-0.75,0.75,-0.75],\"v000003\":[-0.75,0.75,0.75],\"v000004\":[0.75,-0.75,-0.75],\"v000005\":[0.75,-0.75,0.75],\"v000006\":[0.75,0.75,-0.75],\"v000007\":[0.75,0.75,0.75]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/before.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "transform_mesh",
+            "transform": {
+              "entity": "target",
+              "change": {
+                "kind": "resize",
+                "value": [
+                  0.7,
+                  1.3,
+                  0.8
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":2,\"transforms\":[{\"basis_world\":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],\"centres_local\":{\"v000000\":[0.0,0.0,0.0],\"v000001\":[0.0,0.0,0.0],\"v000002\":[0.0,0.0,0.0],\"v000003\":[0.0,0.0,0.0],\"v000004\":[0.0,0.0,0.0],\"v000005\":[0.0,0.0,0.0],\"v000006\":[0.0,0.0,0.0],\"v000007\":[0.0,0.0,0.0]},\"changed\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]},\"command_index\":0,\"entity\":\"target\",\"influence\":{\"v000000\":1.0,\"v000001\":1.0,\"v000002\":1.0,\"v000003\":1.0,\"v000004\":1.0,\"v000005\":1.0,\"v000006\":1.0,\"v000007\":1.0},\"mesh_asset\":\"mesh\",\"pivot_world\":[0.0,0.0,0.0],\"random_seed\":null,\"shared_instances\":[\"target\"]}]}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json"
+      ],
+      "request": null,
+      "stdout": "{\"revision\":2,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,5.0]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":2.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,5.0]}},\"target\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"resize\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[0.0,0.0,0.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edges\":{\"e000000\":[\"v000000\",\"v000001\"],\"e000001\":[\"v000001\",\"v000003\"],\"e000002\":[\"v000003\",\"v000002\"],\"e000003\":[\"v000002\",\"v000000\"],\"e000004\":[\"v000003\",\"v000007\"],\"e000005\":[\"v000007\",\"v000006\"],\"e000006\":[\"v000006\",\"v000002\"],\"e000007\":[\"v000007\",\"v000005\"],\"e000008\":[\"v000005\",\"v000004\"],\"e000009\":[\"v000004\",\"v000006\"],\"e000010\":[\"v000005\",\"v000001\"],\"e000011\":[\"v000000\",\"v000004\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"preview\":false,\"selected\":{\"edges\":[\"e000000\",\"e000001\",\"e000002\",\"e000003\",\"e000004\",\"e000005\",\"e000006\",\"e000007\",\"e000008\",\"e000009\",\"e000010\",\"e000011\"],\"faces\":[{\"id\":\"p000000\",\"kind\":\"polygon\"},{\"id\":\"p000001\",\"kind\":\"polygon\"},{\"id\":\"p000002\",\"kind\":\"polygon\"},{\"id\":\"p000003\",\"kind\":\"polygon\"},{\"id\":\"p000004\",\"kind\":\"polygon\"},{\"id\":\"p000005\",\"kind\":\"polygon\"}],\"vertices\":[\"v000000\",\"v000001\",\"v000002\",\"v000003\",\"v000004\",\"v000005\",\"v000006\",\"v000007\"]}},\"material_slots\":[],\"polygons\":{\"p000000\":{\"corner_normals\":[[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0],[-1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[-1.0,-0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.0],[0.625,0.0],[0.625,0.25],[0.375,0.25]]},\"vertices\":[\"v000000\",\"v000001\",\"v000003\",\"v000002\"]},\"p000001\":{\"corner_normals\":[[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0],[0.0,1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.25],[0.625,0.25],[0.625,0.5],[0.375,0.5]]},\"vertices\":[\"v000002\",\"v000003\",\"v000007\",\"v000006\"]},\"p000002\":{\"corner_normals\":[[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0],[1.0,0.0,0.0]],\"material_slot\":null,\"normal\":[1.0,-0.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.5],[0.625,0.5],[0.625,0.75],[0.375,0.75]]},\"vertices\":[\"v000006\",\"v000007\",\"v000005\",\"v000004\"]},\"p000003\":{\"corner_normals\":[[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0],[0.0,-1.0,0.0]],\"material_slot\":null,\"normal\":[0.0,-1.0,0.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.375,0.75],[0.625,0.75],[0.625,1.0],[0.375,1.0]]},\"vertices\":[\"v000004\",\"v000005\",\"v000001\",\"v000000\"]},\"p000004\":{\"corner_normals\":[[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0],[0.0,0.0,-1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,-1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.125,0.5],[0.375,0.5],[0.375,0.75],[0.125,0.75]]},\"vertices\":[\"v000002\",\"v000006\",\"v000004\",\"v000000\"]},\"p000005\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,-0.0,1.0],\"smooth\":false,\"uv_layers\":{\"UVMap\":[[0.625,0.5],[0.875,0.5],[0.875,0.75],[0.625,0.75]]},\"vertices\":[\"v000007\",\"v000003\",\"v000001\",\"v000005\"]}},\"recipe\":{\"creation_frame\":{\"matrix\":[[1.0,0.0,0.0,0.0],[0.0,1.0,0.0,0.0],[0.0,0.0,1.0,0.0]]},\"edited\":true,\"max_components\":1000000,\"primitive\":{\"calc_uvs\":true,\"kind\":\"cube\",\"scale\":[1.0,1.0,1.0],\"size\":1.5}},\"triangles\":{},\"uv_layout\":{\"active\":\"UVMap\",\"layers\":[\"UVMap\"]},\"vertices\":{\"v000000\":[-0.5249999761581421,-0.9749999642372131,-0.6000000238418579],\"v000001\":[-0.5249999761581421,-0.9749999642372131,0.6000000238418579],\"v000002\":[-0.5249999761581421,0.9749999642372131,-0.6000000238418579],\"v000003\":[-0.5249999761581421,0.9749999642372131,0.6000000238418579],\"v000004\":[0.5249999761581421,-0.9749999642372131,-0.6000000238418579],\"v000005\":[0.5249999761581421,-0.9749999642372131,0.6000000238418579],\"v000006\":[0.5249999761581421,0.9749999642372131,-0.6000000238418579],\"v000007\":[0.5249999761581421,0.9749999642372131,0.6000000238418579]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/after.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/after.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/reloaded.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "active_face": null,
+              "hidden": {
+                "edges": [],
+                "faces": [],
+                "vertices": []
+              },
+              "history": [],
+              "mode": [
+                "vertex"
+              ],
+              "preview": true,
+              "selected": {
+                "edges": [
+                  "e000000",
+                  "e000001",
+                  "e000002",
+                  "e000003",
+                  "e000004",
+                  "e000005",
+                  "e000006",
+                  "e000007",
+                  "e000008",
+                  "e000009",
+                  "e000010",
+                  "e000011"
+                ],
+                "faces": [
+                  {
+                    "id": "p000000",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000001",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000002",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000003",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000004",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000005",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "stdout": "{\"revision\":3}\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "render",
+        "--scene",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/scene.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/markers.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/Users/chrischeng/faberlines/formora/docs/evidence/mesh-transform-core/gpu/resize/markers.png\",\"width\":640}\n",
+      "stderr": "",
+      "exit_code": 0
+    }
+  ],
+  "driver_sha256": "05eb298b23def8226fa496901b59a3607dbbf15d564aeaa57c40f16ee427f999",
+  "probe_source_sha256": "1983591099392b0324dfce9f1f83269c2f05701fb6a5881652af56ce7378b2bb",
+  "probe_binary_sha256": "9c528fc17f7fb24351584bbc603650ae74f3a91ffdb9807b16bacc8ef848089d",
+  "formora_library_sha256": "da479224e7a7e05adbca2e584efeee3535232173b652755f6b3e1d7a81608cf5",
+  "glam_library_sha256": "516c1f97adc8b460c8ca980d0842e725364e8923c93baca25c94dabbaab2b2c7",
+  "probe_compile_command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "--crate-name",
+    "formora_transform_picking_proof",
+    "/private/tmp/formora-transform-picking-proof.rs",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/debug/libformora.rlib",
+    "--extern",
+    "glam=/private/tmp/formora-target-actual185/debug/deps/libglam-e77393b07728cdf5.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/debug/deps",
+    "-o",
+    "/private/tmp/formora-transform-picking-proof"
+  ],
+  "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+  "artifacts": {
+    "rotate/before.png": "615ffc7be27c06a7a073001e3f4b2570fa1ada7f922fcce75cd8af10551809f6",
+    "rotate/reloaded.png": "48412bed14b8945c6edeff3a852d7359f76d1c3426d5f336a9056c7756ee23d4",
+    "rotate/after.png": "48412bed14b8945c6edeff3a852d7359f76d1c3426d5f336a9056c7756ee23d4",
+    "rotate/markers.png": "09bad25d8b44a429533d4d9811a04ba327754c6c72b36c066c8b8cc382918dc6",
+    "rotate/after-scene.json": "6d7ed6991111e90d92d0d9597704ff7d6df26a23dfd45c885718aa4b511c6369",
+    "rotate/scene.json": "4300ae4e967c95174077e9bd15700cd5c13cec0f157bca2084be90a04ee21b5f",
+    "rotate/receipt.json": "ce1d88dc7f1cc99cafcf6de2877c8bda52859cb0738b8af9420a18b3e4109a53",
+    "translate/before.png": "615ffc7be27c06a7a073001e3f4b2570fa1ada7f922fcce75cd8af10551809f6",
+    "translate/reloaded.png": "ff8e3a8d8e9814e2e9585d791413e8fbe9cc92e86e6e09f7b33ed5a8a58c8c16",
+    "translate/after.png": "ff8e3a8d8e9814e2e9585d791413e8fbe9cc92e86e6e09f7b33ed5a8a58c8c16",
+    "translate/markers.png": "d240f9dbf7adcb90d46e23bcf349d71d50a31964a731c921c5c1163ea3bc3f82",
+    "translate/after-scene.json": "4a9768161dd972978652fe0394e60295d8739f72a5ab6d0258f47c9a0a1671ff",
+    "translate/scene.json": "dced0130abce8df16e7bcc8a918e3f9142e66e8630fc70276413394d11dfd863",
+    "translate/receipt.json": "ce1d88dc7f1cc99cafcf6de2877c8bda52859cb0738b8af9420a18b3e4109a53",
+    "resize/before.png": "615ffc7be27c06a7a073001e3f4b2570fa1ada7f922fcce75cd8af10551809f6",
+    "resize/reloaded.png": "f8eb815ffaa6da28616aaf4ca0ec456177edcd214202aa200be5fe5533d39889",
+    "resize/after.png": "f8eb815ffaa6da28616aaf4ca0ec456177edcd214202aa200be5fe5533d39889",
+    "resize/markers.png": "34b55d54bc0aa074f64a9f242dacc392456908faa286a9142541ef46d971ddfc",
+    "resize/after-scene.json": "e1b960fbf8f1e519d55be816792020ec33950cbc6a8ca498e809b57b967f2f9f",
+    "resize/scene.json": "dee8cc17c21c31908b727da752d046a38ca37498a309ec02f610307ec21b2269",
+    "resize/receipt.json": "ce1d88dc7f1cc99cafcf6de2877c8bda52859cb0738b8af9420a18b3e4109a53"
+  },
+  "scope": "basic native mesh transforms only; source gate, other options, platforms and milestone acceptance remain incomplete"
+}

@@ -210,7 +210,7 @@ pub fn topology(asset: &MeshAsset) -> Result<TopologyDescription> {
     Ok(Graph::new(asset)?.describe())
 }
 
-pub(crate) fn validate_attributes(asset: &MeshAsset) -> Result<()> {
+pub(crate) fn validate_attributes(asset: &MeshAsset, require_graph: bool) -> Result<Option<Graph>> {
     let names: BTreeSet<_> = asset.vertex_groups.iter().collect();
     if names.len() != asset.vertex_groups.len()
         || names.iter().any(|name| !super::valid_layer(name))
@@ -235,7 +235,7 @@ pub(crate) fn validate_attributes(asset: &MeshAsset) -> Result<()> {
     {
         return Err(SceneError("unknown smooth triangle".into()));
     }
-    if asset.editing.is_some() || !asset.edge_seams.is_empty() {
+    if require_graph || asset.editing.is_some() || !asset.edge_seams.is_empty() {
         let graph = Graph::new(asset)?;
         if asset
             .edge_seams
@@ -247,8 +247,9 @@ pub(crate) fn validate_attributes(asset: &MeshAsset) -> Result<()> {
         if let Some(editing) = &asset.editing {
             graph.validate(editing)?;
         }
+        return Ok(Some(graph));
     }
-    Ok(())
+    Ok(None)
 }
 
 pub fn set_editing(asset: &mut MeshAsset, editing: Option<Editing>) -> Result<()> {

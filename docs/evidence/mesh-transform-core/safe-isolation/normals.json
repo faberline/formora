@@ -1,0 +1,203 @@
+{
+  "id": "mesh",
+  "mesh_asset": {
+    "edges": {
+      "ab": [
+        "apricot",
+        "birch"
+      ],
+      "bc": [
+        "birch",
+        "cedar"
+      ],
+      "cd": [
+        "cedar",
+        "dogwood"
+      ],
+      "da": [
+        "dogwood",
+        "apricot"
+      ]
+    },
+    "editing": {
+      "active_face": null,
+      "hidden": {
+        "edges": [],
+        "faces": [],
+        "vertices": [
+          "hidden"
+        ]
+      },
+      "history": [],
+      "mode": [
+        "vertex"
+      ],
+      "preview": false,
+      "selected": {
+        "edges": [
+          "ab",
+          "bc",
+          "cd",
+          "da"
+        ],
+        "faces": [
+          {
+            "id": "surface",
+            "kind": "polygon"
+          }
+        ],
+        "vertices": [
+          "apricot",
+          "birch",
+          "cedar",
+          "dogwood"
+        ]
+      }
+    },
+    "material_slots": [],
+    "polygons": {
+      "surface": {
+        "corner_normals": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "material_slot": null,
+        "normal": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "smooth": false,
+        "uv_layers": {
+          "Detail": [
+            [
+              0.031,
+              0.9
+            ],
+            [
+              0.83,
+              0.71
+            ],
+            [
+              0.97,
+              0.16
+            ],
+            [
+              0.13,
+              0.21
+            ]
+          ]
+        },
+        "vertices": [
+          "apricot",
+          "birch",
+          "cedar",
+          "dogwood"
+        ]
+      }
+    },
+    "triangles": {},
+    "uv_layout": {
+      "active": "Detail",
+      "layers": [
+        "Detail"
+      ]
+    },
+    "vertex_groups": [
+      "keep"
+    ],
+    "vertex_weights": {
+      "birch": {
+        "keep": 0.375
+      }
+    },
+    "vertices": {
+      "apart": [
+        0.17,
+        -0.29,
+        0.31
+      ],
+      "apricot": [
+        -0.5545420050621033,
+        -0.1899999976158142,
+        0.28360000252723694
+      ],
+      "birch": [
+        -1.4831397533416748,
+        -0.1899999976158142,
+        0.002199992537498474
+      ],
+      "cedar": [
+        -1.173607349395752,
+        -0.1899999976158142,
+        0.14959999918937683
+      ],
+      "dogwood": [
+        -0.24500934779644012,
+        -0.1899999976158142,
+        0.4309999942779541
+      ],
+      "hidden": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    }
+  },
+  "normals": {
+    "faces": [
+      {
+        "corner_normals": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "face": {
+          "id": "surface",
+          "kind": "polygon"
+        },
+        "normal": [
+          -0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  "revision": 5
+}

@@ -1,0 +1,31 @@
+{
+  "candidate": "32bd336d8dd708b5dc59c7fdb82c414a08d0adaf",
+  "checks": 2406,
+  "matched": 2362,
+  "matched_finished": 2350,
+  "matched_expected_cancellations": 12,
+  "failed": 44,
+  "improved": 48,
+  "improvements": {
+    "mirror": 12,
+    "face_attribute_correction": 36
+  },
+  "regressions": 0,
+  "adapter_requests_and_setups_unchanged": true,
+  "all_seven_undefined_axis_cases_retained": true,
+  "per_interface_failures": {
+    "cli": {
+      "normal_numeric": 6,
+      "world_position_numeric": 6,
+      "geometry_numeric": 10
+    },
+    "official_mcp_sdk": {
+      "normal_numeric": 6,
+      "world_position_numeric": 6,
+      "geometry_numeric": 10
+    }
+  },
+  "both_interfaces_have_identical_raw_results": true,
+  "required_transform_gate_passed": false,
+  "source_report_sha256": "f96e27a56506e158302445205fd544701462a387b41c6bb9c970f0d82f9d050a"
+}

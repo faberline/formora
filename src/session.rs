@@ -28,6 +28,8 @@ pub struct ApplyResult {
     pub selection: Vec<crate::mesh::selection::CommandOutcome>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub creation: Vec<crate::mesh::creation::CreationReceipt>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub transforms: Vec<crate::mesh::transform::Receipt>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -39,11 +41,76 @@ pub struct InspectRequest {
     pub tessellate: bool,
     #[serde(default)]
     pub selection_topology: bool,
+    #[serde(default)]
+    pub normals: bool,
+    #[serde(default)]
+    pub world: bool,
 }
 
 impl InspectRequest {
     /// The CLI can inspect a saved scene without taking the writer lock.
     pub fn inspect(&self, scene: &Scene) -> Result<serde_json::Value> {
+        if self.world {
+            if self.entity.is_none()
+                || self.mesh_asset.is_some()
+                || self.tessellate
+                || self.selection_topology
+                || self.normals
+            {
+                return Err(SceneError("world query requires only an entity".into()));
+            }
+            let id = self.entity.as_ref().unwrap();
+            let entity = scene
+                .entities
+                .get(id)
+                .ok_or_else(|| SceneError(format!("unknown entity: {id}")))?;
+            let matrix = crate::transforms::world(scene, id)?;
+            let mut result = serde_json::json!({"revision":scene.revision,"id":id,"entity":entity,"world_matrix":matrix});
+            if let crate::scene::EntityKind::Mesh { geometry, .. } = &entity.content {
+                let vertices: BTreeMap<String, [f64; 3]> = match geometry {
+                    crate::scene::Geometry::Asset { id } => scene
+                        .mesh_assets
+                        .get(id)
+                        .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?
+                        .vertices
+                        .clone(),
+                    crate::scene::Geometry::Cube { size } => (0..8)
+                        .map(|i| {
+                            (
+                                format!("builtin_v{i:06}"),
+                                std::array::from_fn(|j| {
+                                    size[j] * if i & (1 << j) == 0 { -0.5 } else { 0.5 }
+                                }),
+                            )
+                        })
+                        .collect(),
+                    crate::scene::Geometry::Plane { size } => (0..4)
+                        .map(|i| {
+                            (
+                                format!("builtin_v{i:06}"),
+                                [
+                                    size[0] * if i & 1 == 0 { -0.5 } else { 0.5 },
+                                    size[1] * if i & 2 == 0 { -0.5 } else { 0.5 },
+                                    0.,
+                                ],
+                            )
+                        })
+                        .collect(),
+                };
+                let vertices: BTreeMap<_, _> = vertices
+                    .into_iter()
+                    .map(|(id, p)| {
+                        Ok((
+                            id,
+                            crate::transforms::point(matrix, p, entity.transform.precision)?,
+                        ))
+                    })
+                    .collect::<Result<_>>()?;
+                result["world_vertices"] =
+                    serde_json::to_value(vertices).map_err(|e| SceneError(e.to_string()))?;
+            }
+            return Ok(result);
+        }
         if self.tessellate && (self.mesh_asset.is_none() || self.entity.is_some()) {
             return Err(SceneError("tessellate requires only mesh_asset".into()));
         }
@@ -52,7 +119,10 @@ impl InspectRequest {
                 "selection_topology requires only mesh_asset".into(),
             ));
         }
-        if self.tessellate || self.selection_topology {
+        if self.normals && (self.mesh_asset.is_none() || self.entity.is_some()) {
+            return Err(SceneError("normals requires only mesh_asset".into()));
+        }
+        if self.tessellate || self.selection_topology || self.normals {
             let id = self.mesh_asset.as_ref().expect("checked mesh asset");
             let asset = scene
                 .mesh_assets
@@ -68,6 +138,10 @@ impl InspectRequest {
                 result["selection_topology"] =
                     serde_json::to_value(crate::mesh::selection::topology(asset)?)
                         .map_err(|e| SceneError(e.to_string()))?;
+            }
+            if self.normals {
+                result["normals"] = serde_json::to_value(crate::mesh::normals::resolved(asset)?)
+                    .map_err(|e| SceneError(e.to_string()))?;
             }
             return Ok(result);
         }
@@ -206,6 +280,7 @@ impl Session {
             generation_diagnostics,
             selection: applied.selection,
             creation: applied.creation,
+            transforms: applied.transforms,
         })
     }
 
