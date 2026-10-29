@@ -55,8 +55,11 @@ verified. The source adapter must observe the actual native query. It may not
 rebuild a world frame with a different quaternion or arithmetic path.
 
 The source's local transform centre uses `calculateCenterLocal` and the actual
-container `invert_m4_m4_fallback` result. In explicit `f32` mode use this verified
-affine Gauss path for nonsingular frames as well as singular frames. Preserve
+container `invert_m4_m4_fallback` result. The production function first tries
+`EIG_invert_m4_m4`, with a zero determinant threshold. Reuse the already verified
+Rust port of its pinned Eigen block inverse, including the ARM reciprocal and
+two refinements. Only a rejected inverse uses the partial Gauss path. In
+explicit `f32` mode use that complete path for nonsingular and singular frames. Preserve
 the existing native `f64` nonsingular inverse-times-offset rule. The earlier
 safe-inverse contract's default native behaviour remains unchanged. Do not
 replace the operation's linear inverse with this distinct pivot matrix.
