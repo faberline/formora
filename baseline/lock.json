@@ -18940,6 +18940,31 @@
       "path": "baseline/sources/mesh-uv-mirror-transform/bmesh_structure.cc",
       "sha256": "12da5de00eb27393103418e036346a9ebb1600a3c923fe7cfa9ed0345efd305e",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_structure.cc"
+    },
+    {
+      "path": "baseline/sources/physical-transform/BLI_simd.hh",
+      "sha256": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_simd.hh"
+    },
+    {
+      "path": "baseline/sources/physical-transform/object.cc",
+      "sha256": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/object.cc"
+    },
+    {
+      "path": "baseline/sources/physical-transform/mathutils_Matrix.cc",
+      "sha256": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/mathutils/mathutils_Matrix.cc"
+    },
+    {
+      "path": "baseline/sources/physical-transform/mathutils_Vector.cc",
+      "sha256": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/mathutils/mathutils_Vector.cc"
+    },
+    {
+      "path": "baseline/sources/physical-transform/manifest.json",
+      "sha256": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+      "url": "https://github.com/blender/blender/tree/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
