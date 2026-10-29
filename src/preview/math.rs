@@ -186,7 +186,9 @@ fn triangles<'a>(scene: &'a Scene, geometry: &Geometry) -> Result<Vec<SurfaceTri
         }
         let selected = |face: &FaceRef| {
             editing.is_some_and(|state| {
-                state.mode.contains(&Domain::Face) && state.selected.faces.contains(face)
+                state.preview
+                    && state.mode.contains(&Domain::Face)
+                    && state.selected.faces.contains(face)
             })
         };
         let mut result: Vec<_> = asset
@@ -331,6 +333,9 @@ fn append_selection(
     let Some(editing) = &asset.editing else {
         return Ok(());
     };
+    if !editing.preview {
+        return Ok(());
+    }
     if !editing.mode.contains(&Domain::Vertex) && !editing.mode.contains(&Domain::Edge) {
         return Ok(());
     }

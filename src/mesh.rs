@@ -3,6 +3,7 @@ use crate::scene::{Result, SceneError, unique_map, valid_id};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
+pub mod creation;
 pub mod primitives;
 pub mod selection;
 mod tessellation;
@@ -77,6 +78,8 @@ pub struct MeshAsset {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub uv_layout: Option<UvLayout>,
     pub material_slots: Vec<Option<String>>,
+    #[serde(default, skip_serializing_if = "is_zero")]
+    pub active_material_index: usize,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub recipe: Option<primitives::PrimitiveRecipe>,
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
@@ -144,7 +147,18 @@ impl MeshAsset {
     }
 
     pub fn validate(&self) -> Result<()> {
+        if (self.material_slots.is_empty() && self.active_material_index != 0)
+            || (!self.material_slots.is_empty()
+                && self.active_material_index >= self.material_slots.len())
+        {
+            return Err(SceneError(
+                "active material index is outside the asset slots".into(),
+            ));
+        }
         if let Some(recipe) = &self.recipe {
+            if let Some(frame) = &recipe.creation_frame {
+                frame.validate()?;
+            }
             if recipe.primitive.component_count()? > recipe.max_components {
                 return Err(SceneError(
                     "primitive recipe exceeds its generation budget".into(),
@@ -266,6 +280,10 @@ impl MeshAsset {
         selection::validate_attributes(self)?;
         Ok(())
     }
+}
+
+fn is_zero(value: &usize) -> bool {
+    *value == 0
 }
 
 fn valid_layer(name: &str) -> bool {

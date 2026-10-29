@@ -26,6 +26,8 @@ pub struct ApplyResult {
     pub generation_diagnostics: BTreeMap<String, Vec<String>>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub selection: Vec<crate::mesh::selection::CommandOutcome>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub creation: Vec<crate::mesh::creation::CreationReceipt>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -169,7 +171,7 @@ impl Session {
 
     /// Return warnings only after the successful batch has been saved.
     pub fn apply_with_result(&mut self, request: ApplyRequest) -> Result<ApplyResult> {
-        let generated: BTreeSet<_> = request
+        let mut generated: BTreeSet<_> = request
             .commands
             .iter()
             .filter_map(|command| match command {
@@ -181,6 +183,12 @@ impl Session {
         let mut candidate = self.editor.clone();
         let applied =
             candidate.apply_with_outcomes(&request.commands, Some(request.expected_revision))?;
+        generated.extend(
+            applied
+                .creation
+                .iter()
+                .map(|receipt| receipt.mesh_asset.clone()),
+        );
         candidate.scene().save(&self.path)?;
         self.editor = candidate;
         let generation_diagnostics = generated
@@ -197,6 +205,7 @@ impl Session {
             revision: applied.revision,
             generation_diagnostics,
             selection: applied.selection,
+            creation: applied.creation,
         })
     }
 

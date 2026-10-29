@@ -1,0 +1,98 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "eigen_commit": "8a1083e9bf41b91fdea6546681f806154efdc25a",
+  "purpose": "fixed source behavior research; no measured output is used by the Rust core",
+  "source_files": [
+    {
+      "file": "object-add.cc",
+      "path": "source/blender/editors/object/object_add.cc",
+      "sha256": "d583444f76fbda7cd6d17970b7d5bf6b09363da3498c73a3507bac7bf826a670",
+      "git_blob": "b46fa2c59c396add16cb523f30e7a4cd5e3037fa",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/object/object_add.cc"
+    },
+    {
+      "file": "mesh-data.cc",
+      "path": "source/blender/editors/mesh/mesh_data.cc",
+      "sha256": "fce207aaa30114f4409e6c4fc92295d1f4a1777955d34e13592bc51fd5c99961",
+      "git_blob": "59016e64ebf1c3f14186687ab39f9e3c20afe1c6",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/mesh_data.cc"
+    },
+    {
+      "file": "torus.py",
+      "path": "scripts/startup/bl_operators/add_mesh_torus.py",
+      "sha256": "0d76b66b9ab0f0b8524e65a4b81b1191b54daeadf26e7a8d0b7728859fd1e3cc",
+      "git_blob": "c0871cfacd42d85afcc740831199e7bd197b0986",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/scripts/startup/bl_operators/add_mesh_torus.py"
+    },
+    {
+      "file": "object-utils.py",
+      "path": "scripts/modules/bpy_extras/object_utils.py",
+      "sha256": "d182f171b1ca1b9f8001fce9e2bd237be5e1c0266004c93cc0e54aa78279fbea",
+      "git_blob": "68ff158590dea4ea447081bdb099f2b85846ceb6",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/scripts/modules/bpy_extras/object_utils.py"
+    },
+    {
+      "file": "matrix.cc",
+      "path": "source/blender/blenlib/intern/math_matrix_c.cc",
+      "sha256": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+      "git_blob": "de242da1285e361d20df50834330fea90993700f",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_matrix_c.cc"
+    },
+    {
+      "file": "mesh-join.cc",
+      "path": "source/blender/editors/mesh/mesh_join.cc",
+      "sha256": "14bb96a09029f673abfa3902d61c1a58caf110f3c479ad03d9c8882d7c6bafef",
+      "git_blob": "f4e58881a8ecb696d10b563c66cf0a7a42438bd0",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/mesh_join.cc"
+    },
+    {
+      "file": "eigen-matrix.cc",
+      "path": "intern/eigen/intern/matrix.cc",
+      "sha256": "944b71d3ea4da068a6105b75bec3c9675e500c8a45b6ad420952b50f3adeed49",
+      "git_blob": "ed7c7963efd1e3af04684484ac019ca4d0cbc6f0",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/intern/eigen/intern/matrix.cc"
+    },
+    {
+      "file": "matrix-template.cc",
+      "path": "source/blender/blenlib/intern/math_matrix.cc",
+      "sha256": "7fd64e11f05c07bcd567df51d41e3fe1872a2e490f6e625ebf6dc53b2cc8d125",
+      "git_blob": "c6bc934779d4c546300f1a3f2c1f9266b761c07b",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_matrix.cc"
+    },
+    {
+      "file": "matrix-types.hh",
+      "path": "source/blender/blenlib/BLI_math_matrix_types.hh",
+      "sha256": "55bba2c1d9e44580e3bf05bacccf450cdfac729627ecf64c394cb42cea0af4ff",
+      "git_blob": "bebb6da14cb7ea3c3156e16a8e5788ff2fb92e02",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_math_matrix_types.hh"
+    },
+    {
+      "file": "versions.cmake",
+      "path": "build_files/build_environment/cmake/versions.cmake",
+      "sha256": "df53e363d5b1af1a5b085b66d9465d0349145168233b4cd15a5658fa4f7b7fb1",
+      "git_blob": "07735a6045a26031ee69246387a026a1991da905",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/build_files/build_environment/cmake/versions.cmake"
+    },
+    {
+      "file": "eigen-InverseSize4.h",
+      "path": "Eigen/src/LU/arch/InverseSize4.h",
+      "sha256": "619dfeab1fb47d95a647d54f2e187d3aa92cc06f97b1e6a475f72f5f1987e68c",
+      "url": "https://gitlab.com/libeigen/eigen/-/blob/8a1083e9bf41b91fdea6546681f806154efdc25a/Eigen/src/LU/arch/InverseSize4.h",
+      "commit": "8a1083e9bf41b91fdea6546681f806154efdc25a"
+    },
+    {
+      "file": "eigen-PacketMath.h",
+      "path": "Eigen/src/Core/arch/NEON/PacketMath.h",
+      "sha256": "1c6fa3fb16267bfa175fb944957e527997bfd9089aa00c54c41b256c2143dc7f",
+      "url": "https://gitlab.com/libeigen/eigen/-/blob/8a1083e9bf41b91fdea6546681f806154efdc25a/Eigen/src/Core/arch/NEON/PacketMath.h",
+      "commit": "8a1083e9bf41b91fdea6546681f806154efdc25a"
+    },
+    {
+      "file": "eigen-COPYING.MPL2",
+      "path": "COPYING.MPL2",
+      "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172",
+      "url": "https://gitlab.com/libeigen/eigen/-/blob/8a1083e9bf41b91fdea6546681f806154efdc25a/COPYING.MPL2",
+      "commit": "8a1083e9bf41b91fdea6546681f806154efdc25a"
+    }
+  ]
+}
