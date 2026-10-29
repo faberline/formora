@@ -1,0 +1,51 @@
+{
+  "scope": "complete first native source comparison; acceptance failed",
+  "report_sha256": "fee84f3199f8aed42d161395c9f9db50db04fd51a1303111e7bfc23cb6c84fa1",
+  "per_interface_results": {
+    "cli": {
+      "passed": 801,
+      "failed": 402
+    },
+    "official_mcp_sdk": {
+      "passed": 801,
+      "failed": 402
+    }
+  },
+  "per_interface_failure_families": {
+    "cli": {
+      "mesh transform normal orientation is not implemented yet": 114,
+      "mesh transform gimbal orientation is not implemented yet": 114,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 4,
+      "numeric/geometry": 14,
+      "mesh transform connected proportional editing is not implemented yet": 114,
+      "mesh transform mirror is not implemented yet": 6,
+      "singular or nonfinite creation target transform": 12,
+      "mesh transform face attribute correction is not implemented yet": 18
+    },
+    "official_mcp_sdk": {
+      "mesh transform normal orientation is not implemented yet": 114,
+      "mesh transform gimbal orientation is not implemented yet": 114,
+      "numeric/normals": 6,
+      "numeric/world_vertices": 4,
+      "numeric/geometry": 14,
+      "mesh transform connected proportional editing is not implemented yet": 114,
+      "mesh transform mirror is not implemented yet": 6,
+      "singular or nonfinite creation target transform": 12,
+      "mesh transform face attribute correction is not implemented yet": 18
+    }
+  },
+  "matched_finished_operations": 1590,
+  "matched_expected_cancellations": 12,
+  "both_interfaces_have_identical_raw_results": true,
+  "next_required_work": [
+    "surface geodesic proportional propagation",
+    "normal orientation from BMesh-style geometry",
+    "actual Euler representation and gimbal orientation",
+    "face attribute correction",
+    "safe singular inverse behavior",
+    "mirror correspondence",
+    "24 numeric mismatches per interface"
+  ],
+  "required_transform_gate_passed": false
+}
