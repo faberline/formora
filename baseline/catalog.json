@@ -335,6 +335,90 @@
       "milestone": "0.2",
       "case_path": "baseline/cases/mesh-transform-projected.json",
       "review": "pending"
+    },
+    {
+      "id": "scene.snap_selected_to_grid",
+      "title": "直接吸附：snap_selected_to_grid",
+      "source_ids": [
+        "blender:56231e6ff59b2c13e464",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-selected-to-grid.json",
+      "review": "pending"
+    },
+    {
+      "id": "scene.snap_selected_to_cursor",
+      "title": "直接吸附：snap_selected_to_cursor",
+      "source_ids": [
+        "blender:ed9add414b2e9fb68cdf",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-selected-to-cursor.json",
+      "review": "pending"
+    },
+    {
+      "id": "scene.snap_selected_to_active",
+      "title": "直接吸附：snap_selected_to_active",
+      "source_ids": [
+        "blender:df2e6abb97f0051d13c7",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-selected-to-active.json",
+      "review": "pending"
+    },
+    {
+      "id": "scene.snap_cursor_to_grid",
+      "title": "直接吸附：snap_cursor_to_grid",
+      "source_ids": [
+        "blender:bfe2cd6457685f8ce435",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-cursor-to-grid.json",
+      "review": "pending"
+    },
+    {
+      "id": "scene.snap_cursor_to_selected",
+      "title": "直接吸附：snap_cursor_to_selected",
+      "source_ids": [
+        "blender:4d45045c1c79a0eeaeec",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-cursor-to-selected.json",
+      "review": "pending"
+    },
+    {
+      "id": "scene.snap_cursor_to_active",
+      "title": "直接吸附：snap_cursor_to_active",
+      "source_ids": [
+        "blender:5d398f3e8b35b26e0abe",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-cursor-to-active.json",
+      "review": "pending"
+    },
+    {
+      "id": "scene.snap_cursor_to_center",
+      "title": "直接吸附：snap_cursor_to_center",
+      "source_ids": [
+        "blender:eabd6af554423d7ede8b",
+        "blender:f7e8afeb187a49790264",
+        "blender:e851b86045e17c4e7f51"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/snap-cursor-to-center.json",
+      "review": "pending"
     }
   ]
 }

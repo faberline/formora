@@ -38,6 +38,8 @@ def author():
     }
     suite = {'schema_version':1, 'reference':original['reference'], 'mesh':mesh,
              'profiles':copy.deepcopy(original['profiles']), 'environment':environment,
+             'coordinate_system':{'handedness':'right','up':'Z','source_positions':'raw_scene_units',
+                 'physical_metres_factor':'1 for NONE, otherwise unit_scale_length; raw source values are retained'},
              'operators':OPERATORS, 'runs':[],
              'object_inputs':{
                  'secondary':{'location':[-1.25,2.375,-0.75], 'rotation':[-0.2,0.4,-0.1], 'scale':[1.3,0.8,0.65]},

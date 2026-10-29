@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "feature_id": "scene.snap_selected_to_active",
+  "fixture": {
+    "suite_path": "baseline/fixtures/snap-menu.json",
+    "reference_directory": "baseline/reference/blender-5.2.3/snap-menu",
+    "repeat_directory": "baseline/reference/blender-5.2.3/snap-menu-repeat",
+    "run_ids": [
+      "snap_0028",
+      "snap_0058",
+      "snap_0088",
+      "snap_0118",
+      "snap_0148",
+      "snap_0178",
+      "snap_0208",
+      "snap_0238",
+      "snap_0268",
+      "snap_0298",
+      "snap_0328",
+      "snap_0358",
+      "snap_0388",
+      "snap_0418",
+      "snap_0448",
+      "snap_0478",
+      "snap_0508",
+      "snap_0538",
+      "snap_0568",
+      "snap_0598",
+      "snap_0628",
+      "snap_0658",
+      "snap_0688",
+      "snap_0718",
+      "snap_0748",
+      "snap_0778",
+      "snap_0808",
+      "snap_0838",
+      "snap_0868",
+      "snap_0898",
+      "snap_0928",
+      "snap_0958",
+      "snap_0988",
+      "snap_1018",
+      "snap_1048",
+      "snap_1062",
+      "snap_1063",
+      "snap_1068",
+      "snap_1069",
+      "snap_1074",
+      "snap_1075",
+      "snap_1080",
+      "snap_1081",
+      "snap_1087",
+      "snap_1097",
+      "snap_1107",
+      "snap_1117",
+      "snap_1127",
+      "snap_1137",
+      "snap_1147",
+      "snap_1157",
+      "snap_1167",
+      "snap_1177",
+      "snap_1187",
+      "snap_1197",
+      "snap_1207",
+      "snap_1217",
+      "snap_1227",
+      "snap_1237",
+      "snap_1247",
+      "snap_1257",
+      "snap_1267",
+      "snap_1277",
+      "snap_1287",
+      "snap_1297",
+      "snap_1307",
+      "snap_1317",
+      "snap_1327",
+      "snap_1347",
+      "snap_1348",
+      "snap_1349",
+      "snap_1350",
+      "snap_1351",
+      "snap_1352",
+      "snap_1353",
+      "snap_1354",
+      "snap_1355",
+      "snap_1356",
+      "snap_1357",
+      "snap_1458",
+      "snap_1459",
+      "snap_1460",
+      "snap_1461",
+      "snap_1462",
+      "snap_1463",
+      "snap_1464",
+      "snap_1465",
+      "snap_1466",
+      "snap_1467",
+      "snap_1468",
+      "snap_1469",
+      "snap_1570",
+      "snap_1571",
+      "snap_1572",
+      "snap_1573",
+      "snap_1609",
+      "snap_1610",
+      "snap_1611"
+    ],
+    "source_scope": {
+      "operators": [
+        "snap_selected_to_active"
+      ],
+      "source_manifest": "baseline/sources/snap-menu/manifest.json",
+      "contract": "docs/contracts/snap-menu-baseline.md"
+    },
+    "coordinate_system": {
+      "handedness": "right",
+      "up": "Z",
+      "source_positions": "raw_scene_units",
+      "physical_metres_factor": "1 for NONE, otherwise unit_scale_length; raw source values are retained"
+    },
+    "comparison": {
+      "positions_absolute_tolerance_metres": 1e-06,
+      "normals_absolute_tolerance": 1e-06,
+      "uv_absolute_tolerance": 1e-06,
+      "rotation_component_absolute_tolerance": 1e-06
+    },
+    "execution_status": {
+      "reference": "unrun",
+      "formora": "unrun"
+    },
+    "remaining": [
+      "complete operator/data/mode/numeric-domain/capacity acceptance",
+      "continuous target search and transform snapping",
+      "three-platform Rust product execution",
+      "dependency integration and independent acceptance"
+    ]
+  },
+  "steps": [
+    "Bind every initial mesh, selection, frame and setting to authored JSON.",
+    "Execute the exact direct operator in two independent frozen native viewport processes.",
+    "Retain complete before/after state, raw outcomes, logical identities and provenance.",
+    "Compare both processes, independent analytic rules and negative corruption tests. Later verify the common Rust CLI/MCP core, atomicity, native preview and fixed performance."
+  ],
+  "assertions": [
+    {
+      "target": "logical identities, oriented topology, selection, sharing and preserved attributes",
+      "expected": "exact source behavior",
+      "absolute_tolerance": null
+    },
+    {
+      "target": "physical local/world position maximum component error in metres",
+      "expected": 0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "normal, UV, rotation and matrix component error",
+      "expected": 0,
+      "absolute_tolerance": 1e-06
+    },
+    {
+      "target": "invalid/stale/budget/batch/save failure",
+      "expected": "atomic rejection with no success receipt; source cancellation explicit",
+      "absolute_tolerance": null
+    },
+    {
+      "target": "release core / operation-save-fresh-reload milliseconds",
+      "expected": {
+        "maximum_core_ms": 250,
+        "maximum_pipeline_ms": 2000,
+        "hardware": "Apple M1 Max",
+        "samples_per_form": 3
+      },
+      "absolute_tolerance": null
+    }
+  ],
+  "evidence": [
+    "fixed source, executable, full RNA definitions, authored inputs and adapter hashes",
+    "two distinct native process IDs and every complete raw result",
+    "independent repeat and analytic comparison with negative corruption controls",
+    "later Rust CLI/MCP receipts, rollback/undo/replay/save, native Metal/isolation, release measurements and required CI"
+  ]
+}

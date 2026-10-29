@@ -19075,6 +19075,56 @@
       "path": "baseline/sources/undefined-rotation/manifest.json",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform.hh",
       "sha256": "ef0930973f28523c7b0f1e373854dfb5d066873c8806ed051a2f31c0796b1e68"
+    },
+    {
+      "path": "baseline/sources/snap-menu/view3d_snap.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/space_view3d/view3d_snap.cc",
+      "sha256": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e"
+    },
+    {
+      "path": "baseline/sources/snap-menu/view3d_draw.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/space_view3d/view3d_draw.cc",
+      "sha256": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29"
+    },
+    {
+      "path": "baseline/sources/snap-menu/ed_transverts.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/util/ed_transverts.cc",
+      "sha256": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69"
+    },
+    {
+      "path": "baseline/sources/snap-menu/transform_snap.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_snap.cc",
+      "sha256": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3"
+    },
+    {
+      "path": "baseline/sources/snap-menu/transform_snap.hh",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_snap.hh",
+      "sha256": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f"
+    },
+    {
+      "path": "baseline/sources/snap-menu/snap.rst",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/scene_layout/object/editing/snap.rst",
+      "sha256": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62"
+    },
+    {
+      "path": "baseline/sources/snap-menu/snapping.rst",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/editors/3dview/controls/snapping.rst",
+      "sha256": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa"
+    },
+    {
+      "path": "baseline/sources/snap-menu/manual-LICENSE",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/scene_layout/object/editing/snap.rst",
+      "sha256": "057d8e91eb4a5b468bb7cf0c44b1a485c1a3706be2ab8981c9f3272829368b1d"
+    },
+    {
+      "path": "baseline/sources/snap-menu/manifest.json",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/scene_layout/object/editing/snap.rst",
+      "sha256": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be"
+    },
+    {
+      "path": "baseline/fixtures/snap-menu.json",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/scene_layout/object/editing/snap.rst",
+      "sha256": "739609dff0ec611641783010c1ad0ea7c076f3d492e5f012a243f2f27ec1a9c4"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
