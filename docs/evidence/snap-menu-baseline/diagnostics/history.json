@@ -1,0 +1,35 @@
+{
+  "group_loop": {
+    "pid": 72532,
+    "terminal_exit": -15,
+    "cause": "Shared Mesh group definitions grew during iteration in diagnostic setup. Task-owned PID identity and sample verified before TERM.",
+    "acceptance": false
+  },
+  "first_adapter_fix": {
+    "commit": "7509519",
+    "focused_pid": 7433,
+    "captured": 20,
+    "exit": 0,
+    "acceptance": false
+  },
+  "stale_mesh_captures": {
+    "pids": [
+      17590,
+      18679
+    ],
+    "captured_each": 1672,
+    "exit_each": 0,
+    "cause": "A linked object stays in OBJECT mode although shared Mesh is in edit mode; capture read stale Mesh data. Both complete originals preserved in task-local temporary directories. Representative exact raw result and both full manifests retained here.",
+    "acceptance": false
+  },
+  "corrected_adapter": {
+    "commit": "224d399",
+    "pids": [
+      23778,
+      24985
+    ],
+    "captured_each": 1672,
+    "exit_each": 0,
+    "rule": "Read live edit BMesh using Mesh.is_editmode for every shared user. No fixture or numerical criterion changed."
+  }
+}

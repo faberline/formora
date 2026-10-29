@@ -63455,81 +63455,111 @@
       "product": "blender",
       "title": "Snap",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_selected_to_grid",
+        "scene.snap_selected_to_cursor",
+        "scene.snap_selected_to_active",
+        "scene.snap_cursor_to_grid",
+        "scene.snap_cursor_to_selected",
+        "scene.snap_cursor_to_active",
+        "scene.snap_cursor_to_center"
+      ]
     },
     {
       "id": "blender:e851b86045e17c4e7f51",
       "product": "blender",
       "title": "Snap",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_selected_to_grid",
+        "scene.snap_selected_to_cursor",
+        "scene.snap_selected_to_active",
+        "scene.snap_cursor_to_grid",
+        "scene.snap_cursor_to_selected",
+        "scene.snap_cursor_to_active",
+        "scene.snap_cursor_to_center"
+      ]
     },
     {
       "id": "blender:5d398f3e8b35b26e0abe",
       "product": "blender",
       "title": "Cursor to Active",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-cursor-to-active",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_cursor_to_active"
+      ]
     },
     {
       "id": "blender:eabd6af554423d7ede8b",
       "product": "blender",
       "title": "Cursor to World Origin",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-cursor-to-center",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_cursor_to_center"
+      ]
     },
     {
       "id": "blender:bfe2cd6457685f8ce435",
       "product": "blender",
       "title": "Cursor to Grid",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-cursor-to-grid",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_cursor_to_grid"
+      ]
     },
     {
       "id": "blender:4d45045c1c79a0eeaeec",
       "product": "blender",
       "title": "Cursor to Selected",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-cursor-to-selected",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_cursor_to_selected"
+      ]
     },
     {
       "id": "blender:df2e6abb97f0051d13c7",
       "product": "blender",
       "title": "Selection to Active",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-selected-to-active",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_selected_to_active"
+      ]
     },
     {
       "id": "blender:ed9add414b2e9fb68cdf",
       "product": "blender",
       "title": "Selection to Cursor",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-selected-to-cursor",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_selected_to_cursor"
+      ]
     },
     {
       "id": "blender:56231e6ff59b2c13e464",
       "product": "blender",
       "title": "Selection to Grid",
       "url": "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/snap.html#bpy-ops-view3d-snap-selected-to-grid",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The direct snap operator family is assigned to authored mesh-edit and object-mode reference cases. Other data/modes, continuous snapping, full domains and capacity remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "scene.snap_selected_to_grid"
+      ]
     },
     {
       "id": "blender:c21b62e1059e277bee0e",
