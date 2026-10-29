@@ -18918,8 +18918,28 @@
     },
     {
       "path": "baseline/sources/mesh-uv-mirror-transform/manifest.json",
-      "sha256": "bb155682b9ba2839b91f494c3867fc8d20f2338000c27d06853ba4d28c2da2b9",
+      "sha256": "0bb4e36969b91768bcc6bd289c6e0c36d290b7c5169ee63572751af1f457f702",
       "url": "https://github.com/blender/blender/tree/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/customdata.cc",
+      "sha256": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/customdata.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/bmesh_core.cc",
+      "sha256": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_core.cc"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/bmesh_structure_inline.hh",
+      "sha256": "3b2ba10fa3218ca389bc12e715a4f04e476a1fdf28d09d398582c31f1eba7ccd",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_structure_inline.hh"
+    },
+    {
+      "path": "baseline/sources/mesh-uv-mirror-transform/bmesh_structure.cc",
+      "sha256": "12da5de00eb27393103418e036346a9ebb1600a3c923fe7cfa9ed0345efd305e",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_structure.cc"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
