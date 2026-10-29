@@ -1,0 +1,15 @@
+{
+  "terminal_exit_code": 1,
+  "case_id": "delta_snap_0403",
+  "state": "after",
+  "object": "secondary",
+  "vertex": "v000022",
+  "expected_old_python_sum_y": 0.5250000953674316,
+  "native_y": 0.5250000357627869,
+  "sequential_source_double_y": 0.5250000357627869,
+  "cause": "Python compensated sum differs from pinned sequential C++ double accumulator on a float halfway rounding boundary",
+  "source_capture_changes": "none",
+  "threshold_changes": "none",
+  "preserved_exact_world_self_check_tolerance": 0.0,
+  "position_channel_matrix_limit": 1e-06
+}

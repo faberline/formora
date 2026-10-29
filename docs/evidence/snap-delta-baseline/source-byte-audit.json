@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "source_files": [
+    {
+      "path": "baseline/sources/snap-rotation/rna_scene.cc",
+      "sha256": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+      "git_blob": "6f5c8164fc0bc86a0f0c8e25398c73c36eda51a5"
+    },
+    {
+      "path": "baseline/sources/snap-rotation/scene.cc",
+      "sha256": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+      "git_blob": "f8fb761e96e437c8ec420d7ecd3c60d9d72f0785"
+    },
+    {
+      "path": "baseline/sources/snap-rotation/DNA_scene_types.h",
+      "sha256": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+      "git_blob": "62ae847c7d1e879f38cd0dfe239efd51319ec726"
+    },
+    {
+      "path": "baseline/sources/snap-menu/view3d_snap.cc",
+      "sha256": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+      "git_blob": "e0d93b45940f60a4df997ad9293589814db5dfba"
+    },
+    {
+      "path": "baseline/sources/snap-menu/view3d_draw.cc",
+      "sha256": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+      "git_blob": "71ce959d8f3721ccbe52f85e6a0b0e3861e71597"
+    },
+    {
+      "path": "baseline/sources/snap-menu/ed_transverts.cc",
+      "sha256": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+      "git_blob": "e126f783b5b206cebc867e9bdb1082736bdf0724"
+    },
+    {
+      "path": "baseline/sources/snap-menu/transform_snap.cc",
+      "sha256": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+      "git_blob": "3d6303639979be4e3d925c1b33e389730ac2a7d2"
+    },
+    {
+      "path": "baseline/sources/snap-menu/transform_snap.hh",
+      "sha256": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+      "git_blob": "8f8be02c670bbb82629ffb85e11d34fbf0e97b6c"
+    },
+    {
+      "path": "baseline/sources/snap-menu/snap.rst",
+      "sha256": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+      "git_blob": "7f47c81b7a34df3c7949654b13248168e2ea76b6"
+    },
+    {
+      "path": "baseline/sources/snap-menu/snapping.rst",
+      "sha256": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+      "git_blob": "df78e424768183fd03d5a83572343cf747e4afed"
+    },
+    {
+      "path": "baseline/sources/physical-transform/BLI_simd.hh",
+      "sha256": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+      "git_blob": "f7f0fd40027512d99701f857e44d2804156b7f22"
+    },
+    {
+      "path": "baseline/sources/physical-transform/object.cc",
+      "sha256": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+      "git_blob": "3555b11ea69215ef5b09085e9b25e1c695c2ea32"
+    },
+    {
+      "path": "baseline/sources/physical-transform/mathutils_Matrix.cc",
+      "sha256": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+      "git_blob": "eb1fe20ff78f25a59c2ed063c92f7ef9d93880c8"
+    },
+    {
+      "path": "baseline/sources/physical-transform/mathutils_Vector.cc",
+      "sha256": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+      "git_blob": "2e2ac17414e72e16f69051ad301797a315beaf34"
+    },
+    {
+      "path": "baseline/sources/mesh-gimbal-transform/math_rotation_c.cc",
+      "sha256": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+      "git_blob": "508eb880c2721ce9110329eb7bd09c9a593c745b"
+    },
+    {
+      "path": "baseline/sources/scene-snap-core/object_data_transform.cc",
+      "sha256": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+      "git_blob": "81aa51ca0eace00bf192ac4800dc6dbd01697641"
+    },
+    {
+      "path": "baseline/sources/scene-snap-core/layer.cc",
+      "sha256": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+      "git_blob": "26401ec094b5bb74f50faa41fd6a2a5121d1cd50"
+    },
+    {
+      "path": "baseline/sources/scene-snap-core/layer_utils.cc",
+      "sha256": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+      "git_blob": "9a2dde96c59b184fa9c29e0b43e6d86bfc0b983b"
+    },
+    {
+      "path": "baseline/sources/mesh-safe-transform/math_matrix_c.cc",
+      "sha256": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+      "git_blob": "de242da1285e361d20df50834330fea90993700f"
+    },
+    {
+      "path": "baseline/sources/mesh-safe-transform/BLI_math_matrix.h",
+      "sha256": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+      "git_blob": "be7105bc5332773e1a1a9ef66e1598d658a942dd"
+    },
+    {
+      "path": "baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh",
+      "sha256": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+      "git_blob": "a022e2ee9efc60565d1ff083dad27b3ad00b167f"
+    },
+    {
+      "path": "baseline/sources/mesh-safe-transform/transform_convert.cc",
+      "sha256": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+      "git_blob": "ada77167129f26c164422230499578e7d27eff90"
+    }
+  ],
+  "source_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "product_acceptance": "unrun"
+}

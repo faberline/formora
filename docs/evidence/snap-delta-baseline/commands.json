@@ -1,0 +1,94 @@
+{
+  "preparation_commit": "aa32b6b0f4b31703750088fdb5eab63e3c35a23c",
+  "unchanged_product_base": "7779cf8fac799dc9aa1e94ed064df80799039b01",
+  "python": "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+  "pythonpath": "/private/tmp/formora-mcp-sdk-2",
+  "commands": [
+    {
+      "name": "pilot_native",
+      "tool_session_id": 14155,
+      "terminal_exit_code": 0,
+      "cases": 18
+    },
+    {
+      "name": "pilot_initial_validation",
+      "terminal_exit_code": 0,
+      "cases": 18
+    },
+    {
+      "name": "pilot_controls",
+      "tool_session_id": 97693,
+      "terminal_exit_code": 0,
+      "tests": 26
+    },
+    {
+      "name": "native_first",
+      "tool_session_id": 25062,
+      "terminal_exit_code": 0,
+      "cases": 1792
+    },
+    {
+      "name": "native_repeat",
+      "tool_session_id": 61957,
+      "terminal_exit_code": 0,
+      "cases": 1792
+    },
+    {
+      "name": "first_binding_failure",
+      "tool_session_id": 37208,
+      "terminal_exit_code": 1,
+      "disposition": "preserved checker accumulation error; not accepted"
+    },
+    {
+      "name": "source_comparison_01",
+      "tool_session_id": 45936,
+      "terminal_exit_code": 0,
+      "cases": 1792
+    },
+    {
+      "name": "source_comparison_final",
+      "tool_session_id": 80251,
+      "terminal_exit_code": 0,
+      "cases": 1792
+    },
+    {
+      "name": "python_missing_environment",
+      "tool_session_id": 94365,
+      "terminal_exit_code": 1,
+      "disposition": "preserved two import errors; not accepted"
+    },
+    {
+      "name": "python_final",
+      "tool_session_id": 55889,
+      "terminal_exit_code": 0,
+      "tests": 180
+    },
+    {
+      "name": "metadata_wrapper",
+      "tool_session_id": 39596,
+      "terminal_exit_code": 0,
+      "nested_metadata_exit": 0,
+      "nested_strict_exit": 2
+    },
+    {
+      "name": "prior_provenance",
+      "tool_session_id": 62691,
+      "terminal_exit_code": 0
+    }
+  ],
+  "preserved_frozen_preparation": [
+    "docs/contracts/snap-delta-baseline.md",
+    "baseline/fixtures/snap-delta.json",
+    "baseline/sources/snap-delta/manifest.json",
+    "tools/generate_snap_delta_cases.py",
+    "tools/blender_snap_delta_reference.py",
+    "tools/compare_snap_delta_reference.py",
+    "tools/tests/test_snap_delta_reference.py"
+  ],
+  "comparator_repair": "source sequential double accumulation and relative path resolution; exact self-check and 1e-6 comparison criteria unchanged",
+  "three_platform_ci": "unrun",
+  "dependency_integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

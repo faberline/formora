@@ -1,0 +1,31 @@
+test_actual_pilot (test_snap_delta_native_reference.DeltaNativeControls.test_actual_pilot) ... ok
+test_altered_inactive_delta_euler (test_snap_delta_native_reference.DeltaNativeControls.test_altered_inactive_delta_euler) ... ok
+test_changed_capture_program_hash (test_snap_delta_native_reference.DeltaNativeControls.test_changed_capture_program_hash) ... ok
+test_delta_multiplication_cannot_be_reversed (test_snap_delta_native_reference.DeltaNativeControls.test_delta_multiplication_cannot_be_reversed) ... ok
+test_false_sharing (test_snap_delta_native_reference.DeltaNativeControls.test_false_sharing) ... ok
+test_missing_delta_field (test_snap_delta_native_reference.DeltaNativeControls.test_missing_delta_field) ... ok
+test_missing_delta_translation (test_snap_delta_native_reference.DeltaNativeControls.test_missing_delta_translation) ... ok
+test_nonfinite (test_snap_delta_native_reference.DeltaNativeControls.test_nonfinite) ... ok
+test_operation_cannot_change_delta (test_snap_delta_native_reference.DeltaNativeControls.test_operation_cannot_change_delta) ... ok
+test_pilot_cannot_pass_complete_gate (test_snap_delta_native_reference.DeltaNativeControls.test_pilot_cannot_pass_complete_gate) ... ok
+test_request_cannot_read_source_answers (test_snap_delta_native_reference.DeltaNativeControls.test_request_cannot_read_source_answers) ... ok
+test_same_native_process_cannot_pass (test_snap_delta_native_reference.DeltaNativeControls.test_same_native_process_cannot_pass) ... ok
+test_source_error_cannot_pass (test_snap_delta_native_reference.DeltaNativeControls.test_source_error_cannot_pass) ... ok
+test_stored_delta_normalization_is_not_allowed (test_snap_delta_native_reference.DeltaNativeControls.test_stored_delta_normalization_is_not_allowed) ... ok
+test_stored_delta_sign_is_not_folded (test_snap_delta_native_reference.DeltaNativeControls.test_stored_delta_sign_is_not_folded) ... ok
+test_wrong_delta_scale (test_snap_delta_native_reference.DeltaNativeControls.test_wrong_delta_scale) ... ok
+test_wrong_geometry (test_snap_delta_native_reference.DeltaNativeControls.test_wrong_geometry) ... ok
+test_wrong_lock (test_snap_delta_native_reference.DeltaNativeControls.test_wrong_lock) ... ok
+test_wrong_uv (test_snap_delta_native_reference.DeltaNativeControls.test_wrong_uv) ... ok
+test_wrong_world_matrix (test_snap_delta_native_reference.DeltaNativeControls.test_wrong_world_matrix) ... ok
+test_authored_family_and_identity (test_snap_delta_reference.DeltaPreparationControls.test_authored_family_and_identity) ... ok
+test_axis_angle_ignores_inactive_exposed_delta_rotations (test_snap_delta_reference.DeltaPreparationControls.test_axis_angle_ignores_inactive_exposed_delta_rotations) ... ok
+test_delta_translation_and_scale (test_snap_delta_reference.DeltaPreparationControls.test_delta_translation_and_scale) ... ok
+test_identity_delta_preserves_zero_pose (test_snap_delta_reference.DeltaPreparationControls.test_identity_delta_preserves_zero_pose) ... ok
+test_noncommuting_delta_precedes_normal_rotation (test_snap_delta_reference.DeltaPreparationControls.test_noncommuting_delta_precedes_normal_rotation) ... ok
+test_nonunit_delta_quaternion_evaluates_copy (test_snap_delta_reference.DeltaPreparationControls.test_nonunit_delta_quaternion_evaluates_copy) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 1.175s
+
+OK

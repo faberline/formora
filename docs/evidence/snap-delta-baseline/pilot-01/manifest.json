@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "process_id": 51760,
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "scope": "focused_diagnostic",
+  "captured_utc": "2026-10-29T22:29:21.534437+00:00",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py",
+    "--",
+    "--suite",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-delta.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-baseline/pilot-01",
+    "--case",
+    "delta_snap_0053",
+    "--case",
+    "delta_snap_1677",
+    "--case",
+    "delta_snap_0117",
+    "--case",
+    "delta_snap_1693",
+    "--case",
+    "delta_snap_0181",
+    "--case",
+    "delta_snap_1709",
+    "--case",
+    "delta_snap_0245",
+    "--case",
+    "delta_snap_1725",
+    "--case",
+    "delta_snap_0309",
+    "--case",
+    "delta_snap_1741",
+    "--case",
+    "delta_snap_0373",
+    "--case",
+    "delta_snap_1757",
+    "--case",
+    "delta_snap_0437",
+    "--case",
+    "delta_snap_1773",
+    "--case",
+    "delta_snap_0501",
+    "--case",
+    "delta_snap_1789",
+    "--case",
+    "delta_snap_1632",
+    "--case",
+    "delta_snap_1536"
+  ],
+  "background": false,
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-delta.json": "f263552b1bcaa6e5b9e4c3f2bef82158b32ec9e70c6433a9ea43fe5d18b75b5d",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py": "f37391b11aa8f9acea013699a7dee14f1a0c32d50513c41ff56d00eaa5ef3c2b",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py": "d5db093f0c3f50786dd2ec3288194ad6df13aec91bfcd9f8af082edca91ec641",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_delta_cases.py": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "/Users/chrischeng/faberlines/formora/tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/snap-delta-baseline.md": "3b246d3e91810fc6ba92ac797a81a597f7208e611e82b1de2d2bf1db1628753c",
+    "/Users/chrischeng/faberlines/formora/baseline/lock.json": "449150696b4288d5f37b4e1860120e75a786ce1d840b856c99418a1ada1301e3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015"
+  },
+  "operator_properties_sha256": "72e769a6a745044c222fdde33219f33c8c4e2ae8f2e4af5d01c4bf78822015ca",
+  "capture_lock_sha256": "449150696b4288d5f37b4e1860120e75a786ce1d840b856c99418a1ada1301e3",
+  "runs": [
+    {
+      "id": "delta_snap_0053",
+      "file": "delta_snap_0053.json.gz",
+      "sha256": "45b0cb3deedec8c3f2660710c5fe3824635f00dfc6116db66adde6218acb025f",
+      "raw_sha256": "ae22ba8f871f4442f1fe6d0a0f04cc34e9e01de2fbd62fa5d1943dcc62af4dae",
+      "raw_bytes": 152010,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0117",
+      "file": "delta_snap_0117.json.gz",
+      "sha256": "27c63cf4c0be9aa52364f13c0a94499538bdecc09b1e9879657e8f2bb59d604f",
+      "raw_sha256": "f08ff72e39e21981e5737c4459a5b31aec1ed9c354b18ed9b41154a6e4fd59a6",
+      "raw_bytes": 151896,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0181",
+      "file": "delta_snap_0181.json.gz",
+      "sha256": "86f982979863db34fa2a82a33c5ac76f73ced10bf96ce424c8efceac98057606",
+      "raw_sha256": "8643d79288481c7bf049f1bcb2c71c7a58b159ee8d57b6cb9d7338e57016d597",
+      "raw_bytes": 151878,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0245",
+      "file": "delta_snap_0245.json.gz",
+      "sha256": "e809b929233576aa4e9ef568c75b7b27cb7dbdf57d9be149cd8fa0ca218fc6c2",
+      "raw_sha256": "ac3f531fadce611f3c487092e6b0a855a6a5b3732bcc32ac273195cba6cde652",
+      "raw_bytes": 151888,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0309",
+      "file": "delta_snap_0309.json.gz",
+      "sha256": "cc90e911ccdd95f5c9061d2662a6d20c56cd567d0c4b129ebaf51edc17215bd8",
+      "raw_sha256": "af70f5ed827928a01a4e2fe51405522b64e92215d6e7439f390f87d073dd9f97",
+      "raw_bytes": 151995,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0373",
+      "file": "delta_snap_0373.json.gz",
+      "sha256": "dd349113c524977a97f509909021cabd029cec9f1032cfc6064cfc83a268a730",
+      "raw_sha256": "d9ca201b59d28ea5276f729c55da598a28776e614a848ae2d1af91754886da36",
+      "raw_bytes": 151833,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0437",
+      "file": "delta_snap_0437.json.gz",
+      "sha256": "4065f701e0c1a24fad607db6e43c86b024447d14dddeeb47a49d84b49c2df31d",
+      "raw_sha256": "8058f978dd9e776dbb4f27945a06ac6d1203d260be39d16b1c3b4dc6c3e9de70",
+      "raw_bytes": 151629,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_0501",
+      "file": "delta_snap_0501.json.gz",
+      "sha256": "cb5d943ce48b75aeb34d0af7795dd6239fdbceaf653b7626f81efbfe5f3fc929",
+      "raw_sha256": "232b60fbd247042fd2abb3492f708a7c49259857fc27ffdd7e628478608aed50",
+      "raw_bytes": 152209,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1536",
+      "file": "delta_snap_1536.json.gz",
+      "sha256": "1a49bbc86d0644fbddea82023c1043c9fccf8b5ff5b60177c0bfa983ecb9334b",
+      "raw_sha256": "4ed2e6c941f5f7abe25897c9388edc50f448162c122f31625d6603b515c0edd8",
+      "raw_bytes": 143173,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1632",
+      "file": "delta_snap_1632.json.gz",
+      "sha256": "db980ea09924d5477dd8983323b2b19366dc7e0b5b7b52654a217900e8a3d7c0",
+      "raw_sha256": "b2ffc60955802b56c2653aa43fe32dc7c8443a79ee5e29a42b164f6b79d62e9c",
+      "raw_bytes": 153583,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1677",
+      "file": "delta_snap_1677.json.gz",
+      "sha256": "3530c6021d657e670d3c35b0288cc21ccd2658b1ce3efb7202d14466177b5f5d",
+      "raw_sha256": "43bf0253137b6c8aaf79e12560bc109386b5bfc0e53559460facc54c25be2dfb",
+      "raw_bytes": 157281,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1693",
+      "file": "delta_snap_1693.json.gz",
+      "sha256": "7ced198667fe1ad38da6a98075b93643dff373ce3d65ea92c3058c89152384ca",
+      "raw_sha256": "e2a207699e7f91d8db671b459007eb3b916c75abef2dae4e8d953f0dd4be2e77",
+      "raw_bytes": 157296,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1709",
+      "file": "delta_snap_1709.json.gz",
+      "sha256": "5a8e7f38f0d19baff07d9805d238981428721c554b9279e11f520f87a34bf4cd",
+      "raw_sha256": "ce8c967b2aa98ff2ba5a02f65ba98637ca7fcbca075e647b8212ac9197f9195b",
+      "raw_bytes": 157177,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1725",
+      "file": "delta_snap_1725.json.gz",
+      "sha256": "07b10761f56ad1a33901f34e23d55a93f41583a151a749273055e8772512131d",
+      "raw_sha256": "fdde956914b0c065233cb27605a0dc26693cc109a8112e1d2f64f44aa8168a24",
+      "raw_bytes": 157102,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1741",
+      "file": "delta_snap_1741.json.gz",
+      "sha256": "82962c9bd0e36e65e24cce4b467ae2aa7c92d1be0236738a1c04b04c263f48ae",
+      "raw_sha256": "9c49869dc260faaee01071d2909478140440eed3945631ef63e5ace83e13874b",
+      "raw_bytes": 157186,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1757",
+      "file": "delta_snap_1757.json.gz",
+      "sha256": "fdf9af9f4507df695c271967e9bf5b6d1df6095457264edd361c6b00e2e7a38f",
+      "raw_sha256": "07983eccac47e94b45b5712b4487de059b81c1d60afb7ef8618655cd454ca55e",
+      "raw_bytes": 157263,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1773",
+      "file": "delta_snap_1773.json.gz",
+      "sha256": "6de65c36e715fe9721f7ffb09bfa8975c18eb168b05dae3e12090b187612fc30",
+      "raw_sha256": "82f8fad0da27619a4e8e02bf6bbff8fed2123ec6edb08489363df1f0cbba8edc",
+      "raw_bytes": 157147,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "delta_snap_1789",
+      "file": "delta_snap_1789.json.gz",
+      "sha256": "65e42102eb889e545a9c152616a2bc5c52325924e1fcb673d9d778ca16b7108f",
+      "raw_sha256": "b786bbd86e084621c6767e0bb175a8a1299570b27367b018f959ffee5a2b55d2",
+      "raw_bytes": 157413,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}

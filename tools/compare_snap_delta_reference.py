@@ -10,7 +10,7 @@ from pathlib import Path
 
 from compare_selection_reference import require, validate_state
 from compare_snap_menu_reference import f32, floats, tree, selection_input, IDENTITY, snapped
-from compare_snap_rotation_reference import rotation_matrix, matrix, compose, world_point, SELECTION
+from compare_snap_rotation_reference import rotation_matrix, matrix, compose, SELECTION
 from compare_transform_reference import finite
 from generate_snap_delta_cases import author
 
@@ -20,6 +20,19 @@ BINARY = 'de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619'
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def world_point(world, point):
+    # mathutils_Vector.cc column_vector_multiplication accumulates four f32
+    # products sequentially in double. Python's compensated sum can differ
+    # at an f32 halfway boundary. Preserve the actual source accumulation.
+    result = []
+    for row in world[:3]:
+        dot = 0.
+        for a, b in zip(row, [*point, 1.]):
+            dot += f32(a * b)
+        result.append(f32(dot))
+    return result
 
 
 def delta_matrix(profile, normal, delta):
@@ -244,6 +257,8 @@ def provenance_inputs(folder, manifest, suite_path):
 
 
 def compare(suite_path, first, second, receipts_path):
+    suite_path = suite_path.resolve()
+    first, second, receipts_path = first.resolve(), second.resolve(), receipts_path.resolve()
     suite = json.loads(suite_path.read_text()); require(suite == author(), 'authored suite differs')
     require(Counter(r['label'] for r in suite['runs']) == suite['groups_expected'], 'case families differ')
     manifests = [json.loads((p / 'manifest.json').read_text()) for p in [first, second]]

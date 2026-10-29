@@ -1,0 +1,59 @@
+[
+  {
+    "name": "metadata",
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      "/Users/chrischeng/faberlines/formora"
+    ],
+    "terminal_exit_code": 0,
+    "binary_sha256": "093b46f00749eddde3930d4aa5377315a553bafb878807f8ecb8f42db37e54fa",
+    "report": {
+      "structurally_valid": true,
+      "baseline_ready": false,
+      "product_acceptance": "unrun",
+      "sources": 9047,
+      "features": 38,
+      "pending_sources": 8994,
+      "pending_features": 38,
+      "uncovered_sources": 0,
+      "incomplete_products": [
+        "blender",
+        "unreal"
+      ],
+      "unverified_builds": [],
+      "problems": []
+    }
+  },
+  {
+    "name": "strict-metadata",
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "baseline",
+      "check",
+      "--root",
+      "/Users/chrischeng/faberlines/formora",
+      "--strict"
+    ],
+    "terminal_exit_code": 2,
+    "binary_sha256": "093b46f00749eddde3930d4aa5377315a553bafb878807f8ecb8f42db37e54fa",
+    "report": {
+      "structurally_valid": true,
+      "baseline_ready": false,
+      "product_acceptance": "unrun",
+      "sources": 9047,
+      "features": 38,
+      "pending_sources": 8994,
+      "pending_features": 38,
+      "uncovered_sources": 0,
+      "incomplete_products": [
+        "blender",
+        "unreal"
+      ],
+      "unverified_builds": [],
+      "problems": []
+    }
+  }
+]

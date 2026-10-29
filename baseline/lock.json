@@ -35945,6 +35945,16 @@
       "path": "baseline/sources/snap-rotation/manifest.json",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesrna/intern/rna_scene.cc",
       "sha256": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4"
+    },
+    {
+      "path": "baseline/sources/snap-delta/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/object.cc",
+      "sha256": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f"
+    },
+    {
+      "path": "baseline/fixtures/snap-delta.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/object.cc",
+      "sha256": "f263552b1bcaa6e5b9e4c3f2bef82158b32ec9e70c6433a9ea43fe5d18b75b5d"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"
