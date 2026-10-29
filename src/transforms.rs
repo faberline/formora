@@ -6,6 +6,9 @@ use crate::scene::{Result, Scene, SceneError, Transform};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
+mod delta;
+pub use delta::Delta;
+
 pub type Matrix = [[f64; 4]; 4];
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "lowercase")]
@@ -120,19 +123,41 @@ pub(crate) fn single_rotation(rotation: TransformRotation) -> Result<[[f32; 3]; 
 pub fn local(transform: &Transform) -> Result<Matrix> {
     let mut result = [[0.; 4]; 4];
     result[3][3] = 1.;
+    let has_delta = !transform.delta.is_identity();
     if transform.precision == Precision::F32 {
-        let rotation = single_rotation(transform.rotation)?;
+        let mut rotation = single_rotation(transform.rotation)?;
+        if has_delta {
+            let delta = single_rotation(transform.delta.rotation(transform.rotation))?;
+            rotation = std::array::from_fn(|i| {
+                std::array::from_fn(|j| {
+                    delta[i][0] * rotation[0][j]
+                        + delta[i][1] * rotation[1][j]
+                        + delta[i][2] * rotation[2][j]
+                })
+            });
+        }
         for i in 0..3 {
-            result[i][3] = f64::from(f32_value(transform.translation[i])?);
+            let translation = f32_value(transform.translation[i])?;
+            result[i][3] = f64::from(if has_delta {
+                translation + f32_value(transform.delta.translation[i])?
+            } else {
+                translation
+            });
             for j in 0..3 {
-                result[i][j] = f64::from(rotation[i][j] * f32_value(transform.scale[j])?);
+                let scale = f32_value(transform.scale[j])?;
+                let scale = if has_delta {
+                    scale * f32_value(transform.delta.scale[j])?
+                } else {
+                    scale
+                };
+                result[i][j] = f64::from(rotation[i][j] * scale);
             }
         }
     } else {
         let q = transform.rotation.quaternion();
         let length = q.iter().map(|v| v * v).sum::<f64>().sqrt();
         let [x, y, z, w] = q.map(|v| v / length);
-        let rotation = [
+        let mut rotation = [
             [
                 1. - 2. * (y * y + z * z),
                 2. * (x * y - z * w),
@@ -149,10 +174,33 @@ pub fn local(transform: &Transform) -> Result<Matrix> {
                 1. - 2. * (x * x + y * y),
             ],
         ];
+        if has_delta {
+            let delta_transform = Transform {
+                rotation: transform.delta.rotation(transform.rotation),
+                ..Transform::default()
+            };
+            let delta = local(&delta_transform)?;
+            rotation = std::array::from_fn(|i| {
+                std::array::from_fn(|j| {
+                    delta[i][0] * rotation[0][j]
+                        + delta[i][1] * rotation[1][j]
+                        + delta[i][2] * rotation[2][j]
+                })
+            });
+        }
         for i in 0..3 {
-            result[i][3] = transform.translation[i];
+            result[i][3] = if has_delta {
+                transform.translation[i] + transform.delta.translation[i]
+            } else {
+                transform.translation[i]
+            };
             for j in 0..3 {
-                result[i][j] = rotation[i][j] * transform.scale[j];
+                let scale = if has_delta {
+                    transform.scale[j] * transform.delta.scale[j]
+                } else {
+                    transform.scale[j]
+                };
+                result[i][j] = rotation[i][j] * scale;
             }
         }
     }

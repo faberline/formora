@@ -120,14 +120,16 @@ def check_result(request,before,after,result,error,old,new):
     assert old['materials']==new['materials']
 
 
-async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gzip_output=False):
+async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gzip_output=False,
+              suite_path=None,folders=None,source_verifier=verify_source,expected_cases=2496,
+              setup_case=setup,take_snapshot=snapshot,compare_snapshot=compare_state):
     from jsonschema import Draft202012Validator
     from mcp import ClientSession,StdioServerParameters
     from mcp.client.stdio import stdio_client
-    suite_path=ROOT/'baseline/fixtures/snap-rotation.json';suite=load(suite_path)
-    folders=[ROOT/'baseline/reference/blender-5.2.3'/name for name in ['snap-rotation','snap-rotation-repeat']]
-    source=verify_source(suite_path,*folders);assert source['passed']
-    cases=suite['runs'];assert len(cases)==2496
+    suite_path=suite_path or ROOT/'baseline/fixtures/snap-rotation.json';suite=load(suite_path)
+    folders=folders or [ROOT/'baseline/reference/blender-5.2.3'/name for name in ['snap-rotation','snap-rotation-repeat']]
+    source=source_verifier(suite_path,*folders);assert source['passed']
+    cases=suite['runs'];assert len(cases)==expected_cases
     if case_ids:assert set(case_ids)<={c['id'] for c in cases};cases=[c for c in cases if c['id'] in case_ids]
     def inputs():return sorted([ROOT/'Cargo.toml',ROOT/'Cargo.lock',ROOT/'.github/workflows/contracts.yml',
         *[p for folder in ['src','tests','tools','baseline','docs/contracts'] for p in (ROOT/folder).rglob('*')
@@ -145,7 +147,7 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gz
             for index,case in enumerate(cases):
                 with tempfile.TemporaryDirectory(prefix=case['id']+'-',dir=temporary) as workspace:
                     scene=Path(workspace)/'scene.json';_,error=cli(scene,'init');assert error is None
-                    create=setup(suite,case);request=request_for(case)
+                    create=setup_case(suite,case);request=request_for(case)
                     async def exercise(call):
                         _,error=await call('scene_apply',create);assert error is None,(case['id'],error)
                         async def inspect():
@@ -155,7 +157,7 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gz
                                 q,error=await call('scene_inspect',{'mesh_asset':id,'normals':True});assert error is None;queries[id]=q
                             for id in s['entities']:
                                 q,error=await call('scene_inspect',{'entity':id,'world':True});assert error is None;worlds[id]=q
-                            return snapshot(inspection,queries,worlds),s,queries,worlds,inspection
+                            return take_snapshot(inspection,queries,worlds),s,queries,worlds,inspection
                         before,old,qb,wb,ib=await inspect();saved=scene.read_bytes()
                         result,error=await call('scene_apply',request)
                         after,new,qa,wa,ia=await inspect()
@@ -181,7 +183,7 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gz
                     failure=None
                     try:
                         for folder in folders:
-                            ref=load(folder/(case['id']+'.json.gz'));compare_state(ref['before'],before);compare_state(ref['after'],after)
+                            ref=load(folder/(case['id']+'.json.gz'));compare_snapshot(ref['before'],before);compare_snapshot(ref['after'],after)
                         check_result(request,before,after,result,error,old,new)
                     except (AssertionError,ValueError,KeyError) as issue:failure=str(issue) or type(issue).__name__
                     path=write_json(output/(interface+'-'+case['id']+'.json'),{'case':case,'setup':create,'request':request,
@@ -194,8 +196,8 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gz
                 if (index+1)%50==0:print(json.dumps({'interface':interface,'executed':index+1,'failed':sum(r['status']=='failed' for r in records)}),flush=True)
     unchanged=hashes=={p.relative_to(ROOT).as_posix():digest(p) for p in inputs()} and binary_sha==digest(binary)
     passed=unchanged and all(r['status']=='passed' for r in records);full=not case_ids and set(interfaces)=={'cli','official_mcp_sdk'}
-    report={'passed':passed,'checks':len(records),'scope':'full_2496_cases_both_interfaces' if full else 'focused_diagnostic',
-        'required_full_gate_passed':passed and full and len(records)==4992,'verification_inputs_unchanged':unchanged,
+    report={'passed':passed,'checks':len(records),'scope':f'full_{expected_cases}_cases_both_interfaces' if full else 'focused_diagnostic',
+        'required_full_gate_passed':passed and full and len(records)==2*expected_cases,'verification_inputs_unchanged':unchanged,
         'binary_sha256':binary_sha,'input_hashes':hashes,'source_checked':source,'runs':records,
         'product_acceptance':'unrun','three_platform_ci':'unrun','integrated_acceptance':'unrun'}
     (output/'report.json').write_text(json.dumps(report,indent=2)+'\n')

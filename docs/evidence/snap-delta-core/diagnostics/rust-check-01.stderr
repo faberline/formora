@@ -1,0 +1,10 @@
+    Checking formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error[E0063]: missing field `delta` in initializer of `formora::scene::Transform`
+  --> tests/physical_transforms.rs:71:17
+   |
+71 |         let t = Transform {
+   |                 ^^^^^^^^^ missing `delta`
+
+For more information about this error, try `rustc --explain E0063`.
+error: could not compile `formora` (test "physical_transforms") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

@@ -1,0 +1,16 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error[E0610]: `u64` is a primitive type and therefore doesn't have fields
+   --> tests/delta_transforms.rs:272:24
+    |
+272 |     assert_eq!(receipt.scene_snaps[0].objects.len(), 1);
+    |                        ^^^^^^^^^^^
+
+error[E0610]: `u64` is a primitive type and therefore doesn't have fields
+   --> tests/delta_transforms.rs:273:24
+    |
+273 |     assert_eq!(receipt.scene_snaps[0].objects[0].transform_after, *actual);
+    |                        ^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0610`.
+error: could not compile `formora` (test "delta_transforms") due to 2 previous errors
+warning: build failed, waiting for other jobs to finish...

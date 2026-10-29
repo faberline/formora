@@ -40,6 +40,8 @@ pub struct Transform {
         skip_serializing_if = "crate::transforms::Precision::is_default"
     )]
     pub precision: crate::transforms::Precision,
+    #[serde(default, skip_serializing_if = "crate::transforms::Delta::is_identity")]
+    pub delta: crate::transforms::Delta,
 }
 
 impl Default for Transform {
@@ -49,6 +51,7 @@ impl Default for Transform {
             rotation: TransformRotation::default(),
             scale: [1.0; 3],
             precision: crate::transforms::Precision::default(),
+            delta: crate::transforms::Delta::default(),
         }
     }
 }
@@ -287,7 +290,11 @@ impl Scene {
                 return fail(format!("invalid entity ID: {id}"));
             }
             let t = &entity.transform;
-            if !finite(&t.translation) || !finite(&t.scale) || !t.rotation.valid() {
+            if !finite(&t.translation)
+                || !finite(&t.scale)
+                || !t.rotation.valid()
+                || !t.delta.valid()
+            {
                 return fail(format!("invalid transform: {id}"));
             }
             let mut seen = BTreeSet::from([id.as_str()]);
@@ -411,7 +418,9 @@ impl Scene {
             }
         }
         for (id, entity) in &self.entities {
-            if entity.transform.precision == crate::transforms::Precision::F32 {
+            if entity.transform.precision == crate::transforms::Precision::F32
+                || !entity.transform.delta.is_identity()
+            {
                 crate::transforms::world(self, id)?;
             }
         }
