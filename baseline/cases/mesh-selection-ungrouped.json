@@ -1,0 +1,1656 @@
+{
+  "schema_version": 1,
+  "feature_id": "mesh.selection.ungrouped",
+  "fixture": {
+    "suite_path": "baseline/fixtures/mesh-selection.json",
+    "reference_directory": "baseline/reference/blender-5.2.3/mesh-selection",
+    "repeat_directory": "baseline/reference/blender-5.2.3/mesh-selection-repeat",
+    "run_ids": [
+      "selection_0506",
+      "selection_0507",
+      "selection_0508",
+      "selection_0509",
+      "selection_0510",
+      "selection_0511",
+      "selection_0512",
+      "selection_0513",
+      "selection_0514",
+      "selection_0515",
+      "selection_0516",
+      "selection_0517",
+      "selection_0518",
+      "selection_0519",
+      "selection_0520",
+      "selection_0521",
+      "selection_0522",
+      "selection_0523",
+      "selection_0524",
+      "selection_0525",
+      "selection_0526",
+      "selection_0527",
+      "selection_0528",
+      "selection_0529"
+    ],
+    "operation_contract": {
+      "target": "stable mesh asset ID",
+      "component_ids": "authored v/e/f logical IDs; never infer identity from coincident positions",
+      "mode": "agent-visible component domain mask, not a required legacy GUI",
+      "outcomes": [
+        "completed",
+        "unchanged",
+        "invalid_selection_domain",
+        "missing_vertex_weights"
+      ]
+    },
+    "performance_contract": {
+      "hardware": "Apple M1 Max",
+      "platform": "macos",
+      "profile": "release",
+      "fixture": "100x100 quad grid: 10201 vertices, 20200 edges, 10000 faces",
+      "runs_per_function_and_conversion": 3,
+      "maximum_core_ms": 100,
+      "maximum_select_save_reload_ms": 2000,
+      "status": "unrun",
+      "initial_mode": [
+        "VERT"
+      ],
+      "parameters": {
+        "extend": false
+      },
+      "initial_selection": "Row-major integer XY grid. Select initial-domain vertices or element midpoints with X < 50. Ungrouped uses weight 1 only on vertices with X < 50.",
+      "measurement": "Prepare and load the fixture before timing. Measure core selection, then select/save/reload. Retain monotonic raw timestamps. All elapsed values must be nonnegative.",
+      "attributes": "Two UV layers: (+/-)(face_index + corner_index*0.125, corner_index*0.25); two material slots with face_index%2; smooth=bool(face_index%2); seam=edge_index%3==0."
+    },
+    "execution_status": {
+      "blender_reference": "530 cases reproduced in two independent processes",
+      "formora": "unrun"
+    },
+    "remaining": [
+      "full numeric domains and capacity",
+      "multi-object selection",
+      "three-platform product execution",
+      "independent content acceptance"
+    ]
+  },
+  "steps": [
+    "由固定初始網格與指定邏輯 ID 建立案例；保持 UV、材質、群組權重及隱藏狀態。",
+    "以同一 Rust 核心，分別透過 MCP 與命令列執行指定參數。實際查詢所有模式、選取與歷史狀態。",
+    "逐項比較完整 ID 集合與順序；不可只比較數量。保持不變、預期拒絕與完成操作分開記錄。",
+    "操作不得改變幾何或無關屬性。錯誤須原子回復；儲存、重開與 undo 須保持結果。",
+    "三平台保留實際要求、查詢、操作收據及預覽證據。未執行或意外失敗不能算通過。"
+  ],
+  "assertions": [
+    {
+      "target": "runs.selection_0506.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000009"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000011"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0506.operation_outcome",
+      "expected": "missing_vertex_weights"
+    },
+    {
+      "target": "runs.selection_0506.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0506.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0507.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000009"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000011"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0507.operation_outcome",
+      "expected": "missing_vertex_weights"
+    },
+    {
+      "target": "runs.selection_0507.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0507.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0508.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000004",
+            "e000005",
+            "e000006",
+            "e000007",
+            "e000008",
+            "e000009",
+            "e000010",
+            "e000011",
+            "e000015",
+            "e000016",
+            "e000017",
+            "e000018",
+            "e000019",
+            "e000020",
+            "e000021",
+            "e000022",
+            "e000023",
+            "e000024",
+            "e000025",
+            "e000026",
+            "e000027",
+            "e000028",
+            "e000029",
+            "e000030",
+            "e000031",
+            "e000032",
+            "e000033",
+            "e000034",
+            "e000035",
+            "e000036",
+            "e000037",
+            "e000038",
+            "e000039",
+            "e000040",
+            "e000041",
+            "e000042",
+            "e000043",
+            "e000044",
+            "e000045",
+            "e000046",
+            "e000047",
+            "e000048",
+            "e000049",
+            "e000050",
+            "e000051",
+            "e000052",
+            "e000053",
+            "e000054",
+            "e000055",
+            "e000056",
+            "e000057",
+            "e000058",
+            "e000059",
+            "e000060",
+            "e000061",
+            "e000062",
+            "e000063",
+            "e000064",
+            "e000065"
+          ],
+          "FACE": [
+            "f000002",
+            "f000003",
+            "f000006",
+            "f000008",
+            "f000009",
+            "f000010",
+            "f000011",
+            "f000012",
+            "f000013",
+            "f000014",
+            "f000015",
+            "f000016",
+            "f000017",
+            "f000018",
+            "f000019",
+            "f000020",
+            "f000021",
+            "f000022",
+            "f000023",
+            "f000024",
+            "f000025",
+            "f000026",
+            "f000027",
+            "f000028",
+            "f000029",
+            "f000030",
+            "f000031",
+            "f000032"
+          ],
+          "VERT": [
+            "v000002",
+            "v000003",
+            "v000004",
+            "v000005",
+            "v000006",
+            "v000007",
+            "v000008",
+            "v000010",
+            "v000011",
+            "v000012",
+            "v000013",
+            "v000014",
+            "v000015",
+            "v000016",
+            "v000017",
+            "v000018",
+            "v000019",
+            "v000020",
+            "v000021",
+            "v000022",
+            "v000023",
+            "v000024",
+            "v000025",
+            "v000026",
+            "v000027",
+            "v000028",
+            "v000029",
+            "v000030",
+            "v000031",
+            "v000032",
+            "v000033",
+            "v000034",
+            "v000035",
+            "v000036",
+            "v000037",
+            "v000038",
+            "v000039",
+            "v000040",
+            "v000041",
+            "v000042",
+            "v000043",
+            "v000044",
+            "v000045",
+            "v000046",
+            "v000047"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0508.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0508.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0508.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0509.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000004",
+            "e000005",
+            "e000006",
+            "e000007",
+            "e000008",
+            "e000009",
+            "e000010",
+            "e000011",
+            "e000015",
+            "e000016",
+            "e000017",
+            "e000018",
+            "e000019",
+            "e000020",
+            "e000021",
+            "e000022",
+            "e000023",
+            "e000024",
+            "e000025",
+            "e000026",
+            "e000027",
+            "e000028",
+            "e000029",
+            "e000030",
+            "e000031",
+            "e000032",
+            "e000033",
+            "e000034",
+            "e000035",
+            "e000036",
+            "e000037",
+            "e000038",
+            "e000039",
+            "e000040",
+            "e000041",
+            "e000042",
+            "e000043",
+            "e000044",
+            "e000045",
+            "e000046",
+            "e000047",
+            "e000048",
+            "e000049",
+            "e000050",
+            "e000051",
+            "e000052",
+            "e000053",
+            "e000054",
+            "e000055",
+            "e000056",
+            "e000057",
+            "e000058",
+            "e000059",
+            "e000060",
+            "e000061",
+            "e000062",
+            "e000063",
+            "e000064",
+            "e000065"
+          ],
+          "FACE": [
+            "f000002",
+            "f000003",
+            "f000006",
+            "f000008",
+            "f000009",
+            "f000010",
+            "f000011",
+            "f000012",
+            "f000013",
+            "f000014",
+            "f000015",
+            "f000016",
+            "f000017",
+            "f000018",
+            "f000019",
+            "f000020",
+            "f000021",
+            "f000022",
+            "f000023",
+            "f000024",
+            "f000025",
+            "f000026",
+            "f000027",
+            "f000028",
+            "f000029",
+            "f000030",
+            "f000031",
+            "f000032"
+          ],
+          "VERT": [
+            "v000002",
+            "v000003",
+            "v000004",
+            "v000005",
+            "v000006",
+            "v000007",
+            "v000008",
+            "v000010",
+            "v000011",
+            "v000012",
+            "v000013",
+            "v000014",
+            "v000015",
+            "v000016",
+            "v000017",
+            "v000018",
+            "v000019",
+            "v000020",
+            "v000021",
+            "v000022",
+            "v000023",
+            "v000024",
+            "v000025",
+            "v000026",
+            "v000027",
+            "v000028",
+            "v000029",
+            "v000030",
+            "v000031",
+            "v000032",
+            "v000033",
+            "v000034",
+            "v000035",
+            "v000036",
+            "v000037",
+            "v000038",
+            "v000039",
+            "v000040",
+            "v000041",
+            "v000042",
+            "v000043",
+            "v000044",
+            "v000045",
+            "v000046",
+            "v000047"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0509.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0509.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0509.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0510.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000009"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000011"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0510.operation_outcome",
+      "expected": "missing_vertex_weights"
+    },
+    {
+      "target": "runs.selection_0510.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0510.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0511.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000009"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000011"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0511.operation_outcome",
+      "expected": "missing_vertex_weights"
+    },
+    {
+      "target": "runs.selection_0511.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0511.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0512.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000004",
+            "e000005",
+            "e000006",
+            "e000007",
+            "e000008",
+            "e000009",
+            "e000010",
+            "e000011",
+            "e000012",
+            "e000013",
+            "e000014",
+            "e000015",
+            "e000016",
+            "e000017",
+            "e000018",
+            "e000019",
+            "e000020",
+            "e000021",
+            "e000022",
+            "e000023",
+            "e000024",
+            "e000025",
+            "e000026",
+            "e000027",
+            "e000028",
+            "e000029",
+            "e000030",
+            "e000031",
+            "e000032",
+            "e000033",
+            "e000034",
+            "e000035",
+            "e000036",
+            "e000037",
+            "e000038",
+            "e000039",
+            "e000040",
+            "e000041",
+            "e000042",
+            "e000043",
+            "e000044",
+            "e000045",
+            "e000046",
+            "e000047",
+            "e000048",
+            "e000049",
+            "e000050",
+            "e000051",
+            "e000052",
+            "e000053",
+            "e000054",
+            "e000055",
+            "e000056",
+            "e000057",
+            "e000058",
+            "e000059",
+            "e000060",
+            "e000061",
+            "e000062",
+            "e000063",
+            "e000064",
+            "e000065"
+          ],
+          "FACE": [
+            "f000002",
+            "f000003",
+            "f000004",
+            "f000005",
+            "f000006",
+            "f000007",
+            "f000008",
+            "f000009",
+            "f000010",
+            "f000011",
+            "f000012",
+            "f000013",
+            "f000014",
+            "f000015",
+            "f000016",
+            "f000017",
+            "f000018",
+            "f000019",
+            "f000020",
+            "f000021",
+            "f000022",
+            "f000023",
+            "f000024",
+            "f000025",
+            "f000026",
+            "f000027",
+            "f000028",
+            "f000029",
+            "f000030",
+            "f000031",
+            "f000032"
+          ],
+          "VERT": [
+            "v000002",
+            "v000003",
+            "v000004",
+            "v000005",
+            "v000006",
+            "v000007",
+            "v000008",
+            "v000009",
+            "v000010",
+            "v000011",
+            "v000012",
+            "v000013",
+            "v000014",
+            "v000015",
+            "v000016",
+            "v000017",
+            "v000018",
+            "v000019",
+            "v000020",
+            "v000021",
+            "v000022",
+            "v000023",
+            "v000024",
+            "v000025",
+            "v000026",
+            "v000027",
+            "v000028",
+            "v000029",
+            "v000030",
+            "v000031",
+            "v000032",
+            "v000033",
+            "v000034",
+            "v000035",
+            "v000036",
+            "v000037",
+            "v000038",
+            "v000039",
+            "v000040",
+            "v000041",
+            "v000042",
+            "v000043",
+            "v000044",
+            "v000045",
+            "v000046",
+            "v000047"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000009"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000011"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0512.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0512.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0512.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0513.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000004",
+            "e000005",
+            "e000006",
+            "e000007",
+            "e000008",
+            "e000009",
+            "e000010",
+            "e000011",
+            "e000012",
+            "e000013",
+            "e000014",
+            "e000015",
+            "e000016",
+            "e000017",
+            "e000018",
+            "e000019",
+            "e000020",
+            "e000021",
+            "e000022",
+            "e000023",
+            "e000024",
+            "e000025",
+            "e000026",
+            "e000027",
+            "e000028",
+            "e000029",
+            "e000030",
+            "e000031",
+            "e000032",
+            "e000033",
+            "e000034",
+            "e000035",
+            "e000036",
+            "e000037",
+            "e000038",
+            "e000039",
+            "e000040",
+            "e000041",
+            "e000042",
+            "e000043",
+            "e000044",
+            "e000045",
+            "e000046",
+            "e000047",
+            "e000048",
+            "e000049",
+            "e000050",
+            "e000051",
+            "e000052",
+            "e000053",
+            "e000054",
+            "e000055",
+            "e000056",
+            "e000057",
+            "e000058",
+            "e000059",
+            "e000060",
+            "e000061",
+            "e000062",
+            "e000063",
+            "e000064",
+            "e000065"
+          ],
+          "FACE": [
+            "f000002",
+            "f000003",
+            "f000004",
+            "f000005",
+            "f000006",
+            "f000007",
+            "f000008",
+            "f000009",
+            "f000010",
+            "f000011",
+            "f000012",
+            "f000013",
+            "f000014",
+            "f000015",
+            "f000016",
+            "f000017",
+            "f000018",
+            "f000019",
+            "f000020",
+            "f000021",
+            "f000022",
+            "f000023",
+            "f000024",
+            "f000025",
+            "f000026",
+            "f000027",
+            "f000028",
+            "f000029",
+            "f000030",
+            "f000031",
+            "f000032"
+          ],
+          "VERT": [
+            "v000002",
+            "v000003",
+            "v000004",
+            "v000005",
+            "v000006",
+            "v000007",
+            "v000008",
+            "v000009",
+            "v000010",
+            "v000011",
+            "v000012",
+            "v000013",
+            "v000014",
+            "v000015",
+            "v000016",
+            "v000017",
+            "v000018",
+            "v000019",
+            "v000020",
+            "v000021",
+            "v000022",
+            "v000023",
+            "v000024",
+            "v000025",
+            "v000026",
+            "v000027",
+            "v000028",
+            "v000029",
+            "v000030",
+            "v000031",
+            "v000032",
+            "v000033",
+            "v000034",
+            "v000035",
+            "v000036",
+            "v000037",
+            "v000038",
+            "v000039",
+            "v000040",
+            "v000041",
+            "v000042",
+            "v000043",
+            "v000044",
+            "v000045",
+            "v000046",
+            "v000047"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000009"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000011"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0513.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0513.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0513.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0514.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0514.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0514.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0514.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0515.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0515.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0515.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0515.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0516.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0516.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0516.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0516.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0517.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0517.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0517.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0517.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0518.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0518.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0518.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0518.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0519.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0519.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0519.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0519.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0520.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0520.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0520.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0520.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0521.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000013"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000015"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0521.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0521.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0521.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0522.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0522.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0522.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0522.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0523.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0523.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0523.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0523.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0524.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0524.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0524.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0524.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0525.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0525.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0525.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0525.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0526.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0526.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0526.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0526.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0527.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0527.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0527.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0527.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0528.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0528.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0528.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0528.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0529.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000012",
+            "e000013",
+            "e000015"
+          ],
+          "FACE": [
+            "f000004"
+          ],
+          "VERT": [
+            "v000009",
+            "v000010",
+            "v000011"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000004"
+          }
+        ],
+        "active_face": "f000004"
+      }
+    },
+    {
+      "target": "runs.selection_0529.operation_outcome",
+      "expected": "invalid_selection_domain"
+    },
+    {
+      "target": "runs.selection_0529.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0529.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "performance.grid_100x100.run_1.core_selection_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 100.0
+    },
+    {
+      "target": "performance.grid_100x100.run_1.select_save_reload_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 2000.0
+    },
+    {
+      "target": "performance.grid_100x100.run_1.nonnegative_monotonic_measurement",
+      "expected": true
+    },
+    {
+      "target": "performance.grid_100x100.run_2.core_selection_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 100.0
+    },
+    {
+      "target": "performance.grid_100x100.run_2.select_save_reload_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 2000.0
+    },
+    {
+      "target": "performance.grid_100x100.run_2.nonnegative_monotonic_measurement",
+      "expected": true
+    },
+    {
+      "target": "performance.grid_100x100.run_3.core_selection_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 100.0
+    },
+    {
+      "target": "performance.grid_100x100.run_3.select_save_reload_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 2000.0
+    },
+    {
+      "target": "performance.grid_100x100.run_3.nonnegative_monotonic_measurement",
+      "expected": true
+    }
+  ],
+  "evidence": [
+    "固定文件、輸入、參考執行檔、兩個程序及輸出的 SHA-256。",
+    "完整邏輯 ID、選取、歷史、模式、結果與無關屬性比較。",
+    "MCP／CLI 實際查詢、保存重開、undo、拒絕回復及預覽證據。",
+    "固定效能與三平台候選記錄；目前產品仍為 unrun。"
+  ]
+}

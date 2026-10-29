@@ -52,6 +52,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
         entity: None,
         mesh_asset: Some("shared".into()),
         tessellate: false,
+        selection_topology: false,
     }
     .inspect(&restored)
     .unwrap();
@@ -61,6 +62,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
             entity: Some("first".into()),
             mesh_asset: Some("shared".into()),
             tessellate: false,
+            selection_topology: false,
         }
         .inspect(&restored)
         .is_err()
@@ -179,10 +181,10 @@ fn failure_preserves_disk_memory_and_undo_and_reference_deletion_is_atomic() {
         },
         Command::SetMeshAsset {
             id: "shared".into(),
-            asset: MeshAsset {
+            asset: Box::new(MeshAsset {
                 material_slots: vec![Some("missing".into())],
                 ..asset()
-            },
+            }),
         },
     ] {
         assert!(

@@ -230,7 +230,7 @@ fn raw_assets_need_explicit_generation_parameters_and_rejected_recipes_do_not_co
         .apply(
             &[Command::SetMeshAsset {
                 id: "raw".into(),
-                asset: formora::mesh::MeshAsset::default(),
+                asset: Box::default(),
             }],
             Some(0),
         )
@@ -266,7 +266,7 @@ fn raw_assets_need_explicit_generation_parameters_and_rejected_recipes_do_not_co
             .apply(
                 &[Command::SetMeshAsset {
                     id: "raw".into(),
-                    asset: invalid
+                    asset: Box::new(invalid)
                 }],
                 Some(2)
             )

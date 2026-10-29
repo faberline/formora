@@ -4,6 +4,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
 pub mod primitives;
+pub mod selection;
 mod tessellation;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
@@ -80,13 +81,38 @@ pub struct MeshAsset {
     pub recipe: Option<primitives::PrimitiveRecipe>,
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub diagnostics: Vec<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub editing: Option<selection::Editing>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub vertex_groups: Vec<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub vertex_weights: Option<selection::VertexWeights>,
+    #[serde(
+        default,
+        deserialize_with = "crate::scene::unique_set",
+        skip_serializing_if = "BTreeSet::is_empty"
+    )]
+    pub edge_seams: BTreeSet<String>,
+    #[serde(
+        default,
+        deserialize_with = "crate::scene::unique_set",
+        skip_serializing_if = "BTreeSet::is_empty"
+    )]
+    pub smooth_triangles: BTreeSet<String>,
 }
 
 impl MeshAsset {
     pub fn tessellate(&self) -> Result<Tessellation> {
+        self.tessellate_without(&BTreeSet::new())
+    }
+
+    pub(crate) fn tessellate_without(&self, hidden: &BTreeSet<String>) -> Result<Tessellation> {
         self.validate()?;
         let mut output = Tessellation::default();
         for (id, polygon) in &self.polygons {
+            if hidden.contains(id) {
+                continue;
+            }
             let points: Vec<_> = polygon.vertices.iter().map(|v| self.vertices[v]).collect();
             let triangles = tessellation::triangulate(&points)
                 .map_err(|e| SceneError(format!("polygon {id}: {e}")))?;
@@ -237,6 +263,7 @@ impl MeshAsset {
                 }
             }
         }
+        selection::validate_attributes(self)?;
         Ok(())
     }
 }

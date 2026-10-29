@@ -91,7 +91,7 @@ fn main() {
                 expected_revision: 0,
                 commands: vec![Command::SetMeshAsset {
                     id: "grid".into(),
-                    asset: asset.clone(),
+                    asset: Box::new(asset.clone()),
                 }],
             })
             .unwrap();

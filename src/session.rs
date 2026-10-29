@@ -24,6 +24,8 @@ pub struct ApplyResult {
     pub revision: u64,
     #[serde(skip_serializing_if = "BTreeMap::is_empty")]
     pub generation_diagnostics: BTreeMap<String, Vec<String>>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub selection: Vec<crate::mesh::selection::CommandOutcome>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -33,6 +35,8 @@ pub struct InspectRequest {
     pub mesh_asset: Option<String>,
     #[serde(default)]
     pub tessellate: bool,
+    #[serde(default)]
+    pub selection_topology: bool,
 }
 
 impl InspectRequest {
@@ -41,15 +45,29 @@ impl InspectRequest {
         if self.tessellate && (self.mesh_asset.is_none() || self.entity.is_some()) {
             return Err(SceneError("tessellate requires only mesh_asset".into()));
         }
-        if self.tessellate {
+        if self.selection_topology && (self.mesh_asset.is_none() || self.entity.is_some()) {
+            return Err(SceneError(
+                "selection_topology requires only mesh_asset".into(),
+            ));
+        }
+        if self.tessellate || self.selection_topology {
             let id = self.mesh_asset.as_ref().expect("checked mesh asset");
             let asset = scene
                 .mesh_assets
                 .get(id)
                 .ok_or_else(|| SceneError(format!("unknown mesh asset: {id}")))?;
-            return Ok(
-                serde_json::json!({"revision":scene.revision,"id":id,"mesh_asset":asset,"tessellation":asset.tessellate()?}),
-            );
+            let mut result =
+                serde_json::json!({"revision":scene.revision,"id":id,"mesh_asset":asset});
+            if self.tessellate {
+                result["tessellation"] = serde_json::to_value(asset.tessellate()?)
+                    .map_err(|e| SceneError(e.to_string()))?;
+            }
+            if self.selection_topology {
+                result["selection_topology"] =
+                    serde_json::to_value(crate::mesh::selection::topology(asset)?)
+                        .map_err(|e| SceneError(e.to_string()))?;
+            }
+            return Ok(result);
         }
         match (&self.entity, &self.mesh_asset) {
             (Some(_), Some(_)) => Err(SceneError("inspect accepts either entity or mesh_asset".into())),
@@ -160,7 +178,11 @@ impl Session {
                 _ => None,
             })
             .collect();
-        let revision = self.apply(request)?;
+        let mut candidate = self.editor.clone();
+        let applied =
+            candidate.apply_with_outcomes(&request.commands, Some(request.expected_revision))?;
+        candidate.scene().save(&self.path)?;
+        self.editor = candidate;
         let generation_diagnostics = generated
             .into_iter()
             .filter_map(|id| {
@@ -172,8 +194,9 @@ impl Session {
             })
             .collect();
         Ok(ApplyResult {
-            revision,
+            revision: applied.revision,
             generation_diagnostics,
+            selection: applied.selection,
         })
     }
 

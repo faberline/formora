@@ -348,6 +348,55 @@ fn duplicate_mesh_ids_in_raw_native_and_mcp_messages_cannot_mutate_the_scene() {
 }
 
 #[test]
+fn duplicate_selection_ids_are_rejected_by_cli_native_and_mcp_before_mutation() {
+    let arguments = r#"{"expected_revision":1,"commands":[{"operation":"set_mesh_editing","id":"missing","editing":{"selected":{"vertices":["a","a"]}}}]}"#;
+    for interface in ["cli", "native", "mcp"] {
+        let project = Project::new();
+        project.create();
+        let before = fs::read(project.scene()).unwrap();
+        let (actions, input) = match interface {
+            "cli" => (
+                vec!["scene", "apply", "--request", "-"],
+                arguments.to_string(),
+            ),
+            "native" => (
+                vec!["scene", "serve"],
+                format!(r#"{{"id":1,"name":"scene_apply","arguments":{arguments}}}"#) + "\n",
+            ),
+            _ => (
+                vec!["mcp"],
+                requests(&[initialize(), initialized()])
+                    + &format!(
+                        r#"{{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{{"name":"scene_apply","arguments":{arguments}}}}}"#
+                    )
+                    + "\n",
+            ),
+        };
+        let output = project.process(&actions, &input);
+        if interface == "cli" {
+            assert!(!output.status.success());
+        } else {
+            assert!(output.status.success());
+            let replies = lines(&output);
+            let reply = replies.last().unwrap();
+            if interface == "native" {
+                assert_eq!(reply["ok"], false);
+                assert!(reply["error"].as_str().unwrap().contains("duplicate"));
+            } else {
+                assert_eq!(reply["result"]["isError"], true);
+                assert!(
+                    reply["result"]["content"][0]["text"]
+                        .as_str()
+                        .unwrap()
+                        .contains("duplicate")
+                );
+            }
+        }
+        assert_eq!(fs::read(project.scene()).unwrap(), before);
+    }
+}
+
+#[test]
 fn polygon_tessellation_queries_match_cli_mcp_and_fail_without_changing_undo() {
     let project = Project::new();
     project.create();

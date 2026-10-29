@@ -1,5 +1,7 @@
 # Rotational primitive verification
 
+Compiler qualification correction: the historical local Rust 1.85 claim below was withdrawn after a child-tool PATH audit. Use the [actual minimum-version recheck](dependency-minimum-rust.md) for the exact pending candidate and its verified tools. The old records remain historical functional evidence. Required CI and integrated acceptance remain open.
+
 Scope: [issue #36](https://github.com/faberline/formora/issues/36).
 The fixed contract was committed as `2ad8cf3` before the implementation.
 The implementation candidate is `b1dfd56`.
