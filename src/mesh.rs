@@ -8,6 +8,7 @@ mod frame_math;
 pub mod normals;
 pub mod primitives;
 pub mod selection;
+pub mod snap;
 mod tessellation;
 pub mod transform;
 
