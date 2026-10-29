@@ -3,6 +3,15 @@
 This extends issue #48 before implementation. Keep all fixed source cases,
 expected results, 1e-6 limits, capacity limits and acceptance gates.
 
+Native scenes also retain their existing high-precision transform behavior.
+Add `Transform.precision` with `f64` (default) and `f32`. Omit the default from
+saved JSON so legacy representation stays unchanged. This is actual authored
+scene state. Preserve it through edit, undo, animation and save/reload. Every
+consumer must respect it. The source adapter explicitly authors `f32` for its
+Blender object profiles and parents. This choice derives from source storage,
+never from a measured result or a failing case. Keep all existing high-precision
+preview and picking tests with their original limits.
+
 The pinned object code constructs float32 rotation, scale and translation
 matrices. Euler matrices use double trigonometry of stored float32 angles and
 float32 matrix entries. Quaternion matrices normalize the stored quaternion in
@@ -12,8 +21,11 @@ stored rotation representation and full authored values. Reject nonfinite or
 unrepresentable calculations before any edit is published.
 
 Compose physical local and parent frames through one shared native matrix
-builder. Use the frozen source's float32 scale and four-term balanced parent
-matrix product. Retain reflected and zero scales. Verify this path against the
+builder. In `f32` mode use the frozen source's float32 scale and four-term
+balanced parent matrix product. Cast a higher-precision parent's actual matrix
+at this child's explicit precision boundary. In default `f64` mode retain the
+existing double-quaternion, scale and parent-product path. Retain reflected and
+zero scales. Verify the single-precision path against the
 actual reference binary and the primary object, SIMD and matrix sources.
 All six measured Euler parent frames match the balanced path exactly. Do not
 replace this with a double-precision product merely because it is more precise.
@@ -34,10 +46,11 @@ may be accepted by this query. Other entity types return their matrix only.
 Reject `world` without an entity, or with an asset-only or other incompatible
 query option. Querying must not change memory, disk, revision or undo.
 
-World vertex observations follow the pinned Python vector query path: float32
+In `f32` mode world vertex observations follow the pinned Python vector query path: float32
 matrix entries and vertex coordinates, float32 products, double accumulation,
 then one final float32 result. This differs from the core's internal float32
-vector operations. Keep those internal operations unchanged unless separately
+vector operations. Default `f64` queries retain double matrix/point arithmetic.
+Keep those internal operations unchanged unless separately
 verified. The source adapter must observe the actual native query. It may not
 rebuild a world frame with a different quaternion or arithmetic path.
 
