@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2004 Blender Authors
 // SPDX-License-Identifier: GPL-2.0-or-later
-// Fixed primitive placement matrix order, with explicit single-precision steps.
+// Shared authoring matrix order, with explicit single-precision steps.
 use crate::scene::{Result, Scene, SceneError, Transform};
 pub(super) type Mat3 = [[f32; 3]; 3];
 pub(super) type Mat4 = [[f64; 4]; 4];

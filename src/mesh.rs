@@ -4,10 +4,12 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
 pub mod creation;
+mod frame_math;
 pub mod normals;
 pub mod primitives;
 pub mod selection;
 mod tessellation;
+pub mod transform;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, JsonSchema)]
 pub struct PolygonTriangle {

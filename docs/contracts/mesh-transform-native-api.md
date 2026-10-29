@@ -28,14 +28,19 @@ the fixed source's separately verified safe inverse behavior before support.
 `individual`. Active uses actual persistent selection history and active face.
 Individual centres use selected connected edge/face islands. Isolated selected
 vertices use their own position. Centres and arithmetic follow the pinned source.
+Optional `center_override` supplies an authored world point for the global pivot.
+Individual element centres still apply when the pivot mode is `individual`.
 
 `constraint_axis` is a three-boolean mask. All false means unconstrained.
 Translation masks displacement components in the working basis. Resize leaves
 unconstrained factors at one. Rotation uses a single constrained axis, or the
 normal of a constrained plane. Three true leaves the requested rotation axis.
-The source EXEC translation input already contains final values. Its adapter
-must therefore omit the native translation mask. This is an authored request
+The source EXEC translation and resize arrays already contain final values.
+Its initializer enables all three axes. Its adapter must therefore omit the
+native mask for both operations. This is an authored request
 mapping. It must not use measured positions or bases.
+The source reads `orient_matrix` as a flat float array into column-major storage.
+Its adapter transposes that authored array for the native row-major matrix.
 
 `proportional` is optional. It contains a positive finite `radius`, a `falloff`
 (`smooth`, `sphere`, `root`, `sharp`, `linear`, `constant`, `random` or

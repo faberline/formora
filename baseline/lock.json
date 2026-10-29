@@ -18780,6 +18780,31 @@
       "path": "docs/evidence/mesh-transform-core/normals/source/math_vector_inline.cc",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_vector_inline.cc",
       "sha256": "c1b6d85efbfe2824d7a2f330d7961f5dd1b0f32b2d00ad9d94c644f00ea239b9"
+    },
+    {
+      "path": "baseline/sources/mesh-transform-core/transform_constraints.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_constraints.cc",
+      "sha256": "f4e7a61b69fec4bf226f7c39c4ae841366d1a824afe4343a55bfee9fccb0e791"
+    },
+    {
+      "path": "baseline/sources/mesh-transform-core/transform_orientations.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_orientations.cc",
+      "sha256": "97e80b0a67475af123c3d970f46195a90056101fd68ab60db0852d4ab842ec21"
+    },
+    {
+      "path": "baseline/sources/mesh-transform-core/bmesh_mesh_normals.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_mesh_normals.cc",
+      "sha256": "348d6f41ecf8dc1ce2f0f2b628cc44dee2cb0ea5089172637668df0f31abecf7"
+    },
+    {
+      "path": "baseline/sources/mesh-transform-core/bpy_rna_array.cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/intern/bpy_rna_array.cc",
+      "sha256": "2b8b7bc32eb3b7b437b78c9189fc73b95cb51633513aa05cf7fdfa3276bfed27"
+    },
+    {
+      "path": "baseline/sources/mesh-transform-core/manifest.json",
+      "url": "https://github.com/blender/blender/tree/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender",
+      "sha256": "c6418c2869c057ab1f0ea38618a73a7d6f9af43a0374fa5ac7c15c3fd13c8017"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"

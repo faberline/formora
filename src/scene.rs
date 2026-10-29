@@ -446,6 +446,9 @@ impl Scene {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[serde(tag = "operation", rename_all = "snake_case", deny_unknown_fields)]
 pub enum Command {
+    TransformMesh {
+        transform: Box<crate::mesh::transform::Request>,
+    },
     SetAuthoringContext {
         context: Option<crate::mesh::creation::AuthoringContext>,
     },
@@ -531,10 +534,16 @@ enum CommandEffect {
     None,
     Selection(crate::mesh::selection::Outcome),
     Creation(Box<crate::mesh::creation::CreationReceipt>),
+    Transform(Box<crate::mesh::transform::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::TransformMesh { transform } => {
+                return Ok(CommandEffect::Transform(Box::new(
+                    crate::mesh::transform::execute(scene, transform)?,
+                )));
+            }
             Self::SetAuthoringContext { context } => scene.authoring_context = context.clone(),
             Self::CreateMeshObject { creation } => {
                 return Ok(CommandEffect::Creation(Box::new(
@@ -745,6 +754,7 @@ pub struct EditResult {
     pub revision: u64,
     pub selection: Vec<crate::mesh::selection::CommandOutcome>,
     pub creation: Vec<crate::mesh::creation::CreationReceipt>,
+    pub transforms: Vec<crate::mesh::transform::Receipt>,
 }
 
 impl Editor {
@@ -785,6 +795,7 @@ impl Editor {
         let mut candidate = self.scene.clone();
         let mut selection = Vec::new();
         let mut creation = Vec::new();
+        let mut transforms = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
                 CommandEffect::Selection(outcome) => {
@@ -801,6 +812,10 @@ impl Editor {
                     receipt.command_index = command_index;
                     creation.push(*receipt);
                 }
+                CommandEffect::Transform(mut receipt) => {
+                    receipt.command_index = command_index;
+                    transforms.push(*receipt);
+                }
                 CommandEffect::None => {}
             }
             candidate.validate()?;
@@ -812,6 +827,7 @@ impl Editor {
             revision,
             selection,
             creation,
+            transforms,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {
