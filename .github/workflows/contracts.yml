@@ -38,6 +38,8 @@ jobs:
         run: python tools/mcp_smoke.py target/debug/formora
       - name: Generate primitives and compare fixed geometry through CLI and MCP
         run: python tools/primitive_reference_smoke.py target/debug/formora target/generated-primitive-cases
+      - name: Verify negative and zero-axis scale geometry through CLI and MCP
+        run: python tools/remaining_scale_regression.py target/debug/formora target/remaining-scale-cases
       - name: Execute selection cases through CLI and official MCP
         run: python tools/selection_runtime_smoke.py target/debug/formora target/selection-runtime-cases
       - name: Verify generation without source repository access

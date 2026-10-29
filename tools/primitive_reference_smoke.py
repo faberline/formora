@@ -15,13 +15,14 @@ from jsonschema import Draft202012Validator
 from compare_mesh_reference import compare
 from polygon_reference_smoke import from_query, transform_from_matrix
 
-KINDS = {'plane', 'cube', 'grid', 'circle', 'uv_sphere', 'cylinder', 'cone', 'torus'}
+KINDS = {'plane', 'cube', 'grid', 'circle', 'uv_sphere', 'cylinder', 'cone', 'torus', 'ico_sphere', 'monkey'}
 BOUNDARIES = {'plane_zero_size', 'cube_zero_size', 'grid_zero_size', 'circle_zero_radius',
               'circle_zero_nothing', 'circle_zero_ngon', 'circle_zero_trifan',
               'cone_zero_depth', 'cylinder_zero_radius', 'cylinder_zero_depth', 'uv_sphere_zero_radius',
               'cylinder_zero_nothing', 'cone_zero_nothing', 'cylinder_zero_ngon', 'cone_zero_ngon',
               'cylinder_zero_trifan', 'cone_zero_trifan', 'cone_equal_radii', 'torus_zero_major',
-              'torus_zero_minor', 'torus_zero_both', 'torus_inverted_radii'}
+              'torus_zero_minor', 'torus_zero_both', 'torus_inverted_radii',
+              'ico_sphere_zero_radius', 'monkey_zero_size'}
 GEOMETRY = ['run_id', 'vertices', 'edges', 'faces', 'face_normals', 'corner_normals',
             'smooth_faces', 'uv_layers', 'matrix_world', 'bounds_local', 'bounds_world', 'triangles']
 
@@ -34,8 +35,8 @@ def command(binary, *arguments, request=None):
 
 def arguments_for(run, reference):
     primitive = {'kind': run['operator'], **{k: v for k, v in run['parameters'].items()
-                                           if k not in (['location', 'rotation'] if run['operator'] in {'cube', 'uv_sphere', 'cylinder', 'cone'} else ['location', 'rotation', 'scale'])}}
-    if run['operator'] in {'uv_sphere', 'cylinder', 'cone'} and 'rotation' in run['parameters']:
+                                           if k not in (['location', 'rotation'] if run['operator'] in {'cube', 'uv_sphere', 'cylinder', 'cone', 'ico_sphere'} else ['location', 'rotation', 'scale'])}}
+    if run['operator'] in {'uv_sphere', 'cylinder', 'cone', 'ico_sphere', 'monkey'} and 'rotation' in run['parameters']:
         primitive['creation_rotation'] = run['parameters']['rotation']
     for key in ['fill_type', 'end_fill_type', 'mode']:
         if key in primitive:
@@ -88,7 +89,7 @@ async def run(binary, output):
              for r in first['runs'] if r['operator'] in KINDS]
     cases += [(r, root/'baseline/reference/blender-5.2.3/mesh-contexts', context['comparison'], 'boundary_geometry_only')
               for r in context['runs'] if r['id'] in BOUNDARIES]
-    assert len(cases) == 69
+    assert len(cases) == 81
     output.mkdir(parents=True, exist_ok=False)
     records = []
     with tempfile.TemporaryDirectory(prefix='formora-generated-primitives-') as directory:
@@ -119,19 +120,20 @@ async def run(binary, output):
                                 'candidate_sha256': hashlib.sha256((output/file).read_bytes()).hexdigest(),
                                 'generated_recipe': query['mesh_asset']['recipe'], **comparison})
     report = {'scope': 'Rust procedural generation, saved parameters and process reload. Finite cases only.',
-              'passed': all(r['status']=='passed' for r in records), 'primitive_cases_per_interface': 47, 'boundary_geometry_subchecks_per_interface': 22,
+              'passed': all(r['status']=='passed' for r in records), 'primitive_cases_per_interface': 57, 'boundary_geometry_subchecks_per_interface': 24,
               'interfaces': ['cli', 'official_mcp_sdk'], 'full_feature_acceptance': 'unrun',
               'full_context_acceptance': 'unrun', 'binary_sha256': hashlib.sha256(binary.read_bytes()).hexdigest(),
               'source_files_sha256': {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
                                       for p in sorted([root/'Cargo.toml', root/'Cargo.lock', *[p for p in (root/'src').rglob('*') if p.is_file()]])},
               'adapter_files_sha256': {name: hashlib.sha256((root/name).read_bytes()).hexdigest() for name in
                                        ['tools/primitive_reference_smoke.py', 'tools/polygon_reference_smoke.py',
-                                        'tools/compare_mesh_reference.py', 'docs/contracts/primitive-generation.md', 'docs/contracts/rotational-primitives.md']},
+                                        'tools/compare_mesh_reference.py', 'docs/contracts/primitive-generation.md', 'docs/contracts/rotational-primitives.md',
+                                        'docs/contracts/remaining-primitives.md']},
               'runs': records}
     (output/'report.json').write_text(json.dumps(report, indent=2)+'\n')
     passed=all(r['status']=='passed' for r in records)
-    print(json.dumps({'passed': passed, 'primitive_cases_per_interface': 47,
-                      'boundary_geometry_subchecks_per_interface': 22, 'checks': len(records),
+    print(json.dumps({'passed': passed, 'primitive_cases_per_interface': 57,
+                      'boundary_geometry_subchecks_per_interface': 24, 'checks': len(records),
                       'full_feature_acceptance': 'unrun', 'full_context_acceptance': 'unrun'}))
     if not passed:
         raise SystemExit(1)

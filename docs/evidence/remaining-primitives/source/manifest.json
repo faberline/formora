@@ -1,0 +1,55 @@
+{
+  "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "source_files": [
+    {
+      "path": "source/blender/bmesh/operators/bmo_primitive.cc",
+      "file": "bmo_primitive.cc",
+      "sha256": "12d075f84ab5d6662823a9dcd4cc28abe1126ab2b7df536c811c23c37fc0878f",
+      "git_blob": "bc52d28c18b9518442c46518ab67a627b7b8bacf",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/operators/bmo_primitive.cc"
+    },
+    {
+      "path": "source/blender/bmesh/operators/bmo_subdivide.cc",
+      "file": "bmo_subdivide.cc",
+      "sha256": "41dc1e2c0bba4dc86eef629e4757e981527bc6c7b21b234b28a496e1d5f80cd1",
+      "git_blob": "adb63f412eb963e62e6a3c7e75df03ab533dfd44",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/operators/bmo_subdivide.cc"
+    },
+    {
+      "path": "source/blender/editors/mesh/editmesh_add.cc",
+      "file": "editmesh_add.cc",
+      "sha256": "07024afeb7432671149d88f420545be19e50a86727721df591e5d34830e3783e",
+      "git_blob": "4e555ef1543909036b75682f0a2f7eab125ffbda",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/editmesh_add.cc"
+    },
+    {
+      "path": "source/blender/bmesh/intern/bmesh_mods.cc",
+      "file": "bmesh_mods.cc",
+      "sha256": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+      "git_blob": "dd3394ee9870d3e315e1b3d6c349424db4c707bf",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_mods.cc"
+    },
+    {
+      "path": "source/blender/bmesh/intern/bmesh_interp.cc",
+      "file": "bmesh_interp.cc",
+      "sha256": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+      "git_blob": "b513b713191b4011a5a640091984f92fa416156b",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_interp.cc"
+    },
+    {
+      "path": "source/blender/blenlib/intern/math_vector_inline.cc",
+      "file": "math_vector_inline.cc",
+      "sha256": "c1b6d85efbfe2824d7a2f330d7961f5dd1b0f32b2d00ad9d94c644f00ea239b9",
+      "git_blob": "d9a940aeed73e6bf69bfb7e38a3f4c71e72289ac",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_vector_inline.cc"
+    },
+    {
+      "path": "source/blender/blenkernel/intern/mesh_normals.cc",
+      "file": "mesh_normals.cc",
+      "sha256": "50c001bb7e48b425fa9f5c6ed97dbddbd4f7915d9ee8fb445f0d53a7961272ec",
+      "git_blob": "13a694aa581da9b9a7b93912de7a466eed61fb12",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/mesh_normals.cc"
+    }
+  ],
+  "purpose": "authored tables and behavior research; not measured reference answers"
+}
