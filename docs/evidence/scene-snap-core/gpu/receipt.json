@@ -1,0 +1,385 @@
+{
+  "revision": 2,
+  "scene_snaps": [
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "command_index": 0,
+      "cursor_after": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cursor_before": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cursor_changed": false,
+      "cursor_rotation_after": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "cursor_rotation_before": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "edit_meshes": [],
+      "meshes": [
+        {
+          "changed": {
+            "edges": [
+              "e0000",
+              "e0001",
+              "e0002",
+              "e0003",
+              "e0004",
+              "e0005",
+              "e0006",
+              "e0007",
+              "e0008",
+              "e0009",
+              "e0010",
+              "e0011",
+              "e0012",
+              "e0013",
+              "e0014",
+              "e0015",
+              "e0016",
+              "e0017",
+              "e0018",
+              "e0019",
+              "e0020",
+              "e0021",
+              "e0022",
+              "e0023",
+              "e0024",
+              "e0025",
+              "e0026",
+              "e0027",
+              "e0028",
+              "e0029",
+              "e0030",
+              "e0031",
+              "e0032",
+              "e0033",
+              "e0034",
+              "e0035",
+              "e0036",
+              "e0037",
+              "e0038",
+              "e0039"
+            ],
+            "faces": [
+              {
+                "id": "f0000",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0001",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0002",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0003",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0004",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0005",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0006",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0007",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0008",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0009",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0010",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0011",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0012",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0013",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0014",
+                "kind": "polygon"
+              },
+              {
+                "id": "f0015",
+                "kind": "polygon"
+              }
+            ],
+            "vertices": [
+              "v0000",
+              "v0001",
+              "v0002",
+              "v0003",
+              "v0004",
+              "v0005",
+              "v0006",
+              "v0007",
+              "v0008",
+              "v0009",
+              "v0010",
+              "v0011",
+              "v0012",
+              "v0013",
+              "v0014",
+              "v0015",
+              "v0016",
+              "v0017",
+              "v0018",
+              "v0019",
+              "v0020",
+              "v0021",
+              "v0022",
+              "v0023",
+              "v0024"
+            ]
+          },
+          "mesh_asset": "mesh",
+          "representative": "surface",
+          "shared_instances": [
+            "shared",
+            "surface"
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "entity": "surface",
+          "parent_inverse_after": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "parent_inverse_before": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "transform_after": {
+            "precision": "f32",
+            "rotation": {
+              "angles": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "kind": "euler",
+              "order": "xyz"
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              -0.75,
+              0.75
+            ]
+          },
+          "transform_before": {
+            "precision": "f32",
+            "rotation": {
+              "angles": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "kind": "euler",
+              "order": "xyz"
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.25,
+              -0.5,
+              0.75
+            ]
+          }
+        },
+        {
+          "entity": "child",
+          "parent_inverse_after": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.25
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.25
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "parent_inverse_before": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "transform_after": {
+            "precision": "f32",
+            "rotation": {
+              "angles": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "kind": "euler",
+              "order": "xyz"
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "transform_before": {
+            "precision": "f32",
+            "rotation": {
+              "angles": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "kind": "euler",
+              "order": "xyz"
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        }
+      ],
+      "pivot_world": null,
+      "reason": null,
+      "status": "finished",
+      "target_world": null
+    }
+  ]
+}

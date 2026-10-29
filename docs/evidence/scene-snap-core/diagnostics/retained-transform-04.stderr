@@ -1,0 +1,47 @@
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/chrischeng/faberlines/formora/tools/transform_runtime_smoke.py", line 274, in <module>
+  |     args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk')))
+  |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 195, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "/Users/chrischeng/faberlines/formora/tools/transform_runtime_smoke.py", line 242, in run
+  |     async with stdio_client(parameters) as (reader,writer):
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/private/tmp/formora-mcp-sdk-2/mcp/client/stdio.py", line 201, in stdio_client
+  |     async with anyio.create_task_group() as tg:
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/private/tmp/formora-mcp-sdk-2/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "/private/tmp/formora-mcp-sdk-2/mcp/client/stdio.py", line 205, in stdio_client
+    |     yield read_stream, write_stream
+    |   File "/Users/chrischeng/faberlines/formora/tools/transform_runtime_smoke.py", line 243, in run
+    |     async with ClientSession(reader,writer,read_timeout_seconds=10) as client:
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/private/tmp/formora-mcp-sdk-2/mcp/client/session.py", line 514, in __aexit__
+    |     result = await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/private/tmp/formora-mcp-sdk-2/anyio/_backends/_asyncio.py", line 847, in __aexit__
+    |     raise BaseExceptionGroup(
+    | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Traceback (most recent call last):
+      |   File "/Users/chrischeng/faberlines/formora/tools/transform_runtime_smoke.py", line 249, in run
+      |     before,after,result,error,before_world,after_world=await exercise(call)
+      |                                                        ^^^^^^^^^^^^^^^^^^^^
+      |   File "/Users/chrischeng/faberlines/formora/tools/transform_runtime_smoke.py", line 216, in exercise
+      |     result,error=await call('scene_apply',create);assert error is None,(case['id'],error)
+      |                                                          ^^^^^^^^^^^^^
+      | AssertionError: ('transform_0514', 'No space left on device (os error 28)')
+      +------------------------------------

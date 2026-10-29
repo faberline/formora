@@ -1,0 +1,79 @@
+{
+  "class": "B",
+  "complete_gate": "requires all 30 class/form reports and all 90 source comparisons",
+  "edges_per_mesh": 20200,
+  "faces_per_mesh": 10000,
+  "form": "selected-grid",
+  "grid": [
+    100,
+    100
+  ],
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun",
+  "passed": true,
+  "profile": "release",
+  "runs": [
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 187053416,
+      "core_ms": 132.080125,
+      "core_start_ns": 54973291,
+      "form": "selected-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 294.621375,
+      "passed": true,
+      "pipeline_end_ns": 604394250,
+      "pipeline_start_ns": 309772875,
+      "receipt_equal": true,
+      "sample": 1
+    },
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 820251375,
+      "core_ms": 133.568667,
+      "core_start_ns": 686682708,
+      "form": "selected-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 352.505291,
+      "passed": true,
+      "pipeline_end_ns": 1309840166,
+      "pipeline_start_ns": 957334875,
+      "receipt_equal": true,
+      "sample": 2
+    },
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 1516972000,
+      "core_ms": 130.131625,
+      "core_start_ns": 1386840375,
+      "form": "selected-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 338.085458,
+      "passed": true,
+      "pipeline_end_ns": 2033361583,
+      "pipeline_start_ns": 1695276125,
+      "receipt_equal": true,
+      "sample": 3
+    }
+  ],
+  "samples": 3,
+  "vertices_per_mesh": 10201
+}

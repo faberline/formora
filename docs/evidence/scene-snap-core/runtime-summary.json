@@ -1,0 +1,42 @@
+{
+  "implementation_commit": "dcb484218708959ac28b4a1ac79d5ef8b4156a02",
+  "gates": [
+    {
+      "gate": "full",
+      "checks": 1100,
+      "binary_sha256": "896fdd2583d684a1170e95fd4475351f7da254a9044d0174a5fb67eed840d1d5",
+      "comparison_kinds": {
+        "defined_numeric_source_comparison": 1094,
+        "explicit_cancellation": 4,
+        "explicit_atomic_rejection": 2
+      },
+      "artifact": "docs/evidence/scene-snap-core/runtime-full",
+      "terminal_exit_code": 0
+    },
+    {
+      "gate": "single",
+      "checks": 2244,
+      "binary_sha256": "896fdd2583d684a1170e95fd4475351f7da254a9044d0174a5fb67eed840d1d5",
+      "comparison_kinds": {
+        "defined_numeric_source_comparison": 2072,
+        "explicit_cancellation": 136,
+        "explicit_atomic_rejection": 36
+      },
+      "artifact": "docs/evidence/scene-snap-core/runtime-single",
+      "terminal_exit_code": 0
+    },
+    {
+      "gate": "transform",
+      "checks": 2406,
+      "binary_sha256": "896fdd2583d684a1170e95fd4475351f7da254a9044d0174a5fb67eed840d1d5",
+      "comparison_kinds": {
+        "": 2392,
+        "human_approved_undefined_rotation_rejection": 14
+      },
+      "artifact": "docs/evidence/scene-snap-core/runtime-transform",
+      "terminal_exit_code": 0
+    }
+  ],
+  "lossless_directory_renames": true,
+  "product_acceptance": "unrun"
+}

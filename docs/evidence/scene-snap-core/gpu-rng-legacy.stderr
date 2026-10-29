@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/gpu-rng-legacy-driver.py", line 4, in <module>
+    binary=Path('/private/tmp/formora-target-actual185/debug/formora');output=root/'docs/evidence/mesh-snap-core/gpu-rng-legacy';output.mkdir(parents=True,exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary);source={str(p.relative_to(root)):sha(p) for p in sorted([root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]])};calls=[]
+                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileExistsError: [Errno 17] File exists: '/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/gpu-rng-legacy'

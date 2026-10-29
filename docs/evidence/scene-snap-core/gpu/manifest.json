@@ -1,0 +1,1162 @@
+{
+  "passed": true,
+  "binary_sha256": "896fdd2583d684a1170e95fd4475351f7da254a9044d0174a5fb67eed840d1d5",
+  "driver_sha256": "53e19dd560cdf20ad9cd407019a4cb8c4a7c6a91c72bcda78013f33e3f4fcf30",
+  "source_hashes": {
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "a19af3f508640cd3d3be6cda197aacf63b126c34b3a69c2b7bc904ccf43e4fe5",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "9f7ca7d8ac959b822c3e71bb03d2c148f4b71afef42d4ad829445d7c4dbf5877",
+    "src/mesh/creation/mod.rs": "d399ac9e87643e597daef76f9f893c05bbe5121e159601ecde40ede72e919bc0",
+    "src/mesh/frame_math.rs": "6678c8019d118f60cfaaa3b6b4e0340048a24863f70a46a3aae91b95e26b2f0c",
+    "src/mesh/normals.rs": "7930ebabaf4c3bbb35bdba65bf3a058e4a643350fb32a1cd37f6dc924bb52bc3",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/snap.rs": "baae310b7e15b2a3f996a9894392132cc12b36a6056b579ae877c5f761e93fe1",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "d915b292d7b8f1df58a97aa89578d2de37a08a207bf0e9c4488f27f91bc4c006",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "d1fd5f674cd122c152a8b383117c3b851a6be0faf07b1369946abf6e274289b2",
+    "src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "1d930614efd69a4c8591cc7b7d417d2b489a1cb541b18e633372b9b6227e0a44",
+    "src/objects/math.rs": "40efde2f839c3e097c4914c2711d633b3d853c6c9495a28dab98d84e61171cb2",
+    "src/objects/snap.rs": "8ed5c5e8a6f5202cec54f6ff0829fe27afe19bc6cfe40030974fb03d5f64de56",
+    "src/objects.rs": "bd4a288820ec53b9a76653a96607c424c07c63dd98bd23a798b31942d900dc71",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation.rs": "df007841fcb23e4c9355ae37699a9a67c5762e47e89833abdc50ad1b2d87b514",
+    "src/scene.rs": "7780abeec1b3f227b8a541d5b5f57ae9ce612f24d18901acc0d3742ae4cc6ab5",
+    "src/session.rs": "e3fbd199f919510366f288bdbe2bd261df65a3d86010a49fcb08582158d3f242",
+    "src/transforms.rs": "3e212f74793d37f28ded8b34d737c57a33e8c6b79c5f12173bcde8e0d6d8b4cb"
+  },
+  "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+  "changed_vertices": 25,
+  "changed_pixels": 6860,
+  "analytic_shared_geometry_matches": true,
+  "surface_world_unchanged": true,
+  "child_world_unchanged": true,
+  "child_parent_inverse_changed": true,
+  "preserved_attributes": true,
+  "fresh_reload_images_identical": true,
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "mesh",
+        "asset": {
+          "vertices": {
+            "v0000": [
+              -1.0,
+              -1.0,
+              -0.45
+            ],
+            "v0001": [
+              -0.5,
+              -1.0,
+              -0.45
+            ],
+            "v0002": [
+              0.0,
+              -1.0,
+              -0.45
+            ],
+            "v0003": [
+              0.5,
+              -1.0,
+              -0.45
+            ],
+            "v0004": [
+              1.0,
+              -1.0,
+              -0.45
+            ],
+            "v0005": [
+              -1.0,
+              -0.5,
+              -0.225
+            ],
+            "v0006": [
+              -0.5,
+              -0.5,
+              -0.225
+            ],
+            "v0007": [
+              0.0,
+              -0.5,
+              -0.225
+            ],
+            "v0008": [
+              0.5,
+              -0.5,
+              -0.225
+            ],
+            "v0009": [
+              1.0,
+              -0.5,
+              -0.225
+            ],
+            "v0010": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "v0011": [
+              -0.5,
+              0.0,
+              0.0
+            ],
+            "v0012": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "v0013": [
+              0.5,
+              0.0,
+              0.0
+            ],
+            "v0014": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v0015": [
+              -1.0,
+              0.5,
+              0.225
+            ],
+            "v0016": [
+              -0.5,
+              0.5,
+              0.225
+            ],
+            "v0017": [
+              0.0,
+              0.5,
+              0.225
+            ],
+            "v0018": [
+              0.5,
+              0.5,
+              0.225
+            ],
+            "v0019": [
+              1.0,
+              0.5,
+              0.225
+            ],
+            "v0020": [
+              -1.0,
+              1.0,
+              0.45
+            ],
+            "v0021": [
+              -0.5,
+              1.0,
+              0.45
+            ],
+            "v0022": [
+              0.0,
+              1.0,
+              0.45
+            ],
+            "v0023": [
+              0.5,
+              1.0,
+              0.45
+            ],
+            "v0024": [
+              1.0,
+              1.0,
+              0.45
+            ]
+          },
+          "edges": {
+            "e0000": [
+              "v0000",
+              "v0001"
+            ],
+            "e0001": [
+              "v0000",
+              "v0005"
+            ],
+            "e0002": [
+              "v0001",
+              "v0002"
+            ],
+            "e0003": [
+              "v0001",
+              "v0006"
+            ],
+            "e0004": [
+              "v0002",
+              "v0003"
+            ],
+            "e0005": [
+              "v0002",
+              "v0007"
+            ],
+            "e0006": [
+              "v0003",
+              "v0004"
+            ],
+            "e0007": [
+              "v0003",
+              "v0008"
+            ],
+            "e0008": [
+              "v0004",
+              "v0009"
+            ],
+            "e0009": [
+              "v0005",
+              "v0006"
+            ],
+            "e0010": [
+              "v0005",
+              "v0010"
+            ],
+            "e0011": [
+              "v0006",
+              "v0007"
+            ],
+            "e0012": [
+              "v0006",
+              "v0011"
+            ],
+            "e0013": [
+              "v0007",
+              "v0008"
+            ],
+            "e0014": [
+              "v0007",
+              "v0012"
+            ],
+            "e0015": [
+              "v0008",
+              "v0009"
+            ],
+            "e0016": [
+              "v0008",
+              "v0013"
+            ],
+            "e0017": [
+              "v0009",
+              "v0014"
+            ],
+            "e0018": [
+              "v0010",
+              "v0011"
+            ],
+            "e0019": [
+              "v0010",
+              "v0015"
+            ],
+            "e0020": [
+              "v0011",
+              "v0012"
+            ],
+            "e0021": [
+              "v0011",
+              "v0016"
+            ],
+            "e0022": [
+              "v0012",
+              "v0013"
+            ],
+            "e0023": [
+              "v0012",
+              "v0017"
+            ],
+            "e0024": [
+              "v0013",
+              "v0014"
+            ],
+            "e0025": [
+              "v0013",
+              "v0018"
+            ],
+            "e0026": [
+              "v0014",
+              "v0019"
+            ],
+            "e0027": [
+              "v0015",
+              "v0016"
+            ],
+            "e0028": [
+              "v0015",
+              "v0020"
+            ],
+            "e0029": [
+              "v0016",
+              "v0017"
+            ],
+            "e0030": [
+              "v0016",
+              "v0021"
+            ],
+            "e0031": [
+              "v0017",
+              "v0018"
+            ],
+            "e0032": [
+              "v0017",
+              "v0022"
+            ],
+            "e0033": [
+              "v0018",
+              "v0019"
+            ],
+            "e0034": [
+              "v0018",
+              "v0023"
+            ],
+            "e0035": [
+              "v0019",
+              "v0024"
+            ],
+            "e0036": [
+              "v0020",
+              "v0021"
+            ],
+            "e0037": [
+              "v0021",
+              "v0022"
+            ],
+            "e0038": [
+              "v0022",
+              "v0023"
+            ],
+            "e0039": [
+              "v0023",
+              "v0024"
+            ]
+          },
+          "polygons": {
+            "f0000": {
+              "vertices": [
+                "v0000",
+                "v0001",
+                "v0006",
+                "v0005"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -1.0,
+                    -1.0
+                  ],
+                  [
+                    -0.5,
+                    -1.0
+                  ],
+                  [
+                    -0.5,
+                    -0.5
+                  ],
+                  [
+                    -1.0,
+                    -0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0001": {
+              "vertices": [
+                "v0001",
+                "v0002",
+                "v0007",
+                "v0006"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -0.5,
+                    -1.0
+                  ],
+                  [
+                    0.0,
+                    -1.0
+                  ],
+                  [
+                    0.0,
+                    -0.5
+                  ],
+                  [
+                    -0.5,
+                    -0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0002": {
+              "vertices": [
+                "v0002",
+                "v0003",
+                "v0008",
+                "v0007"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.0,
+                    -1.0
+                  ],
+                  [
+                    0.5,
+                    -1.0
+                  ],
+                  [
+                    0.5,
+                    -0.5
+                  ],
+                  [
+                    0.0,
+                    -0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0003": {
+              "vertices": [
+                "v0003",
+                "v0004",
+                "v0009",
+                "v0008"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.5,
+                    -1.0
+                  ],
+                  [
+                    1.0,
+                    -1.0
+                  ],
+                  [
+                    1.0,
+                    -0.5
+                  ],
+                  [
+                    0.5,
+                    -0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0004": {
+              "vertices": [
+                "v0005",
+                "v0006",
+                "v0011",
+                "v0010"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -1.0,
+                    -0.5
+                  ],
+                  [
+                    -0.5,
+                    -0.5
+                  ],
+                  [
+                    -0.5,
+                    0.0
+                  ],
+                  [
+                    -1.0,
+                    0.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0005": {
+              "vertices": [
+                "v0006",
+                "v0007",
+                "v0012",
+                "v0011"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -0.5,
+                    -0.5
+                  ],
+                  [
+                    0.0,
+                    -0.5
+                  ],
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    -0.5,
+                    0.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0006": {
+              "vertices": [
+                "v0007",
+                "v0008",
+                "v0013",
+                "v0012"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.0,
+                    -0.5
+                  ],
+                  [
+                    0.5,
+                    -0.5
+                  ],
+                  [
+                    0.5,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0007": {
+              "vertices": [
+                "v0008",
+                "v0009",
+                "v0014",
+                "v0013"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.5,
+                    -0.5
+                  ],
+                  [
+                    1.0,
+                    -0.5
+                  ],
+                  [
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.5,
+                    0.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0008": {
+              "vertices": [
+                "v0010",
+                "v0011",
+                "v0016",
+                "v0015"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -1.0,
+                    0.0
+                  ],
+                  [
+                    -0.5,
+                    0.0
+                  ],
+                  [
+                    -0.5,
+                    0.5
+                  ],
+                  [
+                    -1.0,
+                    0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0009": {
+              "vertices": [
+                "v0011",
+                "v0012",
+                "v0017",
+                "v0016"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -0.5,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.5
+                  ],
+                  [
+                    -0.5,
+                    0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0010": {
+              "vertices": [
+                "v0012",
+                "v0013",
+                "v0018",
+                "v0017"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.5,
+                    0.0
+                  ],
+                  [
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.0,
+                    0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0011": {
+              "vertices": [
+                "v0013",
+                "v0014",
+                "v0019",
+                "v0018"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.5,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    1.0,
+                    0.5
+                  ],
+                  [
+                    0.5,
+                    0.5
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0012": {
+              "vertices": [
+                "v0015",
+                "v0016",
+                "v0021",
+                "v0020"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -1.0,
+                    0.5
+                  ],
+                  [
+                    -0.5,
+                    0.5
+                  ],
+                  [
+                    -0.5,
+                    1.0
+                  ],
+                  [
+                    -1.0,
+                    1.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0013": {
+              "vertices": [
+                "v0016",
+                "v0017",
+                "v0022",
+                "v0021"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    -0.5,
+                    0.5
+                  ],
+                  [
+                    0.0,
+                    0.5
+                  ],
+                  [
+                    0.0,
+                    1.0
+                  ],
+                  [
+                    -0.5,
+                    1.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0014": {
+              "vertices": [
+                "v0017",
+                "v0018",
+                "v0023",
+                "v0022"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.0,
+                    0.5
+                  ],
+                  [
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.5,
+                    1.0
+                  ],
+                  [
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            },
+            "f0015": {
+              "vertices": [
+                "v0018",
+                "v0019",
+                "v0024",
+                "v0023"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    1.0,
+                    0.5
+                  ],
+                  [
+                    1.0,
+                    1.0
+                  ],
+                  [
+                    0.5,
+                    1.0
+                  ]
+                ]
+              },
+              "normal": null,
+              "corner_normals": null,
+              "smooth": true,
+              "material_slot": null
+            }
+          },
+          "triangles": {},
+          "material_slots": [],
+          "uv_layout": {
+            "layers": [
+              "UV"
+            ],
+            "active": "UV"
+          }
+        }
+      },
+      {
+        "operation": "set_mesh_editing",
+        "id": "mesh",
+        "editing": {
+          "selected": {
+            "vertices": [
+              "v0000",
+              "v0001",
+              "v0002",
+              "v0003",
+              "v0004",
+              "v0005",
+              "v0006",
+              "v0007",
+              "v0008",
+              "v0009",
+              "v0010",
+              "v0011",
+              "v0012",
+              "v0013",
+              "v0014",
+              "v0015",
+              "v0016",
+              "v0017",
+              "v0018",
+              "v0019",
+              "v0020",
+              "v0021",
+              "v0022",
+              "v0023",
+              "v0024"
+            ]
+          },
+          "preview": false
+        }
+      },
+      {
+        "operation": "set_material",
+        "id": "marker",
+        "material": {
+          "base_color": [
+            0.9,
+            0.15,
+            0.1,
+            1
+          ],
+          "roughness": 0.6,
+          "metallic": 0
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "surface",
+        "entity": {
+          "name": "surface",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0.25,
+              -0.5,
+              0.75
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "shared",
+        "entity": {
+          "name": "shared",
+          "parent": null,
+          "transform": {
+            "translation": [
+              1.75,
+              0.25,
+              0.25
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "child",
+        "entity": {
+          "name": "child",
+          "parent": "surface",
+          "transform": {
+            "translation": [
+              0,
+              0,
+              1
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "cube",
+              "size": [
+                0.3,
+                0.3,
+                0.3
+              ]
+            },
+            "material": "marker"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "camera",
+        "entity": {
+          "name": "camera",
+          "parent": null,
+          "transform": {
+            "translation": [
+              1,
+              -4,
+              4
+            ],
+            "rotation": [
+              0.3826834323650898,
+              0,
+              0,
+              0.9238795325112867
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f64"
+          },
+          "content": {
+            "kind": "camera",
+            "vertical_fov_degrees": 55,
+            "near": 0.1,
+            "far": 100
+          }
+        }
+      },
+      {
+        "operation": "set_active_camera",
+        "id": "camera"
+      },
+      {
+        "operation": "create_entity",
+        "id": "light",
+        "entity": {
+          "name": "light",
+          "parent": null,
+          "transform": {
+            "translation": [
+              1,
+              -3,
+              5
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "light",
+            "color": [
+              1,
+              1,
+              1
+            ],
+            "intensity": 2
+          }
+        }
+      },
+      {
+        "operation": "set_object_context",
+        "context": {
+          "order": [
+            "surface",
+            "shared",
+            "child",
+            "camera",
+            "light"
+          ],
+          "selected": [
+            "surface"
+          ],
+          "active": "surface",
+          "edit_objects": [],
+          "skip_children": true,
+          "origins_only": true
+        }
+      }
+    ]
+  },
+  "artifacts": {
+    "normals-query.json": "3927895cfa35b6894cf8585d34ff0a14aed5043ff9168a1be374cf875554964b",
+    "before.png": "662df6e004a8b59bbbdfdaa1e890f8790f14e74b7437623fcd2276f0429fc4c6",
+    "reloaded.png": "9f9601f3c24e35ef0ec40b05b130ac5471f899452db41edb33383f5da5496744",
+    "after.png": "9f9601f3c24e35ef0ec40b05b130ac5471f899452db41edb33383f5da5496744",
+    "world-before.json": "a2697dfda62895ff7df1ab329aef1596999071c848781d29aa82a59fc52f18b5",
+    "before-scene.json": "6cdac952f0e120aaafefc7f74a2f9483b8c1671ac1857d413aa7126f4f05d46d",
+    "scene.json": "fa290989483820b96a7a3d16948bc70fb6e4c72455bce9beb33c2001b6fe9041",
+    "world-after.json": "e645243cc231fda87276102f8e1e8bab70ccdd79d15dccb92ee1b3cdaa490cd9",
+    "calls.jsonl": "c8d8a00ada7d6f1fdfc089c8b4eb79786ea987925946d691a0dfe6bf9b37e4cd",
+    "receipt.json": "5c51391fbc46dd74f7533e43385fc47965113b561d581c12a68955a81ec04b0f"
+  },
+  "product_acceptance": "unrun",
+  "milestone_acceptance": "unrun"
+}
