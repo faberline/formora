@@ -1,0 +1,17 @@
+{
+  "commit": "70900f7b81e0c4eadb5c9f2482175a9513efcce1",
+  "files": {
+    "docs/contracts/mesh-merge-baseline.md": "f156b2a5753580b751dc6a4cf730fd2f82a4b9b37f71068bcb844b80d1a902eb",
+    "baseline/fixtures/mesh-merge.json": "be36d9294a8f86103715ae6ab95e6d43f08ca90bf55203256fb01da0ed688008",
+    "baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "tools/generate_mesh_merge_cases.py": "b1d7fdd44d61bd2de52bcf9d7c941f39ed6bb05b2e37886653acc4da9c679cee",
+    "tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "tools/compare_mesh_merge_reference.py": "89bdeb66f7b156a0c553d4588d8506fcb7d08ae842d167d7dc2c38f79b636724",
+    "tools/tests/test_mesh_merge_reference.py": "911148b09be3eb8f208657dd6ed840c214335419df33ec7c4b91ee836a8ae60b",
+    "docs/evidence/mesh-merge-baseline/native-launch.py": "c3b43cdd85a44cfcf7fff797c4caa4f196bb35f6c6eb70aeaae4832523891ad5",
+    "docs/evidence/mesh-merge-baseline/pilot-cases.json": "c7e13f5c7a0138ad94f0c9c4672f5eac204b8d5f749ca01062361a8c553bc9e0"
+  },
+  "product_source_base": "dcc7a293145575851660ba6690e4bf36a2b42f8f",
+  "product_changes": "none",
+  "product_acceptance": "unrun"
+}
