@@ -53,60 +53,80 @@ def snapshot():
             'mode': bpy.context.mode}
 
 
-def capture(args):
-    assert list(bpy.app.version) == [5, 2, 3] and not bpy.app.background
-    assert bpy.app.build_hash.decode() == 'e13b728c6880'
-    assert base.digest(bpy.app.binary_path) == base.BINARY
-    suite = json.loads(args.suite.read_text())
-    assert len(suite['runs']) == 160
-    paths = inputs(args.suite)
-    hashes = {p.relative_to(ROOT).as_posix(): base.digest(p) for p in paths}
-    stage = args.output.with_name(args.output.name+'.staging')
-    assert not args.output.exists() and not stage.exists()
-    stage.mkdir(parents=True)
-    mesh_suite = base_inputs()
-    records = []
-    native_files = Path(tempfile.mkdtemp(prefix='formora-object-state-blends-'))
-    for i, run in enumerate(suite['runs']):
-        setup = {'id': run['id'], 'context': suite['base_context'], 'selection': 'both',
+class Capture:
+    def __init__(self, args):
+        assert list(bpy.app.version) == [5, 2, 3] and not bpy.app.background
+        assert bpy.app.build_hash.decode() == 'e13b728c6880'
+        assert base.digest(bpy.app.binary_path) == base.BINARY
+        self.args = args
+        self.suite = json.loads(args.suite.read_text())
+        assert len(self.suite['runs']) == 160
+        self.paths = inputs(args.suite)
+        self.hashes = {p.relative_to(ROOT).as_posix(): base.digest(p) for p in self.paths}
+        self.stage = args.output.with_name(args.output.name+'.staging')
+        assert not args.output.exists() and not self.stage.exists()
+        self.stage.mkdir(parents=True)
+        self.mesh_suite = base_inputs()
+        self.records = []
+        self.native_files = Path(tempfile.mkdtemp(prefix='formora-object-state-blends-'))
+        self.pending = None
+
+    def step(self):
+        # File loading invalidates the old UI context. A persistent timer
+        # yields to Blender before reading the reopened scene or starting
+        # another case. Only input-derived JSON survives that boundary.
+        if not hasattr(bpy.context, 'object'):
+            return .1
+        if self.pending is not None:
+            value = self.pending
+            bpy.context.view_layer.update()
+            value['reloaded'] = snapshot()
+            run = value['run']
+            path = self.stage/(run['id']+'.json')
+            base.write(path, value)
+            self.records.append({'id': run['id'], 'file': path.name, 'sha256': base.digest(path),
+                'native_file': run['id']+'.blend.gz',
+                'native_file_sha256': base.digest(self.stage/(run['id']+'.blend.gz'))})
+            self.pending = None
+            if len(self.records) % 20 == 0:
+                print(json.dumps({'captured': len(self.records), 'required': 160}), flush=True)
+            return .01
+        if len(self.records) == len(self.suite['runs']):
+            assert self.hashes == {p.relative_to(ROOT).as_posix(): base.digest(p) for p in self.paths}
+            base.write(self.stage/'manifest.json', {
+                'scope': 'complete_160_object_scale_lock_cases', 'version': list(bpy.app.version),
+                'build_hash': bpy.app.build_hash.decode(), 'binary_sha256': base.digest(bpy.app.binary_path),
+                'background': bpy.app.background, 'process_id': os.getpid(), 'command_line': sys.argv,
+                'captured_utc': datetime.now(timezone.utc).isoformat(), 'input_hashes': self.hashes,
+                'native_original_files': str(self.native_files), 'runs': self.records,
+                'product_acceptance': 'unrun'})
+            self.stage.rename(self.args.output)
+            sys.stdout.flush()
+            sys.stderr.flush()
+            os._exit(0)
+        run = self.suite['runs'][len(self.records)]
+        setup = {'id': run['id'], 'context': self.suite['base_context'], 'selection': 'both',
                  'history': 'both_vertex', 'mode': ['VERT'], 'frame': run['frame']}
-        objects, _, _ = base.create(mesh_suite, setup)
+        objects, _, _ = base.create(self.mesh_suite, setup)
         if run['mode'] == 'OBJECT':
             bpy.ops.object.mode_set(mode='OBJECT')
-        for name, value in suite['initial_locks'].items():
+        for name, value in self.suite['initial_locks'].items():
             objects[name].lock_scale = value
         bpy.context.view_layer.update()
         before = snapshot()
         objects[run['target']].lock_scale = run['lock_scale']
         bpy.context.view_layer.update()
         after = snapshot()
-        native_file = native_files/(run['id']+'.blend')
+        native_file = self.native_files/(run['id']+'.blend')
         assert not native_file.exists()
         saved = sorted(bpy.ops.wm.save_as_mainfile(filepath=str(native_file), check_existing=False))
         file_bytes = native_file.read_bytes()
-        compressed = gzip.compress(file_bytes, mtime=0)
-        (stage/(run['id']+'.blend.gz')).write_bytes(compressed)
-        reopened = sorted(bpy.ops.wm.open_mainfile(filepath=str(native_file)))
-        bpy.context.view_layer.update()
-        value = {'run': run, 'before': before, 'after': after, 'reloaded': snapshot(),
-                 'save_status': saved, 'reopen_status': reopened,
-                 'native_file_sha256': hashlib.sha256(file_bytes).hexdigest(),
-                 'native_file_bytes': len(file_bytes), 'native_file_stored': run['id']+'.blend.gz'}
-        path = stage/(run['id']+'.json')
-        base.write(path, value)
-        records.append({'id': run['id'], 'file': path.name, 'sha256': base.digest(path),
-                        'native_file': run['id']+'.blend.gz',
-                        'native_file_sha256': base.digest(stage/(run['id']+'.blend.gz'))})
-        if (i+1) % 20 == 0:
-            print(json.dumps({'captured': i+1, 'required': 160}), flush=True)
-    assert hashes == {p.relative_to(ROOT).as_posix(): base.digest(p) for p in paths}
-    base.write(stage/'manifest.json', {'scope': 'complete_160_object_scale_lock_cases',
-        'version': list(bpy.app.version), 'build_hash': bpy.app.build_hash.decode(),
-        'binary_sha256': base.digest(bpy.app.binary_path), 'background': bpy.app.background,
-        'process_id': os.getpid(), 'command_line': sys.argv,
-        'captured_utc': datetime.now(timezone.utc).isoformat(), 'input_hashes': hashes,
-        'native_original_files': str(native_files), 'runs': records, 'product_acceptance': 'unrun'})
-    stage.rename(args.output)
+        (self.stage/(run['id']+'.blend.gz')).write_bytes(gzip.compress(file_bytes, mtime=0))
+        self.pending = {'run': run, 'before': before, 'after': after,
+            'save_status': saved, 'native_file_sha256': hashlib.sha256(file_bytes).hexdigest(),
+            'native_file_bytes': len(file_bytes), 'native_file_stored': run['id']+'.blend.gz'}
+        self.pending['reopen_status'] = sorted(bpy.ops.wm.open_mainfile(filepath=str(native_file)))
+        return .1
 
 
 if __name__ == '__main__':
@@ -115,16 +135,18 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 
+    state = None
+
     def start():
+        global state
         try:
-            capture(args)
+            if state is None:
+                state = Capture(args)
+            return state.step()
         except BaseException:
             traceback.print_exc()
             sys.stdout.flush()
             sys.stderr.flush()
             os._exit(1)
-        sys.stdout.flush()
-        sys.stderr.flush()
-        os._exit(0)
 
-    bpy.app.timers.register(start, first_interval=.5)
+    bpy.app.timers.register(start, first_interval=.5, persistent=True)
