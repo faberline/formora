@@ -57,9 +57,11 @@ def assign_integer_attributes(objects, scene):
     authored = scene['mesh_assets']['grid']['integer_attributes']
     for domain, prefix, elements in [('vertices', 'v', bm.verts), ('edges', 'e', bm.edges),
                                      ('polygons', 'f', bm.faces)]:
-        items = list(elements)
         for name, values in authored[domain].items():
             layer = elements.layers.int.get(name) or elements.layers.int.new(name)
+            # Creating a CustomData layer can invalidate prior Python element
+            # wrappers. Read fresh wrappers after each layer has been created.
+            items = list(elements)
             assert set(values) == {f'{prefix}{i:06}' for i in range(len(items))}
             for i, item in enumerate(items):
                 value = values[f'{prefix}{i:06}']
