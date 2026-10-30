@@ -1,0 +1,32 @@
+test_boolean_or_wrong_numeric_value_is_rejected (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_boolean_or_wrong_numeric_value_is_rejected) ... ERROR
+test_comparison_does_not_mutate_source_or_response (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_comparison_does_not_mutate_source_or_response) ... ok
+test_false_unavailable_on_finite_or_zero_is_rejected (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_false_unavailable_on_finite_or_zero_is_rejected) ... ok
+test_finite_and_explicit_error_channels (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_finite_and_explicit_error_channels) ... ok
+test_missing_or_wrong_error_is_rejected (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_missing_or_wrong_error_is_rejected) ... ok
+test_source_tag_drift_is_rejected (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_source_tag_drift_is_rejected) ... ok
+test_zero_and_identity_numeric_replacements_are_rejected (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_zero_and_identity_numeric_replacements_are_rejected) ... ok
+
+======================================================================
+ERROR: test_boolean_or_wrong_numeric_value_is_rejected (tools.tests.test_singular_snap_runtime.LocalQueryControls.test_boolean_or_wrong_numeric_value_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/tests/test_singular_snap_runtime.py", line 43, in test_boolean_or_wrong_numeric_value_is_rejected
+    compare_local(identity(), actual)
+  File "/Users/chrischeng/faberlines/formora/tools/singular_snap_runtime.py", line 34, in compare_local
+    tree(expected, actual, 'actual available local matrix')
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 37, in tree
+    for i,(x,y) in enumerate(zip(a,b)):tree(x,y,path+'/'+str(i),tolerance)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 37, in tree
+    for i,(x,y) in enumerate(zip(a,b)):tree(x,y,path+'/'+str(i),tolerance)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 39, in tree
+    require(math.isfinite(a) and math.isfinite(b) and abs(a-b)<=tolerance,
+  File "/Users/chrischeng/faberlines/formora/tools/compare_selection_reference.py", line 16, in require
+    raise ValueError(message)
+ValueError: component differs: actual available local matrix/0/0: 1.0 != 2.0
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (errors=1)
