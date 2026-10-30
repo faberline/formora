@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check diagnostic integrity. Never grant source or product acceptance."""
 from collections import Counter
+import argparse
 import copy
 import gzip
 import hashlib
@@ -12,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'tools'))
 from compare_snap_singular_reference import author, digest, provenance_inputs, tree, validate_run
 
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--output', type=Path, required=True)
+args = parser.parse_args()
 folder = Path(__file__).resolve().parent
 suite_path = ROOT / 'baseline/fixtures/snap-singular.json'
 suite = json.loads(suite_path.read_text())
@@ -92,6 +96,6 @@ report['diagnostic_integrity_passed'] = True
 report['nonfinite_case_count'] = len(report['nonfinite_cases'])
 report['finite_case_count'] = len(report['finite_cases'])
 report['checker_sha256'] = digest(Path(__file__))
-with (folder / 'diagnostics/paired-diagnostic-check.json').open('x') as output:
+with args.output.open('x') as output:
     json.dump(report, output, indent=2, allow_nan=False); output.write('\n')
 print(json.dumps({k: v for k, v in report.items() if k not in ['terminal_receipts', 'finite_cases', 'nonfinite_cases']}))

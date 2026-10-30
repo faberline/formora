@@ -23,8 +23,8 @@
     },
     {
       "path": "check-diagnostic-captures.py",
-      "bytes": 5436,
-      "sha256": "e3db1e3412d3364257dbcb0cad27e59eb528f7741e029b8a8b707eceb644d2ec"
+      "bytes": 5549,
+      "sha256": "6834a367ff69ec94e3dd03499c329f2376414bed141d400634a4d779aac772a8"
     },
     {
       "path": "diagnostic-01/capture-lock.json",
@@ -17742,6 +17742,11 @@
       "sha256": "df8929c1495f88786245cf510c10da5fa2879e7c206bfe3677f4c98545b8e387"
     },
     {
+      "path": "diagnostics/check-diagnostic-captures-first.py",
+      "bytes": 5436,
+      "sha256": "e3db1e3412d3364257dbcb0cad27e59eb528f7741e029b8a8b707eceb644d2ec"
+    },
+    {
       "path": "diagnostics/first-full-scan.json",
       "bytes": 88662,
       "sha256": "c55d748948ebb1cc1213c38713bcf881dc8bbeaf6dd2c3770a9fb39438d44e0d"
@@ -17762,9 +17767,19 @@
       "sha256": "a00b28d119737bd650270e0dd026e8b7870ee13c552e7b7e9c2fece16ea0e6eb"
     },
     {
+      "path": "diagnostics/paired-diagnostic-final.json",
+      "bytes": 89097,
+      "sha256": "8e0c532fdf6fc41e8537094b238059ca8d87f43dcb46b18f29dd731a0bd1dfbb"
+    },
+    {
+      "path": "diagnostics/paired-diagnostic-final.log",
+      "bytes": 389,
+      "sha256": "559a7b325707f41f863b5ce4f770d316aaf5e2027fc5a2f5322f871fc4f07ef8"
+    },
+    {
       "path": "diagnostics/terminal-results.json",
-      "bytes": 1111,
-      "sha256": "ee7cc3ed62915c5a2b7f43b6439c32b606c62844daf98863691eb7bf36e188a7"
+      "bytes": 1323,
+      "sha256": "3ccf5a94ab34d325997be4803705379ce02e02d0cb555fde781bf929b3ee9533"
     },
     {
       "path": "native-01-process/started.json",
@@ -20882,7 +20897,7 @@
       "sha256": "c0bd213baa7e5693adfad5ca32fa8cd776f06509fd1052d55f24455a69f46d76"
     }
   ],
-  "file_count": 4174,
-  "bytes": 55621921,
+  "file_count": 4177,
+  "bytes": 55717168,
   "manifest_excludes_itself": true
 }

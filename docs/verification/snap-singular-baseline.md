@@ -101,3 +101,19 @@ Three-platform CI, stack integration and independent Codex acceptance remain
 unrun. The previous PR #67 CI jobs did not start because GitHub reported an
 account payment/spending-limit restriction. No billing or runner settings
 were changed. All product domains remain in scope.
+
+## Reproduce the retained diagnosis
+
+Use Python 3.12 and install `tools/requirements-mcp.txt` in the chosen
+Python environment. Run from the repository root. Use a new output file:
+
+```sh
+python docs/evidence/snap-singular-baseline/check-diagnostic-captures.py --output /private/tmp/formora-zero-scale-diagnostic-new.json
+python -m unittest discover -s tools/tests -v
+```
+
+The checker exits zero only for diagnostic integrity. Its JSON must still
+report the failed baseline and twelve invalid source getters. It refuses
+an existing output file. The first checker's exact bytes are preserved in
+`diagnostics/check-diagnostic-captures-first.py` alongside its original report.
+Do not overwrite the source captures to repeat a check.

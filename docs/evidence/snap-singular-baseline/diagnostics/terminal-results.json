@@ -41,6 +41,13 @@
       "name": "baseline-strict",
       "terminal_exit_code": 2,
       "expected": "pending source and product acceptance; not a passing baseline"
+    },
+    {
+      "name": "paired-diagnostic-reproduction-with-new-output",
+      "tool_session_id": 4086,
+      "terminal_exit_code": 0,
+      "baseline_passed": false,
+      "required_full_gate_passed": false
     }
   ],
   "product_acceptance": "unrun"
