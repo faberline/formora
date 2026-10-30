@@ -10,6 +10,7 @@ from merge_distance_scene_inputs import scene
 
 def load_assets(suite_path, suite):
     identity = suite['capacity_assets']; path = suite_path.parent/identity['file']
+    assert identity['file'] == Path(identity['file']).name and path.resolve().is_relative_to(suite_path.parent.resolve()), 'capacity asset path'
     stored = path.read_bytes(); raw = gzip.decompress(stored)
     assert hashlib.sha256(stored).hexdigest() == identity['stored_sha256'], 'capacity stored asset identity'
     assert hashlib.sha256(raw).hexdigest() == identity['raw_sha256'] and len(raw) == identity['raw_bytes'], 'capacity raw asset identity'

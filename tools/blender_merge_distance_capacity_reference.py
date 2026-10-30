@@ -21,6 +21,7 @@ import blender_merge_distance_reference as native
 from merge_distance_capacity_inputs import load_assets, authored_scene
 from check_merge_distance_diagnostic import initial, postconditions, same
 from validate_merge_distance_state import validate
+from merge_distance_capacity_seal import input_paths, verify, hardware
 
 
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -41,6 +42,13 @@ class Capture:
         self.args = args; self.suite = json.loads(args.suite.read_text())
         assert self.suite['scope'] == 'complete_distance_merge_class_a_capacity_registry'
         self.grids = load_assets(args.suite, self.suite)
+        self.seal = verify(args.suite, args.capacity_seal, True)
+        self.paths = [*input_paths(args.suite), args.capacity_seal.resolve()]
+        self.hashes = {str(path): digest(path) for path in self.paths}
+        self.runs = self.suite['runs']
+        if args.case_ids:
+            assert len(set(args.case_ids)) == len(args.case_ids) and set(args.case_ids) <= {r['id'] for r in self.runs}
+            self.runs = [run for run in self.runs if run['id'] in args.case_ids]
         self.stage = args.output.with_name(args.output.name+'.staging')
         assert not args.output.exists(); self.stage.mkdir(parents=True, exist_ok=False)
         self.native_files = Path(tempfile.mkdtemp(prefix='formora-distance-capacity-blends-'))
@@ -71,21 +79,21 @@ class Capture:
             record = store(self.stage/(run['id']+'.json.gz'), value)
             self.records.append({'id': run['id'], **record, 'native_file': name})
             self.pending = None; self.current = None
-            print(json.dumps({'captured': len(self.records), 'required': len(self.suite['runs'])}), flush=True)
+            print(json.dumps({'captured': len(self.records), 'required': len(self.runs)}), flush=True)
             return .01
-        if len(self.records) == len(self.suite['runs']):
-            manifest = {'scope': 'complete_distance_class_a_source_observations', 'runs': self.records,
+        if len(self.records) == len(self.runs):
+            assert self.hashes == {str(path): digest(path) for path in self.paths}, 'capacity inputs changed during capture'
+            manifest = {'scope': 'focused_distance_class_a_source_diagnostic' if self.args.case_ids else 'complete_distance_class_a_source_observations', 'runs': self.records,
                         'process_id': os.getpid(), 'command_line': sys.argv, 'background': bpy.app.background,
                         'version': list(bpy.app.version), 'build_hash': bpy.app.build_hash.decode(),
                         'binary_sha256': digest(Path(bpy.app.binary_path)),
                         'captured_utc': datetime.now(timezone.utc).isoformat(),
                         'native_original_files': str(self.native_files), 'rust_product_timing': 'unrun',
-                        'product_acceptance': 'unrun', 'capacity_seal': 'required_before_execution'}
-            # The capacity seal and code provenance are added before this harness
-            # is admitted for native execution. Current work is preparation only.
+                        'product_acceptance': 'unrun', 'capacity_seal': {'file': str(self.args.capacity_seal.resolve()), 'sha256': digest(self.args.capacity_seal)},
+                        'input_hashes': self.hashes, 'hardware': self.seal['hardware']}
             native.write(self.stage/'manifest.json', manifest)
             self.stage.rename(self.args.output); sys.stdout.flush(); sys.stderr.flush(); os._exit(0)
-        run = self.suite['runs'][len(self.records)]; spec = authored_scene(self.suite, run, self.grids)
+        run = self.runs[len(self.records)]; spec = authored_scene(self.suite, run, self.grids)
         self.current = {'run': run, 'scene_spec': spec, 'phase': 'creation'}
         native.create(spec); before = native.snapshot(spec); self.current['before'] = before
         checkpoint = store(self.stage/(run['id']+'.before.json.gz'), self.current)
@@ -122,7 +130,19 @@ class Capture:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--suite', type=Path, required=True); parser.add_argument('--output', type=Path, required=True)
-    # Prevent an unsealed preparation harness from accidentally claiming source evidence.
     parser.add_argument('--capacity-seal', type=Path, required=True)
+    parser.add_argument('--case', action='append', default=[], dest='case_ids')
     args = parser.parse_args(sys.argv[sys.argv.index('--')+1:])
-    raise SystemExit('Capacity harness not admitted: seal verifier and comparison are still required.')
+    state = None
+    def start():
+        global state
+        try:
+            if state is None: state = Capture(args)
+            return state.step()
+        except BaseException as error:
+            traceback.print_exc()
+            if state is not None:
+                try: state.retain_failure(error)
+                except BaseException: traceback.print_exc()
+            sys.stdout.flush(); sys.stderr.flush(); os._exit(1)
+    bpy.app.timers.register(start, first_interval=.5, persistent=True)
