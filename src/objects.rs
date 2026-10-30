@@ -172,17 +172,20 @@ impl Context {
         }
         for state in self.states.values() {
             if let Some(matrix) = state.parent_inverse {
+                // Singular source compensation stores an exact 4x4 zero.
+                // Keep its zero bottom row; all other matrices stay affine.
                 if matrix
                     .iter()
                     .flatten()
                     .any(|v| !v.is_finite() || !(*v as f32).is_finite())
-                    || matrix[3]
+                    || (matrix[3]
                         .iter()
                         .zip([0., 0., 0., 1.])
                         .any(|(v, expected)| (v - expected).abs() > 1e-6)
+                        && matrix.iter().flatten().any(|v| *v != 0.))
                 {
                     return Err(SceneError(
-                        "object parent inverse must be a finite affine matrix".into(),
+                        "object parent inverse must be a finite affine or exact-zero matrix".into(),
                     ));
                 }
             }
