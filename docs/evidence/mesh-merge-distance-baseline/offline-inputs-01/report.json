@@ -1,0 +1,25 @@
+{
+  "process_id": 67550,
+  "command": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/private/tmp/formora-merge-distance-baseline/tools/check_merge_distance_inputs.py",
+    "--input",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-draft.json",
+    "--output",
+    "/private/tmp/formora-merge-distance-baseline/docs/evidence/mesh-merge-distance-baseline/offline-inputs-01/checks.json"
+  ],
+  "terminal_exit_code": 0,
+  "elapsed_seconds": 0.320619666,
+  "input_hashes": {
+    "tools/generate_merge_distance_cases.py": "3a650c2b38d583a707cb5fbf20984b958729cf15e684bf3d94d3564079ea6c0c",
+    "tools/check_merge_distance_inputs.py": "14ee945a2ef0d49b14af928865d5a4311f0e095b1c9468a530f54dce7139a41f",
+    "baseline/fixtures/mesh-merge-distance-draft.json": "69630c3a5235e5ced0e21ea40d7a8c7b7a62b8d16ea8b704ab121d36ca6ac8db"
+  },
+  "inputs_unchanged": true,
+  "stdout_sha256": "3a95a23c09aeb5dcbe2e7d45a2e092fc630c41559aac298db0e35bc8cfb0b0ba",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "offline_input_checks_passed": true,
+  "native_execution": "unrun",
+  "input_freeze": "pending",
+  "product_acceptance": "unrun"
+}
