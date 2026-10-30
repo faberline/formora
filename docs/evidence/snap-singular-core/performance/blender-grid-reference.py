@@ -74,6 +74,9 @@ def capture(output):
                 item.delta_rotation_euler = d['euler']
                 item.delta_rotation_quaternion = d['quaternion_wxyz']
                 item.delta_scale = d['scale']
+                state = scene['object_context']['states'].get(name, {})
+                item.lock_rotation_w = state.get('lock_rotation_w', False)
+                item.lock_rotations_4d = state.get('lock_rotations_4d', False)
             cursor = copy.deepcopy(scene['authoring_context']['cursor_orientation'])
             cursor['mode'] = cursor['mode'].upper()
             rotation.assign(bpy.context.scene.cursor, cursor)

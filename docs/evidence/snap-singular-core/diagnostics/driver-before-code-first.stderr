@@ -1,0 +1,56 @@
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+ --> docs/evidence/snap-singular-core/performance/capture-driver.rs:4:5
+  |
+4 | use serde_json::{Value, json};
+  |     ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+ --> docs/evidence/snap-singular-core/performance/capture-driver.rs:9:22
+  |
+9 |     let mut worlds = serde_json::Map::new();
+  |                      ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+  --> docs/evidence/snap-singular-core/performance/capture-driver.rs:44:9
+   |
+44 |         serde_json::from_slice(&std::fs::read(authored.join("authored-forms.json")).unwrap())
+   |         ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+  --> docs/evidence/snap-singular-core/performance/capture-driver.rs:64:36
+   |
+64 |             let command: Command = serde_json::from_value(form["command"].clone()).unwrap();
+   |                                    ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+  --> docs/evidence/snap-singular-core/performance/capture-driver.rs:93:21
+   |
+93 |                     serde_json::to_value(core.scene_snaps).unwrap(),
+   |                     ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+  --> docs/evidence/snap-singular-core/performance/capture-driver.rs:94:21
+   |
+94 |                     serde_json::to_value(&result.scene_snaps).unwrap()
+   |                     ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+  --> docs/evidence/snap-singular-core/performance/capture-driver.rs:98:21
+   |
+98 |                     serde_json::to_value(result.scene_snaps[0].status).unwrap(),
+   |                     ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+   --> docs/evidence/snap-singular-core/performance/capture-driver.rs:105:21
+    |
+105 |                     serde_json::to_vec(
+    |                     ^^^^^^^^^^
+
+error: extern location for serde_json does not exist: /private/tmp/formora-target-actual185/release/deps/libserde_json-4453e6c9d5a0f3a3.rlib
+   --> docs/evidence/snap-singular-core/performance/capture-driver.rs:127:9
+    |
+127 |         serde_json::to_vec_pretty(&json!({"passed":passed,"samples":60,"runs":runs,
+    |         ^^^^^^^^^^
+
+error: aborting due to 9 previous errors
+

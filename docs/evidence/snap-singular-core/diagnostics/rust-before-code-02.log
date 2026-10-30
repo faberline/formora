@@ -1,0 +1,35 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.25s
+     Running tests/local_matrix_availability.rs (/private/tmp/formora-target-actual185/debug/deps/local_matrix_availability-d6af9427c6ee1b82)
+
+running 4 tests
+test finite_source_zero_fallback_is_still_a_numeric_matrix ... ok
+test available_frame_json_keeps_its_existing_shape_and_missing_ids_still_fail ... ok
+test unavailable_local_query_preserves_the_committed_operation_and_valid_world ... FAILED
+test library_local_getter_reports_unavailability_without_an_object_context ... FAILED
+
+failures:
+
+---- unavailable_local_query_preserves_the_committed_operation_and_valid_world stdout ----
+
+thread 'unavailable_local_query_preserves_the_committed_operation_and_valid_world' panicked at tests/local_matrix_availability.rs:109:5:
+assertion `left == right` failed
+  left: Array [Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)], Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)], Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)], Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)]]
+ right: Null
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- library_local_getter_reports_unavailability_without_an_object_context stdout ----
+
+thread 'library_local_getter_reports_unavailability_without_an_object_context' panicked at tests/local_matrix_availability.rs:164:5:
+assertion `left == right` failed
+  left: Array [Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)], Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)], Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)], Array [Number(0.0), Number(0.0), Number(0.0), Number(0.0)]]
+ right: Null
+
+
+failures:
+    library_local_getter_reports_unavailability_without_an_object_context
+    unavailable_local_query_preserves_the_committed_operation_and_valid_world
+
+test result: FAILED. 2 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test local_matrix_availability`

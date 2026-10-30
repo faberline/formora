@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/check-source.py", line 104, in <module>
+    report = check(args.source)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/check-source.py", line 90, in check
+    validate_run(suite, run, physical)
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_singular_policy_reference.py", line 82, in validate_run
+    bind_initial(suite, run, before)
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_singular_policy_reference.py", line 47, in bind_initial
+    tree(expected, state['rotation_channels'][name], name + '/authored channels', 0.)
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 34, in tree
+    for key in a:tree(a[key],b[key],path+'/'+key,tolerance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py", line 41, in tree
+    else:require(type(a) is type(b) and a==b,'discrete value differs: '+path)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/compare_selection_reference.py", line 16, in require
+    raise ValueError(message)
+ValueError: discrete value differs: target/authored channels/lock_rotations_4d
