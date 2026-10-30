@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-multi-data-core/tools/blender_object_state_reference.py", line 120, in start
+    capture(args)
+    ~~~~~~~^^^^^^
+  File "/private/tmp/formora-mesh-merge-multi-data-core/tools/blender_object_state_reference.py", line 73, in capture
+    objects, _, _ = base.create(mesh_suite, setup)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-multi-data-core/tools/blender_multi_mesh_merge_reference.py", line 108, in create
+    if bpy.context.object and bpy.context.object.mode != 'OBJECT':
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Context' object has no attribute 'object'
