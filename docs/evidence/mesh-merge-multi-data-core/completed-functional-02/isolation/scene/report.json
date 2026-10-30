@@ -1,0 +1,287 @@
+{
+  "passed": true,
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /private/tmp/formora-mesh-merge-multi-data-core/baseline/fixtures/snap-menu.json: Operation not permitted\n",
+  "repository_reads": "denied by macOS sandbox",
+  "binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+  "driver_sha256": "b46e84b891eeb6559cad6237612b1a81c4370dc4fe730f3436ae205e2585b6a1",
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "fresh_reload_equal": true,
+  "unseen_geometry_and_normal_analytic_match": true,
+  "shared_data_and_child_inverse_checked": true,
+  "locks_checked": true,
+  "stale_object_budget_unknown_field_and_batch_rejections_atomic": true,
+  "undo_replay_checked": true,
+  "cursor_rotation_exactly_preserved": true,
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "mesh",
+        "asset": {
+          "vertices": {
+            "a": [
+              -0.5,
+              -1.5,
+              0.5
+            ],
+            "b": [
+              1.375,
+              -0.625,
+              0.375
+            ],
+            "c": [
+              0.25,
+              1.75,
+              0.125
+            ],
+            "hidden": [
+              -0.5,
+              -1.5,
+              0.5
+            ]
+          },
+          "triangles": {
+            "t": {
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ]
+              },
+              "corner_normals": null,
+              "material_slot": null
+            }
+          },
+          "polygons": {},
+          "material_slots": [],
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.75
+            }
+          }
+        }
+      },
+      {
+        "operation": "set_mesh_editing",
+        "id": "mesh",
+        "editing": {
+          "mode": [
+            "vertex"
+          ],
+          "selected": {
+            "vertices": [
+              "a",
+              "b"
+            ]
+          },
+          "hidden": {
+            "vertices": [
+              "hidden"
+            ]
+          },
+          "history": [
+            {
+              "domain": "vertex",
+              "id": "b"
+            }
+          ],
+          "active_face": null
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "target",
+        "entity": {
+          "name": "Unseen",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0.375,
+              -0.625,
+              0.875
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "shared",
+        "entity": {
+          "name": "Unseen",
+          "parent": null,
+          "transform": {
+            "translation": [
+              -2,
+              0,
+              1
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "child",
+        "entity": {
+          "name": "Unseen",
+          "parent": "target",
+          "transform": {
+            "translation": [
+              0.25,
+              0.5,
+              0.75
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0,
+                0,
+                0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1,
+              1,
+              1
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "set_authoring_context",
+        "context": {
+          "cursor_location": [
+            0.37,
+            -0.62,
+            0.87
+          ],
+          "cursor_rotation": [
+            0.17,
+            0.23,
+            0.41
+          ],
+          "view_rotation": [
+            0.1,
+            0.2,
+            0.3
+          ]
+        }
+      },
+      {
+        "operation": "set_object_context",
+        "context": {
+          "order": [
+            "target",
+            "shared",
+            "child"
+          ],
+          "selected": [
+            "target"
+          ],
+          "active": "target",
+          "edit_objects": [],
+          "states": {
+            "target": {
+              "lock_location": [
+                true,
+                false,
+                false
+              ],
+              "lock_rotation": [
+                false,
+                false,
+                false
+              ]
+            }
+          },
+          "skip_children": true,
+          "origins_only": true
+        }
+      }
+    ]
+  },
+  "native_calls": 25,
+  "artifacts": {
+    "before.json": "e00259280c4c4c849f9e6c9b3cd3d62df93284b823312a26fd8c6a1aa06736e4",
+    "after-object.json": "0f5354594dd1d247d1f1fa287a2ffb6c6bf8d5feb66a5301570aa3ce56f50a3d",
+    "world-queries.json": "221b05caf0ac972fe3571a879ae89d59dde78883f22573218dfbe9867c0da79c",
+    "after-edit.json": "bb400be7decb74b49e0df9ec7d979320da63ebd3bba3722e25498969c797048e",
+    "edit-receipt.json": "a4bb39a4c4fdb5c56be0573b64f59a380848564d04ea1270b81e8880a86dcdf8",
+    "object-receipt.json": "9662affc92892216ad0098061f0c55b8d71aa2a78ada6651c0e0be885eb14014",
+    "final.json": "f94f9ab40417481e46d305373661b03ebae9c28a71d97bfa173aa0490ddfcc1b",
+    "calls.jsonl": "f1c9882d29271e2edd594e5fef5fac3360ef974c1f968c8ccf04ccf8859597e2"
+  },
+  "product_acceptance": "unrun"
+}

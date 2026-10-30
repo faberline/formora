@@ -1,0 +1,330 @@
+{
+  "source_repository_reads": "denied by macOS sandbox",
+  "repository_path": "/private/tmp/formora-mesh-merge-multi-data-core",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /private/tmp/formora-mesh-merge-multi-data-core/baseline/fixtures/mesh-primitives.json: Operation not permitted\n",
+  "copied_binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+  "cwd": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-independent-generation-gs27vmi_",
+  "inputs": [
+    {
+      "kind": "plane",
+      "size": 3.25
+    },
+    {
+      "kind": "cube",
+      "size": 5.125
+    },
+    {
+      "kind": "grid",
+      "size": 4.125,
+      "x_subdivisions": 17,
+      "y_subdivisions": 19
+    },
+    {
+      "kind": "circle",
+      "radius": 0.875,
+      "vertices": 37,
+      "fill_type": "trifan"
+    },
+    {
+      "kind": "uv_sphere",
+      "radius": 0.875,
+      "segments": 23,
+      "ring_count": 11
+    },
+    {
+      "kind": "cylinder",
+      "radius": 0.875,
+      "depth": 1.75,
+      "vertices": 19,
+      "end_fill_type": "trifan"
+    },
+    {
+      "kind": "cone",
+      "radius1": 0.875,
+      "radius2": 0.375,
+      "vertices": 13
+    },
+    {
+      "kind": "torus",
+      "major_segments": 17,
+      "minor_segments": 9,
+      "major_radius": 1.125,
+      "minor_radius": 0.375
+    },
+    {
+      "kind": "ico_sphere",
+      "subdivisions": 4,
+      "radius": 0.875
+    },
+    {
+      "kind": "monkey",
+      "size": 1.75
+    }
+  ],
+  "results": [
+    {
+      "kind": "plane",
+      "counts": [
+        4,
+        4,
+        1
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "plane",
+          "size": 3.25
+        }
+      },
+      "file": "plane-query.json",
+      "sha256": "f387c150d9737422b0e1cfe45cfbb61b84e4768312d8c95ce8eed20546967374"
+    },
+    {
+      "kind": "cube",
+      "counts": [
+        8,
+        12,
+        6
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "cube",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "size": 5.125
+        }
+      },
+      "file": "cube-query.json",
+      "sha256": "49a63fd3eb114920182bb663885f7a0f53c01019442c5cf7bd7d92d584bbc20b"
+    },
+    {
+      "kind": "grid",
+      "counts": [
+        360,
+        682,
+        323
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "kind": "grid",
+          "size": 4.125,
+          "x_subdivisions": 17,
+          "y_subdivisions": 19
+        }
+      },
+      "file": "grid-query.json",
+      "sha256": "16a3b1a20e710a90a595f2b1cb64ec99601422f19698b7b7fe8ba63cfc0e27fa"
+    },
+    {
+      "kind": "circle",
+      "counts": [
+        38,
+        74,
+        37
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "fill_type": "trifan",
+          "kind": "circle",
+          "radius": 0.875,
+          "vertices": 37
+        }
+      },
+      "file": "circle-query.json",
+      "sha256": "b83660a8486697112b0eff17d638c59b409f0270c0aa36cac1460b05436af42d"
+    },
+    {
+      "kind": "uv_sphere",
+      "counts": [
+        232,
+        483,
+        253
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "uv_sphere",
+          "radius": 0.875,
+          "ring_count": 11,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "segments": 23
+        }
+      },
+      "file": "uv_sphere-query.json",
+      "sha256": "618c27d2dc33536d6be29d41384cb98d234cb982e2b0ecf7fefb846448c16d1d"
+    },
+    {
+      "kind": "cylinder",
+      "counts": [
+        40,
+        95,
+        57
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 1.75,
+          "end_fill_type": "trifan",
+          "kind": "cylinder",
+          "radius": 0.875,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 19
+        }
+      },
+      "file": "cylinder-query.json",
+      "sha256": "451c22cb222905acd096045867cf126606a0d152581386c2d13b36519d081109"
+    },
+    {
+      "kind": "cone",
+      "counts": [
+        26,
+        39,
+        15
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "depth": 2.0,
+          "end_fill_type": "ngon",
+          "kind": "cone",
+          "radius1": 0.875,
+          "radius2": 0.375,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "vertices": 13
+        }
+      },
+      "file": "cone-query.json",
+      "sha256": "2c509d6cd6cc33e53956e176e56929c1ed69a87efa6b3dc552c740d051f8dadd"
+    },
+    {
+      "kind": "torus",
+      "counts": [
+        153,
+        306,
+        153
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "abso_major_rad": 1.25,
+          "abso_minor_rad": 0.75,
+          "generate_uvs": true,
+          "kind": "torus",
+          "major_radius": 1.125,
+          "major_segments": 17,
+          "minor_radius": 0.375,
+          "minor_segments": 9,
+          "mode": "major_minor"
+        }
+      },
+      "file": "torus-query.json",
+      "sha256": "6547be98a0c6653ca9d02ee3a9c24ae2b6c14ae4e0070db45586601886964508"
+    },
+    {
+      "kind": "ico_sphere",
+      "counts": [
+        642,
+        1920,
+        1280
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "ico_sphere",
+          "radius": 0.875,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "subdivisions": 4
+        }
+      },
+      "file": "ico_sphere-query.json",
+      "sha256": "c45d24f0911a6cf38199d53339912c763c043f4c2a98dff66bfa864ba1fd1f9a"
+    },
+    {
+      "kind": "monkey",
+      "counts": [
+        507,
+        1005,
+        500
+      ],
+      "recipe": {
+        "edited": false,
+        "max_components": 1000000,
+        "primitive": {
+          "calc_uvs": true,
+          "creation_rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "kind": "monkey",
+          "size": 1.75
+        }
+      },
+      "file": "monkey-query.json",
+      "sha256": "992cf5124bc598fe5c2ca16538baa16d3233209832f7dc4eb2fde764847a54e9"
+    }
+  ],
+  "passed": true,
+  "full_feature_acceptance": "unrun"
+}

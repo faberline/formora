@@ -1,0 +1,33 @@
+{
+  "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-rng-isolation-01.py",
+  "source_sha256": "5902ca6d9c32a8a72a472f5fcb91b568a753daa1335f2b73735b4fc2889306d7",
+  "copy": "/private/tmp/formora-multi-merge-retained-small-drivers-01/retained-rng-isolation.py",
+  "copy_sha256": "df7da50f76b0ae5ecae25710e4ab46ca994cc34cbbae2477a7b9b0817a088c59",
+  "reverse_mapping_recovers_exact_original": true,
+  "only_path_bindings_changed": [
+    [
+      "/private/tmp/formora-mesh-merge-sparse",
+      "/private/tmp/formora-mesh-merge-multi-data-core"
+    ],
+    [
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-multi-merge-target-actual185/debug/formora"
+    ],
+    [
+      "/private/tmp/formora-merge-regen-retained-isolation-01/rng",
+      "/private/tmp/formora-multi-merge-retained-isolation-01/rng"
+    ]
+  ],
+  "diff": [
+    "--- \n",
+    "+++ \n",
+    "@@ -1,6 +1,6 @@\n",
+    " from pathlib import Path\n",
+    " import hashlib,json,math,shutil,struct,subprocess,tempfile\n",
+    "-root=Path('/private/tmp/formora-mesh-merge-sparse');source_binary=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora');output=Path('/private/tmp/formora-merge-regen-retained-isolation-01/rng');output.mkdir(parents=True,exist_ok=False)\n",
+    "+root=Path('/private/tmp/formora-mesh-merge-multi-data-core');source_binary=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora');output=Path('/private/tmp/formora-multi-merge-retained-isolation-01/rng');output.mkdir(parents=True,exist_ok=False)\n",
+    " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();calls=[]\n",
+    " vertices={'apricot':[0.31,1.17,0.2],'birch':[1.61,1.17,0.2],'cedar':[1.61,2.37,0.2],'dogwood':[0.31,2.37,0.2],'umber':[0.31,-1.17,0.2],'violet':[0.31,-2.37,0.2],'willow':[1.61,-2.37,0.2],'xenia':[1.61,-1.17,0.2],'plane':[2.13,0.000007,0.2],'apart':[0.31,1.17,0.2],'hidden':[2.31,-2.11,0.4]}\n",
+    " polygons={};pairs=set()\n"
+  ]
+}

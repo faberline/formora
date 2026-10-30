@@ -1,0 +1,128 @@
+{
+  "drivers": [
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-gpu-proof-01.py",
+      "source_sha256": "a458ada5f0b6106eb20842c8e48204c4b07a33d648bd326d80a6e355eb86b006",
+      "copy": "/private/tmp/formora-multi-merge-retained-gpu-drivers-01/regenerate-gpu-proof-01.py",
+      "copy_sha256": "64d9ce21882239b8cbb5abc41cdda00151bc9adc2ef1b65469820e70b442c320",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+          "/private/tmp/formora-object-state-build-02/formora-preview"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-gpu-01",
+          "/private/tmp/formora-multi-merge-retained-merge-gpu-01"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -8,11 +8,11 @@\n",
+        " import subprocess\n",
+        " import sys\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4];sys.path.insert(0,str(ROOT/'tools'))\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core');sys.path.insert(0,str(ROOT/'tools'))\n",
+        " from png_pixels import read_rgba8\n",
+        " \n",
+        "-OUTPUT=Path('/private/tmp/formora-merge-regen-gpu-01')\n",
+        "-BINARY=Path('/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora')\n",
+        "+OUTPUT=Path('/private/tmp/formora-multi-merge-retained-merge-gpu-01')\n",
+        "+BINARY=Path('/private/tmp/formora-object-state-build-02/formora-preview')\n",
+        " AUTHORED=Path('/private/tmp/formora-merge-authored-input-01.json')\n",
+        " OUTPUT.mkdir(exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_hash=sha(BINARY)\n",
+        " scene=OUTPUT/'scene.json';initial=json.loads(AUTHORED.read_bytes())\n",
+        "@@ -57,7 +57,7 @@\n",
+        " assert sha(BINARY)==binary_hash\n",
+        " (OUTPUT/'queries.json').write_text(json.dumps(queries,indent=2)+'\\n')\n",
+        " report={'passed':True,'changed_pixels':changed,'gpu':gpus,'platform':platform.platform(),'binary_sha256':binary_hash,\n",
+        "-    'product_implementation':'5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d','authored_input_sha256':sha(AUTHORED),\n",
+        "+    'product_implementation':'bd13f3d424f2649b4b25c16305c4e5b0eb7f8542','authored_input_sha256':sha(AUTHORED),\n",
+        "     'actual_shared_asset_and_topology_checked':True,'unselected_triangle_preserved':True,'fresh_process_reload_and_render_identical':True,\n",
+        "     'render_processes':[row for row in calls if row['command'][1]=='render'],'native_cli_exits':[row['exit'] for row in calls],\n",
+        "     'artifacts':{p.name:sha(p) for p in OUTPUT.iterdir() if p.is_file()},'product_acceptance':'unrun','independent_acceptance':'unrun'}\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-gpu-rng-01.py",
+      "source_sha256": "298f4a16d267eb8469065767a25e9fb01d414825680456b81c9745d431f70f4e",
+      "copy": "/private/tmp/formora-multi-merge-retained-gpu-drivers-01/regenerate-retained-gpu-rng-01.py",
+      "copy_sha256": "ea40698f21092309424989ab79df7dfd0969d8190b01bc4e86deab7119607dfb",
+      "only_path_head_bindings_changed": [
+        [
+          "/private/tmp/formora-mesh-merge-sparse",
+          "/private/tmp/formora-mesh-merge-multi-data-core"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+          "/private/tmp/formora-object-state-build-02/formora-preview"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-gpu-01",
+          "/private/tmp/formora-multi-merge-retained-gpu-01"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,7 +1,7 @@\n",
+        " from pathlib import Path\n",
+        " import hashlib,json,math,subprocess,sys\n",
+        "-root=Path('/private/tmp/formora-mesh-merge-sparse');sys.path.insert(0,str(root/'tools'));from png_pixels import read_rgba8\n",
+        "-binary=Path('/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora');output=Path('/private/tmp/formora-merge-regen-retained-gpu-01/rng');output.mkdir(parents=True,exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary);source={str(p.relative_to(root)):sha(p) for p in sorted([root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]])};calls=[]\n",
+        "+root=Path('/private/tmp/formora-mesh-merge-multi-data-core');sys.path.insert(0,str(root/'tools'));from png_pixels import read_rgba8\n",
+        "+binary=Path('/private/tmp/formora-object-state-build-02/formora-preview');output=Path('/private/tmp/formora-multi-merge-retained-gpu-01/rng');output.mkdir(parents=True,exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary);source={str(p.relative_to(root)):sha(p) for p in sorted([root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]])};calls=[]\n",
+        " vertices={f'v{5*y+x:04}':[(x-2)*0.5,(y-2)*0.5,(y-2)*0.225] for y in range(5) for x in range(5)};faces={};pairs=set()\n",
+        " for y in range(4):\n",
+        "  for x in range(4):\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-gpu-mirror-01.py",
+      "source_sha256": "1e45926a67b22efce87d8956d54d3327c06fa6e186285ec20c0eed0ee45ab491",
+      "copy": "/private/tmp/formora-multi-merge-retained-gpu-drivers-01/regenerate-retained-gpu-mirror-01.py",
+      "copy_sha256": "86d712f6fb2c6ca9393c9dc35f21df0475654873f50481fbe5e29693e27851f9",
+      "only_path_head_bindings_changed": [
+        [
+          "/private/tmp/formora-mesh-merge-sparse",
+          "/private/tmp/formora-mesh-merge-multi-data-core"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+          "/private/tmp/formora-object-state-build-02/formora-preview"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-gpu-01",
+          "/private/tmp/formora-multi-merge-retained-gpu-01"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,7 +1,7 @@\n",
+        " from pathlib import Path\n",
+        " import hashlib,json,math,subprocess,sys\n",
+        "-root=Path('/private/tmp/formora-mesh-merge-sparse');sys.path.insert(0,str(root/'tools'));from png_pixels import read_rgba8\n",
+        "-binary=Path('/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora');output=Path('/private/tmp/formora-merge-regen-retained-gpu-01/mirror');output.mkdir(parents=True,exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary);source={str(p.relative_to(root)):sha(p) for p in sorted([root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]])};calls=[]\n",
+        "+root=Path('/private/tmp/formora-mesh-merge-multi-data-core');sys.path.insert(0,str(root/'tools'));from png_pixels import read_rgba8\n",
+        "+binary=Path('/private/tmp/formora-object-state-build-02/formora-preview');output=Path('/private/tmp/formora-multi-merge-retained-gpu-01/mirror');output.mkdir(parents=True,exist_ok=False);sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary);source={str(p.relative_to(root)):sha(p) for p in sorted([root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]])};calls=[]\n",
+        " vertices={f'v{5*y+x:04}':[(x-2)*0.5,(y-2)*0.5,(y-2)*0.225] for y in range(5) for x in range(5)};faces={};pairs=set()\n",
+        " for y in range(4):\n",
+        "  for x in range(4):\n"
+      ]
+    }
+  ],
+  "all_assertions_counts_pixel_limits_and_inputs": "unchanged"
+}

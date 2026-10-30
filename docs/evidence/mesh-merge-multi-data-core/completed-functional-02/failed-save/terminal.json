@@ -1,0 +1,14 @@
+{
+  "native_process_id": 93127,
+  "terminal_exit": 0,
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-object-state-runtime-01\")(subpath \"/private/tmp/formora-multi-merge-native-controls-01\"))\n",
+    "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+    "scene",
+    "serve",
+    "--scene",
+    "/private/tmp/formora-multi-merge-retained-failed-save-01/scene.json"
+  ]
+}

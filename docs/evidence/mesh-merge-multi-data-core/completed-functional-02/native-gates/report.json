@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "name": "failed-save19",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-retained-native-drivers-01/regenerate-failed-save-proof-01.py"
+      ],
+      "process_id": 93121,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_checks": 19,
+      "actual_checks": 19,
+      "report": "/private/tmp/formora-multi-merge-retained-failed-save-01/report.json",
+      "report_sha256": "2bad27765130b82f50bf28a192a7d59fa5ddefc61a7f46c3abf90eba9f48777d",
+      "driver_sha256": "c9ea99636ff04d8e3d2c4c3b28f8cffac0010edb378a92f6ddb2cacd178a8a24"
+    },
+    {
+      "name": "rng48",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-retained-native-drivers-01/regenerate-retained-rng-one-shot-01.py"
+      ],
+      "process_id": 93151,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_checks": 48,
+      "actual_checks": 48,
+      "report": "/private/tmp/formora-multi-merge-retained-rng-one-shot-01/report.json",
+      "report_sha256": "5c97bbaefe334712cb97a4906c25de2d861854cf844ebd30c94e884794f59de8",
+      "driver_sha256": "794e3f2c39bb405da4e5d0b72a501831ec0532f174a81889237bd2f05c014329"
+    },
+    {
+      "name": "euler6",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-retained-native-drivers-01/regenerate-retained-source-oracle-01.py"
+      ],
+      "process_id": 94345,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_checks": 6,
+      "actual_checks": 6,
+      "report": "/private/tmp/formora-multi-merge-retained-source-oracle-01/report.json",
+      "report_sha256": "ad116ef9ab12ea88a79f6646102f732d401b8511b73369a9e58431008c4a4daf",
+      "driver_sha256": "c5c3d1bd17d988a1d12ccb18f5b6da08d2ef91e5868879df83f43cdf2405cee6"
+    }
+  ],
+  "binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}
