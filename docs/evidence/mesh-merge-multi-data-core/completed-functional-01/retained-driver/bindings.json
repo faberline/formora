@@ -1,0 +1,22 @@
+{
+  "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/retained-driver.py",
+  "source_sha256": "9e0c8d0b5ef2f9090a7aad5c37f5ab391b939042d380d89937076917ab96af4f",
+  "copy": "/private/tmp/formora-multi-merge-retained-drivers-01/retained-driver.py",
+  "copy_sha256": "84a7f9fd4f165e2e638113ffc74466bf0552df1144e1dd1177204b09aa58401e",
+  "exact_change": "Only the ROOT assignment is rebound to the actual current worktree. All commands, inputs, counts, gates and assertions are unchanged.",
+  "diff": [
+    "--- \n",
+    "+++ \n",
+    "@@ -9,7 +9,7 @@\n",
+    " import sys\n",
+    " import time\n",
+    " \n",
+    "-ROOT = Path(__file__).resolve().parents[4]\n",
+    "+ROOT = Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+    " parser = argparse.ArgumentParser(description=__doc__)\n",
+    " parser.add_argument('binary', type=Path)\n",
+    " parser.add_argument('output', type=Path)\n"
+  ],
+  "product_binary": "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+  "product_binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019"
+}

@@ -1,0 +1,13 @@
+{
+  "process_id": 94709,
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+    "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+    "scene",
+    "serve",
+    "--scene",
+    "/private/tmp/formora-multi-merge-unseen-save-01/scene.json"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "files": [
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-audit-full-api-01.py",
+      "source_sha256": "209aca97537ab2fb126b4c97994359b5e641b150acc3e377c04fa6802f30c207",
+      "copy": "/private/tmp/formora-multi-merge-single-audit-drivers-01/regenerate-audit-full-api-01.py",
+      "copy_sha256": "644222e36b1b1230b4b9f8fa91c86fb4027ca15ad3904984024cdd08be2a0c61",
+      "changes": [
+        {
+          "from": "ROOT=Path(__file__).resolve().parents[4]",
+          "to": "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')",
+          "occurrences": 1
+        },
+        {
+          "from": "HERE/'runtime-cli-mcp.py'",
+          "to": "Path('/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/runtime-cli-mcp.py')",
+          "occurrences": 2
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-api-full-01",
+          "to": "/private/tmp/formora-multi-merge-single-retained-api-01",
+          "occurrences": 1
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-api-audit-01",
+          "to": "/private/tmp/formora-multi-merge-single-retained-audit-01",
+          "occurrences": 1
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+          "to": "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+          "occurrences": 1
+        },
+        {
+          "from": "0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa",
+          "to": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+          "occurrences": 1
+        }
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,17 +1,17 @@\n",
+        " \"\"\"Audit every raw saved CLI/MCP exchange and reject incomplete full-gate evidence.\"\"\"\n",
+        " from pathlib import Path\n",
+        " import copy,hashlib,importlib.util,json,sys\n",
+        "-ROOT=Path(__file__).resolve().parents[4];HERE=Path(__file__).resolve().parent\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core');HERE=Path(__file__).resolve().parent\n",
+        " sys.path.insert(0,str(ROOT/'tools'))\n",
+        "-spec=importlib.util.spec_from_file_location('merge_api_audit',HERE/'runtime-cli-mcp.py');api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)\n",
+        "-DATA=Path('/private/tmp/formora-merge-regen-api-full-01');OUT=Path('/private/tmp/formora-merge-regen-api-audit-01');OUT.mkdir(exist_ok=False)\n",
+        "-BINARY=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora');binary_hash=api.sha(BINARY)\n",
+        "+spec=importlib.util.spec_from_file_location('merge_api_audit',Path('/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/runtime-cli-mcp.py'));api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)\n",
+        "+DATA=Path('/private/tmp/formora-multi-merge-single-retained-api-01');OUT=Path('/private/tmp/formora-multi-merge-single-retained-audit-01');OUT.mkdir(exist_ok=False)\n",
+        "+BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora');binary_hash=api.sha(BINARY)\n",
+        " report=api.pilot.load(DATA/'report.json');suite=api.pilot.load(ROOT/'baseline/fixtures/mesh-merge.json')\n",
+        " folders,source=api.source_preflight(suite)\n",
+        " expected={(interface,case['id']) for interface in ['cli','official_mcp_sdk'] for case in suite['runs']};cases={case['id']:case for case in suite['runs']}\n",
+        " def full_header(value):\n",
+        "  assert value['passed'] is True and value['required_full_gate_passed'] is True and value['checks']==2048\n",
+        "- assert value['inputs_unchanged'] is True and value['binary_sha256']==binary_hash=='0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa'\n",
+        "+ assert value['inputs_unchanged'] is True and value['binary_sha256']==binary_hash=='64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019'\n",
+        "  rows=value['runs'];assert len(rows)==2048 and len({(r['interface'],r['id']) for r in rows})==2048\n",
+        "  assert {(r['interface'],r['id']) for r in rows}==expected\n",
+        "  assert all(r['status']=='passed' and r['error'] is None for r in rows)\n",
+        "@@ -60,5 +60,5 @@\n",
+        " assert base==api.pilot.load(DATA/'official_mcp_sdk-merge_0000.json.gz')\n",
+        " \n",
+        " assert api.sha(BINARY)==binary_hash\n",
+        "-result={'passed':True,'checks':len(rows),'all_raw_cli_mcp_source_checks_passed':True,'report_sha256':api.sha(DATA/'report.json'),'binary_sha256':binary_hash,'source_checked':source,'runs':rows,'negative_controls':controls,'audit_driver_sha256':api.sha(Path(__file__)),'runtime_checker_sha256':api.sha(HERE/'runtime-cli-mcp.py'),'product_acceptance':'unrun','independent_acceptance':'unrun'}\n",
+        "+result={'passed':True,'checks':len(rows),'all_raw_cli_mcp_source_checks_passed':True,'report_sha256':api.sha(DATA/'report.json'),'binary_sha256':binary_hash,'source_checked':source,'runs':rows,'negative_controls':controls,'audit_driver_sha256':api.sha(Path(__file__)),'runtime_checker_sha256':api.sha(Path('/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/runtime-cli-mcp.py')),'product_acceptance':'unrun','independent_acceptance':'unrun'}\n",
+        " (OUT/'report.json').write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps({'passed':True,'checks':len(rows),'negative_controls':len(controls)}),flush=True)\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-api-controls-01.py",
+      "source_sha256": "f98cd60d75065b3c9a9f299c9a6a8fa30a2a6ef30bad8495a700d73721708aba",
+      "copy": "/private/tmp/formora-multi-merge-single-audit-drivers-01/regenerate-api-controls-01.py",
+      "copy_sha256": "e0e348842e61f5fb4dd3d832298c7a90034a1c052d63c66d0bc4d10d207cf58c",
+      "changes": [
+        {
+          "from": "HERE/'runtime-cli-mcp.py'",
+          "to": "Path('/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/runtime-cli-mcp.py')",
+          "occurrences": 1
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-api-full-01",
+          "to": "/private/tmp/formora-multi-merge-single-retained-api-01",
+          "occurrences": 2
+        }
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -5,9 +5,9 @@\n",
+        " from pathlib import Path\n",
+        " \n",
+        " HERE=Path(__file__).resolve().parent\n",
+        "-spec=importlib.util.spec_from_file_location('merge_api',HERE/'runtime-cli-mcp.py')\n",
+        "+spec=importlib.util.spec_from_file_location('merge_api',Path('/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/runtime-cli-mcp.py'))\n",
+        " api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)\n",
+        "-raw=api.pilot.load(Path('/private/tmp/formora-merge-regen-api-full-01/official_mcp_sdk-merge_0000.json.gz'))\n",
+        "+raw=api.pilot.load(Path('/private/tmp/formora-multi-merge-single-retained-api-01/official_mcp_sdk-merge_0000.json.gz'))\n",
+        " case=raw['case'];references=[api.pilot.load(api.ROOT/'docs/evidence/mesh-merge-baseline'/name/(case['id']+'.json.gz')) for name in ['native-01','native-02']]\n",
+        " api.check_record(case,references,raw)\n",
+        " def count(record):record['result']['merges'][0]['after']['vertices']+=1\n",
+        "@@ -30,5 +30,5 @@\n",
+        "     try:api.check_record(case,references,record)\n",
+        "     except (AssertionError,ValueError,KeyError) as error:rows.append({'control':mutate.__name__,'rejected':True,'error':str(error)})\n",
+        "     else:raise AssertionError('false evidence accepted: '+mutate.__name__)\n",
+        "-assert raw==api.pilot.load(Path('/private/tmp/formora-merge-regen-api-full-01/official_mcp_sdk-merge_0000.json.gz'))\n",
+        "+assert raw==api.pilot.load(Path('/private/tmp/formora-multi-merge-single-retained-api-01/official_mcp_sdk-merge_0000.json.gz'))\n",
+        " print(json.dumps({'passed':True,'controls':rows,'original_evidence_unchanged':True,'limits_unchanged':True,'product_acceptance':'unrun'},indent=2))\n"
+      ]
+    }
+  ],
+  "assertions_counts_thresholds_and_source_comparisons": "unchanged"
+}
