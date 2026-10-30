@@ -138,3 +138,32 @@ GitHub reports the account payment/spending restriction. The push run is
 change, PR diff review or merge was performed. Three-platform CI, stack
 integration and independent Codex acceptance remain unpassed. All eleven
 milestones remain open.
+
+## Complete local API and regression evidence
+
+The complete repaired-head retained controller exited zero. All 14,326
+preceding CLI/MCP requests passed. The additional primitive, scale, selection,
+creation, mesh payload, normal, RNG and MCP smoke gates also passed with
+actual zero terminal exits. The controller and all raw artifacts are in
+retained-api-full-02. No required interface case was skipped.
+
+The separate raw-response audit also exited zero. It reconstructed all
+17,854 requests: 14,326 preceding requests and 3,528 zero-scale requests.
+It compared both original native sources and checked actual snapshots,
+saved state, receipts, setup and requests. Fourteen source-undefined axis
+inputs remain explicit approved rejections. The twenty-four unavailable
+local queries remain explicit errors, not numeric matches.
+
+All local required checks in this issue now have completed evidence at
+implementation aa2afb53. The complete API audit is
+complete-api-evidence-01.json. The 237 timing/source samples, 280 Rust tests,
+229 Python tests, source-read denial, actual failed saves, recipes and native
+Metal results remain bound to the same repaired implementation.
+
+CI at evidence head 6e026c33 still failed before any platform job step ran.
+Runs 41007768529 and 41007775568 report the account payment/spending
+restriction. The exact readback is ci-head-evidence-01. CI at a later evidence
+head is unaccepted until checked. No rerun, billing change, runner change,
+review or merge was performed. Three-platform CI, dependency integration
+and independent Codex acceptance remain unpassed. Issue 73 stays agy:doing,
+PR 74 stays a draft and all eleven milestones stay open.

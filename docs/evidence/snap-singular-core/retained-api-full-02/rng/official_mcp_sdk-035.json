@@ -1,0 +1,913 @@
+{
+  "request": {
+    "expected_revision": 1,
+    "commands": [
+      {
+        "operation": "transform_mesh",
+        "transform": {
+          "entity": "target",
+          "change": {
+            "kind": "translate",
+            "value": [
+              0,
+              0,
+              1
+            ]
+          },
+          "proportional": {
+            "radius": 1,
+            "falloff": "random",
+            "seed": 2147483648,
+            "connected": true,
+            "projected": true,
+            "random_algorithm": "blender_5_2"
+          }
+        }
+      }
+    ]
+  },
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "mesh",
+        "asset": {
+          "vertices": {
+            "z_selected": [
+              0,
+              0,
+              0
+            ],
+            "h_depth": [
+              0,
+              0,
+              2
+            ],
+            "g_coincident": [
+              0,
+              0,
+              0
+            ],
+            "e_near": [
+              0.5,
+              0,
+              0
+            ],
+            "d_boundary": [
+              1,
+              0,
+              0
+            ],
+            "c_outside": [
+              2,
+              0,
+              0
+            ],
+            "b_hidden": [
+              0.125,
+              0,
+              0
+            ],
+            "a_selected": [
+              0,
+              0,
+              0
+            ]
+          },
+          "edges": {
+            "a_near": [
+              "a_selected",
+              "e_near"
+            ],
+            "near_boundary": [
+              "e_near",
+              "d_boundary"
+            ]
+          },
+          "triangles": {},
+          "material_slots": []
+        }
+      },
+      {
+        "operation": "set_mesh_editing",
+        "id": "mesh",
+        "editing": {
+          "mode": [
+            "vertex"
+          ],
+          "selected": {
+            "vertices": [
+              "a_selected",
+              "z_selected"
+            ]
+          },
+          "hidden": {
+            "vertices": [
+              "b_hidden"
+            ]
+          },
+          "history": []
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "target",
+        "entity": {
+          "name": "target",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "instance",
+        "entity": {
+          "name": "instance",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0,
+              0,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      }
+    ]
+  },
+  "before": {
+    "revision": 1,
+    "scene": {
+      "active_camera": null,
+      "annotations": [],
+      "doors": {},
+      "entities": {
+        "instance": {
+          "content": {
+            "geometry": {
+              "id": "mesh",
+              "kind": "asset"
+            },
+            "kind": "mesh",
+            "material": null
+          },
+          "name": "instance",
+          "parent": null,
+          "transform": {
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "target": {
+          "content": {
+            "geometry": {
+              "id": "mesh",
+              "kind": "asset"
+            },
+            "kind": "mesh",
+            "material": null
+          },
+          "name": "target",
+          "parent": null,
+          "transform": {
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "materials": {},
+      "mesh_assets": {
+        "mesh": {
+          "edges": {
+            "a_near": [
+              "a_selected",
+              "e_near"
+            ],
+            "near_boundary": [
+              "e_near",
+              "d_boundary"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "b_hidden"
+              ]
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "a_selected",
+                "z_selected"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {},
+          "vertices": {
+            "a_selected": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b_hidden": [
+              0.125,
+              0.0,
+              0.0
+            ],
+            "c_outside": [
+              2.0,
+              0.0,
+              0.0
+            ],
+            "d_boundary": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "e_near": [
+              0.5,
+              0.0,
+              0.0
+            ],
+            "g_coincident": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "h_depth": [
+              0.0,
+              0.0,
+              2.0
+            ],
+            "z_selected": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "revision": 1,
+      "schema_version": 1,
+      "time_seconds": 0.0
+    }
+  },
+  "result": {
+    "revision": 2,
+    "transforms": [
+      {
+        "basis_world": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "centres_local": {
+          "a_selected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "e_near": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "z_selected": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "changed": {
+          "edges": [
+            "a_near",
+            "near_boundary"
+          ],
+          "faces": [],
+          "vertices": [
+            "a_selected",
+            "e_near",
+            "z_selected"
+          ]
+        },
+        "command_index": 0,
+        "entity": "target",
+        "influence": {
+          "a_selected": 1.0,
+          "e_near": 0.12495099008083344,
+          "z_selected": 1.0
+        },
+        "mesh_asset": "mesh",
+        "pivot_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "random_algorithm": "blender_5_2",
+        "random_seed": 2147483648,
+        "shared_instances": [
+          "instance",
+          "target"
+        ]
+      }
+    ]
+  },
+  "after": {
+    "revision": 2,
+    "scene": {
+      "active_camera": null,
+      "annotations": [],
+      "doors": {},
+      "entities": {
+        "instance": {
+          "content": {
+            "geometry": {
+              "id": "mesh",
+              "kind": "asset"
+            },
+            "kind": "mesh",
+            "material": null
+          },
+          "name": "instance",
+          "parent": null,
+          "transform": {
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "target": {
+          "content": {
+            "geometry": {
+              "id": "mesh",
+              "kind": "asset"
+            },
+            "kind": "mesh",
+            "material": null
+          },
+          "name": "target",
+          "parent": null,
+          "transform": {
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "materials": {},
+      "mesh_assets": {
+        "mesh": {
+          "edges": {
+            "a_near": [
+              "a_selected",
+              "e_near"
+            ],
+            "near_boundary": [
+              "e_near",
+              "d_boundary"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "b_hidden"
+              ]
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "a_selected",
+                "z_selected"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {},
+          "vertices": {
+            "a_selected": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "b_hidden": [
+              0.125,
+              0.0,
+              0.0
+            ],
+            "c_outside": [
+              2.0,
+              0.0,
+              0.0
+            ],
+            "d_boundary": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "e_near": [
+              0.5,
+              0.0,
+              0.12495099008083344
+            ],
+            "g_coincident": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "h_depth": [
+              0.0,
+              0.0,
+              2.0
+            ],
+            "z_selected": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "revision": 2,
+      "schema_version": 1,
+      "time_seconds": 0.0
+    }
+  },
+  "failed_batch": "mesh transform Blender random seed must fit u32",
+  "replay": {
+    "revision": 4,
+    "transforms": [
+      {
+        "basis_world": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "centres_local": {
+          "a_selected": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "e_near": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "z_selected": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "changed": {
+          "edges": [
+            "a_near",
+            "near_boundary"
+          ],
+          "faces": [],
+          "vertices": [
+            "a_selected",
+            "e_near",
+            "z_selected"
+          ]
+        },
+        "command_index": 0,
+        "entity": "target",
+        "influence": {
+          "a_selected": 1.0,
+          "e_near": 0.12495099008083344,
+          "z_selected": 1.0
+        },
+        "mesh_asset": "mesh",
+        "pivot_world": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "random_algorithm": "blender_5_2",
+        "random_seed": 2147483648,
+        "shared_instances": [
+          "instance",
+          "target"
+        ]
+      }
+    ]
+  },
+  "rejected_requests": [
+    {
+      "command": {
+        "operation": "transform_mesh",
+        "transform": {
+          "entity": "target",
+          "change": {
+            "kind": "translate",
+            "value": [
+              0,
+              0,
+              1
+            ]
+          },
+          "proportional": {
+            "radius": 1,
+            "falloff": "random",
+            "seed": null,
+            "connected": true,
+            "projected": true,
+            "random_algorithm": "blender_5_2"
+          }
+        }
+      },
+      "error": "mesh transform random falloff requires an explicit seed"
+    },
+    {
+      "command": {
+        "operation": "transform_mesh",
+        "transform": {
+          "entity": "target",
+          "change": {
+            "kind": "translate",
+            "value": [
+              0,
+              0,
+              1
+            ]
+          },
+          "proportional": {
+            "radius": 1,
+            "falloff": "random",
+            "seed": 4294967296,
+            "connected": true,
+            "projected": true,
+            "random_algorithm": "blender_5_2"
+          }
+        }
+      },
+      "error": "mesh transform Blender random seed must fit u32"
+    },
+    {
+      "command": {
+        "operation": "transform_mesh",
+        "transform": {
+          "entity": "target",
+          "change": {
+            "kind": "translate",
+            "value": [
+              0,
+              0,
+              1
+            ]
+          },
+          "proportional": {
+            "radius": 1,
+            "falloff": "linear",
+            "seed": null,
+            "connected": true,
+            "projected": true,
+            "random_algorithm": "blender_5_2"
+          }
+        }
+      },
+      "error": "mesh transform random algorithm requires random falloff"
+    },
+    {
+      "command": {
+        "operation": "transform_mesh",
+        "transform": {
+          "entity": "target",
+          "change": {
+            "kind": "translate",
+            "value": [
+              0,
+              0,
+              1
+            ]
+          },
+          "proportional": {
+            "radius": 1,
+            "falloff": "random",
+            "seed": 2147483648,
+            "connected": true,
+            "projected": true,
+            "random_algorithm": "unversioned"
+          }
+        }
+      },
+      "error": "unknown variant `unversioned`, expected `splitmix64_v1` or `blender_5_2`"
+    },
+    {
+      "command": {
+        "operation": "transform_mesh",
+        "transform": {
+          "entity": "target",
+          "change": {
+            "kind": "rotate",
+            "radians": 0.61,
+            "axis": "z"
+          },
+          "constraint_axis": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "error": "mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior"
+    }
+  ],
+  "failed_rotation_batch": "mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior",
+  "fresh_reload": {
+    "revision": 4,
+    "scene": {
+      "active_camera": null,
+      "annotations": [],
+      "doors": {},
+      "entities": {
+        "instance": {
+          "content": {
+            "geometry": {
+              "id": "mesh",
+              "kind": "asset"
+            },
+            "kind": "mesh",
+            "material": null
+          },
+          "name": "instance",
+          "parent": null,
+          "transform": {
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "target": {
+          "content": {
+            "geometry": {
+              "id": "mesh",
+              "kind": "asset"
+            },
+            "kind": "mesh",
+            "material": null
+          },
+          "name": "target",
+          "parent": null,
+          "transform": {
+            "rotation": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "materials": {},
+      "mesh_assets": {
+        "mesh": {
+          "edges": {
+            "a_near": [
+              "a_selected",
+              "e_near"
+            ],
+            "near_boundary": [
+              "e_near",
+              "d_boundary"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "b_hidden"
+              ]
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "a_selected",
+                "z_selected"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {},
+          "vertices": {
+            "a_selected": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "b_hidden": [
+              0.125,
+              0.0,
+              0.0
+            ],
+            "c_outside": [
+              2.0,
+              0.0,
+              0.0
+            ],
+            "d_boundary": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "e_near": [
+              0.5,
+              0.0,
+              0.12495099008083344
+            ],
+            "g_coincident": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "h_depth": [
+              0.0,
+              0.0,
+              2.0
+            ],
+            "z_selected": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "revision": 4,
+      "schema_version": 1,
+      "time_seconds": 0.0
+    }
+  },
+  "passed": true
+}

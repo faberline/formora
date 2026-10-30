@@ -1,0 +1,86 @@
+{
+  "total_count": 3,
+  "jobs": [
+    {
+      "id": 123913034260,
+      "run_id": 41009852036,
+      "workflow_name": "Contract checks (not product acceptance)",
+      "head_branch": "codex/mesh-merge-resume",
+      "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41009852036",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVausXs8AAAAc2craFA",
+      "head_sha": "98fb2852287dc5f69062ebad65f408b9cf35f741",
+      "url": "https://api.github.com/repos/faberline/formora/actions/jobs/123913034260",
+      "html_url": "https://github.com/faberline/formora/actions/runs/41009852036/job/123913034260",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-30T05:41:46Z",
+      "started_at": "2026-10-30T05:41:46Z",
+      "completed_at": "2026-10-30T05:41:50Z",
+      "name": "contracts (macos-15-intel)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123913034260",
+      "labels": [
+        "macos-15-intel"
+      ],
+      "runner_id": 0,
+      "runner_name": "",
+      "runner_group_id": 0,
+      "runner_group_name": ""
+    },
+    {
+      "id": 123913034428,
+      "run_id": 41009852036,
+      "workflow_name": "Contract checks (not product acceptance)",
+      "head_branch": "codex/mesh-merge-resume",
+      "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41009852036",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVausXs8AAAAc2cravA",
+      "head_sha": "98fb2852287dc5f69062ebad65f408b9cf35f741",
+      "url": "https://api.github.com/repos/faberline/formora/actions/jobs/123913034428",
+      "html_url": "https://github.com/faberline/formora/actions/runs/41009852036/job/123913034428",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-30T05:41:46Z",
+      "started_at": "2026-10-30T05:41:46Z",
+      "completed_at": "2026-10-30T05:41:47Z",
+      "name": "contracts (windows-latest)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123913034428",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 0,
+      "runner_name": "",
+      "runner_group_id": 0,
+      "runner_group_name": ""
+    },
+    {
+      "id": 123913034565,
+      "run_id": 41009852036,
+      "workflow_name": "Contract checks (not product acceptance)",
+      "head_branch": "codex/mesh-merge-resume",
+      "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41009852036",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVausXs8AAAAc2crbRQ",
+      "head_sha": "98fb2852287dc5f69062ebad65f408b9cf35f741",
+      "url": "https://api.github.com/repos/faberline/formora/actions/jobs/123913034565",
+      "html_url": "https://github.com/faberline/formora/actions/runs/41009852036/job/123913034565",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-30T05:41:46Z",
+      "started_at": "2026-10-30T05:41:46Z",
+      "completed_at": "2026-10-30T05:41:48Z",
+      "name": "contracts (ubuntu-latest)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123913034565",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 0,
+      "runner_name": "",
+      "runner_group_id": 0,
+      "runner_group_name": ""
+    }
+  ]
+}
