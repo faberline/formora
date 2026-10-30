@@ -1,0 +1,71 @@
+{
+  "checked_utc": "2026-10-30T10:46:12.520201+00:00",
+  "head_sha": "09dfb59823017ffd464a4b8d8ebe9525ca3a24b9",
+  "ci_passed": false,
+  "jobs": [
+    {
+      "run_id": 41043073842,
+      "job_id": 124020361273,
+      "name": "contracts (ubuntu-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+        "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+      ]
+    },
+    {
+      "run_id": 41043073842,
+      "job_id": 124020361516,
+      "name": "contracts (windows-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    },
+    {
+      "run_id": 41043073842,
+      "job_id": 124020361633,
+      "name": "contracts (macos-15-intel)",
+      "conclusion": "failure",
+      "steps": 0,
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    },
+    {
+      "run_id": 41042958780,
+      "job_id": 124019983268,
+      "name": "contracts (ubuntu-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+        "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+      ]
+    },
+    {
+      "run_id": 41042958780,
+      "job_id": 124019983584,
+      "name": "contracts (windows-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    },
+    {
+      "run_id": 41042958780,
+      "job_id": 124019983712,
+      "name": "contracts (macos-15-intel)",
+      "conclusion": "failure",
+      "steps": 0,
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    }
+  ],
+  "rerun_requested": false,
+  "billing_or_runner_settings_changed": false
+}

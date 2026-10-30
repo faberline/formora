@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "process_id": 50659,
+  "background": false,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-mesh-merge-multi-data/tools/blender_multi_mesh_merge_capacity_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data-capacity.json",
+    "--output",
+    "/private/tmp/formora-mesh-merge-multi-data/docs/evidence/mesh-merge-multi-data-baseline/capacity-pilot-01",
+    "--case",
+    "multi_merge_class_a_000",
+    "--case",
+    "multi_merge_class_a_003",
+    "--case",
+    "multi_merge_class_a_006",
+    "--case",
+    "multi_merge_class_a_009",
+    "--case",
+    "multi_merge_class_a_012",
+    "--case",
+    "multi_merge_class_a_015",
+    "--case",
+    "multi_merge_class_a_018",
+    "--case",
+    "multi_merge_class_a_021",
+    "--case",
+    "multi_merge_class_a_024",
+    "--case",
+    "multi_merge_class_a_027"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "captured_utc": "2026-10-30T10:41:50.960966+00:00",
+  "scope": "focused_capacity_diagnostic",
+  "input_hashes": {
+    "baseline/fixtures/mesh-merge-multi-data-capacity.json": "48a662ca48dfd8a65500392be3647e54778f17d8eac5ed6e6aa96159049eea21",
+    "baseline/fixtures/mesh-merge-multi-data.json": "7a63c6e29fc8e11850481a20450b6a1e86bf25c3252b71c6abfe53aebb201aa1",
+    "tools/multi_mesh_merge_inputs.py": "8095894235456436705e90468785ca13f57c48d512faaaa81d3b6f501c353df9",
+    "tools/blender_multi_mesh_merge_reference.py": "6c737f557e42d3b5058b82598bfc59e6a2a20fbe18368da6119c485630d24f4b",
+    "tools/compare_multi_mesh_merge_reference.py": "8b2c898df84783afe5282ab0aede4f96bbccf08c7685beaeaee1ed75dc7b8cb8",
+    "tools/check_multi_mesh_merge_controls.py": "c7cc80f1a6dfa1042465c54920e769511ca407a0809a3122877635a89c0bb109",
+    "tools/launch_multi_mesh_merge_reference.py": "6fee946523baf088a3abc7b28a79f700b506191bb6fe02cfae7857677ed96afa",
+    "tools/generate_multi_mesh_merge_cases.py": "68d373820b6274ea40cee773921afab7dd67cb43ae253914bf6b81149c3bbf66",
+    "tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "tools/compare_selection_reference.py": "4f6187468b9866bde5309a440c175124ca38f5365627390b8d00db7e5bfbcaf1",
+    "tools/compare_snap_menu_reference.py": "10c5b990a7f62f7633a04b8e7ef7d73f07c8a8f2e62fe33dde974b2c65bb83c2",
+    "tools/compare_transform_reference.py": "fb2b2323334d44dfd11e6a7ac789e3d05435e149dff597bd37cd7dbd6c9723cc",
+    "tools/compare_mesh_merge_reference.py": "535561230cd2cc24b2839005f6f83fe59d832031c7cceedae10a40eecf29cfe9",
+    "tools/compare_snap_delta_reference.py": "6ca02299366067928303edc327aa5bd0ae7617c6975816a45da35b12b510fe08",
+    "tools/compare_snap_rotation_reference.py": "20c9338f006f6a9ee611b9e4bae92cd981a03173cb811e7876d2dff6a89ea0ee",
+    "tools/generate_mesh_merge_cases.py": "b1d7fdd44d61bd2de52bcf9d7c941f39ed6bb05b2e37886653acc4da9c679cee",
+    "tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "tools/generate_snap_delta_cases.py": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e",
+    "tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "docs/contracts/mesh-merge-multi-data-baseline.md": "948dfc6de9b3be3dc58d3dc5bccf692eaf13f856f5232d8b2a846f54b9da4bf2",
+    "baseline/lock.json": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+    "baseline/sources/mesh-merge-multi-data/manifest.json": "f6ab3c2f3dffa2d65f90c0468f3b6fb36d5fb04fb47cc0215fd70ae32b8cd3c0",
+    "baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "baseline/sources/mesh-merge/editmesh_tools.cc": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+    "baseline/sources/mesh-merge/bmo_removedoubles.cc": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2",
+    "baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+    "baseline/sources/mesh-merge/bmesh_interp.cc": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+    "baseline/sources/mesh-merge/bmesh_core.cc": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+    "baseline/sources/mesh-merge/bmesh_mods.cc": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+    "baseline/sources/mesh-merge/bmesh_operators.cc": "4fec9e1587120cf39a7f394ab13522bf2856b8d1023704f9d14afa69a937ea60",
+    "baseline/sources/mesh-merge/bmesh_walkers_impl.cc": "104cdf8b62e4ad3a7563ffce6bb4b49cab3fc33d1b23bb57afe9736689809b3d",
+    "baseline/sources/mesh-merge/customdata.cc": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+    "baseline/sources/mesh-merge/deform.cc": "42e5a7fd06c20f479ca459b73aea8bac8a188ab8610b63d76b6a10c54980e375",
+    "baseline/sources/mesh-merge/bmesh_opdefines.cc": "6452b85accdb60ee4f3db1369970779cdc91a81f6ea7ce751289637c410023da",
+    "baseline/sources/mesh-merge-multi-data/object_edit.cc": "99bfb6e580aa033fc769bf18c26d5c02bd6ca634474b0ce431c054778a63b073",
+    "baseline/sources/mesh-merge-multi-data/BKE_layer.hh": "3790bc527677c2c6790a25bef6cd2d9ea9ecfc49dcba0af4a8c3a273fbbaef1f",
+    "tools/multi_mesh_merge_capacity_inputs.py": "36662800f6718abeec9992c1ae96ce0bd4060ccabadfad702f4b87a1450f4412",
+    "tools/generate_multi_mesh_merge_capacity_cases.py": "7d5c9cfd533b1c4ae3d29878c0c1e6dc9becfa62e7b16886be96093c943f61a4",
+    "tools/blender_multi_mesh_merge_capacity_reference.py": "cf6747cdd22a493bbf2016c0947be1ab075c83211e81b1dd125cddf3ba53033b",
+    "tools/compare_multi_mesh_merge_capacity_reference.py": "0b0b09d730be7c44ca5243f9decc13526c8c34815ceb696d57af7e9e6ac5a525",
+    "tools/launch_multi_mesh_merge_capacity_reference.py": "4ae4a363f1a067f993b84a649b83e714ec696ac41be1ff8e57b4a8302aebfcc7",
+    "docs/contracts/mesh-merge-multi-data-capacity.md": "c5e1ef60480630b9d9ba18ac16dc0d7990995ffd0e0bdabbd41fee59ff686fe6"
+  },
+  "operator_properties_sha256": "ea6f625083a62a128983efd1fd7b3645523934baad3a6e48bba734621489115c",
+  "capture_lock_sha256": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+  "runs": [
+    {
+      "id": "multi_merge_class_a_000",
+      "file": "multi_merge_class_a_000.json.gz",
+      "sha256": "1616b4b7c1ca70765bdd1f69175197a6a029bc1e28c53ef29940cce60f61cc16",
+      "raw_sha256": "be913e67e69b0fa1656a61e8317d54f3d94ccd571fe4fa29467fa492b52ab3ca",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_003",
+      "file": "multi_merge_class_a_003.json.gz",
+      "sha256": "a6ced777c162bf44aaeb5fa38b985e35bd6c7b7ee158128d80d8cfe30845b065",
+      "raw_sha256": "2e8c4cc07ee0cf02a8db245483c2c280749de089df396399c01489efcb7b4ac5",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_006",
+      "file": "multi_merge_class_a_006.json.gz",
+      "sha256": "bfe5217e882809d9ce06a9f6f2ff1976c13844b62865eb913c665a23b1962e0d",
+      "raw_sha256": "fa093b0ab78605dba297b6bd5d7990d286861586131484e66735dd8fcb8a1bf4",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_009",
+      "file": "multi_merge_class_a_009.json.gz",
+      "sha256": "4d9c6dcc3d0ae57d4735c000cf935da329d06f9992718eeacc5ff06525467e1c",
+      "raw_sha256": "a828e19007046d852b8753541212fb72fdf078cd692ec1569c254d2533c2c858",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_012",
+      "file": "multi_merge_class_a_012.json.gz",
+      "sha256": "b2b82425e3abae4429bfc5b5d6ffb8f7e5f243ba8eff50b5f83d2810fc398b0a",
+      "raw_sha256": "0b2f897aaafdbf953612ca9667517a76c20f21386f6367b2fca388e2e791fd78",
+      "raw_bytes": 102740253,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_015",
+      "file": "multi_merge_class_a_015.json.gz",
+      "sha256": "547316547775552f9dab27411f73d8597d865affb4b461214108e15b786615b2",
+      "raw_sha256": "3feda6c86eafdf5f92bb89ad9ed8e4e84817da6632b47e7521c676dfadc99468",
+      "raw_bytes": 102740252,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_018",
+      "file": "multi_merge_class_a_018.json.gz",
+      "sha256": "0a4c739d4b8a8c13cfdee70b543416211559a6032730554f50194372166d4aae",
+      "raw_sha256": "27de3298b0f692daafefa1e1254af507d6fe08dc6c2b0f61d808076b7a26a73d",
+      "raw_bytes": 137022513,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_021",
+      "file": "multi_merge_class_a_021.json.gz",
+      "sha256": "629e8672edee2abf26404ab13524db1258f5fc016546362895c3f87c234c670f",
+      "raw_sha256": "9f54c80e499f5138f2a2e596172ddd2bec11f13088a95c384473abdf73eec291",
+      "raw_bytes": 137022512,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_024",
+      "file": "multi_merge_class_a_024.json.gz",
+      "sha256": "fd2fd6db4c1c43916f46dfd27ca3553de676e68ee7f44ba1ea3efe288d60a6cc",
+      "raw_sha256": "7a7d21c92329db3b5427d4ec99b63d4a5144c02510fda39c086a07f1145cb544",
+      "raw_bytes": 137022616,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_027",
+      "file": "multi_merge_class_a_027.json.gz",
+      "sha256": "ea8143185a40b9d3bb8ceefb327f73091acccbbd402a066314cde49cf05b53b0",
+      "raw_sha256": "400fac22ba0cac72da7dc988566d4e94dd2e1503318835ac60bbb10b749d696a",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun",
+  "Rust_product_timing": "unrun"
+}

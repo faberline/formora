@@ -1,0 +1,18 @@
+{
+  "input_only": true,
+  "pre_native_capacity_execution": true,
+  "pre_Rust_multi_data_extension": true,
+  "git_head_before_capacity_seal": "fd79d526e64c36db29495183bc4a6599688f49f1",
+  "product_implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "files": {
+    "baseline/fixtures/mesh-merge-multi-data-capacity.json": "48a662ca48dfd8a65500392be3647e54778f17d8eac5ed6e6aa96159049eea21",
+    "docs/contracts/mesh-merge-multi-data-capacity.md": "c5e1ef60480630b9d9ba18ac16dc0d7990995ffd0e0bdabbd41fee59ff686fe6",
+    "tools/generate_multi_mesh_merge_capacity_cases.py": "7d5c9cfd533b1c4ae3d29878c0c1e6dc9becfa62e7b16886be96093c943f61a4",
+    "tools/blender_multi_mesh_merge_capacity_reference.py": "cf6747cdd22a493bbf2016c0947be1ab075c83211e81b1dd125cddf3ba53033b",
+    "tools/multi_mesh_merge_capacity_inputs.py": "36662800f6718abeec9992c1ae96ce0bd4060ccabadfad702f4b87a1450f4412",
+    "tools/compare_multi_mesh_merge_capacity_reference.py": "0b0b09d730be7c44ca5243f9decc13526c8c34815ceb696d57af7e9e6ac5a525",
+    "tools/launch_multi_mesh_merge_capacity_reference.py": "4ae4a363f1a067f993b84a649b83e714ec696ac41be1ff8e57b4a8302aebfcc7"
+  },
+  "capacity_native_execution": "unrun",
+  "product_timing": "unrun"
+}

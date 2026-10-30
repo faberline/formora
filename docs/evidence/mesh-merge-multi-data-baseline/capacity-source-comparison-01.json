@@ -1,0 +1,324 @@
+{
+  "source_comparison_passed": true,
+  "cases": 30,
+  "complete_capacity_source_gate": true,
+  "outcomes": {
+    "enum_rejected": 0,
+    "enum_rejected_data": 0,
+    "changed_data": 48,
+    "unchanged_data": 42,
+    "skipped_data": 12
+  },
+  "native_processes": [
+    86168,
+    7564
+  ],
+  "native_operator_durations_support_only": [
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_000",
+      "native_operator_ms": 7.757708
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_000",
+      "native_operator_ms": 7.407916
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_001",
+      "native_operator_ms": 7.382125
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_001",
+      "native_operator_ms": 7.426125
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_002",
+      "native_operator_ms": 7.862084
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_002",
+      "native_operator_ms": 7.826
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_003",
+      "native_operator_ms": 12.141375
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_003",
+      "native_operator_ms": 12.322333
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_004",
+      "native_operator_ms": 12.488041
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_004",
+      "native_operator_ms": 11.991167
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_005",
+      "native_operator_ms": 12.86125
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_005",
+      "native_operator_ms": 12.169625
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_006",
+      "native_operator_ms": 7.434708
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_006",
+      "native_operator_ms": 7.719542
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_007",
+      "native_operator_ms": 7.391875
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_007",
+      "native_operator_ms": 7.373542
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_008",
+      "native_operator_ms": 7.69775
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_008",
+      "native_operator_ms": 7.884125
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_009",
+      "native_operator_ms": 12.024875
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_009",
+      "native_operator_ms": 12.628208
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_010",
+      "native_operator_ms": 12.541541
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_010",
+      "native_operator_ms": 12.051291
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_011",
+      "native_operator_ms": 12.425375
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_011",
+      "native_operator_ms": 12.161375
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_012",
+      "native_operator_ms": 11.879042
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_012",
+      "native_operator_ms": 11.858625
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_013",
+      "native_operator_ms": 12.259584
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_013",
+      "native_operator_ms": 11.288959
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_014",
+      "native_operator_ms": 12.436875
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_014",
+      "native_operator_ms": 11.434917
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_015",
+      "native_operator_ms": 40.355542
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_015",
+      "native_operator_ms": 38.458834
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_016",
+      "native_operator_ms": 39.44225
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_016",
+      "native_operator_ms": 39.693333
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_017",
+      "native_operator_ms": 37.896625
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_017",
+      "native_operator_ms": 41.276416
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_018",
+      "native_operator_ms": 3.952958
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_018",
+      "native_operator_ms": 3.885667
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_019",
+      "native_operator_ms": 3.735
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_019",
+      "native_operator_ms": 3.855875
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_020",
+      "native_operator_ms": 3.747167
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_020",
+      "native_operator_ms": 3.875542
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_021",
+      "native_operator_ms": 5.267834
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_021",
+      "native_operator_ms": 5.553167
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_022",
+      "native_operator_ms": 5.31275
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_022",
+      "native_operator_ms": 5.559167
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_023",
+      "native_operator_ms": 5.272625
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_023",
+      "native_operator_ms": 5.362958
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_024",
+      "native_operator_ms": 4.11875
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_024",
+      "native_operator_ms": 3.776541
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_025",
+      "native_operator_ms": 3.73925
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_025",
+      "native_operator_ms": 3.8785
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_026",
+      "native_operator_ms": 3.82775
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_026",
+      "native_operator_ms": 4.082167
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_027",
+      "native_operator_ms": 5.329333
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_027",
+      "native_operator_ms": 5.266125
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_028",
+      "native_operator_ms": 5.373375
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_028",
+      "native_operator_ms": 5.383542
+    },
+    {
+      "process_id": 86168,
+      "id": "multi_merge_class_a_029",
+      "native_operator_ms": 5.586292
+    },
+    {
+      "process_id": 7564,
+      "id": "multi_merge_class_a_029",
+      "native_operator_ms": 5.443875
+    }
+  ],
+  "suite_sha256": "48a662ca48dfd8a65500392be3647e54778f17d8eac5ed6e6aa96159049eea21",
+  "checker_sha256": "0b0b09d730be7c44ca5243f9decc13526c8c34815ceb696d57af7e9e6ac5a525",
+  "numeric_absolute_limit": 1e-06,
+  "Rust_product_timing": "unrun",
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

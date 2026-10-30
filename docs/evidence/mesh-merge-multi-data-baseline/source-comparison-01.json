@@ -1,0 +1,21 @@
+{
+  "source_comparison_passed": true,
+  "cases": 13440,
+  "complete_source_gate": true,
+  "outcomes": {
+    "enum_rejected": 4352,
+    "enum_rejected_data": 13056,
+    "changed_data": 9088,
+    "unchanged_data": 18176,
+    "skipped_data": 9088
+  },
+  "native_processes": [
+    3555,
+    18828
+  ],
+  "suite_sha256": "7a63c6e29fc8e11850481a20450b6a1e86bf25c3252b71c6abfe53aebb201aa1",
+  "checker_sha256": "8b2c898df84783afe5282ab0aede4f96bbccf08c7685beaeaee1ed75dc7b8cb8",
+  "numeric_absolute_limit": 1e-06,
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}
