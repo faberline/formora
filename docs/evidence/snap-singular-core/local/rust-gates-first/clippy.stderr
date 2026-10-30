@@ -1,0 +1,18 @@
+    Checking formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error: field assignment outside of initializer for an instance created with Default::default()
+  --> tests/local_matrix_availability.rs:15:5
+   |
+15 |     scene.object_context = Some(Context::default());
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+note: consider initializing the variable with `formora::scene::Scene { object_context: Some(Context::default()), ..Default::default() }` and removing relevant reassignments
+  --> tests/local_matrix_availability.rs:14:5
+   |
+14 |     let mut scene = Scene::default();
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#field_reassign_with_default
+   = note: `-D clippy::field-reassign-with-default` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::field_reassign_with_default)]`
+
+error: could not compile `formora` (test "local_matrix_availability") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...

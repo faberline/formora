@@ -53,10 +53,10 @@ def main():
             process.stdin.write(json.dumps({'id': sequence, 'name': name, 'arguments': arguments}) + '\n')
             process.stdin.flush()
             response = json.loads(process.stdout.readline())
-            assert response['id'] == sequence and response['ok'] is (not error), response
             calls.append({'name': name, 'arguments': arguments, 'response': response})
             with (out / 'calls.jsonl').open('a') as stream:
                 stream.write(json.dumps(calls[-1], allow_nan=False) + '\n')
+            assert response['id'] == sequence and response['ok'] is (not error), response
             return response['error'] if error else response['result']
 
         transforms = {
@@ -64,7 +64,8 @@ def main():
             'target': transform([.625, -.875, .375], [0.] * 3, [.9, 1.4, .8], 'yxz', [.125, -.25, .375]),
             'child': transform([.25, -.75, .5], [0.] * 3, [1.] * 3, delta_t=[-.25, .125, .0625])}
         asset = {'vertices': {'a': [-3.5, -2.5, 0.], 'b': [3.5, -2.5, 0.], 'c': [0., 2.5, .125]},
-                 'triangles': {'tri': {'vertices': ['a', 'b', 'c'], 'material_slot': None}}, 'material_slots': []}
+                 'triangles': {'tri': {'vertices': ['a', 'b', 'c'], 'material_slot': None,
+                                      'uv_layers': {}, 'corner_normals': None}}, 'material_slots': []}
         setup = {'expected_revision': 0, 'commands': [{'operation': 'set_mesh_asset', 'id': 'unseen', 'asset': asset}]}
         for name, parent in [('parent', None), ('target', 'parent'), ('child', 'target')]:
             content = {'kind': 'mesh', 'geometry': {'kind': 'asset', 'id': 'unseen'}, 'material': None} if name == 'child' else {'kind': 'empty'}

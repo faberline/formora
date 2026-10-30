@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/singular_snap_runtime.py", line 69, in run
+    return await rotation.run(binary, output, case_ids, interfaces, gzip_output,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/rotation_snap_runtime.py", line 133, in run
+    if case_ids:assert set(case_ids)<={c['id'] for c in cases};cases=[c for c in cases if c['id'] in case_ids]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

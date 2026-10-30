@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition",
+    "2024",
+    "-O",
+    "docs/evidence/snap-singular-core/performance/capture-driver.rs",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "-o",
+    "/private/tmp/formora-zero-performance-driver-02"
+  ],
+  "terminal_exit_code": 0,
+  "driver_source_sha256": "0bd7b3ccc74150cfde3035cb490e62535d2a1fe4baced24d8ef89ee47fddd383",
+  "library_sha256": "7b20ef8866b5676ad5a117a3f119c6d456bc283336e8d3a1e99da04cb2ab3482",
+  "driver_sha256": "92a812ec44bf0bfb1b1e9f7e2b83b3df0231b5b014b25539b61cab03bae59aa7",
+  "correction": "Public API mapping only. Native inputs/forms, samples, clocks and limits unchanged."
+}

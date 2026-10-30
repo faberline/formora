@@ -61,7 +61,21 @@ fn main() {
         );
         for form in config["forms"].as_array().unwrap() {
             let name = form["id"].as_str().unwrap();
-            let command: Command = serde_json::from_value(form["command"].clone()).unwrap();
+            // Bind the fixed native operator to the existing public API.
+            // The authored grid actions require spacing; center is the
+            // API spelling for the native cursor-to-origin operation.
+            let mut request = form["command"].clone();
+            let kind = form["operator"]
+                .as_str()
+                .unwrap()
+                .strip_prefix("snap_")
+                .unwrap();
+            request["snap"]["action"]["kind"] = json!(kind);
+            if kind.ends_with("_to_grid") {
+                request["snap"]["action"]["spacing"] =
+                    frame["authored_case"]["context"]["grid_spacing"].clone();
+            }
+            let command: Command = serde_json::from_value(request).unwrap();
             for sample in 1..=3 {
                 let mut editor = Editor::new(input.clone()).unwrap();
                 let cs = origin.elapsed().as_nanos();

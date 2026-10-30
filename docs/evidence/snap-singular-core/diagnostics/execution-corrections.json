@@ -1,0 +1,17 @@
+{
+  "product_commit": "10834244",
+  "changes": {
+    "test_style": "Initialize the same Scene fields in its struct literal. No test assertion or input value changed. Original test retained.",
+    "performance_API_mapping": "Supply spacing from the fixed authored context for both grid actions. Use cursor_to_center for the fixed native snap_cursor_to_center form. No native input, form, sample, clock or limit changed. Original driver and actual zero-sample exit 101 retained.",
+    "source_denied_input": "Supply required empty UV map and absent corner-normal payload on the same authored triangle. Original failed setup retained."
+  },
+  "clippy_02_terminal_exit_code": 0,
+  "performance_first_native_exit_code": 101,
+  "performance_first_samples": 0,
+  "isolation_02_terminal_exit_code": 0,
+  "isolation_native_calls": 17,
+  "runtime_pilot_02_terminal_exit_code": 0,
+  "runtime_pilot_requests": 32,
+  "runtime_full_gate": "unrun",
+  "product_acceptance": "unrun"
+}

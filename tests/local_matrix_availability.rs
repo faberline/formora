@@ -11,8 +11,10 @@ fn euler(angles: [f64; 3], order: EulerOrder) -> TransformRotation {
 }
 
 fn scene() -> Scene {
-    let mut scene = Scene::default();
-    scene.object_context = Some(Context::default());
+    let mut scene = Scene {
+        object_context: Some(Context::default()),
+        ..Scene::default()
+    };
     scene.entities.insert(
         "parent".into(),
         Entity {

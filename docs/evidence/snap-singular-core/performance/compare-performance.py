@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify all sixty saved results, query availability, receipts and clocks."""
 import argparse
+import copy
 import gzip
 import hashlib
 import importlib.util
@@ -110,7 +111,13 @@ def compare(binary, samples, source_folder, controller_path):
         compare_state(ref['before'], before)
         compare_state(ref['after'], after)
         form = next(f for f in config['forms'] if f['id'] == row['form'])
-        request = {'expected_revision': 0, 'commands': [form['command']]}
+        command = copy.deepcopy(form['command'])
+        kind = form['operator'].removeprefix('snap_')
+        command['snap']['action']['kind'] = kind
+        if kind.endswith('_to_grid'):
+            frame = next(f for f in config['frames'] if f['id'] == row['frame'])
+            command['snap']['action']['spacing'] = frame['authored_case']['context']['grid_spacing']
+        request = {'expected_revision': 0, 'commands': [command]}
         check_result(request, before, after, raw['receipt'], None, old, new)
         assert old['mesh_assets'] == new['mesh_assets'], 'normal object snapping changed the shared grid asset'
         for name in old['entities']:
