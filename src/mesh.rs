@@ -3,6 +3,7 @@ use crate::scene::{Result, SceneError, unique_map, valid_id};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
+pub mod attributes;
 pub mod creation;
 pub(crate) mod frame_math;
 pub mod normals;
@@ -106,6 +107,8 @@ pub struct MeshAsset {
         skip_serializing_if = "BTreeSet::is_empty"
     )]
     pub smooth_triangles: BTreeSet<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub integer_attributes: Option<attributes::IntegerAttributes>,
 }
 
 impl MeshAsset {
@@ -161,6 +164,9 @@ impl MeshAsset {
     }
 
     fn validate_with_topology(&self, require_graph: bool) -> Result<Option<selection::Graph>> {
+        if let Some(attributes) = &self.integer_attributes {
+            attributes.validate(self)?;
+        }
         if (self.material_slots.is_empty() && self.active_material_index != 0)
             || (!self.material_slots.is_empty()
                 && self.active_material_index >= self.material_slots.len())

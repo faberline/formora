@@ -634,6 +634,14 @@ pub fn append(scene: &mut Scene, request: &MeshInsertion) -> Result<CreationRece
     if let Some(recipe) = &mut merged.recipe {
         recipe.edited = true;
     }
+    if let Some(attributes) = &mut merged.integer_attributes {
+        attributes.extend_zero_defaults(
+            merged.vertices.keys(),
+            merged.edges.keys(),
+            merged.polygons.keys(),
+            merged.triangles.keys(),
+        );
+    }
     merged.validate()?;
     scene.mesh_assets.insert(asset_id.clone(), merged);
     Ok(CreationReceipt {

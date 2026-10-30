@@ -1,0 +1,49 @@
+{
+  "attribute_prelude_checked": true,
+  "operation_implementation": "not yet implemented",
+  "cargo_check": {
+    "tool_session_id": 48194,
+    "terminal_exit": 0,
+    "all_features": true,
+    "library_only": true
+  },
+  "regressions": {
+    "tool_session_id": 35285,
+    "terminal_exit": 0,
+    "tests": 20,
+    "targets": [
+      "mesh",
+      "polygons",
+      "creation_contexts"
+    ]
+  },
+  "actual_cli": {
+    "tool_session_id": 65823,
+    "terminal_exit": 0,
+    "command": [
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "docs/evidence/mesh-merge-core/performance/authored-grid.json",
+      "--mesh-asset",
+      "grid"
+    ],
+    "executable_sha256": "36e879a9d2ac48973859b0f21f06833f826c481ef497fd006dd0d758e21fc506",
+    "integer_layers": 6,
+    "vertices": 10201,
+    "all_values_match_authored_input": true,
+    "raw_sha256": "47f208cd6cc00f03ebcf29e70dec322b90533a00a9d237c56d8678df75330e75",
+    "raw_bytes": 7986412,
+    "stored_sha256": "68a0bded6c9ad9ea4ff6eada2ff42543a2ac63b524231838cfac017fe0f4e830"
+  },
+  "working_tree_source_sha256": {
+    "src/mesh.rs": "bff6aa374514e000775af803cfadfb8cbff4ed463964b6659848a515e15a7914",
+    "src/mesh/attributes.rs": "ce1878b49db066f1524b7242f6513ab1e00dbe79b10fc54f7f26286f035eb500",
+    "src/mesh/creation/mod.rs": "f0a6c4bf14b726365d04af84fa54ffeb628b92b4cb19a7c0c11079eb6fbac64b"
+  },
+  "merge_tests": "expected compile failure: planned merges field absent",
+  "full_product_gates": "unrun",
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}
