@@ -1,0 +1,31 @@
+{
+  "native_six_frozen_controls_passed": true,
+  "native_cargo_terminal_exit": 0,
+  "passed": 6,
+  "failed": 0,
+  "ignored": 0,
+  "prior_failures_preserved": true,
+  "all_sixty_generator_mode_preview_combinations_passed": true,
+  "before_code_commit": "4601fae03221009e7b3d76e3e7395354c7959311",
+  "frozen_test_sha256": "d65116a6f178b4b81639ef7217c376614d96ba8757a2078098228b41c2f86ee6",
+  "cli_mcp_recipe_flow": "unrun on repaired binary",
+  "all_previous_gates_at_repaired_build": "unrun",
+  "ci": "unpassed",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun",
+  "native_tested_source_before_format_sha256": "5138978b9d12fca575f5577e5fc017ebb16614ffb0570183b8eecd5c9fd974fb",
+  "formatted_product_source_sha256": "e2f2cb8910abab774dafd5d7d3e389a2f09059f48ba9c2821435089b6976ece8",
+  "format_only_change_after_native_check": true,
+  "full_repaired_source_gates": "unrun; next complete suite includes frozen six tests",
+  "format_checks": [
+    {
+      "attempt": 1,
+      "exit": 1,
+      "reason": "line wrapping; retained"
+    },
+    {
+      "attempt": 2,
+      "exit": 0
+    }
+  ]
+}

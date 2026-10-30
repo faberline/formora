@@ -665,12 +665,35 @@ impl Command {
                 let budget = max_components
                     .or(recipe.map(|r| r.max_components))
                     .unwrap_or(crate::mesh::primitives::DEFAULT_MAX_COMPONENTS);
-                let generated = if let Some(frame) = recipe.and_then(|r| r.creation_frame.as_ref())
-                {
-                    frame.generate(primitive, budget)?
-                } else {
-                    primitive.generate(budget)?
-                };
+                let mut generated =
+                    if let Some(frame) = recipe.and_then(|r| r.creation_frame.as_ref()) {
+                        frame.generate(primitive, budget)?
+                    } else {
+                        primitive.generate(budget)?
+                    };
+                let in_edit_mode = scene.object_context.as_ref().is_some_and(|context| {
+                    context
+                        .edit_objects
+                        .iter()
+                        .filter_map(|owner| scene.entities.get(owner))
+                        .any(|owner| {
+                            matches!(
+                                &owner.content,
+                                EntityKind::Mesh {
+                                    geometry: Geometry::Asset { id: asset_id },
+                                    ..
+                                } if asset_id == id
+                            )
+                        })
+                });
+                if in_edit_mode {
+                    let mut editing = crate::mesh::selection::Editing::default();
+                    if let Some(previous) = &existing.editing {
+                        editing.mode.clone_from(&previous.mode);
+                        editing.preview = previous.preview;
+                    }
+                    generated.editing = Some(editing);
+                }
                 scene.mesh_assets.insert(id.clone(), generated);
             }
             Self::SetMeshAsset { id, asset } => {
