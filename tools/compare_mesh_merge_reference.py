@@ -9,9 +9,9 @@ import math
 from pathlib import Path
 
 from compare_selection_reference import require, validate_state, DOMAINS, TABLES
-from compare_snap_menu_reference import f32, floats, tree, selection_input, bind_initial, matrix, SELECTION
+from compare_snap_menu_reference import f32, floats, tree, matrix, SELECTION, matmul, IDENTITY
 from compare_snap_delta_reference import world_point
-from compare_transform_reference import finite
+from compare_transform_reference import finite, euler_rotation
 from generate_mesh_merge_cases import author
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +20,103 @@ BINARY = 'de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619'
 
 def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+
+def selection_input(mesh,run,edit):
+    g={'vertices':{f'v{i:06}':[f32(x) for x in p] for i,p in enumerate(mesh['vertices'])},
+       'edges':{f'e{i:06}':[f'v{v:06}' for v in pair] for i,pair in enumerate(mesh['edges'])},
+       'faces':{f'f{i:06}':[f'v{v:06}' for v in face] for i,face in enumerate(mesh['faces'])}}
+    for field,prefix in [('face_smooth','f'),('face_materials','f'),('edge_seams','e')]:
+        g[field]={f'{prefix}{i:06}':value for i,value in enumerate(mesh[field])}
+    g.update(material_slots=mesh['material_slots'],active_uv_index=mesh['active_uv_index'],
+             uv_layer_order=[layer['name'] for layer in mesh['uv_layers']],
+             uv_layers={layer['name']:{f'f{i:06}':[[f32(x) for x in p] for p in face] for i,face in enumerate(layer['faces'])} for layer in mesh['uv_layers']})
+    hidden={domain:[f'{prefix}{i:06}' for i in (range(len(mesh[table])) if run['context'].get('hide_all') else mesh['hidden'][table])]
+            for domain,table,prefix in zip(DOMAINS,TABLES,'vef')}
+    domain=run['seed']['domain'];prefix='vef'[DOMAINS.index(domain)]
+    seeds=[f'{prefix}{i:06}' for i in run['seed']['indices'] if f'{prefix}{i:06}' not in hidden[domain]]
+    v=set();e=set();f=set()
+    if domain=='VERT':
+        v=set(seeds);e={id for id,pair in g['edges'].items() if set(pair)<=v};f={id for id,face in g['faces'].items() if set(face)<=v}
+    elif domain=='EDGE':
+        e=set(seeds);v={id for edge in e for id in g['edges'][edge]};pairs={tuple(g['edges'][id]) for id in e}
+        f={id for id,face in g['faces'].items() if all(tuple(sorted(pair)) in pairs for pair in zip(face,face[1:]+face[:1]))}
+    else:
+        f=set(seeds);v={id for face in f for id in g['faces'][face]}
+        pairs={tuple(sorted(pair)) for face in f for points in [g['faces'][face]] for pair in zip(points,points[1:]+points[:1])}
+        e={id for id,pair in g['edges'].items() if tuple(pair) in pairs}
+    # Pinned bmesh_marking.cc BM_mesh_select_mode_flush_ex always flushes
+    # vertices up to edges when VERT is enabled, then edges up to faces.
+    # The seed domain alone does not define a mixed-mode final selection.
+    if 'VERT' in run['initial_mode']:
+        e={id for id,pair in g['edges'].items() if set(pair)<=v and id not in hidden['EDGE']}
+    if 'VERT' in run['initial_mode'] or 'EDGE' in run['initial_mode']:
+        pairs={tuple(g['edges'][id]) for id in e}
+        f={id for id,face in g['faces'].items() if id not in hidden['FACE'] and all(
+            tuple(sorted(pair)) in pairs for pair in zip(face,face[1:]+face[:1]))}
+    groups=mesh['group_scenarios'][run['groups']]
+    history=[{'domain':domain,'id':id} for id in seeds] if edit and run['context']['history']!='clear' else []
+    active=seeds[-1] if edit and domain=='FACE' and seeds else None
+    override=run['context']['active_face_override']
+    if edit and override!='preserve':active=None if override is None else f'f{override:06}'
+    return {'geometry':g,'groups':{'names':groups['names'],
+                'weights':{id:{name:f32(w) for name,w in groups['weights'].get(id,{}).items()} for id in g['vertices']}},
+            'selected':{'VERT':sorted(v),'EDGE':sorted(e),'FACE':sorted(f)},'hidden':hidden,
+            'mode':run['initial_mode'] if edit else [],'history':history,'active_face':active}
+
+def bind_initial(suite,run,state):
+    c=run['context'];multi=c['multi_object'] or run['mode']=='OBJECT'
+    profiles={'target':suite['profiles'][c['profile']]}
+    parents={'target':'parent' if profiles['target']['parent'] is not None else None}
+    if parents['target']:profiles['parent']=profiles['target']['parent'];parents['parent']=None
+    if multi:
+        profiles.update(suite['object_inputs']);parents.update(secondary=c['secondary_parent'],child='target')
+    require(set(state['objects'])==set(profiles),'authored object set differs')
+    require(set(state['meshes'])==({'target','secondary'} if multi else {'target'}),'authored mesh set differs')
+    require(state['mode']==run['mode'] and state['active_object']==c['active_object'],'authored active context differs')
+    expected_share=[['secondary','target']] if multi and c['linked_data'] else [[name] for name in sorted(state['meshes'])]
+    require(state['sharing']==expected_share,'authored sharing differs')
+    for name,p in profiles.items():
+        o=state['objects'][name]
+        require(o['parent']==parents[name] and o['type']==('MESH' if name in state['meshes'] else 'EMPTY'),'authored object kind or parent differs')
+        expected_edit=run['mode']=='EDIT_MESH' and name in state['meshes'] and name in c['object_selection']
+        if multi and c['linked_data'] and expected_edit:expected_edit=name==c['active_object']
+        require(o['mode']==('EDIT' if expected_edit else 'OBJECT'),'authored object mode differs')
+        require(o['selected']==(name in c['object_selection']),'authored object selection differs')
+        for field in ['location','rotation','scale']:tree([f32(x) for x in p[field]],o[field],name+'/'+field,0.)
+        tree(matrix(p),o['matrix_basis'],name+'/authored basis')
+        # BKE_object_matrix_local_get multiplies by the actual parent inverse.
+        # EIG_invert_m4_m4 explicitly returns a zero matrix for a singular
+        # parent, so this RNA field is zero even though matrix_basis is valid.
+        singular_parent=parents[name] is not None and 0 in profiles[parents[name]]['scale']
+        local=[[0.]*4 for _ in range(4)] if singular_parent else matrix(p)
+        tree(local,o['matrix_local'],name+'/authored local matrix')
+        tree(IDENTITY,o['matrix_parent_inverse'],name+'/authored parent inverse',0.)
+        world=matrix(p);parent=parents[name]
+        while parent is not None:world=matmul(matrix(profiles[parent]),world);parent=parents[parent]
+        tree(world,o['matrix_world'],name+'/authored world')
+        require(o['rotation_mode']=='XYZ' and not o['animation_data'] and o['constraints']==o['modifiers']==0,'unexpected object state')
+        for field,value in [('delta_location',[0.]*3),('delta_rotation',[0.]*3),('delta_scale',[1.]*3)]:tree(value,o[field],name+'/'+field,0.)
+        for field in ['lock_location','lock_rotation','lock_scale']:
+            require(o[field]==(c[field] if name=='target' and field in c else [False]*3),'authored locks differ')
+    for name,m in state['meshes'].items():
+        edit=run['mode']=='EDIT_MESH' and (name in c['object_selection'] or c['linked_data'])
+        require(m['data_edit_mode']==edit,'authored mesh edit context differs')
+        tree(selection_input(suite['mesh'],run,edit),{k:m[k] for k in SELECTION},name+'/authored mesh',0.)
+        require(m['active_material_index']==suite['mesh']['active_material_index'],'authored active material differs')
+        require(m['flags']=={'mirror_x':c['mirror_x'],'mirror_y':False,'mirror_z':False,'mirror_topology':c['mirror_topology']},'authored mesh flags differ')
+    tree([f32(x) for x in c['cursor_location']],state['cursor']['location'],'authored cursor location',0.)
+    tree([f32(x) for x in c['cursor_rotation']],state['cursor']['rotation'],'authored cursor rotation',0.)
+    settings=state['settings'];expected={'pivot':c['pivot'],'skip_children':c['skip_children'],'origins_only':c['origins_only'],
+        'autokey':False,'locations_only':False,'correct_face_attributes':c['correct_face_attributes'],
+        'keep_connected':c['keep_connected'],'automerge':False,'automerge_and_split':False,
+        'unit_system':c['unit_system'],'unit_scale_length':f32(c['unit_scale_length']),
+        'grid_spacing':f32(c['grid_spacing']),'grid_subdivisions':10,'view_perspective':suite['environment']['view_perspective']}
+    for key,value in expected.items():tree(value,settings[key],'authored settings/'+key,0.)
+    for field in ['view_location','view_distance']:tree(floats(suite['environment'][field]),settings[field],'authored '+field)
+    r=euler_rotation([f32(x) for x in suite['environment']['view_rotation']])
+    for i in range(3):tree([r[j][i] for j in range(3)],settings['view_matrix'][i][:3],'authored viewport')
 
 
 def validate_state_full(state,run):
@@ -113,7 +210,7 @@ def expected_positions(run, before):
                     reached.add(id); stack.extend(adjacent[id] - reached)
             remaining -= reached; groups.append(sorted(reached))
         return [p for id, p in vertices.items() if id not in adjacent] + [
-            mean([vertices[id] for id in group]) for group in groups]
+            mean([vertices[id] for edge in edges if edge[0] in group for id in edge]) for group in groups]
     if method == 'CENTER':
         target = mean([vertices[id] for id in selected])
     elif method == 'CURSOR':

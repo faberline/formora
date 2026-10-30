@@ -6,7 +6,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from compare_mesh_merge_reference import expected_positions, inverse_affine, match_positions
+from compare_mesh_merge_reference import expected_positions, inverse_affine, match_positions, selection_input
 from compare_snap_menu_reference import tree
 from compare_snap_delta_reference import world_point
 from generate_mesh_merge_cases import author, METHODS
@@ -31,6 +31,14 @@ class MergePreparationControls(unittest.TestCase):
         self.assertEqual(a['seed']['indices'], list(reversed(b['seed']['indices'])))
         self.assertEqual(a['context'], b['context'])
         self.assertEqual(a['parameters'], b['parameters'])
+
+    def test_mixed_vertex_mode_flushes_selected_endpoints_up_to_edges(self):
+        run = self.suite['runs'][835]
+        self.assertEqual(run['initial_mode'], ['VERT', 'EDGE'])
+        state = selection_input(self.suite['mesh'], run, True)
+        self.assertEqual(state['selected']['VERT'], ['v000000', 'v000001', 'v000002', 'v000003'])
+        self.assertEqual(state['selected']['EDGE'], ['e000000', 'e000001', 'e000002'])
+        self.assertEqual(state['selected']['FACE'], [])
 
     def test_source_geometry_and_inactive_uv_layer_are_present(self):
         mesh = self.suite['mesh']
@@ -73,6 +81,13 @@ class MergePreparationControls(unittest.TestCase):
         match_positions([[1., 0., 0.], [12., 0., 0.], [20., 1., 0.]], expected_positions(run, state))
         with self.assertRaises(ValueError):
             match_positions([[6.5, 0., 0.], [20., 1., 0.]], expected_positions(run, state))
+
+    def test_collapse_mean_counts_each_edge_endpoint(self):
+        run, state = self.example('COLLAPSE')
+        mesh = state['meshes']['target']
+        mesh['geometry']['edges']['e000001'] = ['v000001', 'v000002']
+        match_positions([[3.5, 0., 0.], [14., 0., 0.], [20., 1., 0.]],
+                        expected_positions(run, state))
 
     def test_analytic_inverse_handles_reflection_and_quarter_turn(self):
         matrix = [[0., -2., 0., 1.], [-3., 0., 0., 2.],
