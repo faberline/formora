@@ -1,0 +1,11 @@
+error[E0609]: no field `edit_merges` on type `EditResult`
+  --> /private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-multi-data-core/capacity-driver.rs:75:56
+   |
+75 |             let core_json = json!({"edit_merges":&core.edit_merges,"merges":&core.merges});
+   |                                                        ^^^^^^^^^^^ unknown field
+   |
+   = note: available fields are: `revision`, `selection`, `creation`, `transforms`, `snaps` ... and 2 others
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0609`.

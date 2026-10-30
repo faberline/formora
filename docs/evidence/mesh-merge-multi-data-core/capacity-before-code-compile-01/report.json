@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-multi-data-core/capacity-driver.rs",
+    "--extern",
+    "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+    "-o",
+    "/private/tmp/formora-multi-data-capacity-before-code-driver-01"
+  ],
+  "actual_compile_exit_code": 1,
+  "expected_new_field_missing": true,
+  "driver_sha256": "1e0c935ae4366c7275b04480ba38a66951089954837e96ffd5b4cbd572e34799",
+  "timing_samples_executed": 0,
+  "product_timing": "unrun",
+  "product_acceptance": "unrun"
+}
