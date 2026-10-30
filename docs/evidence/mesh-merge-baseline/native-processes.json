@@ -1,0 +1,55 @@
+{
+  "runs": [
+    {
+      "command": [
+        "/Applications/Blender.app/Contents/MacOS/Blender",
+        "--factory-startup",
+        "--python",
+        "/Users/chrischeng/faberlines/formora/tools/blender_mesh_merge_reference.py",
+        "--",
+        "--suite",
+        "/Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-merge.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/native-01"
+      ],
+      "started_utc": "2026-10-30T00:52:51.421237+00:00",
+      "launcher_sha256": "c3b43cdd85a44cfcf7fff797c4caa4f196bb35f6c6eb70aeaae4832523891ad5",
+      "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+      "capture": "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/native-01",
+      "terminal_exit_code": 0,
+      "process_id": 50701,
+      "finished_utc": "2026-10-30T00:53:26.614465+00:00",
+      "manifest_sha256": "31485c639860bd1b7b24f0f65f19092b740f0b9ed9cd3190699d8afac66af014",
+      "capture_lock_sha256": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+      "stdout_sha256": "75c8a8d6b32fde918d5ba987b43c1c6adeb4ec518db2dbe5773003ba9121e678",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_session_id": 72655
+    },
+    {
+      "command": [
+        "/Applications/Blender.app/Contents/MacOS/Blender",
+        "--factory-startup",
+        "--python",
+        "/Users/chrischeng/faberlines/formora/tools/blender_mesh_merge_reference.py",
+        "--",
+        "--suite",
+        "/Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-merge.json",
+        "--output",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/native-02"
+      ],
+      "started_utc": "2026-10-30T00:53:45.036936+00:00",
+      "launcher_sha256": "c3b43cdd85a44cfcf7fff797c4caa4f196bb35f6c6eb70aeaae4832523891ad5",
+      "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+      "capture": "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/native-02",
+      "terminal_exit_code": 0,
+      "process_id": 52091,
+      "finished_utc": "2026-10-30T00:54:20.229436+00:00",
+      "manifest_sha256": "c2bdf0819fdd6d4200a7b399543755fe07d582cd51772cf3442fb7d35153492b",
+      "capture_lock_sha256": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+      "stdout_sha256": "75c8a8d6b32fde918d5ba987b43c1c6adeb4ec518db2dbe5773003ba9121e678",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool_session_id": 23607
+    }
+  ],
+  "product_acceptance": "unrun"
+}

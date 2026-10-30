@@ -1,0 +1,91 @@
+{
+  "runs": [
+    {
+      "name": "pilot-native",
+      "tool_session_id": 62486,
+      "process_id": 45574,
+      "terminal_exit_code": 0,
+      "cases": 40
+    },
+    {
+      "name": "pilot-check-01",
+      "terminal_exit_code": 1,
+      "report": "pilot-check-01.json"
+    },
+    {
+      "name": "pilot-check-02",
+      "terminal_exit_code": 1,
+      "report": "pilot-check-02.json"
+    },
+    {
+      "name": "pilot-check-03",
+      "terminal_exit_code": 0,
+      "report": "pilot-check-03.json"
+    },
+    {
+      "name": "native-01",
+      "tool_session_id": 72655,
+      "process_id": 50701,
+      "terminal_exit_code": 0,
+      "cases": 1024
+    },
+    {
+      "name": "native-02",
+      "tool_session_id": 23607,
+      "process_id": 52091,
+      "terminal_exit_code": 0,
+      "cases": 1024
+    },
+    {
+      "name": "first-full-internal-check",
+      "tool_session_id": 87112,
+      "terminal_exit_code": 0,
+      "cases": 1024
+    },
+    {
+      "name": "paired-complete-source-comparison",
+      "tool_session_id": 32338,
+      "terminal_exit_code": 0,
+      "cases": 1024
+    },
+    {
+      "name": "native-controls",
+      "tool_session_id": 69039,
+      "terminal_exit_code": 0,
+      "tests": 15
+    },
+    {
+      "name": "python-complete",
+      "tool_session_id": 8806,
+      "terminal_exit_code": 0,
+      "tests": 215
+    },
+    {
+      "name": "rust-actual-1.85-baseline",
+      "tool_session_id": 66386,
+      "terminal_exit_code": 0,
+      "tests": 28
+    },
+    {
+      "name": "metadata",
+      "tool_session_id": 60051,
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "strict-readiness",
+      "tool_session_id": 94318,
+      "terminal_exit_code": 2,
+      "passed": false
+    },
+    {
+      "name": "appended-lock-provenance",
+      "tool_session_id": 58165,
+      "terminal_exit_code": 0
+    }
+  ],
+  "product_acceptance": "unrun",
+  "three_platform_ci": "unrun",
+  "integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "milestones_accepted": 0
+}

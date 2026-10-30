@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "process_id": 45574,
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "scope": "focused_diagnostic",
+  "captured_utc": "2026-10-30T00:50:21.016868+00:00",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/tools/blender_mesh_merge_reference.py",
+    "--",
+    "--suite",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-merge.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/pilot-01",
+    "--case",
+    "merge_0000",
+    "--case",
+    "merge_0006",
+    "--case",
+    "merge_0080",
+    "--case",
+    "merge_0086",
+    "--case",
+    "merge_0160",
+    "--case",
+    "merge_0166",
+    "--case",
+    "merge_0240",
+    "--case",
+    "merge_0246",
+    "--case",
+    "merge_0320",
+    "--case",
+    "merge_0326",
+    "--case",
+    "merge_0400",
+    "--case",
+    "merge_0406",
+    "--case",
+    "merge_0480",
+    "--case",
+    "merge_0486",
+    "--case",
+    "merge_0560",
+    "--case",
+    "merge_0566",
+    "--case",
+    "merge_0640",
+    "--case",
+    "merge_0646",
+    "--case",
+    "merge_0720",
+    "--case",
+    "merge_0726",
+    "--case",
+    "merge_0827",
+    "--case",
+    "merge_0831",
+    "--case",
+    "merge_0835",
+    "--case",
+    "merge_0839",
+    "--case",
+    "merge_0843",
+    "--case",
+    "merge_0847",
+    "--case",
+    "merge_0875",
+    "--case",
+    "merge_0879",
+    "--case",
+    "merge_0883",
+    "--case",
+    "merge_0887",
+    "--case",
+    "merge_0891",
+    "--case",
+    "merge_0895",
+    "--case",
+    "merge_0923",
+    "--case",
+    "merge_0927",
+    "--case",
+    "merge_0931",
+    "--case",
+    "merge_0935",
+    "--case",
+    "merge_0939",
+    "--case",
+    "merge_0943",
+    "--case",
+    "merge_0992",
+    "--case",
+    "merge_1008"
+  ],
+  "background": false,
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-merge.json": "be36d9294a8f86103715ae6ab95e6d43f08ca90bf55203256fb01da0ed688008",
+    "/Users/chrischeng/faberlines/formora/tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/tools/generate_mesh_merge_cases.py": "b1d7fdd44d61bd2de52bcf9d7c941f39ed6bb05b2e37886653acc4da9c679cee",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "/Users/chrischeng/faberlines/formora/tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-selection.json": "ea248429adeea933c3e4c3b6a340f0d6c17df142b0679c93fed3db162a7a6cfa",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/mesh-merge-baseline.md": "f156b2a5753580b751dc6a4cf730fd2f82a4b9b37f71068bcb844b80d1a902eb",
+    "/Users/chrischeng/faberlines/formora/baseline/lock.json": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/editmesh_tools.cc": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmo_removedoubles.cc": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_interp.cc": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_core.cc": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_mods.cc": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_operators.cc": "4fec9e1587120cf39a7f394ab13522bf2856b8d1023704f9d14afa69a937ea60",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_walkers_impl.cc": "104cdf8b62e4ad3a7563ffce6bb4b49cab3fc33d1b23bb57afe9736689809b3d",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/customdata.cc": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/deform.cc": "42e5a7fd06c20f479ca459b73aea8bac8a188ab8610b63d76b6a10c54980e375",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_opdefines.cc": "6452b85accdb60ee4f3db1369970779cdc91a81f6ea7ce751289637c410023da"
+  },
+  "operator_properties_sha256": "ea6f625083a62a128983efd1fd7b3645523934baad3a6e48bba734621489115c",
+  "capture_lock_sha256": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+  "runs": [
+    {
+      "id": "merge_0000",
+      "file": "merge_0000.json.gz",
+      "sha256": "682bd25ff39a1e5d1cf0dd0ab79a4356283929ccf7c7fb15163e2f623b5869a5",
+      "raw_sha256": "0e722452d20b3fcced3eb8c903d204ac701033e501e62f9caef967da4e7c91a3",
+      "raw_bytes": 359905,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0006",
+      "file": "merge_0006.json.gz",
+      "sha256": "f91fb6e9ff6ba97a78431a20aaf4182b6e6af89494049682bb2dd8d0510650cd",
+      "raw_sha256": "7a6489aac0c5739049c97cf465dfd2763c9756a6a0ec865546523bb77b19bb28",
+      "raw_bytes": 376255,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0080",
+      "file": "merge_0080.json.gz",
+      "sha256": "d7c9180d6c14ca2c04426a0a076d632ca03a6e6adcadbf0eebb0a7eee0845adc",
+      "raw_sha256": "a9adf8c04097d4ffdb465eef92b091fd180c019b0ce791ad7b2200fda62cfb74",
+      "raw_bytes": 359910,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0086",
+      "file": "merge_0086.json.gz",
+      "sha256": "8512c9defb8aa4dcd1bfc8a137c72bafe1299ffa1378f4c5fff36d2391f98ffd",
+      "raw_sha256": "1a6f01c9975b1666aa24e575edb7d74476d89a1a87cce945cf23e3398932de16",
+      "raw_bytes": 376260,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0160",
+      "file": "merge_0160.json.gz",
+      "sha256": "1fe2986e0f97830e77d42f5c6b811d19f2d2cec84d84a0c92c0860469cddf6bc",
+      "raw_sha256": "c69e045af26b2cebb2fb50fae99150f873fe0ff021f41f8bcbdc5463f88db1b7",
+      "raw_bytes": 360835,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0166",
+      "file": "merge_0166.json.gz",
+      "sha256": "2db7c7cc627f8b5187a4e0e55d97429cbc1623d3d1f33cc83dd2cd6e6f607b84",
+      "raw_sha256": "6198eacc4b0356a596036fc3e21996aa1c0567f3a5ede63b36ae83380e0cb6d4",
+      "raw_bytes": 377341,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0240",
+      "file": "merge_0240.json.gz",
+      "sha256": "961080c223bdee81502b3417b6741f338b5c10c7025eb4b1e7c0058101c574d0",
+      "raw_sha256": "584610fc8db043181f9b89d3e61ce996d8aaa12d0e98b865adee65189e924e62",
+      "raw_bytes": 360840,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0246",
+      "file": "merge_0246.json.gz",
+      "sha256": "87a30a2ab6d822082d44fb3ff5b5a3c05b93288eca3ae1d945f6778f99196742",
+      "raw_sha256": "1ddc40c555dd39d7bdb7fe78e47c9e848f861590a732e211ce7ce67c2a4d344e",
+      "raw_bytes": 377346,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0320",
+      "file": "merge_0320.json.gz",
+      "sha256": "9062737c8fa8cfca68e11dad0dc878586668e32fc839d3c9659566ca01d1c8d7",
+      "raw_sha256": "9ad39979c929013f7431a66fa4351f645c37a925c8f27b5d8ea50ef0a0072aaa",
+      "raw_bytes": 359957,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0326",
+      "file": "merge_0326.json.gz",
+      "sha256": "3370226cfde2ce86ce2472d70aacfad03b969b37f49e1e7b658cc556caf9f5e4",
+      "raw_sha256": "368d1058f0bd9677d9da198860e9da9b2e161dd77f8503929f60c0e3bca8403b",
+      "raw_bytes": 376307,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0400",
+      "file": "merge_0400.json.gz",
+      "sha256": "52caad119df1a1ff231452b55c3eb9586a3fd296407afcdc9bea2cfd7e591dfb",
+      "raw_sha256": "9098f15b36f18a5ab0202599fc2c84fc494ec28981d8a34e201c3877210e1f58",
+      "raw_bytes": 359964,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0406",
+      "file": "merge_0406.json.gz",
+      "sha256": "dd15f2558ea328ebc09588c9660b6383d921f7fc73d4d09b9c60b4c9dbff037d",
+      "raw_sha256": "c9f22181c15e4f62179c134fff5fa627d1dbd590361bdd7d4e1b1e7f88c68a77",
+      "raw_bytes": 376314,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0480",
+      "file": "merge_0480.json.gz",
+      "sha256": "3ee1176ea4153589ff3be31d5ffe278ddb11472edab3de2327da4219a4d894a7",
+      "raw_sha256": "ec4d2b553c032cac1ad54138249ba9fbff8966d744db3334508c3abb63219df6",
+      "raw_bytes": 359872,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0486",
+      "file": "merge_0486.json.gz",
+      "sha256": "9044b5946e743fc7fa606ee212272ed217baa19948748ad4f3ef332ed2e01df9",
+      "raw_sha256": "ad7812802554238d9ab9e865fb4590a6821e0784d050bd179094a237cfbe1d16",
+      "raw_bytes": 376222,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0560",
+      "file": "merge_0560.json.gz",
+      "sha256": "77ee89ea41ba7ef12cf0ad8d78f2d6f75ac69ed9f14e13d048aaf4b83819c2a3",
+      "raw_sha256": "74ff02473e8d7d2dfafaf13c47cbc56b6e7157152895d4e8ef89bab9c12dcac7",
+      "raw_bytes": 359857,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0566",
+      "file": "merge_0566.json.gz",
+      "sha256": "5dde083d05a460e92774af18c03c05017673a5e1c98e63132e1f64448cd9b5bf",
+      "raw_sha256": "c319bae43a45838eae86d5601851253bad38f50176ec421a366ccc60c7b73430",
+      "raw_bytes": 376207,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0640",
+      "file": "merge_0640.json.gz",
+      "sha256": "53880e6fbe32b26c077bfdbf7624fbdc3f51ca3b1064d209fdd157c04367417b",
+      "raw_sha256": "8f69df7f80bbf7d427c503893c30207e52d9edb16152a4ed54de98d17a6be592",
+      "raw_bytes": 359823,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0646",
+      "file": "merge_0646.json.gz",
+      "sha256": "32e509c675a1be09edea98982a1ea0a138d5c85f67b602ab1f4874adf0433bd3",
+      "raw_sha256": "0817918ece7c7aa8f37ba17b4105eb9964e6cba80212c51c0c0c1ad43589ece3",
+      "raw_bytes": 376175,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0720",
+      "file": "merge_0720.json.gz",
+      "sha256": "e48cc7e24f4eea46fe73e58f2a54b3dfb1d34320c908ea22bcba10427ed0643c",
+      "raw_sha256": "2684cb1cbfbab9a543bf427e29774f7fec751729354cfeba0dae0da80c1ddc8c",
+      "raw_bytes": 359852,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0726",
+      "file": "merge_0726.json.gz",
+      "sha256": "55aef0488613cc6f9ea30c65027114fd02a8bafad1988a71b2b6f63033aa6ba4",
+      "raw_sha256": "200481a7eb08469dfad5bc4dc727f80f4056d06d00afabbdc91812c65ef698ef",
+      "raw_bytes": 376204,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0827",
+      "file": "merge_0827.json.gz",
+      "sha256": "7d9b51c48906121a48b4efad1b851cbd393e322b59ebdb8145f20768c6470503",
+      "raw_sha256": "cfd0389c9d533feb2341a3901c084f2951a90296d1519c32e78674caf598e7dc",
+      "raw_bytes": 371557,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0831",
+      "file": "merge_0831.json.gz",
+      "sha256": "97faf0a25d16a423176d9c3270861b1d28147703144234882ccc90bc2892b868",
+      "raw_sha256": "31753ba0fb769cbfc35136d9506a88592c7f921d008bab48848c681f55b2a8b5",
+      "raw_bytes": 364161,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0835",
+      "file": "merge_0835.json.gz",
+      "sha256": "47ed5cb83e2a6c1a0728aee58f7c7b3a1228f900933dbca5e13730b97a197531",
+      "raw_sha256": "b9c7c85f56a5f6f68977da7ec4c9c4ce06f83f053659e6963a01cdff63cce7a7",
+      "raw_bytes": 370394,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0839",
+      "file": "merge_0839.json.gz",
+      "sha256": "97b6ce1d3f14246086fc5bfb1c230919d4a81b364a5c1249a0cb7d2bbcc1c8b3",
+      "raw_sha256": "1c76fbf95205ba03be9f15950a2be49ce58c281552df9b03bccf8d9e08d7cc2d",
+      "raw_bytes": 362962,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0843",
+      "file": "merge_0843.json.gz",
+      "sha256": "606b8b35df0f81bf83cc745feafd0540d957cb8ec1defeadf7a6b9e9c403325e",
+      "raw_sha256": "edc5789cf564ada436ab6862df27ae097a041c73f4b28856bc261b9ed088f655",
+      "raw_bytes": 369633,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0847",
+      "file": "merge_0847.json.gz",
+      "sha256": "7b42f3a0ee0d97f44ac97d774d6111e1d290d510f8df39e03609d1e2e41a3dbf",
+      "raw_sha256": "ff63a23c1d5e84b2fc5e2f1d15d3d3fb1bbc12cda36edf40dc42d2af70048481",
+      "raw_bytes": 364409,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0875",
+      "file": "merge_0875.json.gz",
+      "sha256": "4728d74cbb1b0d279af2112fe5088f46172e1b9fed1aea4e7b77755c88e146c2",
+      "raw_sha256": "470a4ca6a18f97a07e14979f03d0f348f580ac3ee3be521c85c809aed1fada28",
+      "raw_bytes": 372857,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0879",
+      "file": "merge_0879.json.gz",
+      "sha256": "ce26f35df09cd7c73b8e71191d997a5674a94ab483ae1534ce182a446309f4e1",
+      "raw_sha256": "b1efa3e011bf6fb443bd310ae63ea113bacd8521422c78938fd2a8215532c47c",
+      "raw_bytes": 364819,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0883",
+      "file": "merge_0883.json.gz",
+      "sha256": "cce911df8b3cbbc57e8194c07ec9f78d33754216613df23ed2f9c1a41e881a60",
+      "raw_sha256": "2172c6f1e355b95e3f30c9ff26057d7f2c93ed3ef495993c5a3016472668e6ce",
+      "raw_bytes": 371398,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0887",
+      "file": "merge_0887.json.gz",
+      "sha256": "e0e67f72a7e80519e3cb75113c6bee8d2067d4b7b7917995cfe10da85f82f4b1",
+      "raw_sha256": "6b57adb9d7272edb9d6bf1c9714b5c5ffc6fad24d99fe9f38a84842efe9633ca",
+      "raw_bytes": 363124,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0891",
+      "file": "merge_0891.json.gz",
+      "sha256": "5bc375bbbbfec55acf96d24ae5ee9b9184d39a3e42e6dc4ee8943e7a0d3aee76",
+      "raw_sha256": "6069e81ecfd44f29b231b33694fb094586b25234ead073fc64b6e40f16c8382a",
+      "raw_bytes": 370855,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0895",
+      "file": "merge_0895.json.gz",
+      "sha256": "22c3f13ebc3823ee500b7471e40f451bb50ea8435ff316cdcd86f07a4c6de42d",
+      "raw_sha256": "c914610f41c6bdfb285df9190098aa34143e618b31973fc7c29e8d0e9f1c0f34",
+      "raw_bytes": 365067,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0923",
+      "file": "merge_0923.json.gz",
+      "sha256": "715ef38ecfc7aa5976dc22c4521441c1a60b9e2265b6626d6812e5fc1651e27b",
+      "raw_sha256": "a9f8eef697518c694979aa0b8501de02d076bd3b74323973874f92c170c46681",
+      "raw_bytes": 371379,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0927",
+      "file": "merge_0927.json.gz",
+      "sha256": "7b249f470325cf6ff7edf17849ca8eb884c0a93cee4df806bd22c330add89c4b",
+      "raw_sha256": "bdc607c42f3cbf4f662f657770ff670ef2ccd96c71f1f0ee0f661c3a4953f68a",
+      "raw_bytes": 364077,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0931",
+      "file": "merge_0931.json.gz",
+      "sha256": "8e9cedcd2e90a8d019a9e23ea8243b3a1f0fe9f2997137f97a56a9d229ad9e1b",
+      "raw_sha256": "0976c68d35aa7114b269f698f457e10e965fc276d539bfa6a8f163be8249f31c",
+      "raw_bytes": 370368,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0935",
+      "file": "merge_0935.json.gz",
+      "sha256": "fcd8f6aeba5459678e88d82f896b31ffadaa4812139209d30b05a1dca45201ce",
+      "raw_sha256": "6252107ca77270c2ecd7884d457a99a74d83e9d29d1551bf70ba67d436c121a9",
+      "raw_bytes": 362824,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0939",
+      "file": "merge_0939.json.gz",
+      "sha256": "0b858c9659bbb5174bd896072bdcf93e81d81776431f4747e378221221de40a9",
+      "raw_sha256": "9ce2994fb0f1c64085c4dbe2b7e499fe7a994fd087511df8423b2de456b6356e",
+      "raw_bytes": 369647,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0943",
+      "file": "merge_0943.json.gz",
+      "sha256": "1fd7f9cd6111607785d89c64f296d7ffacd862afeae31eec9f521f07e83c6b53",
+      "raw_sha256": "09dc3ea122733b88006c9b737670b94d3d729dedd3595f6f913e0ceb345ab7ec",
+      "raw_bytes": 364325,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "merge_0992",
+      "file": "merge_0992.json.gz",
+      "sha256": "dd66b8d101c776717887267e94f76042716be03ed90c1127af9fd06f867be986",
+      "raw_sha256": "d9aa98ee9da563f35a596132fabb84edb00d4e43f96d74e0fb4072450ba7e850",
+      "raw_bytes": 360934,
+      "status": [
+        "ENUM_REJECTED"
+      ]
+    },
+    {
+      "id": "merge_1008",
+      "file": "merge_1008.json.gz",
+      "sha256": "53a26f28663e610dbd6726fe8e65ac1034e07b07db72a2c38886a123d6d04320",
+      "raw_sha256": "95a1bdacf7b781d651eb4796de82caf0287ff96e30b0671f905673c317e8ab10",
+      "raw_bytes": 360932,
+      "status": [
+        "ENUM_REJECTED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}

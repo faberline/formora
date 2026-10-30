@@ -1,0 +1,7 @@
+{
+  "analytic_tests": 8,
+  "passed": true,
+  "initial_pre_capture_test_error": "The test guessed UV layer names SelectionUV/InactiveUV; the actual pinned authored fixture uses UVMap/DetailUV. Corrected the test before capture. No fixture or limit changed.",
+  "source_fetch_note": "One guessed bmesh_operator_api.cc path returned 404; queried the exact pinned directory and verified the actual bmesh_operators.cc Git blob. No source bytes substituted.",
+  "product_acceptance": "unrun"
+}

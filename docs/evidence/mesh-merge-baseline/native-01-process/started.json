@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/tools/blender_mesh_merge_reference.py",
+    "--",
+    "--suite",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/mesh-merge.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/native-01"
+  ],
+  "started_utc": "2026-10-30T00:52:51.421237+00:00",
+  "launcher_sha256": "c3b43cdd85a44cfcf7fff797c4caa4f196bb35f6c6eb70aeaae4832523891ad5",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "capture": "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-baseline/native-01",
+  "terminal_exit_code": null,
+  "process_id": 50701
+}

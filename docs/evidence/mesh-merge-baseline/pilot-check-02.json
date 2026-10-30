@@ -1,0 +1,200 @@
+{
+  "passed": false,
+  "checked": [
+    {
+      "id": "merge_0000",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0006",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0080",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0086",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0160",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0166",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0240",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0246",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0320",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0326",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0400",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0406",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0480",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0486",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0560",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0566",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0640",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0646",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0720",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0726",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0827",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0831",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0835",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0839",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0843",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0847",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0875",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0879",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0883",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0887",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0891",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0895",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    }
+  ],
+  "checker_sha256": "1a5b1f5721fd3d8d6b66d6e60f70929c6ecea3accadef5c3a0e0c2349384acb7",
+  "failure_case": "merge_0923",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 6, in <module>\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_mesh_merge_reference.py\", line 274, in validate_run\n    match_positions(positions, list(after['meshes']['target']['geometry']['vertices'].values()))\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_mesh_merge_reference.py\", line 233, in match_positions\n    require(candidates, 'analytic merged vertex position differs: ' + str(point))\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_selection_reference.py\", line 16, in require\n    raise ValueError(message)\nValueError: analytic merged vertex position differs: [0.6666666865348816, 0.3333333432674408, 0.0]\n"
+}

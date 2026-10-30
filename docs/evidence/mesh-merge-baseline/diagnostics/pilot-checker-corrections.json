@@ -1,0 +1,21 @@
+{
+  "first_failure": {
+    "report": "pilot-check-01.json",
+    "case": "merge_0835",
+    "cause": "Reused snap selection helper did not flush mixed VERT+EDGE selection from vertices to edges.",
+    "source": "baseline/sources/mesh-normal-orientation/bmesh_marking.cc:502",
+    "preserved_checker": "diagnostics/compare-mesh-merge-reference-70900.py"
+  },
+  "second_failure": {
+    "report": "pilot-check-02.json",
+    "case": "merge_0923",
+    "cause": "Collapse oracle used unique-vertex mean. Source bmo_collapse_exec counts both endpoints for each selected edge.",
+    "source": "baseline/sources/mesh-merge/bmo_removedoubles.cc:540",
+    "preserved_checker": "diagnostics/compare-mesh-merge-reference-mixed-selection.py"
+  },
+  "final_pilot_check": "pilot-check-03.json",
+  "authored_inputs_capture_adapter_and_limits_unchanged": true,
+  "product_source_changed": false,
+  "new_regression_controls": 2,
+  "source_baseline_acceptance": "not yet run"
+}

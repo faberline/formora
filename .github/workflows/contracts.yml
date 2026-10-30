@@ -42,6 +42,8 @@ jobs:
         run: python tools/compare_snap_rotation_reference.py --suite baseline/fixtures/snap-rotation.json --reference baseline/reference/blender-5.2.3/snap-rotation --repeat baseline/reference/blender-5.2.3/snap-rotation-repeat --output target/snap-rotation-reference-reproduction.json
       - name: Verify nonidentity delta snap source captures (not product acceptance)
         run: python tools/compare_snap_delta_reference.py --suite baseline/fixtures/snap-delta.json --first baseline/reference/blender-5.2.3/snap-delta --second baseline/reference/blender-5.2.3/snap-delta-repeat --receipts docs/evidence/snap-delta-baseline/native-processes.json --output target/snap-delta-reference-reproduction.json
+      - name: Verify vertex merge source captures (not product acceptance)
+        run: python tools/compare_mesh_merge_reference.py --suite baseline/fixtures/mesh-merge.json --first docs/evidence/mesh-merge-baseline/native-01 --second docs/evidence/mesh-merge-baseline/native-02 --receipts docs/evidence/mesh-merge-baseline/native-processes.json --output target/mesh-merge-reference-reproduction.json
       - name: Verify stdio with the official MCP client
         run: python tools/mcp_smoke.py target/debug/formora
       - name: Compare automatic normal queries through CLI and official MCP

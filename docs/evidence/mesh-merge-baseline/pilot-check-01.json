@@ -1,0 +1,140 @@
+{
+  "passed": false,
+  "checked": [
+    {
+      "id": "merge_0000",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0006",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0080",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0086",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0160",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0166",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0240",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0246",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0320",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0326",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0400",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0406",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0480",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0486",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0560",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0566",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0640",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0646",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0720",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0726",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0827",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    },
+    {
+      "id": "merge_0831",
+      "geometry_changed": true,
+      "mesh_changed": true,
+      "enum_rejected": false
+    }
+  ],
+  "checker_sha256": "89bdeb66f7b156a0c553d4588d8506fcb7d08ae842d167d7dc2c38f79b636724",
+  "failure_case": "merge_0835",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 6, in <module>\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_mesh_merge_reference.py\", line 144, in validate_run\n    bind_initial(suite, run, before)\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py\", line 125, in bind_initial\n    tree(selection_input(suite['mesh'],run,edit),{k:m[k] for k in SELECTION},name+'/authored mesh',0.)\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py\", line 34, in tree\n    for key in a:tree(a[key],b[key],path+'/'+key,tolerance)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py\", line 34, in tree\n    for key in a:tree(a[key],b[key],path+'/'+key,tolerance)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_snap_menu_reference.py\", line 36, in tree\n    require(isinstance(b,list) and len(a)==len(b),'array differs: '+path)\n  File \"/Users/chrischeng/faberlines/formora/tools/compare_selection_reference.py\", line 16, in require\n    raise ValueError(message)\nValueError: array differs: secondary/authored mesh/selected/EDGE\n"
+}
