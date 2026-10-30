@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-90-01.py", line 36, in <module>
+    host('host-before.json')
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-90-01.py", line 33, in host
+    p=subprocess.run(cmd,capture_output=True,text=True)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 1] Operation not permitted: '/usr/bin/top'

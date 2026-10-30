@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "control": "count",
+      "rejected": true,
+      "error": "false component counts"
+    },
+    {
+      "control": "changed",
+      "rejected": true,
+      "error": "false changed survivors"
+    },
+    {
+      "control": "lineage",
+      "rejected": true,
+      "error": ""
+    },
+    {
+      "control": "shared",
+      "rejected": true,
+      "error": ""
+    },
+    {
+      "control": "receipt",
+      "rejected": true,
+      "error": ""
+    },
+    {
+      "control": "reload",
+      "rejected": true,
+      "error": "fresh process binding differs"
+    },
+    {
+      "control": "raw_result",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "missing_response",
+      "rejected": true,
+      "error": "missing or duplicate MCP response"
+    },
+    {
+      "control": "duplicate_response",
+      "rejected": true,
+      "error": "missing or duplicate MCP response"
+    },
+    {
+      "control": "request",
+      "rejected": true,
+      "error": "MCP request binding differs"
+    },
+    {
+      "control": "native_exit",
+      "rejected": true,
+      "error": ""
+    }
+  ],
+  "original_evidence_unchanged": true,
+  "limits_unchanged": true,
+  "product_acceptance": "unrun"
+}

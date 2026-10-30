@@ -1,0 +1,44 @@
+{
+  "repository_reads_denied": true,
+  "denial_controls": [
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))",
+        "/bin/cat",
+        "/private/tmp/formora-mesh-merge-sparse/Cargo.toml"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-mesh-merge-sparse/Cargo.toml: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))",
+        "/bin/cat",
+        "/Users/chrischeng/faberlines/formora/Cargo.toml"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /Users/chrischeng/faberlines/formora/Cargo.toml: Operation not permitted\n"
+    }
+  ],
+  "native_command": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))",
+    "/private/tmp/formora-merge-regen-unseen-core-after-01",
+    "--nocapture"
+  ],
+  "native_terminal_exit": 0,
+  "native_executable_sha256": "168103668649d08d27a31d385c0983db47ec17ed0c8ce33c6cf7f6ed218cd09e",
+  "product_library_sha256": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+  "product_implementation": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "interface": "native Rust API; separate from the CLI/MCP gate",
+  "all_functional_controls_passed": true,
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

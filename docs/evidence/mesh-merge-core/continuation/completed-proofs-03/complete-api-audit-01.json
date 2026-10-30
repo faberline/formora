@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "retained_requests": 14326,
+  "new_merge_requests": 2048,
+  "complete_requests": 16374,
+  "retained_native_controller_terminal_exit": 0,
+  "parent_report_sha256": "6e97208d7045f254ec0e5ff5df59736c2884b3eb855e16ce95842c6923c2b72c",
+  "parent_verification_inputs_unchanged": true,
+  "retained_audits": [
+    {
+      "name": "delta",
+      "requests": 3584,
+      "report_sha256": "6d77aabcd150a9625d6027c3a4620077ba78370511ac8364e4cab0fbcff3f417",
+      "report": "/private/tmp/formora-merge-retained-api-audit-01/delta.json",
+      "outcomes": {
+        "defined_numeric_source_comparison": 3584
+      }
+    },
+    {
+      "name": "rotation",
+      "requests": 4992,
+      "report_sha256": "5f98cbca6403c0c203eca1e796ad5a27494baba2fa5729b0e6134a7c262d7c5f",
+      "report": "/private/tmp/formora-merge-retained-api-audit-01/rotation.json",
+      "outcomes": {
+        "defined_numeric_source_comparison": 4992
+      }
+    },
+    {
+      "name": "scene",
+      "requests": 1100,
+      "report_sha256": "8638c6890308aee9ec0e4994444d537482aa1b7450a6a29ce326d6fd90dee72c",
+      "report": "/private/tmp/formora-merge-retained-api-audit-01/scene.json",
+      "outcomes": {
+        "defined_numeric_source_comparison": 1094,
+        "explicit_cancellation": 4,
+        "explicit_atomic_rejection": 2
+      }
+    },
+    {
+      "name": "single",
+      "requests": 2244,
+      "report_sha256": "8cd22e923be5575e26f440fd158cffb9d7abbe1b7238bcd4c11f6cd87827a009",
+      "report": "/private/tmp/formora-merge-retained-api-audit-01/single.json",
+      "outcomes": {
+        "defined_numeric_source_comparison": 2072,
+        "explicit_cancellation": 136,
+        "explicit_atomic_rejection": 36
+      }
+    },
+    {
+      "name": "transform",
+      "requests": 2406,
+      "report_sha256": "d606f0cd5c9f06a676cc0e6cf958ae839c7188286f04b9f95a6a0f5c15869aa3",
+      "report": "/private/tmp/formora-merge-retained-api-audit-01/transform.json",
+      "outcomes": {
+        "{'source_outcome': 'FINISHED'}": 2380,
+        "{'source_outcome': 'UNDEFINED_ROTATION_AXIS', 'comparison_kind': 'human_approved_undefined_rotation_rejection', 'policy_outcome': 'REJECTED', 'policy_error': 'mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior', 'numeric_source_match_claimed': False}": 14,
+        "{'source_outcome': 'CANCELLED'}": 12
+      }
+    }
+  ],
+  "new_merge_audit_sha256": "4260068c11603e122422f335a7cdc4ffa767eeb1baadcee599d8c67f7b35b448",
+  "binary_sha256": "5bf40a3c99843bd7b9395d3d712f605756284cd44aa07c2925661b7c7bd5c3c2",
+  "implementation_commit": "224a4360276511f48d023a2f6f39190010dae731",
+  "approved_undefined_rotation_rejections": 14,
+  "undefined_rejections_are_numeric_matches": false,
+  "retained_stochastic_support_checks": 48,
+  "stochastic_support_is_numeric_source_parity": false,
+  "new_merge_enum_rejected_cases": 32,
+  "new_merge_enum_rejections_are_numeric_matches": false,
+  "required_recipe_gate": "FAILED; active-edit regeneration error; issue76",
+  "all_required_local_gates_passed": false,
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun",
+  "milestones_accepted": 0
+}

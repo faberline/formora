@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "profile": "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+  "controls": [
+    {
+      "path": "/private/tmp/formora-merge-api-full-03/report.json",
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+        "/bin/cat",
+        "/private/tmp/formora-merge-api-full-03/report.json"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-merge-api-full-03/report.json: Operation not permitted\n"
+    },
+    {
+      "path": "/private/tmp/formora-merge-regen-api-full-01/report.json",
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+        "/bin/cat",
+        "/private/tmp/formora-merge-regen-api-full-01/report.json"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-merge-regen-api-full-01/report.json: Operation not permitted\n"
+    },
+    {
+      "path": "/private/tmp/formora-merge-regen-retained-api-01/delta/report.json",
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+        "/bin/cat",
+        "/private/tmp/formora-merge-regen-retained-api-01/delta/report.json"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-merge-regen-retained-api-01/delta/report.json: Operation not permitted\n"
+    },
+    {
+      "path": "/private/tmp/formora-merge-recipe-proof-04/report.json",
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+        "/bin/cat",
+        "/private/tmp/formora-merge-recipe-proof-04/report.json"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-merge-recipe-proof-04/report.json: Operation not permitted\n"
+    }
+  ],
+  "current_and_previous_answers_actually_denied": true,
+  "product_acceptance": "unrun"
+}

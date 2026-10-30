@@ -1,0 +1,7 @@
+{
+  "original_driver_sha256": "1c127576048f7253d283a15084f0ed54f382b1d04f6e735ef7ecee16e9883ff7",
+  "current_driver_sha256": "de190d8d5ad55e027bc4a4fbc81342a79e6bd6a86d91a97fc50a0467598f1431",
+  "changes": "fresh output path; before any product repair, expected regeneration uses fresh geometry/recipe plus explicit empty editing state with retained mode and preview; original entities, geometry, recipe, overflow, atomicity, undo/replay and reload assertions remain",
+  "reason": "editing=None while an edit object uses the asset would itself be invalid; original failed call27 and original later expectation retained in driver02",
+  "product_code_changed": false
+}

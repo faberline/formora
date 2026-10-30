@@ -103,7 +103,9 @@ class RotationReferenceControls(unittest.TestCase):
 
     def test_changed_script_hash_rejected(self):
         first=json.loads((REFERENCE/'manifest.json').read_text());second=copy.deepcopy(first);second['process_id']+=1
-        second['input_hashes'][str(ROOT/'tools/blender_snap_rotation_reference.py')]='0'*64
+        paths=[name for name in second['input_hashes'] if name.endswith('/tools/blender_snap_rotation_reference.py')]
+        self.assertEqual(len(paths),1)
+        second['input_hashes'][paths[0]]='0'*64
         with tempfile.TemporaryDirectory() as temporary:
             a,b=Path(temporary)/'a',Path(temporary)/'b';a.mkdir();b.mkdir()
             for folder,value in [(a,first),(b,second)]:(folder/'manifest.json').write_text(json.dumps(value))
@@ -112,14 +114,19 @@ class RotationReferenceControls(unittest.TestCase):
 
     def test_other_checkout_root_preserves_exact_input_binding(self):
         manifest=json.loads((REFERENCE/'manifest.json').read_text())
-        prefix=str(ROOT)+'/'
+        relative='baseline/fixtures/snap-rotation.json'
+        paths=[name for name in manifest['input_hashes'] if name.endswith('/'+relative)]
+        self.assertEqual(len(paths),1)
+        prefix=paths[0][:-len(relative)]
         self.assertTrue(all(name.startswith(prefix) for name in manifest['input_hashes']))
         manifest['input_hashes']={'/different/checkout/'+name[len(prefix):]:sha for name,sha in manifest['input_hashes'].items()}
         provenance_inputs(REFERENCE,manifest,ROOT/'baseline/fixtures/snap-rotation.json')
 
     def test_same_bad_script_hash_in_both_captures_rejected(self):
         manifest=json.loads((REFERENCE/'manifest.json').read_text())
-        manifest['input_hashes'][str(ROOT/'tools/blender_snap_rotation_reference.py')]='0'*64
+        paths=[name for name in manifest['input_hashes'] if name.endswith('/tools/blender_snap_rotation_reference.py')]
+        self.assertEqual(len(paths),1)
+        manifest['input_hashes'][paths[0]]='0'*64
         with self.assertRaisesRegex(ValueError,'capture provenance changed'):
             provenance_inputs(REFERENCE,manifest,ROOT/'baseline/fixtures/snap-rotation.json')
 

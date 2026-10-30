@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "kind": "rotation",
+  "requests": 4992,
+  "outcomes": {
+    "defined_numeric_source_comparison": 4992
+  },
+  "raw_source_comparisons_rechecked": true,
+  "binary_sha256": "0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa",
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "actual_terminal_record": {
+    "name": "raw-rotation",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/rotation_snap_runtime.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/raw-rotation",
+      "--gzip-output"
+    ],
+    "native_process_id": 25756,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 4992,
+    "actual_checks": 4992,
+    "report_sha256": "4e6ec16c241f3dabd591356fc7f660e6031c7d9c7a9176e0beb85206de435451",
+    "start_ns": 182620451346166,
+    "end_ns": 184015270442458
+  },
+  "driver_sha256": "ad7384824af854c0a3a68553a832b7b7a8944c1147704ab32892a5da1df2394d",
+  "audit_module_sha256": "61880cde241d72d4041c11e4cebcdef319461e97f5f98bcb01c82167195ec8ba",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

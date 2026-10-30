@@ -1,0 +1,57 @@
+{
+  "passed": false,
+  "samples": 177,
+  "records": [
+    {
+      "name": "90",
+      "expected_samples": 90,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-90-01.py"
+      ],
+      "process_id": 80738,
+      "terminal_exit_code": 1,
+      "passed": false,
+      "report_sha256": null
+    },
+    {
+      "name": "39",
+      "expected_samples": 39,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-39-01.py"
+      ],
+      "process_id": 80932,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report_sha256": "78a4884a63ed9d6e0d050405fe6d06d37cdb47e489e885091e9cf9b707230e75"
+    },
+    {
+      "name": "rotation",
+      "expected_samples": 24,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-rotation-01.py"
+      ],
+      "process_id": 85913,
+      "terminal_exit_code": 1,
+      "passed": false,
+      "report_sha256": null
+    },
+    {
+      "name": "delta",
+      "expected_samples": 24,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-delta-01.py"
+      ],
+      "process_id": 86024,
+      "terminal_exit_code": 1,
+      "passed": false,
+      "report_sha256": null
+    }
+  ],
+  "implementation_commit": "224a4360276511f48d023a2f6f39190010dae731",
+  "source_comparison": "unrun",
+  "product_acceptance": "unrun"
+}

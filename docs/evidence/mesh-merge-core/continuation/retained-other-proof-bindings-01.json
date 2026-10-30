@@ -1,0 +1,34 @@
+[
+  {
+    "name": "rng-one-shot",
+    "source": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/retained-rng-one-shot-driver.py",
+    "source_sha256": "6674a811329fbd8d69ac77a1082245554c99a76360d93bc7331b5a38e15ec1e7",
+    "adapted": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-rng-one-shot-01.py",
+    "adapted_sha256": "6667677976af03b33c27b37a2daba853ff43151df69a4ae2ae44c931e75ac7b6",
+    "changes": "only worktree, executable and fresh output bindings; original input, assertions and limits unchanged"
+  },
+  {
+    "name": "source-oracle",
+    "source": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/retained-source-oracle-driver.py",
+    "source_sha256": "3a429b01efcde76d7aecc2da2ddeeffed7c0c2f95b9c25674c9e394e7e858eb3",
+    "adapted": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-source-oracle-01.py",
+    "adapted_sha256": "e0157a6ea8a656ae11209fd69581a78ffe5a05881c5c7b46b4568b6ae65e9b8c",
+    "changes": "only worktree, executable and fresh output bindings; original input, assertions and limits unchanged"
+  },
+  {
+    "name": "gpu-rng",
+    "source": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/retained-gpu-rng-driver.py",
+    "source_sha256": "4e53626b7f618c530e2cf1f01d931e204d76d67b3df4de7673718533cc34f7e0",
+    "adapted": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-gpu-rng-01.py",
+    "adapted_sha256": "b4d56b2c40405494fc717cf577e6770d97eceda51f8029c02cef875e5d01f8b6",
+    "changes": "only worktree, executable and fresh output bindings; original input, assertions and limits unchanged"
+  },
+  {
+    "name": "gpu-mirror",
+    "source": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/retained-gpu-mirror-driver.py",
+    "source_sha256": "be4bc29d4330a208a52bc0c6ec14d8a0ab51fb72ccdf65e2cd4e74d40352d3fe",
+    "adapted": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-gpu-mirror-01.py",
+    "adapted_sha256": "938c1850e07800613f760c33ef82732d688d9f32407a470e8bc43d539eb6de87",
+    "changes": "only worktree, executable and fresh output bindings; original input, assertions and limits unchanged"
+  }
+]

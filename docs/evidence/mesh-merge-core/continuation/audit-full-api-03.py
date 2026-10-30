@@ -1,0 +1,41 @@
+"""Audit every raw saved CLI/MCP exchange and reject incomplete full-gate evidence."""
+from pathlib import Path
+import copy,hashlib,importlib.util,json,sys
+ROOT=Path(__file__).resolve().parents[4];HERE=Path(__file__).resolve().parent
+sys.path.insert(0,str(ROOT/'tools'))
+spec=importlib.util.spec_from_file_location('merge_api_audit',HERE/'runtime-cli-mcp.py');api=importlib.util.module_from_spec(spec);spec.loader.exec_module(api)
+DATA=Path('/private/tmp/formora-merge-api-full-03');OUT=Path('/private/tmp/formora-merge-api-audit-03');OUT.mkdir(exist_ok=False)
+BINARY=Path('/private/tmp/formora-merge-target-actual185/debug/formora');binary_hash=api.sha(BINARY)
+report=api.pilot.load(DATA/'report.json');suite=api.pilot.load(ROOT/'baseline/fixtures/mesh-merge.json')
+folders,source=api.source_preflight(suite)
+expected={(interface,case['id']) for interface in ['cli','official_mcp_sdk'] for case in suite['runs']};cases={case['id']:case for case in suite['runs']}
+def full_header(value):
+ assert value['passed'] is True and value['required_full_gate_passed'] is True and value['checks']==2048
+ assert value['inputs_unchanged'] is True and value['binary_sha256']==binary_hash=='5bf40a3c99843bd7b9395d3d712f605756284cd44aa07c2925661b7c7bd5c3c2'
+ rows=value['runs'];assert len(rows)==2048 and len({(r['interface'],r['id']) for r in rows})==2048
+ assert {(r['interface'],r['id']) for r in rows}==expected
+ assert all(r['status']=='passed' and r['error'] is None for r in rows)
+full_header(report)
+for relative,digest in report['input_hashes'].items():assert api.sha(ROOT/relative)==digest
+rows=[]
+for index,row in enumerate(report['runs']):
+ path=DATA/row['file'];assert path.parent==DATA and api.sha(path)==row['sha256']
+ raw=api.pilot.load(path);case=cases[row['id']]
+ assert raw['case']==case and raw['interface']==row['interface'] and raw['status']=='passed' and raw['comparison_error'] is None
+ assert raw['setup']==api.pilot.setup(suite,case)
+ assert raw['request']=={'expected_revision':1,'commands':[{'operation':'merge_mesh','merge':{'entity':'target','method':case['parameters']['type'].lower(),'uvs':case['parameters']['uvs']}}]}
+ for process in raw['cli_processes']:assert process['command'][0]==str(BINARY)
+ if row['interface']=='official_mcp_sdk':assert raw['mcp_initialization']['protocol_version']=='2025-11-25'
+ references=[api.pilot.load(folder/(case['id']+'.json.gz')) for folder in folders]
+ api.check_record(case,references,raw)
+ rows.append({'id':row['id'],'interface':row['interface'],'raw_sha256':row['sha256'],'source_sha256':[api.sha(folder/(case['id']+'.json.gz')) for folder in folders],'passed':True})
+ if (index+1)%100==0:print(json.dumps({'audited':index+1}),flush=True)
+controls=[]
+for name,mutate in [('missing_case',lambda r:r['runs'].pop()),('duplicate_case',lambda r:r['runs'].__setitem__(1,copy.deepcopy(r['runs'][0]))),('missing_interface',lambda r:r['runs'].__setitem__(slice(1024,None),[])),('failed_case',lambda r:r['runs'][0].__setitem__('status','failed')),('unrun_gate',lambda r:r.__setitem__('required_full_gate_passed',False)),('input_drift',lambda r:r.__setitem__('inputs_unchanged',False)),('wrong_binary',lambda r:r.__setitem__('binary_sha256','0'*64))]:
+ bad=copy.deepcopy(report);mutate(bad)
+ try:full_header(bad)
+ except (AssertionError,KeyError,ValueError) as error:controls.append({'control':name,'rejected':True,'error':str(error) or type(error).__name__})
+ else:raise AssertionError('accepted false full evidence '+name)
+assert api.sha(BINARY)==binary_hash
+result={'passed':True,'checks':len(rows),'all_raw_cli_mcp_source_checks_passed':True,'report_sha256':api.sha(DATA/'report.json'),'binary_sha256':binary_hash,'source_checked':source,'runs':rows,'negative_controls':controls,'audit_driver_sha256':api.sha(Path(__file__)),'runtime_checker_sha256':api.sha(HERE/'runtime-cli-mcp.py'),'product_acceptance':'unrun','independent_acceptance':'unrun'}
+(OUT/'report.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'passed':True,'checks':len(rows),'negative_controls':len(controls)}),flush=True)

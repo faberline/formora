@@ -1,0 +1,79 @@
+[
+  {
+    "source": "run-unseen-denial-after-01.py",
+    "source_sha256": "5b8b4ff54e4d66c39742f316c71ae10ce373a43de4b178b81e9cc6a91f9ab1a5",
+    "copy": "regenerate-run-unseen-denial-after-01.py",
+    "copy_sha256": "40d79f8dcb1cd69521d899cc0c7a427682b9c4f12e45b6e99421bec9b4c20c0d",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "failed-save-proof-01.py",
+    "source_sha256": "a77b79434fc311f6731e003d5709f11060f0e9f42cfea01c88f2afb58ad9f593",
+    "copy": "regenerate-failed-save-proof-01.py",
+    "copy_sha256": "9e54ab5b541dfaf5d33fdfc694e7e6bbef0b6250976fa4638b6de6f756de026c",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "gpu-proof-01.py",
+    "source_sha256": "09ac8b920c6e0e06540a1ada68a7288e792f6e761c888b0bd1149a71bbc13151",
+    "copy": "regenerate-gpu-proof-01.py",
+    "copy_sha256": "a458ada5f0b6106eb20842c8e48204c4b07a33d648bd326d80a6e355eb86b006",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-rng-isolation-01.py",
+    "source_sha256": "fa166d3e7b1fb36638cd34736c2f4822cc54205cf6989698dbe798f439a7a431",
+    "copy": "regenerate-retained-rng-isolation-01.py",
+    "copy_sha256": "5902ca6d9c32a8a72a472f5fcb91b568a753daa1335f2b73735b4fc2889306d7",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-rng-one-shot-01.py",
+    "source_sha256": "6667677976af03b33c27b37a2daba853ff43151df69a4ae2ae44c931e75ac7b6",
+    "copy": "regenerate-retained-rng-one-shot-01.py",
+    "copy_sha256": "1bedeed74936a8fd8b6e302ca67719c773be1878f2fba997fbc8fd3e2d08d6b2",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-source-oracle-01.py",
+    "source_sha256": "e0157a6ea8a656ae11209fd69581a78ffe5a05881c5c7b46b4568b6ae65e9b8c",
+    "copy": "regenerate-retained-source-oracle-01.py",
+    "copy_sha256": "cf4f127ec891f5f19c8749c3b3cad9dc3ae7007c61d889f4f2f99c1fcef829e3",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-gpu-rng-01.py",
+    "source_sha256": "b4d56b2c40405494fc717cf577e6770d97eceda51f8029c02cef875e5d01f8b6",
+    "copy": "regenerate-retained-gpu-rng-01.py",
+    "copy_sha256": "298f4a16d267eb8469065767a25e9fb01d414825680456b81c9745d431f70f4e",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-gpu-mirror-01.py",
+    "source_sha256": "938c1850e07800613f760c33ef82732d688d9f32407a470e8bc43d539eb6de87",
+    "copy": "regenerate-retained-gpu-mirror-01.py",
+    "copy_sha256": "1e45926a67b22efce87d8956d54d3327c06fa6e186285ec20c0eed0ee45ab491",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-small-gates-config-01.json",
+    "source_sha256": "f027769f398b7ae7bde4de83183f88810c126ddc58441140d28bbae240e05318",
+    "copy": "regenerate-retained-small-gates-config-01.json",
+    "copy_sha256": "2409374fa49a7d2c0fa11f89e730faaac1e0c8dbb81c0ff403ae02d6dc81eb96",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-small-gates-01.py",
+    "source_sha256": "e85329781ffca8c80cc67bf66afc19d8bdbf9aef3148c0f4d171d2eb679156a8",
+    "copy": "regenerate-retained-small-gates-01.py",
+    "copy_sha256": "e933494e101fbfa8350307da2c7f98daa7534c9f3a081c617f42e69ef740fd48",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  },
+  {
+    "source": "retained-gpu-01.py",
+    "source_sha256": "cf9644ae4ba2371a13341544132f6cd8f272c4307b190008c6e68a7d88b0b215",
+    "copy": "regenerate-retained-gpu-01.py",
+    "copy_sha256": "98e3e4be03fabb5534852e3c19567f81279d9712f8291d3be072b252914e88a0",
+    "changes": "current implementation/build bindings and fresh outputs; expanded prior-answer read denial for both output families; original authored inputs, assertions and limits retained"
+  }
+]

@@ -1,0 +1,40 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.96s
+     Running tests/mesh_merge_history.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh_merge_history-28d98d5bbe9e659d)
+
+running 5 tests
+test explicit_history_endpoint_keeps_its_actual_original_entry ... ok
+test an_original_survivor_history_flag_keeps_the_first_mapped_entry_once ... ok
+test removed_only_history_does_not_create_a_collapse_survivor_entry ... FAILED
+test removed_only_history_does_not_create_a_center_survivor_entry ... FAILED
+test disconnected_components_keep_only_the_original_survivor_history_flags ... FAILED
+
+failures:
+
+---- removed_only_history_does_not_create_a_collapse_survivor_entry stdout ----
+
+thread 'removed_only_history_does_not_create_a_collapse_survivor_entry' panicked at tests/mesh_merge_history.rs:59:5:
+assertion failed: apply(&mut editor, "collapse").is_empty()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- removed_only_history_does_not_create_a_center_survivor_entry stdout ----
+
+thread 'removed_only_history_does_not_create_a_center_survivor_entry' panicked at tests/mesh_merge_history.rs:49:5:
+assertion failed: apply(&mut editor, "center").is_empty()
+
+---- disconnected_components_keep_only_the_original_survivor_history_flags stdout ----
+
+thread 'disconnected_components_keep_only_the_original_survivor_history_flags' panicked at tests/mesh_merge_history.rs:85:5:
+assertion `left == right` failed
+  left: ["b", "d"]
+ right: ["d"]
+
+
+failures:
+    disconnected_components_keep_only_the_original_survivor_history_flags
+    removed_only_history_does_not_create_a_center_survivor_entry
+    removed_only_history_does_not_create_a_collapse_survivor_entry
+
+test result: FAILED. 2 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test mesh_merge_history`

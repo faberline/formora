@@ -1,0 +1,82 @@
+[
+  {
+    "kind": "local",
+    "name": "recipe-delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/recipe-delta"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/recipe-delta/report.json",
+    "process_id": 29364,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "report_sha256": "ff96a99995b6e769335587307ce6b6733690aa74787043f78b2fa8d102b0ad1f",
+    "driver_sha256": "11241af6d7fd892a67defc7d34d0330f1473c16f80325f9d44723a22cbe2e788"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-raw",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/recipe-raw"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/recipe-raw/report.json",
+    "process_id": 29374,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "report_sha256": "97ad2c87526fb4b70738151c57b06af49a071afaa5136255045b08871c258e7b",
+    "driver_sha256": "b970768d7721cc4063f1d178d49c21946f918378ed4cce2c808b4ea49c54dfec"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-mesh",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-snap-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/recipe-mesh"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/recipe-mesh/report.json",
+    "process_id": 29380,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "report_sha256": "d71445fb9a9f909bd97cca1cd2c032652b9013e0e2b46872538bffbcf9659d2d",
+    "driver_sha256": "4d8354f0b0e6d67424e14daa8c9305c6097edf7f618344e5e3559e40602c7e15"
+  },
+  {
+    "kind": "local",
+    "name": "seven-actions",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/seven-actions-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/seven-actions"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/seven-actions/report.json",
+    "process_id": 29388,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "report_sha256": "de9f738d3bd2efb6098d0c95f55271cb30d875d81faff8abf58a67cd2b64e81f",
+    "driver_sha256": "dc2dd324b5bd8d770851bc54be05d87b43236f76c98525bdd623c985d326d633"
+  },
+  {
+    "kind": "local",
+    "name": "input-rejections",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/input-rejections-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/input-rejections"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/input-rejections/report.json",
+    "process_id": 29440,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "report_sha256": "0a7c0aa171b07b8e5d3dc83943939ccd35c94318d95c1e7f69cb7bdfc6abe3df",
+    "driver_sha256": "d070774dff5cba1c3dfe37cc10ec189c2c2006408437e534fe14643af8e00c4c"
+  }
+]

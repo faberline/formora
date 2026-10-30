@@ -1,0 +1,77 @@
+{
+  "checker": "docs/evidence/snap-delta-core/performance/compare-performance.py",
+  "checker_sha256": "001811d9f0fa17cae9dd3175b4b1677b31c729f735320a5c259aba9a9ff8b97d",
+  "changed_assertions": false,
+  "path_bindings": [
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/authored-grid.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/authored-grid.json",
+      "sha256": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/authored-modes.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/authored-modes.json",
+      "sha256": "c135b632e2a747a840f6176287e10602f0e2ffddd8e165ea3695f6f9869859eb"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/blender-grid-reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/blender-grid-reference.py",
+      "sha256": "00309067142b803949eced889b5da524597e0c1c021f20bc96c76b11f13c2a05"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/blender-grid-reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/blender-grid-reference.py",
+      "sha256": "3d8d68f6eea8e7c2ccbe10ab6324744150b072f114b65de9dac8a9a7c1ef3e74"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_snap_rotation_reference.py",
+      "sha256": "d5db093f0c3f50786dd2ec3288194ad6df13aec91bfcd9f8af082edca91ec641"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_snap_menu_reference.py",
+      "sha256": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_transform_reference.py",
+      "sha256": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_selection_reference.py",
+      "sha256": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/contracts/snap-delta-core.md",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/contracts/snap-delta-core.md",
+      "sha256": "7b8808d2b2d119b4f9c264dec18c14c5b2fc184d262db989e31223ac53305143"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-menu.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/baseline/fixtures/snap-menu.json",
+      "sha256": "739609dff0ec611641783010c1ad0ea7c076f3d492e5f012a243f2f27ec1a9c4"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/generate_snap_rotation_cases.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/generate_snap_rotation_cases.py",
+      "sha256": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/generate_snap_delta_cases.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/generate_snap_delta_cases.py",
+      "sha256": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_snap_delta_reference.py",
+      "sha256": "f37391b11aa8f9acea013699a7dee14f1a0c32d50513c41ff56d00eaa5ef3c2b"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/baseline/sources/snap-delta/manifest.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/baseline/sources/snap-delta/manifest.json",
+      "sha256": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "kind": "isolation",
+    "name": "delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-delta-01.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-isolation-01/delta"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/delta/report.json"
+  },
+  {
+    "kind": "isolation",
+    "name": "raw",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-raw-01.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-isolation-01/raw"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/raw/report.json"
+  },
+  {
+    "kind": "isolation",
+    "name": "scene",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-scene-01.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-isolation-01/scene"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/scene/report.json"
+  },
+  {
+    "kind": "isolation",
+    "name": "primitive",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-primitive-01.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-isolation-01/primitive"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/primitive/report.json"
+  },
+  {
+    "kind": "isolation",
+    "name": "selection",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-selection-01.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-isolation-01/selection"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/selection/report.json"
+  },
+  {
+    "kind": "isolation",
+    "name": "creation",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-creation-01.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-isolation-01/creation"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/creation/report.json"
+  },
+  {
+    "kind": "isolation",
+    "name": "rng",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-rng-isolation-01.py"
+    ],
+    "report": "/private/tmp/formora-merge-retained-isolation-01/rng/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-01/recipe-delta"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-01/recipe-delta/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-raw",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-01/recipe-raw"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-01/recipe-raw/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-mesh",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-snap-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-01/recipe-mesh"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-01/recipe-mesh/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "seven-actions",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/seven-actions-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-01/seven-actions"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-01/seven-actions/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "input-rejections",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/input-rejections-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-01/input-rejections"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-01/input-rejections/report.json"
+  }
+]

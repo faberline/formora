@@ -1,0 +1,79 @@
+{
+  "raw_api_audit_passed": true,
+  "retained_requests": 14326,
+  "new_merge_requests": 2048,
+  "total_requests": 16374,
+  "retained_asset_checks": 1687,
+  "retained_parent_terminal_exit": 0,
+  "parent_report_sha256": "7c736c5014548524a83cf46c428f6d07fbf9793da4bbb2f5dd42955cfdff5086",
+  "verification_inputs_unchanged": true,
+  "binary_sha256": "0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa",
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "retained_audits": [
+    {
+      "name": "delta",
+      "requests": 3584,
+      "report_sha256": "0824f484dd10a4e897636261c2ec3ecffee6c7f70866dbc40c314499a7493715",
+      "outcomes": {
+        "defined_numeric_source_comparison": 3584
+      }
+    },
+    {
+      "name": "rotation",
+      "requests": 4992,
+      "report_sha256": "01139b0c7179cfe4cec291da71122d4859b24393d55e7f34dcd0e4efd06767a1",
+      "outcomes": {
+        "defined_numeric_source_comparison": 4992
+      }
+    },
+    {
+      "name": "scene",
+      "requests": 1100,
+      "report_sha256": "65f180a2bf047fd50ebd8e7736a41e944c3dee6f772d229d0a050ec914b58f96",
+      "outcomes": {
+        "defined_numeric_source_comparison": 1094,
+        "explicit_cancellation": 4,
+        "explicit_atomic_rejection": 2
+      }
+    },
+    {
+      "name": "single",
+      "requests": 2244,
+      "report_sha256": "8c07665b0ef892579321cbe8a71dafb297a1a0cd57a2279abf5c1d3f47138626",
+      "outcomes": {
+        "defined_numeric_source_comparison": 2072,
+        "explicit_cancellation": 136,
+        "explicit_atomic_rejection": 36
+      }
+    },
+    {
+      "name": "transform",
+      "requests": 2406,
+      "report_sha256": "872ccd5f33c0bf1cb354574d0d5fcba3bfe8722fa151d958909ac9333a0d0029",
+      "outcomes": {
+        "{'source_outcome': 'FINISHED'}": 2380,
+        "{'source_outcome': 'UNDEFINED_ROTATION_AXIS', 'comparison_kind': 'human_approved_undefined_rotation_rejection', 'policy_outcome': 'REJECTED', 'policy_error': 'mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior', 'numeric_source_match_claimed': False}": 14,
+        "{'source_outcome': 'CANCELLED'}": 12
+      }
+    }
+  ],
+  "new_merge_audit_sha256": "6518d03ed6357fe97cc79cf8a3bf14a8f57a3be3dad07d92fda73b8e55783217",
+  "undefined_rotation_rejections": 14,
+  "undefined_rotation_rejections_are_numeric_source_matches": false,
+  "stochastic_support_checks": 48,
+  "stochastic_support_is_deterministic_source_parity": false,
+  "merge_enum_rejected_interface_cases": 32,
+  "merge_enum_rejections_are_numeric_matches": false,
+  "recipe20": "passed on this build; separate archive",
+  "all_207_timing_and_source_comparisons": "passed on this build",
+  "six_frozen_regeneration_tests_under_source_denial": "passed",
+  "baseline_strict_terminal_exit": 2,
+  "baseline_ready": false,
+  "pending_sources": 8993,
+  "pending_features": 39,
+  "three_platform_ci": "failed to start; six jobs, zero steps at last verified head509b",
+  "dependency_integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "milestones_accepted": 0,
+  "overall_product_acceptance": "unrun"
+}

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "native_terminal_exit": 0,
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+    "/private/tmp/formora-merge-regen-six-denied-01",
+    "--nocapture"
+  ],
+  "profile": "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+  "native_executable_sha256": "a3aeb4024c320c6326d9b0c82eed4d46cd2a1d393659fdcd57f46b3fe5a45cc9",
+  "frozen_test_sha256": "d65116a6f178b4b81639ef7217c376614d96ba8757a2078098228b41c2f86ee6",
+  "library_sha256": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "all_60_generator_mode_preview_combinations_under_source_denial": true,
+  "source_and_current_prior_answer_reads": "actually denied by separately recorded native cat controls",
+  "product_acceptance": "unrun"
+}

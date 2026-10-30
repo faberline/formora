@@ -1,0 +1,57 @@
+[
+  {
+    "kind": "local",
+    "name": "recipe-delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/recipe-delta"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/recipe-delta/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-raw",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/recipe-raw"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/recipe-raw/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-mesh",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-snap-core/recipe-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/recipe-mesh"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/recipe-mesh/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "seven-actions",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/seven-actions-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/seven-actions"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/seven-actions/report.json"
+  },
+  {
+    "kind": "local",
+    "name": "input-rejections",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/input-rejections-driver.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-local-02/input-rejections"
+    ],
+    "report": "/private/tmp/formora-merge-retained-local-02/input-rejections/report.json"
+  }
+]

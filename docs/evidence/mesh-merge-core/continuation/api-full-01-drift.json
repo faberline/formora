@@ -1,0 +1,14 @@
+{
+  "tool_terminal_exit": 1,
+  "full_gate_passed": false,
+  "functional_requests": 2048,
+  "functional_failures": 0,
+  "missing_inputs": [
+    "docs/contracts/mesh-merge-persistence-and-receipts.md"
+  ],
+  "changed_inputs": [],
+  "binary_unchanged": true,
+  "cause": "sparse-checkout add reapplied patterns and removed the new tracked receipt contract outside its sparse definition",
+  "no_gate_claimed_as_passed": true,
+  "next_step": "restore full isolated worktree, preserve this failure, repair source history and rerun the full gate"
+}

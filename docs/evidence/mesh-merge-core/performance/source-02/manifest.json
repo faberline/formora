@@ -1,0 +1,150 @@
+{
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "process_id": 76326,
+  "background": false,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/blender-grid-reference.py",
+    "--",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/source-02"
+  ],
+  "scope": "ten_before_code_attributed_merge_grid_forms",
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/authored-grid.json": "e2f1cae31fff704f5730f93a193796bbb3d56832fff3e8c857604823159db97f",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/authored-forms.json": "1b351a305087b4efea88d805de8f0a3e85e3b469f90e3846ff03b0ed5874b069",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/author-inputs.py": "2fc3dc00249201dba405e8fb9bfe2c39f7caeabbb63f277fd958aa2b88269896",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/blender-grid-reference.py": "685ee27e6a9bc19fd1534d2eef7565283cb452e4e48b41b9fdbd4e5f881319a9",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/blender-grid-reference.py": "3d8d68f6eea8e7c2ccbe10ab6324744150b072f114b65de9dac8a9a7c1ef3e74",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/authored-grid.json": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/mesh-merge-core.md": "add12089435972c9efc5b87638de47ea567fa6e31596cb2438a7ffb71fd207fc",
+    "/Users/chrischeng/faberlines/formora/tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-menu.json": "739609dff0ec611641783010c1ad0ea7c076f3d492e5f012a243f2f27ec1a9c4",
+    "/Users/chrischeng/faberlines/formora/baseline/lock.json": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/editmesh_tools.cc": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmo_removedoubles.cc": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_interp.cc": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_core.cc": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_mods.cc": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_operators.cc": "4fec9e1587120cf39a7f394ab13522bf2856b8d1023704f9d14afa69a937ea60",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_walkers_impl.cc": "104cdf8b62e4ad3a7563ffce6bb4b49cab3fc33d1b23bb57afe9736689809b3d",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/customdata.cc": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/deform.cc": "42e5a7fd06c20f479ca459b73aea8bac8a188ab8610b63d76b6a10c54980e375",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-merge/bmesh_opdefines.cc": "6452b85accdb60ee4f3db1369970779cdc91a81f6ea7ce751289637c410023da"
+  },
+  "operator_properties_sha256": "ea6f625083a62a128983efd1fd7b3645523934baad3a6e48bba734621489115c",
+  "runs": [
+    {
+      "id": "center-no-uv",
+      "file": "center-no-uv.json.gz",
+      "sha256": "ba5ecbbdb5c8a46ec4e03fafdd514ee2d15c4447e6d2dc74fcc2218a0cbd4462",
+      "raw_sha256": "49f49c3c4b85020c6b2fe0b910352fd38b9ddeef82d064c28bd008512832779c",
+      "raw_bytes": 19568834
+    },
+    {
+      "id": "center-uv",
+      "file": "center-uv.json.gz",
+      "sha256": "c5f2bfc7dd6e0e32480bb9541511c88ffbf81c64e8502f82159c77b40f8eab00",
+      "raw_sha256": "8641e1bae85f6dc7d5c61f366af801ea64683b13a103872ff6251340eb6c751c",
+      "raw_bytes": 19568826
+    },
+    {
+      "id": "cursor-no-uv",
+      "file": "cursor-no-uv.json.gz",
+      "sha256": "7b9848a3a7350d9e4ce04bc2583a8feb5b3748c40f7062d1a2c85fab0e6b6c1d",
+      "raw_sha256": "f1674c638a321047dd12eb5f6afb9f851c03c73ab70b3a0f09b8277eca9cd162",
+      "raw_bytes": 19568862
+    },
+    {
+      "id": "cursor-uv",
+      "file": "cursor-uv.json.gz",
+      "sha256": "a6830472546e54df0df89809ddbc4f5c92c539dc6aa8adfee7c6ea0c4716c461",
+      "raw_sha256": "ff94dd8148295d083ebcaaf70e61f824b52f5d0bb307d64511cc1eeb820da0de",
+      "raw_bytes": 19568854
+    },
+    {
+      "id": "collapse-no-uv",
+      "file": "collapse-no-uv.json.gz",
+      "sha256": "d881fb1a8facfc286c5a29a72ff4074546e22c468740bdd4fc9fb53eb25638e0",
+      "raw_sha256": "660b25059df6af01ce6d476b8ae0677e6ac82d52baaca354d90b3e50628708f3",
+      "raw_bytes": 19568790
+    },
+    {
+      "id": "collapse-uv",
+      "file": "collapse-uv.json.gz",
+      "sha256": "e0aef6ddfbd94426078bee28ad6b3692a43bd6bef97bafd938c3580b7b9ad49b",
+      "raw_sha256": "365b9ad65ecd54093fb19334b76335bb54c783b6cb0ebd68346b682ac3c09207",
+      "raw_bytes": 19568782
+    },
+    {
+      "id": "first-no-uv",
+      "file": "first-no-uv.json.gz",
+      "sha256": "b4476b5cd1a65196f397515417a7875c6aaf25c456dd096c4b3075f655d4716f",
+      "raw_sha256": "03852acca21c2ff90a08d03d6c113ceebee40da6ea9695d0ec74711ad7fab9f3",
+      "raw_bytes": 19568858
+    },
+    {
+      "id": "first-uv",
+      "file": "first-uv.json.gz",
+      "sha256": "7668a02c2128d5b6cbccfb8e3264d33b6b81627bf51cfda64b7d0a05dc2777b1",
+      "raw_sha256": "03ab17e87f8046f6d69df5e243c30d0d9da0c95db9c7612aa762642476f15d51",
+      "raw_bytes": 19568850
+    },
+    {
+      "id": "last-no-uv",
+      "file": "last-no-uv.json.gz",
+      "sha256": "b8486447f47060a672e1895518b26cc7d2e777e0c79bc84cdacb4d4d6b44ad50",
+      "raw_sha256": "ca473c1b93e0f1817d62c0e4c59ca152de496655ef0728345116e85099f40571",
+      "raw_bytes": 19568854
+    },
+    {
+      "id": "last-uv",
+      "file": "last-uv.json.gz",
+      "sha256": "bde57329cd51e3d5cb0345f80e1708bdcaa0dd6c7cc26d12221c96ec1e19ca05",
+      "raw_sha256": "7cb77a78aca6445791d22727a40c22be41a66a9c5905a6edc058e8ac36a6f65a",
+      "raw_bytes": 19568846
+    }
+  ],
+  "product_acceptance": "unrun"
+}

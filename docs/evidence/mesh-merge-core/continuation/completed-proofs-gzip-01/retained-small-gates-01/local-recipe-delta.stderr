@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/recipe-driver.py", line 5, in <module>
+    root=Path(__file__).resolve().parents[3];binary=Path(sys.argv[1]).resolve();out=Path(sys.argv[2]).resolve();out.mkdir(exist_ok=False)
+                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/formora-merge-retained-local-01/recipe-delta'

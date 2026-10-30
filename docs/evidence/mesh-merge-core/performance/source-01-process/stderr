@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/blender-grid-reference.py", line 172, in start
+    try: capture(args.output)
+         ~~~~~~~^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/blender-grid-reference.py", line 140, in capture
+    assign_integer_attributes(objects, scene)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/blender-grid-reference.py", line 67, in assign_integer_attributes
+    item[layer] = value
+    ~~~~^^^^^^^
+ReferenceError: BMesh data of type BMVert has been removed

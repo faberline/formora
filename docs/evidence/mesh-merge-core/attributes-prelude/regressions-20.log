@@ -1,0 +1,40 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.91s
+     Running tests/creation_contexts.rs (/private/tmp/formora-target-actual185/debug/deps/creation_contexts-be3c0fee4212959a)
+
+running 8 tests
+test legacy_json_remains_unchanged_and_context_is_queryable_and_undoable ... ok
+test parent_world_frames_and_shared_assets_preserve_entity_ownership ... ok
+test receipts_are_ordered_real_components_and_created_objects_are_editable ... ok
+test collisions_singular_targets_budgets_and_invalid_batches_leave_no_undo ... ok
+test regenerate_keeps_the_creation_frame_after_context_changes_and_reload ... ok
+test creation_markers_can_be_hidden_without_changing_selection_or_surface_picking ... ok
+test creation_save_failure_has_no_receipt_memory_change_or_undo_entry ... ok
+test existing_triangle_ids_uvs_materials_and_implicit_edges_survive_insertion ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/mesh.rs (/private/tmp/formora-target-actual185/debug/deps/mesh-b119e5113997de2d)
+
+running 5 tests
+test invalid_geometry_attributes_and_dangling_references_are_rejected ... ok
+test duplicate_component_layer_asset_and_edit_ids_are_rejected ... ok
+test stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_trip ... ok
+test fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs ... ok
+test failure_preserves_disk_memory_and_undo_and_reference_deletion_is_atomic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/polygons.rs (/private/tmp/formora-target-actual185/debug/deps/polygons-b7cf11b5d97a8dd3)
+
+running 7 tests
+test crossing_projection_fails_instead_of_publishing_partial_triangles ... ok
+test collinear_and_coincident_corners_are_only_removed_from_preview ... ok
+test tessellation_maps_each_original_corner_normal_to_its_render_vertex ... ok
+test polygon_validation_rejects_broken_topology_corner_data_and_uv_layout ... ok
+test preview_and_picking_share_concave_surface_and_preserve_corner_normals ... ok
+test topology_uv_order_loose_edges_and_nonmanifold_connections_round_trip_and_undo ... ok
+test concave_faces_keep_winding_area_and_notch_across_planes_scales_and_order ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+

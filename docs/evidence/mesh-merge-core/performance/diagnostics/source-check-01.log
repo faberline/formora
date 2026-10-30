@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/check-source.py", line 183, in <module>
+    result = validate(args.source, args.terminal)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-merge-core/performance/check-source.py", line 111, in validate
+    tree(matrix(profiles[name]), obj['matrix_basis'], 'authored basis/' + name)
+         ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: matrix() missing 1 required positional argument: 'rotation'

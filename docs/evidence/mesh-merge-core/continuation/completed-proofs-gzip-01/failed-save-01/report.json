@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "native_calls": 19,
+  "native_process_id": 30126,
+  "native_terminal_exit": 0,
+  "actual_failed_save_error": "Is a directory (os error 21)",
+  "memory_disk_revision_and_undo_preserved": true,
+  "actual_undo_and_replay": true,
+  "fresh_process_reload_equal": true,
+  "repository_and_prior_results_reads_denied": true,
+  "denial_control": {
+    "exit": 1,
+    "stderr": "cat: /private/tmp/formora-mesh-merge-sparse/Cargo.toml: Operation not permitted\n"
+  },
+  "fresh_process": {
+    "command": [
+      "/usr/bin/sandbox-exec",
+      "-p",
+      "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(api|pilot|performance)\"))\n",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-failed-save-01/scene.json"
+    ],
+    "exit": 0,
+    "stdout": "{\"revision\":3,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":3,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+    "stderr": ""
+  },
+  "binary_sha256": "5bf40a3c99843bd7b9395d3d712f605756284cd44aa07c2925661b7c7bd5c3c2",
+  "authored_input_sha256": "6656d8c4ac81015c1a1ee028361a0126ab4b534778d9a3d86e7da1f9e3d7c9e9",
+  "scene_sha256": "b4633b9e784a5b4f0897307a925a87477f4d31f75e8b2ba30343e0974f030d40",
+  "product_implementation": "224a4360276511f48d023a2f6f39190010dae731",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

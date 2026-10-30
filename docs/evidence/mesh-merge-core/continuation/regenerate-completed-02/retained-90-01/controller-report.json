@@ -1,0 +1,353 @@
+{
+  "passed": true,
+  "samples": 90,
+  "groups": [
+    {
+      "class": "A",
+      "form": "selected-grid",
+      "report": "report-A-selected-grid.json",
+      "report_sha256": "d21caf25c291cd14cf5449cb7944564240486f6a13b87c7d7f85e91e3d8c4619",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-active",
+      "report": "report-A-selected-active.json",
+      "report_sha256": "ed31fcd834346f7fae5d8434e315656ae670bb63805d2cf7a8b1b8f1db4b522b",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-grid",
+      "report": "report-A-cursor-grid.json",
+      "report_sha256": "02b6d1c15b2234bcf80878b066bbc0cf8c0d12391fbcd090d2769aa114c62321",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-selected",
+      "report": "report-A-cursor-selected.json",
+      "report_sha256": "367c2ba113d3e819af9aa16198dab4a609bb56d9e56627256e7445e5f49ff994",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-active",
+      "report": "report-A-cursor-active.json",
+      "report_sha256": "66283ee4655136854262d3c4c51ae9dcd90d1c738bfad7e6e02ecad5f17b0c70",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "cursor-origin",
+      "report": "report-A-cursor-origin.json",
+      "report_sha256": "27f2ef04a007f7c847c7f57ff11702943493bb94e314998dadce76b81881b433",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-false-false",
+      "report": "report-A-selected-cursor-false-false.json",
+      "report_sha256": "ce658a61c19e05664c3d4cc77fc7d6b1ce58e3185b399785313181ca305fcdef",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-false-true",
+      "report": "report-A-selected-cursor-false-true.json",
+      "report_sha256": "c871939b6d7461169179087127a9dc2fa623bb7175c0921af4c99d10ff3d3d3a",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-true-false",
+      "report": "report-A-selected-cursor-true-false.json",
+      "report_sha256": "7c65e558307a17a886a576700974fdb04399ee2a11e756731941acd9e3c20676",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "A",
+      "form": "selected-cursor-true-true",
+      "report": "report-A-selected-cursor-true-true.json",
+      "report_sha256": "d73e09fa5b0039d8b1dedcdfca0bbc5b58510086771954ab5b69760bfdde931d",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-grid",
+      "report": "report-B-selected-grid.json",
+      "report_sha256": "83c90de24328ce2742891e38a24d57dc2dea15d6b066039105f57bf1aefaf8d1",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-active",
+      "report": "report-B-selected-active.json",
+      "report_sha256": "731ea93a8602e49c6863e589032b3106599c9caf0b9eae4e9edd1b4241bd6619",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-grid",
+      "report": "report-B-cursor-grid.json",
+      "report_sha256": "d6d996b609c09f3924782aa2f71fdb839cabbc1908597c0630b86a3f88ee9c96",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-selected",
+      "report": "report-B-cursor-selected.json",
+      "report_sha256": "7dbfef0dbd47740355cc84849f9f7f3cc6940f200d411cafc4acfd3ec04ede26",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-active",
+      "report": "report-B-cursor-active.json",
+      "report_sha256": "6202ca51432060dc15e78b97101d97244b8bcc3f0b8ab8d2a95edbd96838e968",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "cursor-origin",
+      "report": "report-B-cursor-origin.json",
+      "report_sha256": "12a99b7b96c0e5010c70b1466e94222b481208db5edab8e87089d419d63ceb19",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-false-false",
+      "report": "report-B-selected-cursor-false-false.json",
+      "report_sha256": "00018ec8391fa8658b30080e3a269eb376f557a2f1a92988ae7eab096de7720a",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-false-true",
+      "report": "report-B-selected-cursor-false-true.json",
+      "report_sha256": "09c9c5e399a38f1c35d47838c550155aeeb4d973b1da967b62e43803ae069ffc",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-true-false",
+      "report": "report-B-selected-cursor-true-false.json",
+      "report_sha256": "1899a19c13e2d664ba124c33735dd2c51af30f04ee75a5cd5d5c5ec899a6b2d2",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "B",
+      "form": "selected-cursor-true-true",
+      "report": "report-B-selected-cursor-true-true.json",
+      "report_sha256": "36449750460e90456adefe087313a32e0b66a4d9e4808b88c782a854a9a5f147",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-grid",
+      "report": "report-C-selected-grid.json",
+      "report_sha256": "8bb1cd044debcaa0edef4500e47be1b4f3725c626b9b0f24ed15bbdc1cf6116e",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-active",
+      "report": "report-C-selected-active.json",
+      "report_sha256": "4aadd12cdc64556fa0e6f10e547631240e28fd5eb0a45c7ff287df634cae165e",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-grid",
+      "report": "report-C-cursor-grid.json",
+      "report_sha256": "33dbe8dcdc554d67cddb928c632b3c5f7420d5171ee5870e684ad5dc559e0309",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-selected",
+      "report": "report-C-cursor-selected.json",
+      "report_sha256": "cc086420467ef9c938d57896b05664bcdc95dd8eb83ffdd7817ec45ac99aaf04",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-active",
+      "report": "report-C-cursor-active.json",
+      "report_sha256": "08d0caa761be548d4d6b0adf2284848d629b90eeb02732c3a32d7d5a34c25a30",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "cursor-origin",
+      "report": "report-C-cursor-origin.json",
+      "report_sha256": "9547742699feee7a4e135f2cf8774d1cce389e63fb065db82b5beb0f3247ab65",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-false-false",
+      "report": "report-C-selected-cursor-false-false.json",
+      "report_sha256": "3aec2ed628cc298ba90ac5b3207c05243b8db810faa829218240f96845dcc8a9",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-false-true",
+      "report": "report-C-selected-cursor-false-true.json",
+      "report_sha256": "232d4014038efa7afdfb631f2292dc64efbe1c16157e3ed771780f07d4423837",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-true-false",
+      "report": "report-C-selected-cursor-true-false.json",
+      "report_sha256": "186a51901f82d4729ed9951efc151a7525dbbbc43113290153b1e5ce857590a6",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    },
+    {
+      "class": "C",
+      "form": "selected-cursor-true-true",
+      "report": "report-C-selected-cursor-true-true.json",
+      "report_sha256": "86b8a63a56a5475d17e27d3fb98d9e899c3b2f55dc99bbfb73af5446e4418c22",
+      "terminal_exit_code": 0,
+      "terminal_scope": "shared native process",
+      "passed": true
+    }
+  ],
+  "command": [
+    "/private/tmp/formora-merge-regen-retained-90-driver-01",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples",
+    "/private/tmp/formora-merge-regen-retained-90-01/samples"
+  ],
+  "terminal_exit_code": 0,
+  "native_process_id": 68087,
+  "input_hashes": {
+    "/private/tmp/formora-mesh-merge-sparse/Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "/private/tmp/formora-mesh-merge-sparse/Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "/private/tmp/formora-mesh-merge-sparse/src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "/private/tmp/formora-mesh-merge-sparse/src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "/private/tmp/formora-mesh-merge-sparse/src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "/private/tmp/formora-mesh-merge-sparse/src/lib.rs": "a19af3f508640cd3d3be6cda197aacf63b126c34b3a69c2b7bc904ccf43e4fe5",
+    "/private/tmp/formora-mesh-merge-sparse/src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/attributes.rs": "d9d5eff17d7074665429b2bb9e2a0fe720daafc551e65a33b1e34f217b84a04b",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/creation/inverse4.rs": "9f7ca7d8ac959b822c3e71bb03d2c148f4b71afef42d4ad829445d7c4dbf5877",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/creation/mod.rs": "f0a6c4bf14b726365d04af84fa54ffeb628b92b4cb19a7c0c11079eb6fbac64b",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/frame_math.rs": "6678c8019d118f60cfaaa3b6b4e0340048a24863f70a46a3aae91b95e26b2f0c",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/merge/weld/uv.rs": "a8baa9e2f7e159d7929720e56a051b0cfec92361ae887df824cc224366d1ecf0",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/merge/weld.rs": "0af7955a593efb161f6a4cae705974a404f2c964ebbe7439cc41460ef419a064",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/merge.rs": "1bd0ec5acc5bd78fec0511f8b60071458b9ef520e57fb653520d6f1257e564f6",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/normals.rs": "7930ebabaf4c3bbb35bdba65bf3a058e4a643350fb32a1cd37f6dc924bb52bc3",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/snap.rs": "0a914fc73cd493d56dae3573a9ee16aa0f74e839d11733739576d845390670e9",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/context.rs": "b1d674dc22b6d4b155712f54ed2cb6ecb5a0326b7206d520735f4d06456abbad",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/gimbal.rs": "fa064e48c013749118903d92be690a876692f390047216e1e6244fd1db8b76b6",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "/private/tmp/formora-mesh-merge-sparse/src/mesh.rs": "9e67a3de960394c09d935d778941e1cefd0e80276b2c7a007d917e419b9fc850",
+    "/private/tmp/formora-mesh-merge-sparse/src/objects/math.rs": "8837698977dc5b2ca1eb9d0c4214380c8474b45760e7321b9a00430b6de56b7e",
+    "/private/tmp/formora-mesh-merge-sparse/src/objects/snap.rs": "f82f79c5e6d46b9af7eac435d2d87df85ee087bd74317233ea91d6f4e4109038",
+    "/private/tmp/formora-mesh-merge-sparse/src/objects.rs": "1a2ab4093f50a26832112ddb9cd2cc594755590edf888b74ab2ffb39bd4740cb",
+    "/private/tmp/formora-mesh-merge-sparse/src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "/private/tmp/formora-mesh-merge-sparse/src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "/private/tmp/formora-mesh-merge-sparse/src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "/private/tmp/formora-mesh-merge-sparse/src/preview/shader.wgsl": "2e8b471028e3e5b2872a2802bf3cc4810af4d4303ddcae15e409a17d6a6bcc18",
+    "/private/tmp/formora-mesh-merge-sparse/src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "/private/tmp/formora-mesh-merge-sparse/src/rotation/source.rs": "21538c8444bfd7e86715a4767404c9891343de585a916db28038168e3d9460f4",
+    "/private/tmp/formora-mesh-merge-sparse/src/rotation.rs": "783feed87b6e9950645c09432d34fb019be179541e416c65aeea32a21aad0bff",
+    "/private/tmp/formora-mesh-merge-sparse/src/scene.rs": "e2f2cb8910abab774dafd5d7d3e389a2f09059f48ba9c2821435089b6976ece8",
+    "/private/tmp/formora-mesh-merge-sparse/src/session.rs": "9e750617929a3f1e89326fc71b64158c5d488bf67a390cb5528545e33384be15",
+    "/private/tmp/formora-mesh-merge-sparse/src/transforms/delta.rs": "3611af390cb26a4dd11685302b4fafd0ba1b09a70d225599b75c21c2fa303af4",
+    "/private/tmp/formora-mesh-merge-sparse/src/transforms.rs": "6b09d0b26dd8bb07199ee04f66f816ce59a7b811390ef60a665fe109c0b2bc5e",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/regenerate-retained-run-90-01.py": "d1871baf9f6d733a9136247bb17d4930f82dd46bb30b7cd3718f2aa2b4040eb0",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/capture-driver-one-process.rs": "2986aa4061ad2c7601463533eca53a49a99b9d42e3e4100600ef48627151b4bf",
+    "/private/tmp/formora-merge-regen-retained-90-driver-01": "76f680b2a59690f6b08c7896615f767c5aee45c1f7f7c0ee69f3af682aa5d993",
+    "/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples/input-A.json": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples/input-B.json": "d10ba60aec9b520c563b187226d54619b67cbbefd64b6b5e8aa9a50148198b51",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples/input-C.json": "4a5a566461e482e0088b611d60541849121c7fb429578ec1fb4f1958353e427a"
+  },
+  "verification_inputs_unchanged": true,
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "same_filesystem_as_checkout": true,
+  "timing_summary_sha256": "fd7fcfaaffea208429a1b8d2ffba5f93cbc7284be25a04d8c6ba6f9195817cc0",
+  "method": "all fixed groups in one native process; original clocks, counts and limits; output on same filesystem outside checkout",
+  "source_comparison": "required separately for every output",
+  "product_acceptance": "unrun",
+  "milestone_acceptance": "unrun"
+}

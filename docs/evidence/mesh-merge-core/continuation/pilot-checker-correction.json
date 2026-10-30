@@ -1,0 +1,8 @@
+{
+  "first_diagnostic": "/private/tmp/formora-merge-pilot-01",
+  "first_result": "9 failures; candidate probe propagated the expected nonmatching-coordinate ValueError before comparing actual results",
+  "correction": "catch ValueError as a negative candidate, like AssertionError; no tolerance/source/input/output changes",
+  "first_checker_sha256": "e892998bf9d184207bac0cb60f9c2261cd08d79bbff522bc2210570efe838742",
+  "corrected_checker_sha256": "fb0b2b86ff026bc19ff19994110fb086ec1b57196313ff9be06acdacc85d936b",
+  "product_source_unchanged": true
+}

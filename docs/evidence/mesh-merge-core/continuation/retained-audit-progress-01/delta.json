@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "kind": "full",
+  "requests": 3584,
+  "outcomes": {
+    "defined_numeric_source_comparison": 3584
+  },
+  "raw_source_comparisons_rechecked": true,
+  "binary_sha256": "5bf40a3c99843bd7b9395d3d712f605756284cd44aa07c2925661b7c7bd5c3c2",
+  "implementation_commit": "224a4360276511f48d023a2f6f39190010dae731",
+  "actual_terminal_record": {
+    "name": "delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/delta_snap_runtime.py",
+      "/private/tmp/formora-merge-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-api-01/delta",
+      "--gzip-output"
+    ],
+    "native_process_id": 7687,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 3584,
+    "actual_checks": 3584,
+    "report_sha256": "a0d9f896c954d4992f7d15d34c5549f6b64369b0531ba22dccbd4ff65d0caf4e",
+    "start_ns": 177898654676666,
+    "end_ns": 178772695643750
+  },
+  "driver_sha256": "ed1b780806dbcfd016e78418f068b8a3ff938f1cc32a34443eedc5be57b3ef77",
+  "audit_module_sha256": "b189fbec9f39462b4512de7598cf951946bb6eddecd64251b299555e36b00c78",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

@@ -1,0 +1,63 @@
+{
+  "form": "collapse-uv",
+  "milestone_acceptance": "unrun",
+  "passed": false,
+  "product_acceptance": "unrun",
+  "runs": [
+    {
+      "core_end_ns": 11332032833,
+      "core_ms": 360.065375,
+      "core_start_ns": 10971967458,
+      "form": "collapse-uv",
+      "fresh_reload_equal": true,
+      "full_input_and_result_validation_inside_clocks": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "method": "collapse",
+      "operation_save_reload_ms": 247.248083,
+      "passed": false,
+      "pipeline_end_ns": 11746384000,
+      "pipeline_start_ns": 11499135917,
+      "receipt_equal": true,
+      "sample": 1,
+      "uvs": true
+    },
+    {
+      "core_end_ns": 12077309917,
+      "core_ms": 237.290042,
+      "core_start_ns": 11840019875,
+      "form": "collapse-uv",
+      "fresh_reload_equal": true,
+      "full_input_and_result_validation_inside_clocks": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "method": "collapse",
+      "operation_save_reload_ms": 252.317333,
+      "passed": true,
+      "pipeline_end_ns": 12496723708,
+      "pipeline_start_ns": 12244406375,
+      "receipt_equal": true,
+      "sample": 2,
+      "uvs": true
+    },
+    {
+      "core_end_ns": 12819398708,
+      "core_ms": 230.29475,
+      "core_start_ns": 12589103958,
+      "form": "collapse-uv",
+      "fresh_reload_equal": true,
+      "full_input_and_result_validation_inside_clocks": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "method": "collapse",
+      "operation_save_reload_ms": 258.210959,
+      "passed": true,
+      "pipeline_end_ns": 13259119917,
+      "pipeline_start_ns": 13000908958,
+      "receipt_equal": true,
+      "sample": 3,
+      "uvs": true
+    }
+  ],
+  "samples": 3
+}

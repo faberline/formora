@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "control": "count",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "changed",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "lineage",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "shared",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "receipt",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "reload",
+      "rejected": true,
+      "error": "fresh process binding differs"
+    },
+    {
+      "control": "raw_result",
+      "rejected": true,
+      "error": "MCP raw result binding differs"
+    },
+    {
+      "control": "missing_response",
+      "rejected": true,
+      "error": "missing or duplicate MCP response"
+    },
+    {
+      "control": "duplicate_response",
+      "rejected": true,
+      "error": "missing or duplicate MCP response"
+    },
+    {
+      "control": "request",
+      "rejected": true,
+      "error": "MCP request binding differs"
+    },
+    {
+      "control": "native_exit",
+      "rejected": true,
+      "error": ""
+    }
+  ],
+  "original_evidence_unchanged": true,
+  "limits_unchanged": true,
+  "product_acceptance": "unrun"
+}

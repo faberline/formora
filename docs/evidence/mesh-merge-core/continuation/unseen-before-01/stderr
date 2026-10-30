@@ -1,0 +1,11 @@
+
+thread 'uv::untouched_triangle_uv_normals_and_integer_data_remain_exact' panicked at docs/evidence/mesh-merge-core/continuation/proposed-mesh-merge-uv-preservation.rs:49:5:
+assertion `left == right` failed
+  left: Triangle { vertices: ["g", "h", "i"], uv_layers: {"Detail": [[0.0, 0.0], [1.0, 0.0], [0.0, 1.0]], "Layout": [[0.1111111119389534, 0.2222222238779068], [1.0, 0.0], [0.0, 1.0]]}, corner_normals: Some([[0.0, 0.0, 1.0], [0.0, 0.0, 1.0], [0.0, 0.0, 1.0]]), material_slot: None }
+ right: Triangle { vertices: ["g", "h", "i"], uv_layers: {"Detail": [[0.0, 0.0], [1.0, 0.0], [0.0, 1.0]], "Layout": [[0.111111111111111, 0.222222222222222], [1.0, 0.0], [0.0, 1.0]]}, corner_normals: Some([[0.0, 0.0, 1.0], [0.0, 0.0, 1.0], [0.0, 0.0, 1.0]]), material_slot: None }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'uv::unselected_surviving_polygon_uv_keeps_its_stored_f64_value' panicked at docs/evidence/mesh-merge-core/continuation/proposed-mesh-merge-uv-preservation.rs:40:5:
+assertion `left == right` failed
+  left: [0.12345679104328156, 0.5]
+ right: [0.123456789012345, 0.5]

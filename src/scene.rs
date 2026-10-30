@@ -482,6 +482,9 @@ pub enum Command {
     SnapMesh {
         snap: Box<crate::mesh::snap::Request>,
     },
+    MergeMesh {
+        merge: Box<crate::mesh::merge::Request>,
+    },
     TransformMesh {
         transform: Box<crate::mesh::transform::Request>,
     },
@@ -573,10 +576,16 @@ enum CommandEffect {
     Transform(Box<crate::mesh::transform::Receipt>),
     Snap(Box<crate::mesh::snap::Receipt>),
     SceneSnap(Box<crate::objects::snap::Receipt>),
+    Merge(Box<crate::mesh::merge::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::MergeMesh { merge } => {
+                return Ok(CommandEffect::Merge(Box::new(crate::mesh::merge::execute(
+                    scene, merge,
+                )?)));
+            }
             Self::SetObjectContext { context } => scene.object_context = context.clone(),
             Self::SnapScene { snap } => {
                 return Ok(CommandEffect::SceneSnap(Box::new(
@@ -656,12 +665,35 @@ impl Command {
                 let budget = max_components
                     .or(recipe.map(|r| r.max_components))
                     .unwrap_or(crate::mesh::primitives::DEFAULT_MAX_COMPONENTS);
-                let generated = if let Some(frame) = recipe.and_then(|r| r.creation_frame.as_ref())
-                {
-                    frame.generate(primitive, budget)?
-                } else {
-                    primitive.generate(budget)?
-                };
+                let mut generated =
+                    if let Some(frame) = recipe.and_then(|r| r.creation_frame.as_ref()) {
+                        frame.generate(primitive, budget)?
+                    } else {
+                        primitive.generate(budget)?
+                    };
+                let in_edit_mode = scene.object_context.as_ref().is_some_and(|context| {
+                    context
+                        .edit_objects
+                        .iter()
+                        .filter_map(|owner| scene.entities.get(owner))
+                        .any(|owner| {
+                            matches!(
+                                &owner.content,
+                                EntityKind::Mesh {
+                                    geometry: Geometry::Asset { id: asset_id },
+                                    ..
+                                } if asset_id == id
+                            )
+                        })
+                });
+                if in_edit_mode {
+                    let mut editing = crate::mesh::selection::Editing::default();
+                    if let Some(previous) = &existing.editing {
+                        editing.mode.clone_from(&previous.mode);
+                        editing.preview = previous.preview;
+                    }
+                    generated.editing = Some(editing);
+                }
                 scene.mesh_assets.insert(id.clone(), generated);
             }
             Self::SetMeshAsset { id, asset } => {
@@ -807,6 +839,7 @@ pub struct EditResult {
     pub transforms: Vec<crate::mesh::transform::Receipt>,
     pub snaps: Vec<crate::mesh::snap::Receipt>,
     pub scene_snaps: Vec<crate::objects::snap::Receipt>,
+    pub merges: Vec<crate::mesh::merge::Receipt>,
 }
 
 impl Editor {
@@ -850,6 +883,7 @@ impl Editor {
         let mut transforms = Vec::new();
         let mut snaps = Vec::new();
         let mut scene_snaps = Vec::new();
+        let mut merges = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
                 CommandEffect::Selection(outcome) => {
@@ -878,6 +912,10 @@ impl Editor {
                     receipt.command_index = command_index;
                     scene_snaps.push(*receipt);
                 }
+                CommandEffect::Merge(mut receipt) => {
+                    receipt.command_index = command_index;
+                    merges.push(*receipt);
+                }
                 CommandEffect::None => {}
             }
             candidate.validate()?;
@@ -892,6 +930,7 @@ impl Editor {
             transforms,
             snaps,
             scene_snaps,
+            merges,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {

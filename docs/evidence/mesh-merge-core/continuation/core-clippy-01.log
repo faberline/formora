@@ -1,0 +1,16 @@
+    Checking formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+error: the loop variable `axis` is used to index `sum`
+  --> src/mesh/merge/weld/uv.rs:95:37
+   |
+95 |                         for axis in 0..2 {
+   |                                     ^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_range_loop
+   = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+   |
+95 |                         for (axis, <item>) in sum.iter_mut().enumerate() {
+   |                             ~~~~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+error: could not compile `formora` (lib) due to 1 previous error

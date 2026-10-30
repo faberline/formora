@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "scope": "same authored scene; exact native rendered-image regression across the regeneration-only code repair",
+  "records": [
+    {
+      "name": "before",
+      "old_sha256": "bce46ce0e1801aff22e74668f25b0181c1acbcb6abc276c250aad8f4bd0ff4bb",
+      "new_sha256": "bce46ce0e1801aff22e74668f25b0181c1acbcb6abc276c250aad8f4bd0ff4bb",
+      "identical": true
+    },
+    {
+      "name": "after",
+      "old_sha256": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1",
+      "new_sha256": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1",
+      "identical": true
+    },
+    {
+      "name": "reloaded",
+      "old_sha256": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1",
+      "new_sha256": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1",
+      "identical": true
+    }
+  ],
+  "old_implementation": "224a4360276511f48d023a2f6f39190010dae731",
+  "new_implementation": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "product_acceptance": "unrun"
+}

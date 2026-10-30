@@ -1,0 +1,31 @@
+{
+  "implementation_commit": "224a4360276511f48d023a2f6f39190010dae731",
+  "library_sha256": "86ad80551979b51ac339b83b2733455f589abdb486448afa19cd204d50e654ea",
+  "native_test_sha256": "8d47a536fd13f0dff5bd484353c6ac7cc7da8cde636dcf671249ef72b3cfeb04",
+  "native_test_terminal_exit": 101,
+  "tests": 6,
+  "passed": 1,
+  "failed": 5,
+  "ignored": 0,
+  "required_gate_passed": false,
+  "product_code_changed": false,
+  "initial_compile": "Option<Editing> call was corrected before successful compile; zero tests executed in failed compile",
+  "checksums": {
+    "regenerate-edit-state-before-code.md": "c2dd2d6bd149aa6d59f24be38e57a3b4c0596b679a2a9d82fed094499b700198",
+    "proposed-regenerate-edit-state.rs": "80f65230441fec6b71bec6561c0912d51a28734d3b25cfc9d8ca3031f30c5699",
+    "merge-recipe-proof-02.py": "1c127576048f7253d283a15084f0ed54f382b1d04f6e735ef7ecee16e9883ff7",
+    "regenerate-before-code/formora-regenerate-edit-state-before-02.stderr": "751e16e3ef3622257e487751e9c81567153e6a8edbaf82c0403738a362e4869d",
+    "regenerate-before-code/formora-regenerate-edit-state-before-02.stdout": "0b1058375e7ee92e049edf9d38bf37e439d68d883ffeab7f85904b79bc324676",
+    "regenerate-before-code/formora-regenerate-edit-state-compile-before-02.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regenerate-before-code/formora-regenerate-edit-state-compile-before-02.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regenerate-before-code/formora-regenerate-edit-state-compile-before-03.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regenerate-before-code/formora-regenerate-edit-state-compile-before-03.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regenerate-before-code/initial-compile.stderr": "53fe7cc782bdb8b26af414b6bf2d2f2e16e5cf9b42f584e85e12ba2bfabaade4",
+    "regenerate-before-code/initial-compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "regenerate-before-code/initial-driver.rs": "425eeb7af63825ba510afd2e65906100887a3e3d2ef66aa2507b6a2d6674e527",
+    "regenerate-before-code/recipe-failure-native-calls.json": "9bb7ac84280067c9a88b79a28883175689b09aed3694116f1bcc23be6898e1f1",
+    "regenerate-before-code/recipe-failure-native-terminal.json": "3123b8cf7f189ce15516050e3832dad73cb57a8e3e591a54241d134eae1c5ce3",
+    "regenerate-before-code/recipe-proof-02.stderr": "a13b2eb75a7b53f63cc9f786f9ece420dc9fbb943bf3528ef408b79ef01434b3",
+    "regenerate-before-code/recipe-proof-02.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

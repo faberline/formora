@@ -1,0 +1,72 @@
+{
+  "command": [
+    "/private/tmp/formora-merge-performance-driver-01",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/performance",
+    "/private/tmp/formora-merge-performance-02/samples"
+  ],
+  "native_process_id": 1814,
+  "bindings": {
+    "implementation": "e45e0a816739277a7e849c1b4cdadd1e954df4c9",
+    "head": "98fb2852287dc5f69062ebad65f408b9cf35f741",
+    "driver": "/private/tmp/formora-merge-performance-driver-01",
+    "driver_sha256": "0c45afa5b9346e244b6b9f7aa71548bdd1660573d762347a561c5c92bdc20033",
+    "library": "/private/tmp/formora-merge-target-actual185/release/libformora.rlib",
+    "library_sha256": "e0ef439bd8e37da2da504d5dc00ac891f35746f95a878a7247fc4a78a231be04",
+    "sealed_inputs": {
+      "docs/contracts/mesh-merge-core.md": "add12089435972c9efc5b87638de47ea567fa6e31596cb2438a7ffb71fd207fc",
+      "tests/mesh_merge.rs": "084e368882d9a32d3e98497ff1b44fa8ab2c6e91130fbe9f7300cc2a15bc71b0",
+      "docs/evidence/mesh-merge-core/performance/author-inputs.py": "2fc3dc00249201dba405e8fb9bfe2c39f7caeabbb63f277fd958aa2b88269896",
+      "docs/evidence/mesh-merge-core/performance/authored-grid.json": "e2f1cae31fff704f5730f93a193796bbb3d56832fff3e8c857604823159db97f",
+      "docs/evidence/mesh-merge-core/performance/authored-forms.json": "1b351a305087b4efea88d805de8f0a3e85e3b469f90e3846ff03b0ed5874b069",
+      "docs/evidence/mesh-merge-core/performance/blender-grid-reference.py": "685ee27e6a9bc19fd1534d2eef7565283cb452e4e48b41b9fdbd4e5f881319a9",
+      "docs/evidence/mesh-merge-core/performance/capture-driver.rs": "247a0988c964d1e6b5e289dab3c8148ca8db72feea20a4240bc8f7a238a9ac91",
+      "docs/evidence/mesh-merge-core/performance/check-source.py": "4caf3936bd1a9ee47eee81de40be5a16034506c436263018020a67b597e50767"
+    },
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: aarch64-apple-darwin\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+    "all_samples_required": 30,
+    "discarded_warmup_samples": 0,
+    "maximum_core_ms": 250,
+    "maximum_pipeline_ms": 2000,
+    "host_before": {
+      "uptime": {
+        "command": [
+          "uptime"
+        ],
+        "exit": 0,
+        "stdout": "13:39  2 users, load averages: 8.73 10.36 12.94\n",
+        "stderr": ""
+      },
+      "model": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.model"
+        ],
+        "exit": 1,
+        "stdout": "",
+        "stderr": "sysctl: sysctl fmt -1 1024 1: Operation not permitted\n"
+      },
+      "memory": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "exit": 1,
+        "stdout": "",
+        "stderr": "sysctl: sysctl fmt -1 1024 1: Operation not permitted\n"
+      },
+      "cpu_activity": {
+        "command": [
+          "ps",
+          "-A",
+          "-o",
+          "pcpu="
+        ],
+        "exit": null,
+        "unavailable": "[Errno 1] Operation not permitted: 'ps'"
+      }
+    }
+  },
+  "started_ns": 171137872813250
+}

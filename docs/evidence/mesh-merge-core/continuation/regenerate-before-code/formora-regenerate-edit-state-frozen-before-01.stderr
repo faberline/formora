@@ -1,0 +1,16 @@
+
+thread 'all_existing_generators_keep_the_three_modes_and_both_preview_settings' panicked at tests/primitive_edit_regeneration.rs:59:44:
+called `Result::unwrap()` on an `Err` value: SceneError("edit objects require persistent mesh editing state")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'changed_primitive_clears_old_component_state_and_keeps_face_mode_and_preview' panicked at tests/primitive_edit_regeneration.rs:59:44:
+called `Result::unwrap()` on an `Err` value: SceneError("edit objects require persistent mesh editing state")
+
+thread 'same_recipe_after_merge_keeps_shared_edit_context_and_restores_fresh_data' panicked at tests/primitive_edit_regeneration.rs:59:44:
+called `Result::unwrap()` on an `Err` value: SceneError("edit objects require persistent mesh editing state")
+
+thread 'bad_budget_and_late_batch_preserve_scene_and_previous_undo' panicked at tests/primitive_edit_regeneration.rs:209:13:
+late command was not reached: edit objects require persistent mesh editing state
+
+thread 'the_shared_secondary_user_can_be_the_only_edit_object' panicked at tests/primitive_edit_regeneration.rs:59:44:
+called `Result::unwrap()` on an `Err` value: SceneError("edit objects require persistent mesh editing state")

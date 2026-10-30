@@ -1,0 +1,1 @@
+(version 1) (allow default) (deny file-read* (subpath "/Users/chrischeng/faberlines/formora") (subpath "/private/tmp/formora-mesh-merge-sparse") (regex #"^/(private/)?tmp/formora-merge-(api|pilot|performance)"))

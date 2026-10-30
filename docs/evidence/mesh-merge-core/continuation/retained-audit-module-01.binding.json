@@ -1,0 +1,8 @@
+{
+  "original": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/check-api-evidence.py",
+  "original_sha256": "d5f247b2c810eb6febdd0e6e1d09751896e1441da01476fd3b85e6224e48c18d",
+  "adapted_sha256": "b189fbec9f39462b4512de7598cf951946bb6eddecd64251b299555e36b00c78",
+  "changes": "retained audit function unchanged; current root/implementation/binary/output bindings; separate zero-scale audit and import omitted because this branch does not implement that slice; new controller validates each actual terminal record separately",
+  "numeric_limits_changed": false,
+  "assertions_removed_from_retained_audit": false
+}

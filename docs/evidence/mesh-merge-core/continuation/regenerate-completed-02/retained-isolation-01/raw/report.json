@@ -1,0 +1,419 @@
+{
+  "passed": true,
+  "binary_sha256": "0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa",
+  "driver_sha256": "0b73599eb53672ef9a01b5a903b734d14fb0c4b4937d5796065528e3c17de6e3",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /private/tmp/formora-mesh-merge-sparse/Cargo.toml: Operation not permitted\n",
+  "repository_reads": "denied by macOS sandbox",
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "native_calls": 27,
+  "raw_nonunit_and_inactive_channels_preserved": true,
+  "physical_rotation_analytic_match": true,
+  "parent_conversion_analytic_match": true,
+  "child_world_and_real_parent_inverse_checked": true,
+  "locks_checked": true,
+  "undo_replay_checked": true,
+  "fresh_reload_equal": true,
+  "atomic_rejections_checked": true,
+  "cursor_active_only_clear_checked": true,
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "mesh",
+        "asset": {
+          "vertices": {
+            "a": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "c": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "triangles": {
+            "tri": {
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "corner_normals": null,
+              "material_slot": null
+            }
+          },
+          "material_slots": [],
+          "editing": {
+            "selected": {
+              "vertices": [
+                "a"
+              ]
+            },
+            "history": [
+              {
+                "domain": "vertex",
+                "id": "a"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "target",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0.25,
+              -0.5,
+              0.75
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "quaternion",
+                "euler": [
+                  0.12345678901234566,
+                  -0.27,
+                  0.43
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "linked",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": null,
+          "transform": {
+            "translation": [
+              -2.0,
+              1.0,
+              0.0
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "quaternion",
+                "euler": [
+                  0.12345678901234566,
+                  -0.27,
+                  0.43
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "follower",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": "target",
+          "transform": {
+            "translation": [
+              0.25,
+              -0.5,
+              0.75
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "xyz",
+                "euler": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "parent",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": null,
+          "transform": {
+            "translation": [
+              1.0,
+              2.0,
+              3.0
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "xyz",
+                "euler": [
+                  0.0,
+                  0.0,
+                  1.5707963267948966
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "parented",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": "parent",
+          "transform": {
+            "translation": [
+              0.25,
+              0.75,
+              -0.5
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "xzy",
+                "euler": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "set_authoring_context",
+        "context": {
+          "cursor_location": [
+            1.25,
+            -0.75,
+            0.5
+          ],
+          "cursor_rotation": [
+            0.12345678901234566,
+            -0.27,
+            0.43
+          ],
+          "cursor_orientation": {
+            "mode": "quaternion",
+            "euler": [
+              0.12345678901234566,
+              -0.27,
+              0.43
+            ],
+            "quaternion_wxyz": [
+              0.8,
+              0.0,
+              0.0,
+              0.6
+            ],
+            "axis_angle": [
+              0.71,
+              -3.0,
+              2.0,
+              4.0
+            ]
+          }
+        }
+      },
+      {
+        "operation": "set_object_context",
+        "context": {
+          "order": [
+            "target",
+            "linked",
+            "follower",
+            "parent",
+            "parented"
+          ],
+          "selected": [
+            "target"
+          ],
+          "active": "target",
+          "states": {
+            "target": {
+              "lock_rotation": [
+                true,
+                false,
+                false
+              ],
+              "lock_rotation_w": false,
+              "lock_rotations_4d": true
+            }
+          },
+          "skip_children": true
+        }
+      }
+    ]
+  },
+  "artifacts": {
+    "before.json": "9c450e7c063b3fcb33090d7fb709ab730456e3935093c9ee0c5641327d40ad01",
+    "after-locked.json": "e6185350b031f09a8af2ef0bcd78c2ea2828addb48ebd84e06caf36ea8fe9ea3",
+    "locked-receipt.json": "dd55d0446806e8147a568c82f3d560158791b0b9db67db7d4a7ed17f0841dc45",
+    "parented-after.json": "c9a79cb6b3801605f03067993df1f78ff6de5c8ed885f79792e6635db876a464",
+    "follower-after.json": "eb75a5064e32c0f0949ff9f8930575d9f898f00dadc144b2c64330074fc3df48",
+    "clear-receipt.json": "dbb3145747d1b23605e8f542368ac00d0d6b857d6a49d161a1e269632268b22d",
+    "world-query.json": "6023c2e500438fe504bd52dbf61f9b5bfc63c0d27440c9112826a2e7f88079dd",
+    "parent-query.json": "3dc7e91fb232ddb4afb27b9cb67bb7a82765c7c7b0a8c47b1a9dc2d8ea03e82b",
+    "parent-receipt.json": "bae18fa0ea1f68c7af2c43712069e12e6012ddd50b0e8a85888c246fc2e0818e",
+    "parented-before.json": "b9d3ea955ba3f005510d93fda9ce47d425ee436462cd1e56d177bfb921e3a3d8",
+    "final.json": "c5c98654ecb51d65f27d63b86f47706465512670978e41df22b538ae0b0ab1d1",
+    "calls.jsonl": "19db65762af633b7e47f9ab19b1611e13820b338a708a6f19252ad5414371ccd",
+    "follower-before.json": "1230910a4eb2fa32fdca58676e2a131a4f35a307433d646eda103bfe1fb3456b"
+  },
+  "product_acceptance": "unrun"
+}

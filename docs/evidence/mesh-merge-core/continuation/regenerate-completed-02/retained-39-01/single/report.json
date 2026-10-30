@@ -1,0 +1,618 @@
+{
+  "edges": 20200,
+  "faces": 10000,
+  "forms": 10,
+  "grid": [
+    100,
+    100
+  ],
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun",
+  "passed": true,
+  "profile": "release",
+  "runs": [
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "core_end_ns": 281037708,
+      "core_ms": 227.83525,
+      "core_start_ns": 53202458,
+      "form": "selected-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 393.294167,
+      "passed": true,
+      "pipeline_end_ns": 800093792,
+      "pipeline_start_ns": 406799625,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "core_end_ns": 1104743167,
+      "core_ms": 222.454209,
+      "core_start_ns": 882288958,
+      "form": "selected-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 386.57325,
+      "passed": true,
+      "pipeline_end_ns": 1611945125,
+      "pipeline_start_ns": 1225371875,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_grid",
+        "spacing": 0.75
+      },
+      "core_end_ns": 1912348750,
+      "core_ms": 223.240292,
+      "core_start_ns": 1689108458,
+      "form": "selected-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 379.972334,
+      "passed": true,
+      "pipeline_end_ns": 2419729667,
+      "pipeline_start_ns": 2039757333,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_active"
+      },
+      "core_end_ns": 2716379042,
+      "core_ms": 221.007417,
+      "core_start_ns": 2495371625,
+      "form": "selected-active",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 378.308,
+      "passed": true,
+      "pipeline_end_ns": 3218242458,
+      "pipeline_start_ns": 2839934458,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_active"
+      },
+      "core_end_ns": 3518564000,
+      "core_ms": 222.470042,
+      "core_start_ns": 3296093958,
+      "form": "selected-active",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 378.551666,
+      "passed": true,
+      "pipeline_end_ns": 4021127708,
+      "pipeline_start_ns": 3642576042,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_active"
+      },
+      "core_end_ns": 4320355083,
+      "core_ms": 223.188583,
+      "core_start_ns": 4097166500,
+      "form": "selected-active",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 378.212583,
+      "passed": true,
+      "pipeline_end_ns": 4818403875,
+      "pipeline_start_ns": 4440191292,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "core_end_ns": 5052901375,
+      "core_ms": 158.256167,
+      "core_start_ns": 4894645208,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 302.963041,
+      "passed": true,
+      "pipeline_end_ns": 5476112208,
+      "pipeline_start_ns": 5173149167,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "core_end_ns": 5704373417,
+      "core_ms": 157.709125,
+      "core_start_ns": 5546664292,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 304.200375,
+      "passed": true,
+      "pipeline_end_ns": 6129060875,
+      "pipeline_start_ns": 5824860500,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "core_end_ns": 6352635125,
+      "core_ms": 156.624833,
+      "core_start_ns": 6196010292,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 302.442917,
+      "passed": true,
+      "pipeline_end_ns": 6775494792,
+      "pipeline_start_ns": 6473051875,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_selected"
+      },
+      "core_end_ns": 6999681292,
+      "core_ms": 157.008334,
+      "core_start_ns": 6842672958,
+      "form": "cursor-selected",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 304.966,
+      "passed": true,
+      "pipeline_end_ns": 7424797208,
+      "pipeline_start_ns": 7119831208,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_selected"
+      },
+      "core_end_ns": 7650442417,
+      "core_ms": 158.446417,
+      "core_start_ns": 7491996000,
+      "form": "cursor-selected",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 304.718208,
+      "passed": true,
+      "pipeline_end_ns": 8075168750,
+      "pipeline_start_ns": 7770450542,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_selected"
+      },
+      "core_end_ns": 8299370417,
+      "core_ms": 156.828084,
+      "core_start_ns": 8142542333,
+      "form": "cursor-selected",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 303.983208,
+      "passed": true,
+      "pipeline_end_ns": 8723900583,
+      "pipeline_start_ns": 8419917375,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_active"
+      },
+      "core_end_ns": 8953221667,
+      "core_ms": 158.025834,
+      "core_start_ns": 8795195833,
+      "form": "cursor-active",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 303.415875,
+      "passed": true,
+      "pipeline_end_ns": 9378115250,
+      "pipeline_start_ns": 9074699375,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_active"
+      },
+      "core_end_ns": 9603366917,
+      "core_ms": 157.785459,
+      "core_start_ns": 9445581458,
+      "form": "cursor-active",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 306.426,
+      "passed": true,
+      "pipeline_end_ns": 10030931042,
+      "pipeline_start_ns": 9724505042,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_active"
+      },
+      "core_end_ns": 10256135333,
+      "core_ms": 157.572083,
+      "core_start_ns": 10098563250,
+      "form": "cursor-active",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 307.268208,
+      "passed": true,
+      "pipeline_end_ns": 10683101125,
+      "pipeline_start_ns": 10375832917,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_center"
+      },
+      "core_end_ns": 10907566875,
+      "core_ms": 157.0155,
+      "core_start_ns": 10750551375,
+      "form": "cursor-origin",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 304.475584,
+      "passed": true,
+      "pipeline_end_ns": 11331866542,
+      "pipeline_start_ns": 11027390958,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_center"
+      },
+      "core_end_ns": 11556574875,
+      "core_ms": 158.098208,
+      "core_start_ns": 11398476667,
+      "form": "cursor-origin",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 307.471167,
+      "passed": true,
+      "pipeline_end_ns": 11984110500,
+      "pipeline_start_ns": 11676639333,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "cursor_to_center"
+      },
+      "core_end_ns": 12210352042,
+      "core_ms": 158.104667,
+      "core_start_ns": 12052247375,
+      "form": "cursor-origin",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 303.008542,
+      "passed": true,
+      "pipeline_end_ns": 12632768167,
+      "pipeline_start_ns": 12329759625,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": false
+      },
+      "core_end_ns": 12926051167,
+      "core_ms": 223.547292,
+      "core_start_ns": 12702503875,
+      "form": "selected-cursor-false-false",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 393.186333,
+      "passed": true,
+      "pipeline_end_ns": 13439648583,
+      "pipeline_start_ns": 13046462250,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": false
+      },
+      "core_end_ns": 13741637417,
+      "core_ms": 221.495542,
+      "core_start_ns": 13520141875,
+      "form": "selected-cursor-false-false",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 379.132167,
+      "passed": true,
+      "pipeline_end_ns": 14243104500,
+      "pipeline_start_ns": 13863972333,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": false
+      },
+      "core_end_ns": 14542054083,
+      "core_ms": 221.910791,
+      "core_start_ns": 14320143292,
+      "form": "selected-cursor-false-false",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 381.702042,
+      "passed": true,
+      "pipeline_end_ns": 15043199417,
+      "pipeline_start_ns": 14661497375,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "core_end_ns": 15342167250,
+      "core_ms": 221.605292,
+      "core_start_ns": 15120561958,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 381.74175,
+      "passed": true,
+      "pipeline_end_ns": 15845873958,
+      "pipeline_start_ns": 15464132208,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "core_end_ns": 16151931167,
+      "core_ms": 228.150542,
+      "core_start_ns": 15923780625,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 387.875875,
+      "passed": true,
+      "pipeline_end_ns": 16661908042,
+      "pipeline_start_ns": 16274032167,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "core_end_ns": 16959748917,
+      "core_ms": 221.2165,
+      "core_start_ns": 16738532417,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 378.597625,
+      "passed": true,
+      "pipeline_end_ns": 17459103667,
+      "pipeline_start_ns": 17080506042,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": true,
+        "use_rotation": false
+      },
+      "core_end_ns": 17758975625,
+      "core_ms": 222.5115,
+      "core_start_ns": 17536464125,
+      "form": "selected-cursor-true-false",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 380.576208,
+      "passed": true,
+      "pipeline_end_ns": 18259729000,
+      "pipeline_start_ns": 17879152792,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": true,
+        "use_rotation": false
+      },
+      "core_end_ns": 18559262333,
+      "core_ms": 222.581041,
+      "core_start_ns": 18336681292,
+      "form": "selected-cursor-true-false",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 380.944375,
+      "passed": true,
+      "pipeline_end_ns": 19060710917,
+      "pipeline_start_ns": 18679766542,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": true,
+        "use_rotation": false
+      },
+      "core_end_ns": 19361320833,
+      "core_ms": 223.395166,
+      "core_start_ns": 19137925667,
+      "form": "selected-cursor-true-false",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 382.352875,
+      "passed": true,
+      "pipeline_end_ns": 19867879625,
+      "pipeline_start_ns": 19485526750,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": true,
+        "use_rotation": true
+      },
+      "core_end_ns": 20167723208,
+      "core_ms": 222.658375,
+      "core_start_ns": 19945064833,
+      "form": "selected-cursor-true-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 382.803542,
+      "passed": true,
+      "pipeline_end_ns": 20672610500,
+      "pipeline_start_ns": 20289806958,
+      "receipt_equal": true,
+      "sample": 1,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": true,
+        "use_rotation": true
+      },
+      "core_end_ns": 20975584167,
+      "core_ms": 226.014542,
+      "core_start_ns": 20749569625,
+      "form": "selected-cursor-true-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 388.936916,
+      "passed": true,
+      "pipeline_end_ns": 21484409958,
+      "pipeline_start_ns": 21095473042,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": true,
+        "use_rotation": true
+      },
+      "core_end_ns": 21784861667,
+      "core_ms": 223.564834,
+      "core_start_ns": 21561296833,
+      "form": "selected-cursor-true-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 384.123667,
+      "passed": true,
+      "pipeline_end_ns": 22294040125,
+      "pipeline_start_ns": 21909916458,
+      "receipt_equal": true,
+      "sample": 3,
+      "topology_and_editing_preserved": true
+    }
+  ],
+  "samples_per_form": 3,
+  "source_comparison": "required separately at fixed 1e-6 limits",
+  "vertices": 10201
+}

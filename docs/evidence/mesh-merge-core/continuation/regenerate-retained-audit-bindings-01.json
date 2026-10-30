@@ -1,0 +1,16 @@
+[
+  {
+    "original": "retained-audit-module-01.py",
+    "original_sha256": "b189fbec9f39462b4512de7598cf951946bb6eddecd64251b299555e36b00c78",
+    "copy": "regenerate-retained-audit-module-01.py",
+    "copy_sha256": "61880cde241d72d4041c11e4cebcdef319461e97f5f98bcb01c82167195ec8ba",
+    "changes": "only repaired implementation, executable and fresh output bindings; original full-corpus comparison and actual-terminal checks unchanged"
+  },
+  {
+    "original": "retained-audit-one-01.py",
+    "original_sha256": "ed1b780806dbcfd016e78418f068b8a3ff938f1cc32a34443eedc5be57b3ef77",
+    "copy": "regenerate-retained-audit-one-01.py",
+    "copy_sha256": "ad7384824af854c0a3a68553a832b7b7a8944c1147704ab32892a5da1df2394d",
+    "changes": "only repaired implementation, executable and fresh output bindings; original full-corpus comparison and actual-terminal checks unchanged"
+  }
+]
