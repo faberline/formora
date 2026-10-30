@@ -12,9 +12,11 @@ from unittest.mock import patch
 from compare_snap_rotation_reference import matrix, compose
 from compare_snap_delta_reference import world_point
 from merge_distance_scene_inputs import scene, selection
-from merge_distance_normal_reference import single_corner_fans
+from merge_distance_fan_reference import custom_fans
+from merge_distance_cluster_reference import vertex_result
 from generate_merge_distance_diagnostic import diagnostic
 from generate_merge_distance_normal_diagnostic import normal_diagnostic
+from generate_merge_distance_fan_diagnostic import fan_diagnostic
 
 
 def authored_suite(suite):
@@ -22,7 +24,8 @@ def authored_suite(suite):
     def deny(*args, **kwargs):
         reads.append(str(args[0])); raise AssertionError('constructor source read')
     with patch.object(builtins, 'open', deny), patch.object(io, 'open', deny):
-        expected = normal_diagnostic() if len(suite['runs']) == 21 else diagnostic()
+        expected = fan_diagnostic() if suite['scope'] == 'targeted_source_cluster_and_smooth_fan_diagnostics_only' else (
+            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic())
     assert not reads, 'constructor source reads'
     same(expected, suite, 'pure-authored-suite', 0.)
 
@@ -54,6 +57,12 @@ def postconditions(run, spec, before, after):
     for key in ['objects', 'sharing', 'active_object', 'mode', 'edit_context', 'materials', 'settings']:
         same(before[key], after[key], 'unchanged-scene/'+key, 0.)
     edited = {spec['data_sharing'][name] for name in spec['object_context']['edit_objects']}
+    for name in spec['object_context']['edit_objects']:
+        mesh = spec['mesh_assets'][spec['data_sharing'][name]]
+        prediction = vertex_result(mesh, selection(mesh, spec, True), run['parameters'])
+        same(prediction['vertices'], after['meshes'][name]['geometry']['vertices'], 'source-cluster/vertices/'+name)
+        actual_removed = len(mesh['vertices'])-len(after['meshes'][name]['geometry']['vertices'])
+        same(prediction['removed'], actual_removed, 'source-cluster/removed/'+name, 0.)
     for name, data in spec['data_sharing'].items():
         if data not in edited:
             same(before['meshes'][name], after['meshes'][name], 'unedited-mesh/'+name, 0.)
@@ -128,12 +137,13 @@ def initial(spec, state):
     edited = {spec['data_sharing'][name] for name in owners}
     for name, data in spec['data_sharing'].items():
         authored = spec['mesh_assets'][data]; actual = state['meshes'][name]; g = actual['geometry']
+        reference = custom_fans(authored) if authored.get('custom_corner_normals') else None
         fields = {'vertices': authored['vertices'], 'edges': {i: sorted(p) for i, p in authored['edges'].items()},
                   'faces': {i: p['vertices'] for i, p in authored['polygons'].items()},
                   'face_smooth': {i: p['smooth'] for i, p in authored['polygons'].items()},
                   'face_materials': {i: p['material_slot'] for i, p in authored['polygons'].items()},
                   'edge_seams': {i: i in authored['edge_seams'] for i in authored['edges']},
-                  'edge_sharp': {i: i in authored['sharp_edges'] for i in authored['edges']},
+                  'edge_sharp': {i: i in (reference['sharp_edges'] if reference else authored['sharp_edges']) for i in authored['edges']},
                   'material_slots': authored['material_slots'],
                   'uv_layers': {layer: {i: p['uv_layers'][layer] for i, p in authored['polygons'].items()}
                                 for layer in authored['uv_layout']['layers']},
@@ -151,7 +161,6 @@ def initial(spec, state):
         same(expected_world, actual['world_vertices'], name+'/physical-world', 0.)
         if authored.get('custom_corner_normals'):
             same(True, actual['custom_normals_present'], name+'/custom-present', 0.)
-            reference = single_corner_fans(authored)
             same(reference['encoded'], actual['packed_custom_normals'], name+'/encoded-custom-normal', 0.)
             same(reference['decoded'], actual['normals']['corners'], name+'/source-decoded-custom-normal')
     return approved_singular_queries

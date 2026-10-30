@@ -41,7 +41,7 @@ def face_normal(points):
     return normalize(result)
 
 
-def space(normal, next_direction, previous_direction):
+def space(normal, next_direction, previous_direction, edge_vectors=()):
     threshold = sub(1., f32(1e-4)); pi2 = f32(math.pi*2)
     a, b = dot(next_direction, normal), dot(previous_direction, normal)
     assert abs(a) < threshold and abs(b) < threshold, 'degenerate normal space needs separate source coverage'
@@ -51,8 +51,12 @@ def space(normal, next_direction, previous_direction):
     beta = acos_approx(angle)
     beta = sub(pi2, beta) if dot(ortho, other) < 0. else beta
     if angle >= threshold: beta = pi2
-    return {'normal': normal, 'reference': reference, 'ortho': ortho,
-            'alpha': div(add(acos_approx(a), acos_approx(b)), 2.), 'beta': beta}
+    alpha = 0.
+    if edge_vectors:
+        for edge in edge_vectors: alpha = add(alpha, acos_approx(dot(edge, normal)))
+        alpha = div(alpha, float(len(edge_vectors)))
+    else: alpha = div(add(acos_approx(a), acos_approx(b)), 2.)
+    return {'normal': normal, 'reference': reference, 'ortho': ortho, 'alpha': alpha, 'beta': beta}
 
 
 def encode(s, requested):
@@ -60,6 +64,10 @@ def encode(s, requested):
     # RNA range [-1, 1]. The mesh setter normalizes that converted vector.
     # rna_mesh_api.cc:345; bpy_rna_array.cc:654; mesh_normals.cc:1693.
     n = normalize([max(-1., min(1., f32(value))) for value in requested])
+    return encode_normalized(s, n)
+
+
+def encode_normalized(s, n):
     if all(x == 0. for x in n) or all(abs(sub(a, b)) <= f32(1e-4) for a, b in zip(s['normal'], n)):
         return [0, 0]
     pi2 = f32(math.pi*2); cosine = dot(s['normal'], n); alpha = acos_approx(cosine)

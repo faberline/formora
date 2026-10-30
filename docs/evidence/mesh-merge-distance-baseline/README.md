@@ -40,9 +40,10 @@ The input state remains draft. These files are not the final before-code seal.
 Frame and unit literals, a distinct second mesh, outside data, native context,
 selection/history and single-corner custom-normal setup now have diagnostic
 adapters. They do not cover the full required domain. Omitted parameters,
-invalid/coercion/nonfinite probes and the manual page remain pending.
-Smooth multi-corner normal fans and full post-merge topology/data analysis
-remain pending. Capacity inputs and their native results remain unrun.
+invalid/coercion/nonfinite probes remain pending. The manual page is now
+retrieved and pinned. Targeted smooth-fan setup passes the diagnostics below.
+Full post-merge topology/data analysis remains pending. Capacity inputs and
+their native results remain unrun.
 
 The PR #81 post-full controller has now ended. All 207 timings and their
 physical source comparisons passed before this new native probe started.
@@ -95,6 +96,8 @@ registries contain 15 targeted cases and six extra normal-codec cases.
 | diagnostic-03 | 62927 | 0 | 21 | 19 | Reference missed the Python API component clamp. |
 | diagnostic-04 | 65628 | 0 | 21 | 21 | None. |
 | diagnostic-05 | 67126 | 0 | 21 | 21 | None. Added receipts and analytic pair checks. |
+| diagnostic-06 | 70821 | 0 | 21 | 21 | None. Added pinned distance-group vertex reference. |
+| diagnostic-07 | 72369 | 0 | 33 | 33 | None. Added open/cyclic smooth-fan setup. |
 
 All attempts preserve raw records, native saved files, inputs, scripts and
 actual parent wait receipts. `archive-manifest.json` binds each lossless copy.
@@ -112,9 +115,14 @@ compares encoded integers exactly and decoded vectors at absolute 1e-6.
 The pinned official files and Git blob identities are in
 `baseline/sources/mesh-merge-distance/`.
 
-The model currently covers single-corner fans only. A fan is the group of
-face corners that share a smooth vertex normal. It explicitly rejects a
-smooth multi-corner fan. That required domain remains pending.
+The first scalar model covers single-corner fans only. A fan is the group of
+face corners that share a smooth vertex normal. That model explicitly rejects
+a smooth multi-corner fan. A separate model now derives fan traversal,
+angle-weighted normals, sharp-edge splits, default zero normals, ordered
+averaging and packed data from authored geometry. Diagnostic 07 tests it on
+open and cyclic fans with constant, differing and zero requested vectors.
+All 12 new cases pass at the original limits. It models initial setup only.
+Full post-weld normal transfer remains pending.
 
 Diagnostic 05 also checks the actual binary, PID, command, logs, successful
 terminal wait and exact case/file membership. It regenerates authored inputs
@@ -131,7 +139,7 @@ approved policy. It still checks valid basis, world and operation data.
 It claims no numeric match for the local query. The source policy was not
 expanded to reject all zero-scale operations.
 
-`diagnostic-controls-01/` retains 22 forged-data controls. Each control calls
+`diagnostic-controls-01/` retains the first 22 forged-data controls. Each calls
 the complete checker against its own preserved copy. Modified records have
 new valid compressed and raw hashes. Each reaches its intended rejection.
 Controls cover wrong pair results, distance boundaries, outside data, frames,
@@ -139,6 +147,44 @@ sharing, provider order, UV loss, zero weights, integer types, normal encoding,
 decoded normals, reload attributes, source-answer input, missing/duplicate
 cases, substituted binary, failed/timed-out terminal, missing terminal field,
 wrong PID and changed log identity. No forged operation runs.
+
+## Pinned manual and distance groups
+
+The official 5.2 manual now has a byte-identical immutable source copy at
+manual commit `4a3be8f9ed3b66b24913e0a0d491d3429a70ea08`.
+The saved page, RST source, Git blob, API replies and content review metadata
+are in `baseline/sources/mesh-merge-distance/`. Only the distance subsection
+was reviewed here. The same page describes other merge operations too.
+This does not accept the whole manual page or its other feature contracts.
+Two immutable raw-URL requests returned 403. They remain recorded in
+`manual-retrieval-01/`. The official file API then returned the matching
+content and Git identity. The early retrieval report precedes content review.
+
+The manual names distance, centroid, unselected and sharp-edge options.
+The pinned native code and exact-boundary probes define numeric comparisons.
+The prose's short description does not replace the actual <= boundary.
+
+`merge_distance_cluster_reference.py` independently derives the pinned tree
+partition order, ordered range queries, target choices and centroid positions.
+It retains the source callback's ordered search-origin append. It does not
+replace the algorithm with transitive connected components. It also models
+unselected targets, nearest-distance ties, original survivor order and float
+arithmetic. It uses authored mesh/selection/parameters only.
+Diagnostic 06 checks all 31 edited data records. Diagnostic 07 checks 55.
+Both pass vertex positions and removal counts. Neither accepts full topology,
+attribute interpolation, selection transfer or normal transfer.
+
+`diagnostic-controls-02/` retains 23 controls after the group checks were added.
+It adds a forged transitive chain merge. `diagnostic-controls-03/` retains 27
+controls against the latest 33-case capture. It also tests a missing terminal
+file and altered smooth-fan sharp flags, cyclic packed normals and zero-default
+normals. All reach their intended rejections. Each complete forged copy stays
+in its own temporary directory. No genuine evidence is changed.
+
+All seven native attempts now preserve 147 diagnostic case records. Their
+521 input/output/controller copies retain exact stored and decoded hashes.
+The original 1,188-case draft remains unchanged. Final complete-registry
+freezing and both complete fresh source captures remain unrun.
 
 Full source acceptance, capacity acceptance and Rust product acceptance all
 remain unrun. No issue or milestone is complete from these diagnostics.

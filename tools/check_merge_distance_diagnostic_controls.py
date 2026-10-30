@@ -18,13 +18,17 @@ def controls(suite, native, output):
     manifest = json.loads((native/'capture/manifest.json').read_text())
     rows = []
 
-    def reject(name, reason, record_id=None, mutation=None, envelope=None, suite_mutation=None):
+    def reject(name, reason, record_id=None, mutation=None, envelope=None, suite_mutation=None, missing=None):
         # Each control gets its own preserved copy. Never alter a genuine receipt.
         scratch = Path(tempfile.mkdtemp(prefix='formora-distance-forged-'))/'native'
         shutil.copytree(native, scratch)
         stored = output/name; stored.mkdir()
         changed = []
         candidate_suite = suite
+        if missing is not None:
+            path = scratch/missing
+            retained = path.with_name(path.name+'.retained')
+            path.rename(retained); changed.append(retained)
         if record_id is not None:
             index = next(i for i, row in enumerate(manifest['runs']) if row['id'] == record_id)
             record_path = scratch/'capture'/manifest['runs'][index]['file']
@@ -61,12 +65,14 @@ def controls(suite, native, output):
         with (stored/'result.json').open('x') as stream: json.dump(row, stream, indent=2); stream.write('\n')
         rows.append({key: value for key, value in row.items() if key != 'result'})
 
-    reject('wrong_pair_centroid', 'analytic-pair/vertices', 'distance_diag_003',
+    reject('wrong_pair_centroid', 'source-cluster/vertices', 'distance_diag_003',
            lambda x: x['after']['meshes']['a']['geometry']['vertices']['v000000'].__setitem__(0, .0626))
-    reject('wrong_equal_distance_boundary', 'analytic-pair/vertices', 'distance_diag_001',
+    reject('wrong_equal_distance_boundary', 'source-cluster/vertices', 'distance_diag_001',
            lambda x: x['after']['meshes']['a']['geometry']['vertices'].update(v000001=[.125, 0., 0.]))
-    reject('wrong_lower_distance_boundary', 'analytic-pair/vertices', 'distance_diag_000',
+    reject('wrong_lower_distance_boundary', 'source-cluster/vertices', 'distance_diag_000',
            lambda x: x['after']['meshes']['a']['geometry']['vertices'].pop('v000001'))
+    reject('wrong_transitive_chain_merge', 'source-cluster/vertices', 'distance_diag_005',
+           lambda x: x['after']['meshes']['a']['geometry'].__setitem__('vertices', {'v000000': [.09375, 0., 0.]}))
     reject('unselected_outside_data_changed', 'unedited-mesh/untouched', 'distance_diag_000',
            lambda x: x['after']['meshes']['untouched']['geometry']['vertices']['v000000'].__setitem__(0, 9.))
     reject('object_world_changed', 'unchanged-scene/objects', 'distance_diag_000',
@@ -94,9 +100,17 @@ def controls(suite, native, output):
     reject('source_binary_substitution', 'source binary', envelope=('capture/manifest.json', lambda x: x.update(binary_sha256='0'*64)))
     reject('failed_native_terminal', 'native terminal failed', envelope=('terminal.json', lambda x: x.update(terminal_exit_code=1)))
     reject('missing_native_terminal_field', 'terminal_exit_code', envelope=('terminal.json', lambda x: x.pop('terminal_exit_code')))
+    reject('missing_native_terminal_file', 'terminal.json', missing='terminal.json')
     reject('timed_out_native_terminal', 'native terminal failed', envelope=('terminal.json', lambda x: x.update(timed_out=True)))
     reject('wrong_native_pid', 'native PID binding', envelope=('terminal.json', lambda x: x.update(process_id=1)))
     reject('wrong_native_log_identity', 'native log identity', envelope=('terminal.json', lambda x: x.update(stdout_sha256='0'*64)))
+    if len(json.loads(suite.read_text())['runs']) == 33:
+        reject('smooth_fan_sharp_edge_changed', 'a/geometry/edge_sharp', 'distance_diag_021',
+               lambda x: x['before']['meshes']['a']['geometry']['edge_sharp'].__setitem__('e000000', True))
+        reject('cyclic_fan_packed_normal_changed', 'a/encoded-custom-normal', 'distance_diag_027',
+               lambda x: x['before']['meshes']['a']['packed_custom_normals']['f000000'][0].__setitem__(0, 1))
+        reject('cyclic_fan_zero_default_changed', 'a/source-decoded-custom-normal', 'distance_diag_031',
+               lambda x: x['before']['meshes']['a']['normals']['corners']['f000000'][0].__setitem__(0, 9.))
     result = {'genuine_diagnostic_passed': True, 'forged_controls_rejected': len(rows), 'controls': rows,
               'source_manifest_sha256': sha((native/'capture/manifest.json').read_bytes()),
               'checker_sha256': sha(Path(__file__).with_name('check_merge_distance_diagnostic.py').read_bytes()),

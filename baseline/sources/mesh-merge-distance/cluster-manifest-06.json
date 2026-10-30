@@ -1,0 +1,30 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "purpose": "derive deterministic distance clusters and unselected targets before Rust",
+  "files": [
+    {
+      "path": "source/blender/blenlib/BLI_kdtree.hh",
+      "repository_path": "baseline/sources/mesh-merge-distance/BLI_kdtree.hh",
+      "git_blob": "4dc7c75393a103019eefd370d5110aead791da19",
+      "sha256": "a014dac53ccc1af519d242d4244203a1618d9d8c14b5a11f82bd4cbdeb69be26",
+      "bytes": 29214,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_kdtree.hh"
+    },
+    {
+      "path": "source/blender/blenlib/BLI_kdtree_types.hh",
+      "repository_path": "baseline/sources/mesh-merge-distance/BLI_kdtree_types.hh",
+      "git_blob": "110301d3c3945fee4946aed8957d5bf9350ed5f0",
+      "sha256": "ae5eb254107ba343b8583f9978d675658a27bea0a869cb86314d628a4bad4e6d",
+      "bytes": 1691,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_kdtree_types.hh"
+    },
+    {
+      "path": "source/blender/editors/mesh/editmesh_automerge.cc",
+      "repository_path": "baseline/sources/mesh-merge-distance/editmesh_automerge.cc",
+      "git_blob": "2b4ee3672a61d34c6153c56ae9809f96c7482142",
+      "sha256": "9aa2d95c80987f31e012e30da9e03114b44f30ee2851a3f23c088b75d3e04731",
+      "bytes": 4139,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/editmesh_automerge.cc"
+    }
+  ]
+}

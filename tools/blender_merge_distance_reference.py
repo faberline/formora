@@ -164,9 +164,13 @@ class Capture:
                  'blender_snap_menu_reference.py', 'blender_transform_reference.py', 'blender_selection_reference.py']
         names += ['check_merge_distance_diagnostic.py', 'merge_distance_normal_reference.py',
                   'generate_merge_distance_diagnostic.py', 'generate_merge_distance_normal_diagnostic.py',
-                  'compare_snap_rotation_reference.py', 'compare_snap_delta_reference.py']
+                  'compare_snap_rotation_reference.py', 'compare_snap_delta_reference.py',
+                  'merge_distance_cluster_reference.py', 'merge_distance_fan_reference.py',
+                  'generate_merge_distance_fan_diagnostic.py']
         self.paths = [args.suite, *[ROOT/'tools'/name for name in names],
-                      *sorted((ROOT/'baseline/sources/mesh-merge-distance').glob('*'))]
+                      *sorted((ROOT/'baseline/sources/mesh-merge-distance').glob('*')),
+                      *[ROOT/'baseline/sources/mesh-merge'/name for name in
+                        ['manifest.json', 'bmo_removedoubles.cc', 'editmesh_tools.cc', 'customdata.cc', 'deform.cc']]]
         self.hashes = {str(path): base.digest(path) for path in self.paths}
 
     def step(self):
