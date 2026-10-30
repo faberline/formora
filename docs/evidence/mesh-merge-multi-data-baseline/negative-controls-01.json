@@ -1,0 +1,121 @@
+{
+  "negative_controls_passed": true,
+  "controls": 22,
+  "rows": [
+    {
+      "name": "source_answer_spliced_into_authored_inputs",
+      "rejected": true,
+      "error": "independently authored inputs differ"
+    },
+    {
+      "name": "initial_geometry_answer_leak",
+      "rejected": true,
+      "error": "fields differ: authored/mesh_a/vertices"
+    },
+    {
+      "name": "initial_signed_attribute_change",
+      "rejected": true,
+      "error": "discrete value differs: authored integers/mesh_a/VERT/vertices_signed/v000000"
+    },
+    {
+      "name": "reversed_native_provider_order",
+      "rejected": true,
+      "error": "authored edit provider membership/order differs"
+    },
+    {
+      "name": "shared_data_visited_twice",
+      "rejected": true,
+      "error": "authored edit provider membership/order differs"
+    },
+    {
+      "name": "linked_user_falsely_in_edit_mode",
+      "rejected": true,
+      "error": "authored edit provider membership/order differs"
+    },
+    {
+      "name": "typed_history_substitution",
+      "rejected": true,
+      "error": "authored typed history differs"
+    },
+    {
+      "name": "first_merge_mutates_other_data",
+      "rejected": true,
+      "error": "array differs: unprocessed data/b/groups/names"
+    },
+    {
+      "name": "enum_rejection_relabelled_finished",
+      "rejected": true,
+      "error": "predicted enum rejection differs"
+    },
+    {
+      "name": "wrong_authored_operation",
+      "rejected": true,
+      "error": "authored request differs"
+    },
+    {
+      "name": "wrong_native_version",
+      "rejected": true,
+      "error": "native identity differs"
+    },
+    {
+      "name": "wrong_native_binary",
+      "rejected": true,
+      "error": "native identity differs"
+    },
+    {
+      "name": "background_capture",
+      "rejected": true,
+      "error": "native identity differs"
+    },
+    {
+      "name": "missing_source_case",
+      "rejected": true,
+      "error": "missing/duplicate/reordered source cases"
+    },
+    {
+      "name": "duplicate_source_case",
+      "rejected": true,
+      "error": "missing/duplicate/reordered source cases"
+    },
+    {
+      "name": "reordered_source_cases",
+      "rejected": true,
+      "error": "missing/duplicate/reordered source cases"
+    },
+    {
+      "name": "failed_terminal_exit",
+      "rejected": true,
+      "error": "native exit failed/missing"
+    },
+    {
+      "name": "timed_out_native_process",
+      "rejected": true,
+      "error": "native exit failed/missing"
+    },
+    {
+      "name": "missing_terminal_receipt",
+      "rejected": true,
+      "error": "[Errno 2] No such file or directory: '/private/tmp/formora-multi-data-negative-controls-01/missing_terminal_receipt-process/terminal.json'"
+    },
+    {
+      "name": "different_process_identity",
+      "rejected": true,
+      "error": "process identity differs"
+    },
+    {
+      "name": "missing_provenance_input",
+      "rejected": true,
+      "error": "provenance file set differs"
+    },
+    {
+      "name": "forged_provenance_hash",
+      "rejected": true,
+      "error": "capture input drift/tools/compare_snap_menu_reference.py"
+    }
+  ],
+  "forgeries_executed": false,
+  "source_capture": "/private/tmp/formora-mesh-merge-multi-data/docs/evidence/mesh-merge-multi-data-baseline/pilot-04",
+  "source_manifest_sha256": "0fec827a08427d8e2ff39081154a262323dee02af4c5cb77d1dbe81f5440f6a4",
+  "control_script_sha256": "c7cc80f1a6dfa1042465c54920e769511ca407a0809a3122877635a89c0bb109",
+  "product_acceptance": "unrun"
+}
