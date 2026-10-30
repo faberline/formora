@@ -1,0 +1,227 @@
+[
+  {
+    "name": "delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/delta_snap_runtime.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/delta",
+      "--gzip-output"
+    ],
+    "native_process_id": 99302,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 3584,
+    "actual_checks": 3584,
+    "report_sha256": "3e0e92f2f1bdc1ef9c58be158cef5e0e9d4729b493cc76c69bbe4b1c6f2ee009",
+    "start_ns": 181745713280833,
+    "end_ns": 182620450926375
+  },
+  {
+    "name": "raw-rotation",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/rotation_snap_runtime.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/raw-rotation",
+      "--gzip-output"
+    ],
+    "native_process_id": 25756,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 4992,
+    "actual_checks": 4992,
+    "report_sha256": "4e6ec16c241f3dabd591356fc7f660e6031c7d9c7a9176e0beb85206de435451",
+    "start_ns": 182620451346166,
+    "end_ns": 184015270442458
+  },
+  {
+    "name": "scene-snap",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/scene_snap_runtime_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/scene-snap",
+      "--gzip-output"
+    ],
+    "native_process_id": 86627,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 1100,
+    "actual_checks": 1100,
+    "report_sha256": "3c38ad2c777b7d2802e0d8d16b2ccd03edda06765611c4e78e4d6e11c78a1936",
+    "start_ns": 184015271218291,
+    "end_ns": 184253708195416
+  },
+  {
+    "name": "single-snap",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/snap_runtime_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/single-snap",
+      "--gzip-output"
+    ],
+    "native_process_id": 14195,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 2244,
+    "actual_checks": 2244,
+    "report_sha256": "da144790a069b44ef861af4767436e123db4e2f87d1cbf6e5d30e5bb81f9647d",
+    "start_ns": 184253709542458,
+    "end_ns": 184587439091500
+  },
+  {
+    "name": "mesh-transform",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/transform_runtime_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/mesh-transform",
+      "--gzip-output"
+    ],
+    "native_process_id": 56609,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 2406,
+    "actual_checks": 2406,
+    "report_sha256": "c5d28d53c5b35947e22fd06f216bbe0fe6d73a71fa9de467383c0581f7388679",
+    "start_ns": 184587440776291,
+    "end_ns": 184766705909791
+  },
+  {
+    "name": "primitive",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/primitive_reference_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/primitive"
+    ],
+    "native_process_id": 78945,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 162,
+    "actual_checks": 162,
+    "report_sha256": "db4677e337b6c823832ba21b60cceb222be1d2ed0a662647687d5956ecb8601c",
+    "start_ns": 184766707375750,
+    "end_ns": 184798303782375
+  },
+  {
+    "name": "scale",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/remaining_scale_regression.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/scale"
+    ],
+    "native_process_id": 81394,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 8,
+    "actual_checks": 8,
+    "report_sha256": "c0740c2e81c98ccc0bcd406109d15f490d46035396e236df07e5dbf4344d83d1",
+    "start_ns": 184798305053333,
+    "end_ns": 184801442339708
+  },
+  {
+    "name": "selection",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/selection_runtime_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/selection"
+    ],
+    "native_process_id": 81946,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 1060,
+    "actual_checks": 1060,
+    "report_sha256": "ac2fa759c2595deb945ce50fa98f09d6e8ee717365877856e593bcc8a7b273d3",
+    "start_ns": 184801442715291,
+    "end_ns": 184931924145541
+  },
+  {
+    "name": "creation",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/creation_context_runtime.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/creation"
+    ],
+    "native_process_id": 1795,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 262,
+    "actual_checks": 262,
+    "report_sha256": "a87dc7d17c85b72950e5003e2abef58f3c81e62358293bdd334e763cb96de78b",
+    "start_ns": 184931925374875,
+    "end_ns": 185052373113666
+  },
+  {
+    "name": "payload",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/polygon_reference_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/payload"
+    ],
+    "native_process_id": 12118,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 57,
+    "actual_checks": 57,
+    "report_sha256": "967e7627be458ccc5b03ae6ddc306b93fc3357eb620ba24ace34906d45a26156",
+    "start_ns": 185052374165500,
+    "end_ns": 185060718110875
+  },
+  {
+    "name": "normal",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/normal_runtime_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/normal"
+    ],
+    "native_process_id": 12665,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 42,
+    "actual_checks": 42,
+    "report_sha256": "10e92d9aaa727a93cf06978b1767d9d3839fc49d718ef1a15d3c06305bd3523e",
+    "start_ns": 185060718490125,
+    "end_ns": 185063257015541
+  },
+  {
+    "name": "rng",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/random_falloff_runtime.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/rng"
+    ],
+    "native_process_id": 13202,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 96,
+    "actual_checks": 96,
+    "report_sha256": "987def5e844cbe17a3389f045a6e9a83bf339ccf0c93b868e07514fe3afcb1d5",
+    "start_ns": 185063257427750,
+    "end_ns": 185071756849125
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/mcp_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora"
+    ],
+    "native_process_id": 14068,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": null,
+    "actual_checks": null,
+    "report_sha256": null,
+    "start_ns": 185071757289875,
+    "end_ns": 185072508138916
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "kind": "transform",
+  "requests": 2406,
+  "outcomes": {
+    "{'source_outcome': 'FINISHED'}": 2380,
+    "{'source_outcome': 'UNDEFINED_ROTATION_AXIS', 'comparison_kind': 'human_approved_undefined_rotation_rejection', 'policy_outcome': 'REJECTED', 'policy_error': 'mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior', 'numeric_source_match_claimed': False}": 14,
+    "{'source_outcome': 'CANCELLED'}": 12
+  },
+  "raw_source_comparisons_rechecked": true,
+  "binary_sha256": "0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa",
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "actual_terminal_record": {
+    "name": "mesh-transform",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/transform_runtime_smoke.py",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-api-01/mesh-transform",
+      "--gzip-output"
+    ],
+    "native_process_id": 56609,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 2406,
+    "actual_checks": 2406,
+    "report_sha256": "c5d28d53c5b35947e22fd06f216bbe0fe6d73a71fa9de467383c0581f7388679",
+    "start_ns": 184587440776291,
+    "end_ns": 184766705909791
+  },
+  "driver_sha256": "ad7384824af854c0a3a68553a832b7b7a8944c1147704ab32892a5da1df2394d",
+  "audit_module_sha256": "61880cde241d72d4041c11e4cebcdef319461e97f5f98bcb01c82167195ec8ba",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

@@ -53,8 +53,12 @@ Object-mode regeneration keeps its exact existing result.
   The merge proof changed 16,155 pixels.
   Saved and freshly reloaded images match exactly.
   All three merge PNGs also match the prior implementation byte for byte.
-- The first 3,584 retained interface requests and their separate raw audit passed.
-  The rest of the 14,326 requests and asset checks are still running.
+- All 14,326 retained interface requests and their five separate raw audits passed.
+  The retained parent controller ended with exit zero and unchanged inputs.
+  All 1,687 retained asset checks and the MCP smoke check passed.
+  In total, 16,374 new and retained interface records passed raw audit.
+  The 14 approved undefined rotation rejections and 48 stochastic support
+  checks remain separate from deterministic numeric source matches.
 
 ## Exact artifacts
 
@@ -66,7 +70,7 @@ The release library SHA-256 is
 The preview executable SHA-256 is
 `0f1923e013d95d8b19a4c16bb5e05b949aa5c8f359dd93d869707b0146c1411d`.
 
-The four `regenerate-completed-*` manifests bind archived files to their
+The five `regenerate-completed-*` manifests bind archived files to their
 original bytes and SHA-256. Large JSON files use lossless gzip.
 Original files and the older failed and successful trials remain intact.
 Evidence at implementation 224a4360 is historical evidence for that build.
@@ -74,8 +78,10 @@ It does not pass gates on this repaired build.
 
 ## Still required
 
-Finish the complete retained interface/asset run.
-Audit and archive all required raw records.
+The bounded merge and regeneration local checks above are complete.
+The whole-product baseline is not ready.
+The current strict baseline command exits two: 8,993 sources and 39 features
+still need review. Both products remain incomplete.
 Three-platform CI, dependency integration and independent Codex acceptance
 remain unpassed. At published evidence head 509b71d9, six CI jobs stopped
 before their first step due to the GitHub account payment or spending-limit
