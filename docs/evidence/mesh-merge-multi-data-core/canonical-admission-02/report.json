@@ -1,0 +1,69 @@
+{
+  "scope": "before_code_native_Rust_scene_admission_and_world_queries",
+  "started_utc": "2026-10-30T13:31:58.647742+00:00",
+  "inputs": {
+    "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-multi-data-core/canonical-scene-validator.rs": "0c01373df8646bf0162c6e6c2e8263c0b003c583ac239b822ff8d5f6ff4d907f",
+    "/private/tmp/formora-mesh-merge-multi-data-core/tools/multi_mesh_merge_product_inputs.py": "2e4c14619a8e12aade8afe4e31eefb819ae9ec838555da8780cba9f9f0af472e",
+    "/private/tmp/formora-mesh-merge-multi-data-core/baseline/fixtures/mesh-merge-multi-data.json": "7a63c6e29fc8e11850481a20450b6a1e86bf25c3252b71c6abfe53aebb201aa1",
+    "/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+    "/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib": "90ba8130930f3046b759afed1dd1ae9066fc6bd67a0b305d6bb1ab6617bbec75"
+  },
+  "required_cases": 13440,
+  "passed_cases": 13440,
+  "product_operation_acceptance": "unrun",
+  "cli_mcp_feature_acceptance": "unrun",
+  "complete_native_field_parity": false,
+  "unreported_native_fields": [
+    "object_frames.lock_scale"
+  ],
+  "matched_scope": "scene admission, supported frame fields, and world vertices only; no scale-lock query pass",
+  "product_implementation_changed": false,
+  "complete": true,
+  "compile_command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition",
+    "2024",
+    "-C",
+    "opt-level=3",
+    "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-multi-data-core/canonical-scene-validator.rs",
+    "--extern",
+    "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+    "-o",
+    "/private/tmp/formora-multi-data-canonical-admission-02/canonical-scene-validator"
+  ],
+  "compile_exit": 0,
+  "process_id": 12715,
+  "binary_sha256": "1b6fba07612eb5c57c1941b0cb16264b73b1afac0ffd492df5e70f8bae36415f",
+  "terminal_exit_code": 0,
+  "ended_utc": "2026-10-30T13:32:42.107202+00:00",
+  "files": {
+    "responses.jsonl.gz": {
+      "sha256": "0b1940bfa7a55274017be622b9bd9650751ceaa3b124932fd31dfc38e5ffe31c",
+      "bytes": 2720966
+    },
+    "process.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "canonical-scene-validator": {
+      "sha256": "1b6fba07612eb5c57c1941b0cb16264b73b1afac0ffd492df5e70f8bae36415f",
+      "bytes": 1992440
+    },
+    "requests.jsonl.gz": {
+      "sha256": "63aa6dad357e89ef75ef9fadd20c976bf2d607b8bdb75ccfaee9b8f5e012341c",
+      "bytes": 1261607
+    },
+    "compile.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "compile.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

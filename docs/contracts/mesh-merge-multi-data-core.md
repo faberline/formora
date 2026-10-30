@@ -56,6 +56,10 @@ Both attributed class-A grids retain 10,201 vertices, 20,200 edges and
 10,000 quads each. Five methods times two UV settings, three samples each.
 Each core sample must be at most 500 ms. Each full operation/save/fresh-load
 sample must be at most 4,000 ms. Keep original validation in those clocks.
+The frozen `capacity-driver.rs` validates full input before each operation
+and full results inside each clock. Compare actual aggregate core receipts
+with saved-session receipts. The old core has no `edit_merges` field yet;
+record its compile failure as an admission boundary, never a timing pass.
 Keep all preceding workloads and limits, including the 207 retained samples.
 Keep all 16,374 retained interface records and 1,687 asset checks.
 
