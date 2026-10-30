@@ -1,0 +1,198 @@
+{
+  "control": "decoded_normal_over_limit",
+  "rejected": true,
+  "expected_check": "a/source-decoded-custom-normal",
+  "error": "('a/source-decoded-custom-normal/f000000/0/0', 0.5773360729217529, 9.0, 8.422663927078247, 1e-06)",
+  "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-2fwwtjyj/native",
+  "result": {
+    "diagnostic_checks_passed": false,
+    "cases": 21,
+    "records": [
+      {
+        "id": "distance_diag_000",
+        "purpose": "pair_below",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_001",
+        "purpose": "pair_equal",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_002",
+        "purpose": "pair_above_keep",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_003",
+        "purpose": "pair_above_centroid",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_004",
+        "purpose": "triplet_centroid",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_005",
+        "purpose": "distance_chain",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_006",
+        "purpose": "centroid_tie",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_007",
+        "purpose": "concave_face_mode",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_008",
+        "purpose": "nonmanifold_edges",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_009",
+        "purpose": "coincident_zero_axis",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_010",
+        "purpose": "pair_zero_parent",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [
+          {
+            "entity": "a",
+            "classification": "cannot_invert",
+            "raw_source_matrix_local": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "numeric_match_claimed": false
+          }
+        ]
+      },
+      {
+        "id": "distance_diag_011",
+        "purpose": "hidden_vertex",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_012",
+        "purpose": "custom_flat",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_013",
+        "purpose": "custom_split_alias",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_014",
+        "purpose": "empty_selection",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_015",
+        "purpose": "normal_codec_diagonal",
+        "checks_passed": false,
+        "errors": [
+          "('a/source-decoded-custom-normal/f000000/0/0', 0.5773360729217529, 9.0, 8.422663927078247, 1e-06)"
+        ],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_016",
+        "purpose": "normal_codec_negative",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_017",
+        "purpose": "normal_codec_nonunit",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_018",
+        "purpose": "normal_codec_near_auto",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_019",
+        "purpose": "normal_codec_tiny",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      },
+      {
+        "id": "distance_diag_020",
+        "purpose": "normal_codec_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": []
+      }
+    ],
+    "comparison_limit": 1e-06,
+    "discrete": "exact",
+    "full_source_gate": "unrun",
+    "product_acceptance": "unrun"
+  }
+}

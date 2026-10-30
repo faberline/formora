@@ -1,0 +1,39 @@
+{
+  "archives": [
+    {
+      "attempt": "diagnostic-01",
+      "cases": 15,
+      "passes": 13,
+      "files": 47
+    },
+    {
+      "attempt": "diagnostic-02",
+      "cases": 15,
+      "passes": 14,
+      "files": 47
+    },
+    {
+      "attempt": "diagnostic-03",
+      "cases": 21,
+      "passes": 19,
+      "files": 67
+    },
+    {
+      "attempt": "diagnostic-04",
+      "cases": 21,
+      "passes": 21,
+      "files": 73
+    },
+    {
+      "attempt": "diagnostic-05",
+      "cases": 21,
+      "passes": 21,
+      "files": 77
+    }
+  ],
+  "lossless_files_verified": 311,
+  "native_diagnostic_records": 93,
+  "forged_controls_rejected": 22,
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun"
+}

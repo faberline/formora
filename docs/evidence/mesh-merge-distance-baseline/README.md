@@ -4,8 +4,8 @@ Issue #82. This is source-only preparation in an isolated branch.
 The parent is draft PR #81 at
 `9ebb82fd388dbf51171c81abc7f04e5cb4a705a1`.
 Its dependencies and all 11 milestones remain unaccepted.
-The existing full multi-data raw audit and timing controller keep running
-in their original worktree. Their source files and executable stay unchanged.
+The existing full multi-data raw audit and timing controller ended before
+these native distance probes. Their source files and executable stay unchanged.
 
 The draft constructor authors 1,188 cases and eight literal mesh fixtures.
 It reads no native result or product answer. The fixtures include loose pairs,
@@ -37,12 +37,12 @@ The fixture, constructor and checker hashes remain unchanged during that run.
 ## Required next work
 
 The input state remains draft. These files are not the final before-code seal.
-Frame and unit literals, the distinct second mesh, outside data, native context
-creation, selection/history flush and custom-normal setup still need adapters.
-Hidden-data patterns and omitted-parameter probes also remain required.
-Invalid/coercion/nonfinite probes, the manual page, capture code, independent
-initial binding and source corruption controls remain unrun.
-Capacity inputs and their native results also remain unrun.
+Frame and unit literals, a distinct second mesh, outside data, native context,
+selection/history and single-corner custom-normal setup now have diagnostic
+adapters. They do not cover the full required domain. Omitted parameters,
+invalid/coercion/nonfinite probes and the manual page remain pending.
+Smooth multi-corner normal fans and full post-merge topology/data analysis
+remain pending. Capacity inputs and their native results remain unrun.
 
 The PR #81 post-full controller has now ended. All 207 timings and their
 physical source comparisons passed before this new native probe started.
@@ -80,3 +80,65 @@ editor source. All actual operator parameters are accounted for.
 The source input draft and its earlier offline proof remain byte-identical.
 Its original before-RNA state records when it was authored. Readiness belongs
 to the separate capture evidence. Final input freezing is still pending.
+
+## Targeted native diagnostics
+
+These diagnostics run the actual distance operator. They are not the full
+frozen source registry, a Rust operation or independent product acceptance.
+The original 1,188 draft cases remain byte-identical. Separate diagnostic
+registries contain 15 targeted cases and six extra normal-codec cases.
+
+| Attempt | Actual PID | Exit | Cases | Binding passes | Retained failure |
+| --- | --- | --- | --- | --- | --- |
+| diagnostic-01 | 48126 | 0 | 15 | 13 | Selection setup cleared earlier choices. |
+| diagnostic-02 | 53220 | 0 | 15 | 14 | Raw requested normals differ from their int16 encoding. |
+| diagnostic-03 | 62927 | 0 | 21 | 19 | Reference missed the Python API component clamp. |
+| diagnostic-04 | 65628 | 0 | 21 | 21 | None. |
+| diagnostic-05 | 67126 | 0 | 21 | 21 | None. Added receipts and analytic pair checks. |
+
+All attempts preserve raw records, native saved files, inputs, scripts and
+actual parent wait receipts. `archive-manifest.json` binds each lossless copy.
+Original files remain in place. Failed attempts remain failed.
+
+Selection setup now clears all domains before it applies true selections.
+It then flushes the authored selection mode and installs the typed history.
+The expected selection, masks and history were not changed to fit the capture.
+
+The source normal API converts each component to float and clamps it to
+[-1, 1]. It then normalizes the vector and encodes it as two signed 16-bit
+integers. The independent scalar model derives that encoding from authored
+geometry and requested vectors. It reads no captured answer. The checker
+compares encoded integers exactly and decoded vectors at absolute 1e-6.
+The pinned official files and Git blob identities are in
+`baseline/sources/mesh-merge-distance/`.
+
+The model currently covers single-corner fans only. A fan is the group of
+face corners that share a smooth vertex normal. It explicitly rejects a
+smooth multi-corner fan. That required domain remains pending.
+
+Diagnostic 05 also checks the actual binary, PID, command, logs, successful
+terminal wait and exact case/file membership. It regenerates authored inputs
+with both Python file-opening interfaces denied. It checks initial geometry,
+UV layers, integer types, explicit zero weights, selection, sharing, frames,
+custom normals, save/reopen data and unchanged outside data. Independent
+two-point calculations check the exact lower/equal/upper distance boundary,
+kept position, centroid and removed count. They do not accept all clustering,
+topology or attribute-transfer behavior.
+
+The zero-parent diagnostic retains the source's all-zero local query matrix.
+It classifies that singular query as `cannot_invert`, using the user's
+approved policy. It still checks valid basis, world and operation data.
+It claims no numeric match for the local query. The source policy was not
+expanded to reject all zero-scale operations.
+
+`diagnostic-controls-01/` retains 22 forged-data controls. Each control calls
+the complete checker against its own preserved copy. Modified records have
+new valid compressed and raw hashes. Each reaches its intended rejection.
+Controls cover wrong pair results, distance boundaries, outside data, frames,
+sharing, provider order, UV loss, zero weights, integer types, normal encoding,
+decoded normals, reload attributes, source-answer input, missing/duplicate
+cases, substituted binary, failed/timed-out terminal, missing terminal field,
+wrong PID and changed log identity. No forged operation runs.
+
+Full source acceptance, capacity acceptance and Rust product acceptance all
+remain unrun. No issue or milestone is complete from these diagnostics.

@@ -1,0 +1,22 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "purpose": "derive Python-to-RNA array clamp before custom normal encoding",
+  "files": [
+    {
+      "path": "source/blender/python/intern/bpy_rna_array.cc",
+      "repository_path": "baseline/sources/mesh-merge-distance/bpy_rna_array.cc",
+      "git_blob": "a48c44bcccdf198774d5046d2768f620a9a4259c",
+      "sha256": "2b8b7bc32eb3b7b437b78c9189fc73b95cb51633513aa05cf7fdfa3276bfed27",
+      "bytes": 32185,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/intern/bpy_rna_array.cc"
+    },
+    {
+      "path": "source/blender/python/intern/bpy_rna.cc",
+      "repository_path": "baseline/sources/mesh-merge-distance/bpy_rna.cc",
+      "git_blob": "726f467baba4260ab327f8429b11037cfafcd7e7",
+      "sha256": "b7dc0fd6d038a87986da3f5eb4c6b597feb32df5cd82e346a3e11e39c44f9f90",
+      "bytes": 349773,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/intern/bpy_rna.cc"
+    }
+  ]
+}

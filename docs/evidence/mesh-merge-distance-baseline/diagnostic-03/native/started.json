@@ -1,0 +1,16 @@
+{
+  "process_id": 62927,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_merge_distance_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-diagnostic-03.json",
+    "--output",
+    "/private/tmp/formora-merge-distance-native-diagnostic-03/capture"
+  ],
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "suite_sha256": "eb6db76ac252b2584bbdbe65f791201325fcbce349a7a6f02b533280e577b523"
+}
