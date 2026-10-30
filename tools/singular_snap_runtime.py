@@ -18,8 +18,8 @@ def setup(suite, case):
     return delta.setup(effective_suite(suite, case), case)
 
 
-def snapshot(inspection, queries, worlds):
-    result = delta.snapshot(inspection, queries, worlds)
+def snapshot(inspection, queries, worlds, mesh_snapshot_fn=rotation.mesh_snapshot):
+    result = delta.snapshot(inspection, queries, worlds, mesh_snapshot_fn=mesh_snapshot_fn)
     for name, world in worlds.items():
         frame = world['object_frames']
         if 'matrix_local_error' in frame:

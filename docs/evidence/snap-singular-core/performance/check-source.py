@@ -5,13 +5,18 @@ import copy
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[4]
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'tools'))
-from compare_snap_singular_policy_reference import numeric_matrix, validate_run
+from compare_snap_singular_policy_reference import numeric_matrix
+from compare_snap_singular_reference import delta_matrix, world_point
+from compare_snap_menu_reference import tree, selection_input, IDENTITY
+from compare_snap_rotation_reference import compose, matrix
+from compare_transform_reference import finite
 from singular_snap_runtime import compare_local
 
 
@@ -28,9 +33,89 @@ def mesh_input(asset):
         'faces': [[index[v] for v in asset['polygons'][id]['vertices']] for id in faces],
         'face_smooth': [False] * 10000, 'face_materials': [0] * 10000,
         'edge_seams': [id in asset.get('edge_seams', []) for id in edges],
-        'material_slots': [], 'uv_layers': [], 'active_uv_index': 0, 'active_material_index': 0,
+        'material_slots': [], 'uv_layers': [], 'active_uv_index': -1, 'active_material_index': 0,
         'hidden': {'vertices': [], 'edges': [], 'faces': []},
         'group_scenarios': {'authored': {'names': [], 'weights': {}}}}
+
+
+def validate_grid(suite, run, data, scene):
+    """Validate the fixed no-UV/no-material grid without inventing layers.
+
+    The small selection fixture validator requires at least one UV and
+    material slot. This workload has neither. Check its exact authored
+    topology and empty attributes directly, plus independent frame equations.
+    """
+    finite(data)
+    expected_mesh = selection_input(suite['mesh'], run, False)
+    for side in ['before', 'after']:
+        state = data[side]
+        assert set(state['objects']) == set(scene['entities'])
+        assert state['mode'] == 'OBJECT' and state['active_object'] == 'target'
+        assert state['sharing'] == [['secondary', 'target']]
+        assert set(state['meshes']) == {'target', 'secondary'}
+        basis = {}
+        for name, obj in state['objects'].items():
+            entity = scene['entities'][name]
+            t = entity['transform']
+            channels = state['rotation_channels'][name]
+            d = state['delta_channels'][name]
+            expected_delta = {**t['delta'], 'location': t['delta']['translation']}
+            del expected_delta['translation']
+            tree(expected_delta, d, 'authored delta/' + name, 0.)
+            assert obj['parent'] == entity['parent'] and obj['selected'] == (name in ['target', 'secondary'])
+            assert obj['type'] == entity['content']['kind'].upper() and obj['mode'] == 'OBJECT'
+            assert obj['animation_data'] is False and obj['constraints'] == obj['modifiers'] == 0
+            raw = {k: channels[k] for k in ['mode', 'euler', 'quaternion_wxyz', 'axis_angle']}
+            authored = {**t['rotation']['channels'], 'mode': t['rotation']['channels']['mode'].upper()}
+            if side == 'before':
+                tree(authored, raw, 'authored initial raw channels/' + name, 0.)
+                tree(t['translation'], obj['location'], 'authored location/' + name, 0.)
+            tree(t['scale'], obj['scale'], 'authored scale/' + name, 0.)
+            assert obj['rotation_mode'] == raw['mode'] == authored['mode']
+            tree(raw['euler'], obj['rotation'], 'evaluated stored Euler/' + name, 0.)
+            state_input = scene['object_context']['states'].get(name, {})
+            for field in ['lock_rotation', 'lock_location']:
+                tree(state_input.get(field, [False] * 3), obj[field], field + '/' + name, 0.)
+            for field in ['lock_rotation_w', 'lock_rotations_4d']:
+                assert channels[field] == state_input.get(field, False)
+            tree(IDENTITY, obj['matrix_parent_inverse'], 'parent inverse/' + name, 0.)
+            for channel, field in [('location', 'delta_location'), ('euler', 'delta_rotation'), ('scale', 'delta_scale')]:
+                tree(d[channel], obj[field], 'duplicate delta/' + name + '/' + field, 0.)
+            for channel, field in [('euler', 'delta_euler'), ('quaternion_wxyz', 'delta_quaternion_wxyz')]:
+                tree(d[channel], channels[field], 'duplicate raw delta/' + name + '/' + field, 0.)
+            basis[name] = delta_matrix(obj, raw, d)
+            tree(basis[name], obj['matrix_basis'], 'evaluated basis/' + name)
+
+        def world(name):
+            parent = state['objects'][name]['parent']
+            return basis[name] if parent is None else compose(world(parent), basis[name])
+
+        for name, obj in state['objects'].items():
+            tree(world(name), obj['matrix_world'], 'evaluated world/' + name)
+        for name, mesh in state['meshes'].items():
+            tree(expected_mesh, {k: mesh[k] for k in expected_mesh}, 'unchanged authored shared grid/' + name, 0.)
+            assert mesh['data_edit_mode'] is False and mesh['active_material_index'] == 0
+            assert mesh['flags'] == {k: False for k in ['mirror_x', 'mirror_y', 'mirror_z', 'mirror_topology']}
+            tree(expected_mesh['geometry']['vertices'], mesh['vertices_metres'], 'local physical grid/' + name, 0.)
+            for id, point in mesh['geometry']['vertices'].items():
+                for field in ['world_vertices', 'world_vertices_metres']:
+                    tree(world_point(world(name), point), mesh[field][id], 'physical vertex/' + name + '/' + id, 0.)
+            assert set(mesh['normals']) == {'faces', 'corners'}
+            assert set(mesh['normals']['faces']) == set(mesh['normals']['corners']) == set(expected_mesh['geometry']['faces'])
+            for id, normal in mesh['normals']['faces'].items():
+                corners = mesh['normals']['corners'][id]
+                assert len(corners) == 4
+                for n in [normal, *corners]:
+                    assert len(n) == 3 and abs(math.sqrt(sum(x*x for x in n)) - 1.) <= 1e-6
+            tree(data['before']['meshes'][name]['normals'], mesh['normals'], 'unchanged grid normals/' + name, 0.)
+        tree(matrix({'location': state['cursor']['location'], 'scale': [1.] * 3}, state['cursor_channels']),
+             state['cursor']['matrix'], 'evaluated cursor')
+        tree(state['cursor']['location'], state['cursor_metres'], 'cursor physical', 0.)
+        tree(data['before']['settings'], state['settings'], 'unchanged settings', 0.)
+    for name, old in data['before']['objects'].items():
+        new = data['after']['objects'][name]
+        for field in set(old) - {'location', 'rotation', 'matrix_world', 'matrix_basis'}:
+            tree(old[field], new[field], 'preserved object field/' + name + '/' + field, 0.)
 
 
 def check(folder):
@@ -87,7 +172,7 @@ def check(folder):
                         tags.append(tag)
                 unavailable.append({'frame': frame['id'], 'form': form['id'], 'side': side, 'entity': name})
         assert tags == row['nonfinite_fields']
-        validate_run(suite, run, physical)
+        validate_grid(suite, run, physical, scene)
         print(json.dumps({'validated': len(seen), 'frame': frame['id'], 'form': form['id']}), flush=True)
     assert seen == {(f['id'], x['id']) for f in config['frames'] for x in config['forms']}
     return {'passed': True, 'forms': len(seen), 'source_process_id': manifest['process_id'],

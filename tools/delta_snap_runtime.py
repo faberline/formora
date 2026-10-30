@@ -29,8 +29,8 @@ def setup(suite, case):
     return result
 
 
-def snapshot(inspection, queries, worlds):
-    result = rotation.snapshot(inspection, queries, worlds)
+def snapshot(inspection, queries, worlds, mesh_snapshot_fn=rotation.mesh_snapshot):
+    result = rotation.snapshot(inspection, queries, worlds, mesh_snapshot_fn=mesh_snapshot_fn)
     result['delta_channels'] = {}
     for name, entity in inspection['scene']['entities'].items():
         delta = entity['transform'].get('delta', {'translation':[0.]*3, 'euler':[0.]*3,

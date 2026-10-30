@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "scope": "diagnostic determinant only; not product acceptance",
+  "source_commit": "8a1083e9bf41b91fdea6546681f806154efdc25a",
+  "runs": [
+    {
+      "stage": "before",
+      "input_sha256": "6195cf2dd7e58d052cd5b678825a212816ce101f33e5988bbef227ff5e387e8b",
+      "det2": [
+        -0.9607899785041809,
+        -0.44385039806365967,
+        0.0,
+        0.009492933750152588,
+        -0.0,
+        -0.0
+      ],
+      "det3": [
+        0.0,
+        -0.0,
+        -0.0,
+        0.0
+      ],
+      "check_determinant": 0.0,
+      "check_determinant_f32_le": "00000000"
+    },
+    {
+      "stage": "after",
+      "input_sha256": "f6788c46f8d975a7aaeead3cd100382814fedeee87206b47e3b71998ad99ff0b",
+      "det2": [
+        4.199745973210156e-08,
+        1.9401317885581193e-08,
+        -0.0,
+        -4.149489640781212e-10,
+        0.0,
+        0.0
+      ],
+      "det3": [
+        0.0,
+        0.0,
+        0.0,
+        -4.9125819828160886e-17
+      ],
+      "check_determinant": -4.9125819828160886e-17,
+      "check_determinant_f32_le": "888d62a4"
+    }
+  ]
+}

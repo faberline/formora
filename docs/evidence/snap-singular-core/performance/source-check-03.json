@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "forms": 20,
+  "source_process_id": 55260,
+  "manifest_sha256": "d970515e3471ae9792980db8a6766a68ce85752645c57ec1d0515ff872df4b35",
+  "terminal_sha256": "811d57b44006afd1d92a209e9d3064e1b5165aabd9737e3aa82f0da8eb65aabc",
+  "checker_sha256": "950a326430e9e87e498c715bb94f0b99d714d72e5a4272ba5bc101b67e51c582",
+  "unavailable_local_queries": [
+    {
+      "frame": "parent-zero",
+      "form": "selected-cursor-false-true",
+      "side": "after",
+      "entity": "child"
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-cursor-true-true",
+      "side": "after",
+      "entity": "child"
+    }
+  ],
+  "numeric_limit": 1e-06,
+  "product_acceptance": "unrun"
+}

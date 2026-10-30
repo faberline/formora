@@ -166,3 +166,19 @@ fn library_local_getter_reports_unavailability_without_an_object_context() {
     assert!(value["matrix_basis"].is_array());
     assert!(value["matrix_parent_inverse"].is_array());
 }
+
+#[test]
+fn missing_parent_and_invalid_world_are_still_query_errors() {
+    let mut scene = scene();
+    scene.entities.remove("parent");
+    assert!(formora::objects::frames(&scene, "child").is_err());
+    assert!(
+        InspectRequest {
+            entity: Some("child".into()),
+            world: true,
+            ..InspectRequest::default()
+        }
+        .inspect(&scene)
+        .is_err()
+    );
+}
