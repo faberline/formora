@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "process_id": 56746,
+  "background": false,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-mesh-merge-multi-data/tools/blender_multi_mesh_merge_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data.json",
+    "--output",
+    "/private/tmp/formora-mesh-merge-multi-data/docs/evidence/mesh-merge-multi-data-baseline/pilot-01",
+    "--case",
+    "multi_merge_00000",
+    "--case",
+    "multi_merge_00001",
+    "--case",
+    "multi_merge_00002",
+    "--case",
+    "multi_merge_00004",
+    "--case",
+    "multi_merge_00006",
+    "--case",
+    "multi_merge_00008",
+    "--case",
+    "multi_merge_00010",
+    "--case",
+    "multi_merge_00012",
+    "--case",
+    "multi_merge_00014",
+    "--case",
+    "multi_merge_00028",
+    "--case",
+    "multi_merge_00042",
+    "--case",
+    "multi_merge_00056",
+    "--case",
+    "multi_merge_00070",
+    "--case",
+    "multi_merge_00084",
+    "--case",
+    "multi_merge_00098",
+    "--case",
+    "multi_merge_00112",
+    "--case",
+    "multi_merge_00126",
+    "--case",
+    "multi_merge_00140",
+    "--case",
+    "multi_merge_00280",
+    "--case",
+    "multi_merge_00420",
+    "--case",
+    "multi_merge_00560",
+    "--case",
+    "multi_merge_00700",
+    "--case",
+    "multi_merge_00840",
+    "--case",
+    "multi_merge_01680",
+    "--case",
+    "multi_merge_02520",
+    "--case",
+    "multi_merge_03360",
+    "--case",
+    "multi_merge_06720",
+    "--case",
+    "multi_merge_10080"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "captured_utc": "2026-10-30T10:24:53.642279+00:00",
+  "scope": "focused_diagnostic",
+  "input_hashes": {
+    "baseline/fixtures/mesh-merge-multi-data.json": "f1a979e1e9c1294b8535882c4a7e521c31fe6121d00efe1751f21e6b79b6332e",
+    "tools/blender_multi_mesh_merge_reference.py": "2955aca9475525ea476f145ecc8687abe201fd3ebaefe3d32e88084f9fa1d833",
+    "tools/compare_multi_mesh_merge_reference.py": "e1a52664ba7aca314cb08b777c587bfeff959fa93c2f2e405cce0e09033897cf",
+    "tools/launch_multi_mesh_merge_reference.py": "6fee946523baf088a3abc7b28a79f700b506191bb6fe02cfae7857677ed96afa",
+    "tools/generate_multi_mesh_merge_cases.py": "5929e19e16f062ff8ac723fe845457f4d6a42c45ad8b7e40217d159029329b0c",
+    "tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "docs/contracts/mesh-merge-multi-data-baseline.md": "fcab58399c7e1756c166abf687b74d98e74449014746a47259fc40a441fa0bcc",
+    "baseline/lock.json": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+    "baseline/sources/mesh-merge-multi-data/manifest.json": "f6ab3c2f3dffa2d65f90c0468f3b6fb36d5fb04fb47cc0215fd70ae32b8cd3c0",
+    "baseline/sources/mesh-merge-multi-data/object_edit.cc": "99bfb6e580aa033fc769bf18c26d5c02bd6ca634474b0ce431c054778a63b073",
+    "baseline/sources/mesh-merge-multi-data/BKE_layer.hh": "3790bc527677c2c6790a25bef6cd2d9ea9ecfc49dcba0af4a8c3a273fbbaef1f",
+    "baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "baseline/sources/mesh-merge/editmesh_tools.cc": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+    "baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064"
+  },
+  "operator_properties_sha256": "ea6f625083a62a128983efd1fd7b3645523934baad3a6e48bba734621489115c",
+  "capture_lock_sha256": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+  "runs": [
+    {
+      "id": "multi_merge_00000",
+      "file": "multi_merge_00000.json.gz",
+      "sha256": "8cd9a47dc9e44e8e53e72b2ad37c2b8d6fd77d5f539552d0c6d80d714cd45ca2",
+      "raw_sha256": "fcfe5df926fdf529e68f48b3dc34387d75716dd4f1e742a08e75e090c8b2f5b6",
+      "raw_bytes": 86951,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00001",
+      "file": "multi_merge_00001.json.gz",
+      "sha256": "c3696d67ca5c52144f380cf18c4a259c6476e4544a35c3c5eef020e82698dc74",
+      "raw_sha256": "2029e2e78228bc628a5edf9d2b3c21076e5c874dda43332dfd7009ae7b93a22c",
+      "raw_bytes": 94487,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00002",
+      "file": "multi_merge_00002.json.gz",
+      "sha256": "8a9bc9c57d1ba8d12d018b6d12e2493a3ac8714671dd92dc5730c33adc736336",
+      "raw_sha256": "545f2a9dd629c6a938ecc3218e24082a0f53d62361a9522b2d3e34dc752f9fa7",
+      "raw_bytes": 86579,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00004",
+      "file": "multi_merge_00004.json.gz",
+      "sha256": "bd747a5d99f9c484c22b7318a75236305cadf35860ed42a44921606399af6f28",
+      "raw_sha256": "135b181aee5f7ab8ed3a226fe79a1afa29107fc0490c55a6983272f077133680",
+      "raw_bytes": 86579,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00006",
+      "file": "multi_merge_00006.json.gz",
+      "sha256": "345c67e85371d271cd23b2f9489d7c45f1168b1cd573345986ca0a74df134d6f",
+      "raw_sha256": "00fd426359a1fe811266751a9ce86d3d8d85818ed8735854495471af46ebd71b",
+      "raw_bytes": 87073,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00008",
+      "file": "multi_merge_00008.json.gz",
+      "sha256": "9d24900fa915517afb07dfeec7f5ce6bbe2914484c9b270da820dd8b2d992bfa",
+      "raw_sha256": "ae0c63e45c750a930e774bb638de3347d2bd109a511fa2e41fe7d114982f25a6",
+      "raw_bytes": 87073,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00010",
+      "file": "multi_merge_00010.json.gz",
+      "sha256": "e5d89d83c62fe4e50320e9a8d50e5089c0a90215b5db7cbcf3d20d20f2580bd6",
+      "raw_sha256": "85ca126cfdc31ad8ec095e4e58749b8dbabe03d13b5bc297de4502a4ce0eaebe",
+      "raw_bytes": 86701,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00012",
+      "file": "multi_merge_00012.json.gz",
+      "sha256": "8db272dfd69bc1fc439774c9dec4c3a5f564923123c19ce377d6bfaa413f2dd4",
+      "raw_sha256": "658aa77a922d14cec11358d1d460f263cbd4a26d559c86587c11bc3d70864ba1",
+      "raw_bytes": 87195,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00014",
+      "file": "multi_merge_00014.json.gz",
+      "sha256": "8466d1b4eee8e3506c7f9f4a583819f75ecd654d452ceddfe1a9b393c84432c7",
+      "raw_sha256": "c3e05b42dde47175ea9c4bf65806e349f35eba59964e1b084bda436f0793487f",
+      "raw_bytes": 86950,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00028",
+      "file": "multi_merge_00028.json.gz",
+      "sha256": "4b6f8ddfb364e8efea04f1a5214ad71036cd50071fc87fae1af0de9603d78a07",
+      "raw_sha256": "53bb39a0643b2f3fa21e6eeab1b492f5197f15170ababf3050966d66b8e04774",
+      "raw_bytes": 86639,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00042",
+      "file": "multi_merge_00042.json.gz",
+      "sha256": "fbef27f63d50681c2e2634908bae6a9733f7cb50ae369dda3069631c96b3c338",
+      "raw_sha256": "b93b2d3c6536d93fa9e0e62342ad9faf89004db3b64ca371ded4a2ffabe2b8ef",
+      "raw_bytes": 86638,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00056",
+      "file": "multi_merge_00056.json.gz",
+      "sha256": "d5b664c04c326aec5e560a4ae6bd8c6fe124d03fec5ebea48676dbcaf08919ae",
+      "raw_sha256": "b1b0a11ebcf453dbed97b8cc56f3d04675bb0f5180122d9264502a7a0e9ac1b7",
+      "raw_bytes": 86645,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00070",
+      "file": "multi_merge_00070.json.gz",
+      "sha256": "11b0709ee5b28832f53a928bfafbaeddfff9c5bc11b7144ae396dd5546beff56",
+      "raw_sha256": "c3546db1bc86b8cda5ecba0213435d85998d656138889a3923f4be930d8bb4a8",
+      "raw_bytes": 86644,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00084",
+      "file": "multi_merge_00084.json.gz",
+      "sha256": "1cd58999c3561f049f13a5c17eda0975667b9d0f2ee39d133ae4905676eeec2c",
+      "raw_sha256": "48984ed20012159a563c4eb481fb2549a77d428a96f78bea24403501db9facad",
+      "raw_bytes": 94161,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00098",
+      "file": "multi_merge_00098.json.gz",
+      "sha256": "1a3ad41aa6724a589d0d4370f2147a898dfdcf757f335f97133ab3fe13ff6d80",
+      "raw_sha256": "c20422c549f8a46e9ffa03d7680cd207a0e644102bbfbf0ac1d5f5a5c50cfe8b",
+      "raw_bytes": 94160,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00112",
+      "file": "multi_merge_00112.json.gz",
+      "sha256": "ee4be36fd0de99e2114819518c2deec24fd648cec2c1adb6079ff22740abf643",
+      "raw_sha256": "ce879f2a182f97c44b1868f70b156d3073c0a4b54a9db7df59d4428de8352b9d",
+      "raw_bytes": 94166,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00126",
+      "file": "multi_merge_00126.json.gz",
+      "sha256": "e0ca2bddbb9e3030b765815233502dc198ba1f2b3383090e4befc024717e6943",
+      "raw_sha256": "ef9807ba8e3c92bbfc2f3ba76920704753c86ad67af53e27677252adfad42c7a",
+      "raw_bytes": 94165,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00140",
+      "file": "multi_merge_00140.json.gz",
+      "sha256": "700c3c8c0858bf23671e80933c8abcfe736df53fd64d475dacfc6592dbc0e361",
+      "raw_sha256": "1059bdef689cc0eb1f6f676a5e2605fbf6f1686576c648fe77620c9a4c0696f7",
+      "raw_bytes": 86957,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00280",
+      "file": "multi_merge_00280.json.gz",
+      "sha256": "c2b7147705c13e4c3322dbc1d2c4d78b4a418285908565a6634b85d23d0c0ce2",
+      "raw_sha256": "6979da0047799e18dc3f704d5f9920293cd5e7bf96a9a173d0d1be3113dec03c",
+      "raw_bytes": 86774,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00420",
+      "file": "multi_merge_00420.json.gz",
+      "sha256": "6e9ff5781713dd496edde0539db687a19ea595183c5a9bb9f2743c09de79dfe5",
+      "raw_sha256": "c084c0d856a154c8180a2ca1802bd0bfe67607e685c1ffa370e2f71125d4c9d8",
+      "raw_bytes": 86421,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00560",
+      "file": "multi_merge_00560.json.gz",
+      "sha256": "2eb06052980974cf6566e92cb9df9635656cfb90f92a82b35e6bc3f17fa0ca24",
+      "raw_sha256": "ebd2fe020af4e9e2e6244a8abd80c039817c1e95bf113e114484ecb7ce365382",
+      "raw_bytes": 86685,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00700",
+      "file": "multi_merge_00700.json.gz",
+      "sha256": "adc902e835e7b58e468e5541ad413a4b75f3bca2af2d95d4b7d567eeee35843d",
+      "raw_sha256": "2869e9fd35c0d3c1d4a51119294ad0b0115e720f9b8a033dc4b8d4ebce45d0f1",
+      "raw_bytes": 86952,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_00840",
+      "file": "multi_merge_00840.json.gz",
+      "sha256": "39d5b281da797305766d38a33293c2ea8b23108eeeede2cad15d5607e95a950a",
+      "raw_sha256": "99d2ef2080be7829e50b86cbdafcb2020719eac8ce329b8ad219b08c79831aa6",
+      "raw_bytes": 102715,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_01680",
+      "file": "multi_merge_01680.json.gz",
+      "sha256": "22b2b3798f21a98e8a5f5c69f6547d4eea4526d4eaef61ade0fe25fa7072d676",
+      "raw_sha256": "a2fec03dd3684e7bd7401894691d502309e11a36f6cc6f12000c1bbdb6536e48",
+      "raw_bytes": 93451,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_02520",
+      "file": "multi_merge_02520.json.gz",
+      "sha256": "a5138f106bef07aa68531c11419ea6f4304fb379133ab61fd260a7248a92fca8",
+      "raw_sha256": "fbcbdace20adb76dc8d1f26f9da8ec2534baab964d865a075e892664046174cb",
+      "raw_bytes": 109203,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_03360",
+      "file": "multi_merge_03360.json.gz",
+      "sha256": "ae73378099219bc837db79c410025f70816c301a56ae8ae8b72665dad551eec2",
+      "raw_sha256": "61632d1762cf48716f5e0cbf9676afff114b771a1165e6eb81a8d5afeb557e37",
+      "raw_bytes": 86987,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_06720",
+      "file": "multi_merge_06720.json.gz",
+      "sha256": "ff5b82ef0670ec5ec1fc7fda279e6bdb08c270fad73efb6efad58c03df7cad85",
+      "raw_sha256": "e61c3993c5814caadd2ed79661a3406ed2fce1faa2b5346d5900310355159fd2",
+      "raw_bytes": 86959,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_10080",
+      "file": "multi_merge_10080.json.gz",
+      "sha256": "766beba3f1bd7d15535fd42dea9673538ad27cd2c5a27557f7630583eca8f8b1",
+      "raw_sha256": "751d904b6f8edcff436d4d41f2f3ec8c106b9ea884221d88143c904f3e024a69",
+      "raw_bytes": 86987,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}
