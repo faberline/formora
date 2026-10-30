@@ -1,0 +1,57 @@
+{
+  "seal_verified": true,
+  "seal_sha256": "3a3087437b328b8fd3fe38b63aeab3749a3f746876a4f5a7971e31f82ea742bb",
+  "sealed_files": 122,
+  "code_commit": "89c16f0736b3eb2eb01146432c85083c07dbbf91",
+  "cases": 192,
+  "controls": [
+    {
+      "control": "scope",
+      "rejected": true,
+      "reason": "capacity seal scope"
+    },
+    {
+      "control": "case_count",
+      "rejected": true,
+      "reason": "capacity seal registry"
+    },
+    {
+      "control": "suite_digest",
+      "rejected": true,
+      "reason": "capacity seal registry"
+    },
+    {
+      "control": "binary_identity",
+      "rejected": true,
+      "reason": "capacity fixed identity/limits"
+    },
+    {
+      "control": "product_budget",
+      "rejected": true,
+      "reason": "capacity fixed identity/limits"
+    },
+    {
+      "control": "source_dependency",
+      "rejected": true,
+      "reason": "capacity functional dependency"
+    },
+    {
+      "control": "execution_before_seal",
+      "rejected": true,
+      "reason": "capacity before-code seal"
+    },
+    {
+      "control": "hardware",
+      "rejected": true,
+      "reason": "capacity recorded hardware"
+    },
+    {
+      "control": "input_digest",
+      "rejected": true,
+      "reason": "capacity code/input seal"
+    }
+  ],
+  "control_count": 9,
+  "native_execution": "unrun",
+  "rust_product_timing": "unrun"
+}

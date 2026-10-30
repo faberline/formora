@@ -385,3 +385,15 @@ harness is intentionally not admitted for native execution yet.
 Capacity code sealing, native capacity results, source admission, platform
 CI, dependency integration and independent acceptance remain required.
 No Rust distance operation was added. Source #82 and all milestones stay open.
+
+## Sealed capacity harness
+
+Capacity code was committed at `89c16f0736b3eb2eb01146432c85083c07dbbf91`
+before seal creation. `mesh-merge-distance-capacity-seal-01.json` binds 122
+files, the fixed functional source seal, 192 samples and unchanged limits.
+Its SHA-256 is `3a3087437b328b8fd3fe38b63aeab3749a3f746876a4f5a7971e31f82ea742bb`.
+The seal records actual Apple M1 Max, 64 GiB, arm64, macOS 26.5.2 hardware.
+`capacity-seal-01/` retains the pure input recheck and nine rejected forged
+seal controls. No forged native operation ran. Native capacity execution,
+paired capacity comparison and Rust product timing remain unrun here.
+This section supersedes the earlier unfinished capacity harness status.
