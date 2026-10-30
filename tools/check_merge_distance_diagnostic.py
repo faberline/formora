@@ -19,6 +19,8 @@ from generate_merge_distance_normal_diagnostic import normal_diagnostic
 from generate_merge_distance_fan_diagnostic import fan_diagnostic
 from generate_merge_distance_parameter_diagnostic import parameter_diagnostic
 from merge_distance_parameter_reference import converted
+from merge_distance_provenance import input_paths
+from validate_merge_distance_state import validate as validate_full_state
 
 
 def authored_suite(suite):
@@ -177,11 +179,14 @@ def check(suite_path, capture):
     suite = json.loads(suite_path.read_text()); manifest = json.loads((capture/'manifest.json').read_text())
     authored_suite(suite)
     parent = capture.parent
-    receipt(manifest, json.loads((parent/'started.json').read_text()), json.loads((parent/'terminal.json').read_text()),
+    started = json.loads((parent/'started.json').read_text())
+    receipt(manifest, started, json.loads((parent/'terminal.json').read_text()),
             (parent/'stdout').read_bytes(), (parent/'stderr').read_bytes())
     membership(suite, manifest, capture)
     sha = lambda b: hashlib.sha256(b).hexdigest()
-    assert all(sha(Path(name).read_bytes()) == digest for name, digest in manifest['input_hashes'].items())
+    assert started['suite_sha256'] == sha(suite_path.read_bytes()), 'parent suite identity'
+    assert set(manifest['input_hashes']) == {str(path) for path in input_paths(suite_path)}, 'source input hash membership'
+    assert all(sha(Path(name).read_bytes()) == digest for name, digest in manifest['input_hashes'].items()), 'source input hash differs'
     records = []
     for run, row in zip(suite['runs'], manifest['runs']):
         path = capture/row['file']; compressed = path.read_bytes(); raw = gzip.decompress(compressed)
@@ -202,10 +207,11 @@ def check(suite_path, capture):
         except AssertionError as error: errors.append(str(error)); classifications = []
         try: postconditions(run, spec, value['before'], value['after'])
         except AssertionError as error: errors.append(str(error))
+        for phase in ['before', 'after', 'reloaded']:
+            try: validate_full_state(spec, run, value[phase])
+            except (AssertionError, KeyError, ValueError) as error: errors.append(phase+'/full-state: '+str(error))
         try:
-            for name in spec['data_sharing']:
-                for key in ['geometry', 'groups', 'source_component_ids', 'integer_attributes', 'normals']:
-                    same(value['after']['meshes'][name][key], value['reloaded']['meshes'][name][key], name+'/reload/'+key)
+            same(value['after'], value['reloaded'], 'complete-source-reload')
         except AssertionError as error: errors.append(str(error))
         records.append({'id': run['id'], 'purpose': run['purpose'], 'checks_passed': not errors,
                         'errors': errors, 'approved_singular_local_queries': classifications,

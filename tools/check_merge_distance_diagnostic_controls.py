@@ -91,7 +91,7 @@ def controls(suite, native, output):
            lambda x: x['before']['meshes']['a']['packed_custom_normals']['f000000'][0].__setitem__(0, 19929))
     reject('decoded_normal_over_limit', 'a/source-decoded-custom-normal', 'distance_diag_015',
            lambda x: x['before']['meshes']['a']['normals']['corners']['f000000'][0].__setitem__(0, 9.))
-    reject('native_reload_attribute_lost', 'a/reload/integer_attributes', 'distance_diag_000',
+    reject('native_reload_attribute_lost', 'complete-source-reload/meshes/a/integer_attributes', 'distance_diag_000',
            lambda x: x['reloaded']['meshes']['a']['integer_attributes']['VERT'].pop('vertices_signed'))
     reject('source_answer_in_authored_suite', 'pure-authored-suite',
            suite_mutation=lambda x: x['mesh_fixtures']['loose_pair'].update(source_expected={'vertices': {}}))
@@ -104,6 +104,10 @@ def controls(suite, native, output):
     reject('timed_out_native_terminal', 'native terminal failed', envelope=('terminal.json', lambda x: x.update(timed_out=True)))
     reject('wrong_native_pid', 'native PID binding', envelope=('terminal.json', lambda x: x.update(process_id=1)))
     reject('wrong_native_log_identity', 'native log identity', envelope=('terminal.json', lambda x: x.update(stdout_sha256='0'*64)))
+    reject('missing_input_hash', 'source input hash membership', envelope=('capture/manifest.json', lambda x: x['input_hashes'].pop(next(iter(x['input_hashes'])))))
+    reject('empty_input_hashes', 'source input hash membership', envelope=('capture/manifest.json', lambda x: x.update(input_hashes={})))
+    reject('extra_input_hash', 'source input hash membership', envelope=('capture/manifest.json', lambda x: x['input_hashes'].update({'/private/tmp/not-an-admitted-input': '0'*64})))
+    reject('wrong_parent_suite_hash', 'parent suite identity', envelope=('started.json', lambda x: x.update(suite_sha256='0'*64)))
     if any(run['purpose'].startswith('smooth_cyclic_') for run in json.loads(suite.read_text())['runs']):
         reject('smooth_fan_sharp_edge_changed', 'a/geometry/edge_sharp', 'distance_diag_021',
                lambda x: x['before']['meshes']['a']['geometry']['edge_sharp'].__setitem__('e000000', True))

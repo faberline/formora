@@ -18,6 +18,7 @@ from mathutils import Euler
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import blender_multi_mesh_merge_reference as base
 from merge_distance_scene_inputs import scene, selection
+from merge_distance_provenance import input_paths
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAINS = ['VERT', 'EDGE', 'FACE']
@@ -159,19 +160,7 @@ class Capture:
         self.stage = args.output.with_name(args.output.name+'.staging')
         assert not args.output.exists() and not self.stage.exists(); self.stage.mkdir(parents=True)
         self.native_files = Path(tempfile.mkdtemp(prefix='formora-distance-blends-'))
-        names = ['generate_merge_distance_cases.py', 'merge_distance_scene_inputs.py', 'blender_merge_distance_reference.py',
-                 'blender_multi_mesh_merge_reference.py', 'blender_mesh_merge_reference.py',
-                 'blender_snap_menu_reference.py', 'blender_transform_reference.py', 'blender_selection_reference.py']
-        names += ['check_merge_distance_diagnostic.py', 'merge_distance_normal_reference.py',
-                  'generate_merge_distance_diagnostic.py', 'generate_merge_distance_normal_diagnostic.py',
-                  'compare_snap_rotation_reference.py', 'compare_snap_delta_reference.py',
-                  'merge_distance_cluster_reference.py', 'merge_distance_fan_reference.py',
-                  'generate_merge_distance_fan_diagnostic.py', 'generate_merge_distance_parameter_diagnostic.py',
-                  'merge_distance_parameter_reference.py']
-        self.paths = [args.suite, *[ROOT/'tools'/name for name in names],
-                      *sorted((ROOT/'baseline/sources/mesh-merge-distance').glob('*')),
-                      *[ROOT/'baseline/sources/mesh-merge'/name for name in
-                        ['manifest.json', 'bmo_removedoubles.cc', 'editmesh_tools.cc', 'customdata.cc', 'deform.cc']]]
+        self.paths = input_paths(args.suite)
         self.hashes = {str(path): base.digest(path) for path in self.paths}
 
     def step(self):

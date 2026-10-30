@@ -100,6 +100,8 @@ registries contain 15 targeted cases and six extra normal-codec cases.
 | diagnostic-06 | 70821 | 0 | 21 | 21 | None. Added pinned distance-group vertex reference. |
 | diagnostic-07 | 72369 | 0 | 33 | 33 | None. Added open/cyclic smooth-fan setup. |
 | diagnostic-08 | 94006 | 0 | 104 | 104 | None. Includes 36 correct input rejections; these are not numeric matches. |
+| diagnostic-09 | 4839 | 0 | 104 | 104 | Native checks passed. A separate corruption harness failed; retained below. |
+| diagnostic-10 | 6332 | 0 | 104 | 104 | None. Strict-validator errors are collected; all checks remain enabled. |
 
 All attempts preserve raw records, native saved files, inputs, scripts and
 actual parent wait receipts. `archive-manifest.json` binds each lossless copy.
@@ -225,10 +227,47 @@ and a changed empty-selection result. These are source diagnostics, not
 independent product acceptance. `diagnostic-controls-04/` also retains all
 27 complete-checker corruption controls against the 104-case capture.
 
-All eight attempts preserve 251 raw case records and 787 lossless copies.
+The first eight attempts preserve 251 raw case records and 787 lossless copies.
 Full post-merge topology, data interpolation, selection/history and normal
 transfer still require complete validation. Nonfinite probes, final input
 freezing, two full fresh source runs and capacity evidence remain pending.
+
+## Complete state and dependency binding
+
+Diagnostics 09 and 10 add full state invariants and complete after/reopen
+comparison. Each checks 312 states: before, after and reloaded for 104 cases.
+This includes topology incidence, UV coverage, groups, signed integer layers,
+selection/history, physical/world coordinates, normals, sharing, sharp flags,
+packed int16 normals and native attribute types/counts. The existing strict
+validators keep their original conditions. Only the user-approved singular
+parent local query gets a separate validation view. Its raw query remains
+recorded and receives no numeric-match claim.
+
+The input registry now contains 98 exact files, including 31 Python scripts.
+It follows local imports and all reused pinned source manifests. Both older
+manifest path formats are supported. All pinned file and reused-manifest
+hashes must match before capture. The checker requires the exact input key
+set, each digest and the parent's suite digest. Missing, empty and extra hash
+entries cannot pass. An extra entry is rejected before its path is opened.
+
+Native diagnostic 09 passed. The first corruption harness then failed because
+the retained strict validator raises `ValueError`, while its adapter collected
+only `AssertionError` and `KeyError`. `diagnostic-controls-05/` preserves the
+failed source bytes and actual tool exit 1. Its PID was not recorded; the
+failure record says so. This attempt is not a passed negative-control gate.
+
+The adapter now collects `ValueError` as a failed case check. It does not
+weaken any condition or tolerance. Fresh native diagnostic 10 passed, as did
+checker PID 6964 with actual exit 0. The corrected corruption process PID 7247
+also exited 0. It rejected 31 forged inputs at their intended checks. The
+control script stayed unchanged during the run. `diagnostic-controls-06/` and
+`diagnostic-controls-06-driver/` retain those results and actual wait receipts.
+
+All ten native attempts now preserve 459 raw case records and 1,413 lossless
+copies. Five early case-binding failures and the separate failed corruption
+attempt remain failures. Source result classes remain 30 merged calls,
+37 unchanged calls, one all-empty skip and 36 rejections in each latest
+104-case run. Full source and product acceptance remain unrun.
 
 Full source acceptance, capacity acceptance and Rust product acceptance all
 remain unrun. No issue or milestone is complete from these diagnostics.

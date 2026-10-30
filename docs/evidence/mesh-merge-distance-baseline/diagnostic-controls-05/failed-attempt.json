@@ -1,0 +1,22 @@
+{
+  "control_harness_passed": false,
+  "actual_tool_terminal_exit": 1,
+  "process_id": null,
+  "process_id_not_recorded": true,
+  "failed_control": "wrong_pair_centroid",
+  "exception_type": "ValueError",
+  "exception_message": "component differs: a/world position/0: 0.06260000169277191 != 0.0625",
+  "cause": "retained strict state validator raises ValueError; adapter collected only AssertionError and KeyError",
+  "correction": "collect the strict validator error without relaxing any state checks or limits",
+  "native_source_process": 4839,
+  "native_source_terminal_exit": 0,
+  "native_source_diagnostic_passed": true,
+  "originals_preserved": true,
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun",
+  "failed_source_hashes": {
+    "check_merge_distance_diagnostic_controls.py": "f289f9a2b9100d04559109bb92417c3df89abd9c576954f626feb11c84a24a13",
+    "check_merge_distance_diagnostic.py": "9b169ca7fb3e473eb9dd06ccfe64e296c61177d5ce6b2ee80fee9bcdc777d71e",
+    "validate_merge_distance_state.py": "c3c96c346456593ab8cbd477b92e261fed1e18026c3ce3930899396c058872bd"
+  }
+}
