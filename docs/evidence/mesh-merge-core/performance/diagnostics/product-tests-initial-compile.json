@@ -1,0 +1,8 @@
+{
+  "tool_session_id": 61976,
+  "terminal_exit_code": 101,
+  "tests_executed": 0,
+  "cause": "Before-code test/driver attempted to serialize internal EditResult, which does not implement Serialize. Correct to inspect its planned typed merges vector; retain every receipt assertion.",
+  "product_code_changed": false,
+  "authored_inputs_or_limits_changed": false
+}

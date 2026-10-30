@@ -87,7 +87,7 @@ fn center_welds_topology_and_interpolates_real_signed_integer_and_group_data() {
     assert_eq!(mesh["uv_layout"], asset()["uv_layout"]);
     assert_eq!(mesh["edge_seams"], json!(["ac"]));
     assert_eq!(editor.scene().entities, before.entities);
-    let result = serde_json::to_value(result).unwrap();
+    let result = json!({"merges": &result.merges});
     assert_eq!(result["merges"].as_array().unwrap().len(), 1);
     assert_eq!(result["merges"][0]["status"], "finished");
     assert_eq!(result["merges"][0]["mesh_asset"], "mesh");
@@ -168,7 +168,8 @@ fn an_empty_first_request_is_atomic_and_center_is_an_explicit_noop() {
     expected.revision = 1;
     assert_eq!(editor.scene(), &expected);
     assert_eq!(
-        serde_json::to_value(result).unwrap()["merges"]
+        serde_json::to_value(&result.merges)
+            .unwrap()
             .as_array()
             .unwrap()
             .len(),

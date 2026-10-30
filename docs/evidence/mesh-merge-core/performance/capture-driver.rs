@@ -75,7 +75,7 @@ fn main() {
                 .unwrap();
             editor.scene().validate().unwrap();
             let ce = origin.elapsed().as_nanos();
-            let core_json = serde_json::to_value(&core).unwrap();
+            let core_json = json!({"merges": &core.merges});
             assert_eq!(core_json["merges"].as_array().unwrap().len(), 1);
             assert_eq!(core_json["merges"][0]["status"], "finished");
             let path = output.join(format!("{name}-{sample}.json"));
