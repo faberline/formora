@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/blender_snap_singular_reference.py", line 148, in start
+    capture(args)
+    ~~~~~~~^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/blender_snap_singular_reference.py", line 113, in capture
+    raw = (json.dumps({'run': run, 'before': before, 'after': snapshot(objects, area, run),
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       'result': result}, indent=2, allow_nan=False) + '\n').encode()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/Blender.app/Contents/Resources/5.2/python/lib/python3.13/json/__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "/Applications/Blender.app/Contents/Resources/5.2/python/lib/python3.13/json/encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Applications/Blender.app/Contents/Resources/5.2/python/lib/python3.13/json/encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+ValueError: Out of range float values are not JSON compliant: nan

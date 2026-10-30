@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "process_id": 23947,
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "scope": "focused_diagnostic",
+  "captured_utc": "2026-10-30T00:30:12.748604+00:00",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_singular_reference.py",
+    "--",
+    "--suite",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-singular.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-baseline/pilot-01",
+    "--case",
+    "singular_snap_0003",
+    "--case",
+    "singular_snap_0323",
+    "--case",
+    "singular_snap_0963",
+    "--case",
+    "singular_snap_0083",
+    "--case",
+    "singular_snap_0403",
+    "--case",
+    "singular_snap_1043",
+    "--case",
+    "singular_snap_1123",
+    "--case",
+    "singular_snap_1147",
+    "--case",
+    "singular_snap_1195",
+    "--case",
+    "singular_snap_1129",
+    "--case",
+    "singular_snap_1153",
+    "--case",
+    "singular_snap_1201",
+    "--case",
+    "singular_snap_1207",
+    "--case",
+    "singular_snap_1239",
+    "--case",
+    "singular_snap_1303",
+    "--case",
+    "singular_snap_1319",
+    "--case",
+    "singular_snap_1447",
+    "--case",
+    "singular_snap_1703",
+    "--case",
+    "singular_snap_1351",
+    "--case",
+    "singular_snap_1479",
+    "--case",
+    "singular_snap_1735"
+  ],
+  "background": false,
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-singular.json": "0dafb3ec1507bd60dc6d9d549757bf308197ae3002dba911796ebe32ff304a28",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_singular_reference.py": "8e54bfba2a775c0aeedff03f9891effc14aa39265df2007df6899fd873157465",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py": "f37391b11aa8f9acea013699a7dee14f1a0c32d50513c41ff56d00eaa5ef3c2b",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py": "d5db093f0c3f50786dd2ec3288194ad6df13aec91bfcd9f8af082edca91ec641",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_delta_cases.py": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "/Users/chrischeng/faberlines/formora/tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_singular_cases.py": "208221f4f4b09102ea9f90f47fb3e4f384d8c184282d7b8f8fc0e6e9c1b0cc27",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/snap-singular-baseline.md": "7877b87590e0e5c573c143e37364ed43717c25ce8347931fa49c47f78c790917",
+    "/Users/chrischeng/faberlines/formora/baseline/lock.json": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-singular/manifest.json": "1d0061ea2200f716784111fdae87c5172e870b2e2b1cc2f5db9d4bd2b1a06e17",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-menu/eigen_matrix.cc": "944b71d3ea4da068a6105b75bec3c9675e500c8a45b6ad420952b50f3adeed49"
+  },
+  "operator_properties_sha256": "72e769a6a745044c222fdde33219f33c8c4e2ae8f2e4af5d01c4bf78822015ca",
+  "capture_lock_sha256": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+  "runs": [
+    {
+      "id": "singular_snap_0003",
+      "file": "singular_snap_0003.json.gz",
+      "sha256": "45ab6a1321ec0b5303ef131004e5e7234a08c1399f2e55781406258767b8d187",
+      "raw_sha256": "1f9b7343584a6403ebec13fab0961ea3cf61dac66c68d4b058750664e5282b59",
+      "raw_bytes": 143873,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_0083",
+      "file": "singular_snap_0083.json.gz",
+      "sha256": "946bfefd5ab656cbce8a616a1b46a1ca4846f08b314e2074fda78a5cc154e910",
+      "raw_sha256": "478676b0d9d04edd2691f93cee7e3d1b4ad16a7ef1f7c986932e0a205e317b3b",
+      "raw_bytes": 149879,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_0323",
+      "file": "singular_snap_0323.json.gz",
+      "sha256": "5770c3b1267cb563a5c89dca935cedf29b071892ee7377d3435e4ab02b516040",
+      "raw_sha256": "3261bc18b97282c22d62e733eb32c6b3f4b17e617e259d179dadc9e0a0f73c3e",
+      "raw_bytes": 143466,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_0403",
+      "file": "singular_snap_0403.json.gz",
+      "sha256": "0e078b8d9a5da86bebf34ebc45c048cb001781c73ee42f584f48caf348e9b7d3",
+      "raw_sha256": "05e9bb56e299ecd9177ef3d1f62d3c14079a8ac62058bb90a686c0da3e185dba",
+      "raw_bytes": 149382,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_0963",
+      "file": "singular_snap_0963.json.gz",
+      "sha256": "a435916034855ab1a24062fd5f0b871c8ae8e201b99177877264e8df8b71101b",
+      "raw_sha256": "51a85a602a8b502271eb436bdbd908f1c2759d9660f6d62c3f86dcf1cc5573e5",
+      "raw_bytes": 140951,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1043",
+      "file": "singular_snap_1043.json.gz",
+      "sha256": "e7d048a9d866c33723f831e6d3fde8348710b6449ce6ae768fb2d17b73aa3506",
+      "raw_sha256": "9d5d4610294ea9a4c2cb4467764746877179b91c14b9d64d73f45bf5e105e63e",
+      "raw_bytes": 144448,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1123",
+      "file": "singular_snap_1123.json.gz",
+      "sha256": "2d5ed8a9ba458e5cc5e92858c393abf84124f878fb1a98861f8c19da5e147411",
+      "raw_sha256": "e1a4dceb05e59a7e5316a01de4ef1fd7495aa6428261a6c16414a7d06d91f34c",
+      "raw_bytes": 144836,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1129",
+      "file": "singular_snap_1129.json.gz",
+      "sha256": "76f2bb6a143e8471b21999dc1aba25e4d04c0f320de9c018e7b64439f106fcd1",
+      "raw_sha256": "095cae597198e87522358ab49057939465e5f7bd14bc38c8ce52e919c8758c3c",
+      "raw_bytes": 150191,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1147",
+      "file": "singular_snap_1147.json.gz",
+      "sha256": "51d4240bb5cc44095da39a44a0cfee7886bbf787aeaba90db52dd8553ebb42b3",
+      "raw_sha256": "893f4475b94d8f8668d87299748cfb15d585fb57a0cb6dc1670cc1cf8f093183",
+      "raw_bytes": 144212,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1153",
+      "file": "singular_snap_1153.json.gz",
+      "sha256": "05683bd6c0b3418a213efc38f8f7a4592ca8f8565f0c91dacf117bcdba4b80a4",
+      "raw_sha256": "0a2b966bb13a4e8909afe10de9593905b791fcea2920f935e1d789c8569d2e87",
+      "raw_bytes": 149599,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1195",
+      "file": "singular_snap_1195.json.gz",
+      "sha256": "62a0a197b9b214b13efc4ed258ba1630b6fd0803da1c51df32095cea5756faaf",
+      "raw_sha256": "5e6336cec8de70887c23b1d4527407251aae4a68584fdd0a35b14a1f3d0fd20d",
+      "raw_bytes": 139530,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1201",
+      "file": "singular_snap_1201.json.gz",
+      "sha256": "090c92eb5edcc69cf14006aadc533ee973fe70f991858e182acc17755448cd0f",
+      "raw_sha256": "10ff34fcdd4a697dace60abf0f1e0471fca9d318cce86bd085b86cc8ed4ee27c",
+      "raw_bytes": 144649,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1207",
+      "file": "singular_snap_1207.json.gz",
+      "sha256": "c546576e89a62bed83742afb0a39594061c74bf3935fd570c96011dd97ca4822",
+      "raw_sha256": "831adf239f31eb816a09c3463c070f19c4332b7f0bd790a05f888a4134b26297",
+      "raw_bytes": 143876,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1239",
+      "file": "singular_snap_1239.json.gz",
+      "sha256": "854c25ace774954cb8c45e93667a4bf9ebddc26a3ab2dd0550b095b0a9592a00",
+      "raw_sha256": "16b2d45fbe2e2c30e7038016c49c3af7d4ccc96ecb9e5153f07dee023829830b",
+      "raw_bytes": 143469,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1303",
+      "file": "singular_snap_1303.json.gz",
+      "sha256": "da7b6a54cacb23b44194d40a7b5e2b868beb3710e940ec0c2ddf652854d014c3",
+      "raw_sha256": "b5d45b7741bdacb7691b483d9c8654f8076272ebfb51a7c175f23679f00f1aae",
+      "raw_bytes": 140954,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1319",
+      "file": "singular_snap_1319.json.gz",
+      "sha256": "73201a23f78e99479caca3ad84de7ad415e1c625d1998a123061716f4e44c848",
+      "raw_sha256": "890cac0777ca90e2b461580acbe4803ce857718b2fc83ab8b2fe22e09b6f72d1",
+      "raw_bytes": 143689,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1351",
+      "file": "singular_snap_1351.json.gz",
+      "sha256": "6f2791e60e20a5953c25307b97e3bbe3fdee9624e63b6a6a9421494f135549e3",
+      "raw_sha256": "3dda1cce4fdf784d2e136d9d29442597c188b993f79d1cac2eb99052090adecf",
+      "raw_bytes": 149937,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1447",
+      "file": "singular_snap_1447.json.gz",
+      "sha256": "d17975684d72b91171d87e8c473c73cfd0800a74d75616b8b0bc4326cf16036b",
+      "raw_sha256": "a04398e01309972322275dbaf32a67e66c274fad8e630279f78683e739a47654",
+      "raw_bytes": 142838,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1479",
+      "file": "singular_snap_1479.json.gz",
+      "sha256": "76a20cad019cb22686c07dc2b3103b69914aafc503be387ba711cfdacd49a07a",
+      "raw_sha256": "1a8ba64653b09585a39a9e4ed38cedc641c36afb26de31a0ce2597057bece0ff",
+      "raw_bytes": 149412,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1703",
+      "file": "singular_snap_1703.json.gz",
+      "sha256": "8d516597d81ca314cb42c772f19ab72dace5752d5ea7b1a51f5aa4a461b7dc50",
+      "raw_sha256": "818abe375447c2ee0b7d671b829e5c590bc3f192beed99778a92ee11c0c23d9d",
+      "raw_bytes": 137980,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "singular_snap_1735",
+      "file": "singular_snap_1735.json.gz",
+      "sha256": "8a0d89fe73712078f19fb0956d6fed62ab5eff1d141214776fd62da22a606f6a",
+      "raw_sha256": "1a610ceb1486a7ad7d0ae32a52d9a3ca2da5817e16ff03589d1f072d23c67f26",
+      "raw_bytes": 144450,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}

@@ -1,0 +1,54 @@
+{
+  "runs": [
+    {
+      "name": "strict-pilot-check",
+      "terminal_exit_code": 0,
+      "cases": 21
+    },
+    {
+      "name": "strict-complete-capture",
+      "tool_session_id": 19973,
+      "terminal_exit_code": 1,
+      "complete_case_files": 581,
+      "first_missing_case": "singular_snap_0581"
+    },
+    {
+      "name": "paired-diagnostic-check",
+      "tool_session_id": 82458,
+      "terminal_exit_code": 0,
+      "baseline_passed": false,
+      "required_full_gate_passed": false
+    },
+    {
+      "name": "native-negative-controls",
+      "tool_session_id": 86908,
+      "terminal_exit_code": 0,
+      "tests": 12
+    },
+    {
+      "name": "python-before-native-controls",
+      "tool_session_id": 74586,
+      "terminal_exit_code": 0,
+      "tests": 196
+    },
+    {
+      "name": "python-complete-final",
+      "tool_session_id": 35033,
+      "terminal_exit_code": 0,
+      "tests": 208
+    },
+    {
+      "name": "baseline-strict",
+      "terminal_exit_code": 2,
+      "expected": "pending source and product acceptance; not a passing baseline"
+    },
+    {
+      "name": "paired-diagnostic-reproduction-with-new-output",
+      "tool_session_id": 4086,
+      "terminal_exit_code": 0,
+      "baseline_passed": false,
+      "required_full_gate_passed": false
+    }
+  ],
+  "product_acceptance": "unrun"
+}
