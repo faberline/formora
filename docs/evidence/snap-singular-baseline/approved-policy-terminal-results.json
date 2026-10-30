@@ -1,0 +1,43 @@
+{
+  "policy_commit": "7ba1d34500951697cbaf2ed67c22f5658e17cae9",
+  "validator_and_controls_commit": "94a302dfce72749bf9d85d421d8380c2871425da",
+  "human_policy_issue_comment": 6513201148,
+  "source_comparison": {
+    "tool_session_id": 36590,
+    "terminal_exit": 0,
+    "physical_cases": 1764,
+    "available_numeric_local_queries": 12224,
+    "unavailable_local_queries": 12,
+    "unavailable_queries_are_numeric_matches": false
+  },
+  "policy_controls": {
+    "tool_session_id": 73919,
+    "terminal_exit": 0,
+    "tests": 14
+  },
+  "python_complete": {
+    "tool_session_id": 91160,
+    "terminal_exit": 0,
+    "tests": 222
+  },
+  "pin_plan_correction": "The first append plan asserted the Eigen file was absent. It is already among the original 7,183 pins. The assertion stopped before writing the lock. Verify its unchanged hash and append only the three new artifacts.",
+  "original_strict_capture_passed": false,
+  "product_implementation": "unrun",
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0,
+  "build": {
+    "tool_session_id": 37753,
+    "terminal_exit": 0,
+    "rust": "1.85.0",
+    "all_features": true
+  },
+  "metadata": {
+    "tool_session_id": 30491,
+    "terminal_exit": 0
+  },
+  "strict_readiness": {
+    "tool_session_id": 3911,
+    "terminal_exit": 2,
+    "passed": false
+  }
+}

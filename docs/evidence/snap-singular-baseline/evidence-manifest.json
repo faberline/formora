@@ -12,6 +12,36 @@
   "milestones_accepted": 0,
   "files": [
     {
+      "path": "approved-policy-build.log",
+      "bytes": 139,
+      "sha256": "1bc7d6a41eacd3705b06ad0afdd08ab880c31848f587ba76964806f7ccd08f8e"
+    },
+    {
+      "path": "approved-policy-comparison-01.json",
+      "bytes": 1306,
+      "sha256": "2995a41daa2054e571878410204d3e672633e4311ac4de8c9ff7e65a80386c8d"
+    },
+    {
+      "path": "approved-policy-comparison-01.log",
+      "bytes": 1332,
+      "sha256": "ad432b11b80db2950c6f560ef72d265e62a3ec2f76c0e022d63233a09721826b"
+    },
+    {
+      "path": "approved-policy-metadata.json",
+      "bytes": 314,
+      "sha256": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00"
+    },
+    {
+      "path": "approved-policy-strict.json",
+      "bytes": 314,
+      "sha256": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00"
+    },
+    {
+      "path": "approved-policy-terminal-results.json",
+      "bytes": 1315,
+      "sha256": "d268eefa357bd8d92cb1cf1c4f9d88e2c8ba3f2b717ad6ee17ff57c8f97c01fd"
+    },
+    {
       "path": "baseline-strict.log",
       "bytes": 314,
       "sha256": "e46d3491aee03d5a6a568d19251e34df174a63473bec27a1455cab219de88e00"
@@ -20882,6 +20912,11 @@
       "sha256": "82af74e48e4bf5629b3e7c3ec69d15564e22bf0c378168560935c9425aa7c943"
     },
     {
+      "path": "policy-controls-14.log",
+      "bytes": 2527,
+      "sha256": "be05378507ac2ac560a8f3e20fe24c8f7baeac431c11ee4f0eb53c55c66ccc01"
+    },
+    {
       "path": "python-196-terminal.json",
       "bytes": 402,
       "sha256": "c7fb4c79b21ae1b7cadff7384797000a4d8572e388ffb36f965e7b098831babd"
@@ -20895,9 +20930,19 @@
       "path": "python-208.log",
       "bytes": 309,
       "sha256": "c0bd213baa7e5693adfad5ca32fa8cd776f06509fd1052d55f24455a69f46d76"
+    },
+    {
+      "path": "python-222.log",
+      "bytes": 323,
+      "sha256": "d7bd2999a07f9cd936505361c2b6e37ede5b221025c76599a95b4fe4fdc1b149"
     }
   ],
-  "file_count": 4177,
-  "bytes": 55717168,
-  "manifest_excludes_itself": true
+  "file_count": 4185,
+  "bytes": 55724738,
+  "manifest_excludes_itself": true,
+  "approved_local_query_policy_baseline_passed": true,
+  "available_numeric_local_queries": 12224,
+  "unavailable_local_queries": 12,
+  "unavailable_local_queries_are_numeric_matches": false,
+  "policy_issue_comment": 6513201148
 }

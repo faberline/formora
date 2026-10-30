@@ -35955,6 +35955,21 @@
       "path": "baseline/fixtures/snap-delta.json",
       "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/object.cc",
       "sha256": "f263552b1bcaa6e5b9e4c3f2bef82158b32ec9e70c6433a9ea43fe5d18b75b5d"
+    },
+    {
+      "path": "baseline/sources/snap-singular/manifest.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesrna/intern/rna_scene.cc",
+      "sha256": "1d0061ea2200f716784111fdae87c5172e870b2e2b1cc2f5db9d4bd2b1a06e17"
+    },
+    {
+      "path": "baseline/fixtures/snap-singular.json",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesrna/intern/rna_scene.cc",
+      "sha256": "0dafb3ec1507bd60dc6d9d549757bf308197ae3002dba911796ebe32ff304a28"
+    },
+    {
+      "path": "docs/contracts/snap-singular-local-matrix-policy.md",
+      "url": "https://github.com/faberline/formora/issues/68#issuecomment-6513201148",
+      "sha256": "d81877bae128e7e09197becf12f97b6b700024658b4b1f4720f03a32af3c7b70"
     }
   ],
   "source_manifest_path": "baseline/sources/source-manifest.json"

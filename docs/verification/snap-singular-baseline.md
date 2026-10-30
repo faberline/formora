@@ -1,7 +1,7 @@
 # Zero-scale direct snapping: failed baseline and retained diagnosis
 
-Issue #68 continues the complete 0.0–1.0 goal. The source baseline has not
-passed. No Rust product files changed. All eleven milestones stay open.
+Issue #68 continues the complete 0.0–1.0 goal. The original strict source baseline has not
+passed. The amended policy baseline now passes its local source checks. No Rust product files changed. All eleven milestones stay open.
 
 ## Before-capture contract
 
@@ -92,8 +92,8 @@ in docs/contracts/snap-singular-local-matrix-policy.md. The earlier approval
 to reject fourteen undefined mesh-axis inputs remains separate.
 
 The original failed strict capture and diagnostic-only reports remain
-unchanged. The amended source validator and product implementation are still
-pending. No unavailable local query is a numeric matrix match. Keep all
+unchanged. The amended source validator passes its complete local checks. Product
+implementation is still pending. No unavailable local query is a numeric matrix match. Keep all
 original cases and unchanged numeric limits; do not reject the valid operation.
 
 This draft contains no product implementation or performance acceptance.
@@ -117,3 +117,35 @@ report the failed baseline and twelve invalid source getters. It refuses
 an existing output file. The first checker's exact bytes are preserved in
 `diagnostics/check-diagnostic-captures-first.py` alongside its original report.
 Do not overwrite the source captures to repeat a check.
+
+## Approved-policy source comparison
+
+Commit 7ba1d34500951697cbaf2ed67c22f5658e17cae9 freezes the user-approved
+policy. Commit 94a302dfce72749bf9d85d421d8380c2871425da freezes its validator
+and fourteen negative controls before the corresponding Rust implementation.
+Both original native diagnostic captures remain unchanged. The amended
+comparison passes all 1,764 physical cases, 12,224 available numeric local
+queries and twelve explicit unavailable local queries. The unavailable
+queries are not numeric matches. Raw tagged source scalars remain compared
+in full, with exact paths and bits. The physical state is validated separately;
+no fake numeric matrix is inserted. The original failed strict capture and
+historical diagnostic-only reports keep their original status.
+
+All 222 Python tests pass. The fourteen new controls reject fake zero matrices,
+wrong NaN bits/paths, additional unavailable cases, invalid matrix cell types,
+hidden world/geometry changes, whole-operation rejection, missing cases,
+duplicate processes and missing/failed actual terminal exits. Existing finite
+source results retain the original checks and unchanged 1e-6 limits.
+
+The workflow now requires this complete amended source comparison. Three
+append-only pins bind the new manifest, authored fixture and approved policy.
+The Eigen source file was already pinned; its original hash is unchanged.
+The original 7,183 pins remain unchanged; total pins are 7,186.
+Product implementation, platform CI, integration and independent Codex
+acceptance remain unrun. All milestones remain open.
+
+Reproduce with Python 3.12 and tools/requirements-mcp.txt installed:
+
+```sh
+python tools/compare_snap_singular_policy_reference.py --suite baseline/fixtures/snap-singular.json --first docs/evidence/snap-singular-baseline/diagnostic-01 --second docs/evidence/snap-singular-baseline/diagnostic-02 --receipts docs/evidence/snap-singular-baseline/native-processes.json --output /private/tmp/formora-zero-policy-new.json
+```

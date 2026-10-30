@@ -1,0 +1,19 @@
+test_approved_query_error_is_separate_from_seven_numeric_getters (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_approved_query_error_is_separate_from_seven_numeric_getters) ... ok
+test_available_matrix_cells_must_be_numeric (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_available_matrix_cells_must_be_numeric) ... ok
+test_fake_numeric_zero_is_not_an_unavailable_result (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_fake_numeric_zero_is_not_an_unavailable_result) ... ok
+test_finite_zero_getters_keep_their_original_numeric_checks (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_finite_zero_getters_keep_their_original_numeric_checks) ... ok
+test_geometry_change_cannot_hide_behind_local_query_error (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_geometry_change_cannot_hide_behind_local_query_error) ... ok
+test_missing_case_is_rejected (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_missing_case_is_rejected) ... ok
+test_missing_or_failed_terminal_exit_is_rejected (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_missing_or_failed_terminal_exit_is_rejected) ... ok
+test_no_additional_query_or_case_is_excused (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_no_additional_query_or_case_is_excused) ... ok
+test_same_process_is_rejected (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_same_process_is_rejected) ... ok
+test_unapproved_input_witness_is_rejected (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_unapproved_input_witness_is_rejected) ... ok
+test_valid_world_result_is_still_independently_required (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_valid_world_result_is_still_independently_required) ... ok
+test_whole_operation_rejection_does_not_satisfy_policy (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_whole_operation_rejection_does_not_satisfy_policy) ... ok
+test_wrong_nan_bits_are_not_accepted (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_wrong_nan_bits_are_not_accepted) ... ok
+test_wrong_path_is_not_accepted (tools.tests.test_snap_singular_policy_reference.SingularPolicyControls.test_wrong_path_is_not_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.972s
+
+OK
