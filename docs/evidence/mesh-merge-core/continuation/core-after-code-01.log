@@ -1,0 +1,21 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+error[E0373]: closure may outlive the current function, but it borrows `face`, which is owned by the current function
+   --> src/mesh/merge/weld.rs:211:108
+    |
+211 | ...t(face).into_iter().flatten().filter(|target|merge_flags || *target==face).cloned()).collect(),
+    |                                         ^^^^^^^^                        ---- `face` is borrowed here
+    |                                         |
+    |                                         may outlive borrowed value `face`
+    |
+note: closure is returned here
+   --> src/mesh/merge/weld.rs:211:56
+    |
+211 | ...().flat_map(|face|source_faces.get(face).into_iter().flatten().filter(|target|merge_flags || *target==face).cloned()).collect(),
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: to force the closure to take ownership of `face` (and any other referenced variables), use the `move` keyword
+    |
+211 |             faces:elements.faces.iter().flat_map(|face|source_faces.get(face).into_iter().flatten().filter(move |target|merge_flags || *target==face).cloned()).collect(),
+    |                                                                                                            ++++
+
+For more information about this error, try `rustc --explain E0373`.
+error: could not compile `formora` (lib) due to 1 previous error

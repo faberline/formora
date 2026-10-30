@@ -34,6 +34,8 @@ pub struct ApplyResult {
     pub snaps: Vec<crate::mesh::snap::Receipt>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub scene_snaps: Vec<crate::objects::snap::Receipt>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub merges: Vec<crate::mesh::merge::Receipt>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -299,6 +301,7 @@ impl Session {
             transforms: applied.transforms,
             snaps: applied.snaps,
             scene_snaps: applied.scene_snaps,
+            merges: applied.merges,
         })
     }
 

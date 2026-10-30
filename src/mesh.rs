@@ -6,6 +6,7 @@ use std::collections::{BTreeMap, BTreeSet};
 pub mod attributes;
 pub mod creation;
 pub(crate) mod frame_math;
+pub mod merge;
 pub mod normals;
 pub mod primitives;
 pub mod selection;

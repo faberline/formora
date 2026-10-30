@@ -1,0 +1,23 @@
+{
+  "before_code_tests": "5e853c3e; original nine tests unchanged",
+  "integer_interpolation_before_code": "114bbfbe",
+  "rustc": "1.85.0",
+  "native_binary_sha256": "0b7f5bab40336274293bd7e5c308062b8d8c36f955c8256ae51e890c1f1870f6",
+  "focused_rust_tests": 61,
+  "ignored_tests": 0,
+  "rust_terminal_exit_code": 0,
+  "clippy_lib_terminal_exit_code": 0,
+  "source_pilot_9": "passed both native captures; native protocol diagnostic only",
+  "source_full_1024": "running",
+  "full_cli_mcp": "unrun",
+  "performance_30_plus_177": "unrun",
+  "integration": "unrun",
+  "independent_acceptance": "unrun",
+  "milestones_accepted": 0,
+  "failures_preserved": [
+    "core-after-code-01.log",
+    "core-clippy-01.log",
+    "core-rust-01.log",
+    "pilot-01/report.json"
+  ]
+}

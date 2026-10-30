@@ -1,0 +1,17 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.49s
+     Running tests/mesh_merge.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh_merge-26a60baac566157c)
+
+running 9 tests
+test stale_budget_and_late_batch_failures_do_not_publish_a_partial_weld ... ok
+test center_welds_topology_and_interpolates_real_signed_integer_and_group_data ... ok
+test an_empty_first_request_is_atomic_and_center_is_an_explicit_noop ... ok
+test unselected_triangle_storage_and_explicit_normals_remain_exact ... ok
+test undo_replay_and_json_reload_preserve_actual_topology_and_attribute_values ... ok
+test cursor_uses_actual_context_and_changes_the_shared_asset_once ... ok
+test collapse_counts_every_edge_endpoint_in_the_component_mean ... ok
+test first_last_preserve_endpoint_data_and_zero_weights ... ok
+test integer_attribute_coverage_and_unknown_fields_are_validated ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

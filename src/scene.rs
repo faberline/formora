@@ -482,6 +482,9 @@ pub enum Command {
     SnapMesh {
         snap: Box<crate::mesh::snap::Request>,
     },
+    MergeMesh {
+        merge: Box<crate::mesh::merge::Request>,
+    },
     TransformMesh {
         transform: Box<crate::mesh::transform::Request>,
     },
@@ -573,10 +576,16 @@ enum CommandEffect {
     Transform(Box<crate::mesh::transform::Receipt>),
     Snap(Box<crate::mesh::snap::Receipt>),
     SceneSnap(Box<crate::objects::snap::Receipt>),
+    Merge(Box<crate::mesh::merge::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::MergeMesh { merge } => {
+                return Ok(CommandEffect::Merge(Box::new(crate::mesh::merge::execute(
+                    scene, merge,
+                )?)));
+            }
             Self::SetObjectContext { context } => scene.object_context = context.clone(),
             Self::SnapScene { snap } => {
                 return Ok(CommandEffect::SceneSnap(Box::new(
@@ -807,6 +816,7 @@ pub struct EditResult {
     pub transforms: Vec<crate::mesh::transform::Receipt>,
     pub snaps: Vec<crate::mesh::snap::Receipt>,
     pub scene_snaps: Vec<crate::objects::snap::Receipt>,
+    pub merges: Vec<crate::mesh::merge::Receipt>,
 }
 
 impl Editor {
@@ -850,6 +860,7 @@ impl Editor {
         let mut transforms = Vec::new();
         let mut snaps = Vec::new();
         let mut scene_snaps = Vec::new();
+        let mut merges = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
                 CommandEffect::Selection(outcome) => {
@@ -878,6 +889,10 @@ impl Editor {
                     receipt.command_index = command_index;
                     scene_snaps.push(*receipt);
                 }
+                CommandEffect::Merge(mut receipt) => {
+                    receipt.command_index = command_index;
+                    merges.push(*receipt);
+                }
                 CommandEffect::None => {}
             }
             candidate.validate()?;
@@ -892,6 +907,7 @@ impl Editor {
             transforms,
             snaps,
             scene_snaps,
+            merges,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {

@@ -1,0 +1,24 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+error: couldn't read `src/mesh/transform/../../../baseline/reference/blender-5.2.3/random-falloff/first-sequence.bin`: No such file or directory (os error 2)
+  --> src/mesh/transform/random.rs:43:19
+   |
+43 |           let raw = include_bytes!(
+   |  ___________________^
+44 | |             "../../../baseline/reference/blender-5.2.3/random-falloff/first-sequence.bin"
+45 | |         );
+   | |_________^
+   |
+   = note: this error originates in the macro `include_bytes` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: couldn't read `src/mesh/transform/../../../baseline/reference/blender-5.2.3/random-falloff/first-distribution.bin`: No such file or directory (os error 2)
+  --> src/mesh/transform/random.rs:69:19
+   |
+69 |           let raw = include_bytes!(
+   |  ___________________^
+70 | |             "../../../baseline/reference/blender-5.2.3/random-falloff/first-distribution.bin"
+71 | |         );
+   | |_________^
+   |
+   = note: this error originates in the macro `include_bytes` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: could not compile `formora` (lib test) due to 2 previous errors

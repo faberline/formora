@@ -1,0 +1,105 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.76s
+     Running unittests src/lib.rs (/private/tmp/formora-merge-target-actual185/debug/deps/formora-0a4910f064a473a9)
+
+running 16 tests
+test mesh::transform::geodesic::tests::virtual_source_crosses_triangle_interior_instead_of_walking_both_edges ... ok
+test mesh::transform::inverse::tests::regular_inverse_preserves_full_rank_scales_below_svd_cutoff ... ok
+test mesh::transform::inverse::rank::tests::exact_dyadic_rank_does_not_drop_a_small_genuine_determinant ... ok
+test mesh::creation::inverse4::tests::block_inverse_preserves_translation_and_singular_rejection ... ok
+test mesh::transform::inverse::tests::missing_local_axes_follow_cross_projection_and_identity_fallbacks ... ok
+test mesh::transform::geodesic::tests::degenerate_triangle_falls_back_and_overflow_is_an_error ... ok
+test mesh::transform::inverse::tests::rank_zero_one_two_and_dense_rank_loss_satisfy_moore_penrose_identities ... ok
+test mesh::transform::inverse::tests::singular_affine_pivot_retains_column_major_partial_elimination ... ok
+test mesh::transform::inverse::tests::arithmetic_overflow_and_nonconvergence_are_explicit_errors ... ok
+test mesh::transform::inverse::tests::singular_normal_keeps_adjugate_instead_of_linear_pseudoinverse ... ok
+test mesh::transform::random::tests::source_float_rounding_can_reach_one_without_clamping_or_resampling ... ok
+test mesh::transform::geodesic::tests::work_budget_rejects_propagation_without_changing_context ... ok
+test mesh::transform::random::tests::explicit_legacy_stream_preserves_all_seed_bits ... ok
+test mesh::transform::random::tests::complete_pinned_cpp_sequences_match_float_bits_and_restart ... ok
+test session::tests::closing_session_releases_lock_even_if_a_child_inherited_its_descriptor ... ok
+test mesh::transform::random::tests::complete_million_draw_source_sample_matches_float_bits ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/agent.rs (/private/tmp/formora-merge-target-actual185/debug/deps/agent-1b8e8ba69490f759)
+
+running 14 tests
+test mcp_startup_errors_only_write_to_stderr ... ok
+test initialization_never_overwrites_an_existing_scene ... ok
+test invalid_cli_request_and_stale_revision_do_not_change_the_file ... ok
+test malformed_mcp_requests_do_not_end_the_session_or_write_nonprotocol_output ... ok
+test mcp_requires_initialization_and_notifications_cannot_mutate_the_scene ... ok
+test failed_disk_commit_rolls_back_in_memory_and_undo_history ... ok
+test one_writer_owns_the_scene_until_its_session_exits ... ok
+test duplicate_mesh_ids_in_raw_native_and_mcp_messages_cannot_mutate_the_scene ... ok
+test mcp_initialization_discovery_edits_errors_and_undo_work_in_a_real_process ... ok
+test duplicate_selection_ids_are_rejected_by_cli_native_and_mcp_before_mutation ... ok
+test mesh_assets_have_the_same_cli_and_mcp_results_and_can_be_queried_and_reopened ... ok
+test native_and_mcp_processes_apply_the_same_commands_and_save_the_same_scene ... ok
+test polygon_tessellation_queries_match_cli_mcp_and_fail_without_changing_undo ... ok
+test primitive_creation_edit_regeneration_and_failure_use_the_same_cli_mcp_core ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+     Running tests/creation_contexts.rs (/private/tmp/formora-merge-target-actual185/debug/deps/creation_contexts-bbb7285aadb86c1d)
+
+running 7 tests
+test legacy_json_remains_unchanged_and_context_is_queryable_and_undoable ... ok
+test parent_world_frames_and_shared_assets_preserve_entity_ownership ... ok
+test receipts_are_ordered_real_components_and_created_objects_are_editable ... ok
+test collisions_singular_targets_budgets_and_invalid_batches_leave_no_undo ... ok
+test regenerate_keeps_the_creation_frame_after_context_changes_and_reload ... ok
+test creation_save_failure_has_no_receipt_memory_change_or_undo_entry ... ok
+test existing_triangle_ids_uvs_materials_and_implicit_edges_survive_insertion ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/integer_attribute_interpolation.rs (/private/tmp/formora-merge-target-actual185/debug/deps/integer_attribute_interpolation-6f84d815759d6465)
+
+running 5 tests
+test duplicate_integer_values_do_not_identify_or_remove_components ... ok
+test missing_or_duplicate_contributors_do_not_write_any_partial_layer ... ok
+test signed_half_values_follow_the_fixed_source_and_leave_other_ids_and_domains ... ok
+test unchanged_singleton_retains_full_i32_data_and_overflow_is_atomic ... ok
+test a_missing_late_layer_value_does_not_publish_an_earlier_interpolation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/mesh.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh-16bcc15865d4f54b)
+
+running 5 tests
+test invalid_geometry_attributes_and_dangling_references_are_rejected ... ok
+test duplicate_component_layer_asset_and_edit_ids_are_rejected ... ok
+test stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_trip ... ok
+test fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs ... ok
+test failure_preserves_disk_memory_and_undo_and_reference_deletion_is_atomic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running tests/mesh_merge.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh_merge-26a60baac566157c)
+
+running 9 tests
+test an_empty_first_request_is_atomic_and_center_is_an_explicit_noop ... ok
+test collapse_counts_every_edge_endpoint_in_the_component_mean ... ok
+test cursor_uses_actual_context_and_changes_the_shared_asset_once ... ok
+test integer_attribute_coverage_and_unknown_fields_are_validated ... ok
+test first_last_preserve_endpoint_data_and_zero_weights ... ok
+test undo_replay_and_json_reload_preserve_actual_topology_and_attribute_values ... ok
+test stale_budget_and_late_batch_failures_do_not_publish_a_partial_weld ... ok
+test unselected_triangle_storage_and_explicit_normals_remain_exact ... ok
+test center_welds_topology_and_interpolates_real_signed_integer_and_group_data ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/polygons.rs (/private/tmp/formora-merge-target-actual185/debug/deps/polygons-1c5830762e98cedb)
+
+running 5 tests
+test crossing_projection_fails_instead_of_publishing_partial_triangles ... ok
+test polygon_validation_rejects_broken_topology_corner_data_and_uv_layout ... ok
+test topology_uv_order_loose_edges_and_nonmanifold_connections_round_trip_and_undo ... ok
+test collinear_and_coincident_corners_are_only_removed_from_preview ... ok
+test concave_faces_keep_winding_area_and_notch_across_planes_scales_and_order ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
