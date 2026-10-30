@@ -1,0 +1,43 @@
+{
+  "implementation_commit": "e16eab6471f32aa85c2bbba867e6fd4e09ead640",
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "retained_tool_session_id": 71273,
+  "retained_terminal_exit_code": 0,
+  "asset_checks": 1591,
+  "rng_checks": 96,
+  "official_mcp_smoke": "passed",
+  "new_isolation_native_calls": 29,
+  "retained_isolation_suites": 6,
+  "isolation_pre_execution_failure_retained": "isolation-rng-01-disposition.json",
+  "recipe_new_and_retained_count": 3,
+  "metal_new_and_retained_count": 4,
+  "new_metal_changed_pixels": 20083,
+  "euler_oracle_orders": 6,
+  "source_oracle_terminal_exit_code": 0,
+  "recipe_terminal_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "retained_metal_tool_session_id": 12946,
+  "retained_metal_terminal_exit_code": 0,
+  "metadata_tool_session_id": 56140,
+  "metadata_exit": 0,
+  "strict_metadata_exit": 2,
+  "new_full_runtime": "running",
+  "old_rotation_runtime": "running",
+  "old_scene_runtime": {
+    "passed": true,
+    "requests": 1100,
+    "subprocess_terminal_exit_code": 0,
+    "group_tool_session_id": 76467,
+    "group_still_running": true
+  },
+  "remaining_legacy_runtime": "running",
+  "release_177_samples": "unrun",
+  "three_platform_ci": "unrun",
+  "dependency_integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

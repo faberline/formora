@@ -1,0 +1,8 @@
+{
+  "terminal_exit_code": 1,
+  "native_operations_started": false,
+  "cause": "Retained standalone driver has a fixed output path and ignores CLI arguments. It refused the already existing immutable prior evidence folder.",
+  "prior_evidence_changed": false,
+  "retry": "Copy the same authored driver with only its output directory changed to this candidate folder. Keep original failed logs.",
+  "criteria_changes": "none"
+}

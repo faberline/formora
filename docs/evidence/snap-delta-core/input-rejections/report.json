@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "driver_sha256": "d070774dff5cba1c3dfe37cc10ec189c2c2006408437e534fe14643af8e00c4c",
+  "rejected_cases": [
+    {
+      "name": "unknown_delta_field",
+      "passed": true,
+      "error": "unknown field `answer`, expected one of `translation`, `euler`, `quaternion_wxyz`, `scale` at line 1 column 399",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "conflicting_delta_mode",
+      "passed": true,
+      "error": "unknown field `mode`, expected one of `translation`, `euler`, `quaternion_wxyz`, `scale` at line 1 column 393",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "wrong_euler_dimension",
+      "passed": true,
+      "error": "invalid length 2, expected an array of length 3 at line 1 column 354",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "wrong_quaternion_dimension",
+      "passed": true,
+      "error": "invalid length 3, expected an array of length 4 at line 1 column 371",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "nonfinite_active_translation",
+      "passed": true,
+      "error": "expected value at line 1 column 241",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "nonfinite_inactive_euler",
+      "passed": true,
+      "error": "expected value at line 1 column 273",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "finite_f64_translation_outside_f32",
+      "passed": true,
+      "error": "physical transform exceeds its finite precision range",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "finite_f64_scale_outside_f32",
+      "passed": true,
+      "error": "physical transform exceeds its finite precision range",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "finite_quaternion_normalization_overflow",
+      "passed": true,
+      "error": "rotation exceeds finite source arithmetic",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "legacy_unit_quaternion_stays_strict",
+      "passed": true,
+      "error": "invalid transform: target",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "stale_revision",
+      "passed": true,
+      "error": "stale scene revision",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "unknown_entity",
+      "passed": true,
+      "error": "unknown entity: missing",
+      "disk_and_revision_unchanged": true
+    },
+    {
+      "name": "late_finite_range_failure",
+      "passed": true,
+      "error": "physical transform exceeds its finite precision range",
+      "disk_and_revision_unchanged": true
+    }
+  ],
+  "required_rejections": 13,
+  "finite_inactive_f64_preserved": true,
+  "successful_fresh_reload_equal": true,
+  "legacy_unit_quaternion_validation_unchanged": true,
+  "native_calls": 32,
+  "artifacts": {
+    "after.json": "779fe3c7641332a533985b8ae5080c59528a7faa323a6e27a512a40097d895d1",
+    "scene.json": "7adce06afe2bc0107d746ed74584493b5b1099181591aa209f043cd8f068ed28",
+    "calls.jsonl": "eb0d62d092ac6ca74c754f5ae79af2b719f78a6e6dcc2a7424eaf1ca3e01a5ed"
+  },
+  "product_acceptance": "unrun"
+}

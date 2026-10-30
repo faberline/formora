@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "completed_suites": 6,
+  "first_five_actual_terminals": [
+    {
+      "name": "isolation-raw-legacy",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/isolation-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/isolation-raw-legacy"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "isolation-scene",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/Users/chrischeng/faberlines/formora/tools/scene_snap_independent.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/isolation-scene"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "isolation-primitive",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/Users/chrischeng/faberlines/formora/tools/primitive_independent.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/isolation-primitive"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "isolation-selection",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/Users/chrischeng/faberlines/formora/tools/selection_independent.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/isolation-selection"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "isolation-creation",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/Users/chrischeng/faberlines/formora/tools/creation_context_independent.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/isolation-creation"
+      ],
+      "terminal_exit_code": 0
+    }
+  ],
+  "rng_retry": {
+    "terminal_exit_code": 0,
+    "driver": "docs/evidence/snap-delta-core/rng-rotation-isolation-driver.py",
+    "report": "docs/evidence/snap-delta-core/isolation-rng/report.json"
+  },
+  "preserved_pre_execution_path_failure": "retained-isolation-terminal.json",
+  "product_acceptance": "unrun"
+}

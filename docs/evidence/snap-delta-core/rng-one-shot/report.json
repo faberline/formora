@@ -1,0 +1,540 @@
+{
+  "passed": true,
+  "checks": 48,
+  "interface": "one-shot CLI with fresh processes",
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "reference_sha256": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee",
+  "driver_sha256": "029104ed8817e9a152d3333517ba258ee99cf79421129e166f1901c8b68edf66",
+  "records": [
+    {
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-000.json",
+      "sha256": "6965df18f56d6b013236da07abe31f5bf9d960d59158d02acbde58bc03465739",
+      "passed": true
+    },
+    {
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-001.json",
+      "sha256": "129fb8f50b80c43a58828d1ac14fc2bca0f9c6864270b5e910312c949c637950",
+      "passed": true
+    },
+    {
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-002.json",
+      "sha256": "1907f27e4ac647e2a82adeb32d5c59b00374e805cb14790e52d201c7ed8dd49a",
+      "passed": true
+    },
+    {
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-003.json",
+      "sha256": "e7f2891ac8892ec03e6b2a0a93efa27659a536492e26e3a2c42d9f17a52ed1f2",
+      "passed": true
+    },
+    {
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-004.json",
+      "sha256": "d178fd5a477a5273932f0a72c06daf2a51e4684240817434792e2c690cbc3a87",
+      "passed": true
+    },
+    {
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-005.json",
+      "sha256": "fe88040adece079ec6342d675153359b756b2fe9743e0f0017d8d4faa746cab0",
+      "passed": true
+    },
+    {
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-006.json",
+      "sha256": "a638dc967356b951ef7c973bc99f49a5132c954811234b1fd265462688e15fcf",
+      "passed": true
+    },
+    {
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-007.json",
+      "sha256": "8e5e5d6eefdf47f5f2a13cddf15ec7bba9c97a4e0f12db7d9fe38099f0ae12bb",
+      "passed": true
+    },
+    {
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-008.json",
+      "sha256": "503e96d9aef5e3ba02835d053c6a592de3e2f01196377255f963591c171f8453",
+      "passed": true
+    },
+    {
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-009.json",
+      "sha256": "3b18fc3d9538f0d3de2d0bca8b7c1fbf89c3d4033e9f0ad6db8adc6fc16f2280",
+      "passed": true
+    },
+    {
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-010.json",
+      "sha256": "e6d3df3706bf198e23b4b20eeb5975410fe2965d587d7575734ae43e1ffd8bc9",
+      "passed": true
+    },
+    {
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-011.json",
+      "sha256": "eef72120bb29f80902878d7956c6f7703ece9e8304cf24106b31a67750b12404",
+      "passed": true
+    },
+    {
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-012.json",
+      "sha256": "2b5290ac058bba7c5953d38a8ae8d8ccae4561d721ed54956b174593cd23c3da",
+      "passed": true
+    },
+    {
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-013.json",
+      "sha256": "3737aac25e83c21e1636e21d28596e429df391033ac59e503b75b3bcf2cd0553",
+      "passed": true
+    },
+    {
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-014.json",
+      "sha256": "7c2a40ef8301f3c4f55bb78c2794bf4972777670caf5e69aafc5c28191ffd957",
+      "passed": true
+    },
+    {
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-015.json",
+      "sha256": "a597be7227b522d6367e4a0c1b932c555ddad8e35b777e024786e33b399b5af9",
+      "passed": true
+    },
+    {
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-016.json",
+      "sha256": "7ecfdfdbea67cf0dbf4d5660d9427b4bb056dea0a309ad6765338dc33a40b5b1",
+      "passed": true
+    },
+    {
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-017.json",
+      "sha256": "cabe86785888737552cc2b4708a980f458a7552af0e925385b3915816ac0bae4",
+      "passed": true
+    },
+    {
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-018.json",
+      "sha256": "4909a5004b8da251568467de0c0a47870bd2f970bd2fd1ffb4378fd8c771f59a",
+      "passed": true
+    },
+    {
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-019.json",
+      "sha256": "6393d0dad7aa18a013fdcbd00d1c9dc7353f4c15bd840cb41d143cc484a2c2c4",
+      "passed": true
+    },
+    {
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-020.json",
+      "sha256": "cecf7f52727ca306b1b3aa9044cedce36940fec554b95782ebf7f9db4455f54d",
+      "passed": true
+    },
+    {
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-021.json",
+      "sha256": "366f99ab778d7bbd33b1bf4c42c6e987b98ba96faf36f2d547007eef21499be1",
+      "passed": true
+    },
+    {
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-022.json",
+      "sha256": "660445ff38c454f410d9cb11f395aeb148209325508050a03ac855c008ddb993",
+      "passed": true
+    },
+    {
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-023.json",
+      "sha256": "6d5cd153f5844ed2d389480828145fdca2cf3355fcd2f938a556eeff22b45f77",
+      "passed": true
+    },
+    {
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-024.json",
+      "sha256": "4ccd7b7e9be950675b3dcb46d95a910215e6e03eeebe4a295f945a38fa8e8032",
+      "passed": true
+    },
+    {
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-025.json",
+      "sha256": "111b729e1b14340e01d74b496bfd19fe10e8c8fd9f013263df34c3b7cae7c6c9",
+      "passed": true
+    },
+    {
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-026.json",
+      "sha256": "f84adfc027b2fda3e145a2852a631f8e84a9cee8b12df165870aeb146fe160ff",
+      "passed": true
+    },
+    {
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-027.json",
+      "sha256": "424b1c133e5d1cf44beb4b56de491f3d286a15eb74d31a4941d1de5c3b5ece51",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-028.json",
+      "sha256": "6a912bae5bd4a775f9e8a6c29e8d22f4010838130febf8366598c69265822533",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-029.json",
+      "sha256": "9555940a173e25780fffd43999b25b93afa15fc2850d745467e0af222fcbba66",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-030.json",
+      "sha256": "4552ba4d2a097ff5dec271b245d3d55740a23812ddcf6cb775c1ec63c3a48326",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-031.json",
+      "sha256": "330cf4c295fa78b727f7fbbd4706fdb8e9d8c7640b1394f1cb711bc0d20cbf76",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-032.json",
+      "sha256": "811db276d93b2cae64c098235b5e70c8ecd8ddc795f2893fd8797c5d82915969",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-033.json",
+      "sha256": "065b6867fc2fc48d285e426fedfd49cc196792c9800e745ce2f6a83b2f25854e",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-034.json",
+      "sha256": "40f6f6c3c44661c62a14fb72b298e0fc1a6383f7a1935f7e460aca0f307b1ec6",
+      "passed": true
+    },
+    {
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-035.json",
+      "sha256": "a26b774f6362ef1e7a7f6023a0736475d66e9636c87b41cbec79d60df7e9493b",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-036.json",
+      "sha256": "84b97f48bc3ae462b0650843275fc25c7001c3c767290cd0b29d069345c13628",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-037.json",
+      "sha256": "549da20fad4851a736aca1f1ff3c5a59bf4f96dc0faaadcbd11b7ee29c5679d3",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-038.json",
+      "sha256": "277280d7f6ee54f35f41c93ae33759b727e2cfc9b369c150b9bb1d4b26686243",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-039.json",
+      "sha256": "07b6252a201b1eb5bf17e49e0e5e2f329efce8454a204e900bfd2ec4b8a20c15",
+      "passed": true
+    },
+    {
+      "case": [
+        0,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-040.json",
+      "sha256": "b80f2d6035156da7249bd51007b1aed1598ac73f62b325dda6dfc25e37d57e63",
+      "passed": true
+    },
+    {
+      "case": [
+        0,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-041.json",
+      "sha256": "81fde3846013c061c38d5daa3ae7c351222aeaf4ecb02c4790304311c70c721e",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967295,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-042.json",
+      "sha256": "23f7cdf7a6d47ba1642e3241f753fe6515f285c94a06341291ab100d29b7c25b",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967295,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-043.json",
+      "sha256": "c1356659060409ff49ab2f1b429317a72b1908e9980b330f01a5972e79698663",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967296,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-044.json",
+      "sha256": "e03fd631168930bfda5e5fdee0d8569b7e42ee949d3f201d0ff2f12bd75cdd2c",
+      "passed": true
+    },
+    {
+      "case": [
+        4294967296,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-045.json",
+      "sha256": "5f90e92d9db8ca17b9553da33bbbc1a2099035fdf52727b2f337bdfef8758a50",
+      "passed": true
+    },
+    {
+      "case": [
+        18446744073709551615,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-046.json",
+      "sha256": "2a4d85bc91b9d0370dd1c9bbcbc1834e69a78572daecb354a0370b72610c6288",
+      "passed": true
+    },
+    {
+      "case": [
+        18446744073709551615,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-047.json",
+      "sha256": "68eaf5b44e027796b606f3d7da8bc65565aa1b2aa2f4cd45c7b163369b2d5888",
+      "passed": true
+    }
+  ],
+  "approved_all_axis_rotation_rejection_and_late_batch_rollback": true,
+  "full_product_acceptance": "unrun"
+}

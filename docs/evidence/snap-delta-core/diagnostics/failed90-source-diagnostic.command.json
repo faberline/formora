@@ -1,0 +1,27 @@
+{
+  "restore_command": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/archive-scenes.py",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/diagnostics/retained-90-01",
+    "/private/tmp/formora-delta-failed90-diagnostic-ab_0dqww/run",
+    "--restore"
+  ],
+  "restore_terminal_exit_code": 0,
+  "command": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/compare-performance.py",
+    "--binary",
+    "/private/tmp/formora-target-actual185/debug/formora",
+    "--samples",
+    "/private/tmp/formora-delta-failed90-diagnostic-ab_0dqww/run/samples",
+    "--source",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/source-gzip",
+    "--controller",
+    "/private/tmp/formora-delta-failed90-diagnostic-ab_0dqww/run/controller-report.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/diagnostics/retained-90-01-source-comparison.json",
+    "--diagnostic-failed-timings"
+  ],
+  "terminal_exit_code": 1,
+  "scope": "diagnostic_numeric_comparison_only; failed timings cannot pass the required performance gate"
+}

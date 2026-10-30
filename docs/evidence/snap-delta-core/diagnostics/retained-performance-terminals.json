@@ -1,0 +1,29 @@
+[
+  {
+    "name": "performance-retained-90-02",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/run-retained-90-02.py"
+    ],
+    "required_samples": 90,
+    "terminal_exit_code": 0
+  },
+  {
+    "name": "performance-retained-rotation-01",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/run-retained-rotation-24.py"
+    ],
+    "required_samples": 24,
+    "terminal_exit_code": 0
+  },
+  {
+    "name": "performance-retained-39-01",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/run-retained-39.py"
+    ],
+    "required_samples": 39,
+    "terminal_exit_code": 1
+  }
+]

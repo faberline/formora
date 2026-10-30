@@ -1,0 +1,22 @@
+{
+  "isolation": {
+    "terminal_exit_code": 0,
+    "native_calls": 29,
+    "report": "../isolation/report.json"
+  },
+  "gpu": {
+    "tool_session_id": 65930,
+    "terminal_exit_code": 0,
+    "changed_vertices": 25,
+    "changed_pixels": 20083,
+    "gpu": "Apple M1 Max (Metal, IntegratedGpu)",
+    "fresh_reload_images_identical": true,
+    "report": "../gpu/manifest.json"
+  },
+  "release_build": {
+    "tool_session_id": 7840,
+    "terminal_exit_code": 0,
+    "library_sha256": "a5758de726c8ea2a14710df87ba2e8ed60ca1a19d79119ed627eee668cd7fadb"
+  },
+  "product_acceptance": "unrun"
+}

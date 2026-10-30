@@ -1,0 +1,1135 @@
+{
+  "passed": true,
+  "checks": 96,
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "input_hashes": {
+    "Cargo.toml": "2a40ba653945ff01a94f871e674eb54fb3b489e7c1d0e98d6baf338d3c59d9df",
+    "Cargo.lock": "346a0a738b0bd2a6e4ffb42cf742d66d77023e0535138af4018c8a116b2afc99",
+    "baseline/lock.json": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+    "docs/contracts/random-falloff-sequence.md": "de06331a458d8dbc6aa6f83d792b99962d1211af7b4cc5c988b2ff785110560a",
+    "tools/random_falloff_runtime.py": "b12477273c024d3e8f5c3e4191b76e1e817a861a55428eda26413ffacd35bf17",
+    "tools/transform_source_policy.py": "7a361c4c8cf6b89f7830211a3fedba35a4054969226586743ad7b0b205e543bf",
+    "src/agent.rs": "21bb59521db554e2a262139cca739f248b19170769ca449f48d2120c73c8a1a0",
+    "src/baseline.rs": "73f6954a13adec2ec9b572bfaabb4d868554f9a57aa6be7f73c4f822f3c3d79c",
+    "src/json.rs": "baacde1dea32c53de7df56bb8b2e93f75ece94295893858709455389670d1528",
+    "src/lib.rs": "a19af3f508640cd3d3be6cda197aacf63b126c34b3a69c2b7bc904ccf43e4fe5",
+    "src/main.rs": "2d5b2a8c5b1947c7c5b8efb8082d65d2ab3cbd066c43b399acf7e8b9e9355d90",
+    "src/mesh/creation/inverse4.rs": "9f7ca7d8ac959b822c3e71bb03d2c148f4b71afef42d4ad829445d7c4dbf5877",
+    "src/mesh/creation/mod.rs": "2f4034f3cebd609435b06e669571c50ed7c89f223ff71fcb1140976bd4f2f90c",
+    "src/mesh/frame_math.rs": "6678c8019d118f60cfaaa3b6b4e0340048a24863f70a46a3aae91b95e26b2f0c",
+    "src/mesh/normals.rs": "7930ebabaf4c3bbb35bdba65bf3a058e4a643350fb32a1cd37f6dc924bb52bc3",
+    "src/mesh/primitives/legacy.rs": "87c2ec480c62c91fe223ac341272c990363f7b44f3d880690e63acef96de39f3",
+    "src/mesh/primitives/legacy_tables.rs": "3ed0b281825ff059bc63378fed2af6ff3be139bb3bdebd8588a3c01ae3a75e56",
+    "src/mesh/primitives/rotational.rs": "1c4b1b2247fd64d8e2706860671ed5f8884e296959dd5e8f8dedeae5d9fc8318",
+    "src/mesh/primitives.rs": "8585fc5f6806664d4d27b3a37bbd0a9b597e66deef0b0b651a676e7c1d40972f",
+    "src/mesh/selection/interior.rs": "253f880e8365caca45b834b13505bd03e875bc37784e8aac8480d7727d058690",
+    "src/mesh/selection/mod.rs": "bdd08d5971bdc7720a4291ace6f98772e098997f630c1d866546ab1f31a68dc9",
+    "src/mesh/selection/operations.rs": "d3573cd47f2248bd00f9e51dd75aea5453d18c0297d78f8ff9166f5df2e56213",
+    "src/mesh/selection/topology.rs": "0d5aad2b566d809aef50439893cbbee0b8615d1db2f640e0a9b88aacbbd39d78",
+    "src/mesh/snap.rs": "0a914fc73cd493d56dae3573a9ee16aa0f74e839d11733739576d845390670e9",
+    "src/mesh/tessellation.rs": "c50c50bedaf6890f27e2258de0dfaac6b8ba3f025a470512d3abc0e8ebe9aaf6",
+    "src/mesh/transform/context.rs": "b1d674dc22b6d4b155712f54ed2cb6ecb5a0326b7206d520735f4d06456abbad",
+    "src/mesh/transform/geodesic.rs": "dea6cd0e11246d83430d752feb06b08adbca967f4104e0e8f479608452327b19",
+    "src/mesh/transform/gimbal.rs": "fa064e48c013749118903d92be690a876692f390047216e1e6244fd1db8b76b6",
+    "src/mesh/transform/influence.rs": "3a00d9f21fb75ba24c56fdc7b7b1344acee9cba7316712837890a1ca9a0abf93",
+    "src/mesh/transform/inverse/rank.rs": "f8ad97450a5756060becf5eace71a8e1c4fb7fc364f7d76f25c94248869a5d39",
+    "src/mesh/transform/inverse/svd.rs": "c2315e667ff65f8869ce434220be8555f10361a341ce4ec08f5bfdab3b7ee12e",
+    "src/mesh/transform/inverse.rs": "937a5900cc365615f13c3356e8e98763378d47558a4097472ec3f73630dfd3e1",
+    "src/mesh/transform/mirror.rs": "eedb2ac4976c06a47777aaae0723f6b1744b46e4f507c0f3424a75d2e0e02979",
+    "src/mesh/transform/mod.rs": "64e59dd4c537b338e3269de045f02e133a962e01548fd18c34ad3e460c085b66",
+    "src/mesh/transform/normal_orientation.rs": "520327d87f2bf20af25b9f26ecb3cd238d89bbb1aac4285f94bc9b338fbb9c70",
+    "src/mesh/transform/random.rs": "3b84e88c2f996ea0e55fcf54f6b1ef8605e8e9ad20d106d179ee94f29d61f0c5",
+    "src/mesh/transform/uv/math.rs": "7371a399ce4b9c6336cf88f170fdf31435a202bd55d7466b92ee6e6acceabf98",
+    "src/mesh/transform/uv.rs": "391b1aa016b29f01592ef3e85dd5582ce24171624d4d814d7f2cb2673e52d29e",
+    "src/mesh.rs": "1d930614efd69a4c8591cc7b7d417d2b489a1cb541b18e633372b9b6227e0a44",
+    "src/objects/math.rs": "8837698977dc5b2ca1eb9d0c4214380c8474b45760e7321b9a00430b6de56b7e",
+    "src/objects/snap.rs": "f82f79c5e6d46b9af7eac435d2d87df85ee087bd74317233ea91d6f4e4109038",
+    "src/objects.rs": "1a2ab4093f50a26832112ddb9cd2cc594755590edf888b74ab2ffb39bd4740cb",
+    "src/preview/math.rs": "eb418eebca45df9bd470f1e4eb43eb0a913b0d88084d7afe82143bc1077fae8e",
+    "src/preview/mod.rs": "50e7539ca6d43e4e7fd18bc78d56486f931ec88e20f8dffb8b48c7417f40c667",
+    "src/preview/render.rs": "60a24225e7a84eeacdcf6232aecbd7b971b41b24a7d020c773ad2902df89e25e",
+    "src/preview/window.rs": "343f00155049f1edfc6fe8b3d65664f113d14ecfe52f6d70e516ae9c0e8e8fe1",
+    "src/rotation/source.rs": "21538c8444bfd7e86715a4767404c9891343de585a916db28038168e3d9460f4",
+    "src/rotation.rs": "783feed87b6e9950645c09432d34fb019be179541e416c65aeea32a21aad0bff",
+    "src/scene.rs": "ea651eb4350254d9c99e2e3b3decc4e6319f106761b6d2d10330c1959486d4b7",
+    "src/session.rs": "61721c009024f61f0caa69d3785ffa26aa85da10cf29be8be43212aa7692f805",
+    "src/transforms/delta.rs": "3611af390cb26a4dd11685302b4fafd0ba1b09a70d225599b75c21c2fa303af4",
+    "src/transforms.rs": "6b09d0b26dd8bb07199ee04f66f816ce59a7b811390ef60a665fe109c0b2bc5e",
+    "baseline/reference/blender-5.2.3/random-falloff/BLI_math_vector_types.hh": "a059a81b59cf9f49f38cd9341fa7d1049fd4a16094e1be9cd47438c47cb51b5e",
+    "baseline/reference/blender-5.2.3/random-falloff/BLI_rand.hh": "4226aa1b035ae085f87a3ac1c2467b7f2fc0235c354a5f2553e2cdd5cea82c82",
+    "baseline/reference/blender-5.2.3/random-falloff/BLI_span.hh": "0cdde0c1d32cb1508608870c73cc58dbf0b59fc4e01abb8c77fa39af99f7fb0b",
+    "baseline/reference/blender-5.2.3/random-falloff/capture-driver.py": "5e885e047e82e1634312c94b9d143fa382a0b1e1bf7f2b04bb6833b69751a855",
+    "baseline/reference/blender-5.2.3/random-falloff/compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/compiler.txt": "ea3037e0630fa16798079372fdc24f6542d021dadda4915cc979799682d78295",
+    "baseline/reference/blender-5.2.3/random-falloff/driver.cc": "76a63becf96c1350ec352435b2f6c8b8cbe24c46fdb259c516544ee232c5b5ec",
+    "baseline/reference/blender-5.2.3/random-falloff/first-distribution.bin": "b00b0ff2811ba87bdfe1eb06dca78e2dc880dfe8880d43d0098bff8aeb4439ed",
+    "baseline/reference/blender-5.2.3/random-falloff/first-sequence.bin": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee",
+    "baseline/reference/blender-5.2.3/random-falloff/first.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/oracle": "ff7e6a9fc5c59defb93da150480682213a09c8795712a4e387639274657eac82",
+    "baseline/reference/blender-5.2.3/random-falloff/repeat-distribution.bin": "b00b0ff2811ba87bdfe1eb06dca78e2dc880dfe8880d43d0098bff8aeb4439ed",
+    "baseline/reference/blender-5.2.3/random-falloff/repeat-sequence.bin": "96319cb2a8df39c59467a50ac47683f6e4e597fd4abca879ca19485aeddee2ee",
+    "baseline/reference/blender-5.2.3/random-falloff/repeat.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline/reference/blender-5.2.3/random-falloff/report.json": "e9b7fe218304cd4d523e0879e65f83096e3ad194e53327708114100c3f6d13d5"
+  },
+  "records": [
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-000.json",
+      "sha256": "7e8ce93f8b69150c046c249a10a30546b4821a3717d3aaa72cfb977b53256a53"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-001.json",
+      "sha256": "519da9518ddf9357019ab9326fac0fdd85b12824f0d07fa719c34074ce6cc38d"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-002.json",
+      "sha256": "2d593e080b393d27cb8f9ab9e492dd9c05085a87a5b471beebed749d32bb21cc"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-003.json",
+      "sha256": "ce20a5bfc66ffecc9f62a3c763f114a8467d83b2c0bb7663b5c4cb78073e105c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-004.json",
+      "sha256": "dafaae790fdb42e794e0cb9278c46fcbeaaa462b0ef70f6da386fa513906990f"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-005.json",
+      "sha256": "974cca99468f285243e662f2494c65ec4b44de2ad97716c4a092a0a40dbadb14"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-006.json",
+      "sha256": "5a3043f1a57c71ea89064e29b6913e94199dd9d8c6116e3eb20eb141de47b68b"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-007.json",
+      "sha256": "cea831321ad02e860e21e1a45c2b5214ff94e0bdd34fb02585278a4ed28c713e"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-008.json",
+      "sha256": "5c41f067beb03790d25f40a1c58774447053e30ca9fb5c98e9fe4f5c0738baa1"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-009.json",
+      "sha256": "2a59122e5ecf7ecf6e5338ec360dd476d400fc46a4b54ee25588b232f4ab5484"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-010.json",
+      "sha256": "2da154e2dece230af3830d0c3e7f78d5c358dac98520d3fb80f2dbfdf09a953c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-011.json",
+      "sha256": "4ea378b4a21c7a314018cd3a4677050051b48ef6abf06bab4bd69db7380d54a8"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-012.json",
+      "sha256": "d519d363867f879318bfc01ef676f92bb32db0fe78b3d1ba4f59590bf3782e75"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-013.json",
+      "sha256": "237ac8836b41c37f0598834a1ddaa506bb48aa8c206124b8477be2e5bc1ab900"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-014.json",
+      "sha256": "d30af30d9a20987a1d30ad39b4a15e6827381e6c4bc3f74fa4189df0db5f1f9d"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-015.json",
+      "sha256": "9a77b417f8d133207a8522c801f2e7a80bbab18a9043e7d4e2ff2eb8ab67a847"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-016.json",
+      "sha256": "b0bae050a2b4e4c449faf2ffd364aba40b4984fe0c4e93cc9c1f37d3e60ada98"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-017.json",
+      "sha256": "62413aca32437b2f8321dc081aa634930fcfb6968e03c5396dd854b7f66078dd"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-018.json",
+      "sha256": "b43786409bb3e5f5152e2c956c4bec24785a263d501b06c6b75cac76d6a4c8fd"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-019.json",
+      "sha256": "70cb1c145960b98cdbb5d37923b91dd86522d960448903ce38eab53bd969c1a8"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-020.json",
+      "sha256": "3c89bb9b87112969ffd4a700a55e048ed0d04a77e3f2320f320e4a77560eb746"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-021.json",
+      "sha256": "a2256b064165dcdec59728918e1097a33b49b407d577f1f1e932a594f2431908"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-022.json",
+      "sha256": "d49135828e3d59bb84fab1c0d811c82aa70fcb4c15ab4da173858219cb721490"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-023.json",
+      "sha256": "0a738e1ea4b72bdc5a77ab89ef698b09ea5fd8f77ea222403c23f9d799a9fd2c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-024.json",
+      "sha256": "e36738979c9a02df6c412a7f1d9a0fe83cbab4ee147a4120da9aedc7668986b0"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-025.json",
+      "sha256": "a0d1ddd76b5f4e9de7aabf0e03309408f7df31fecedfbd9a0f7fcabcbf0b50b6"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-026.json",
+      "sha256": "332a027fa8097130ce5722f1f7b125873ee7373a0ca9d610aae58c549bf0ef81"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-027.json",
+      "sha256": "bdf2e9ea5244ac58595ec84fc00cc67f131427bb87035cc4814381ff8cbf8442"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-028.json",
+      "sha256": "62ebe3e7845d02f36978365390b8b3540e677d9aa122c51b3962487f9773db4a"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-029.json",
+      "sha256": "27ace524c13cd47cda857c700886ed4c40484379946098d91723e8ffd8db13a7"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-030.json",
+      "sha256": "1433100a8d7064d2e74b98889035c2f9e6f86e5f67a7ba6e9041a4d19134cc5a"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-031.json",
+      "sha256": "890dab9e8a176992eb6cc9f16126c7e03cd3b3227179c8df29887a6e4991c26c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-032.json",
+      "sha256": "01111232ec1c65777392a601981df4b8888f8beff47296a06c9cef879029a06c"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-033.json",
+      "sha256": "ddbaf26c023594aac1649186b75d1d4f9e812a704c3f962b4028430a175c8d24"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-034.json",
+      "sha256": "78817be3bdffff7a40ae1fc516fffecb6788443466e2f2a31332a285aafc0419"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-035.json",
+      "sha256": "23852ebf380a957ac8a855546f2aaa9574f9d4cea6f4ecce39c169079fe5b9c2"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "cli-036.json",
+      "sha256": "2f8661cc98dd126aad78918daf4885d2f1d53b6e0643cdde6a83cf881716dcb2"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "cli-037.json",
+      "sha256": "9ab6358569484a5a5fb4f063c5eecf4cfa983d773f0568f66c42817025c1b518"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "cli-038.json",
+      "sha256": "f27933cdd385e4de3c794f742b85284431635fb9f8599c9f0a88d2700e131815"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "cli-039.json",
+      "sha256": "412552723128ed8018ed641d1d161df23891a158f37b6b7639e4be77f05686d7"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-040.json",
+      "sha256": "ce8ea8cbfb4e1a15f13ee5872df472d756ee10bc7ed6b9aeb519503df41651e5"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        0,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-041.json",
+      "sha256": "a564efadb7f9f8d35f74fdf8f9db716495c7bbf652a216d698f909cc14ebf973"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-042.json",
+      "sha256": "586e42e73adb8e70488b73454e7c149695dd985030f0bb44aff266f63ee3ba43"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967295,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-043.json",
+      "sha256": "d5309f0ef5edf8fcc7903bbc533a31296f34135931ee0dbd8b2a62af4d1d67fd"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967296,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-044.json",
+      "sha256": "6a8465866e67756c2a76bd57fa08d1fbb2c2a6de1087df39126103be9d3331a8"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        4294967296,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-045.json",
+      "sha256": "25db7967811c76831a3b10d79756ab5e341cbde7f8d96a50952fa2d052dbc271"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        18446744073709551615,
+        null,
+        false,
+        false
+      ],
+      "file": "cli-046.json",
+      "sha256": "7f4dc8a46ad05405a649d8f2e69b21ff72d35353fcb0a31b02d48527a1b4c572"
+    },
+    {
+      "interface": "cli",
+      "case": [
+        18446744073709551615,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "cli-047.json",
+      "sha256": "1c743850d0036235bced11b6d434f20d08440adb5a9b557416e649d64e5a0a34"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-000.json",
+      "sha256": "408067763b09ddebfa438196a14795a609ed6c0a63107c4ee0a2a477d4a4dc0f"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-001.json",
+      "sha256": "4feb5c3a25e68ec65212e14e7053ef931b5376b8f6da68254323155eda2ee063"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-002.json",
+      "sha256": "49506a87b7a69e29c1c7cbdeea8dedd0d156303426b7abdcc2ca4fb37b028359"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-003.json",
+      "sha256": "4b76df0d55854654b01fb71c172a5386bfb830e08d9f9c0198f7e8753bd0c4b9"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-004.json",
+      "sha256": "948928ef14138c543c6528afc0f18b10f68e50bef64ee3817ed69ba7dc9d8afe"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-005.json",
+      "sha256": "a256a5b9597a53ded04175da56c72269df6a9ae9bf96d0d1e89384d1e4e82a8a"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-006.json",
+      "sha256": "d96c99c7bc96ca92d1ad8b77b723fdbad06274e3eda52b088b17a71a00dfb96b"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-007.json",
+      "sha256": "5be8ab54cde82c07979d56864bb2718d6b6d7531040e983cbf191401d0aedcec"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-008.json",
+      "sha256": "92faf1a952f238d051bf32c1945dba9fe1316c1163b6c35ad7cdec2008b693ef"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-009.json",
+      "sha256": "e962a6de0bee951974836f9ccefd19ec7282f47d14b3b420376c0db3611d55eb"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-010.json",
+      "sha256": "a429026b3eb33f62c5deb346c7fba57f2b138386dea90eab0de66762b961ab8f"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-011.json",
+      "sha256": "ff40a6519defefeea266de4665f3c08e548db6bef01ce7eb363a49efb06608cc"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-012.json",
+      "sha256": "26790afdde54ab92e4294d405f3453191b605ee1734e425fe8e2f542cdce6926"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-013.json",
+      "sha256": "8b70c8fc87e0d4bcbe3e7b6e0ec50c5220f7b2db57b713cdb293b2afbad0ff46"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-014.json",
+      "sha256": "eb2fbf6d4feb531b11f06d11b848783e3255fea1d01a0c0c824008bd33c27d23"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        42,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-015.json",
+      "sha256": "cd645313dbe63fa74d378f29950f9bd7786e1ff7e01c8671c518a299d8ced696"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-016.json",
+      "sha256": "98610f269dfb2b2dbc5ebdbb242768e102c4743fc8001122a5f337187a154f53"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-017.json",
+      "sha256": "a7372f9172a69a80ebe5e4d56a36407e8cb9f0514387df710422adb3d4ffe674"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-018.json",
+      "sha256": "74b4b8384bfc94014715bd93b6b091a2bf1a6a494062178f7de2063a95e594f6"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65535,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-019.json",
+      "sha256": "6645267e3ee7ef9e04daf361ee3afe9a732f4b286d10e31de2e9a07f179404e0"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-020.json",
+      "sha256": "91dee1b2e0fb6f1188c79a1ee56166d89e0d577923ee2fbf5a4fe78d9d1a85d2"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-021.json",
+      "sha256": "2294d7fedf9847024373c7fece4fc9d5f5c1837c50918b70bf12c0d6ac699ff5"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-022.json",
+      "sha256": "38a849ea5d645fe57f69e78621136c6c62ddb9a406e8b9b159ba227fd8da5227"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        65536,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-023.json",
+      "sha256": "87a339544245ec3580880c42f0a80c2625a491a5974997c104cc0ae0e9832c75"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-024.json",
+      "sha256": "d712f01cd15f6c68ee0e9b09e1af3bd061cdeaec21d8fea450a280d91a492205"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-025.json",
+      "sha256": "12cc4d31d43026f7d9133db7c6aaf9225af77e340beb900a4f02ef49da662456"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-026.json",
+      "sha256": "d12fb456841678fbf2ccc4a85bd0c2620f903dd762ef653f8a682d48c869905f"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        1234567,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-027.json",
+      "sha256": "4f82a197435171a49fb2e94b3b0ca4304b8ee02f5c8aa602a285fb264bffd7a9"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-028.json",
+      "sha256": "7a41f647db2c85c5d5db9e7d53862fcaf3de457dcd37d7750f90838a90367d30"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-029.json",
+      "sha256": "b1c5b61292f9427a773c3a0490c86b966b8b15659fcdf5f3371f25a5acf1683d"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-030.json",
+      "sha256": "6e0e28392c38b6f22f98f17e1320d17b2d96be4b80bc995ff3ecceed48d6796a"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483647,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-031.json",
+      "sha256": "c8b49e9609b7d1cc16c85a5c3c65abce485d74c6582dab0ca31bdb0f853ca1b8"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-032.json",
+      "sha256": "eb9043263492691d6c942b5d0ccd4b6ceebb6f7f59e513e6f26ec5aa27d6f901"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-033.json",
+      "sha256": "537fa2f9f4b725cff919b1126ad357be3493c2328696efa20ef7fc94c22fe1e3"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-034.json",
+      "sha256": "13887103ab6256ef0459a3c985fa4ae69faa06ddfb942771de7438d10bb5e1d6"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        2147483648,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-035.json",
+      "sha256": "8cba79dc969e672c7c424b1af02af5b81a03aa7624d569f44585b826f7f59917"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-036.json",
+      "sha256": "88dbfaddd89f74bde9490a0395ba3e3ec8addc12e060dee307f8fbaf96cba660"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        false
+      ],
+      "file": "official_mcp_sdk-037.json",
+      "sha256": "16c3960af2688a8d7c640cc8e91e667489d53e1b338863a40c69b322cd576641"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        false,
+        true
+      ],
+      "file": "official_mcp_sdk-038.json",
+      "sha256": "0120d64a268c0a2d9a0388bb56e9261bb7d0659b1831359199e1778ed5f5fb09"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "blender_5_2",
+        true,
+        true
+      ],
+      "file": "official_mcp_sdk-039.json",
+      "sha256": "dc09d886b3f791aa850d92e748177416fac7f841a4189307006054bf724c1aa7"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-040.json",
+      "sha256": "204e130299c22d66a8911a3ce03a16c0dda93c990eceaf73b66bb4ad85994731"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        0,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-041.json",
+      "sha256": "ce81896913c592a09a95d323d55d00afb25de68f790cd0d524f66f93f3165383"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-042.json",
+      "sha256": "ba31c9ca6e4bac9076b854c5965659d241a8fd690986305ee5f03f69b6e95188"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967295,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-043.json",
+      "sha256": "3d9bcb2a62f09d6c37218f8e434b01d72898d26415003df5a35478ab5c238a83"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967296,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-044.json",
+      "sha256": "269512814517c0283382c9c9be7621c02db0d89cf9f89235962ba76f9aee3102"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        4294967296,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-045.json",
+      "sha256": "c3e402ea4698e6384523ae2a2a51d4ec50f19ffdb5d8b5404b2d94aa4b575d55"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        18446744073709551615,
+        null,
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-046.json",
+      "sha256": "ead7d76ab85b40866f4eed99b2ff119205bb916876488c88792c8478d2547b3e"
+    },
+    {
+      "interface": "official_mcp_sdk",
+      "case": [
+        18446744073709551615,
+        "splitmix64_v1",
+        false,
+        false
+      ],
+      "file": "official_mcp_sdk-047.json",
+      "sha256": "5a9793ee01d14452803ef1b567041e376c2d3e7d5dc7825208c0ac5154923dd7"
+    }
+  ],
+  "scene_apply_schema_sha256": "ff3fe27514ac409eb405226b7e3813819e81bc8346fd902ab57722d7b267a4d7",
+  "product_acceptance": "unrun"
+}

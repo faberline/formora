@@ -1,0 +1,36 @@
+{
+  "timing_gates_passed": true,
+  "final_complete_samples": 177,
+  "groups": [
+    {
+      "run": "/private/tmp/formora-delta-raw-performance-01",
+      "samples": 24,
+      "timing_passed": true,
+      "controller_sha256": "b1593ebfb57def8df6283cccb367605dc4066901f510b46d124c4e72d6f02182"
+    },
+    {
+      "run": "/private/tmp/formora-delta-retained-90-02",
+      "samples": 90,
+      "timing_passed": true,
+      "controller_sha256": "6d57d23f8a6d88a0f1a032661b041e0dcfefdf9cca1eb654b972bc043e5541bb"
+    },
+    {
+      "run": "/private/tmp/formora-delta-retained-rotation-01",
+      "samples": 24,
+      "timing_passed": true,
+      "controller_sha256": "914f5f679d8a5fae7fa29b64280bad2fbc4c27383d0b19dc18542928ffdb2488"
+    },
+    {
+      "run": "/private/tmp/formora-delta-retained-39-02",
+      "samples": 39,
+      "timing_passed": true,
+      "controller_sha256": "679413cedfdcbd58cb054fe027f99e570fc1fe560823e1f64b83116c02ce397a"
+    }
+  ],
+  "preserved_unaccepted_trial_samples": 129,
+  "actual_over_limit_rows_in_unaccepted_trials": 11,
+  "combining_trials_or_selecting_samples": false,
+  "source_comparisons": "new delta 24 passed; retained 153 running",
+  "threshold_or_workload_changes": false,
+  "product_acceptance": "unrun"
+}

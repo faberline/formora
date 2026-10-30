@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "-C",
+    "opt-level=3",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/capture-driver-02.rs",
+    "-o",
+    "/private/tmp/formora-delta-retained-rotation-driver",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+  ],
+  "terminal_exit_code": 0,
+  "driver_source_sha256": "125e7510aabeb825773e718c7b280ccac2cb4e3b25d2ededfc1a8b390984aaf7",
+  "library_sha256": "a5758de726c8ea2a14710df87ba2e8ed60ca1a19d79119ed627eee668cd7fadb",
+  "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)"
+}

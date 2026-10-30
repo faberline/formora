@@ -1,0 +1,28 @@
+[
+  {
+    "name": "gpu-raw-legacy",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/gpu-driver.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/gpu-raw-legacy"
+    ],
+    "terminal_exit_code": 0
+  },
+  {
+    "name": "gpu-rng-legacy",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/gpu-rng-legacy-driver.py"
+    ],
+    "terminal_exit_code": 0
+  },
+  {
+    "name": "gpu-mirror-legacy",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/gpu-mirror-legacy-driver.py"
+    ],
+    "terminal_exit_code": 0
+  }
+]

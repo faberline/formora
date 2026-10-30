@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition=2024",
+    "-C",
+    "opt-level=3",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/legacy-single-driver.rs",
+    "-o",
+    "/private/tmp/formora-delta-single-30-driver",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+  ],
+  "terminal_exit_code": 0,
+  "source_sha256": "857be0a1ed33a7164c9a8045241e9c899d1fd889d4c5d73c0e87d3b779d9ae5d",
+  "library_sha256": "a5758de726c8ea2a14710df87ba2e8ed60ca1a19d79119ed627eee668cd7fadb",
+  "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)"
+}
