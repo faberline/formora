@@ -1,0 +1,24 @@
+{
+  "before_product_implementation": true,
+  "before_test_execution": true,
+  "issue": 79,
+  "source_dependency_issue": 77,
+  "source_dependency_pr": 78,
+  "head_before_seal": "a211f7211aef0723fc5e2e015bd8cb3773c8b397",
+  "unchanged_product_implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "files": {
+    "tests/mesh_merge_multi_data.rs": "4f1d536765e7f92109694d130a4ac9adcd3598993d427c60e8b873ce3b48a91f",
+    "docs/contracts/mesh-merge-multi-data-core.md": "662eb329bc2af1a7f23f6061a24c31f520510d0b905251439579545c8ced4673"
+  },
+  "before_code_library": {
+    "path": "/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+    "sha256": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+    "rust": "1.85.0"
+  },
+  "expected_controls": 8,
+  "native_capacity_full_comparison": "pending; no product implementation allowed before pass",
+  "product_acceptance": "unrun",
+  "harness_revision": 2,
+  "previous_compile_failure": "before-code-compile-failure-01/report.json",
+  "correction": "serialize the real public agent dispatch response; internal EditResult is not serializable; all eight behavior assertions retained"
+}

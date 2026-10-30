@@ -41,6 +41,10 @@ Before implementation, freeze the eight authored-literal controls in
 `tests/mesh_merge_multi_data.rs`. Keep their actual before-code result.
 Retain every assertion. Setup contains no captured source answers.
 The legacy control must still pass. New behavior must fail before code.
+The first harness compile failed because the internal `EditResult` is not
+serializable. Preserve that failure. Read receipts through the existing
+public agent dispatch and its saved session result instead. Keep all eight
+behavior assertions and re-seal this harness correction before execution.
 
 Run all 13,440 source cases through actual CLI and official MCP, with full
 requests, results, physical queries, saved assets and independent fresh load.

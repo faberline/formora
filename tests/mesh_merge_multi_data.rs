@@ -89,12 +89,23 @@ fn request(method: &str, budget: usize) -> Command {
 }
 
 fn result(editor: &mut Editor, method: &str) -> Value {
-    serde_json::to_value(
-        editor
-            .apply_with_outcomes(&[request(method, 1000)], Some(0))
-            .unwrap(),
+    use std::sync::atomic::{AtomicU64, Ordering};
+    static NEXT: AtomicU64 = AtomicU64::new(0);
+    let command = request(method, 1000);
+    let path = std::env::temp_dir().join(format!(
+        "formora-multi-merge-{}-{}.json",
+        std::process::id(),
+        NEXT.fetch_add(1, Ordering::Relaxed)
+    ));
+    let mut session = formora::session::Session::create(&path, editor.scene().clone()).unwrap();
+    let outcome = formora::agent::dispatch(
+        &mut session,
+        "scene_apply",
+        json!({"expected_revision":0,"commands":[command]}),
     )
-    .unwrap()
+    .unwrap();
+    *editor = Editor::new(session.scene().clone()).unwrap();
+    outcome
 }
 
 fn point(editor: &Editor, mesh: &str) -> [f64; 3] {
