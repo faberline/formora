@@ -16,6 +16,7 @@ def input_paths(suite_path):
         'tools/multi_mesh_merge_inputs.py',
         'tools/blender_multi_mesh_merge_reference.py',
         'tools/compare_multi_mesh_merge_reference.py',
+        'tools/check_multi_mesh_merge_controls.py',
         'tools/launch_multi_mesh_merge_reference.py',
         'tools/generate_multi_mesh_merge_cases.py',
         'tools/blender_mesh_merge_reference.py',

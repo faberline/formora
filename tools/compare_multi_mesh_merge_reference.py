@@ -27,6 +27,10 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def bind_suite(suite):
+    require(suite == author(), 'independently authored inputs differ')
+
+
 def context(suite, run):
     return next(c for c in suite['contexts'] if c['id'] == run['context'])
 
@@ -209,7 +213,8 @@ def validate_run(suite, run, data):
                 and isinstance(result['error'], str) and 'enum' in result['error'].lower(),
                 'predicted enum rejection differs')
         tree(before, after, 'rejected mutation', 0.)
-        return {'enum_rejected': 1, 'changed_data': 0, 'unchanged_data': 3, 'skipped_data': 2}
+        return {'enum_rejected': 1, 'enum_rejected_data': 3,
+                'changed_data': 0, 'unchanged_data': 0, 'skipped_data': 0}
     require(data['result'] == {'status': ['FINISHED'], 'error': None}, 'unexpected native result')
     processed = []
     for name in edit_providers(suite, run):
@@ -249,7 +254,8 @@ def validate_run(suite, run, data):
         tree(initial['groups']['names'], final['groups']['names'], 'preserved group names', 0.)
         if 'VERT' not in run['mode']:
             require(all(not ids for ids in final['selected'].values()), 'nonvertex merge retained selection')
-    return {'enum_rejected': 0, 'changed_data': len(changed_data), 'unchanged_data': 3-len(changed_data),
+    return {'enum_rejected': 0, 'enum_rejected_data': 0,
+            'changed_data': len(changed_data), 'unchanged_data': 3-len(changed_data),
             'skipped_data': 2-len(processed_data)}
 
 
@@ -301,7 +307,7 @@ def load_capture(folder, suite_path, runs, focused):
 
 def compare(suite_path, first, second, case_ids):
     suite = json.loads(suite_path.read_text())
-    require(suite == author(), 'independently authored inputs differ')
+    bind_suite(suite)
     runs = suite['runs']
     if case_ids:
         require(len(case_ids) == len(set(case_ids)) and set(case_ids) <= {r['id'] for r in runs}, 'unknown/duplicate cases')

@@ -1,0 +1,19 @@
+{
+  "type": {
+    "type": "ENUM",
+    "description": "Merge method to use",
+    "default": "CENTER",
+    "enum": [
+      "CENTER",
+      "CURSOR",
+      "COLLAPSE",
+      "FIRST",
+      "LAST"
+    ]
+  },
+  "uvs": {
+    "type": "BOOLEAN",
+    "description": "Move UVs according to merge",
+    "default": false
+  }
+}

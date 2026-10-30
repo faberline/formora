@@ -1,0 +1,27 @@
+{
+  "compile": "passed with Python 3.12.11",
+  "initial_system_python_3_9_compile": "failed before compilation; pycache path was outside writable roots",
+  "resolved_pycache": "/private/tmp/formora-multi-data-pycache",
+  "source_pilots": [
+    {
+      "name": "pilot-01",
+      "native_cases": 28,
+      "initial_binding_passed": 0,
+      "cause": "cross-domain attribute names renamed by source"
+    },
+    {
+      "name": "pilot-02",
+      "native_cases": 313,
+      "initial_binding_passed": 0,
+      "cause": "outside-mesh default component selection not explicitly cleared"
+    },
+    {
+      "name": "pilot-03",
+      "native_cases": 313,
+      "initial_binding_passed": 313,
+      "complete_source_gate": false
+    }
+  ],
+  "criteria_weakened": false,
+  "product_code_changed": false
+}
