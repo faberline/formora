@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-01.py", line 112, in <module>
+    if __name__=='__main__':asyncio.run(main())
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-01.py", line 107, in main
+    row=await trial(interface,method,uvs);rows.append(row);print(json.dumps(row),flush=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-01.py", line 83, in trial
+    try:result=await exercise(call)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-01.py", line 36, in exercise
+    await apply(0,[{'operation':'create_mesh_primitive','id':'mesh','primitive':{'kind':'cube','size':1.7}},entity('parent',None,[1.125,-.75,.625],[.17,-.29,.41],[1.2,.7,1.6],False),entity('cube','parent',[.25,-.5,.75],[.13,.23,-.37],[-1.,2.,.8]),entity('other',None,[-3.,2.,1.],[.1,.2,.3],[.9,1.1,1.3]),{'operation':'set_authoring_context','context':{'cursor_location':[2.125,-1.3125,.75],'cursor_rotation':[.17,.23,.41]}},{'operation':'set_object_context','context':{'order':['parent','cube','other'],'selected':['cube'],'active':'cube','edit_objects':['cube']}}])
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-01.py", line 35, in apply
+    async def apply(revision,commands,error=False):return await call('scene_apply',{'expected_revision':revision,'commands':commands},error)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-01.py", line 81, in call
+    calls.append({'request':request,'response':response});assert response['id']==request['id'] and response['ok'] is (not error),response
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'error': 'edit objects require persistent mesh editing state', 'id': 1, 'ok': False}

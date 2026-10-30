@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "revision": 7,
+  "time_seconds": 0.0,
+  "entities": {
+    "cube": {
+      "name": "cube",
+      "parent": "parent",
+      "transform": {
+        "translation": [
+          0.25,
+          -0.5,
+          0.75
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.13,
+            0.23,
+            -0.37
+          ],
+          "order": "yxz"
+        },
+        "scale": [
+          -1.0,
+          2.0,
+          0.8
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "mesh"
+        },
+        "material": null
+      }
+    },
+    "other": {
+      "name": "other",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -3.0,
+          2.0,
+          1.0
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.1,
+            0.2,
+            0.3
+          ],
+          "order": "yxz"
+        },
+        "scale": [
+          0.9,
+          1.1,
+          1.3
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "mesh"
+        },
+        "material": null
+      }
+    },
+    "parent": {
+      "name": "parent",
+      "parent": null,
+      "transform": {
+        "translation": [
+          1.125,
+          -0.75,
+          0.625
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.17,
+            -0.29,
+            0.41
+          ],
+          "order": "yxz"
+        },
+        "scale": [
+          1.2,
+          0.7,
+          1.6
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "empty"
+      }
+    }
+  },
+  "materials": {},
+  "mesh_assets": {
+    "mesh": {
+      "vertices": {
+        "v000000": [
+          -1.4901161193847656e-8,
+          0.0,
+          0.0
+        ]
+      },
+      "triangles": {},
+      "uv_layout": {
+        "layers": [
+          "UVMap"
+        ],
+        "active": "UVMap"
+      },
+      "material_slots": [],
+      "recipe": {
+        "primitive": {
+          "kind": "cube",
+          "size": 1.7,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "calc_uvs": true
+        },
+        "max_components": 1000000,
+        "edited": true
+      },
+      "editing": {
+        "preview": false,
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "vertices": [
+            "v000000"
+          ],
+          "edges": [],
+          "faces": []
+        },
+        "hidden": {
+          "vertices": [],
+          "edges": [],
+          "faces": []
+        },
+        "history": [
+          {
+            "domain": "vertex",
+            "id": "v000000"
+          }
+        ],
+        "active_face": null
+      }
+    }
+  },
+  "doors": {},
+  "active_camera": null,
+  "annotations": [],
+  "authoring_context": {
+    "cursor_location": [
+      2.125,
+      -1.3125,
+      0.75
+    ],
+    "cursor_rotation": [
+      0.17,
+      0.23,
+      0.41
+    ],
+    "view_rotation": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "object_context": {
+    "order": [
+      "parent",
+      "cube",
+      "other"
+    ],
+    "selected": [
+      "cube"
+    ],
+    "active": "cube",
+    "edit_objects": [
+      "cube"
+    ],
+    "states": {},
+    "skip_children": false,
+    "origins_only": false
+  }
+}

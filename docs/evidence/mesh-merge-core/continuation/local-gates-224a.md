@@ -64,7 +64,8 @@ The extra uncompressed `completed-proofs-01/` directory is local only.
 It is not part of the published evidence set.
 `completed-proofs-02/archive-manifest.json` contains the complete retained
 177 source checks, four retained Metal proofs, 48 CLI RNG cases and six Euler orders.
-The complete retained API reports still need a later archive.
+`completed-proofs-03/archive-manifest.json` contains the complete retained API
+outputs and raw audits. It also preserves the new failed recipe trials.
 
 ## Preserve these failures
 
@@ -95,9 +96,18 @@ The original controller report remains failed.
 
 ## Required work still open
 
-The retained 14,326 CLI/MCP requests and asset regressions are running.
-Their full raw audit is unrun.
+The retained 14,326 CLI/MCP requests and 1,687 asset checks passed.
+Their parent controller ended with exit zero and unchanged inputs.
+The five complete retained raw audits passed.
+Together with the new merge corpus, 16,374 interface records passed raw audit.
+The 14 approved undefined rotations and 48 stochastic support checks are
+separate outcomes. They are not deterministic numeric source matches.
 The retained 177 physical source comparisons passed.
+The new merge recipe test then found an active-edit regeneration defect.
+The real CLI server rejected regeneration at call 27.
+Six new frozen Rust controls have one pass and five failures.
+Issue #76 tracks the repair. The required recipe gate remains failed.
+The overall local result is therefore unpassed.
 Three-platform CI, dependency integration and independent Codex acceptance are unpassed.
 The full parameter, data and capacity domains remain required follow-up work.
 The source feature catalog is still pending review.

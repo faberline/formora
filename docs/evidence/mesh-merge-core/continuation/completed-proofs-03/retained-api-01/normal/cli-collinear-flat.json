@@ -1,0 +1,149 @@
+{
+  "interface": "cli",
+  "id": "collinear-flat",
+  "passed": true,
+  "components": 12,
+  "maximum_absolute_error": 0.0,
+  "scene_sha256": "25968887b56888a625035d431e2cc406f9f719cdd9b83052e3ffc44fb91a4b3e",
+  "asset": {
+    "vertices": {
+      "v000000": [
+        0,
+        0,
+        0
+      ],
+      "v000001": [
+        1,
+        0,
+        0
+      ],
+      "v000002": [
+        2,
+        0,
+        0
+      ]
+    },
+    "edges": {
+      "e000000": [
+        "v000000",
+        "v000001"
+      ],
+      "e000001": [
+        "v000000",
+        "v000002"
+      ],
+      "e000002": [
+        "v000001",
+        "v000002"
+      ]
+    },
+    "triangles": {},
+    "polygons": {
+      "f000000": {
+        "vertices": [
+          "v000000",
+          "v000001",
+          "v000002"
+        ],
+        "uv_layers": {},
+        "corner_normals": null,
+        "material_slot": null,
+        "normal": null,
+        "smooth": false
+      }
+    },
+    "material_slots": [],
+    "edge_seams": [
+      "e000000"
+    ],
+    "smooth_triangles": []
+  },
+  "query": {
+    "id": "mesh",
+    "mesh_asset": {
+      "edge_seams": [
+        "e000000"
+      ],
+      "edges": {
+        "e000000": [
+          "v000000",
+          "v000001"
+        ],
+        "e000001": [
+          "v000000",
+          "v000002"
+        ],
+        "e000002": [
+          "v000001",
+          "v000002"
+        ]
+      },
+      "material_slots": [],
+      "polygons": {
+        "f000000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "normal": null,
+          "smooth": false,
+          "uv_layers": {},
+          "vertices": [
+            "v000000",
+            "v000001",
+            "v000002"
+          ]
+        }
+      },
+      "triangles": {},
+      "vertices": {
+        "v000000": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "v000001": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "v000002": [
+          2.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "normals": {
+      "faces": [
+        {
+          "corner_normals": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "face": {
+            "id": "f000000",
+            "kind": "polygon"
+          },
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "revision": 1
+  }
+}

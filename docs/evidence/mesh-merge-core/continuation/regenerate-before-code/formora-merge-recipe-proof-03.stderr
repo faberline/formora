@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-03.py", line 118, in <module>
+    if __name__=='__main__':asyncio.run(main())
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-03.py", line 113, in main
+    row=await trial(interface,method,uvs);rows.append(row);print(json.dumps(row),flush=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-03.py", line 86, in trial
+    try:result=await exercise(call)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-03.py", line 70, in exercise
+    await apply(replayed['revision'],[regenerate]);regenerated=await inspect()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-03.py", line 35, in apply
+    async def apply(revision,commands,error=False):return await call('scene_apply',{'expected_revision':revision,'commands':commands},error)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/merge-recipe-proof-03.py", line 84, in call
+    calls.append({'request':request,'response':response});assert response['id']==request['id'] and response['ok'] is (not error),response
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'error': 'edit objects require persistent mesh editing state', 'id': 27, 'ok': False}
