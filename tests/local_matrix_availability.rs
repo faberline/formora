@@ -4,7 +4,7 @@ use formora::rotation::{EulerOrder, RotationAngles, TransformRotation};
 use formora::scene::{Command, Editor, Entity, EntityKind, Geometry, Scene, Transform};
 use formora::session::InspectRequest;
 use formora::transforms::{Delta, Precision};
-use serde_json::{Value, json};
+use serde_json::Value;
 
 fn euler(angles: [f64; 3], order: EulerOrder) -> TransformRotation {
     TransformRotation::Authored(RotationAngles::Euler { angles, order })
@@ -137,7 +137,10 @@ fn unavailable_local_query_preserves_the_committed_operation_and_valid_world() {
 #[test]
 fn finite_source_zero_fallback_is_still_a_numeric_matrix() {
     let value = world(&scene());
-    assert_eq!(value["object_frames"]["matrix_local"], json!([[0.; 4]; 4]));
+    assert_eq!(
+        value["object_frames"]["matrix_local"],
+        serde_json::to_value([[0.; 4]; 4]).unwrap()
+    );
     assert!(value["object_frames"].get("matrix_local_error").is_none());
 }
 
