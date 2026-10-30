@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2001 Intel Corporation
-// SPDX-FileCopyrightText: 2009 Benoit Jacob
+// SPDX-FileCopyrightText: 2008-2009 Benoit Jacob
 // SPDX-FileCopyrightText: 2010 Gael Guennebaud
 // SPDX-License-Identifier: MPL-2.0
 // Copyright (c) 2001 Intel Corporation.
@@ -52,15 +52,47 @@ fn reciprocal(value: f32) -> f32 {
     result
 }
 pub(crate) fn inverse(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
-    inverse_impl(m, false)
+    inverse_impl(m)
 }
 
 /// Direct object operations retain the fixed Eigen singular zero output.
 pub(crate) fn inverse_or_zero(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
-    inverse_impl(m, true)
+    // Eigen computeInverseWithCheck evaluates determinant() separately from
+    // the packet inverse denominator. A dense degenerate matrix can pass
+    // this check but still fail in the inverse. Do not turn that failure into
+    // the wrapper's exact-zero fallback.
+    if checked_determinant(m).abs() > 0. {
+        inverse_impl(m)
+    } else {
+        Ok([[0.; 4]; 4])
+    }
 }
 
-fn inverse_impl(m: [[f32; 4]; 4], singular_zero: bool) -> Result<[[f32; 4]; 4]> {
+// Pinned Eigen Determinant.h, determinant_impl<Derived, 4>. Keep both the
+// f32 rounding points and the nested fused multiply-add operations.
+fn checked_determinant(m: [[f32; 4]; 4]) -> f32 {
+    let det2 = |a: usize, b: usize| m[a][0] * m[b][1] - m[b][0] * m[a][1];
+    let [a, b, c, d, e, f] = [
+        det2(0, 1),
+        det2(0, 2),
+        det2(0, 3),
+        det2(1, 2),
+        det2(1, 3),
+        det2(2, 3),
+    ];
+    let det3 = |i0: usize, d0: f32, i1: usize, d1: f32, i2: usize, d2: f32| {
+        m[i0][2].mul_add(d0, (-m[i1][2]).mul_add(d1, m[i2][2] * d2))
+    };
+    let d3 = [
+        det3(1, f, 2, e, 3, d),
+        det3(0, f, 2, c, 3, b),
+        det3(0, e, 1, c, 3, a),
+        det3(0, d, 1, b, 2, a),
+    ];
+    (-m[0][3]).mul_add(d3[0], m[1][3] * d3[1]) + (-m[2][3]).mul_add(d3[2], m[3][3] * d3[3])
+}
+
+fn inverse_impl(m: [[f32; 4]; 4]) -> Result<[[f32; 4]; 4]> {
     let col: [Lane; 4] = std::array::from_fn(|c| std::array::from_fn(|r| m[r][c]));
     let a = low(col[0], col[1]);
     let b = high(col[1], col[0]);
@@ -79,9 +111,6 @@ fn inverse_impl(m: [[f32; 4]; 4], singular_zero: bool) -> Result<[[f32; 4]; 4]> 
     let trace = add(trace, high(trace, trace));
     let trace = add(trace, sw(trace, trace, [1, 0, 0, 0]));
     let determinant = sub(add(mul(da, dd), mul(db, dc_det)), trace)[0];
-    if determinant == 0. && singular_zero {
-        return Ok([[0.; 4]; 4]);
-    }
     if !determinant.is_finite() || determinant == 0. {
         return Err(SceneError(
             "singular or nonfinite creation target transform".into(),

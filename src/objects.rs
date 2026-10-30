@@ -54,7 +54,9 @@ pub fn identity() -> Matrix {
 #[derive(Debug, Clone, Serialize, JsonSchema)]
 pub struct Frames {
     pub matrix_basis: Matrix,
-    pub matrix_local: Matrix,
+    pub matrix_local: Option<Matrix>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub matrix_local_error: Option<LocalMatrixError>,
     pub matrix_parent_inverse: Matrix,
     pub selected: bool,
     pub edit_mode: bool,
@@ -64,6 +66,12 @@ pub struct Frames {
     pub lock_rotation_w: bool,
     #[serde(default, skip_serializing_if = "is_false")]
     pub lock_rotations_4d: bool,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum LocalMatrixError {
+    CannotInvert,
 }
 
 /// Query the same parent-inverse frames used by rendering and authoring.
@@ -77,24 +85,30 @@ pub fn frames(scene: &Scene, id: &str) -> Result<Frames> {
     let basis = crate::transforms::local(&entity.transform)?;
     let local = if let Some(parent) = &entity.parent {
         if entity.transform.precision == crate::transforms::Precision::F32 {
-            math::mul(
-                math::inverse(math::world(scene, parent)?)?,
-                math::world(scene, id)?,
-            )?
+            // Physical lookup failures remain query errors. Only the
+            // derived local inverse/evaluation has separate availability.
+            let parent_world = math::world(scene, parent)?;
+            let world = math::world(scene, id)?;
+            math::inverse(parent_world).and_then(|inverse| math::mul(inverse, world))
         } else {
             // The authored parent-inverse is an actual affine local frame.
             crate::transforms::compose(
                 state.parent_inverse.unwrap_or_else(identity),
                 basis,
                 entity.transform.precision,
-            )?
+            )
         }
     } else {
-        basis
+        Ok(basis)
+    };
+    let (matrix_local, matrix_local_error) = match local {
+        Ok(matrix) => (Some(matrix), None),
+        Err(_) => (None, Some(LocalMatrixError::CannotInvert)),
     };
     Ok(Frames {
         matrix_basis: basis,
-        matrix_local: local,
+        matrix_local,
+        matrix_local_error,
         matrix_parent_inverse: state.parent_inverse.unwrap_or_else(identity),
         selected: context.is_some_and(|c| c.selected.contains(id)),
         edit_mode: context.is_some_and(|c| c.edit_objects.contains(id)),
