@@ -1,0 +1,133 @@
+{
+  "scope": "focused_capacity_diagnostic_only",
+  "complete_capacity_source_gate": false,
+  "header": {
+    "passed": true
+  },
+  "total": 10,
+  "passed": 10,
+  "rows": [
+    {
+      "id": "multi_merge_class_a_000",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 2,
+        "unchanged_data": 1,
+        "skipped_data": 0
+      },
+      "checker_seconds": 25.084136707999278
+    },
+    {
+      "id": "multi_merge_class_a_003",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 2,
+        "unchanged_data": 1,
+        "skipped_data": 0
+      },
+      "checker_seconds": 25.4832479589968
+    },
+    {
+      "id": "multi_merge_class_a_006",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 2,
+        "unchanged_data": 1,
+        "skipped_data": 0
+      },
+      "checker_seconds": 25.583278208010597
+    },
+    {
+      "id": "multi_merge_class_a_009",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 2,
+        "unchanged_data": 1,
+        "skipped_data": 0
+      },
+      "checker_seconds": 25.21296308300225
+    },
+    {
+      "id": "multi_merge_class_a_012",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 2,
+        "unchanged_data": 1,
+        "skipped_data": 0
+      },
+      "checker_seconds": 26.639053958002478
+    },
+    {
+      "id": "multi_merge_class_a_015",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 2,
+        "unchanged_data": 1,
+        "skipped_data": 0
+      },
+      "checker_seconds": 26.598130416998174
+    },
+    {
+      "id": "multi_merge_class_a_018",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 1,
+        "unchanged_data": 2,
+        "skipped_data": 1
+      },
+      "checker_seconds": 31.800895749998745
+    },
+    {
+      "id": "multi_merge_class_a_021",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 1,
+        "unchanged_data": 2,
+        "skipped_data": 1
+      },
+      "checker_seconds": 31.849159750010585
+    },
+    {
+      "id": "multi_merge_class_a_024",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 1,
+        "unchanged_data": 2,
+        "skipped_data": 1
+      },
+      "checker_seconds": 32.12793950000196
+    },
+    {
+      "id": "multi_merge_class_a_027",
+      "passed": true,
+      "outcome": {
+        "enum_rejected": 0,
+        "enum_rejected_data": 0,
+        "changed_data": 1,
+        "unchanged_data": 2,
+        "skipped_data": 1
+      },
+      "checker_seconds": 32.00810870798887
+    }
+  ],
+  "Rust_product_timing": "unrun",
+  "product_acceptance": "unrun"
+}

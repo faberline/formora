@@ -1,0 +1,18 @@
+{
+  "process_id": 7564,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-mesh-merge-multi-data/tools/blender_multi_mesh_merge_capacity_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data-capacity.json",
+    "--output",
+    "/private/tmp/formora-mesh-merge-multi-data/docs/evidence/mesh-merge-multi-data-baseline/capacity-native-02"
+  ],
+  "started_utc": "2026-10-30T10:51:48.287871+00:00",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "suite_sha256": "48a662ca48dfd8a65500392be3647e54778f17d8eac5ed6e6aa96159049eea21",
+  "scope": "complete_30_two_class_A_merge_cases"
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "cases": 1024,
+  "outcomes": {
+    "changed_geometry": 920,
+    "unchanged_geometry": 88,
+    "enum_rejected": 16
+  },
+  "native_processes": [
+    50701,
+    52091
+  ],
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "suite_sha256": "be36d9294a8f86103715ae6ab95e6d43f08ca90bf55203256fb01da0ed688008",
+  "comparison_script_sha256": "535561230cd2cc24b2839005f6f83fe59d832031c7cceedae10a40eecf29cfe9",
+  "native_terminal_receipts_sha256": "7fbb0a2f263ce87962eb9dc7e24d6e666cd07e42eec579b02d69d0e6aeedf93a",
+  "position_channel_matrix_limit": 1e-06,
+  "initial_inputs_independently_bound": true,
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

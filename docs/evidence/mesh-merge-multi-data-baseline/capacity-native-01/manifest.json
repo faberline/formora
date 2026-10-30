@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "product": "blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "process_id": 86168,
+  "background": false,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-mesh-merge-multi-data/tools/blender_multi_mesh_merge_capacity_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data-capacity.json",
+    "--output",
+    "/private/tmp/formora-mesh-merge-multi-data/docs/evidence/mesh-merge-multi-data-baseline/capacity-native-01"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "captured_utc": "2026-10-30T10:51:48.000450+00:00",
+  "scope": "complete_30_two_class_A_merge_cases",
+  "input_hashes": {
+    "baseline/fixtures/mesh-merge-multi-data-capacity.json": "48a662ca48dfd8a65500392be3647e54778f17d8eac5ed6e6aa96159049eea21",
+    "baseline/fixtures/mesh-merge-multi-data.json": "7a63c6e29fc8e11850481a20450b6a1e86bf25c3252b71c6abfe53aebb201aa1",
+    "tools/multi_mesh_merge_inputs.py": "8095894235456436705e90468785ca13f57c48d512faaaa81d3b6f501c353df9",
+    "tools/blender_multi_mesh_merge_reference.py": "6c737f557e42d3b5058b82598bfc59e6a2a20fbe18368da6119c485630d24f4b",
+    "tools/compare_multi_mesh_merge_reference.py": "8b2c898df84783afe5282ab0aede4f96bbccf08c7685beaeaee1ed75dc7b8cb8",
+    "tools/check_multi_mesh_merge_controls.py": "c7cc80f1a6dfa1042465c54920e769511ca407a0809a3122877635a89c0bb109",
+    "tools/launch_multi_mesh_merge_reference.py": "6fee946523baf088a3abc7b28a79f700b506191bb6fe02cfae7857677ed96afa",
+    "tools/generate_multi_mesh_merge_cases.py": "68d373820b6274ea40cee773921afab7dd67cb43ae253914bf6b81149c3bbf66",
+    "tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "tools/compare_selection_reference.py": "4f6187468b9866bde5309a440c175124ca38f5365627390b8d00db7e5bfbcaf1",
+    "tools/compare_snap_menu_reference.py": "10c5b990a7f62f7633a04b8e7ef7d73f07c8a8f2e62fe33dde974b2c65bb83c2",
+    "tools/compare_transform_reference.py": "fb2b2323334d44dfd11e6a7ac789e3d05435e149dff597bd37cd7dbd6c9723cc",
+    "tools/compare_mesh_merge_reference.py": "535561230cd2cc24b2839005f6f83fe59d832031c7cceedae10a40eecf29cfe9",
+    "tools/compare_snap_delta_reference.py": "6ca02299366067928303edc327aa5bd0ae7617c6975816a45da35b12b510fe08",
+    "tools/compare_snap_rotation_reference.py": "20c9338f006f6a9ee611b9e4bae92cd981a03173cb811e7876d2dff6a89ea0ee",
+    "tools/generate_mesh_merge_cases.py": "b1d7fdd44d61bd2de52bcf9d7c941f39ed6bb05b2e37886653acc4da9c679cee",
+    "tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "tools/generate_snap_delta_cases.py": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e",
+    "tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "docs/contracts/mesh-merge-multi-data-baseline.md": "948dfc6de9b3be3dc58d3dc5bccf692eaf13f856f5232d8b2a846f54b9da4bf2",
+    "baseline/lock.json": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+    "baseline/sources/mesh-merge-multi-data/manifest.json": "f6ab3c2f3dffa2d65f90c0468f3b6fb36d5fb04fb47cc0215fd70ae32b8cd3c0",
+    "baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "baseline/sources/mesh-merge/editmesh_tools.cc": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+    "baseline/sources/mesh-merge/bmo_removedoubles.cc": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2",
+    "baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+    "baseline/sources/mesh-merge/bmesh_interp.cc": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+    "baseline/sources/mesh-merge/bmesh_core.cc": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+    "baseline/sources/mesh-merge/bmesh_mods.cc": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+    "baseline/sources/mesh-merge/bmesh_operators.cc": "4fec9e1587120cf39a7f394ab13522bf2856b8d1023704f9d14afa69a937ea60",
+    "baseline/sources/mesh-merge/bmesh_walkers_impl.cc": "104cdf8b62e4ad3a7563ffce6bb4b49cab3fc33d1b23bb57afe9736689809b3d",
+    "baseline/sources/mesh-merge/customdata.cc": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+    "baseline/sources/mesh-merge/deform.cc": "42e5a7fd06c20f479ca459b73aea8bac8a188ab8610b63d76b6a10c54980e375",
+    "baseline/sources/mesh-merge/bmesh_opdefines.cc": "6452b85accdb60ee4f3db1369970779cdc91a81f6ea7ce751289637c410023da",
+    "baseline/sources/mesh-merge-multi-data/object_edit.cc": "99bfb6e580aa033fc769bf18c26d5c02bd6ca634474b0ce431c054778a63b073",
+    "baseline/sources/mesh-merge-multi-data/BKE_layer.hh": "3790bc527677c2c6790a25bef6cd2d9ea9ecfc49dcba0af4a8c3a273fbbaef1f",
+    "tools/multi_mesh_merge_capacity_inputs.py": "36662800f6718abeec9992c1ae96ce0bd4060ccabadfad702f4b87a1450f4412",
+    "tools/generate_multi_mesh_merge_capacity_cases.py": "7d5c9cfd533b1c4ae3d29878c0c1e6dc9becfa62e7b16886be96093c943f61a4",
+    "tools/blender_multi_mesh_merge_capacity_reference.py": "cf6747cdd22a493bbf2016c0947be1ab075c83211e81b1dd125cddf3ba53033b",
+    "tools/compare_multi_mesh_merge_capacity_reference.py": "0b0b09d730be7c44ca5243f9decc13526c8c34815ceb696d57af7e9e6ac5a525",
+    "tools/launch_multi_mesh_merge_capacity_reference.py": "4ae4a363f1a067f993b84a649b83e714ec696ac41be1ff8e57b4a8302aebfcc7",
+    "docs/contracts/mesh-merge-multi-data-capacity.md": "c5e1ef60480630b9d9ba18ac16dc0d7990995ffd0e0bdabbd41fee59ff686fe6"
+  },
+  "operator_properties_sha256": "ea6f625083a62a128983efd1fd7b3645523934baad3a6e48bba734621489115c",
+  "capture_lock_sha256": "0640d3f88857c2a866281f591e46ebdd9cbf9c28d5d9ad92662b3a6029c705cb",
+  "runs": [
+    {
+      "id": "multi_merge_class_a_000",
+      "file": "multi_merge_class_a_000.json.gz",
+      "sha256": "6881cfcdfc4331cfe8e3ce3682a391ff17a420cdcfdd7207b02d387b99dfd8de",
+      "raw_sha256": "68c939804b4082591cc9dd910fe1ebf34232ecb4d08fe23b00ce808b8c7e3d4b",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_001",
+      "file": "multi_merge_class_a_001.json.gz",
+      "sha256": "a41f3883e198598500da54df220259000f7d9b0ac919c51a552057787f31d19e",
+      "raw_sha256": "23c74c1d20923cecb5328b471d4a614eea23e6110cabdc151f77f5280226f030",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_002",
+      "file": "multi_merge_class_a_002.json.gz",
+      "sha256": "007f42d259e4d7d3a520473993cd4b2936ea508994ad37fedd4875850ccb2281",
+      "raw_sha256": "f0776a755d55219cd72a980d52572b0d691bc4037364168181644332ccd4bb94",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_003",
+      "file": "multi_merge_class_a_003.json.gz",
+      "sha256": "9cb2ffbecae43179056821816e86029337b430adfc5c92e3eb778b795379b641",
+      "raw_sha256": "b352f70c2b4ac56fffbda8de060533effd078e8fd6e9c97d18319c3b0b256061",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_004",
+      "file": "multi_merge_class_a_004.json.gz",
+      "sha256": "9f6c8922710de5ebcd0e4bac83b8a3991caaba9d652d3425a5777025d7f3fbe0",
+      "raw_sha256": "25f860be7fce8acdd6e35644c3a3c5c759f03db45e49cac78ec68d53473799c3",
+      "raw_bytes": 102740688,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_005",
+      "file": "multi_merge_class_a_005.json.gz",
+      "sha256": "f60a85f0dc8118aa8697f95d765d7c724b5df6aa46404abd4a9b17170759324e",
+      "raw_sha256": "d3662005fa09ea4b4476d83043e7b76d30fe4040014a52ba6c5deb681e05e09c",
+      "raw_bytes": 102740687,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_006",
+      "file": "multi_merge_class_a_006.json.gz",
+      "sha256": "c6f851414418c8cbeef94dd536dc6aedb48a04afd6f9f44688a86eb1ceb4a663",
+      "raw_sha256": "45d8ac80481dd3cb2c1800f211019e7c97c2ccbb63256206f464ba9e9836741a",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_007",
+      "file": "multi_merge_class_a_007.json.gz",
+      "sha256": "ee8770bf038144561147aef950b1963005de96d88b5692af23d83f343f1f1b51",
+      "raw_sha256": "c775bf64c4a3464558a0ecc7601f9d4be072ee527a9bf0e04d726e04cfcedde1",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_008",
+      "file": "multi_merge_class_a_008.json.gz",
+      "sha256": "f4f499bb1a7d3b613cdd2a35d3b0651b5421206387604b88d88d3899eba50d9f",
+      "raw_sha256": "f6103a79000e4e30809e2a7965591456eb857c0250a63a7932a141ea2a44aba8",
+      "raw_bytes": 102740725,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_009",
+      "file": "multi_merge_class_a_009.json.gz",
+      "sha256": "c736cbd0cfb159b6a12fe9dce12f65e451b691d4cecd0b428b49236cb800c396",
+      "raw_sha256": "20b85b47702a6ba470b7c268a9664892e879a64fd5453e0a77e01ac17c59e684",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_010",
+      "file": "multi_merge_class_a_010.json.gz",
+      "sha256": "00ed90182597305c0ed6e294bcee35bf8bc6cf2c2a8fd1294d2fcdee69b813f8",
+      "raw_sha256": "edf345ab98ac84290900ecfa5d3de25bb2b5fc24beaf0179e1dfebb36babe9dd",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_011",
+      "file": "multi_merge_class_a_011.json.gz",
+      "sha256": "94ced07af17f7d9e759179d3f9b0f9063619d9b759cb829cc887e66dca881533",
+      "raw_sha256": "deb606a13aad12376a83b136f0df6abb4fe696d573723102960f797ae6d766a2",
+      "raw_bytes": 102740726,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_012",
+      "file": "multi_merge_class_a_012.json.gz",
+      "sha256": "f4faa4017c4200839f2e24e1d82fd246439fee4397ceba4ed8a1b9e74fcb0305",
+      "raw_sha256": "9032b9b0c92fb697ad9f08c3b31712bb8951d835d43d3451468f5a82eaa3687a",
+      "raw_bytes": 102740253,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_013",
+      "file": "multi_merge_class_a_013.json.gz",
+      "sha256": "d43be16fa61858e99d061e0d857958b830b7faf8bd5a81e43954a027424d5576",
+      "raw_sha256": "f501c1d7dcc1a7965026a065ef666f61386998533fc3b382578215ae1580cd01",
+      "raw_bytes": 102740253,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_014",
+      "file": "multi_merge_class_a_014.json.gz",
+      "sha256": "dd412ae750826997c41d366851c2a863d989572dda2b4b30903e4b18b223cb7d",
+      "raw_sha256": "77795de5d6fdb622c9f1469a54b21ea0d4773ca2839ed618e607fe761a2eb479",
+      "raw_bytes": 102740253,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_015",
+      "file": "multi_merge_class_a_015.json.gz",
+      "sha256": "ba170ca908049149763abbf2b56fc44b9c4d1e8fa605a7d440f28820472d7c39",
+      "raw_sha256": "10e3a6cdaf55e0d83067403efd513999e75be0e588b048192d0c646eaf3ef540",
+      "raw_bytes": 102740252,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_016",
+      "file": "multi_merge_class_a_016.json.gz",
+      "sha256": "cdb6bd0f9aa368b90b81f9d1e6e4a11c45b64e4e431e5da472534cff9d35ea9d",
+      "raw_sha256": "15776725f4a3d78cb792c1575d9ec7bb4c0ec5eaa8475a98bf70e1e63db9c2da",
+      "raw_bytes": 102740251,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_017",
+      "file": "multi_merge_class_a_017.json.gz",
+      "sha256": "c7bb1622c051e5def852ce1f34c0c586f3b9bc0d15ef3073d5e484d8444c703f",
+      "raw_sha256": "3a50447210278d4eb053cb2fb884b96723e16e3712929bc833f71ca24cf291f3",
+      "raw_bytes": 102740252,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_018",
+      "file": "multi_merge_class_a_018.json.gz",
+      "sha256": "301b3f4df9ae762d86aa6d4afdad81bcf464b6909268d9d5be581d78667f69c2",
+      "raw_sha256": "0d6fbe419719ec209ec9abf983cc719b2cfb185a01ced22bb7353bf76149d8d8",
+      "raw_bytes": 137022513,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_019",
+      "file": "multi_merge_class_a_019.json.gz",
+      "sha256": "0b0f19e6d0735c400d8e5a3fef09f30ca403518c6ac7a44cbb6c75e3aef1514f",
+      "raw_sha256": "ac52945c0e9dc82311992b7a7d8e62b0d4337a879408a55adeff72727d6959d5",
+      "raw_bytes": 137022510,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_020",
+      "file": "multi_merge_class_a_020.json.gz",
+      "sha256": "0008e1fd494885e1237c724e95ecef68338f25305be154fe437fb5a322a65a10",
+      "raw_sha256": "2463ca55b7460d781dd78d7f1c1a380f8ab050f08baf49cd2a16bd945b17bb66",
+      "raw_bytes": 137022513,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_021",
+      "file": "multi_merge_class_a_021.json.gz",
+      "sha256": "3556f232e442569222343cdbbacd3cd400d7de9e0a98747b552cd4e65e8b2247",
+      "raw_sha256": "242c2b6ac470b17a56272c3b8e7be14d404d090d9e6a63baae5574785a28564d",
+      "raw_bytes": 137022512,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_022",
+      "file": "multi_merge_class_a_022.json.gz",
+      "sha256": "a59670faa11d045e582c3da0297bed1938a356cfbe57cc183d68957d06fece1e",
+      "raw_sha256": "59e5ddd86555f275afac298241c721ce9a99bddca493c65d3961c1c9c16d4287",
+      "raw_bytes": 137022511,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_023",
+      "file": "multi_merge_class_a_023.json.gz",
+      "sha256": "b92966b959edeebc88fbdd477e017e94fbcf5a4b9b9e5c2991c445cdd4f85343",
+      "raw_sha256": "c908c73cf49f1a79c364b6b203caed968d9a228f45bf1f1251d9a7262def6ac9",
+      "raw_bytes": 137022512,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_024",
+      "file": "multi_merge_class_a_024.json.gz",
+      "sha256": "6a9549b52d955aeea2edb49d007ef70f78cb3e62c371e21c0f8b0f7da4133d1d",
+      "raw_sha256": "3c77e0e934cc902a6c40fb6ddcbc3a9648e31b4f4b90a27ecfe77f4f014c989e",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_025",
+      "file": "multi_merge_class_a_025.json.gz",
+      "sha256": "ad30d8170324cea373310cf16055ea041f414c7a463f4d6c60d3d1b8ec6d220d",
+      "raw_sha256": "6b144ece981c14d31cc209d31725f3dae4c9ad89c9ee6ac8c30cc8c0b4feda4d",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_026",
+      "file": "multi_merge_class_a_026.json.gz",
+      "sha256": "9c6e95a4a4474f51b78e00c1d34cfdb3fbcd4c39b572c718e734de163a9d4991",
+      "raw_sha256": "d67888172e2b44d46706103ab23df0dba769b8dbca4e9620125eec87e1be58f8",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_027",
+      "file": "multi_merge_class_a_027.json.gz",
+      "sha256": "4203edccc11106842ca57b7457e0066e45d914a46193fcc065836f2f75661e0b",
+      "raw_sha256": "eef2ab8a7452fae9fa88b5cca2452e3f65eead4c62e32d517367078665ef26d9",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_028",
+      "file": "multi_merge_class_a_028.json.gz",
+      "sha256": "396e0b7cb8da9fb71b6dd21fab19804dcd4fd876ee2bc6a3f6ebf972282faeaf",
+      "raw_sha256": "9a5b4e2ae2f86946661876a89fb02e97586aaa0854bfa322e83d35336edb6fd7",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "id": "multi_merge_class_a_029",
+      "file": "multi_merge_class_a_029.json.gz",
+      "sha256": "2ec2c8933903be53bb3417d514785a0aa0f9fd912d2568fb922616b232e8a5fc",
+      "raw_sha256": "ae45fd3bc3d080d60eaf34db4860f4dd7ddaca0f1720ca110645d4035444d32d",
+      "raw_bytes": 137022615,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun",
+  "Rust_product_timing": "unrun"
+}
