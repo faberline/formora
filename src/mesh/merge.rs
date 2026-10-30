@@ -278,6 +278,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     let mut candidate = original.clone();
     let lineage = weld::apply(
         &mut candidate,
+        original,
         &graph,
         &clusters,
         request.method,

@@ -198,28 +198,66 @@ fn split(
     Ok(())
 }
 
+fn can_keep_face(vertices: &[usize], targets: &[usize]) -> bool {
+    let Some(first) = vertices.first().map(|v| targets[*v]) else {
+        return false;
+    };
+    let Some(second) = vertices.iter().map(|v| targets[*v]).find(|v| *v != first) else {
+        return false;
+    };
+    vertices
+        .iter()
+        .any(|v| targets[*v] != first && targets[*v] != second)
+}
+
+fn discarded_uv_math_is_finite(asset: &MeshAsset, graph: &Graph) -> bool {
+    let Some(corners) = graph
+        .faces
+        .iter()
+        .try_fold(0usize, |n, face| n.checked_add(face.vertices.len()))
+    else {
+        return false;
+    };
+    // Even an unweighted sum of every loop stays below half f32::MAX.
+    // This also bounds the weighted source mean and half-min/half-max sum.
+    // Outside this bound the full source arithmetic/range checks still run.
+    let bound = f64::from(f32::MAX) / (corners as f64 + 1.) * 0.5;
+    asset
+        .polygons
+        .values()
+        .flat_map(|face| face.uv_layers.values().flatten())
+        .chain(
+            asset
+                .triangles
+                .values()
+                .flat_map(|face| face.uv_layers.values().flatten()),
+        )
+        .flatten()
+        .all(|value| value.abs() <= bound)
+}
+
 pub(super) fn apply(
     asset: &mut MeshAsset,
+    original: &MeshAsset,
     graph: &Graph,
     clusters: &[Cluster],
     method: Method,
     uvs: bool,
 ) -> Result<Lineage> {
-    let original = asset.clone();
     let mut lineage = Lineage::default();
     for id in &graph.vertex_ids {
         lineage.vertices.insert(id.clone(), id.clone());
     }
-    for edge in &graph.edges {
-        lineage.edges.insert(edge.id.clone(), edge.id.clone());
-    }
-    for face in &graph.faces {
-        lineage.faces.push(FaceMapping {
-            source: face.key.clone(),
-            survivors: vec![face.key.clone()],
-        });
-    }
     if clusters.is_empty() {
+        for edge in &graph.edges {
+            lineage.edges.insert(edge.id.clone(), edge.id.clone());
+        }
+        for face in &graph.faces {
+            lineage.faces.push(FaceMapping {
+                source: face.key.clone(),
+                survivors: vec![face.key.clone()],
+            });
+        }
         // The source's collapse operator succeeds with an empty edge buffer.
         // With selected vertices, the editor still clears nonvertex modes.
         if method == Method::Collapse {
@@ -233,15 +271,11 @@ pub(super) fn apply(
         }
         return Ok(lineage);
     }
-    let mut faces: Vec<_> = graph
-        .faces
-        .iter()
-        .map(|face| Face::from_asset(asset, &face.key))
-        .collect();
-    if uvs {
-        uv::apply(&mut faces, graph, clusters, method, asset)?;
-    }
+    let mut targets: Vec<_> = (0..graph.vertex_ids.len()).collect();
     for cluster in clusters {
+        for v in &cluster.vertices {
+            targets[*v] = cluster.survivor;
+        }
         let survivor = &graph.vertex_ids[cluster.survivor];
         let ids: Vec<_> = cluster
             .vertices
@@ -287,6 +321,25 @@ pub(super) fn apply(
     }
     let vmap = &lineage.vertices;
     let mapped = |id: &String| vmap[id].clone();
+    let surviving_faces = graph
+        .faces
+        .iter()
+        .any(|face| can_keep_face(&face.vertices, &targets));
+    let mut faces: Vec<_> =
+        if !surviving_faces && (!uvs || discarded_uv_math_is_finite(original, graph)) {
+            Vec::new()
+        } else {
+            graph
+                .faces
+                .iter()
+                .map(|face| Face::from_asset(original, &face.key))
+                .collect()
+        };
+    // If any face can survive, include every original loop in the source UV
+    // math before dropping faces. Removed faces can still contribute to it.
+    if uvs {
+        uv::apply(&mut faces, graph, clusters, method, original)?;
+    }
     asset.vertices.retain(|id, _| vmap[id] == *id);
     if let Some(weights) = &mut asset.vertex_weights {
         weights.0.retain(|id, _| asset.vertices.contains_key(id));
@@ -303,8 +356,10 @@ pub(super) fn apply(
         .cloned()
         .collect();
     let mut split_faces = Vec::new();
-    for face in faces {
-        split(face, vmap, &mut used, &mut split_faces)?;
+    for (face, topology) in faces.into_iter().zip(&graph.faces) {
+        if can_keep_face(&topology.vertices, &targets) {
+            split(face, vmap, &mut used, &mut split_faces)?;
+        }
     }
 
     // Reserve original edges whose endpoints survive. Mapped duplicates use

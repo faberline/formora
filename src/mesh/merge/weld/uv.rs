@@ -19,6 +19,10 @@ fn midpoint(values: impl Iterator<Item = [f32; 2]>) -> Option<[f32; 2]> {
     found.then(|| std::array::from_fn(|axis| min[axis] * 0.5 + max[axis] * 0.5))
 }
 
+fn point(value: [f64; 2]) -> Result<[f32; 2]> {
+    Ok([snap::finite(value[0])?, snap::finite(value[1])?])
+}
+
 pub(super) fn apply(
     faces: &mut [Face],
     graph: &Graph,
@@ -39,14 +43,13 @@ pub(super) fn apply(
         let mut values = loops
             .iter()
             .map(|(fi, corner)| {
-                let p = faces[*fi]
+                faces[*fi]
                     .uv
                     .get(&name)
                     .map(|values| values[*corner])
-                    .unwrap_or([0.; 2]);
-                Ok([snap::finite(p[0])?, snap::finite(p[1])?])
+                    .unwrap_or([0.; 2])
             })
-            .collect::<Result<Vec<_>>>()?;
+            .collect::<Vec<_>>();
         let vertices: Vec<_> = loops
             .iter()
             .map(|(fi, corner)| graph.vertex_index[&faces[*fi].vertices[*corner]])
@@ -80,7 +83,11 @@ pub(super) fn apply(
                 .filter(|i| selected.contains(&vertices[*i]))
                 .collect();
             let target = if matches!(method, Method::Center | Method::Cursor) {
-                midpoint(selected_loops.iter().map(|i| values[*i]))
+                let points = selected_loops
+                    .iter()
+                    .map(|i| point(values[*i]))
+                    .collect::<Result<Vec<_>>>()?;
+                midpoint(points.into_iter())
             } else {
                 let survivor = clusters[0].survivor;
                 let target_loops: Vec<_> = (0..loops.len())
@@ -92,8 +99,9 @@ pub(super) fn apply(
                     let factor = 1_f32 / target_loops.len() as f32;
                     let mut sum = [0_f32; 2];
                     for i in target_loops {
+                        let point = point(values[i])?;
                         for (axis, value) in sum.iter_mut().enumerate() {
-                            *value += values[i][axis] * factor;
+                            *value += point[axis] * factor;
                         }
                     }
                     Some(sum)
@@ -101,7 +109,7 @@ pub(super) fn apply(
             };
             if let Some(target) = target {
                 for i in selected_loops {
-                    values[i] = target;
+                    values[i] = target.map(f64::from);
                 }
             }
         } else {
@@ -136,6 +144,7 @@ pub(super) fn apply(
                         continue;
                     }
                     for pivot in [current, next[current]] {
+                        let pivot_point = point(values[pivot])?;
                         for &first in &vertex_loops[vertices[pivot]] {
                             for &other in &radial[edges[first]] {
                                 if visited[other] {
@@ -149,10 +158,9 @@ pub(super) fn apply(
                                 } else {
                                     other
                                 };
-                                let delta = [
-                                    values[pivot][0] - values[sample][0],
-                                    values[pivot][1] - values[sample][1],
-                                ];
+                                let sample = point(values[sample])?;
+                                let delta =
+                                    [pivot_point[0] - sample[0], pivot_point[1] - sample[1]];
                                 if delta[0] * delta[0] + delta[1] * delta[1] >= 0.00001 {
                                     continue;
                                 }
@@ -170,9 +178,13 @@ pub(super) fn apply(
                         }
                     }
                 }
-                if let Some(target) = midpoint(island.iter().map(|i| values[*i])) {
+                let points = island
+                    .iter()
+                    .map(|i| point(values[*i]))
+                    .collect::<Result<Vec<_>>>()?;
+                if let Some(target) = midpoint(points.into_iter()) {
                     for i in island {
-                        values[i] = target;
+                        values[i] = target.map(f64::from);
                     }
                 }
             }
@@ -182,7 +194,7 @@ pub(super) fn apply(
         }
         for ((fi, corner), value) in loops.into_iter().zip(values) {
             if let Some(values) = faces[fi].uv.get_mut(&name) {
-                values[corner] = value.map(f64::from);
+                values[corner] = value;
             }
         }
     }
