@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "actual_native_image_projection_checked": true,
+  "retained_region_points": [
+    [
+      150,
+      192
+    ],
+    [
+      250,
+      192
+    ],
+    [
+      300,
+      192
+    ],
+    [
+      350,
+      350
+    ]
+  ],
+  "removed_region_points": [
+    [
+      400,
+      192
+    ],
+    [
+      450,
+      192
+    ]
+  ],
+  "unselected_triangle_still_visible": true,
+  "native_report_sha256": "5570926c1d6b9abfc7e7a98ba9cfcec1406e5c67e4ceed8367735ee4c8d3c7d9",
+  "image_bytes_unchanged": true,
+  "scope": "Checks projected interior points against actual native PNG pixels. No image editing."
+}

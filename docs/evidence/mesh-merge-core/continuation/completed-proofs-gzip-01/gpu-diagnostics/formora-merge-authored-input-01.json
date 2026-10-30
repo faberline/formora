@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "revision": 0,
+  "time_seconds": 0.0,
+  "entities": {
+    "owner": {
+      "name": "Owner",
+      "parent": "parent",
+      "transform": {
+        "translation": [
+          0.5,
+          -0.25,
+          0.125
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            1.5707963267948966,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "mesh"
+        },
+        "material": null
+      }
+    },
+    "parent": {
+      "name": "Parent",
+      "parent": null,
+      "transform": {
+        "translation": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            1.5707963267948966
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          2.0,
+          3.0,
+          4.0
+        ]
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "shared": {
+      "name": "Owner",
+      "parent": "parent",
+      "transform": {
+        "translation": [
+          0.5,
+          -0.25,
+          0.125
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            1.5707963267948966,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "mesh"
+        },
+        "material": null
+      }
+    }
+  },
+  "materials": {},
+  "mesh_assets": {
+    "mesh": {
+      "vertices": {
+        "a": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "b": [
+          1.0,
+          -1.0,
+          0.0
+        ],
+        "c": [
+          2.0,
+          0.0,
+          0.0
+        ],
+        "d": [
+          2.0,
+          1.0,
+          0.0
+        ],
+        "e": [
+          1.0,
+          2.0,
+          0.0
+        ],
+        "f": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "g": [
+          -2.0,
+          0.0,
+          0.0
+        ],
+        "h": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "i": [
+          -2.0,
+          1.0,
+          0.0
+        ]
+      },
+      "triangles": {
+        "t": {
+          "vertices": [
+            "g",
+            "h",
+            "i"
+          ],
+          "uv_layers": {
+            "Detail": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ],
+            "Layout": [
+              [
+                0.111111111111111,
+                0.222222222222222
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "material_slot": null
+        }
+      },
+      "edges": {
+        "ab": [
+          "a",
+          "b"
+        ],
+        "bc": [
+          "b",
+          "c"
+        ],
+        "cd": [
+          "c",
+          "d"
+        ],
+        "de": [
+          "d",
+          "e"
+        ],
+        "ef": [
+          "e",
+          "f"
+        ],
+        "fa": [
+          "f",
+          "a"
+        ],
+        "gh": [
+          "g",
+          "h"
+        ],
+        "hi": [
+          "h",
+          "i"
+        ],
+        "ig": [
+          "i",
+          "g"
+        ]
+      },
+      "polygons": {
+        "p": {
+          "vertices": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f"
+          ],
+          "uv_layers": {
+            "Detail": [
+              [
+                2.0,
+                2.0
+              ],
+              [
+                3.0,
+                1.0
+              ],
+              [
+                -2.0,
+                -2.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0
+              ],
+              [
+                -1.0,
+                0.0
+              ]
+            ],
+            "Layout": [
+              [
+                -2.0,
+                1.0
+              ],
+              [
+                -1.0,
+                3.0
+              ],
+              [
+                0.0,
+                -1.0
+              ],
+              [
+                0.123456789012345,
+                0.5
+              ],
+              [
+                1.0,
+                0.25
+              ],
+              [
+                -0.5,
+                2.0
+              ]
+            ]
+          },
+          "corner_normals": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "smooth": false,
+          "material_slot": null
+        }
+      },
+      "uv_layout": {
+        "layers": [
+          "Layout",
+          "Detail"
+        ],
+        "active": "Detail"
+      },
+      "material_slots": [],
+      "editing": {
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "vertices": [
+            "a",
+            "c"
+          ],
+          "edges": [],
+          "faces": []
+        },
+        "hidden": {
+          "vertices": [],
+          "edges": [],
+          "faces": []
+        },
+        "history": [
+          {
+            "domain": "vertex",
+            "id": "c"
+          }
+        ],
+        "active_face": null
+      },
+      "vertex_groups": [
+        "pin",
+        "soft"
+      ],
+      "vertex_weights": {
+        "a": {
+          "pin": 0.0,
+          "soft": 0.25
+        },
+        "c": {
+          "pin": 1.0,
+          "soft": 0.75
+        }
+      },
+      "edge_seams": [
+        "bc"
+      ],
+      "integer_attributes": {
+        "vertices": {
+          "signed": {
+            "a": -1,
+            "b": 2,
+            "c": 0,
+            "d": 3,
+            "e": 4,
+            "f": 5,
+            "g": 6,
+            "h": 8,
+            "i": 9
+          },
+          "tag": {
+            "a": 7,
+            "b": 7,
+            "c": 7,
+            "d": 3,
+            "e": 4,
+            "f": 5,
+            "g": 6,
+            "h": 8,
+            "i": 9
+          }
+        },
+        "edges": {
+          "tag": {
+            "ab": 11,
+            "bc": 22,
+            "cd": 33,
+            "de": 44,
+            "ef": 55,
+            "fa": 66,
+            "gh": 77,
+            "hi": 88,
+            "ig": 99
+          }
+        },
+        "polygons": {
+          "tag": {
+            "p": 42
+          }
+        },
+        "triangles": {
+          "tag": {
+            "t": 77
+          }
+        }
+      }
+    }
+  },
+  "doors": {},
+  "active_camera": null,
+  "annotations": []
+}

@@ -1,0 +1,2154 @@
+{
+  "passed": true,
+  "source_repository_reads": "denied by macOS sandbox",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /private/tmp/formora-mesh-merge-sparse/baseline/fixtures/mesh-selection.json: Operation not permitted\n",
+  "runs": [
+    {
+      "case": "non_manifold",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "edges": [
+            "wire"
+          ],
+          "faces": [],
+          "vertices": [
+            "wire_a",
+            "wire_b"
+          ]
+        }
+      }
+    },
+    {
+      "case": "loose",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "edges": [],
+          "faces": [],
+          "vertices": [
+            "island"
+          ]
+        }
+      }
+    },
+    {
+      "case": "interior",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "face"
+        ],
+        "selected": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        }
+      }
+    },
+    {
+      "case": "sides",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "face"
+        ],
+        "selected": {
+          "edges": [
+            "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+            "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+            "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+          ],
+          "faces": [
+            {
+              "id": "t",
+              "kind": "triangle"
+            }
+          ],
+          "vertices": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      }
+    },
+    {
+      "case": "poles",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "edges": [
+            "wire"
+          ],
+          "faces": [],
+          "vertices": [
+            "wire_a",
+            "wire_b"
+          ]
+        }
+      }
+    },
+    {
+      "case": "ungrouped",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "edges": [
+            "wire"
+          ],
+          "faces": [],
+          "vertices": [
+            "c",
+            "island",
+            "wire_a",
+            "wire_b"
+          ]
+        }
+      }
+    },
+    {
+      "case": "mode",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "face"
+        ],
+        "selected": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        }
+      }
+    },
+    {
+      "case": "expand",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "face"
+        ],
+        "selected": {
+          "edges": [
+            "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+            "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+            "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+          ],
+          "faces": [
+            {
+              "id": "t",
+              "kind": "triangle"
+            }
+          ],
+          "vertices": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      }
+    },
+    {
+      "case": "contract",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "edges": [
+            "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+            "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+            "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+          ],
+          "faces": [
+            {
+              "id": "t",
+              "kind": "triangle"
+            }
+          ],
+          "vertices": [
+            "a",
+            "b",
+            "c"
+          ]
+        }
+      }
+    },
+    {
+      "case": "combined",
+      "passed": true,
+      "editing": {
+        "active_face": null,
+        "hidden": {
+          "edges": [],
+          "faces": [],
+          "vertices": []
+        },
+        "history": [],
+        "mode": [
+          "vertex",
+          "edge"
+        ],
+        "selected": {
+          "edges": [],
+          "faces": [],
+          "vertices": [
+            "a"
+          ]
+        }
+      }
+    }
+  ],
+  "binary_sha256": "5bf40a3c99843bd7b9395d3d712f605756284cd44aa07c2925661b7c7bd5c3c2",
+  "driver_sha256": "1a1a174ec78f95dcac17c04bbcda2a3a2211f8f79a157bfa8f5129abec854f1a",
+  "requests_and_responses": [
+    {
+      "arguments": [
+        "scene",
+        "init"
+      ],
+      "request": null,
+      "response": {
+        "revision": 0
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh",
+            "asset": {
+              "vertices": {
+                "a": [
+                  0,
+                  0,
+                  0
+                ],
+                "b": [
+                  1.7,
+                  0,
+                  0
+                ],
+                "c": [
+                  0.2,
+                  1.3,
+                  0.5
+                ],
+                "wire_a": [
+                  2.1,
+                  0.7,
+                  0
+                ],
+                "wire_b": [
+                  2.9,
+                  0.8,
+                  0
+                ],
+                "island": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "edges": {
+                "wire": [
+                  "wire_a",
+                  "wire_b"
+                ]
+              },
+              "triangles": {
+                "t": {
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c"
+                  ],
+                  "uv_layers": {},
+                  "corner_normals": null,
+                  "material_slot": null
+                }
+              },
+              "material_slots": [],
+              "vertex_groups": [
+                "Keep"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "Keep": 0
+                },
+                "b": {
+                  "Keep": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 1
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh",
+        "--selection-topology"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 1,
+        "selection_topology": {
+          "edges": {
+            "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7": [
+              "b",
+              "c"
+            ],
+            "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5": [
+              "a",
+              "b"
+            ],
+            "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8": [
+              "a",
+              "c"
+            ],
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "faces": [
+            {
+              "edges": [
+                "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+                "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+                "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+              ],
+              "face": {
+                "id": "t",
+                "kind": "triangle"
+              },
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          ],
+          "vertices": [
+            "a",
+            "b",
+            "c",
+            "island",
+            "wire_a",
+            "wire_b"
+          ]
+        }
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 2
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "non_manifold",
+              "extend": false,
+              "wire": true,
+              "boundary": false,
+              "multiple_faces": false,
+              "non_contiguous": false,
+              "vertices": false
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 3,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [
+                "wire"
+              ],
+              "faces": [],
+              "vertices": [
+                "wire_a",
+                "wire_b"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 3
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 3,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 4
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 4,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "loose"
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 5,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "island"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 5
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 5,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "face"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 6
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 6,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "interior_faces"
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 7,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "face"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 7
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 7,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "face"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 8
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 8,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "faces_by_sides",
+              "count": 3,
+              "extend": false
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 9,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "face"
+            ],
+            "selected": {
+              "edges": [
+                "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+                "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+                "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+              ],
+              "faces": [
+                {
+                  "id": "t",
+                  "kind": "triangle"
+                }
+              ],
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 9
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 9,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 10
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 10,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "poles",
+              "count": 1,
+              "comparison": "equal",
+              "exclude_nonmanifold": false
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 11,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [
+                "wire"
+              ],
+              "faces": [],
+              "vertices": [
+                "wire_a",
+                "wire_b"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 11
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 11,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 12
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 12,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "ungrouped"
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 13,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [
+                "wire"
+              ],
+              "faces": [],
+              "vertices": [
+                "c",
+                "island",
+                "wire_a",
+                "wire_b"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 13
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 13,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [
+                  "a"
+                ],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 14
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 14,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "mode",
+              "domain": "face"
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 15,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "face"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 15
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 15,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [
+                  "a"
+                ],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 16
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 16,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "mode",
+              "domain": "face",
+              "expand": true
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 17,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "face"
+            ],
+            "selected": {
+              "edges": [
+                "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+                "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+                "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+              ],
+              "faces": [
+                {
+                  "id": "t",
+                  "kind": "triangle"
+                }
+              ],
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 17
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 17,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "face"
+              ],
+              "selected": {
+                "vertices": [],
+                "faces": [
+                  {
+                    "kind": "triangle",
+                    "id": "t"
+                  }
+                ]
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 18
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 18,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "mode",
+              "domain": "vertex",
+              "expand": true
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 19,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "vertex"
+            ],
+            "selected": {
+              "edges": [
+                "edge_0abbc405ef53d9e60d9a4282e6a08c9a2533a0da5567ec0ebe68105fffbce6b7",
+                "edge_0e9295938886a75905c24421a398bd599b3e8812adaaaa0a894d97a1f3e176e5",
+                "edge_f541150cbd648bf7ff7bf57ec67719050aa20688c35a86f7198e956b5d15c6a8"
+              ],
+              "faces": [
+                {
+                  "id": "t",
+                  "kind": "triangle"
+                }
+              ],
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 19
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 19,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [
+                  "a"
+                ],
+                "faces": []
+              },
+              "hidden": {},
+              "history": [],
+              "active_face": null
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 20
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "apply",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 20,
+        "commands": [
+          {
+            "operation": "select_mesh",
+            "id": "mesh",
+            "selector": {
+              "kind": "mode",
+              "domain": "edge",
+              "action": "enable",
+              "extend": true
+            }
+          }
+        ]
+      },
+      "response": {
+        "revision": 21,
+        "selection": [
+          {
+            "command_index": 0,
+            "mesh_asset": "mesh",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "arguments": [
+        "scene",
+        "inspect",
+        "--mesh-asset",
+        "mesh"
+      ],
+      "request": null,
+      "response": {
+        "id": "mesh",
+        "mesh_asset": {
+          "edges": {
+            "wire": [
+              "wire_a",
+              "wire_b"
+            ]
+          },
+          "editing": {
+            "active_face": null,
+            "hidden": {
+              "edges": [],
+              "faces": [],
+              "vertices": []
+            },
+            "history": [],
+            "mode": [
+              "vertex",
+              "edge"
+            ],
+            "selected": {
+              "edges": [],
+              "faces": [],
+              "vertices": [
+                "a"
+              ]
+            }
+          },
+          "material_slots": [],
+          "triangles": {
+            "t": {
+              "corner_normals": null,
+              "material_slot": null,
+              "uv_layers": {},
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          },
+          "vertex_groups": [
+            "Keep"
+          ],
+          "vertex_weights": {
+            "a": {
+              "Keep": 0.0
+            },
+            "b": {
+              "Keep": 1.0
+            }
+          },
+          "vertices": {
+            "a": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              1.7,
+              0.0,
+              0.0
+            ],
+            "c": [
+              0.2,
+              1.3,
+              0.5
+            ],
+            "island": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "wire_a": [
+              2.1,
+              0.7,
+              0.0
+            ],
+            "wire_b": [
+              2.9,
+              0.8,
+              0.0
+            ]
+          }
+        },
+        "revision": 21
+      }
+    }
+  ],
+  "full_feature_acceptance": "unrun"
+}

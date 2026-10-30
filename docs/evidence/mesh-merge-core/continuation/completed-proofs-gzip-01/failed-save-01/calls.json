@@ -1,0 +1,4994 @@
+[
+  {
+    "request": {
+      "id": 1,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":1,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 1,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 2,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 9,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "uvs": true
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"error\":\"stale scene revision\",\"id\":2,\"ok\":false}\n",
+    "response": {
+      "error": "stale scene revision",
+      "id": 2,
+      "ok": false
+    }
+  },
+  {
+    "request": {
+      "id": 3,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":3,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 3,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 4,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "max_components": 1
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"error\":\"mesh merge exceeds its component budget\",\"id\":4,\"ok\":false}\n",
+    "response": {
+      "error": "mesh merge exceeds its component budget",
+      "id": 4,
+      "ok": false
+    }
+  },
+  {
+    "request": {
+      "id": 5,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":5,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 5,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 6,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "reference_path": "forbidden-answer.json"
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"error\":\"unknown field `reference_path`, expected one of `entity`, `method`, `uvs`, `max_components`\",\"id\":6,\"ok\":false}\n",
+    "response": {
+      "error": "unknown field `reference_path`, expected one of `entity`, `method`, `uvs`, `max_components`",
+      "id": 6,
+      "ok": false
+    }
+  },
+  {
+    "request": {
+      "id": 7,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":7,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 7,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 8,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "uvs": true
+            }
+          },
+          {
+            "operation": "set_mesh_vertices",
+            "id": "missing",
+            "positions": {
+              "a": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"error\":\"unknown mesh asset: missing\",\"id\":8,\"ok\":false}\n",
+    "response": {
+      "error": "unknown mesh asset: missing",
+      "id": 8,
+      "ok": false
+    }
+  },
+  {
+    "request": {
+      "id": 9,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":9,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 9,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 10,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "uvs": true
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"error\":\"Is a directory (os error 21)\",\"id\":10,\"ok\":false}\n",
+    "response": {
+      "error": "Is a directory (os error 21)",
+      "id": 10,
+      "ok": false
+    }
+  },
+  {
+    "request": {
+      "id": 11,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":11,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 11,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 12,
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 0
+      }
+    },
+    "raw_response": "{\"error\":\"nothing to undo\",\"id\":12,\"ok\":false}\n",
+    "response": {
+      "error": "nothing to undo",
+      "id": 12,
+      "ok": false
+    }
+  },
+  {
+    "request": {
+      "id": 13,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":13,\"ok\":true,\"result\":{\"revision\":0,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":0,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 13,
+      "ok": true,
+      "result": {
+        "revision": 0,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 0,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 14,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "uvs": true
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"id\":14,\"ok\":true,\"result\":{\"merges\":[{\"after\":{\"corners\":7,\"edges\":8,\"faces\":2,\"vertices\":8},\"before\":{\"corners\":9,\"edges\":9,\"faces\":2,\"vertices\":9},\"changed\":{\"edges\":[\"ab\",\"fa\",\"ig\"],\"faces\":[{\"id\":\"p\",\"kind\":\"polygon\"}],\"vertices\":[\"a\"]},\"command_index\":0,\"created\":{\"edges\":[\"merge_edge_0\"],\"faces\":[],\"vertices\":[]},\"entity\":\"owner\",\"mesh_asset\":\"mesh\",\"method\":\"center\",\"reason\":null,\"removed\":{\"edges\":[\"bc\",\"cd\"],\"faces\":[],\"vertices\":[\"c\"]},\"shared_instances\":[\"owner\",\"shared\"],\"source_to_survivor\":{\"edges\":{\"ab\":\"ab\",\"bc\":\"ab\",\"cd\":\"merge_edge_0\",\"de\":\"de\",\"ef\":\"ef\",\"fa\":\"fa\",\"gh\":\"gh\",\"hi\":\"hi\",\"ig\":\"ig\"},\"faces\":[{\"source\":{\"id\":\"p\",\"kind\":\"polygon\"},\"survivors\":[{\"id\":\"p\",\"kind\":\"polygon\"}]},{\"source\":{\"id\":\"t\",\"kind\":\"triangle\"},\"survivors\":[{\"id\":\"t\",\"kind\":\"triangle\"}]}],\"vertices\":{\"a\":\"a\",\"b\":\"b\",\"c\":\"a\",\"d\":\"d\",\"e\":\"e\",\"f\":\"f\",\"g\":\"g\",\"h\":\"h\",\"i\":\"i\"}},\"status\":\"finished\",\"uvs\":true}],\"revision\":1}}\n",
+    "response": {
+      "id": 14,
+      "ok": true,
+      "result": {
+        "merges": [
+          {
+            "after": {
+              "corners": 7,
+              "edges": 8,
+              "faces": 2,
+              "vertices": 8
+            },
+            "before": {
+              "corners": 9,
+              "edges": 9,
+              "faces": 2,
+              "vertices": 9
+            },
+            "changed": {
+              "edges": [
+                "ab",
+                "fa",
+                "ig"
+              ],
+              "faces": [
+                {
+                  "id": "p",
+                  "kind": "polygon"
+                }
+              ],
+              "vertices": [
+                "a"
+              ]
+            },
+            "command_index": 0,
+            "created": {
+              "edges": [
+                "merge_edge_0"
+              ],
+              "faces": [],
+              "vertices": []
+            },
+            "entity": "owner",
+            "mesh_asset": "mesh",
+            "method": "center",
+            "reason": null,
+            "removed": {
+              "edges": [
+                "bc",
+                "cd"
+              ],
+              "faces": [],
+              "vertices": [
+                "c"
+              ]
+            },
+            "shared_instances": [
+              "owner",
+              "shared"
+            ],
+            "source_to_survivor": {
+              "edges": {
+                "ab": "ab",
+                "bc": "ab",
+                "cd": "merge_edge_0",
+                "de": "de",
+                "ef": "ef",
+                "fa": "fa",
+                "gh": "gh",
+                "hi": "hi",
+                "ig": "ig"
+              },
+              "faces": [
+                {
+                  "source": {
+                    "id": "p",
+                    "kind": "polygon"
+                  },
+                  "survivors": [
+                    {
+                      "id": "p",
+                      "kind": "polygon"
+                    }
+                  ]
+                },
+                {
+                  "source": {
+                    "id": "t",
+                    "kind": "triangle"
+                  },
+                  "survivors": [
+                    {
+                      "id": "t",
+                      "kind": "triangle"
+                    }
+                  ]
+                }
+              ],
+              "vertices": {
+                "a": "a",
+                "b": "b",
+                "c": "a",
+                "d": "d",
+                "e": "e",
+                "f": "f",
+                "g": "g",
+                "h": "h",
+                "i": "i"
+              }
+            },
+            "status": "finished",
+            "uvs": true
+          }
+        ],
+        "revision": 1
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 15,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":15,\"ok\":true,\"result\":{\"revision\":1,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 15,
+      "ok": true,
+      "result": {
+        "revision": 1,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "ab"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "a",
+                  "f"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "g",
+                  "i"
+                ],
+                "merge_edge_0": [
+                  "a",
+                  "d"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99,
+                    "merge_edge_0": 33
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": null,
+                  "material_slot": null,
+                  "normal": null,
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.5,
+                  "soft": 0.5
+                }
+              },
+              "vertices": {
+                "a": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 1,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 16,
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 1
+      }
+    },
+    "raw_response": "{\"id\":16,\"ok\":true,\"result\":{\"revision\":2}}\n",
+    "response": {
+      "id": 16,
+      "ok": true,
+      "result": {
+        "revision": 2
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 17,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":17,\"ok\":true,\"result\":{\"revision\":2,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 17,
+      "ok": true,
+      "result": {
+        "revision": 2,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "bc"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "bc": [
+                  "b",
+                  "c"
+                ],
+                "cd": [
+                  "c",
+                  "d"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "f",
+                  "a"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "i",
+                  "g"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "c"
+                  }
+                ],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a",
+                    "c"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "bc": 22,
+                    "cd": 33,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "c": 0,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "c": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "normal": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        2.0,
+                        2.0
+                      ],
+                      [
+                        3.0,
+                        1.0
+                      ],
+                      [
+                        -2.0,
+                        -2.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -2.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        3.0
+                      ],
+                      [
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.0,
+                  "soft": 0.25
+                },
+                "c": {
+                  "pin": 1.0,
+                  "soft": 0.75
+                }
+              },
+              "vertices": {
+                "a": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "c": [
+                  2.0,
+                  0.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 2,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 18,
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "merge_mesh",
+            "merge": {
+              "entity": "owner",
+              "method": "center",
+              "uvs": true
+            }
+          }
+        ]
+      }
+    },
+    "raw_response": "{\"id\":18,\"ok\":true,\"result\":{\"merges\":[{\"after\":{\"corners\":7,\"edges\":8,\"faces\":2,\"vertices\":8},\"before\":{\"corners\":9,\"edges\":9,\"faces\":2,\"vertices\":9},\"changed\":{\"edges\":[\"ab\",\"fa\",\"ig\"],\"faces\":[{\"id\":\"p\",\"kind\":\"polygon\"}],\"vertices\":[\"a\"]},\"command_index\":0,\"created\":{\"edges\":[\"merge_edge_0\"],\"faces\":[],\"vertices\":[]},\"entity\":\"owner\",\"mesh_asset\":\"mesh\",\"method\":\"center\",\"reason\":null,\"removed\":{\"edges\":[\"bc\",\"cd\"],\"faces\":[],\"vertices\":[\"c\"]},\"shared_instances\":[\"owner\",\"shared\"],\"source_to_survivor\":{\"edges\":{\"ab\":\"ab\",\"bc\":\"ab\",\"cd\":\"merge_edge_0\",\"de\":\"de\",\"ef\":\"ef\",\"fa\":\"fa\",\"gh\":\"gh\",\"hi\":\"hi\",\"ig\":\"ig\"},\"faces\":[{\"source\":{\"id\":\"p\",\"kind\":\"polygon\"},\"survivors\":[{\"id\":\"p\",\"kind\":\"polygon\"}]},{\"source\":{\"id\":\"t\",\"kind\":\"triangle\"},\"survivors\":[{\"id\":\"t\",\"kind\":\"triangle\"}]}],\"vertices\":{\"a\":\"a\",\"b\":\"b\",\"c\":\"a\",\"d\":\"d\",\"e\":\"e\",\"f\":\"f\",\"g\":\"g\",\"h\":\"h\",\"i\":\"i\"}},\"status\":\"finished\",\"uvs\":true}],\"revision\":3}}\n",
+    "response": {
+      "id": 18,
+      "ok": true,
+      "result": {
+        "merges": [
+          {
+            "after": {
+              "corners": 7,
+              "edges": 8,
+              "faces": 2,
+              "vertices": 8
+            },
+            "before": {
+              "corners": 9,
+              "edges": 9,
+              "faces": 2,
+              "vertices": 9
+            },
+            "changed": {
+              "edges": [
+                "ab",
+                "fa",
+                "ig"
+              ],
+              "faces": [
+                {
+                  "id": "p",
+                  "kind": "polygon"
+                }
+              ],
+              "vertices": [
+                "a"
+              ]
+            },
+            "command_index": 0,
+            "created": {
+              "edges": [
+                "merge_edge_0"
+              ],
+              "faces": [],
+              "vertices": []
+            },
+            "entity": "owner",
+            "mesh_asset": "mesh",
+            "method": "center",
+            "reason": null,
+            "removed": {
+              "edges": [
+                "bc",
+                "cd"
+              ],
+              "faces": [],
+              "vertices": [
+                "c"
+              ]
+            },
+            "shared_instances": [
+              "owner",
+              "shared"
+            ],
+            "source_to_survivor": {
+              "edges": {
+                "ab": "ab",
+                "bc": "ab",
+                "cd": "merge_edge_0",
+                "de": "de",
+                "ef": "ef",
+                "fa": "fa",
+                "gh": "gh",
+                "hi": "hi",
+                "ig": "ig"
+              },
+              "faces": [
+                {
+                  "source": {
+                    "id": "p",
+                    "kind": "polygon"
+                  },
+                  "survivors": [
+                    {
+                      "id": "p",
+                      "kind": "polygon"
+                    }
+                  ]
+                },
+                {
+                  "source": {
+                    "id": "t",
+                    "kind": "triangle"
+                  },
+                  "survivors": [
+                    {
+                      "id": "t",
+                      "kind": "triangle"
+                    }
+                  ]
+                }
+              ],
+              "vertices": {
+                "a": "a",
+                "b": "b",
+                "c": "a",
+                "d": "d",
+                "e": "e",
+                "f": "f",
+                "g": "g",
+                "h": "h",
+                "i": "i"
+              }
+            },
+            "status": "finished",
+            "uvs": true
+          }
+        ],
+        "revision": 3
+      }
+    }
+  },
+  {
+    "request": {
+      "id": 19,
+      "name": "scene_inspect",
+      "arguments": {}
+    },
+    "raw_response": "{\"id\":19,\"ok\":true,\"result\":{\"revision\":3,\"scene\":{\"active_camera\":null,\"annotations\":[],\"doors\":{},\"entities\":{\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":3,\"schema_version\":1,\"time_seconds\":0.0}}}\n",
+    "response": {
+      "id": 19,
+      "ok": true,
+      "result": {
+        "revision": 3,
+        "scene": {
+          "active_camera": null,
+          "annotations": [],
+          "doors": {},
+          "entities": {
+            "owner": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            },
+            "parent": {
+              "content": {
+                "kind": "empty"
+              },
+              "name": "Parent",
+              "parent": null,
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    0.0,
+                    0.0,
+                    1.5707963267948966
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "translation": [
+                  1.0,
+                  2.0,
+                  3.0
+                ]
+              }
+            },
+            "shared": {
+              "content": {
+                "geometry": {
+                  "id": "mesh",
+                  "kind": "asset"
+                },
+                "kind": "mesh",
+                "material": null
+              },
+              "name": "Owner",
+              "parent": "parent",
+              "transform": {
+                "rotation": {
+                  "angles": [
+                    1.5707963267948966,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "euler",
+                  "order": "xyz"
+                },
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "translation": [
+                  0.5,
+                  -0.25,
+                  0.125
+                ]
+              }
+            }
+          },
+          "materials": {},
+          "mesh_assets": {
+            "mesh": {
+              "edge_seams": [
+                "ab"
+              ],
+              "edges": {
+                "ab": [
+                  "a",
+                  "b"
+                ],
+                "de": [
+                  "d",
+                  "e"
+                ],
+                "ef": [
+                  "e",
+                  "f"
+                ],
+                "fa": [
+                  "a",
+                  "f"
+                ],
+                "gh": [
+                  "g",
+                  "h"
+                ],
+                "hi": [
+                  "h",
+                  "i"
+                ],
+                "ig": [
+                  "g",
+                  "i"
+                ],
+                "merge_edge_0": [
+                  "a",
+                  "d"
+                ]
+              },
+              "editing": {
+                "active_face": null,
+                "hidden": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": []
+                },
+                "history": [],
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "edges": [],
+                  "faces": [],
+                  "vertices": [
+                    "a"
+                  ]
+                }
+              },
+              "integer_attributes": {
+                "edges": {
+                  "tag": {
+                    "ab": 11,
+                    "de": 44,
+                    "ef": 55,
+                    "fa": 66,
+                    "gh": 77,
+                    "hi": 88,
+                    "ig": 99,
+                    "merge_edge_0": 33
+                  }
+                },
+                "polygons": {
+                  "tag": {
+                    "p": 42
+                  }
+                },
+                "triangles": {
+                  "tag": {
+                    "t": 77
+                  }
+                },
+                "vertices": {
+                  "signed": {
+                    "a": -1,
+                    "b": 2,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  },
+                  "tag": {
+                    "a": 7,
+                    "b": 7,
+                    "d": 3,
+                    "e": 4,
+                    "f": 5,
+                    "g": 6,
+                    "h": 8,
+                    "i": 9
+                  }
+                }
+              },
+              "material_slots": [],
+              "polygons": {
+                "p": {
+                  "corner_normals": null,
+                  "material_slot": null,
+                  "normal": null,
+                  "smooth": false,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.123456789012345,
+                        0.5
+                      ],
+                      [
+                        1.0,
+                        0.25
+                      ],
+                      [
+                        -0.5,
+                        2.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "a",
+                    "d",
+                    "e",
+                    "f"
+                  ]
+                }
+              },
+              "triangles": {
+                "t": {
+                  "corner_normals": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "material_slot": null,
+                  "uv_layers": {
+                    "Detail": [
+                      [
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "Layout": [
+                      [
+                        0.111111111111111,
+                        0.222222222222222
+                      ],
+                      [
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0
+                      ]
+                    ]
+                  },
+                  "vertices": [
+                    "g",
+                    "h",
+                    "i"
+                  ]
+                }
+              },
+              "uv_layout": {
+                "active": "Detail",
+                "layers": [
+                  "Layout",
+                  "Detail"
+                ]
+              },
+              "vertex_groups": [
+                "pin",
+                "soft"
+              ],
+              "vertex_weights": {
+                "a": {
+                  "pin": 0.5,
+                  "soft": 0.5
+                }
+              },
+              "vertices": {
+                "a": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "b": [
+                  1.0,
+                  -1.0,
+                  0.0
+                ],
+                "d": [
+                  2.0,
+                  1.0,
+                  0.0
+                ],
+                "e": [
+                  1.0,
+                  2.0,
+                  0.0
+                ],
+                "f": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "g": [
+                  -2.0,
+                  0.0,
+                  0.0
+                ],
+                "h": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "i": [
+                  -2.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            }
+          },
+          "revision": 3,
+          "schema_version": 1,
+          "time_seconds": 0.0
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "kind": "isolation",
+    "name": "delta",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/isolation-driver.py",
+    "original_sha256": "e700dc8d202323fdb230db1499df5d5c15a0c37e460408f487bff7ab91842e90",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-delta-01.py",
+    "script_sha256": "6f1ea72d3a131be5505faa1be60eaf70a3ad23921aeea2baeb080ad21d051c83",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "isolation",
+    "name": "raw",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/isolation-driver.py",
+    "original_sha256": "edacba4768b5f6bb7fc00caacb08c897a3e6b51d1b32d203ca08b93fc42e0f09",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-raw-01.py",
+    "script_sha256": "0b73599eb53672ef9a01b5a903b734d14fb0c4b4937d5796065528e3c17de6e3",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "isolation",
+    "name": "scene",
+    "original": "/private/tmp/formora-mesh-merge-sparse/tools/scene_snap_independent.py",
+    "original_sha256": "87c02f1bf89f58b9acdbb8d98e55ef431b4c5bfd8535893cd2a4f0fae9f6c296",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-scene-01.py",
+    "script_sha256": "b46e84b891eeb6559cad6237612b1a81c4370dc4fe730f3436ae205e2585b6a1",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "isolation",
+    "name": "primitive",
+    "original": "/private/tmp/formora-mesh-merge-sparse/tools/primitive_independent.py",
+    "original_sha256": "49a805ed44d45bf8bf9176e09d762b28bc2835fd3f0b9d69285ae9eb52893783",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-primitive-01.py",
+    "script_sha256": "a3916bcfe28086c0b4f27fadfc68f4b0afc09974c99794379b43fcd7dc99f4a7",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "isolation",
+    "name": "selection",
+    "original": "/private/tmp/formora-mesh-merge-sparse/tools/selection_independent.py",
+    "original_sha256": "01d53f1c4463d40d6a9a4967baa23e6da69f5c082b12c6b3579f25625088a4b5",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-selection-01.py",
+    "script_sha256": "1a1a174ec78f95dcac17c04bbcda2a3a2211f8f79a157bfa8f5129abec854f1a",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "isolation",
+    "name": "creation",
+    "original": "/private/tmp/formora-mesh-merge-sparse/tools/creation_context_independent.py",
+    "original_sha256": "60f00af90141425f72c94b9c7bf1918f10662f06c051907c5239f43fc337ed97",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-isolation-creation-01.py",
+    "script_sha256": "71e03d64aad07fc41fe478ca51b0ba0e89ad08f76ef07d3877b2bc312c6b9855",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "isolation",
+    "name": "rng",
+    "original": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/retained-rng-isolation-driver.py",
+    "original_sha256": "be81faf136bd6affcf1e0b54c087d10599bcffbd415b03d7cbd56b0bb20a4fb2",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-rng-isolation-01.py",
+    "script_sha256": "fa166d3e7b1fb36638cd34736c2f4822cc54205cf6989698dbe798f439a7a431",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-delta",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/recipe-driver.py",
+    "original_sha256": "11241af6d7fd892a67defc7d34d0330f1473c16f80325f9d44723a22cbe2e788",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/recipe-driver.py",
+    "script_sha256": "11241af6d7fd892a67defc7d34d0330f1473c16f80325f9d44723a22cbe2e788",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-raw",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/recipe-driver.py",
+    "original_sha256": "b970768d7721cc4063f1d178d49c21946f918378ed4cce2c808b4ea49c54dfec",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/recipe-driver.py",
+    "script_sha256": "b970768d7721cc4063f1d178d49c21946f918378ed4cce2c808b4ea49c54dfec",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "local",
+    "name": "recipe-mesh",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-snap-core/recipe-driver.py",
+    "original_sha256": "4d8354f0b0e6d67424e14daa8c9305c6097edf7f618344e5e3559e40602c7e15",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-snap-core/recipe-driver.py",
+    "script_sha256": "4d8354f0b0e6d67424e14daa8c9305c6097edf7f618344e5e3559e40602c7e15",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "local",
+    "name": "seven-actions",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/seven-actions-driver.py",
+    "original_sha256": "dc2dd324b5bd8d770851bc54be05d87b43236f76c98525bdd623c985d326d633",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/seven-actions-driver.py",
+    "script_sha256": "dc2dd324b5bd8d770851bc54be05d87b43236f76c98525bdd623c985d326d633",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  },
+  {
+    "kind": "local",
+    "name": "input-rejections",
+    "original": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/input-rejections-driver.py",
+    "original_sha256": "d070774dff5cba1c3dfe37cc10ec189c2c2006408437e534fe14643af8e00c4c",
+    "script": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/input-rejections-driver.py",
+    "script_sha256": "d070774dff5cba1c3dfe37cc10ec189c2c2006408437e534fe14643af8e00c4c",
+    "changes": "current executable/root and fresh outputs only; deny primary source root as well; original assertions and authored cases unchanged"
+  }
+]

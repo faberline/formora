@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-run-rotation-01.py", line 22, in <module>
+    assert hardware.returncode==0 and hardware.stdout.strip()=='Apple M1 Max'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

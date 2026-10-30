@@ -1,0 +1,63 @@
+{
+  "revision": 2,
+  "scene": {
+    "active_camera": null,
+    "annotations": [],
+    "doors": {},
+    "entities": {
+      "target": {
+        "content": {
+          "kind": "empty"
+        },
+        "name": "Delta input control",
+        "parent": null,
+        "transform": {
+          "delta": {
+            "euler": [
+              1e+308,
+              -0.0,
+              0.12345678901234566
+            ],
+            "quaternion_wxyz": [
+              -2.0,
+              0.0,
+              0.0,
+              -2.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "translation": [
+              0.125,
+              -0.25,
+              0.375
+            ]
+          },
+          "precision": "f32",
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "translation": [
+            0.25,
+            -0.5,
+            0.75
+          ]
+        }
+      }
+    },
+    "materials": {},
+    "revision": 2,
+    "schema_version": 1,
+    "time_seconds": 0.0
+  }
+}

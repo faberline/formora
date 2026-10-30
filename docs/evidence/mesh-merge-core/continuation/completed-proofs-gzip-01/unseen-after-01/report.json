@@ -1,0 +1,44 @@
+{
+  "repository_reads_denied": true,
+  "denial_controls": [
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(api|pilot|performance)\"))",
+        "/bin/cat",
+        "/private/tmp/formora-mesh-merge-sparse/Cargo.toml"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-mesh-merge-sparse/Cargo.toml: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(api|pilot|performance)\"))",
+        "/bin/cat",
+        "/Users/chrischeng/faberlines/formora/Cargo.toml"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "cat: /Users/chrischeng/faberlines/formora/Cargo.toml: Operation not permitted\n"
+    }
+  ],
+  "native_command": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(api|pilot|performance)\"))",
+    "/private/tmp/formora-merge-unseen-core-after-01",
+    "--nocapture"
+  ],
+  "native_terminal_exit": 0,
+  "native_executable_sha256": "56cb06aa3414cfac915d295d2433418bb9fed319090add8f4e17851bb51bb8a1",
+  "product_library_sha256": "86ad80551979b51ac339b83b2733455f589abdb486448afa19cd204d50e654ea",
+  "product_implementation": "224a4360276511f48d023a2f6f39190010dae731",
+  "interface": "native Rust API; separate from the CLI/MCP gate",
+  "all_functional_controls_passed": true,
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

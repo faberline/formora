@@ -1,0 +1,23 @@
+{
+  "first_attempt": "90/rotation/delta never started native timing; host query blocked in filesystem sandbox; single30/transform9 passed",
+  "records": [
+    {
+      "name": "90",
+      "old_sha256": "d72926438ca6de5ce0a8733204a15534c84f7d739074e408385a00a816fa01bc",
+      "new_sha256": "be91336efa12b19181b12037a692b911c402f2d14da65c70e66480577b0b3637",
+      "change": "fresh output directory only; same native executable, hardware query, host query, clocks, limits and validations"
+    },
+    {
+      "name": "rotation",
+      "old_sha256": "4716bdf9e7d95fa1e0b21002238bf7b9ce2df398875cc52770c5c83fccb8d715",
+      "new_sha256": "8f23af2d47a8298b877425b211380a078527f53562178657a6ff81c46aec4c2a",
+      "change": "fresh output directory only; same native executable, hardware query, host query, clocks, limits and validations"
+    },
+    {
+      "name": "delta",
+      "old_sha256": "79c8c53b6502953e03f81d7a86c9edba9ea343a8e60052e62552fd0b7f110d4c",
+      "new_sha256": "dde1bdeeb4d7baf28da07d2618a11d9dcbce88cf1afb98ceb8174dfab4f64377",
+      "change": "fresh output directory only; same native executable, hardware query, host query, clocks, limits and validations"
+    }
+  ]
+}
