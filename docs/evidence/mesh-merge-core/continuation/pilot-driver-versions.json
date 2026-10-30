@@ -1,0 +1,13 @@
+{
+  "api_pilot_01_original_driver": {
+    "path": "runtime-cli-mcp-pilot-01.py",
+    "sha256": "e9dd72876b3932817814537ffb8278196237a3a4cd1f472439742c3c417db220",
+    "exact_hash_matches_original_report": true
+  },
+  "api_pilot_02_driver": {
+    "path": "runtime-cli-mcp.py",
+    "sha256": "bb35180f6f32456cf055e356b0338572f7e7c54026d6ad280f71b7be1cb254c8"
+  },
+  "initial_control_scope": "receipt forgeries were inconsistent with raw MCP result and failed raw binding",
+  "control_02_scope": "receipt forgeries also change raw result; receipt semantics independently reject them"
+}

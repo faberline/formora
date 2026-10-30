@@ -74,10 +74,11 @@ def normalize(query,world,reference):
     ng=result['geometry']
     ng['vertices']={id:g['vertices'][other] for id,other in mapping.items()}
     ng['edges']={id:sorted(inverse[v] for v in g['edges'][other]) for id,other in emap.items()}
-    ng['faces']={id:old['faces'][id] for id in fmap}
+    ng['faces']={}  # Filled below from real stored loops after their bijection is checked.
     for field in ['face_smooth','face_materials']:ng[field]={id:g[field][other] for id,other in fmap.items()}
     ng['edge_seams']={id:g['edge_seams'][other] for id,other in emap.items()}
     def rotate(values,id):n=rotations[id];return values[n:]+values[:n]
+    ng['faces']={id:rotate([inverse[v] for v in g['faces'][other]],id) for id,other in fmap.items()}
     ng['uv_layers']={name:{id:rotate(values[other],id) for id,other in fmap.items()} for name,values in g['uv_layers'].items()}
     result['groups']['weights']={id:actual['groups']['weights'][other] for id,other in mapping.items()}
     for field in ['selected','hidden']:result[field]={domain:sorted(remap[domain][id] for id in actual[field][domain]) for domain in remap}

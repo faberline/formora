@@ -52,3 +52,19 @@ edge-only collapse clears selected flags even with an empty edge buffer.
 All 64 focused Rust tests passed with zero ignored. Library Clippy, build
 and formatting passed. Source and full interface gates must run again at
 this repaired implementation. Prior source success does not pass it.
+
+## Repaired implementation e45e0a81
+
+The complete 1,024-case native-protocol diagnostic passed again, with real
+exit zero, against both original native captures. The actual CLI and
+official MCP pilot passed all 26 requests. The second pilot also binds
+every actual request and raw response to its saved state and receipt.
+Nine physical-data controls and eleven API-evidence controls rejected
+corruptions. Receipt controls also forge the matching raw result, so the
+receipt checker must reject the false claim independently of transport.
+
+Actual Rust 1.85 passed all 288 all-feature/all-target tests, with zero
+ignored tests. All-feature/all-target Clippy passed with warnings denied.
+The release build and frozen thirty-sample driver compilation passed.
+The complete 2,048-request interface gate and actual timing gates remain
+unrun at this preparation seal. Independent acceptance remains unrun.
