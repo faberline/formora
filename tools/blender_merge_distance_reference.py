@@ -19,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import blender_multi_mesh_merge_reference as base
 from merge_distance_scene_inputs import scene, selection
 from merge_distance_provenance import input_paths
+from merge_distance_parameter_reference import native_parameters
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAINS = ['VERT', 'EDGE', 'FACE']
@@ -187,10 +188,11 @@ class Capture:
             self.stage.rename(self.args.output); sys.stdout.flush(); sys.stderr.flush(); os._exit(0)
         run = self.suite['runs'][len(self.records)]; spec = scene(self.suite, run); create(spec)
         before = snapshot(spec); window, area, region = area_context()
+        parameters = native_parameters(run['parameters'])
         with bpy.context.temp_override(window=window, area=area, region=region):
             assert bpy.ops.mesh.remove_doubles.poll()
             try:
-                result = {'status': sorted(bpy.ops.mesh.remove_doubles(**run['parameters'])), 'error': None}
+                result = {'status': sorted(bpy.ops.mesh.remove_doubles(**parameters)), 'error': None}
             except (TypeError, RuntimeError) as error:
                 result = {'status': ['OPERATOR_EXCEPTION'], 'error': str(error), 'error_type': type(error).__name__}
         bpy.context.view_layer.update(); after = snapshot(spec)
@@ -198,7 +200,7 @@ class Capture:
         saved = sorted(bpy.ops.wm.save_as_mainfile(filepath=str(native), check_existing=False))
         raw = native.read_bytes(); stored = run['id']+'.blend.gz'
         with (self.stage/stored).open('xb') as stream: stream.write(gzip.compress(raw, mtime=0))
-        self.pending = {'run': run, 'scene_spec': spec, 'before': before, 'after': after, 'result': result,
+        self.pending = {'run': run, 'executed_parameters': encoded(parameters), 'scene_spec': spec, 'before': before, 'after': after, 'result': result,
                         'save_status': saved, 'native_file_sha256': hashlib.sha256(raw).hexdigest(),
                         'native_file_stored': stored, 'native_file_bytes': len(raw)}
         self.pending['reopen_status'] = sorted(bpy.ops.wm.open_mainfile(filepath=str(native)))

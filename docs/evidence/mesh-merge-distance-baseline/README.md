@@ -40,7 +40,7 @@ The input state remains draft. These files are not the final before-code seal.
 Frame and unit literals, a distinct second mesh, outside data, native context,
 selection/history and single-corner custom-normal setup now have diagnostic
 adapters. They do not cover the full required domain. Omitted parameters,
-nonfinite probes remain pending. Omission, bounds and finite type/coercion
+Native nonfinite probes, omission, bounds and finite type/coercion
 diagnostics are now recorded below. The manual page is now
 retrieved and pinned. Targeted smooth-fan setup passes the diagnostics below.
 Full post-merge topology/data analysis remains pending. Capacity inputs and
@@ -102,6 +102,7 @@ registries contain 15 targeted cases and six extra normal-codec cases.
 | diagnostic-08 | 94006 | 0 | 104 | 104 | None. Includes 36 correct input rejections; these are not numeric matches. |
 | diagnostic-09 | 4839 | 0 | 104 | 104 | Native checks passed. A separate corruption harness failed; retained below. |
 | diagnostic-10 | 6332 | 0 | 104 | 104 | None. Strict-validator errors are collected; all checks remain enabled. |
+| diagnostic-11 | 16325 | 0 | 116 | 116 | None. Includes three non-numeric native probes and 45 rejected calls. |
 
 All attempts preserve raw records, native saved files, inputs, scripts and
 actual parent wait receipts. `archive-manifest.json` binds each lossless copy.
@@ -276,6 +277,43 @@ lossless gzip. Their decoded bytes and raw hashes are unchanged. Plain copies
 remain outside Git. Both earlier manifests remain beside the corrected ones.
 `diagnostic-archive-audit-05.json` binds the current storage representation.
 The source behavior, native results, checks and limits are unchanged.
+
+## Native nonfinite scalar probes
+
+Diagnostic 11 adds NaN and positive/negative infinity for each of the four
+operator parameters. These are explicitly tagged native Python probes.
+The capture adapter creates the Python floats. It records the actual
+arguments separately from the authored tagged inputs. They are not JSON
+numeric inputs or a new Formora input contract.
+
+The real source process 16325 exited 0. Checker process 20694 also exited 0.
+All 116 diagnostic checks pass, including full state invariants and complete
+save/reopen comparison. The latest operation classes are:
+
+| Source operation class | Count |
+| --- | --- |
+| Finished with a merge | 30 |
+| Finished unchanged | 37 |
+| Finished with all data skipped for empty selection | 1 |
+| Rejected before an operation | 45 |
+| Finished native nonfinite probe | 3 |
+
+Nine boolean nonfinite probes receive a TypeError and change no scene data.
+For the three threshold probes, positive infinity clamps to 50 and negative
+infinity clamps to the hard minimum. NaN finishes without a scene change in
+the authored two-point case. The source-only observations are recorded
+without a numeric-match claim. They do not make invalid JSON numbers valid.
+
+`diagnostic-controls-07/` adds executed-argument binding and nonfinite-result
+corruption controls to the earlier set. All 34 controls reach their intended
+rejections. Their actual command and wait are in the companion driver folder.
+No forged operation runs. The source input registry now binds 99 files,
+including 32 Python scripts.
+
+All 11 diagnostic attempts preserve 575 raw case records and 1,751 lossless
+copies. The full functional registry has not been frozen or run twice.
+Capacity inputs and native capacity results remain unrun. These are still
+required before a Rust distance-merge issue or product acceptance.
 
 Full source acceptance, capacity acceptance and Rust product acceptance all
 remain unrun. No issue or milestone is complete from these diagnostics.

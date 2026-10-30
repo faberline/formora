@@ -71,6 +71,10 @@ def controls(suite, native, output):
            lambda x: x['after']['meshes']['a']['geometry']['vertices'].update(v000001=[.125, 0., 0.]))
     reject('wrong_lower_distance_boundary', 'source-cluster/vertices', 'distance_diag_000',
            lambda x: x['after']['meshes']['a']['geometry']['vertices'].pop('v000001'))
+    reject('executed_parameters_changed', 'executed-native-parameters', 'distance_diag_000',
+           lambda x: x['executed_parameters'].__setitem__('threshold', .5))
+    reject('executed_parameters_missing', 'executed_parameters', 'distance_diag_000',
+           lambda x: x.pop('executed_parameters'))
     reject('wrong_transitive_chain_merge', 'source-cluster/vertices', 'distance_diag_005',
            lambda x: x['after']['meshes']['a']['geometry'].__setitem__('vertices', {'v000000': [.09375, 0., 0.]}))
     reject('unselected_outside_data_changed', 'unedited-mesh/untouched', 'distance_diag_000',
@@ -115,6 +119,10 @@ def controls(suite, native, output):
                lambda x: x['before']['meshes']['a']['packed_custom_normals']['f000000'][0].__setitem__(0, 1))
         reject('cyclic_fan_zero_default_changed', 'a/source-decoded-custom-normal', 'distance_diag_031',
                lambda x: x['before']['meshes']['a']['normals']['corners']['f000000'][0].__setitem__(0, 9.))
+    nan_case = next((run for run in json.loads(suite.read_text())['runs'] if run['purpose'] == 'native_nonfinite_threshold_nan'), None)
+    if nan_case:
+        reject('native_nan_probe_changes_data', 'native-nan-no-change', nan_case['id'],
+               lambda x: x['after']['meshes']['a']['geometry']['vertices']['v000000'].__setitem__(0, .5))
     result = {'genuine_diagnostic_passed': True, 'forged_controls_rejected': len(rows), 'controls': rows,
               'source_manifest_sha256': sha((native/'capture/manifest.json').read_bytes()),
               'checker_sha256': sha(Path(__file__).with_name('check_merge_distance_diagnostic.py').read_bytes()),

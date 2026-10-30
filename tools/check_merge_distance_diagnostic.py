@@ -18,7 +18,8 @@ from generate_merge_distance_diagnostic import diagnostic
 from generate_merge_distance_normal_diagnostic import normal_diagnostic
 from generate_merge_distance_fan_diagnostic import fan_diagnostic
 from generate_merge_distance_parameter_diagnostic import parameter_diagnostic
-from merge_distance_parameter_reference import converted
+from merge_distance_parameter_reference import converted, recorded_parameters
+from generate_merge_distance_nonfinite_diagnostic import nonfinite_diagnostic
 from merge_distance_provenance import input_paths
 from validate_merge_distance_state import validate as validate_full_state
 
@@ -28,9 +29,10 @@ def authored_suite(suite):
     def deny(*args, **kwargs):
         reads.append(str(args[0])); raise AssertionError('constructor source read')
     with patch.object(builtins, 'open', deny), patch.object(io, 'open', deny):
-        expected = parameter_diagnostic() if suite['scope'] == 'targeted_source_scalar_parameter_diagnostics_only' else (
+        expected = nonfinite_diagnostic() if suite['scope'] == 'targeted_native_nonfinite_scalar_diagnostics_only' else (
+            parameter_diagnostic() if suite['scope'] == 'targeted_source_scalar_parameter_diagnostics_only' else (
             fan_diagnostic() if suite['scope'] == 'targeted_source_cluster_and_smooth_fan_diagnostics_only' else (
-            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic()))
+            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic())))
     assert not reads, 'constructor source reads'
     same(expected, suite, 'pure-authored-suite', 0.)
 
@@ -65,6 +67,9 @@ def postconditions(run, spec, before, after):
     conversion = converted(run['parameters'])
     if conversion['classification'] == 'rejected_no_operation':
         same(before, after, 'rejected-input-no-operation', 0.)
+        return
+    if conversion.get('native_token') == 'nan':
+        same(before, after, 'native-nan-no-change', 0.)
         return
     for name in spec['object_context']['edit_objects']:
         mesh = spec['mesh_assets'][spec['data_sharing'][name]]
@@ -192,6 +197,7 @@ def check(suite_path, capture):
         path = capture/row['file']; compressed = path.read_bytes(); raw = gzip.decompress(compressed)
         assert sha(compressed) == row['sha256'] and sha(raw) == row['raw_sha256']
         value = json.loads(raw); assert value['run'] == run
+        same(recorded_parameters(run['parameters']), value['executed_parameters'], 'executed-native-parameters', 0.)
         spec = scene(suite, run); same(spec, value['scene_spec'], run['id']+'/authored-input', 0.)
         native = gzip.decompress((capture/value['native_file_stored']).read_bytes())
         assert sha(native) == value['native_file_sha256'] and len(native) == value['native_file_bytes']

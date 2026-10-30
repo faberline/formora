@@ -1,0 +1,942 @@
+{
+  "scope": "diagnostic_distance_merge_capture",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "background": false,
+  "process_id": 16325,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_merge_distance_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-diagnostic-11.json",
+    "--output",
+    "/private/tmp/formora-merge-distance-native-diagnostic-11/capture"
+  ],
+  "captured_utc": "2026-10-30T19:58:35.564482+00:00",
+  "input_hashes": {
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-diagnostic-11.json": "adc78ed7c05f140ffbd3a058817161b5934683b0a05ee000a05e96285f331373",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-gimbal-transform/manifest.json": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-gimbal-transform/math_rotation_c.cc": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmesh_core.cc": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmesh_interp.cc": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmesh_mods.cc": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmesh_opdefines.cc": "6452b85accdb60ee4f3db1369970779cdc91a81f6ea7ce751289637c410023da",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmesh_operators.cc": "4fec9e1587120cf39a7f394ab13522bf2856b8d1023704f9d14afa69a937ea60",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmesh_walkers_impl.cc": "104cdf8b62e4ad3a7563ffce6bb4b49cab3fc33d1b23bb57afe9736689809b3d",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/bmo_removedoubles.cc": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/customdata.cc": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/deform.cc": "42e5a7fd06c20f479ca459b73aea8bac8a188ab8610b63d76b6a10c54980e375",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/editmesh_tools.cc": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge/manifest.json": "440a71200d4a4e8094bd6aa6203beb3d705e905585d7299fdfc3932fe3f6f18f",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/BKE_mesh.hh": "53fbfd40cf93d3b5f2566761ca6803357fc39f6cb4f4182ad5cf516c2640fc17",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/BLI_kdtree.hh": "a014dac53ccc1af519d242d4244203a1618d9d8c14b5a11f82bd4cbdeb69be26",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/BLI_kdtree_types.hh": "ae5eb254107ba343b8583f9978d675658a27bea0a869cb86314d628a4bad4e6d",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/BLI_math_base.hh": "42bd20aa7f8127bb3b32ac175dec0ecfa3c43182c99d8ed6367956ae67648129",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/BLI_math_vector.hh": "4810164ef448420936b4e0976f4d78f2a56e42c4fef606f43caa92b3869514e0",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/bpy_rna.cc": "b7dc0fd6d038a87986da3f5eb4c6b597feb32df5cd82e346a3e11e39c44f9f90",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/bpy_rna_array.cc": "2b8b7bc32eb3b7b437b78c9189fc73b95cb51633513aa05cf7fdfa3276bfed27",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/cluster-manifest-06.json": "aab725c596e96eed9555ff0d40641d8e5e7a643da9369e67e3a8a0ba132ed502",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/editmesh_automerge.cc": "9aa2d95c80987f31e012e30da9e03114b44f30ee2851a3f23c088b75d3e04731",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/manifest.json": "55a2d64238d3b7dae70dcfa691981d2bd60530df479db3222eedc81fba7551e7",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/manual-branch-response.json": "483c29ce3ec84bb00129fa8342298fb5f3978a177b7438b8ec16a977117eecd5",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/manual-file-api-response.json": "2f29f98d0a37df112e7b9adb7f897190d9f9cb0c8ee8c6ba61c0c7b8638d685f",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/manual-manifest-09.json": "d26e50cb052d236a822f14ff000e57eb48313a9f81e80e8c266815d3e0573767",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/math-manifest-02.json": "7678f7ce9d0e47ee3aba45fd72bbdfd17222dcda0d1cf9fc88dd14fb8c316b8b",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/merge.html.gz": "4f26814b5e88f8d6272c5099e21c8ac7c9e1527c032645068105c7b03c4ffa0b",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/merge.rst": "af9f0268a9f1367641074d1f4edf1ae14dbce63cc05d43588fe876709b2a9b31",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/mesh_normals.cc": "50c001bb7e48b425fa9f5c6ed97dbddbd4f7915d9ee8fb445f0d53a7961272ec",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/py_capi_utils.cc": "ac693935fe20dd74ce8ce802cdd627c17ffe8e2d827bfb4ceece26b7a049fcd0",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/py_capi_utils.hh": "8f5cc166c13ae7b15089c82680e49413d1df50530dbb8579474957518857e8ce",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/python-manifest-05.json": "d2e93aa0fdb64718949573b2d1f07d32c36f9c938371b6d34252b1a813623bce",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/rna-manifest-04.json": "e41e0e2a9e780c20a24f9ada56000b716eb86f94846e2d1a28cbb5c445912228",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/rna_access.cc": "8b8dfa975cc9b5a8636e5f4c27d4b73e2953cabb576352ef7d1cacc61f05cafa",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/rna_mesh_api.cc": "44894ffaaa4f4ec5a68fe327f1f7136e5d4b9b5c747e3322449c0a5d9bcaf489",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/scalar-manifest-12.json": "030e17ec9e53debfb0d81a80147a50fd780c7c9795de637f99a795952913457a",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/scalar-manifest-13.json": "a850e882513fb4ec80cb1376f489edf42dc42f37ae92f7892ef035dee7d210ca",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-merge-distance/vector-manifest-03.json": "451a35d8f6b50e72343682b688057ecd87d997b737504ef6ff5f9b6bfef98c45",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-safe-transform/BLI_math_matrix.h": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-safe-transform/manifest.json": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-safe-transform/math_matrix_c.cc": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/mesh-safe-transform/transform_convert.cc": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/physical-transform/BLI_simd.hh": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/physical-transform/manifest.json": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/physical-transform/mathutils_Matrix.cc": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/physical-transform/mathutils_Vector.cc": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/physical-transform/object.cc": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/scene-snap-core/layer.cc": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/scene-snap-core/layer_utils.cc": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/scene-snap-core/manifest.json": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/scene-snap-core/object_data_transform.cc": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/ed_transverts.cc": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/manifest.json": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/snap.rst": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/snapping.rst": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/transform_snap.cc": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/transform_snap.hh": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/view3d_draw.cc": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-menu/view3d_snap.cc": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-rotation/DNA_scene_types.h": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-rotation/manifest.json": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-rotation/rna_scene.cc": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+    "/private/tmp/formora-merge-distance-baseline/baseline/sources/snap-rotation/scene.cc": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_merge_distance_reference.py": "fc1539e38e572684d1ba866b33799f389a098758fe7f27b8776af1e697a74c4b",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_mesh_merge_reference.py": "34f88f368957b026279d299a0f5ea2c95357711a015373b094f28f304ba8961c",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_multi_mesh_merge_reference.py": "6c737f557e42d3b5058b82598bfc59e6a2a20fbe18368da6119c485630d24f4b",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/private/tmp/formora-merge-distance-baseline/tools/check_merge_distance_diagnostic.py": "6d54faf4718a66b8c8784008761a08ace472255ae59989b9eeed240bc14b9953",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_mesh_merge_reference.py": "535561230cd2cc24b2839005f6f83fe59d832031c7cceedae10a40eecf29cfe9",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_multi_mesh_merge_reference.py": "8b2c898df84783afe5282ab0aede4f96bbccf08c7685beaeaee1ed75dc7b8cb8",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_selection_reference.py": "4f6187468b9866bde5309a440c175124ca38f5365627390b8d00db7e5bfbcaf1",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_snap_delta_reference.py": "6ca02299366067928303edc327aa5bd0ae7617c6975816a45da35b12b510fe08",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_snap_menu_reference.py": "10c5b990a7f62f7633a04b8e7ef7d73f07c8a8f2e62fe33dde974b2c65bb83c2",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_snap_rotation_reference.py": "20c9338f006f6a9ee611b9e4bae92cd981a03173cb811e7876d2dff6a89ea0ee",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_transform_reference.py": "fb2b2323334d44dfd11e6a7ac789e3d05435e149dff597bd37cd7dbd6c9723cc",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_merge_distance_cases.py": "3a650c2b38d583a707cb5fbf20984b958729cf15e684bf3d94d3564079ea6c0c",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_merge_distance_diagnostic.py": "56d3d6a71455711aee1236ab9d8878156d7ad13bdfe8983ff4644f37faa13303",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_merge_distance_fan_diagnostic.py": "5fae8923cd2169367c982e5521036a882c542a03bd68f9ba44d8bbddfd81a850",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_merge_distance_nonfinite_diagnostic.py": "fedbb4a35353bea65c873678aabd6b3dcace74cb992a6adbbdd2467da4f110fb",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_merge_distance_normal_diagnostic.py": "ca1f455a187a72b716a1cb9f8c12cb532ff6ff50b8dd7a6be4abc9bceba040a4",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_merge_distance_parameter_diagnostic.py": "8c305d759545af085f69979e281e10ccc493eb796160e92e698ea5edfa890774",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_mesh_merge_cases.py": "b1d7fdd44d61bd2de52bcf9d7c941f39ed6bb05b2e37886653acc4da9c679cee",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_mesh_transform_cases.py": "4ca5a7016ee016773c09fd169304f446250751e254275d811593b4ca24d74bd3",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_multi_mesh_merge_cases.py": "68d373820b6274ea40cee773921afab7dd67cb43ae253914bf6b81149c3bbf66",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_snap_delta_cases.py": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_snap_menu_cases.py": "db818f46074a8b3b8cbb75c5c112da588dba0171a7da4430a871b59a3d96af43",
+    "/private/tmp/formora-merge-distance-baseline/tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_cluster_reference.py": "f8827be0154854d68888010598cd181feb2043c446de53caafcee0a8da9dd30c",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_fan_reference.py": "11128f0fbb1558d2a9718e47d990ea90394b0dab9224e870e3f4908a430ce82d",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_normal_reference.py": "c08157004d3fab76616386a66448150e47a8db29d71cb3b827e2b40c0d80b17f",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_parameter_reference.py": "80623a549e64c366eef62f52705aa10094129dadc24d01383807cd334e27c104",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_provenance.py": "62448963faecb0ef083ac50c954a82bf3381b84442a095e34f04f66520f49bc7",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_scene_inputs.py": "7912bc677d9e5b804067495606010efb3e85c57a7cfc349054cc50c6f31c682c",
+    "/private/tmp/formora-merge-distance-baseline/tools/multi_mesh_merge_inputs.py": "8095894235456436705e90468785ca13f57c48d512faaaa81d3b6f501c353df9",
+    "/private/tmp/formora-merge-distance-baseline/tools/validate_merge_distance_state.py": "c3c96c346456593ab8cbd477b92e261fed1e18026c3ce3930899396c058872bd"
+  },
+  "native_original_files": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-blends-ecx3atsb",
+  "runs": [
+    {
+      "id": "distance_diag_000",
+      "file": "distance_diag_000.json.gz",
+      "sha256": "4c89f54499008b7fdb23af6b47c4e57b0b25e3764a3c9f39a116a937c0498da6",
+      "raw_sha256": "848ebcc929780bb5e252881248d90835d855d9a4a86c956f47b131552829dc1f",
+      "native_file": "distance_diag_000.blend.gz"
+    },
+    {
+      "id": "distance_diag_001",
+      "file": "distance_diag_001.json.gz",
+      "sha256": "39d0522b9b14d95140c2e61228e3bc31b7b6e13bad116ccd13e14923ab2a0964",
+      "raw_sha256": "573bddc9513dc68c0a25d5ba77b65b34dcaac5fa0b16ef2f2f8a736d3ce64f52",
+      "native_file": "distance_diag_001.blend.gz"
+    },
+    {
+      "id": "distance_diag_002",
+      "file": "distance_diag_002.json.gz",
+      "sha256": "e101369184b7831070cdeb47d2211202c1152dc90cdd179a19cd09d8b5fc4414",
+      "raw_sha256": "d57589d9106a6a8485a9b000a59a119753b4671df31ddd7ca934c93abcc45819",
+      "native_file": "distance_diag_002.blend.gz"
+    },
+    {
+      "id": "distance_diag_003",
+      "file": "distance_diag_003.json.gz",
+      "sha256": "f0a1ec5a288e67c2a23757c136af037ba48e8fa2b3f7b067000c550f0c6d5e2f",
+      "raw_sha256": "6fd4aa075a622a2842903cba13990fe0b3efdb8d9c4f3b7dfe046f7bc1ca2754",
+      "native_file": "distance_diag_003.blend.gz"
+    },
+    {
+      "id": "distance_diag_004",
+      "file": "distance_diag_004.json.gz",
+      "sha256": "e4729ca70c20c2057476d55e75d7b4e71c2729d75725bc231874eb5a589ec15e",
+      "raw_sha256": "4528bc4356028724756ac1bfe734ef99e974905c72eeb6a0201c275a04969442",
+      "native_file": "distance_diag_004.blend.gz"
+    },
+    {
+      "id": "distance_diag_005",
+      "file": "distance_diag_005.json.gz",
+      "sha256": "fed2e19a9c4adf3850c8ecec3dda3660a037ad0a4ac6036f3b5d21370ee43c84",
+      "raw_sha256": "ec5395a63f61b885a4c6bbc2007136e0e54887c42e5a327a38cdf55ffc1a8466",
+      "native_file": "distance_diag_005.blend.gz"
+    },
+    {
+      "id": "distance_diag_006",
+      "file": "distance_diag_006.json.gz",
+      "sha256": "ad8cc046fe18c25c698511a207f6dcc99107eea31281d80a10b82e0d7b5cf98d",
+      "raw_sha256": "66ce21e43d47411a97e69979bed62f08923a75999ee6d707e0231ff4e1b82bef",
+      "native_file": "distance_diag_006.blend.gz"
+    },
+    {
+      "id": "distance_diag_007",
+      "file": "distance_diag_007.json.gz",
+      "sha256": "b72925fe90116fa54bbc4d8d02156b41f6baf4852f9228c5947dc9c2b53b0144",
+      "raw_sha256": "057f989cef1476329c13bd8b47250fbd0a9285191f2fb7eba0aa8487e582aa91",
+      "native_file": "distance_diag_007.blend.gz"
+    },
+    {
+      "id": "distance_diag_008",
+      "file": "distance_diag_008.json.gz",
+      "sha256": "bab7c953b9e7e542b2fccc59f63ca2012ad650c9ad575bbbe54a525680f67ecb",
+      "raw_sha256": "40b2a1b3875f91326816e515417e1e309ac8903a58c6b9952dc61b39a9900b3f",
+      "native_file": "distance_diag_008.blend.gz"
+    },
+    {
+      "id": "distance_diag_009",
+      "file": "distance_diag_009.json.gz",
+      "sha256": "8c04bd7c198eda711d57d6080fd062dc0f27729fad89631bbed7b8a1c54c1f0c",
+      "raw_sha256": "ecbda264ee2968d5c79d100806f2ff176770a25a91de86dc96de69f42104d896",
+      "native_file": "distance_diag_009.blend.gz"
+    },
+    {
+      "id": "distance_diag_010",
+      "file": "distance_diag_010.json.gz",
+      "sha256": "f55c8c983a7ce598a9210e15da48f117760e29dedd8da80b7d4b005a433b5dcf",
+      "raw_sha256": "8f9bdeff84f8d4aa7f9dfc74cfccda84b8f46030a6d9ff5782d7d6231c30d4ed",
+      "native_file": "distance_diag_010.blend.gz"
+    },
+    {
+      "id": "distance_diag_011",
+      "file": "distance_diag_011.json.gz",
+      "sha256": "d6761773298bc11f4238020fec68e8b69861229a8f662b44434876b0f5344472",
+      "raw_sha256": "26df1d9ac2aca0182b1211b05dc0b676709c71e51fb670fb65a6b51b82e73452",
+      "native_file": "distance_diag_011.blend.gz"
+    },
+    {
+      "id": "distance_diag_012",
+      "file": "distance_diag_012.json.gz",
+      "sha256": "ea23c72a2624ebe74944f2ab9a2db0fcfbd6cadd82f2a2a9c78fdc4db3d1ed63",
+      "raw_sha256": "5cd6372181933528e35c88bf04a8b18df7646380ababa24e07a484ac795ef632",
+      "native_file": "distance_diag_012.blend.gz"
+    },
+    {
+      "id": "distance_diag_013",
+      "file": "distance_diag_013.json.gz",
+      "sha256": "611729ebde58e71650fd5d1ea22f89d9d43f8dc7a182b9c675dbac62a71c03d1",
+      "raw_sha256": "344422124193130abef668d0c1d5c6159e7565b99e2977c424bbb592b22eec94",
+      "native_file": "distance_diag_013.blend.gz"
+    },
+    {
+      "id": "distance_diag_014",
+      "file": "distance_diag_014.json.gz",
+      "sha256": "c723c0bcbeb7389be7694be880d3329d653d380038312b17f8477abb2d89799a",
+      "raw_sha256": "5266ecff943ce8a9da334961e1ec0f9d199723dc97c886c6b180024dd3b54bd2",
+      "native_file": "distance_diag_014.blend.gz"
+    },
+    {
+      "id": "distance_diag_015",
+      "file": "distance_diag_015.json.gz",
+      "sha256": "46477beb103ffd626c2aa517d837230931dfee6aa2489d4f6aa3a9cdcaa2f1bf",
+      "raw_sha256": "a6496d9235bead0958a6be670a45f1db2b50231b85fff904c1e7eddff948897e",
+      "native_file": "distance_diag_015.blend.gz"
+    },
+    {
+      "id": "distance_diag_016",
+      "file": "distance_diag_016.json.gz",
+      "sha256": "4e271a508925de7a086aed578e0c76077a1dc16c531d4d10cee6e1fdbd3ab007",
+      "raw_sha256": "8b99294ca40244f2532002b8e168a1df5225a7e09f9c1af5d3e2a1a44af8aa3c",
+      "native_file": "distance_diag_016.blend.gz"
+    },
+    {
+      "id": "distance_diag_017",
+      "file": "distance_diag_017.json.gz",
+      "sha256": "3ed355c2c74715cb94f1452df256dd7713ba9c57240b98547ae9942727fa0e74",
+      "raw_sha256": "41464c1557e7f0230be4757a7af22e13c75a8e85744131b2d96d266925e3f3ae",
+      "native_file": "distance_diag_017.blend.gz"
+    },
+    {
+      "id": "distance_diag_018",
+      "file": "distance_diag_018.json.gz",
+      "sha256": "d8b1b6b9283c923d6c65f382a4f0e43ad9ae8d03c89a14c4c660b45c360642ce",
+      "raw_sha256": "d01758af735ddef34b6a8596bb14e92a737f2ec70e675caf0fcc040db3e50c49",
+      "native_file": "distance_diag_018.blend.gz"
+    },
+    {
+      "id": "distance_diag_019",
+      "file": "distance_diag_019.json.gz",
+      "sha256": "35e1e640bb3a3e08ed91f7b43e4a2bc4838edbcfb10cbf096dd70c1d8722db12",
+      "raw_sha256": "d39a885268f06b7c5d1922324b8b629723c121967439174dd5e8214aac9857e3",
+      "native_file": "distance_diag_019.blend.gz"
+    },
+    {
+      "id": "distance_diag_020",
+      "file": "distance_diag_020.json.gz",
+      "sha256": "2759022965df1f0ff955e69b1e1541442e91a96d82ada190c8d45a1d91164831",
+      "raw_sha256": "0745f449921428080de98c54e0a6f29ecfe42480980da6c1974f780ba827d790",
+      "native_file": "distance_diag_020.blend.gz"
+    },
+    {
+      "id": "distance_diag_021",
+      "file": "distance_diag_021.json.gz",
+      "sha256": "605c15c61c3aa1a88f3b3cdb7ef1c2ce77c38da728b08ee229965af8d12d0c2e",
+      "raw_sha256": "9cbde12087c4461ed7a421fe871d34b2bb1b0eedd1be979c266515af5546a748",
+      "native_file": "distance_diag_021.blend.gz"
+    },
+    {
+      "id": "distance_diag_022",
+      "file": "distance_diag_022.json.gz",
+      "sha256": "654c50e98893dbb49b81f641812c24943734c499315eb23627aa0e9560891441",
+      "raw_sha256": "b2b700947e007186188e6b5a4e35a5993e9bd8c97f61f3451fc85692007f15b7",
+      "native_file": "distance_diag_022.blend.gz"
+    },
+    {
+      "id": "distance_diag_023",
+      "file": "distance_diag_023.json.gz",
+      "sha256": "7247d70766825c1f50aa77b9d17d5cd5731e1535f1d120fb326b8f6121b27091",
+      "raw_sha256": "57ba80c02f8aa20c85e7970ed107c4387db7d53118cc0be4bface2e1f497ff03",
+      "native_file": "distance_diag_023.blend.gz"
+    },
+    {
+      "id": "distance_diag_024",
+      "file": "distance_diag_024.json.gz",
+      "sha256": "c1e3bf327d6eb50d9e1cdc238da704911923aebef68bec4a46728044eab5c83f",
+      "raw_sha256": "7caa9c5e303517372ac44b133fb3ace6d1a34c6d5b8d690bc40770304dba15cc",
+      "native_file": "distance_diag_024.blend.gz"
+    },
+    {
+      "id": "distance_diag_025",
+      "file": "distance_diag_025.json.gz",
+      "sha256": "5f6656261636b463e2e33ec18f8e7ef1ee74eaa43f5aaff200db7254ded8affa",
+      "raw_sha256": "ca6114a61b6cdcc99c2440a6c4aff1bcc739698f4acfbeb00056a8eb6b7117bb",
+      "native_file": "distance_diag_025.blend.gz"
+    },
+    {
+      "id": "distance_diag_026",
+      "file": "distance_diag_026.json.gz",
+      "sha256": "6da723389474ef75d243a5d7386e2fa2bc7fcc40fd516ccaa8ef535fc985fd8e",
+      "raw_sha256": "7fb29ce62caa6b73dc1727c85f7161b8e683a2acb5badfe2bc13f1024370ede8",
+      "native_file": "distance_diag_026.blend.gz"
+    },
+    {
+      "id": "distance_diag_027",
+      "file": "distance_diag_027.json.gz",
+      "sha256": "91d06f18baf613b93b0a800efdbbf8c2c44cbabd43074d8d63473a708d11bb7a",
+      "raw_sha256": "4ce7e24312ff98feb6482b2d377dae18e60405a25407996de1b7f2707a2babba",
+      "native_file": "distance_diag_027.blend.gz"
+    },
+    {
+      "id": "distance_diag_028",
+      "file": "distance_diag_028.json.gz",
+      "sha256": "68b63c6c7e581cd949915de2c08d42970cf45e6e9941aa0b703eb0073363ec3c",
+      "raw_sha256": "eeb960486b390e4fba8d5d50434dffdee844b625c1bf3bfbed23766274643c76",
+      "native_file": "distance_diag_028.blend.gz"
+    },
+    {
+      "id": "distance_diag_029",
+      "file": "distance_diag_029.json.gz",
+      "sha256": "e657409bfd5ec3fda357ed3768a82f396bebc04b603c31e043c5b843ae51753d",
+      "raw_sha256": "11be274fec2c4ede1f185516fac4484afc3131a3dd628096a24a2da2257422fe",
+      "native_file": "distance_diag_029.blend.gz"
+    },
+    {
+      "id": "distance_diag_030",
+      "file": "distance_diag_030.json.gz",
+      "sha256": "0ef2f4dd15af0f1bfc0b765ca78efe7159e3c6831eedb95b28311a8dd976d1bf",
+      "raw_sha256": "ff8bfd6bedcfed5c87a273f24362e779da804591b2eb2b12eebf375d039587d6",
+      "native_file": "distance_diag_030.blend.gz"
+    },
+    {
+      "id": "distance_diag_031",
+      "file": "distance_diag_031.json.gz",
+      "sha256": "9b051db78814ee0eafde6cb1598fba6920fbcf75de29178b8be15f50d60d6a5c",
+      "raw_sha256": "45e4314986b9abc62e45250fc6bed04dd962d8b188b5ccb7f7687c147ff81abe",
+      "native_file": "distance_diag_031.blend.gz"
+    },
+    {
+      "id": "distance_diag_032",
+      "file": "distance_diag_032.json.gz",
+      "sha256": "a60095cefac48bd5af7573186fa4dbc3856b84d652f5d56c2a1066afcf8b108b",
+      "raw_sha256": "281b8e4e0fdbe239e348e650ea7354f7df9cc2b314aad1a17a0ec0896c4f7212",
+      "native_file": "distance_diag_032.blend.gz"
+    },
+    {
+      "id": "distance_diag_033",
+      "file": "distance_diag_033.json.gz",
+      "sha256": "d38fa7e15652e7bf027abdb56b4910779603e20a9bdfd60bd2e64ba6f7396031",
+      "raw_sha256": "d2df21bf0613c817f588732a4a2e123e22bbec55f9b927d1ddeb1028d9b91c59",
+      "native_file": "distance_diag_033.blend.gz"
+    },
+    {
+      "id": "distance_diag_034",
+      "file": "distance_diag_034.json.gz",
+      "sha256": "4022363f450a959cf9d2b32c7195df351fe949f812df7859146ff3a036cc9b06",
+      "raw_sha256": "cfd90793809a7e9320ccdb471f7b6556fffb0b86cc5b2bc11a8c9aba4aa1e07b",
+      "native_file": "distance_diag_034.blend.gz"
+    },
+    {
+      "id": "distance_diag_035",
+      "file": "distance_diag_035.json.gz",
+      "sha256": "47f867794274e7a4f8263ff66f4a1042d1969b3500b9514f488b286184e820f3",
+      "raw_sha256": "dc56901fd37d73dc27dfe5344e5e2a0b82c2ef2420c56c8e01de86c2fe2da0bf",
+      "native_file": "distance_diag_035.blend.gz"
+    },
+    {
+      "id": "distance_diag_036",
+      "file": "distance_diag_036.json.gz",
+      "sha256": "4954e9ace83c2166c593fec08de155686cca379f44274e4a2336a8977c7cd403",
+      "raw_sha256": "b0d1e5edddcd8c51520c054754bbdadfb405a091c3184095ee70d2a26898f00d",
+      "native_file": "distance_diag_036.blend.gz"
+    },
+    {
+      "id": "distance_diag_037",
+      "file": "distance_diag_037.json.gz",
+      "sha256": "06f24606f7b61e99147ca8af2040d81509f9eb5a08cf4a9e0b301f48cd8ac166",
+      "raw_sha256": "75d11f98f0c270cc52dccfcdb4b97364c19bd2f26707e0941c12a92f6728019b",
+      "native_file": "distance_diag_037.blend.gz"
+    },
+    {
+      "id": "distance_diag_038",
+      "file": "distance_diag_038.json.gz",
+      "sha256": "8ba3d5310dc50b920d54d886ff20bbd76da531083e3430b167042639beffc411",
+      "raw_sha256": "f6e3144b82b9026b57c7e8397cec2c1df0419b277d8b2fba72efe85110382751",
+      "native_file": "distance_diag_038.blend.gz"
+    },
+    {
+      "id": "distance_diag_039",
+      "file": "distance_diag_039.json.gz",
+      "sha256": "45b8b09c7ab0fabd9f32d9f2d44dc4541a0e500c97ea2f4f3654a5b1d282c586",
+      "raw_sha256": "63c26f71bb9759bd45d2d02562419484ad22918a92d541e787f1b29e9f25cb56",
+      "native_file": "distance_diag_039.blend.gz"
+    },
+    {
+      "id": "distance_diag_040",
+      "file": "distance_diag_040.json.gz",
+      "sha256": "ede2e36e3cf318a4ca1f6858b6394939141e4e5f49378718b3abdc3b9f14b665",
+      "raw_sha256": "a1c14790b8f5bc60d6bd0906cc79fad4839b97cd09f6c5167a4604db8a933376",
+      "native_file": "distance_diag_040.blend.gz"
+    },
+    {
+      "id": "distance_diag_041",
+      "file": "distance_diag_041.json.gz",
+      "sha256": "134c69eaeb815d17a2a020928e7e087809e0ef1f0567d8262fe7606a1d43858c",
+      "raw_sha256": "0b6d3ed4c9e18c0105a8a480b0aaf7f80453f4cfe49f928afb498d3eff90e72c",
+      "native_file": "distance_diag_041.blend.gz"
+    },
+    {
+      "id": "distance_diag_042",
+      "file": "distance_diag_042.json.gz",
+      "sha256": "348787ec8f1e4989306650fc4aa2230fd498fa0215da0886424e6a2701118f3a",
+      "raw_sha256": "12cd6987c35d2876e79e370fc9f2566994eff127241a1aa42e3ec304ce5c7c55",
+      "native_file": "distance_diag_042.blend.gz"
+    },
+    {
+      "id": "distance_diag_043",
+      "file": "distance_diag_043.json.gz",
+      "sha256": "5f5eee59a9d9831489c2d92fb4b35b7cbb3837cf12691803341cd1f4023618a6",
+      "raw_sha256": "5c7cb7dd0182d79c0397e1cd91bec7c04d4c38faae0497402bdba130c3284590",
+      "native_file": "distance_diag_043.blend.gz"
+    },
+    {
+      "id": "distance_diag_044",
+      "file": "distance_diag_044.json.gz",
+      "sha256": "664e94c983e56a575664dd2ceb67b05562c8c5636fbedd2ab0d437ae8692d335",
+      "raw_sha256": "05dd7ffb3e87350b023c66a478a3ff0c3bf6b9198c15b0604fcb7c6b5e6abcdb",
+      "native_file": "distance_diag_044.blend.gz"
+    },
+    {
+      "id": "distance_diag_045",
+      "file": "distance_diag_045.json.gz",
+      "sha256": "9bb700854f19116bac0d5e8e631e138ae11718892370f6983477d45e21bec5ff",
+      "raw_sha256": "c323e4dde6dba0254fd9cd19dbca8adb4f4a2faf95e1c8510bed6f5fa019b38d",
+      "native_file": "distance_diag_045.blend.gz"
+    },
+    {
+      "id": "distance_diag_046",
+      "file": "distance_diag_046.json.gz",
+      "sha256": "cbf656842551350828f0c2a5a7b1c0b7d16900bd5cf79f8b9940e93991af5c81",
+      "raw_sha256": "a37bf7299715ae58ce8ea7c9c94d3ad20b29f283e382a642b452c8d345a830ea",
+      "native_file": "distance_diag_046.blend.gz"
+    },
+    {
+      "id": "distance_diag_047",
+      "file": "distance_diag_047.json.gz",
+      "sha256": "70b93c0cb5b35fdeb6975a84f17f70149cd1c771062d4559c660553fdb6241c5",
+      "raw_sha256": "0fb38b85d873e67888914d150d98d0c0ae94b41e0950095acb63c72cd3fe5f6c",
+      "native_file": "distance_diag_047.blend.gz"
+    },
+    {
+      "id": "distance_diag_048",
+      "file": "distance_diag_048.json.gz",
+      "sha256": "4e4c50494b00d2d344431e915f44d0747aa8cefa6cb38b221dd86864b66f2743",
+      "raw_sha256": "7937f982af4c4c26c7fcf2fc569c9b542028d004379b48ef57fc5e3fd725c2eb",
+      "native_file": "distance_diag_048.blend.gz"
+    },
+    {
+      "id": "distance_diag_049",
+      "file": "distance_diag_049.json.gz",
+      "sha256": "7340f0807b34b82cd4831903a96e75532f08edb47cd969b0332246771c23234b",
+      "raw_sha256": "20fdc44b41ef92b9b71115f3cba2a0ca25916f086d4074d6bdbb898b7e2b516a",
+      "native_file": "distance_diag_049.blend.gz"
+    },
+    {
+      "id": "distance_diag_050",
+      "file": "distance_diag_050.json.gz",
+      "sha256": "d47dd9b385edf95deabc256657ca4041aff8d14217dc4c387746cce099e503cc",
+      "raw_sha256": "20b48d60c8dabbf2e5279b8452aa07f4e112e656395c5b5dbaf41c91968a6a29",
+      "native_file": "distance_diag_050.blend.gz"
+    },
+    {
+      "id": "distance_diag_051",
+      "file": "distance_diag_051.json.gz",
+      "sha256": "96ad1964c8341e13b835d172e6a3e6374f3e7376505f61c74fd42baab58fcf5d",
+      "raw_sha256": "1b4855f4230a287d38f2c6d9869e44e4ee946011195fb89b03f566113a93de71",
+      "native_file": "distance_diag_051.blend.gz"
+    },
+    {
+      "id": "distance_diag_052",
+      "file": "distance_diag_052.json.gz",
+      "sha256": "ee86c5c073e1fd9768514604df67a276c9755a8e97b279832b8f404d737b8458",
+      "raw_sha256": "7cad070764403b8828ccaf91a4b59d9244a575d6118746ca3a39b39fb266f496",
+      "native_file": "distance_diag_052.blend.gz"
+    },
+    {
+      "id": "distance_diag_053",
+      "file": "distance_diag_053.json.gz",
+      "sha256": "74c390ad6f8f837d7b807dcd8b1972b93712840f861b7c5e98afd64f0f3650dc",
+      "raw_sha256": "1a0380ca307578437881e0446bf57ee3aaab153edc29787581b098007d424ced",
+      "native_file": "distance_diag_053.blend.gz"
+    },
+    {
+      "id": "distance_diag_054",
+      "file": "distance_diag_054.json.gz",
+      "sha256": "8450565f8c1e7a471ab904b65984b9deb2924361bfc73a8b6625398143867aeb",
+      "raw_sha256": "1011dfcd2ba41afa50069443dea10dc33265225631f2c823fe8ca6feef736cca",
+      "native_file": "distance_diag_054.blend.gz"
+    },
+    {
+      "id": "distance_diag_055",
+      "file": "distance_diag_055.json.gz",
+      "sha256": "ffd113be7f5c9583e2cbc59096a6544afcc416721f8ea5382382ba813257c4cf",
+      "raw_sha256": "3dd921330417403789047a5460623855de7caafe542b0cd0e3e40a41cba9c271",
+      "native_file": "distance_diag_055.blend.gz"
+    },
+    {
+      "id": "distance_diag_056",
+      "file": "distance_diag_056.json.gz",
+      "sha256": "e5c8b860a748b6acf050276669a51f80deabdde9775b8d257f83a0ae73bd2851",
+      "raw_sha256": "d48c7016f69838e034b7662f38d0c9ba20bcf60168d18779a3859aaaafe5ba75",
+      "native_file": "distance_diag_056.blend.gz"
+    },
+    {
+      "id": "distance_diag_057",
+      "file": "distance_diag_057.json.gz",
+      "sha256": "ace726f199cbb5aa17f4b79d2def582aea742ed128534fb44d3a001faee0ee0b",
+      "raw_sha256": "9719e4a91fabd463b230027f37a4e33bbaa9fa26cab9e2045206863a04a40a7a",
+      "native_file": "distance_diag_057.blend.gz"
+    },
+    {
+      "id": "distance_diag_058",
+      "file": "distance_diag_058.json.gz",
+      "sha256": "efccf03d60f0f2a79bb685ab77f4d705bf7cc0a9644d359d0e73407da344d645",
+      "raw_sha256": "731999ef0901150be8f0f0e6466192605f123b33131ee1154e174a904003394b",
+      "native_file": "distance_diag_058.blend.gz"
+    },
+    {
+      "id": "distance_diag_059",
+      "file": "distance_diag_059.json.gz",
+      "sha256": "906daf6f02a38fc5ba8b270b263ec5d505e0417ee37881d77dbf5f3082fdf5a2",
+      "raw_sha256": "f735a2d3b736b6b1b4de240bf6765fa32f05dc401f418f12499d70c89c2d48bf",
+      "native_file": "distance_diag_059.blend.gz"
+    },
+    {
+      "id": "distance_diag_060",
+      "file": "distance_diag_060.json.gz",
+      "sha256": "21459af02badb5e4da5a121400cba6f73114d46d4c3a5c18ed6c8a8bdd5bd855",
+      "raw_sha256": "37f33d155e643d2912ab791686ec52d77f67dca0f4b3293704b94c2cba92f756",
+      "native_file": "distance_diag_060.blend.gz"
+    },
+    {
+      "id": "distance_diag_061",
+      "file": "distance_diag_061.json.gz",
+      "sha256": "13abfae8a64e064b6bf18d6dfdd17929777fbea360c98b86f677798b281b5bf7",
+      "raw_sha256": "27bacb6607233b3f68cc94db90867f60d8f5cab5ed9578f55f8bedb0ce15dc89",
+      "native_file": "distance_diag_061.blend.gz"
+    },
+    {
+      "id": "distance_diag_062",
+      "file": "distance_diag_062.json.gz",
+      "sha256": "104949790c909f73795b3f3f2bf23e76e24eea3d12d7911625db003c39c6ad3f",
+      "raw_sha256": "37510b39132ea0c976c9920af078f123fd16adfb0284e976073083f42d03788e",
+      "native_file": "distance_diag_062.blend.gz"
+    },
+    {
+      "id": "distance_diag_063",
+      "file": "distance_diag_063.json.gz",
+      "sha256": "fdbada3abbfec527997fafac1878157fc51c7366e689ecb735363903dec67c5e",
+      "raw_sha256": "4f693738cee57185a78f5c68ac258c6d34736415e03090d5b78b5d0640c8fd6e",
+      "native_file": "distance_diag_063.blend.gz"
+    },
+    {
+      "id": "distance_diag_064",
+      "file": "distance_diag_064.json.gz",
+      "sha256": "48f83483cf1d1a0cc14b661e57c16d8b1a58c858d778247597b1808893939caa",
+      "raw_sha256": "8387bc8d2f6dfa69e6b92c82bef969c80cce449dad03d4ab99bc215a3e7542b2",
+      "native_file": "distance_diag_064.blend.gz"
+    },
+    {
+      "id": "distance_diag_065",
+      "file": "distance_diag_065.json.gz",
+      "sha256": "e46a13efed199da4cf80dd5fcdeb30dfdf252f92af0fef4c130e77a3054a158b",
+      "raw_sha256": "3f7f9c93f9a99a968d3600f2bb8cb7b6850cf8e451de3ef282b08c166212a918",
+      "native_file": "distance_diag_065.blend.gz"
+    },
+    {
+      "id": "distance_diag_066",
+      "file": "distance_diag_066.json.gz",
+      "sha256": "b86a683ce3223fbf9e34fc46d1bdebeed22a0c94bcedec6bae7f86769319328c",
+      "raw_sha256": "a8ee0e2168def2648ed346d791101d7decfdb4a7f7807ac41145fef13fc369fb",
+      "native_file": "distance_diag_066.blend.gz"
+    },
+    {
+      "id": "distance_diag_067",
+      "file": "distance_diag_067.json.gz",
+      "sha256": "e100e50d1d7a6fc0ff2e3f0e0ad7a70f0836060452a8ce04f7b22a9b88772955",
+      "raw_sha256": "540cd462fa1d7c8ca235db2a2f123c7595cec8710957a4218740b6aa2b002673",
+      "native_file": "distance_diag_067.blend.gz"
+    },
+    {
+      "id": "distance_diag_068",
+      "file": "distance_diag_068.json.gz",
+      "sha256": "399e456e8f24ef473957be5afdf9594181bf0395c78c8239c777b59d66b1bd97",
+      "raw_sha256": "64597f73bc16e274ad45bae23d626249de84b8f7c345d2264eaddcf6f81101fa",
+      "native_file": "distance_diag_068.blend.gz"
+    },
+    {
+      "id": "distance_diag_069",
+      "file": "distance_diag_069.json.gz",
+      "sha256": "7e2162badca1ecb42efc476cb658c80e8d6744a25b2ce08127e0349d8f5bbad1",
+      "raw_sha256": "73c2533e20dc89fce878606975f5caf0d4950ce29e6022610be0ea4533ad490f",
+      "native_file": "distance_diag_069.blend.gz"
+    },
+    {
+      "id": "distance_diag_070",
+      "file": "distance_diag_070.json.gz",
+      "sha256": "680e284efe707e78274d024d2792e26cd958e49ada66c624eb58e620f54db9d4",
+      "raw_sha256": "7c8b84fd13ea66be9a51fb55a5ba68af4276259d14f17fdee77d3a05e9f8655d",
+      "native_file": "distance_diag_070.blend.gz"
+    },
+    {
+      "id": "distance_diag_071",
+      "file": "distance_diag_071.json.gz",
+      "sha256": "b9dd2743d993adba55e62807a160afe26cf78d68845d78c099969e01bdc686b0",
+      "raw_sha256": "207bcfda183916c6e8cd9374c15952e248d02a2c7671113cbe55db1e7ac94ebd",
+      "native_file": "distance_diag_071.blend.gz"
+    },
+    {
+      "id": "distance_diag_072",
+      "file": "distance_diag_072.json.gz",
+      "sha256": "93c40dc81b087418fbbd732c4851df58782c5101143638fbaf251e3e92f2e3bb",
+      "raw_sha256": "66daea40c803526ccdcdd1c602a1172c3183a00b553ef1ab1f6a0e00338e92fc",
+      "native_file": "distance_diag_072.blend.gz"
+    },
+    {
+      "id": "distance_diag_073",
+      "file": "distance_diag_073.json.gz",
+      "sha256": "fe58c34845436df8241358b8e1746a2847e7a3b9c4d0ef0e1ec9c4f145106b3b",
+      "raw_sha256": "e04dfd5fd9959ef02acb56b685f58009f649919d083db629f5fbc46cf5e50c0b",
+      "native_file": "distance_diag_073.blend.gz"
+    },
+    {
+      "id": "distance_diag_074",
+      "file": "distance_diag_074.json.gz",
+      "sha256": "201e0b692b9ee84a1ab04b56f84ab649f176e1af2114a046f228266d2d456872",
+      "raw_sha256": "ebcb089e0c6a45806899d76bbf90506828d005e0b499798d25a32056f711b098",
+      "native_file": "distance_diag_074.blend.gz"
+    },
+    {
+      "id": "distance_diag_075",
+      "file": "distance_diag_075.json.gz",
+      "sha256": "c9a6698b047e9e3214d67d39c7d5444da1dc1ec12806499b421b3bd66aa500f7",
+      "raw_sha256": "c39ed07feb4060ac886fd54a604ed189ae4552ac833d25f2fe321fcb81d2612b",
+      "native_file": "distance_diag_075.blend.gz"
+    },
+    {
+      "id": "distance_diag_076",
+      "file": "distance_diag_076.json.gz",
+      "sha256": "0edecf3f1fb3f805371552c9f0941e34026dcd56470722db9af1f9a71e23a308",
+      "raw_sha256": "913aab1cb34c0c318c77be0b487ff067f29a2432f86340c105d31c659d6c02e0",
+      "native_file": "distance_diag_076.blend.gz"
+    },
+    {
+      "id": "distance_diag_077",
+      "file": "distance_diag_077.json.gz",
+      "sha256": "8f4c7dcd05e40aa70eb3f8991f3fbedfb49c587d84346aebdeaeb939bc6578e4",
+      "raw_sha256": "26df7d1fa6474e5678737479e0147bf067ae5712ee46cd342325b86f2244ccff",
+      "native_file": "distance_diag_077.blend.gz"
+    },
+    {
+      "id": "distance_diag_078",
+      "file": "distance_diag_078.json.gz",
+      "sha256": "dd8c8989d057b48a1f88fd93dc96b0fb1d4899c2b58480baf2c48e453d691e2c",
+      "raw_sha256": "cd4481231ad82bea60da0a05773059cccfe4a3570f5d694f32bf67bf7caece5a",
+      "native_file": "distance_diag_078.blend.gz"
+    },
+    {
+      "id": "distance_diag_079",
+      "file": "distance_diag_079.json.gz",
+      "sha256": "6c30313d0aec74e2fa1b3cf6d03a9a62465b00e7a31c46ca7d789a2e37c9ff7b",
+      "raw_sha256": "e3a947049811af8b93b8a8841fdaf3020455c79da8398aaf3912451ee28e629d",
+      "native_file": "distance_diag_079.blend.gz"
+    },
+    {
+      "id": "distance_diag_080",
+      "file": "distance_diag_080.json.gz",
+      "sha256": "7bf5cc087b8150faae3af26ae40a74d40e8c29d47755104f61889f92bb37cfe8",
+      "raw_sha256": "d08d7167b2f856a42368e3257bf2dea6151fbc9cbe28598c64f58d18842d4463",
+      "native_file": "distance_diag_080.blend.gz"
+    },
+    {
+      "id": "distance_diag_081",
+      "file": "distance_diag_081.json.gz",
+      "sha256": "b9be11480fb6530e36d66ef7c9d316b04a30f026cbc8ad4d4fda2cc00d05e827",
+      "raw_sha256": "5b233dd257a8e0a1b87bfb45556d0bb73ea793e24548ec3ccd6467b28e67bb1b",
+      "native_file": "distance_diag_081.blend.gz"
+    },
+    {
+      "id": "distance_diag_082",
+      "file": "distance_diag_082.json.gz",
+      "sha256": "910f3ba2de436c8e78d4128aef622d85059c78a856ab0218f5690b707e92b6b7",
+      "raw_sha256": "7ac23c31cf749a1beb208f56879eb627833030323c66f2fcc6630058dfa80453",
+      "native_file": "distance_diag_082.blend.gz"
+    },
+    {
+      "id": "distance_diag_083",
+      "file": "distance_diag_083.json.gz",
+      "sha256": "98fc34f6e9944d9c95f8de7d18e6535156e73c5cc8cdc5dfad0c944ee9b2f8d3",
+      "raw_sha256": "0357de7f95c134e3ad90a4a0a996501d66e3ffcb212ee5a52715c4fe3fd21f00",
+      "native_file": "distance_diag_083.blend.gz"
+    },
+    {
+      "id": "distance_diag_084",
+      "file": "distance_diag_084.json.gz",
+      "sha256": "851d7a6da58a12cd090a28ffc7170cb26263f0d59b5c61fdad4e33ff3b6adb03",
+      "raw_sha256": "51f142f625b2e3dcda028b121e5069330a48764aef7c170a043f8441aa207f44",
+      "native_file": "distance_diag_084.blend.gz"
+    },
+    {
+      "id": "distance_diag_085",
+      "file": "distance_diag_085.json.gz",
+      "sha256": "d8a32c85bf0d13ae066083815430f822b8b015f952e4756b6f7f2b4d876fb258",
+      "raw_sha256": "726d81e76292b613f409d411d3c613c14a859ff497442b067a580c7979d52435",
+      "native_file": "distance_diag_085.blend.gz"
+    },
+    {
+      "id": "distance_diag_086",
+      "file": "distance_diag_086.json.gz",
+      "sha256": "48a6011b4a6bdb24e05d05bc82f2e5fd4bdc3d526b8a94ca834fc4faabcf9b9d",
+      "raw_sha256": "48ed73bacd5f78837dfbfbc3a4319d7bb488cc7c5bfd3f7ef4bc97e34947121d",
+      "native_file": "distance_diag_086.blend.gz"
+    },
+    {
+      "id": "distance_diag_087",
+      "file": "distance_diag_087.json.gz",
+      "sha256": "e8120bccf2ec0c0e77a679f51630f2f337319edf821663831612404a778463f0",
+      "raw_sha256": "5930caa3f0be1c824d69f7c0ef804baa30487ca670397b5f6bbd136ab42f7420",
+      "native_file": "distance_diag_087.blend.gz"
+    },
+    {
+      "id": "distance_diag_088",
+      "file": "distance_diag_088.json.gz",
+      "sha256": "a41bb9c41c6af3ad7490983b998e40bf4a13cf40accf1420c3d4a95eed71f838",
+      "raw_sha256": "c874ca60ce78876e48bd569b0d82b62e7a6eef17b2a150440d4ece7ffd3b5a7a",
+      "native_file": "distance_diag_088.blend.gz"
+    },
+    {
+      "id": "distance_diag_089",
+      "file": "distance_diag_089.json.gz",
+      "sha256": "12caa9dc1d72e1eb0af8d6df3f012e5c2c7de37b3d4049673631af289a239f11",
+      "raw_sha256": "04a9340b841a6abe2d3a2d65efe5014a900df4e50c78773e7f056db55e9ed9b6",
+      "native_file": "distance_diag_089.blend.gz"
+    },
+    {
+      "id": "distance_diag_090",
+      "file": "distance_diag_090.json.gz",
+      "sha256": "f10ec4128c42dc8ce4d49fbdfb24a87cfd7a7a77f9a5d7e05be4cfba2ffa7356",
+      "raw_sha256": "247935deeecebbef4e7ae9bf3360879f4669222191766af2384ccb698fcd1524",
+      "native_file": "distance_diag_090.blend.gz"
+    },
+    {
+      "id": "distance_diag_091",
+      "file": "distance_diag_091.json.gz",
+      "sha256": "6a249adba5bcd8577d9d87d377fd460486bfcd587f35b4d201433ddca4e38990",
+      "raw_sha256": "f4c8f89b7b5fddf71c9b7d957cc94f4d705c869d8d28af46fcfccd3cc40bae93",
+      "native_file": "distance_diag_091.blend.gz"
+    },
+    {
+      "id": "distance_diag_092",
+      "file": "distance_diag_092.json.gz",
+      "sha256": "4551ad03119b98d9c247d598794f966db185d13c6beeeb2d4ad31a0842d890f3",
+      "raw_sha256": "526a8316d73613d8c4ffc37bc55513bb47c41d76c9b3544c018419755bfa5848",
+      "native_file": "distance_diag_092.blend.gz"
+    },
+    {
+      "id": "distance_diag_093",
+      "file": "distance_diag_093.json.gz",
+      "sha256": "802b2ea7146fc5b8d4669a9936abcd6d63dde8d8f2731bbd8ec74f47a6074cc9",
+      "raw_sha256": "b07a8d4e37e37653c9504805a25504c6e6ee251a52bd8e60aefb05bf7436cef5",
+      "native_file": "distance_diag_093.blend.gz"
+    },
+    {
+      "id": "distance_diag_094",
+      "file": "distance_diag_094.json.gz",
+      "sha256": "8e08199164c291d7468dd3e1ffa585ef23bd32c1eeb944c186ef884f893fb1bb",
+      "raw_sha256": "ad057247c461ac877269183784526587f40bf153b07220e0dffa01f7ffcb9d50",
+      "native_file": "distance_diag_094.blend.gz"
+    },
+    {
+      "id": "distance_diag_095",
+      "file": "distance_diag_095.json.gz",
+      "sha256": "09fe1d2ba4af6de6172344898601cf2b0a9748fb8ad046c3a0dd85cfac23a330",
+      "raw_sha256": "93fc4267a4250c1b20eec0d2c7fc1ccff0175d81e87a389ee00a03cd001868ec",
+      "native_file": "distance_diag_095.blend.gz"
+    },
+    {
+      "id": "distance_diag_096",
+      "file": "distance_diag_096.json.gz",
+      "sha256": "a85b6a054e064cb9fef3b7d262c82513e6eb0e0ffbbce7fe3b412d390c3520e1",
+      "raw_sha256": "522cc49819a0f1958eca2369fec33c22cc2dfd66d941799110d675c62cae218b",
+      "native_file": "distance_diag_096.blend.gz"
+    },
+    {
+      "id": "distance_diag_097",
+      "file": "distance_diag_097.json.gz",
+      "sha256": "76bfca1fdc03d227cf089bb25a1098bcc1668853e0d5509c85655abe9565e285",
+      "raw_sha256": "48f1c736411a708253b0017b0a5e1fb9e54a27163938a89ff3dc94a95cb01faa",
+      "native_file": "distance_diag_097.blend.gz"
+    },
+    {
+      "id": "distance_diag_098",
+      "file": "distance_diag_098.json.gz",
+      "sha256": "cb083415f58f14140ea32fda09fa2b553bdb32d757c3a36a6cafc555a30de59e",
+      "raw_sha256": "1706e117d43e1c30dc917151c84f57b29bd5e95cd7f49cfcca8baf1482c68227",
+      "native_file": "distance_diag_098.blend.gz"
+    },
+    {
+      "id": "distance_diag_099",
+      "file": "distance_diag_099.json.gz",
+      "sha256": "8f3287d9d93adfd26dde830dfff778d7cd58f33287bf4c32e43a917dc83e4a17",
+      "raw_sha256": "4c6ce24905fd0c22cf22f5bdc2de34389184e3457173126e6edfc981915c166d",
+      "native_file": "distance_diag_099.blend.gz"
+    },
+    {
+      "id": "distance_diag_100",
+      "file": "distance_diag_100.json.gz",
+      "sha256": "5c306d4491d28b062a760e2150fa291388d283c9f6eed80a2ee0d33644058347",
+      "raw_sha256": "1c0c2667365262ec764dbeca9d6e99a14a0983347dda1cc3f6c9db61df03bd01",
+      "native_file": "distance_diag_100.blend.gz"
+    },
+    {
+      "id": "distance_diag_101",
+      "file": "distance_diag_101.json.gz",
+      "sha256": "1fd2e8f4635f4e656157cb11b7d94be69b932df163e2a098d32f7031493d5831",
+      "raw_sha256": "f772802e9ec279548c703baed5ab864c097c7545ecb4d6b7b1a0b26c3ea39ac7",
+      "native_file": "distance_diag_101.blend.gz"
+    },
+    {
+      "id": "distance_diag_102",
+      "file": "distance_diag_102.json.gz",
+      "sha256": "4c683eb7c0dfc7b4a5e433109d1b25f0f3f0f384033cb38e332c8b3611886680",
+      "raw_sha256": "198ca282713c8bd2077912765b70151df7f22ea04cf64257730b042c5f20955e",
+      "native_file": "distance_diag_102.blend.gz"
+    },
+    {
+      "id": "distance_diag_103",
+      "file": "distance_diag_103.json.gz",
+      "sha256": "ad37ca73736ae3463cd7fc099d214d3266b32f81eb1aeae95282b38321d6bd00",
+      "raw_sha256": "0b8621f5279946f5f855564fd3923b03d2514ca5acfafa14009aaf6ad63c6d2e",
+      "native_file": "distance_diag_103.blend.gz"
+    },
+    {
+      "id": "distance_diag_104",
+      "file": "distance_diag_104.json.gz",
+      "sha256": "de20b3033a33188f06a02bd52186b4e37a696f93c6f569139201c7c26c7947de",
+      "raw_sha256": "95851b0efc035c7f73c9641e29fa3e7b8033e5408f9d5180a5c84968241e6234",
+      "native_file": "distance_diag_104.blend.gz"
+    },
+    {
+      "id": "distance_diag_105",
+      "file": "distance_diag_105.json.gz",
+      "sha256": "e9256b2f55f1bb7234c17df46672aaa3aa400fde7e6f588fa8376c41285f6d9f",
+      "raw_sha256": "d8e3015d3b28a5ba42c55b4ae84876d089b65bfc4c46e8b1f4fc6f4e971fa542",
+      "native_file": "distance_diag_105.blend.gz"
+    },
+    {
+      "id": "distance_diag_106",
+      "file": "distance_diag_106.json.gz",
+      "sha256": "7c909143cf684548b3fcc57e365e189c8441f604e1f90a35fc7329e25b9a52b2",
+      "raw_sha256": "ecbfe01ec844007cd17a7b59c765080f60bfb1839e11fd2d258dc9c7dd1b898e",
+      "native_file": "distance_diag_106.blend.gz"
+    },
+    {
+      "id": "distance_diag_107",
+      "file": "distance_diag_107.json.gz",
+      "sha256": "94d01cde4d15079bb4c1da277cda70d852c83ee62b93b22895421228c0608e87",
+      "raw_sha256": "74ea7120131c7915bec53901feb4acc08dad855177cc16813dd0ac8926fbdb40",
+      "native_file": "distance_diag_107.blend.gz"
+    },
+    {
+      "id": "distance_diag_108",
+      "file": "distance_diag_108.json.gz",
+      "sha256": "5ff403d12c1583ab7084766f81bca9f57419212e9a94c80fd4e1133ed937b0ae",
+      "raw_sha256": "6a00bd60d546614a403ca42140b30e3356b8df08dedaa6861a233a4838e044dd",
+      "native_file": "distance_diag_108.blend.gz"
+    },
+    {
+      "id": "distance_diag_109",
+      "file": "distance_diag_109.json.gz",
+      "sha256": "2124dfafd655816155a941b84e1d7ef9fb3cc395a65e2af73964917f8c88d605",
+      "raw_sha256": "627f8bdce6deec4d7a0aee3cf04a320174ded88e51b3fc120cb74d71bce0311d",
+      "native_file": "distance_diag_109.blend.gz"
+    },
+    {
+      "id": "distance_diag_110",
+      "file": "distance_diag_110.json.gz",
+      "sha256": "979313dfd96ed440ac07a1fdb52cace270c1a9dd47d0bb8686cd4aa37e283b1a",
+      "raw_sha256": "78e9756eacb6734c9bfc32aa9bfa57708901e74de6d2728268494ebd44767372",
+      "native_file": "distance_diag_110.blend.gz"
+    },
+    {
+      "id": "distance_diag_111",
+      "file": "distance_diag_111.json.gz",
+      "sha256": "6d3b547393473dd5a490a591387e69779e223c0fbefd10da2fdbae3d273f81fd",
+      "raw_sha256": "fabf1e37e9005e44c2faf49edc498bf2e84830fe24f282ec8b468381cb727f65",
+      "native_file": "distance_diag_111.blend.gz"
+    },
+    {
+      "id": "distance_diag_112",
+      "file": "distance_diag_112.json.gz",
+      "sha256": "c5f8494c8576126b5b01851f3ad0e545b72a738fdc26e95c4bfa91ab502bbfdd",
+      "raw_sha256": "5285a834c135c4b91e32da0906aaec6f77f066448b96a756ac5539e20b0ec89f",
+      "native_file": "distance_diag_112.blend.gz"
+    },
+    {
+      "id": "distance_diag_113",
+      "file": "distance_diag_113.json.gz",
+      "sha256": "55cc75ab7341d3767c160da0850f6a8e1b49250f12566726b9b64775ca60d3fc",
+      "raw_sha256": "2bdfe6a2edd614ff12fb7db9fe10d285c799d1fe43b777fd44efdd0ef4b50cde",
+      "native_file": "distance_diag_113.blend.gz"
+    },
+    {
+      "id": "distance_diag_114",
+      "file": "distance_diag_114.json.gz",
+      "sha256": "f17d4a6bd89c741ad6918945dcddbaa8ef47a6b1b8a7207eb80c957d952a03b4",
+      "raw_sha256": "352443193f31857be66f1589d55ff97edf5911a7b80f876a9f24a47aa660c58a",
+      "native_file": "distance_diag_114.blend.gz"
+    },
+    {
+      "id": "distance_diag_115",
+      "file": "distance_diag_115.json.gz",
+      "sha256": "f85546d696df2fb1987b47ec6d42cf383aa30da13bcfc035437b9177f131a47f",
+      "raw_sha256": "1131c2f8c81e4e7bf3c9f972a1a56ad514b68e23ceed5e908c7ac3cb48adc4ab",
+      "native_file": "distance_diag_115.blend.gz"
+    }
+  ],
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun"
+}

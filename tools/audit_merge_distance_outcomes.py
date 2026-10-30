@@ -23,6 +23,16 @@ def outcome(run, spec, value):
         return {'id': run['id'], 'operation': 'rejected_no_operation', 'numeric_match_claimed': False,
                 'data': [], 'cancelled': False, 'source_defect': False}
     assert value['result'] == {'status': ['FINISHED'], 'error': None}, 'finished source input status'
+    if conversion['classification'] == 'native_nonfinite_source_probe':
+        if conversion['native_token'] == 'nan': same(value['before'], value['after'], 'native-nan-source-data', 0.)
+        else:
+            for owner in spec['object_context']['edit_objects']:
+                mesh = spec['mesh_assets'][spec['data_sharing'][owner]]
+                result = vertex_result(mesh, selection(mesh, spec, True), conversion['parameters'])
+                same(result['vertices'], value['after']['meshes'][owner]['geometry']['vertices'], 'native-infinite-source-data/'+owner)
+        return {'id': run['id'], 'operation': 'finished_native_nonfinite_probe', 'numeric_match_claimed': False,
+                'native_token': conversion['native_token'], 'data': [], 'cancelled': False, 'source_defect': False,
+                'json_numeric_input_admitted': False}
     data = []
     for owner in spec['object_context']['edit_objects']:
         mesh = spec['mesh_assets'][spec['data_sharing'][owner]]
