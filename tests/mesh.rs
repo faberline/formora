@@ -55,6 +55,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
         selection_topology: false,
         normals: false,
         world: false,
+        object_state: false,
     }
     .inspect(&restored)
     .unwrap();
@@ -67,6 +68,7 @@ fn stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_
             selection_topology: false,
             normals: false,
             world: false,
+            object_state: false,
         }
         .inspect(&restored)
         .is_err()
