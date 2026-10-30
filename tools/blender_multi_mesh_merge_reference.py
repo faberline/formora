@@ -44,6 +44,11 @@ def create_mesh(name, asset):
                      [[index[id] for id in pair] for pair in asset['edges'].values()],
                      [[index[id] for id in face['vertices']]
                       for face in asset['polygons'].values()])
+    # from_pydata can select new components. Set the authored empty state
+    # explicitly, including the outside mesh that never enters edit mode.
+    for items in [mesh.vertices, mesh.edges, mesh.polygons]:
+        for item in items:
+            item.select = False
     for table, domain in zip(TABLES, ['POINT', 'EDGE', 'FACE']):
         for name, values in asset['integer_attributes'][table].items():
             attribute = mesh.attributes.new(name, 'INT', domain)

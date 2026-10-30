@@ -51,6 +51,9 @@ attribute names unique by adding suffixes. Preserve that failed run.
 Use explicit domain-specific signed and duplicate-value layer names in the
 revised inputs. Keep all values, domains, cases and comparison limits.
 This fixes input authoring. It does not accept the failed diagnostic.
+The expanded 313-case diagnostic then exposed selected components on the
+outside mesh. Set its authored empty selection explicitly during creation.
+Keep that failed diagnostic and keep the empty-selection assertion.
 
 Before a later Rust extension, freeze two attributed class-A grids, each with
 10,201 vertices, 20,200 edges and 10,000 quads. Freeze actual native results
