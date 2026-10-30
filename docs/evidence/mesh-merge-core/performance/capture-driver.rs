@@ -15,10 +15,9 @@ fn main() {
     std::fs::create_dir(output).unwrap();
     let input_path = authored.join("authored-grid.json");
     let input = Scene::load(&input_path).unwrap();
-    let forms: Value = serde_json::from_slice(
-        &std::fs::read(authored.join("authored-forms.json")).unwrap(),
-    )
-    .unwrap();
+    let forms: Value =
+        serde_json::from_slice(&std::fs::read(authored.join("authored-forms.json")).unwrap())
+            .unwrap();
     assert_eq!(forms["total_samples"], 30);
     assert_eq!(forms["samples_per_form"], 3);
     assert_eq!(forms["maximum_core_ms"], 250);
@@ -32,10 +31,16 @@ fn main() {
         (mesh.vertices.len(), mesh.edges.len(), mesh.polygons.len()),
         (10201, 20200, 10000)
     );
-    assert_eq!(mesh.editing.as_ref().unwrap().selected.vertices.len(), 10201);
+    assert_eq!(
+        mesh.editing.as_ref().unwrap().selected.vertices.len(),
+        10201
+    );
     let raw = serde_json::to_value(mesh).unwrap();
     assert_eq!(raw["uv_layout"]["layers"], json!(["Detail", "Layout"]));
-    assert_eq!(raw["integer_attributes"]["vertices"]["signed_label"]["v000000"], -24);
+    assert_eq!(
+        raw["integer_attributes"]["vertices"]["signed_label"]["v000000"],
+        -24
+    );
     assert_eq!(raw["vertex_weights"]["v000000"]["pin"], 0.);
     assert_eq!(raw["vertex_weights"]["v000001"]["pin"], 1.);
     assert_eq!(input.entities["target"].transform.translation, [0.; 3]);
@@ -120,11 +125,15 @@ fn main() {
         let file = format!("report-{name}.json");
         let report = json!({"passed":passed,"form":name,"samples":3,"runs":runs,
                             "product_acceptance":"unrun","milestone_acceptance":"unrun"});
-        std::fs::write(output.join(&file), serde_json::to_vec_pretty(&report).unwrap()).unwrap();
+        std::fs::write(
+            output.join(&file),
+            serde_json::to_vec_pretty(&report).unwrap(),
+        )
+        .unwrap();
         groups.push(json!({"form":name,"file":file,"passed":passed}));
     }
-    let passed = all_runs.len() == 30 && groups.len() == 10
-        && groups.iter().all(|g| g["passed"] == true);
+    let passed =
+        all_runs.len() == 30 && groups.len() == 10 && groups.iter().all(|g| g["passed"] == true);
     let summary = json!({"passed":passed,"profile":"release","process_id":std::process::id(),
         "groups":groups,"runs":all_runs,"samples":30,
         "timing_method":"one process, all frozen forms; full input/result validation in both clocks",
