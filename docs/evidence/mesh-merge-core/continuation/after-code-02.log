@@ -1,0 +1,47 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.34s
+     Running tests/creation_contexts.rs (/private/tmp/formora-merge-target-actual185/debug/deps/creation_contexts-bbb7285aadb86c1d)
+
+running 7 tests
+test legacy_json_remains_unchanged_and_context_is_queryable_and_undoable ... ok
+test parent_world_frames_and_shared_assets_preserve_entity_ownership ... ok
+test receipts_are_ordered_real_components_and_created_objects_are_editable ... ok
+test collisions_singular_targets_budgets_and_invalid_batches_leave_no_undo ... ok
+test regenerate_keeps_the_creation_frame_after_context_changes_and_reload ... ok
+test creation_save_failure_has_no_receipt_memory_change_or_undo_entry ... ok
+test existing_triangle_ids_uvs_materials_and_implicit_edges_survive_insertion ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running tests/integer_attribute_interpolation.rs (/private/tmp/formora-merge-target-actual185/debug/deps/integer_attribute_interpolation-6f84d815759d6465)
+
+running 5 tests
+test unchanged_singleton_retains_full_i32_data_and_overflow_is_atomic ... ok
+test missing_or_duplicate_contributors_do_not_write_any_partial_layer ... ok
+test a_missing_late_layer_value_does_not_publish_an_earlier_interpolation ... ok
+test duplicate_integer_values_do_not_identify_or_remove_components ... ok
+test signed_half_values_follow_the_fixed_source_and_leave_other_ids_and_domains ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/mesh.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh-16bcc15865d4f54b)
+
+running 5 tests
+test invalid_geometry_attributes_and_dangling_references_are_rejected ... ok
+test fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs ... ok
+test duplicate_component_layer_asset_and_edit_ids_are_rejected ... ok
+test stable_ids_coincident_vertices_corner_attributes_and_shared_references_round_trip ... ok
+test failure_preserves_disk_memory_and_undo_and_reference_deletion_is_atomic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/polygons.rs (/private/tmp/formora-merge-target-actual185/debug/deps/polygons-1c5830762e98cedb)
+
+running 5 tests
+test collinear_and_coincident_corners_are_only_removed_from_preview ... ok
+test crossing_projection_fails_instead_of_publishing_partial_triangles ... ok
+test polygon_validation_rejects_broken_topology_corner_data_and_uv_layout ... ok
+test topology_uv_order_loose_edges_and_nonmanifold_connections_round_trip_and_undo ... ok
+test concave_faces_keep_winding_area_and_notch_across_planes_scales_and_order ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+

@@ -1,0 +1,46 @@
+{
+  "before_code_commit": "114bbfbe",
+  "product_path": "src/mesh/attributes.rs",
+  "product_sha256": "d9d5eff17d7074665429b2bb9e2a0fe720daafc551e65a33b1e34f217b84a04b",
+  "rustc": "1.85.0",
+  "target": "/private/tmp/formora-merge-target-actual185",
+  "after_code_01": "five interpolation tests passed; mesh suite stopped on omitted sparse fixture; not a complete pass",
+  "after_code_02": {
+    "exit_code": 0,
+    "passed": 22,
+    "ignored": 0,
+    "suites": [
+      "integer_attribute_interpolation",
+      "mesh",
+      "creation_contexts",
+      "polygons"
+    ]
+  },
+  "fixture_recovery": "included two unchanged Git baseline mesh-primitives files in sparse checkout; tests unchanged",
+  "clippy_02": {
+    "exit_code": 0,
+    "scope": "--lib -- -D warnings"
+  },
+  "fmt_01": {
+    "exit_code": 0
+  },
+  "full_merge_tests": "unrun; required merges API still missing",
+  "whole_product_acceptance": "unrun",
+  "files": {
+    "docs/evidence/mesh-merge-core/continuation/after-code-01.log": {
+      "sha256": "e0616bd15a6e6f24c742d899c4a7e8925fb57bc2d933d705a4c710b55a84a8e9"
+    },
+    "docs/evidence/mesh-merge-core/continuation/after-code-02.log": {
+      "sha256": "13ce7b1a965227ed646dc62cf8d9135477d61b87235fa23abef63a410fd92b18"
+    },
+    "docs/evidence/mesh-merge-core/continuation/clippy-01.stderr": {
+      "sha256": "7da21da0c3d31416da27b2a960e36a8cc7f1899b913ab1df308993c372f52a4f"
+    },
+    "docs/evidence/mesh-merge-core/continuation/clippy-02.log": {
+      "sha256": "9d892c5778d0c975f64a671e66ea5a753502353da3addd1dfdf3825225e406a2"
+    },
+    "docs/evidence/mesh-merge-core/continuation/fmt-01.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}
