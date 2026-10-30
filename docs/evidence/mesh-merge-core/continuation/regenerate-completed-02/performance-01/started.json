@@ -1,0 +1,73 @@
+{
+  "command": [
+    "/private/tmp/formora-merge-regen-performance-driver-01",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/performance",
+    "/private/tmp/formora-merge-regen-performance-01/samples"
+  ],
+  "native_process_id": 63476,
+  "bindings": {
+    "implementation": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+    "head": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+    "driver": "/private/tmp/formora-merge-regen-performance-driver-01",
+    "driver_sha256": "481ed81e9c6a301c670f000da29dcb3deab84cf7cb70e1a66f3b61f72d361816",
+    "library": "/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+    "library_sha256": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+    "sealed_inputs": {
+      "docs/contracts/mesh-merge-core.md": "add12089435972c9efc5b87638de47ea567fa6e31596cb2438a7ffb71fd207fc",
+      "tests/mesh_merge.rs": "084e368882d9a32d3e98497ff1b44fa8ab2c6e91130fbe9f7300cc2a15bc71b0",
+      "docs/evidence/mesh-merge-core/performance/author-inputs.py": "2fc3dc00249201dba405e8fb9bfe2c39f7caeabbb63f277fd958aa2b88269896",
+      "docs/evidence/mesh-merge-core/performance/authored-grid.json": "e2f1cae31fff704f5730f93a193796bbb3d56832fff3e8c857604823159db97f",
+      "docs/evidence/mesh-merge-core/performance/authored-forms.json": "1b351a305087b4efea88d805de8f0a3e85e3b469f90e3846ff03b0ed5874b069",
+      "docs/evidence/mesh-merge-core/performance/blender-grid-reference.py": "685ee27e6a9bc19fd1534d2eef7565283cb452e4e48b41b9fdbd4e5f881319a9",
+      "docs/evidence/mesh-merge-core/performance/capture-driver.rs": "247a0988c964d1e6b5e289dab3c8148ca8db72feea20a4240bc8f7a238a9ac91",
+      "docs/evidence/mesh-merge-core/performance/check-source.py": "4caf3936bd1a9ee47eee81de40be5a16034506c436263018020a67b597e50767"
+    },
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: aarch64-apple-darwin\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+    "all_samples_required": 30,
+    "discarded_warmup_samples": 0,
+    "maximum_core_ms": 250,
+    "maximum_pipeline_ms": 2000,
+    "host_before": {
+      "uptime": {
+        "command": [
+          "uptime"
+        ],
+        "exit": 0,
+        "stdout": "16:41  up 2 days,  5:45, 2 users, load averages: 27.90 24.87 23.16\n",
+        "stderr": ""
+      },
+      "model": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.model"
+        ],
+        "exit": 0,
+        "stdout": "MacBookPro18,2\n",
+        "stderr": ""
+      },
+      "memory": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "exit": 0,
+        "stdout": "68719476736\n",
+        "stderr": ""
+      },
+      "cpu_activity": {
+        "command": [
+          "ps",
+          "-A",
+          "-o",
+          "pcpu="
+        ],
+        "exit": 0,
+        "stdout": "  0.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 17.2\n  0.5\n  0.0\n  0.0\n  1.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  8.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.2\n  0.0\n  0.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.7\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  5.9\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.6\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  5.5\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.2\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  3.4\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.2\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.4\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 21.6\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  5.8\n  1.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  7.2\n  5.3\n  1.8\n  0.1\n  0.0\n  6.7\n  0.1\n  5.7\n  0.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  4.2\n  0.2\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  5.5\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  6.7\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  1.2\n  0.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  5.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  1.4\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  2.8\n  0.6\n  8.7\n 14.8\n  0.0\n  0.0\n  0.0\n  2.5\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  2.6\n  0.0\n  4.2\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n102.5\n  8.0\n  0.0\n  0.0\n  0.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 61.1\n 64.8\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.2\n  3.0\n  4.8\n  0.0\n  0.0\n  0.2\n  0.0\n",
+        "stderr": ""
+      }
+    }
+  },
+  "started_ns": 182081166479375
+}

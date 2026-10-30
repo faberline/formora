@@ -1,0 +1,54 @@
+[
+  {
+    "name": "delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/gpu-driver.py",
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-gpu-01/delta"
+    ],
+    "process_id": 97511,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "1246e49f37810be909afde4b40299c529de636b2d4c466f32c09ef4b46ca1123",
+    "report_sha256": "cadbcb2e7714ef0d2a52ad468608a9e343d0a8cd5d54622de286f8bf1af9b1ff"
+  },
+  {
+    "name": "raw",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/gpu-driver.py",
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "/private/tmp/formora-merge-regen-retained-gpu-01/raw"
+    ],
+    "process_id": 97774,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "96de3b70136ff8e719e40fa4de87eff8de72bcbabd2cd1968cabe92d02597169",
+    "report_sha256": "c981b23616ba19cdc66eb07aa086d4a31c2014d11e2f7c268938add50a26692f"
+  },
+  {
+    "name": "rng",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/regenerate-retained-gpu-rng-01.py"
+    ],
+    "process_id": 97956,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "298f4a16d267eb8469065767a25e9fb01d414825680456b81c9745d431f70f4e",
+    "report_sha256": "0d19d52e29317608a34493cc55ddfcf027e415b3b26688b717dc844fcf155f79"
+  },
+  {
+    "name": "mirror",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/regenerate-retained-gpu-mirror-01.py"
+    ],
+    "process_id": 98120,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "1e45926a67b22efce87d8956d54d3327c06fa6e186285ec20c0eed0ee45ab491",
+    "report_sha256": "a137a9a4a937ec486ed63c4c02c69e7d0bce98928514a278355bca9eb966a166"
+  }
+]

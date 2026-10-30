@@ -1,0 +1,260 @@
+[
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "apply",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--request",
+      "-"
+    ],
+    "request": {
+      "expected_revision": 0,
+      "commands": [
+        {
+          "operation": "create_entity",
+          "id": "camera",
+          "entity": {
+            "name": "camera",
+            "parent": null,
+            "transform": {
+              "translation": [
+                20.0,
+                3.5,
+                5.5
+              ],
+              "rotation": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "content": {
+              "kind": "camera",
+              "vertical_fov_degrees": 45.0,
+              "near": 0.1,
+              "far": 100.0
+            }
+          }
+        },
+        {
+          "operation": "set_active_camera",
+          "id": "camera"
+        },
+        {
+          "operation": "create_entity",
+          "id": "light",
+          "entity": {
+            "name": "light",
+            "parent": null,
+            "transform": {
+              "translation": [
+                12.0,
+                6.0,
+                10.0
+              ],
+              "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            "content": {
+              "kind": "light",
+              "color": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "intensity": 3.0
+            }
+          }
+        }
+      ]
+    },
+    "exit": 0,
+    "stdout": "{\"revision\":1}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"revision\":1,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.7071067811865476,0.0,0.7071067811865476],\"scale\":[1.0,1.0,1.0],\"translation\":[20.0,3.5,5.5]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":3.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[12.0,6.0,10.0]}},\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":\"paint\"},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":\"paint\"},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{\"paint\":{\"base_color\":[0.95,0.25,0.08,1.0],\"metallic\":0.0,\"roughness\":0.55}},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":1,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--mesh-asset",
+      "mesh",
+      "--normals"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"bc\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"bc\":[\"b\",\"c\"],\"cd\":[\"c\",\"d\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"f\",\"a\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"i\",\"g\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"c\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\",\"c\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"bc\":22,\"cd\":33,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"c\":0,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"c\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"normal\":[0.0,0.0,1.0],\"smooth\":false,\"uv_layers\":{\"Detail\":[[2.0,2.0],[3.0,1.0],[-2.0,-2.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-2.0,1.0],[-1.0,3.0],[0.0,-1.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.0,\"soft\":0.25},\"c\":{\"pin\":1.0,\"soft\":0.75}},\"vertices\":{\"a\":[0.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"c\":[2.0,0.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"p\",\"kind\":\"polygon\"},\"normal\":[0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"t\",\"kind\":\"triangle\"},\"normal\":[0.0,0.0,1.0]}]},\"revision\":1}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--output",
+      "/private/tmp/formora-merge-regen-gpu-01/before.png",
+      "--width",
+      "640",
+      "--height",
+      "480"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-merge-regen-gpu-01/before.png\",\"width\":640}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "apply",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--request",
+      "-"
+    ],
+    "request": {
+      "expected_revision": 1,
+      "commands": [
+        {
+          "operation": "merge_mesh",
+          "merge": {
+            "entity": "owner",
+            "method": "center",
+            "uvs": true
+          }
+        }
+      ]
+    },
+    "exit": 0,
+    "stdout": "{\"merges\":[{\"after\":{\"corners\":7,\"edges\":8,\"faces\":2,\"vertices\":8},\"before\":{\"corners\":9,\"edges\":9,\"faces\":2,\"vertices\":9},\"changed\":{\"edges\":[\"ab\",\"fa\",\"ig\"],\"faces\":[{\"id\":\"p\",\"kind\":\"polygon\"}],\"vertices\":[\"a\"]},\"command_index\":0,\"created\":{\"edges\":[\"merge_edge_0\"],\"faces\":[],\"vertices\":[]},\"entity\":\"owner\",\"mesh_asset\":\"mesh\",\"method\":\"center\",\"reason\":null,\"removed\":{\"edges\":[\"bc\",\"cd\"],\"faces\":[],\"vertices\":[\"c\"]},\"shared_instances\":[\"owner\",\"shared\"],\"source_to_survivor\":{\"edges\":{\"ab\":\"ab\",\"bc\":\"ab\",\"cd\":\"merge_edge_0\",\"de\":\"de\",\"ef\":\"ef\",\"fa\":\"fa\",\"gh\":\"gh\",\"hi\":\"hi\",\"ig\":\"ig\"},\"faces\":[{\"source\":{\"id\":\"p\",\"kind\":\"polygon\"},\"survivors\":[{\"id\":\"p\",\"kind\":\"polygon\"}]},{\"source\":{\"id\":\"t\",\"kind\":\"triangle\"},\"survivors\":[{\"id\":\"t\",\"kind\":\"triangle\"}]}],\"vertices\":{\"a\":\"a\",\"b\":\"b\",\"c\":\"a\",\"d\":\"d\",\"e\":\"e\",\"f\":\"f\",\"g\":\"g\",\"h\":\"h\",\"i\":\"i\"}},\"status\":\"finished\",\"uvs\":true}],\"revision\":2}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"revision\":2,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.7071067811865476,0.0,0.7071067811865476],\"scale\":[1.0,1.0,1.0],\"translation\":[20.0,3.5,5.5]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":3.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[12.0,6.0,10.0]}},\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":\"paint\"},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":\"paint\"},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{\"paint\":{\"base_color\":[0.95,0.25,0.08,1.0],\"metallic\":0.0,\"roughness\":0.55}},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--mesh-asset",
+      "mesh",
+      "--normals"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"p\",\"kind\":\"polygon\"},\"normal\":[-0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"t\",\"kind\":\"triangle\"},\"normal\":[0.0,0.0,1.0]}]},\"revision\":2}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--output",
+      "/private/tmp/formora-merge-regen-gpu-01/after.png",
+      "--width",
+      "640",
+      "--height",
+      "480"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-merge-regen-gpu-01/after.png\",\"width\":640}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"revision\":2,\"scene\":{\"active_camera\":\"camera\",\"annotations\":[],\"doors\":{},\"entities\":{\"camera\":{\"content\":{\"far\":100.0,\"kind\":\"camera\",\"near\":0.1,\"vertical_fov_degrees\":45.0},\"name\":\"camera\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.7071067811865476,0.0,0.7071067811865476],\"scale\":[1.0,1.0,1.0],\"translation\":[20.0,3.5,5.5]}},\"light\":{\"content\":{\"color\":[1.0,1.0,1.0],\"intensity\":3.0,\"kind\":\"light\"},\"name\":\"light\",\"parent\":null,\"transform\":{\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[12.0,6.0,10.0]}},\"owner\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":\"paint\"},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}},\"parent\":{\"content\":{\"kind\":\"empty\"},\"name\":\"Parent\",\"parent\":null,\"transform\":{\"rotation\":{\"angles\":[0.0,0.0,1.5707963267948966],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[2.0,3.0,4.0],\"translation\":[1.0,2.0,3.0]}},\"shared\":{\"content\":{\"geometry\":{\"id\":\"mesh\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":\"paint\"},\"name\":\"Owner\",\"parent\":\"parent\",\"transform\":{\"rotation\":{\"angles\":[1.5707963267948966,0.0,0.0],\"kind\":\"euler\",\"order\":\"xyz\"},\"scale\":[1.0,1.0,1.0],\"translation\":[0.5,-0.25,0.125]}}},\"materials\":{\"paint\":{\"base_color\":[0.95,0.25,0.08,1.0],\"metallic\":0.0,\"roughness\":0.55}},\"mesh_assets\":{\"mesh\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}}},\"revision\":2,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "scene",
+      "inspect",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--mesh-asset",
+      "mesh",
+      "--normals"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"id\":\"mesh\",\"mesh_asset\":{\"edge_seams\":[\"ab\"],\"edges\":{\"ab\":[\"a\",\"b\"],\"de\":[\"d\",\"e\"],\"ef\":[\"e\",\"f\"],\"fa\":[\"a\",\"f\"],\"gh\":[\"g\",\"h\"],\"hi\":[\"h\",\"i\"],\"ig\":[\"g\",\"i\"],\"merge_edge_0\":[\"a\",\"d\"]},\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"a\"]}},\"integer_attributes\":{\"edges\":{\"tag\":{\"ab\":11,\"de\":44,\"ef\":55,\"fa\":66,\"gh\":77,\"hi\":88,\"ig\":99,\"merge_edge_0\":33}},\"polygons\":{\"tag\":{\"p\":42}},\"triangles\":{\"tag\":{\"t\":77}},\"vertices\":{\"signed\":{\"a\":-1,\"b\":2,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9},\"tag\":{\"a\":7,\"b\":7,\"d\":3,\"e\":4,\"f\":5,\"g\":6,\"h\":8,\"i\":9}}},\"material_slots\":[],\"polygons\":{\"p\":{\"corner_normals\":null,\"material_slot\":null,\"normal\":null,\"smooth\":false,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0],[-1.0,0.0]],\"Layout\":[[-1.0,0.0],[0.123456789012345,0.5],[1.0,0.25],[-0.5,2.0]]},\"vertices\":[\"a\",\"d\",\"e\",\"f\"]}},\"triangles\":{\"t\":{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"material_slot\":null,\"uv_layers\":{\"Detail\":[[0.0,0.0],[1.0,0.0],[0.0,1.0]],\"Layout\":[[0.111111111111111,0.222222222222222],[1.0,0.0],[0.0,1.0]]},\"vertices\":[\"g\",\"h\",\"i\"]}},\"uv_layout\":{\"active\":\"Detail\",\"layers\":[\"Layout\",\"Detail\"]},\"vertex_groups\":[\"pin\",\"soft\"],\"vertex_weights\":{\"a\":{\"pin\":0.5,\"soft\":0.5}},\"vertices\":{\"a\":[1.0,0.0,0.0],\"b\":[1.0,-1.0,0.0],\"d\":[2.0,1.0,0.0],\"e\":[1.0,2.0,0.0],\"f\":[0.0,1.0,0.0],\"g\":[-2.0,0.0,0.0],\"h\":[-1.0,0.0,0.0],\"i\":[-2.0,1.0,0.0]}},\"normals\":{\"faces\":[{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"p\",\"kind\":\"polygon\"},\"normal\":[-0.0,0.0,1.0]},{\"corner_normals\":[[0.0,0.0,1.0],[0.0,0.0,1.0],[0.0,0.0,1.0]],\"face\":{\"id\":\"t\",\"kind\":\"triangle\"},\"normal\":[0.0,0.0,1.0]}]},\"revision\":2}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+      "--output",
+      "/private/tmp/formora-merge-regen-gpu-01/reloaded.png",
+      "--width",
+      "640",
+      "--height",
+      "480"
+    ],
+    "request": null,
+    "exit": 0,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-merge-regen-gpu-01/reloaded.png\",\"width\":640}\n",
+    "stderr": ""
+  }
+]

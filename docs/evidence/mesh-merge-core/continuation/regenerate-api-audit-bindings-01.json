@@ -1,0 +1,9 @@
+{
+  "original": "docs/evidence/mesh-merge-core/continuation/audit-full-api-03.py",
+  "original_sha256": "8bd3d38cebf0940a00c7cd99870755a5c681bd461b48aa171716511387ec4a8f",
+  "copy_sha256": "209aca97537ab2fb126b4c97994359b5e641b150acc3e377c04fa6802f30c207",
+  "changes": "current binary and fresh output bindings; unchanged setup/request assertions moved into a helper used by every actual record; four extra source-leakage/case/missing-terminal rejection controls use that same helper; original seven full-report controls retained",
+  "assertions_removed": false,
+  "numeric_limits_changed": false,
+  "forged_records_sent_to_product": false
+}

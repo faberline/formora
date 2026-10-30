@@ -1,0 +1,106 @@
+{
+  "archive_valid": true,
+  "files": 10,
+  "records": [
+    {
+      "source": "/private/tmp/formora-merge-regen-api-audit-01/report.json",
+      "archive": "api-audit/report.json",
+      "raw_sha256": "6518d03ed6357fe97cc79cf8a3bf14a8f57a3be3dad07d92fda73b8e55783217",
+      "raw_bytes": 750601,
+      "sha256": "6518d03ed6357fe97cc79cf8a3bf14a8f57a3be3dad07d92fda73b8e55783217",
+      "bytes": 750601,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-api-audit-01.stdout",
+      "archive": "process-logs/formora-merge-regen-api-audit-01.stdout",
+      "raw_sha256": "7a3ef859984124527c04674dfa4cc389afbdf5b610f3d8888d284647e748674a",
+      "raw_bytes": 409,
+      "sha256": "7a3ef859984124527c04674dfa4cc389afbdf5b610f3d8888d284647e748674a",
+      "bytes": 409,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-api-audit-01.stderr",
+      "archive": "process-logs/formora-merge-regen-api-audit-01.stderr",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-api-controls-01.stderr",
+      "archive": "process-logs/formora-merge-regen-api-controls-01.stderr",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-api-controls-01.json",
+      "archive": "process-logs/formora-merge-regen-api-controls-01.json",
+      "raw_sha256": "913710988f95ba0306588fc2c78b37b3d72e86e2724d55c64512c3ed31743929",
+      "raw_bytes": 1274,
+      "sha256": "913710988f95ba0306588fc2c78b37b3d72e86e2724d55c64512c3ed31743929",
+      "bytes": 1274,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-physical-controls-01.stderr",
+      "archive": "process-logs/formora-merge-regen-physical-controls-01.stderr",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-physical-controls-01.json",
+      "archive": "process-logs/formora-merge-regen-physical-controls-01.json",
+      "raw_sha256": "9f471e8168a94622c7f9f5fe9e37cfc6a51c54883884193a41a03f40f11d3268",
+      "raw_bytes": 1343,
+      "sha256": "9f471e8168a94622c7f9f5fe9e37cfc6a51c54883884193a41a03f40f11d3268",
+      "bytes": 1343,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-retained-audit-delta-01.stdout",
+      "archive": "process-logs/formora-merge-regen-retained-audit-delta-01.stdout",
+      "raw_sha256": "4247a44936a18319f9ddd3b12ff897c03a71051f67be22eb76d26fcd05aabfb8",
+      "raw_bytes": 1350,
+      "sha256": "4247a44936a18319f9ddd3b12ff897c03a71051f67be22eb76d26fcd05aabfb8",
+      "bytes": 1350,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-retained-audit-delta-01.stderr",
+      "archive": "process-logs/formora-merge-regen-retained-audit-delta-01.stderr",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "encoding": "original bytes"
+    },
+    {
+      "source": "/private/tmp/formora-merge-regen-retained-api-audit-01/delta.json",
+      "archive": "retained-delta-audit.json",
+      "raw_sha256": "0824f484dd10a4e897636261c2ec3ecffee6c7f70866dbc40c314499a7493715",
+      "raw_bytes": 1206,
+      "sha256": "0824f484dd10a4e897636261c2ec3ecffee6c7f70866dbc40c314499a7493715",
+      "bytes": 1206,
+      "encoding": "original bytes"
+    }
+  ],
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "new_2048_raw_source_audit_passed": true,
+  "new_full_report_and_authorship_negative_controls": 11,
+  "api_and_physical_negative_controls": 20,
+  "measured_setup_leak_control": "measured product-result mesh spliced into canonical setup; raw MCP arguments forged to match; canonical authored-input check rejects it; no forged record is executed by the product",
+  "retained_first_3584_raw_audit_passed": true,
+  "retained_all_14326_gate": "running",
+  "retained_all_14326_raw_audit": "not yet complete",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

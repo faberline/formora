@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "time_seconds": 0.0,
+  "entities": {
+    "anchor": {
+      "name": "Analytic delta",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -0.5,
+          0.25,
+          -0.125
+        ],
+        "rotation": {
+          "kind": "channels",
+          "channels": {
+            "mode": "xyz",
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              0.5,
+              -0.5,
+              0.5,
+              0.5
+            ],
+            "axis_angle": [
+              0.71,
+              -3.0,
+              2.0,
+              4.0
+            ]
+          }
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.25,
+            0.125,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            1.5707963267948966
+          ],
+          "quaternion_wxyz": [
+            -2.0,
+            0.0,
+            0.0,
+            -2.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "target": {
+      "name": "Analytic delta",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -0.375,
+          0.625,
+          -0.125
+        ],
+        "rotation": {
+          "kind": "channels",
+          "channels": {
+            "mode": "xyz",
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              0.5,
+              -0.5,
+              0.5,
+              0.5
+            ],
+            "axis_angle": [
+              0.71,
+              -3.0,
+              2.0,
+              4.0
+            ]
+          }
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            1.5707963267948966
+          ],
+          "quaternion_wxyz": [
+            -2.0,
+            0.0,
+            0.0,
+            -2.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    }
+  },
+  "materials": {},
+  "doors": {},
+  "active_camera": null,
+  "annotations": [],
+  "authoring_context": {
+    "cursor_location": [
+      1.25,
+      -0.75,
+      0.5
+    ],
+    "cursor_rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cursor_orientation": {
+      "mode": "xyz",
+      "euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quaternion_wxyz": [
+        0.5,
+        -0.5,
+        0.5,
+        0.5
+      ],
+      "axis_angle": [
+        0.71,
+        -3.0,
+        2.0,
+        4.0
+      ]
+    },
+    "view_rotation": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "object_context": {
+    "order": [
+      "target",
+      "anchor"
+    ],
+    "selected": [
+      "anchor",
+      "target"
+    ],
+    "active": "anchor",
+    "edit_objects": [],
+    "states": {},
+    "skip_children": false,
+    "origins_only": false
+  }
+}

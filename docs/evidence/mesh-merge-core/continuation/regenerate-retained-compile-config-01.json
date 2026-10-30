@@ -1,0 +1,102 @@
+[
+  {
+    "name": "90",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+      "--edition",
+      "2024",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/capture-driver-one-process.rs",
+      "-o",
+      "/private/tmp/formora-merge-regen-retained-90-driver-01",
+      "-L",
+      "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+      "--extern",
+      "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+      "--extern",
+      "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+    ],
+    "driver_source_sha256": "2986aa4061ad2c7601463533eca53a49a99b9d42e3e4100600ef48627151b4bf"
+  },
+  {
+    "name": "single",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+      "--edition",
+      "2024",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/legacy-single-driver.rs",
+      "-o",
+      "/private/tmp/formora-merge-regen-retained-single-driver-01",
+      "-L",
+      "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+      "--extern",
+      "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+      "--extern",
+      "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+    ],
+    "driver_source_sha256": "857be0a1ed33a7164c9a8045241e9c899d1fd889d4c5d73c0e87d3b779d9ae5d"
+  },
+  {
+    "name": "transform",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+      "--edition",
+      "2024",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/legacy-transform-driver.rs",
+      "-o",
+      "/private/tmp/formora-merge-regen-retained-transform-driver-01",
+      "-L",
+      "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+      "--extern",
+      "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+      "--extern",
+      "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+    ],
+    "driver_source_sha256": "14aab843190d88368d0322986f9fb0ddc2b72b9add5bbde8f2cf56fec3394510"
+  },
+  {
+    "name": "rotation",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+      "--edition",
+      "2024",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/performance/capture-driver-02.rs",
+      "-o",
+      "/private/tmp/formora-merge-regen-retained-rotation-driver-01",
+      "-L",
+      "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+      "--extern",
+      "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+      "--extern",
+      "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+    ],
+    "driver_source_sha256": "125e7510aabeb825773e718c7b280ccac2cb4e3b25d2ededfc1a8b390984aaf7"
+  },
+  {
+    "name": "delta",
+    "command": [
+      "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+      "--edition",
+      "2024",
+      "-C",
+      "opt-level=3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/capture-driver.rs",
+      "-o",
+      "/private/tmp/formora-merge-regen-retained-delta-driver-01",
+      "-L",
+      "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+      "--extern",
+      "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+      "--extern",
+      "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+    ],
+    "driver_source_sha256": "235bc04921abe40c09007561eea46597d61a773f61aaf433c7104a2c8a573c05"
+  }
+]

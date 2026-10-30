@@ -1,0 +1,14 @@
+
+running 9 tests
+test history::removed_only_history_does_not_create_a_center_survivor_entry ... ok
+test history::explicit_history_endpoint_keeps_its_actual_original_entry ... ok
+test history::disconnected_components_keep_only_the_original_survivor_history_flags ... ok
+test history::an_original_survivor_history_flag_keeps_the_first_mapped_entry_once ... ok
+test history::removed_only_history_does_not_create_a_collapse_survivor_entry ... ok
+test uv::an_unselected_triangle_outside_f32_uv_range_remains_untouched ... ok
+test uv::untouched_triangle_uv_normals_and_integer_data_remain_exact ... ok
+test uv::unselected_surviving_polygon_uv_keeps_its_stored_f64_value ... ok
+test uv::heldout_split_attributes_shared_frames_and_undo_use_the_actual_core ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,78 @@
+{
+  "class": "B",
+  "edges_per_mesh": 20200,
+  "faces_per_mesh": 10000,
+  "form": "cursor-grid",
+  "grid": [
+    100,
+    100
+  ],
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun",
+  "passed": true,
+  "profile": "release",
+  "runs": [
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 21445559708,
+      "core_ms": 107.431791,
+      "core_start_ns": 21338127917,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 251.631458,
+      "passed": true,
+      "pipeline_end_ns": 21819950833,
+      "pipeline_start_ns": 21568319375,
+      "receipt_equal": true,
+      "sample": 1
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 21992895458,
+      "core_ms": 106.544625,
+      "core_start_ns": 21886350833,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 258.667167,
+      "passed": true,
+      "pipeline_end_ns": 22375263167,
+      "pipeline_start_ns": 22116596000,
+      "receipt_equal": true,
+      "sample": 2
+    },
+    {
+      "action": {
+        "kind": "cursor_to_grid",
+        "spacing": 0.75
+      },
+      "class": "B",
+      "core_end_ns": 22550305792,
+      "core_ms": 107.468,
+      "core_start_ns": 22442837792,
+      "form": "cursor-grid",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 251.462416,
+      "passed": true,
+      "pipeline_end_ns": 22920943208,
+      "pipeline_start_ns": 22669480792,
+      "receipt_equal": true,
+      "sample": 3
+    }
+  ],
+  "samples": 3,
+  "vertices_per_mesh": 10201
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "source": "retained-compile-config-01.json",
+    "source_sha256": "5e113eb7e790dae5ae9ddbc953fbbd4015de088aba76e0df2bf076c33c2a0f58",
+    "copy": "regenerate-retained-compile-config-01.json",
+    "copy_sha256": "96b11013510e33a86244af69053540fe9e6c766b2aca7b2bb1e587fef2f74885",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-compile-01.py",
+    "source_sha256": "bf1ff60a502b0cef3fff07509bc9dd338f70e2e6713e9a401653d29c166a2015",
+    "copy": "regenerate-retained-compile-01.py",
+    "copy_sha256": "f26445440f511ed9134f5b89c2ec238d85d3a72b1d8c8d128dd2a5fae9a13fa5",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-run-90-01.py",
+    "source_sha256": "d72926438ca6de5ce0a8733204a15534c84f7d739074e408385a00a816fa01bc",
+    "copy": "regenerate-retained-run-90-01.py",
+    "copy_sha256": "d1871baf9f6d733a9136247bb17d4930f82dd46bb30b7cd3718f2aa2b4040eb0",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-run-39-01.py",
+    "source_sha256": "f80acd06557ae174d29f5e2e76bacda3927d2d7c41b1ef0843f041f3d314e2d2",
+    "copy": "regenerate-retained-run-39-01.py",
+    "copy_sha256": "434a52002b97b4d0aebff4c4be64c9c14d1b581110c5e68469bf332b9d0aa224",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-run-rotation-01.py",
+    "source_sha256": "4716bdf9e7d95fa1e0b21002238bf7b9ce2df398875cc52770c5c83fccb8d715",
+    "copy": "regenerate-retained-run-rotation-01.py",
+    "copy_sha256": "0df501b49696f0742fd16220fbb4c658845c86a6237f5dcf7c9061f627b5f717",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-run-delta-01.py",
+    "source_sha256": "79c8c53b6502953e03f81d7a86c9edba9ea343a8e60052e62552fd0b7f110d4c",
+    "copy": "regenerate-retained-run-delta-01.py",
+    "copy_sha256": "a9557994b360d4b8da45063bda45675a9945cf442fb9f44429a7f5b4eb3b94d7",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-timing-controller-01.py",
+    "source_sha256": "bb8483e8d2ce6dfc6bc8778a10e6dc4c343bcd275a26eb37bdfedc3543c84587",
+    "copy": "regenerate-retained-timing-controller-01.py",
+    "copy_sha256": "91c4275833dbfe62d4d099d1dfbe83d9bdf37f35b064452a46f0499eddeeb6b6",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "retained-compare-all-sources-01.py",
+    "source_sha256": "e5fa2e3fd8dbf8335891f95abf7ea1abd19018d6083ca02fc99dbce01abf1f50",
+    "copy": "regenerate-retained-compare-all-sources-01.py",
+    "copy_sha256": "6475d4c75a83e4dab6dc02ab151aa4989defa565c25c546ef1931b4f69097b81",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "run-performance-04.py",
+    "source_sha256": "10bb630efd71e5f6f5cf7beea73592d4e39f93bcf7bb231f01993fb1e5d87452",
+    "copy": "regenerate-run-performance-01.py",
+    "copy_sha256": "d68f94d22bca24266f65dfd2420321b05be70f21e550e409660f054dc0cf60bc",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  },
+  {
+    "source": "compare-performance-04.py",
+    "source_sha256": "0fee0924bb253aa45ecfd77b28fb272307a0aed8c7dd3c734b472ca4786f6597",
+    "copy": "regenerate-compare-performance-01.py",
+    "copy_sha256": "ea359667c91b73f726bf9c0f3923b46a92fbca113a442a5e0347b10148b97e95",
+    "changes": "only actual implementation/library/executable, controller and fresh output bindings; original native driver sources, workloads, clocks, validations and limits unchanged"
+  }
+]

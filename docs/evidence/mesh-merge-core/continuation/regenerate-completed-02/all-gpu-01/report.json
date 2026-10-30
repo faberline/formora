@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "name": "merge",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/regenerate-gpu-proof-01.py"
+      ],
+      "process_id": 97212,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report_sha256": "a760bba6576346c81ebc3dd5555007f09460e856149d80a7de03ebc4918404db"
+    },
+    {
+      "name": "retained4",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/regenerate-retained-gpu-01.py"
+      ],
+      "process_id": 97507,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report_sha256": "5d73ee8ab94c41a590b7423a3cc38df3c1ab4bb71786f8f12445f993f3f885fa"
+    }
+  ],
+  "implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "product_acceptance": "unrun"
+}

@@ -1,0 +1,14 @@
+{
+  "native_process_id": 88741,
+  "terminal_exit": 0,
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-p",
+    "(version 1) (allow default) (deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\") (subpath \"/private/tmp/formora-mesh-merge-sparse\") (regex #\"^/(private/)?tmp/formora-merge-(regen-)?(api|pilot|performance|retained|recipe)\"))\n",
+    "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+    "scene",
+    "serve",
+    "--scene",
+    "/private/tmp/formora-merge-regen-failed-save-01/scene.json"
+  ]
+}

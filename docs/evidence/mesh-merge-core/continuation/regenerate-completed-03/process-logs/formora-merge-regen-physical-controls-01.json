@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "control": "position",
+      "rejected": true,
+      "error": "no matching physical vertex and data: {'v000000': []}"
+    },
+    {
+      "control": "edge",
+      "rejected": true,
+      "error": "no bijective physical topology match"
+    },
+    {
+      "control": "uv",
+      "rejected": true,
+      "error": "component differs: saved mesh/geometry/uv_layers/UVMap/f000000/0/0: 0.125 != 0.135"
+    },
+    {
+      "control": "integer",
+      "rejected": true,
+      "error": "no matching physical vertex and data: {'v000000': []}"
+    },
+    {
+      "control": "history",
+      "rejected": true,
+      "error": "array differs: saved mesh/history"
+    },
+    {
+      "control": "duplicate",
+      "rejected": true,
+      "error": "vertex count differs"
+    },
+    {
+      "control": "normal",
+      "rejected": true,
+      "error": "component differs: saved mesh/normals/corners/f000000/0/0: 0.0 != 0.01"
+    },
+    {
+      "control": "world",
+      "rejected": true,
+      "error": "component differs: saved mesh/world_vertices/v000000/0: 0.5 != 0.51"
+    },
+    {
+      "control": "winding",
+      "rejected": true,
+      "error": "('oriented face match differs', 'f000000', [])"
+    }
+  ],
+  "numeric_limit_changed": false,
+  "source_answers_replaced": false,
+  "product_acceptance": "unrun"
+}

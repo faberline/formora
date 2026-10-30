@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "changed_pixels": 16155,
+  "gpu": [
+    "Apple M1 Max (Metal, IntegratedGpu)",
+    "Apple M1 Max (Metal, IntegratedGpu)",
+    "Apple M1 Max (Metal, IntegratedGpu)"
+  ],
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "binary_sha256": "0f1923e013d95d8b19a4c16bb5e05b949aa5c8f359dd93d869707b0146c1411d",
+  "product_implementation": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "authored_input_sha256": "6656d8c4ac81015c1a1ee028361a0126ab4b534778d9a3d86e7da1f9e3d7c9e9",
+  "actual_shared_asset_and_topology_checked": true,
+  "unselected_triangle_preserved": true,
+  "fresh_process_reload_and_render_identical": true,
+  "render_processes": [
+    {
+      "command": [
+        "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+        "render",
+        "--scene",
+        "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+        "--output",
+        "/private/tmp/formora-merge-regen-gpu-01/before.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-merge-regen-gpu-01/before.png\",\"width\":640}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+        "render",
+        "--scene",
+        "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+        "--output",
+        "/private/tmp/formora-merge-regen-gpu-01/after.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-merge-regen-gpu-01/after.png\",\"width\":640}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/private/tmp/formora-merge-regen-allfeatures-actual185/debug/formora",
+        "render",
+        "--scene",
+        "/private/tmp/formora-merge-regen-gpu-01/scene.json",
+        "--output",
+        "/private/tmp/formora-merge-regen-gpu-01/reloaded.png",
+        "--width",
+        "640",
+        "--height",
+        "480"
+      ],
+      "request": null,
+      "exit": 0,
+      "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":480,\"output\":\"/private/tmp/formora-merge-regen-gpu-01/reloaded.png\",\"width\":640}\n",
+      "stderr": ""
+    }
+  ],
+  "native_cli_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "artifacts": {
+    ".scene.json.formora.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before.png": "bce46ce0e1801aff22e74668f25b0181c1acbcb6abc276c250aad8f4bd0ff4bb",
+    "reloaded.png": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1",
+    "after.png": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1",
+    "before-scene.json": "08ecd9db51e53d67d1d950bb0beb862dc91ded2245659ad21fc733b23579fe4c",
+    "after-scene.json": "4238fed9e1aff1be82a9722314bfe18232732898e3d5deeb15745e80ae4b40d4",
+    "queries.json": "6698dc3c872fdad4a04532c6bc70bb44786cfb13e8ca456e49cf5f5e221e7e99",
+    "scene.json": "4238fed9e1aff1be82a9722314bfe18232732898e3d5deeb15745e80ae4b40d4",
+    "reloaded-scene.json": "4238fed9e1aff1be82a9722314bfe18232732898e3d5deeb15745e80ae4b40d4",
+    "calls.json": "5064e62c1b337b0b2e9bb3c27b2c0743d87c6406e809b04ef3c1b87429c4ad9e"
+  },
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}
