@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_singular_diagnostic.py",
+    "--",
+    "--suite",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-singular.json",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-baseline/diagnostic-02"
+  ],
+  "started_utc": "2026-10-30T00:32:59.693655+00:00",
+  "launcher_sha256": "df8929c1495f88786245cf510c10da5fa2879e7c206bfe3677f4c98545b8e387",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "capture": "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-baseline/diagnostic-02",
+  "terminal_exit_code": 0,
+  "process_id": 27123,
+  "finished_utc": "2026-10-30T00:33:28.131875+00:00",
+  "manifest_sha256": "2340d848fe7a9150661e57150cec58211daa6e3ab229e652ce28ad81a8914e19",
+  "capture_lock_sha256": "56f8929de30b5c344dd32f1021530e186fd8ad3bcd136b96f0174c4ab7f7b3e2",
+  "stdout_sha256": "3e8b13d35a38de0fbd2a86cfac1e01085989db398eaaea63324a672c9b0812d1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

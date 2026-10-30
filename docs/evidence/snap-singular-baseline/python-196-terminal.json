@@ -1,0 +1,17 @@
+{
+  "command": [
+    "env",
+    "PYTHONPATH=/private/tmp/formora-mcp-sdk-2",
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools/tests"
+  ],
+  "tool_session_id": 74586,
+  "terminal_exit_code": 0,
+  "tests": 196,
+  "log_sha256": "8bdcfa9295c072d211ffc1f5bb223477903150c6e2412215370358697128f7b2",
+  "product_acceptance": "unrun"
+}
