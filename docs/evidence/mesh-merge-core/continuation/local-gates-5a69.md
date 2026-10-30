@@ -40,10 +40,13 @@ Object-mode regeneration keeps its exact existing result.
   All 30 new saved outputs passed physical source comparison.
   The 30 new samples reached 165.107084 ms core against 250 ms,
   and 188.131583 ms operation/save/reload against 2,000 ms.
-  The 177 retained physical source comparisons are still running.
+  All 177 retained physical source comparisons also passed.
+  All 207 timing and physical source checks passed on this build.
 - Nine native unseen tests passed with source and prior-answer reads denied.
   Nineteen native calls passed actual failed-save rollback and fresh reload.
   Four additional native controls proved denial of current and prior answer files.
+  The six frozen regeneration tests also passed with that native denial policy.
+  This includes all 60 generator/mode/preview combinations.
 - Seven retained source-denied suites, five retained local lifecycle suites,
   48 fresh CLI RNG cases and six exact Euler-order checks passed.
 - All five native Metal proofs passed on the repaired preview executable.
@@ -63,7 +66,7 @@ The release library SHA-256 is
 The preview executable SHA-256 is
 `0f1923e013d95d8b19a4c16bb5e05b949aa5c8f359dd93d869707b0146c1411d`.
 
-The three `regenerate-completed-*` manifests bind archived files to their
+The four `regenerate-completed-*` manifests bind archived files to their
 original bytes and SHA-256. Large JSON files use lossless gzip.
 Original files and the older failed and successful trials remain intact.
 Evidence at implementation 224a4360 is historical evidence for that build.
@@ -71,11 +74,12 @@ It does not pass gates on this repaired build.
 
 ## Still required
 
-Finish the retained physical source comparisons and complete retained
-interface/asset run. Audit and archive all required raw records.
+Finish the complete retained interface/asset run.
+Audit and archive all required raw records.
 Three-platform CI, dependency integration and independent Codex acceptance
-remain unpassed. Verified older CI jobs stopped before their first step due
-to the GitHub account payment or spending-limit restriction.
+remain unpassed. At published evidence head 509b71d9, six CI jobs stopped
+before their first step due to the GitHub account payment or spending-limit
+restriction. Raw jobs and annotations are in `ci-repaired-head-509b-01/`.
 Later-head CI is not accepted.
 
 Keep #72 and #76 open with `agy:doing`.

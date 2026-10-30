@@ -1,0 +1,47 @@
+{
+  "checker": "docs/evidence/scene-snap-core/performance/compare-performance.py",
+  "checker_sha256": "b3c1955f3ebe137925363161e6c73134337cd8c42c39dcf038eb757714b10302",
+  "changed_assertions": false,
+  "path_bindings": [
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-menu.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/baseline/fixtures/snap-menu.json",
+      "sha256": "739609dff0ec611641783010c1ad0ea7c076f3d492e5f012a243f2f27ec1a9c4"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/blender-grid-reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/blender-grid-reference.py",
+      "sha256": "3d8d68f6eea8e7c2ccbe10ab6324744150b072f114b65de9dac8a9a7c1ef3e74"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples/input-A.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples/input-A.json",
+      "sha256": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples/input-B.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples/input-B.json",
+      "sha256": "d10ba60aec9b520c563b187226d54619b67cbbefd64b6b5e8aa9a50148198b51"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/samples/input-C.json",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/samples/input-C.json",
+      "sha256": "4a5a566461e482e0088b611d60541849121c7fb429578ec1fb4f1958353e427a"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_selection_reference.py",
+      "sha256": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_snap_menu_reference.py",
+      "sha256": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e"
+    },
+    {
+      "captured_path": "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py",
+      "actual_path": "/private/tmp/formora-mesh-merge-sparse/tools/blender_transform_reference.py",
+      "sha256": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386"
+    }
+  ]
+}

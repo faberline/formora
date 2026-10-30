@@ -1,0 +1,110 @@
+[
+  {
+    "name": "retained-scene-90",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-source-relocation-01.py",
+      "scene",
+      "--binary",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-merge-regen-retained-90-01/samples",
+      "--source",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/scene-snap-core/performance/source-gzip",
+      "--controller",
+      "/private/tmp/formora-merge-regen-retained-90-01/controller-report.json",
+      "--output",
+      "/private/tmp/formora-merge-regen-retained-source-01/retained-scene-90.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 97099,
+    "expected_samples": 90,
+    "actual_samples": 90,
+    "passed": true,
+    "report_sha256": "82517d43c30055e7fb37b9d8766538fe8c3f32962f573f9e412b1c98d6753013"
+  },
+  {
+    "name": "retained-rotation-24",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-source-relocation-01.py",
+      "rotation",
+      "--binary",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-merge-regen-retained-rotation-01/samples",
+      "--source",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/performance/source",
+      "--controller",
+      "/private/tmp/formora-merge-regen-retained-rotation-01/controller-report.json",
+      "--output",
+      "/private/tmp/formora-merge-regen-retained-source-01/retained-rotation-24.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 70698,
+    "expected_samples": 24,
+    "actual_samples": 24,
+    "passed": true,
+    "report_sha256": "1293c1519def664d6cf8fb6ce5643ed2abb2137b9a9867f2b75d33c7e68cd204"
+  },
+  {
+    "name": "retained-delta-24",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-source-relocation-01.py",
+      "delta",
+      "--binary",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-merge-regen-retained-delta-01/samples",
+      "--source",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/source",
+      "--controller",
+      "/private/tmp/formora-merge-regen-retained-delta-01/controller-report.json",
+      "--output",
+      "/private/tmp/formora-merge-regen-retained-source-01/retained-delta-24.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 96691,
+    "expected_samples": 24,
+    "actual_samples": 24,
+    "passed": true,
+    "report_sha256": "eca9eab1a9d65e440fd8ec2fe8a5daefb5b92c382586d4076ac236f662445ad1"
+  },
+  {
+    "name": "retained-single-30",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/tools/compare_snap_performance.py",
+      "--binary",
+      "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-merge-regen-retained-39-01/single",
+      "--source",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-snap-core/performance/source",
+      "--output",
+      "/private/tmp/formora-merge-regen-retained-source-01/retained-single-30.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 20490,
+    "expected_samples": 30,
+    "actual_samples": 30,
+    "passed": true,
+    "report_sha256": "c71bd897a10d15288708002ec426c70f7e9eb9410aac4d8a3b0eab3cb2954042"
+  },
+  {
+    "name": "retained-transform-9",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/performance/compare-retained-transform.py",
+      "/private/tmp/formora-merge-regen-retained-39-01/transform",
+      "/private/tmp/formora-merge-regen-retained-source-01/retained-transform-9.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 32362,
+    "expected_samples": 9,
+    "actual_samples": 9,
+    "passed": true,
+    "report_sha256": "a2d66e6765f0aadaf710e59153ff5aded862970622d64a2c1d97f9cce5d99bb4"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "pid": 70698,
+  "command": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-source-relocation-01.py",
+    "rotation",
+    "--binary",
+    "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+    "--samples",
+    "/private/tmp/formora-merge-regen-retained-rotation-01/samples",
+    "--source",
+    "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/performance/source",
+    "--controller",
+    "/private/tmp/formora-merge-regen-retained-rotation-01/controller-report.json",
+    "--output",
+    "/private/tmp/formora-merge-regen-retained-source-01/retained-rotation-24.json"
+  ]
+}
