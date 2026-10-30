@@ -1,0 +1,38 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.12s
+     Running tests/mesh_merge_receipts.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh_merge_receipts-378a1c00369a282f)
+
+running 3 tests
+test successful_collapse_without_selected_edges_clears_nonvertex_mode_flags ... FAILED
+test an_existing_survivor_edge_reports_its_real_geometric_change ... FAILED
+test explicit_endpoint_keeps_its_stored_f64_position_without_an_extra_round_trip ... FAILED
+
+failures:
+
+---- successful_collapse_without_selected_edges_clears_nonvertex_mode_flags stdout ----
+
+thread 'successful_collapse_without_selected_edges_clears_nonvertex_mode_flags' panicked at tests/mesh_merge_receipts.rs:52:5:
+assertion failed: asset.editing.as_ref().unwrap().selected.vertices.is_empty()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- an_existing_survivor_edge_reports_its_real_geometric_change stdout ----
+
+thread 'an_existing_survivor_edge_reports_its_real_geometric_change' panicked at tests/mesh_merge_receipts.rs:40:5:
+assertion failed: result.merges[0].changed.edges.contains("ac")
+
+---- explicit_endpoint_keeps_its_stored_f64_position_without_an_extra_round_trip stdout ----
+
+thread 'explicit_endpoint_keeps_its_stored_f64_position_without_an_extra_round_trip' panicked at tests/mesh_merge_receipts.rs:30:5:
+assertion `left == right` failed
+  left: [0.12345679104328156, -0.23456789553165436, 0.3456788957118988]
+ right: [0.123456789012345, -0.234567890123456, 0.345678901234567]
+
+
+failures:
+    an_existing_survivor_edge_reports_its_real_geometric_change
+    explicit_endpoint_keeps_its_stored_f64_position_without_an_extra_round_trip
+    successful_collapse_without_selected_edges_clears_nonvertex_mode_flags
+
+test result: FAILED. 0 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test mesh_merge_receipts`
