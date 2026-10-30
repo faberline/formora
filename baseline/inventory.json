@@ -40836,9 +40836,11 @@
       "product": "blender",
       "title": "Merge",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/editing/mesh/merge.html#bpy-ops-mesh-merge",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "The mesh.merge operator anchor is assigned to explicit source-code/RNA/native cases. Full parameter/data/capacity domains and the other page anchors remain required. Inclusion is not acceptance.",
+      "feature_ids": [
+        "mesh.merge"
+      ]
     },
     {
       "id": "blender:95cb5f91cc6a1fe109fd",

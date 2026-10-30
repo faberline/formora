@@ -1,0 +1,20 @@
+test_all_actual_pilot_records (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_all_actual_pilot_records) ... ok
+test_capture_tags_are_compared_separately (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_capture_tags_are_compared_separately) ... ok
+test_duplicate_inherited_tags_do_not_drop_vertices (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_duplicate_inherited_tags_do_not_drop_vertices) ... ok
+test_false_sharing_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_false_sharing_is_rejected) ... ok
+test_inactive_uv_layer_is_required (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_inactive_uv_layer_is_required) ... ok
+test_missing_case_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_missing_case_is_rejected) ... ok
+test_missing_or_failed_terminal_exit_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_missing_or_failed_terminal_exit_is_rejected) ... ok
+test_missing_topology_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_missing_topology_is_rejected) ... ok
+test_same_process_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_same_process_is_rejected) ... ok
+test_unexpected_enum_rejection_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_unexpected_enum_rejection_is_rejected) ... ok
+test_uv_difference_is_compared (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_uv_difference_is_compared) ... ok
+test_wrong_capture_input_hash_is_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_wrong_capture_input_hash_is_rejected) ... ok
+test_wrong_history_endpoint_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_wrong_history_endpoint_rejected) ... ok
+test_wrong_merge_position_rejected (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_wrong_merge_position_rejected) ... ok
+test_zero_weight_is_bound_to_authored_input (tools.tests.test_mesh_merge_native_reference.MergeNativeControls.test_zero_weight_is_bound_to_authored_input) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.160s
+
+OK

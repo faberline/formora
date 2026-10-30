@@ -1,0 +1,35 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.37s
+     Running tests/baseline.rs (/private/tmp/formora-target-actual185/debug/deps/baseline-6b98b528c7762416)
+
+running 28 tests
+test case_symlinks_cannot_leave_the_repository ... ok
+test build_evidence_cannot_bypass_the_artifact_hash_pin ... ok
+test complete_contract_does_not_claim_product_acceptance ... ok
+test exclusion_requires_a_reason_and_cannot_also_claim_coverage ... ok
+test case_identity_and_numeric_tolerances_are_checked ... ok
+test duplicate_feature_and_source_ids_are_rejected ... ok
+test an_empty_catalog_cannot_pass ... ok
+test case_paths_cannot_leave_the_repository ... ok
+test floating_latest_manual_is_rejected ... ok
+test included_source_needs_coverage ... ok
+test build_evidence_must_identify_a_measured_executable ... ok
+test incomplete_retrieval_cannot_be_declared_complete ... ok
+test missing_build_probe_keeps_the_strict_baseline_closed ... ok
+test legacy_lock_schema_cannot_claim_the_full_build_baseline ... ok
+test incomplete_upstream_inventory_cannot_pass_even_when_known_sources_are_covered ... ok
+test patch_product_versions_use_the_matching_manual_family ... ok
+test pending_feature_review_is_not_readiness ... ok
+test pending_source_keeps_strict_gate_closed ... ok
+test source_artifact_tampering_is_rejected ... ok
+test source_cannot_claim_a_nonexistent_feature ... ok
+test removing_an_upstream_source_cannot_reduce_the_acceptance_scope ... ok
+test source_manifest_cannot_be_replaced_without_updating_its_pin ... ok
+test unknown_fields_are_not_silently_ignored ... ok
+test unknown_or_wrong_version_sources_are_rejected ... ok
+test incomplete_or_prerelease_product_versions_cannot_be_frozen_as_stable ... ok
+test tests_require_actions_assertions_and_evidence ... ok
+test hash_pinned_build_evidence_must_match_the_declared_reference ... ok
+test cli_distinguishes_invalid_incomplete_and_ready_contracts ... ok
+
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.30s
+
