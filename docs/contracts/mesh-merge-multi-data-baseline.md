@@ -45,6 +45,13 @@ visited twice, history substitution, missing cases and failed/missing exits.
 Source answers must never enter authored operation setup.
 Source capture alone does not pass Rust CLI/MCP or product acceptance.
 
+Diagnostic authoring correction: the first 28-case run finished natively,
+but all 28 initial bindings failed. Blender made repeated cross-domain
+attribute names unique by adding suffixes. Preserve that failed run.
+Use explicit domain-specific signed and duplicate-value layer names in the
+revised inputs. Keep all values, domains, cases and comparison limits.
+This fixes input authoring. It does not accept the failed diagnostic.
+
 Before a later Rust extension, freeze two attributed class-A grids, each with
 10,201 vertices, 20,200 edges and 10,000 quads. Freeze actual native results
 for five methods and both UV settings. Run three measured samples per form.

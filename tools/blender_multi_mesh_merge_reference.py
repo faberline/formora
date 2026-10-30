@@ -18,6 +18,7 @@ from mathutils import Euler
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import blender_mesh_merge_reference as single
+from multi_mesh_merge_inputs import input_paths
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAINS = ['VERT', 'EDGE', 'FACE']
@@ -33,29 +34,6 @@ def write(path, value):
     with path.open('x') as output:
         json.dump(value, output, indent=2, allow_nan=False)
         output.write('\n')
-
-
-def input_paths(suite_path):
-    names = [
-        'tools/blender_multi_mesh_merge_reference.py',
-        'tools/compare_multi_mesh_merge_reference.py',
-        'tools/launch_multi_mesh_merge_reference.py',
-        'tools/generate_multi_mesh_merge_cases.py',
-        'tools/blender_mesh_merge_reference.py',
-        'tools/blender_snap_menu_reference.py',
-        'tools/blender_transform_reference.py',
-        'tools/blender_selection_reference.py',
-        'docs/contracts/mesh-merge-multi-data-baseline.md',
-        'baseline/lock.json',
-        'baseline/sources/mesh-merge-multi-data/manifest.json',
-        'baseline/sources/mesh-merge-multi-data/object_edit.cc',
-        'baseline/sources/mesh-merge-multi-data/BKE_layer.hh',
-        'baseline/sources/mesh-merge/manifest.json',
-        'baseline/sources/mesh-merge/editmesh_tools.cc',
-        'baseline/sources/scene-snap-core/layer_utils.cc',
-        'baseline/sources/scene-snap-core/layer.cc',
-    ]
-    return [suite_path, *[ROOT / name for name in names]]
 
 
 def create_mesh(name, asset):

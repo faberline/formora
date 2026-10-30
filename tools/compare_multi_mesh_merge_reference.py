@@ -15,6 +15,7 @@ from compare_transform_reference import finite
 from compare_mesh_merge_reference import (validate_state_full, expected_positions,
                                          match_positions)
 from generate_multi_mesh_merge_cases import author
+from multi_mesh_merge_inputs import input_paths
 
 ROOT = Path(__file__).resolve().parents[1]
 BINARY = 'de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619'
@@ -288,7 +289,9 @@ def load_capture(folder, suite_path, runs, focused):
     require(digest(folder/'operator-properties.json') == manifest['operator_properties_sha256'], 'RNA differs')
     inputs = manifest['input_hashes']
     require(inputs.get(suite_path.relative_to(ROOT).as_posix()) == digest(suite_path), 'suite hash differs')
-    require(len(inputs) == 18, 'provenance file set differs')
+    expected_paths = input_paths(suite_path)
+    require(set(inputs) == {p.relative_to(ROOT).as_posix() for p in expected_paths},
+            'provenance file set differs')
     for relative, sha in inputs.items():
         path = ROOT/relative
         require(path.resolve().is_relative_to(ROOT) and digest(path) == sha, 'capture input drift/' + relative)
