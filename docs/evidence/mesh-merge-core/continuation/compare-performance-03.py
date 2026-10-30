@@ -41,8 +41,9 @@ source_report['scope']='unchanged source checker revalidated after product imple
 source_report['path_relocations_only']=resolutions
 write_json(OUTPUT/'fresh-source-check.json',source_report)
 controller=read_json(SAMPLES.parent/'report.json');summary=read_json(SAMPLES/'timing-summary.json')
-assert controller['passed'] and controller['terminal_exit_code']==0 and controller['actual_samples']==30 and controller['inputs_unchanged']
-assert summary['passed'] and summary['process_id']==controller['native_process_id'] and len(summary['runs'])==30
+assert controller['terminal_exit_code'] in [0,1] and controller['actual_samples']==30 and controller['inputs_unchanged']
+assert summary['process_id']==controller['native_process_id'] and len(summary['runs'])==30
+timing_passed=controller['passed'] and controller['terminal_exit_code']==0 and summary['passed']
 assert sha(SAMPLES/'authored-grid.json')==sha(HERE/'authored-grid.json')=='e2f1cae31fff704f5730f93a193796bbb3d56832fff3e8c857604823159db97f'
 assert sha(SAMPLES/'authored-forms.json')==sha(HERE/'authored-forms.json')
 cli_rows=[]
@@ -101,11 +102,13 @@ for form in forms:
         assert lineage['faces']==[{'source':{'kind':'polygon','id':id},'survivors':[]} for id in sorted(original['polygons'])]
         changed=original['vertices'][identifier]!=asset['vertices'][identifier] or original['vertex_weights'][identifier]!=asset['vertex_weights'][identifier] or any(values[identifier]!=asset['integer_attributes']['vertices'][name][identifier] for name,values in original['integer_attributes']['vertices'].items())
         assert receipt['changed']=={'vertices':[identifier] if changed else [],'edges':[],'faces':[]}
-        timed=[r for r in summary['runs'] if r['form']==form['id'] and r['sample']==sample];assert len(timed)==1 and timed[0]['passed']
-        records.append({'form':form['id'],'sample':sample,'scene_sha256':sha(path),'receipt_sha256':sha(receipt_path),'source_sha256':sha(source_path),'passed':True})
+        timed=[r for r in summary['runs'] if r['form']==form['id'] and r['sample']==sample];assert len(timed)==1
+        records.append({'form':form['id'],'sample':sample,'scene_sha256':sha(path),'receipt_sha256':sha(receipt_path),'source_sha256':sha(source_path),'passed':True,'timing_passed':timed[0]['passed']})
         write_json(OUTPUT/(stem+'-queries.json'),{'scene':scene,'query':query,'worlds':actual_worlds,'receipt':result})
         print(json.dumps({'form':form['id'],'sample':sample,'source_comparison_passed':True}),flush=True)
 assert len(records)==30 and sha(BINARY)==binary_hash
 write_json(OUTPUT/'cli-processes.json',cli_rows)
-report={'passed':True,'samples':30,'all_30_timing_and_physical_source_results_passed':True,'records':records,'binary_sha256':binary_hash,'source_native_process_id':76326,'source_native_exit':0,'timing_native_process_id':controller['native_process_id'],'timing_native_exit':0,'controller_report_sha256':sha(SAMPLES.parent/'report.json'),'source_check_sha256':sha(OUTPUT/'fresh-source-check.json'),'checker_sha256':sha(Path(__file__)),'limits_changed':False,'retained_177_gate':'unrun','product_acceptance':'unrun','independent_acceptance':'unrun'}
+report={'passed':bool(timing_passed),'samples':30,'all_30_timing_and_physical_source_results_passed':bool(timing_passed),'all_30_physical_source_results_passed':True,'records':records,'binary_sha256':binary_hash,'source_native_process_id':76326,'source_native_exit':0,'timing_native_process_id':controller['native_process_id'],'timing_native_exit':controller['terminal_exit_code'],'controller_report_sha256':sha(SAMPLES.parent/'report.json'),'source_check_sha256':sha(OUTPUT/'fresh-source-check.json'),'checker_sha256':sha(Path(__file__)),'limits_changed':False,'retained_177_gate':'unrun','product_acceptance':'unrun','independent_acceptance':'unrun'}
 write_json(OUTPUT/'report.json',report);print(json.dumps({key:report[key] for key in ['passed','samples','all_30_timing_and_physical_source_results_passed']}),flush=True)
+
+raise SystemExit(0 if report['passed'] else 1)

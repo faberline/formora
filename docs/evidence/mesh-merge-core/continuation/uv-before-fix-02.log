@@ -1,0 +1,41 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.92s
+     Running tests/mesh_merge_uv_preservation.rs (/private/tmp/formora-merge-target-actual185/debug/deps/mesh_merge_uv_preservation-d5a1930bb9c023e6)
+
+running 4 tests
+test unselected_surviving_polygon_uv_keeps_its_stored_f64_value ... FAILED
+test an_unselected_triangle_outside_f32_uv_range_remains_untouched ... FAILED
+test untouched_triangle_uv_normals_and_integer_data_remain_exact ... FAILED
+test heldout_split_attributes_shared_frames_and_undo_use_the_actual_core ... ok
+
+failures:
+
+---- unselected_surviving_polygon_uv_keeps_its_stored_f64_value stdout ----
+
+thread 'unselected_surviving_polygon_uv_keeps_its_stored_f64_value' panicked at tests/mesh_merge_uv_preservation.rs:43:5:
+assertion `left == right` failed
+  left: [0.12345679104328156, 0.5]
+ right: [0.123456789012345, 0.5]
+
+---- an_unselected_triangle_outside_f32_uv_range_remains_untouched stdout ----
+
+thread 'an_unselected_triangle_outside_f32_uv_range_remains_untouched' panicked at tests/mesh_merge_uv_preservation.rs:120:39:
+called `Result::unwrap()` on an `Err` value: SceneError("mesh snap coordinates must fit finite f32 values")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- untouched_triangle_uv_normals_and_integer_data_remain_exact stdout ----
+
+thread 'untouched_triangle_uv_normals_and_integer_data_remain_exact' panicked at tests/mesh_merge_uv_preservation.rs:52:5:
+assertion `left == right` failed
+  left: Triangle { vertices: ["g", "h", "i"], uv_layers: {"Detail": [[0.0, 0.0], [1.0, 0.0], [0.0, 1.0]], "Layout": [[0.1111111119389534, 0.2222222238779068], [1.0, 0.0], [0.0, 1.0]]}, corner_normals: Some([[0.0, 0.0, 1.0], [0.0, 0.0, 1.0], [0.0, 0.0, 1.0]]), material_slot: None }
+ right: Triangle { vertices: ["g", "h", "i"], uv_layers: {"Detail": [[0.0, 0.0], [1.0, 0.0], [0.0, 1.0]], "Layout": [[0.111111111111111, 0.222222222222222], [1.0, 0.0], [0.0, 1.0]]}, corner_normals: Some([[0.0, 0.0, 1.0], [0.0, 0.0, 1.0], [0.0, 0.0, 1.0]]), material_slot: None }
+
+
+failures:
+    an_unselected_triangle_outside_f32_uv_range_remains_untouched
+    unselected_surviving_polygon_uv_keeps_its_stored_f64_value
+    untouched_triangle_uv_normals_and_integer_data_remain_exact
+
+test result: FAILED. 1 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+error: test failed, to rerun pass `--test mesh_merge_uv_preservation`
