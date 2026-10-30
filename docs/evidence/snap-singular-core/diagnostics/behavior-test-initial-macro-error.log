@@ -1,0 +1,10 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error: no rules expected `;`
+   --> tests/local_matrix_availability.rs:140:70
+    |
+140 |     assert_eq!(value["object_frames"]["matrix_local"], json!([[0.; 4]; 4]));
+    |                                                                      ^ no rules expected this token in macro call
+    |
+    = note: while trying to match end of macro
+
+error: could not compile `formora` (test "local_matrix_availability") due to 1 previous error

@@ -1,0 +1,22 @@
+{
+  "scope": "before exact-zero parent-inverse validator fix",
+  "product_unchanged_since": "10834244",
+  "current_head": "361df6f5186a9045e58ddb11459da38403a3ae44",
+  "product_diff_empty": true,
+  "behavior_test_exit": 101,
+  "passed_tests": 1,
+  "failed_tests": 3,
+  "ignored_tests": 0,
+  "source_CLI_cases": 1764,
+  "source_CLI_failed_cases": 56,
+  "interrupted_runs_cannot_pass": true,
+  "input_hashes": {
+    "docs/contracts/snap-zero-parent-inverse.md": "a3a5098690e18b8a65c743e96b4478229a3002b8f1d3c428dcbe2b01568f6db6",
+    "tests/zero_parent_inverse.rs": "e7bd474ca542ef92a7310b47acfebea5398d75f7b545c5c022bf37d4454be2a8",
+    "docs/evidence/snap-singular-core/diagnostics/zero-parent-before-code-02.log": "f9f7911871db52645978352b1a68f4e709fcb90891de27118df5e65b4854e300",
+    "docs/evidence/snap-singular-core/diagnostics/interrupted-functional-runs.json": "c0c0433072e572994bceb28232ba260a855301e3d8525ca6dd211add1f6060bf",
+    "docs/evidence/snap-singular-core/diagnostics/formora-zero-runtime-first-failures.json": "79580c16bd7c859a822e05ea624317a459fdbfaa4ad1146e6ab28e52a109575b"
+  },
+  "performance_required_gate_passed": false,
+  "product_acceptance": "unrun"
+}

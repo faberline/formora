@@ -1,0 +1,35 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error: float literals must have an integer part
+  --> tests/zero_parent_inverse.rs:21:46
+   |
+21 |         transform: Transform { translation: [.25, -.5, .75], scale: [0., 1., 1.],
+   |                                              ^^^
+   |
+help: must have an integer part
+   |
+21 |         transform: Transform { translation: [0.25, -.5, .75], scale: [0., 1., 1.],
+   |                                              +
+
+error: float literals must have an integer part
+  --> tests/zero_parent_inverse.rs:21:52
+   |
+21 |         transform: Transform { translation: [.25, -.5, .75], scale: [0., 1., 1.],
+   |                                                    ^^
+   |
+help: must have an integer part
+   |
+21 |         transform: Transform { translation: [.25, -0.5, .75], scale: [0., 1., 1.],
+   |                                                    +
+
+error: float literals must have an integer part
+  --> tests/zero_parent_inverse.rs:21:56
+   |
+21 |         transform: Transform { translation: [.25, -.5, .75], scale: [0., 1., 1.],
+   |                                                        ^^^
+   |
+help: must have an integer part
+   |
+21 |         transform: Transform { translation: [.25, -.5, 0.75], scale: [0., 1., 1.],
+   |                                                        +
+
+error: could not compile `formora` (test "zero_parent_inverse") due to 3 previous errors

@@ -1,0 +1,11 @@
+--request is required
+Usage:
+  formora baseline check [--root PATH] [--strict]
+  formora scene init --scene PATH [--demo-room]
+  formora scene inspect --scene PATH [--entity ID [--world] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]
+  formora scene apply --scene PATH --request FILE|-
+  formora scene serve --scene PATH
+  formora scene schema
+  formora mcp --scene PATH [--preview] [--capture PNG]
+  formora preview --scene PATH [--capture PNG]
+  formora render --scene PATH --output PNG [--width N] [--height N]

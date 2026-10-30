@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "time_seconds": 0.0,
+  "entities": {
+    "camera": {
+      "name": "camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          6.0,
+          -12.0,
+          5.0
+        ],
+        "rotation": [
+          0.3826834323650898,
+          0.0,
+          0.0,
+          0.9238795325112867
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 65.0,
+        "near": 0.1,
+        "far": 100.0
+      }
+    },
+    "child": {
+      "name": "child",
+      "parent": "target",
+      "transform": {
+        "translation": [
+          0.25,
+          -0.75,
+          0.5
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            -0.25,
+            0.125,
+            0.0625
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "unseen"
+        },
+        "material": "orange"
+      }
+    },
+    "light": {
+      "name": "light",
+      "parent": null,
+      "transform": {
+        "translation": [
+          6.0,
+          -10.0,
+          5.0
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "intensity": 2.0
+      }
+    },
+    "parent": {
+      "name": "parent",
+      "parent": null,
+      "transform": {
+        "translation": [
+          6.5,
+          -7.25,
+          0.875
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.37,
+            -0.23,
+            0.51
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          -1.2,
+          0.7,
+          0.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "target": {
+      "name": "target",
+      "parent": "parent",
+      "transform": {
+        "translation": [
+          0.625,
+          -0.875,
+          0.375
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            1.5707963267948966,
+            -0.0,
+            -0.0
+          ],
+          "order": "yxz"
+        },
+        "scale": [
+          0.9,
+          1.4,
+          0.8
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    }
+  },
+  "materials": {
+    "orange": {
+      "base_color": [
+        0.9,
+        0.2,
+        0.08,
+        1.0
+      ],
+      "roughness": 0.6,
+      "metallic": 0.0
+    }
+  },
+  "mesh_assets": {
+    "unseen": {
+      "vertices": {
+        "a": [
+          -3.5,
+          -2.5,
+          0.0
+        ],
+        "b": [
+          3.5,
+          -2.5,
+          0.0
+        ],
+        "c": [
+          0.0,
+          2.5,
+          0.125
+        ]
+      },
+      "triangles": {
+        "tri": {
+          "vertices": [
+            "a",
+            "b",
+            "c"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    }
+  },
+  "doors": {},
+  "active_camera": "camera",
+  "annotations": [],
+  "object_context": {
+    "order": [
+      "parent",
+      "target",
+      "child",
+      "camera",
+      "light"
+    ],
+    "selected": [
+      "target"
+    ],
+    "active": "target",
+    "edit_objects": [],
+    "states": {},
+    "skip_children": false,
+    "origins_only": false
+  }
+}

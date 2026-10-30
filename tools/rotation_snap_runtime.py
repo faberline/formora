@@ -45,9 +45,9 @@ def setup(suite,case):
     return result
 
 
-def snapshot(inspection,queries,worlds):
+def snapshot(inspection,queries,worlds,mesh_snapshot_fn=mesh_snapshot):
     scene=inspection['scene'];context=scene['object_context']
-    meshes={id:mesh_snapshot(queries[e['content']['geometry']['id']],scene,worlds[id],id)
+    meshes={id:mesh_snapshot_fn(queries[e['content']['geometry']['id']],scene,worlds[id],id)
             for id,e in scene['entities'].items() if e['content']['kind']=='mesh'}
     frames={};rotations={};sharing={}
     for id,e in scene['entities'].items():

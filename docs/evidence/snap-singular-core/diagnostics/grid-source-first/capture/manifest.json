@@ -1,0 +1,525 @@
+{
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "background": false,
+  "process_id": 34827,
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/blender-grid-reference.py": "04de09ea1a8081ded1ed283183c515b862308e949b7ebfecba35e303b966cf24",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/authored-forms.json": "cea60409a7e4f51e2f7e592b7431901bb3302eafa0f37843d948f4fce5fcd4d9",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/blender-grid-reference.py": "3d8d68f6eea8e7c2ccbe10ab6324744150b072f114b65de9dac8a9a7c1ef3e74",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/snap-singular-core.md": "48b541854f09933b4c881c80d2d49054403024dbcd773e1aaf567fc988cecd35",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/snap-singular-local-matrix-policy.md": "d81877bae128e7e09197becf12f97b6b700024658b4b1f4720f03a32af3c7b70",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py": "f37391b11aa8f9acea013699a7dee14f1a0c32d50513c41ff56d00eaa5ef3c2b",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py": "d5db093f0c3f50786dd2ec3288194ad6df13aec91bfcd9f8af082edca91ec641",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_singular_diagnostic.py": "a8fbfd2b93d2b7da4af6dde63ad29be6224c59d2bc58e450bcad90a64218d0c8",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-menu.json": "739609dff0ec611641783010c1ad0ea7c076f3d492e5f012a243f2f27ec1a9c4",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/authored-grid.json": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/input-target-zero.json": "ff66d0057829bc3e68ada82fbd0ee36031247c762a56d1491b44f97dbee5c2d4",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/input-parent-zero.json": "e1f0a58b75ba114423e90fd32499f5b72da0f4498ab61cf17a8539e69db295fe"
+  },
+  "runs": [
+    {
+      "frame": "target-zero",
+      "form": "selected-grid",
+      "file": "target-zero-selected-grid.json.gz",
+      "sha256": "60341d543b8b3f018a36938fd758fd5a37e9879107d8912a2a8c9b21091afc7f",
+      "raw_sha256": "9647fc44fa9f1a5182a6debfaa0472cb7a0de3ffca0a975a09f09e8247cff4e6",
+      "raw_bytes": 20647908,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "selected-active",
+      "file": "target-zero-selected-active.json.gz",
+      "sha256": "177a741a911c9950afcf916fec00f7d2b27e980c8662ffd86c67ba7d7a90bd91",
+      "raw_sha256": "8af20c315a2d81a7335bc3dd9256411305843766c875937a96886ed9641ba0ef",
+      "raw_bytes": 20647644,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "cursor-grid",
+      "file": "target-zero-cursor-grid.json.gz",
+      "sha256": "15ed90bd646c31d17cf654ed9723a31c33fec439d868d34cbb6b2d0141ba297d",
+      "raw_sha256": "0639b2dde6304179c92f85096bd5e0624b3e38804c221c60e91ca4eb75adab0b",
+      "raw_bytes": 20648270,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "cursor-selected",
+      "file": "target-zero-cursor-selected.json.gz",
+      "sha256": "18b60dab0e1c0d9f33156dfcb00234ecce54de8f86f7891ddd2a277d7203dedb",
+      "raw_sha256": "87cb3d40f3f595c2d794c47ea34700f25c0973cea3e16aca71686d1afc5863d7",
+      "raw_bytes": 20648294,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "cursor-active",
+      "file": "target-zero-cursor-active.json.gz",
+      "sha256": "af9e79829de561ecdcf467a098db20ad08c4b9619ede0963e6479cc44887ad40",
+      "raw_sha256": "735a3971f7f531b3ac5ea951185da81c9775e1231080dfb2efd647eff7f91468",
+      "raw_bytes": 20648282,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "cursor-origin",
+      "file": "target-zero-cursor-origin.json.gz",
+      "sha256": "525c1c190906d4d45da69bc8d1dc4a206b0aa5f0bf5c1285bda95c0ec6006741",
+      "raw_sha256": "043c232b7cb303119d80d18942bb6e4ba46533bf3791e0f100be22b97485b250",
+      "raw_bytes": 20648037,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "selected-cursor-false-false",
+      "file": "target-zero-selected-cursor-false-false.json.gz",
+      "sha256": "e9d3d8893ddb360241a61f4d67bea28d43c7c7915f3b9d963c00a9cffb1a37c9",
+      "raw_sha256": "8e179eb826c362776088fac556b70d4af4fccbd3897c4e0ae3ef28b170939c08",
+      "raw_bytes": 20647819,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "selected-cursor-false-true",
+      "file": "target-zero-selected-cursor-false-true.json.gz",
+      "sha256": "2814eb76eea834123597748de2ccb3e5deb18d6c4d8f835199e5466e615b7863",
+      "raw_sha256": "45c3d8c3fd3eaa9b4411dc01cbd14172df769e96673124ebea418db83c67e4a7",
+      "raw_bytes": 20646525,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "selected-cursor-true-false",
+      "file": "target-zero-selected-cursor-true-false.json.gz",
+      "sha256": "1b40cb06d3f96abdef9d098c1491dfbe1f609d249e3f81e4fadca10cac93f31a",
+      "raw_sha256": "7eb5d542cfba5b4a0fa7e6febe5190b5bf23054cc05caf9d4c889893c27ba6c0",
+      "raw_bytes": 20647991,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "target-zero",
+      "form": "selected-cursor-true-true",
+      "file": "target-zero-selected-cursor-true-true.json.gz",
+      "sha256": "3b04fc0497e850e68b9de86b541f67ab351d66449fe043197a5158517cead063",
+      "raw_sha256": "cf1248cb593736131462f4cfb1f50d93058095a527ef7ee455abbee200567fdd",
+      "raw_bytes": 20647027,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-grid",
+      "file": "parent-zero-selected-grid.json.gz",
+      "sha256": "c1d7f06e7184a36e56d8908a9914d80d0bdd0e884449d1dead84962b6ded4ba9",
+      "raw_sha256": "6919915aade1edecd6dd6031ba1661e51b97221581314db97277fda0e6cd3d15",
+      "raw_bytes": 19910244,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-active",
+      "file": "parent-zero-selected-active.json.gz",
+      "sha256": "e36c67241d8e78c6240fc98bd4fe723f50d73a1aa5868e60ff3e7c3d490bcac6",
+      "raw_sha256": "8c0e7035364984d065e48ec93f1dc6d9d7d05c411711cdbc7c4e0a7dd9611f13",
+      "raw_bytes": 20316000,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "cursor-grid",
+      "file": "parent-zero-cursor-grid.json.gz",
+      "sha256": "2c3d5fcdf5397f39cee07cc6140e4f9b9fe03f4fc8d08832c6d2b2a98f04cc7c",
+      "raw_sha256": "4f6c615c0321c0c29b04ae8531e324008cdefdc8102e5def84861e77b037c7e6",
+      "raw_bytes": 19979301,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "cursor-selected",
+      "file": "parent-zero-cursor-selected.json.gz",
+      "sha256": "0551af6a21fe5e73bf86487e409713c892b0e2e465f3ae21f52c02a6e1526ea5",
+      "raw_sha256": "76cdf24cd9e90c962c24ba1fb314bf717c6b849ae2afcf7646ffe796ad42c1a1",
+      "raw_bytes": 19979442,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "cursor-active",
+      "file": "parent-zero-cursor-active.json.gz",
+      "sha256": "d6bd42357f75265fb8ef36f03c57152fd5240a63b2c12d358def8bc50c88dc4e",
+      "raw_sha256": "a7263003bfd3b602538123d515d528ec8bab183d99c83cd77b0efa8c94ff3450",
+      "raw_bytes": 19979433,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "cursor-origin",
+      "file": "parent-zero-cursor-origin.json.gz",
+      "sha256": "ccaad6ad9d9306e58cafd673f4b786cbb28df44465540eaebec5bef8d8a2413f",
+      "raw_sha256": "2af7dff46bdd4559328b4933a5036147ae371f982d528745656aaf86ffdbe8ac",
+      "raw_bytes": 19979068,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-cursor-false-false",
+      "file": "parent-zero-selected-cursor-false-false.json.gz",
+      "sha256": "195b5b67b6c1b62193bb20d954e2376f2f3c6ef3f621c1ad861a7b9165cceeee",
+      "raw_sha256": "d050c81664a8f343ab3fe278cbab0e37090c89b6ee2b394229498d42655b377e",
+      "raw_bytes": 19959003,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-cursor-false-true",
+      "file": "parent-zero-selected-cursor-false-true.json.gz",
+      "sha256": "89686b06c28d8c7bb8fd57f8cfa13fa77ea730c0dba2d0b479f795c71eb169b3",
+      "raw_sha256": "d37bc3389371817127d8e9b5ec812f5eb86d45cbbdb90fe052cf77892ce221ef",
+      "raw_bytes": 20332913,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": [
+        {
+          "path": "/after/objects/child/matrix_local/0/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/0/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/0/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/0/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        }
+      ]
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-cursor-true-false",
+      "file": "parent-zero-selected-cursor-true-false.json.gz",
+      "sha256": "48f2feaba39d7626b4594d1e035c8c028bc3c823857b1f61409dd39ef8c1419c",
+      "raw_sha256": "00c277685b3938af36dd5c653c0072b6b957dbc486485c8582af3478bc5bf3e2",
+      "raw_bytes": 20342766,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": []
+    },
+    {
+      "frame": "parent-zero",
+      "form": "selected-cursor-true-true",
+      "file": "parent-zero-selected-cursor-true-true.json.gz",
+      "sha256": "47b216d39d9529b08fa37b25487fd00ecc20d8931e1bc1cd0c45dcb9fe1425c3",
+      "raw_sha256": "7670a76400fa07c7be1b107c322d4cb204ca0aff89943f68fe33049f40773ab9",
+      "raw_bytes": 20333072,
+      "result": {
+        "status": [
+          "FINISHED"
+        ],
+        "error": null
+      },
+      "nonfinite_fields": [
+        {
+          "path": "/after/objects/child/matrix_local/0/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/0/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/0/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/0/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/1/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/2/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/0",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/1",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/2",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        },
+        {
+          "path": "/after/objects/child/matrix_local/3/3",
+          "repr": "nan",
+          "f32_little_endian_hex": "0000c07f",
+          "f64_little_endian_hex": "000000000000f87f"
+        }
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}

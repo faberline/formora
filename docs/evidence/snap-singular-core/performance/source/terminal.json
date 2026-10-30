@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/blender-grid-reference.py",
+    "--",
+    "--output",
+    "/private/tmp/formora-zero-grid-source-02/capture"
+  ],
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "launcher_sha256": "257f01b7d4f85310444cd68d27e0143fa94a2524ab492ee0fb87a3d4ac5e355a",
+  "started_utc": "2026-10-30T03:00:22.484878+00:00",
+  "process_id": 55260,
+  "terminal_exit_code": 0,
+  "stdout_sha256": "7f151b59bf65c488a49af3f16775feb904774cf5b13518913f8d77ef14d6db42",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "manifest_sha256": "d970515e3471ae9792980db8a6766a68ce85752645c57ec1d0515ff872df4b35"
+}

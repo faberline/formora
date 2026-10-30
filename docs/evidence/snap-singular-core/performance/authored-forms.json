@@ -1,0 +1,561 @@
+{
+  "base_grid_path": "docs/evidence/snap-delta-core/performance/authored-grid.json",
+  "base_grid_sha256": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+  "frames": [
+    {
+      "id": "target-zero",
+      "scene": "input-target-zero.json",
+      "sha256": "ff66d0057829bc3e68ada82fbd0ee36031247c762a56d1491b44f97dbee5c2d4",
+      "authored_case": {
+        "id": "singular_snap_0501",
+        "label": "normal_scale",
+        "operator": "snap_selected_to_cursor",
+        "feature": "scene.snap_selected_to_cursor",
+        "groups": "authored",
+        "mode": "OBJECT",
+        "initial_mode": [
+          "VERT"
+        ],
+        "seed": {
+          "domain": "VERT",
+          "indices": [
+            0,
+            2,
+            8
+          ]
+        },
+        "context": {
+          "profile": "target_4",
+          "pivot": "MEDIAN_POINT",
+          "mirror_x": false,
+          "mirror_topology": false,
+          "correct_face_attributes": false,
+          "keep_connected": true,
+          "grid_spacing": 0.75,
+          "unit_system": "NONE",
+          "unit_scale_length": 1.0,
+          "history": "preserve",
+          "active_face_override": "preserve",
+          "object_selection": [
+            "target",
+            "secondary"
+          ],
+          "active_object": "target",
+          "multi_object": true,
+          "secondary_parent": null,
+          "linked_data": true,
+          "skip_children": false,
+          "origins_only": false,
+          "lock_location": [
+            false,
+            false,
+            false
+          ],
+          "lock_rotation": [
+            false,
+            false,
+            false
+          ],
+          "cursor_location": [
+            0.375,
+            -0.625,
+            0.875
+          ],
+          "cursor_rotation": [
+            0.2,
+            -0.4,
+            0.6
+          ]
+        },
+        "parameters": {
+          "use_offset": false,
+          "use_rotation": true
+        },
+        "repeat_policy": "deterministic",
+        "rotations": {
+          "objects": {
+            "mode": "YXZ",
+            "euler": [
+              0.31,
+              -0.23,
+              0.47
+            ],
+            "quaternion_wxyz": [
+              0.5,
+              -0.5,
+              0.5,
+              0.5
+            ],
+            "axis_angle": [
+              -0.45,
+              -2.0,
+              1.0,
+              3.0
+            ]
+          },
+          "cursor": {
+            "mode": "YXZ",
+            "euler": [
+              0.2,
+              -0.4,
+              0.6
+            ],
+            "quaternion_wxyz": [
+              0.5,
+              0.5,
+              -0.5,
+              0.5
+            ],
+            "axis_angle": [
+              0.65,
+              1.0,
+              -2.0,
+              3.0
+            ]
+          },
+          "lock_rotation_w": false,
+          "lock_rotations_4d": false
+        },
+        "deltas": {
+          "location": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.17,
+            -0.11,
+            0.29
+          ],
+          "quaternion_wxyz": [
+            -1.0,
+            1.0,
+            1.0,
+            -1.0
+          ],
+          "scale": [
+            1.2,
+            0.75,
+            1.1
+          ]
+        },
+        "delta_profile": "translation",
+        "role_deltas": {
+          "parent": {
+            "location": [
+              0.125,
+              -0.25,
+              0.375
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "child": {
+            "location": [
+              -0.25,
+              0.125,
+              0.0625
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "zero_scale": {
+          "role": "target",
+          "mask": 4,
+          "channel": "normal"
+        }
+      }
+    },
+    {
+      "id": "parent-zero",
+      "scene": "input-parent-zero.json",
+      "sha256": "e1f0a58b75ba114423e90fd32499f5b72da0f4498ab61cf17a8539e69db295fe",
+      "authored_case": {
+        "id": "singular_snap_0581",
+        "label": "normal_scale",
+        "operator": "snap_selected_to_cursor",
+        "feature": "scene.snap_selected_to_cursor",
+        "groups": "authored",
+        "mode": "OBJECT",
+        "initial_mode": [
+          "VERT"
+        ],
+        "seed": {
+          "domain": "VERT",
+          "indices": [
+            0,
+            2,
+            8
+          ]
+        },
+        "context": {
+          "profile": "parent_4",
+          "pivot": "MEDIAN_POINT",
+          "mirror_x": false,
+          "mirror_topology": false,
+          "correct_face_attributes": false,
+          "keep_connected": true,
+          "grid_spacing": 0.75,
+          "unit_system": "NONE",
+          "unit_scale_length": 1.0,
+          "history": "preserve",
+          "active_face_override": "preserve",
+          "object_selection": [
+            "target",
+            "secondary"
+          ],
+          "active_object": "target",
+          "multi_object": true,
+          "secondary_parent": null,
+          "linked_data": true,
+          "skip_children": false,
+          "origins_only": false,
+          "lock_location": [
+            false,
+            false,
+            false
+          ],
+          "lock_rotation": [
+            false,
+            false,
+            false
+          ],
+          "cursor_location": [
+            0.375,
+            -0.625,
+            0.875
+          ],
+          "cursor_rotation": [
+            0.2,
+            -0.4,
+            0.6
+          ]
+        },
+        "parameters": {
+          "use_offset": false,
+          "use_rotation": true
+        },
+        "repeat_policy": "deterministic",
+        "rotations": {
+          "objects": {
+            "mode": "YXZ",
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "axis_angle": [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "cursor": {
+            "mode": "YXZ",
+            "euler": [
+              0.2,
+              -0.4,
+              0.6
+            ],
+            "quaternion_wxyz": [
+              0.5,
+              0.5,
+              -0.5,
+              0.5
+            ],
+            "axis_angle": [
+              0.65,
+              1.0,
+              -2.0,
+              3.0
+            ]
+          },
+          "lock_rotation_w": false,
+          "lock_rotations_4d": false
+        },
+        "deltas": {
+          "location": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "delta_profile": "translation",
+        "role_deltas": {
+          "parent": {
+            "location": [
+              0.125,
+              -0.25,
+              0.375
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "child": {
+            "location": [
+              -0.25,
+              0.125,
+              0.0625
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "zero_scale": {
+          "role": "parent",
+          "mask": 4,
+          "channel": "normal"
+        }
+      }
+    }
+  ],
+  "forms": [
+    {
+      "id": "selected-grid",
+      "operator": "snap_selected_to_grid",
+      "parameters": {},
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "selected_to_grid"
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "selected-active",
+      "operator": "snap_selected_to_active",
+      "parameters": {},
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "selected_to_active"
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "cursor-grid",
+      "operator": "snap_cursor_to_grid",
+      "parameters": {},
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "cursor_to_grid"
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "cursor-selected",
+      "operator": "snap_cursor_to_selected",
+      "parameters": {},
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "cursor_to_selected"
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "cursor-active",
+      "operator": "snap_cursor_to_active",
+      "parameters": {},
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "cursor_to_active"
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "cursor-origin",
+      "operator": "snap_cursor_to_center",
+      "parameters": {},
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "cursor_to_origin"
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "selected-cursor-false-false",
+      "operator": "snap_selected_to_cursor",
+      "parameters": {
+        "use_offset": false,
+        "use_rotation": false
+      },
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "selected_to_cursor",
+            "use_offset": false,
+            "use_rotation": false
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "selected-cursor-false-true",
+      "operator": "snap_selected_to_cursor",
+      "parameters": {
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "selected_to_cursor",
+            "use_offset": false,
+            "use_rotation": true
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "selected-cursor-true-false",
+      "operator": "snap_selected_to_cursor",
+      "parameters": {
+        "use_offset": true,
+        "use_rotation": false
+      },
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "selected_to_cursor",
+            "use_offset": true,
+            "use_rotation": false
+          },
+          "pivot": "median"
+        }
+      }
+    },
+    {
+      "id": "selected-cursor-true-true",
+      "operator": "snap_selected_to_cursor",
+      "parameters": {
+        "use_offset": true,
+        "use_rotation": true
+      },
+      "command": {
+        "operation": "snap_scene",
+        "snap": {
+          "action": {
+            "kind": "selected_to_cursor",
+            "use_offset": true,
+            "use_rotation": true
+          },
+          "pivot": "median"
+        }
+      }
+    }
+  ],
+  "samples_per_form": 3,
+  "samples": 60,
+  "maximum_core_ms": 250,
+  "maximum_pipeline_ms": 2000,
+  "numeric_limit": 1e-06,
+  "contract": "docs/contracts/snap-singular-core.md",
+  "timing_rule": "Complete input/result validation and physical/frame query inside both clocks; pipeline also saves and fresh-loads."
+}

@@ -1,0 +1,227 @@
+[
+  {
+    "name": "delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/delta_snap_runtime.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/delta",
+      "--gzip-output"
+    ],
+    "native_process_id": 74277,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 3584,
+    "actual_checks": 3584,
+    "report_sha256": "e1efbb23181f0e623f1d03db0e25288dd5ec323e8920a435b1d14ed7cf73d1e9",
+    "start_ns": 167015367860500,
+    "end_ns": 168127374089375
+  },
+  {
+    "name": "raw-rotation",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/rotation_snap_runtime.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/raw-rotation",
+      "--gzip-output"
+    ],
+    "native_process_id": 27717,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 4992,
+    "actual_checks": 4992,
+    "report_sha256": "678cc8f4d18532d3bcdc906e38bc1643bc2e34afebdb71289479f6fd98f370f0",
+    "start_ns": 168127374699125,
+    "end_ns": 170060700975833
+  },
+  {
+    "name": "scene-snap",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/scene_snap_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/scene-snap",
+      "--gzip-output"
+    ],
+    "native_process_id": 64889,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 1100,
+    "actual_checks": 1100,
+    "report_sha256": "06ce3dcd8b467ec49024fedf2de3ab01effb6194e34e07553593b791eb42a85d",
+    "start_ns": 170060701730500,
+    "end_ns": 170328051473416
+  },
+  {
+    "name": "single-snap",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/snap_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/single-snap",
+      "--gzip-output"
+    ],
+    "native_process_id": 94478,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 2244,
+    "actual_checks": 2244,
+    "report_sha256": "8a59d1d276720349442e2dd1c34e00db07bc41e99cd57ec03351a12e948a9676",
+    "start_ns": 170328052650875,
+    "end_ns": 170749513282208
+  },
+  {
+    "name": "mesh-transform",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/transform_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/mesh-transform",
+      "--gzip-output"
+    ],
+    "native_process_id": 48875,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 2406,
+    "actual_checks": 2406,
+    "report_sha256": "47a9fdf28480850992ae787ac2de17a873d1c4c4920644bdd0129239c37c30d7",
+    "start_ns": 170749514742833,
+    "end_ns": 170997328012041
+  },
+  {
+    "name": "primitive",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/primitive_reference_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/primitive"
+    ],
+    "native_process_id": 77518,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 162,
+    "actual_checks": 162,
+    "report_sha256": "7cb427df28ab87c2ee177c7de878653ce03c1f4ab3612bd3ae45634fbf3adf10",
+    "start_ns": 170997329124875,
+    "end_ns": 171031329326125
+  },
+  {
+    "name": "scale",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/remaining_scale_regression.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/scale"
+    ],
+    "native_process_id": 81264,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 8,
+    "actual_checks": 8,
+    "report_sha256": "6d69c1e0bcdeb1a83fa1670947b18ea50ec32542e24fea9873b573d482fd27c8",
+    "start_ns": 171031330181375,
+    "end_ns": 171034593923916
+  },
+  {
+    "name": "selection",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/selection_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/selection"
+    ],
+    "native_process_id": 81558,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 1060,
+    "actual_checks": 1060,
+    "report_sha256": "98ec6a012af861bf6959e91a25c45be078ba3e519b8a710302b180efcb22fbd3",
+    "start_ns": 171034594263500,
+    "end_ns": 171191363554541
+  },
+  {
+    "name": "creation",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/creation_context_runtime.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/creation"
+    ],
+    "native_process_id": 10593,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 262,
+    "actual_checks": 262,
+    "report_sha256": "9e653fb9f8740ae3eb4d3620ef8037aacba2b493fac98b4a45ba1c43c0602093",
+    "start_ns": 171191365021250,
+    "end_ns": 171320471896500
+  },
+  {
+    "name": "payload",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/polygon_reference_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/payload"
+    ],
+    "native_process_id": 30074,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 57,
+    "actual_checks": 57,
+    "report_sha256": "5e6a54cc0a888b1c898372021ddd41a16df5768b605b5af91b5c96bc0d1ae725",
+    "start_ns": 171320473000875,
+    "end_ns": 171329964858708
+  },
+  {
+    "name": "normal",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/normal_runtime_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/normal"
+    ],
+    "native_process_id": 31305,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 42,
+    "actual_checks": 42,
+    "report_sha256": "487324d29386e07e187ff5a2b1c066bd512a57dfb6b89580b2241eb7e890c106",
+    "start_ns": 171329965247583,
+    "end_ns": 171333300233000
+  },
+  {
+    "name": "rng",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/random_falloff_runtime.py",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "/private/tmp/formora-zero-retained-api-02/rng"
+    ],
+    "native_process_id": 32035,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": 96,
+    "actual_checks": 96,
+    "report_sha256": "6339e9a32348da3025df6da79f757bf5f9c6bcfc982318e09ac65472d0647843",
+    "start_ns": 171333300628666,
+    "end_ns": 171343748624666
+  },
+  {
+    "name": "mcp",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "tools/mcp_smoke.py",
+      "/private/tmp/formora-target-actual185/debug/formora"
+    ],
+    "native_process_id": 33596,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "expected_checks": null,
+    "actual_checks": null,
+    "report_sha256": null,
+    "start_ns": 171343749054875,
+    "end_ns": 171344552367916
+  }
+]

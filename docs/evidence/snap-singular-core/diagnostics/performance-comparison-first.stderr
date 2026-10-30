@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/compare-performance.py", line 149, in <module>
+    report = compare(args.binary, args.samples, args.source, args.controller)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/compare-performance.py", line 65, in compare
+    assert controller['passed'] and controller['terminal_exit_code'] == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

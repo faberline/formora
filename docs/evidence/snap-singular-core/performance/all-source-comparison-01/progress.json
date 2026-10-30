@@ -1,0 +1,130 @@
+[
+  {
+    "name": "new-zero-60",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/compare-physical-results.py",
+      "--binary",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-zero-performance-03/samples",
+      "--source",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/source",
+      "--controller",
+      "/private/tmp/formora-zero-performance-03/controller-report.json",
+      "--output",
+      "/private/tmp/formora-zero-all-source-performance-01/new-zero-60.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 74221,
+    "expected_samples": 60,
+    "actual_samples": 60,
+    "passed": true,
+    "report_sha256": "dce0e6c8865aa7521498c33565198c622a3642df1f280cbc76ec4500da0c7917"
+  },
+  {
+    "name": "retained-scene-90",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/compare-performance.py",
+      "--binary",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-zero-retained-90-01/samples",
+      "--source",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/source-gzip",
+      "--controller",
+      "/private/tmp/formora-zero-retained-90-01/controller-report.json",
+      "--output",
+      "/private/tmp/formora-zero-all-source-performance-01/retained-scene-90.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 89211,
+    "expected_samples": 90,
+    "actual_samples": 90,
+    "passed": true,
+    "report_sha256": "676579b248db4ed70b96c171c12bc88d61493a22b8f0d9228746871225e7d54d"
+  },
+  {
+    "name": "retained-rotation-24",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/compare-performance.py",
+      "--binary",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-zero-retained-rotation-01/samples",
+      "--source",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/source",
+      "--controller",
+      "/private/tmp/formora-zero-retained-rotation-01/controller-report.json",
+      "--output",
+      "/private/tmp/formora-zero-all-source-performance-01/retained-rotation-24.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 60337,
+    "expected_samples": 24,
+    "actual_samples": 24,
+    "passed": true,
+    "report_sha256": "cf3c7a48eedf10b661c1caddd6f78acab06cadc53ff4b98d081f49b3cac935bf"
+  },
+  {
+    "name": "retained-delta-24",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/compare-performance.py",
+      "--binary",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-zero-retained-delta-01/samples",
+      "--source",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/source",
+      "--controller",
+      "/private/tmp/formora-zero-retained-delta-01/controller-report.json",
+      "--output",
+      "/private/tmp/formora-zero-all-source-performance-01/retained-delta-24.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 83869,
+    "expected_samples": 24,
+    "actual_samples": 24,
+    "passed": true,
+    "report_sha256": "3212a0b1ff9709ef9cd68ec295e1bc842402ca13c803d6212560b5f18a68751b"
+  },
+  {
+    "name": "retained-single-30",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/tools/compare_snap_performance.py",
+      "--binary",
+      "/private/tmp/formora-target-actual185/debug/formora",
+      "--samples",
+      "/private/tmp/formora-zero-retained-39-01/single",
+      "--source",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/mesh-snap-core/performance/source",
+      "--output",
+      "/private/tmp/formora-zero-all-source-performance-01/retained-single-30.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 28465,
+    "expected_samples": 30,
+    "actual_samples": 30,
+    "passed": true,
+    "report_sha256": "ef5f95e4ef09a9ca14db9074bba459cd07f29d94f9c7fc4d7efde86f6a8288bc"
+  },
+  {
+    "name": "retained-transform-9",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/compare-retained-transform.py",
+      "/private/tmp/formora-zero-retained-39-01/transform",
+      "/private/tmp/formora-zero-all-source-performance-01/retained-transform-9.json"
+    ],
+    "terminal_exit_code": 0,
+    "process_id": 47372,
+    "expected_samples": 9,
+    "actual_samples": 9,
+    "passed": true,
+    "report_sha256": "a2d66e6765f0aadaf710e59153ff5aded862970622d64a2c1d97f9cce5d99bb4"
+  }
+]

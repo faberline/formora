@@ -1,0 +1,23 @@
+[
+  {
+    "original": "docs/evidence/snap-delta-core/rng-rotation-isolation-driver.py",
+    "original_sha256": "d586b4d9671271f1e7f01d9a2bedbbb7ea1e37af9136e903d2cac08843d3b083",
+    "copy": "docs/evidence/snap-singular-core/retained-rng-isolation-driver.py",
+    "copy_sha256": "be81faf136bd6affcf1e0b54c087d10599bcffbd415b03d7cbd56b0bb20a4fb2",
+    "changes": "Fresh output path only; actual inputs, assertions, source denial policy and limits unchanged."
+  },
+  {
+    "original": "docs/evidence/snap-delta-core/source-oracle-driver.py",
+    "original_sha256": "113cb5fe4f16672a1f6589fcbf97592333bfddfd51808606b7036ec9d899fc12",
+    "copy": "docs/evidence/snap-singular-core/retained-source-oracle-driver.py",
+    "copy_sha256": "3a429b01efcde76d7aecc2da2ddeeffed7c0c2f95b9c25674c9e394e7e858eb3",
+    "changes": "Fresh output path only; actual inputs, assertions, source denial policy and limits unchanged."
+  },
+  {
+    "original": "docs/evidence/snap-delta-core/rng-one-shot-driver.py",
+    "original_sha256": "029104ed8817e9a152d3333517ba258ee99cf79421129e166f1901c8b68edf66",
+    "copy": "docs/evidence/snap-singular-core/retained-rng-one-shot-driver.py",
+    "copy_sha256": "6674a811329fbd8d69ac77a1082245554c99a76360d93bc7331b5a38e15ec1e7",
+    "changes": "Fresh output directory only; authored RNG requests, fixed source sequence, rejection controls and all assertions unchanged."
+  }
+]

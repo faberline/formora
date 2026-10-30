@@ -1,0 +1,245 @@
+{
+  "passed": true,
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "driver_sha256": "538555438359b696af660bbd55ba9f39f266252f734dfc38cc2352d258d46303",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /Users/chrischeng/faberlines/formora/Cargo.toml: Operation not permitted\n",
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "native_calls": 17,
+  "world_numeric_limit": 1e-06,
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "unseen",
+        "asset": {
+          "vertices": {
+            "a": [
+              -3.5,
+              -2.5,
+              0.0
+            ],
+            "b": [
+              3.5,
+              -2.5,
+              0.0
+            ],
+            "c": [
+              0.0,
+              2.5,
+              0.125
+            ]
+          },
+          "triangles": {
+            "tri": {
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "material_slot": null,
+              "uv_layers": {},
+              "corner_normals": null
+            }
+          },
+          "material_slots": []
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "parent",
+        "entity": {
+          "name": "parent",
+          "parent": null,
+          "transform": {
+            "translation": [
+              6.5,
+              -7.25,
+              0.875
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0.37,
+                -0.23,
+                0.51
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              -1.2,
+              0.7,
+              0.0
+            ],
+            "precision": "f32",
+            "delta": {
+              "translation": [
+                0.125,
+                -0.25,
+                0.375
+              ],
+              "euler": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quaternion_wxyz": [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "target",
+        "entity": {
+          "name": "target",
+          "parent": "parent",
+          "transform": {
+            "translation": [
+              0.625,
+              -0.875,
+              0.375
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "order": "yxz"
+            },
+            "scale": [
+              0.9,
+              1.4,
+              0.8
+            ],
+            "precision": "f32",
+            "delta": {
+              "translation": [
+                0.125,
+                -0.25,
+                0.375
+              ],
+              "euler": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quaternion_wxyz": [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "child",
+        "entity": {
+          "name": "child",
+          "parent": "target",
+          "transform": {
+            "translation": [
+              0.25,
+              -0.75,
+              0.5
+            ],
+            "rotation": {
+              "kind": "euler",
+              "angles": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "order": "xyz"
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32",
+            "delta": {
+              "translation": [
+                -0.25,
+                0.125,
+                0.0625
+              ],
+              "euler": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quaternion_wxyz": [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "unseen"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "set_object_context",
+        "context": {
+          "order": [
+            "parent",
+            "target",
+            "child"
+          ],
+          "selected": [
+            "target"
+          ],
+          "active": "target"
+        }
+      }
+    ]
+  },
+  "unavailable_query_preserved_operation": true,
+  "undo_replay_checked": true,
+  "stale_budget_and_late_batch_atomic": true,
+  "fresh_reload_equal": true,
+  "product_acceptance": "unrun"
+}

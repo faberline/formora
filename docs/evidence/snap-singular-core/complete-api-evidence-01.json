@@ -1,0 +1,64 @@
+{
+  "complete_api_evidence_valid": true,
+  "implementation_commit": "aa2afb53b804d84dc530b6a1c8f5d98fe75d4c97",
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "complete_requests": 17854,
+  "gates": {
+    "full": {
+      "requests": 3584,
+      "outcomes": {
+        "defined_numeric_source_comparison": 3584
+      },
+      "raw_source_comparisons_rechecked": true
+    },
+    "rotation": {
+      "requests": 4992,
+      "outcomes": {
+        "defined_numeric_source_comparison": 4992
+      },
+      "raw_source_comparisons_rechecked": true
+    },
+    "scene": {
+      "requests": 1100,
+      "outcomes": {
+        "defined_numeric_source_comparison": 1094,
+        "explicit_cancellation": 4,
+        "explicit_atomic_rejection": 2
+      },
+      "raw_source_comparisons_rechecked": true
+    },
+    "single": {
+      "requests": 2244,
+      "outcomes": {
+        "defined_numeric_source_comparison": 2072,
+        "explicit_cancellation": 136,
+        "explicit_atomic_rejection": 36
+      },
+      "raw_source_comparisons_rechecked": true
+    },
+    "transform": {
+      "requests": 2406,
+      "outcomes": {
+        "{'source_outcome': 'FINISHED'}": 2380,
+        "{'source_outcome': 'UNDEFINED_ROTATION_AXIS', 'comparison_kind': 'human_approved_undefined_rotation_rejection', 'policy_outcome': 'REJECTED', 'policy_error': 'mesh transform rotation cannot constrain all three axes: undefined Blender 5.2.3 source behavior', 'numeric_source_match_claimed': False}": 14,
+        "{'source_outcome': 'CANCELLED'}": 12
+      },
+      "raw_source_comparisons_rechecked": true
+    }
+  },
+  "original_source_rejection_checks_not_numeric_passes": 14,
+  "product_acceptance": "unrun",
+  "three_platform_ci": "unrun",
+  "integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "milestones_accepted": 0,
+  "zero_scale": {
+    "requests": 3528,
+    "all_physical_cases_checked": true,
+    "available_numeric_local_queries": 24448,
+    "explicit_unavailable_local_queries": 24,
+    "unavailable_queries_are_numeric_matches": false,
+    "raw_API_snapshot_and_receipt_bindings_checked": true,
+    "both_native_source_processes_checked": true
+  }
+}

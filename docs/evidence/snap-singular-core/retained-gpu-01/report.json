@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "records": [
+    {
+      "name": "delta",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-delta-core/gpu-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-gpu-01/delta"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_changed_pixels": 20083,
+      "actual_changed_pixels": 20083,
+      "driver_sha256": "1246e49f37810be909afde4b40299c529de636b2d4c466f32c09ef4b46ca1123",
+      "manifest_sha256": "e88db47cbf5f3d30e8e493d43d6ad805df9a4d6427b266996fb62885b5b1cf9b"
+    },
+    {
+      "name": "raw",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-rotation-core/gpu-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-gpu-01/raw"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_changed_pixels": 20350,
+      "actual_changed_pixels": 20350,
+      "driver_sha256": "96de3b70136ff8e719e40fa4de87eff8de72bcbabd2cd1968cabe92d02597169",
+      "manifest_sha256": "4fb734d0150e6a4027785be30b3ab80e07a54dbd4ca51eca3be3d65843575649"
+    },
+    {
+      "name": "rng",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/retained-gpu-rng-driver.py"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_changed_pixels": 12532,
+      "actual_changed_pixels": 12532,
+      "driver_sha256": "4e53626b7f618c530e2cf1f01d931e204d76d67b3df4de7673718533cc34f7e0",
+      "manifest_sha256": "fb34a8b63cec1bc9769d454c185966fa43ad12d006cd3bbaeca14d946afe3b2a"
+    },
+    {
+      "name": "mirror",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/retained-gpu-mirror-driver.py"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "expected_changed_pixels": 14302,
+      "actual_changed_pixels": 14302,
+      "driver_sha256": "be4bc29d4330a208a52bc0c6ec14d8a0ab51fb72ccdf65e2cd4e74d40352d3fe",
+      "manifest_sha256": "b1cf15f088571988852411a761b494e6c3c1f7fb1d0ae5cc5ce39a7fd5577ff2"
+    }
+  ],
+  "product_acceptance": "unrun"
+}

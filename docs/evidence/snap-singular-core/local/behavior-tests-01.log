@@ -1,0 +1,13 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.78s
+     Running tests/local_matrix_availability.rs (/private/tmp/formora-target-actual185/debug/deps/local_matrix_availability-d6af9427c6ee1b82)
+
+running 5 tests
+test missing_parent_and_invalid_world_are_still_query_errors ... ok
+test library_local_getter_reports_unavailability_without_an_object_context ... ok
+test finite_source_zero_fallback_is_still_a_numeric_matrix ... ok
+test available_frame_json_keeps_its_existing_shape_and_missing_ids_still_fail ... ok
+test unavailable_local_query_preserves_the_committed_operation_and_valid_world ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

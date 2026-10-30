@@ -1,0 +1,5 @@
+{
+  "terminal_exit_code": 101,
+  "tests_executed": 0,
+  "cause": "The before-code test used a Rust repeated-array expression directly in json! syntax. Serialize the same numeric zero array instead. No product code or behavior assertion changed."
+}

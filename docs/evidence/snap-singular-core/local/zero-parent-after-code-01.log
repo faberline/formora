@@ -1,0 +1,23 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.60s
+     Running tests/local_matrix_availability.rs (/private/tmp/formora-target-actual185/debug/deps/local_matrix_availability-d6af9427c6ee1b82)
+
+running 5 tests
+test missing_parent_and_invalid_world_are_still_query_errors ... ok
+test library_local_getter_reports_unavailability_without_an_object_context ... ok
+test finite_source_zero_fallback_is_still_a_numeric_matrix ... ok
+test available_frame_json_keeps_its_existing_shape_and_missing_ids_still_fail ... ok
+test unavailable_local_query_preserves_the_committed_operation_and_valid_world ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/zero_parent_inverse.rs (/private/tmp/formora-target-actual185/debug/deps/zero_parent_inverse-7baf5f529d1d4483)
+
+running 4 tests
+test projective_near_zero_and_nonfinite_parent_inverses_remain_rejected ... ok
+test exact_zero_parent_inverse_is_persisted_and_queried_without_fabricated_affine_row ... ok
+test singular_skip_children_keeps_successful_receipts_and_the_actual_source_zero_world ... ok
+test zero_compensation_undo_replay_and_fresh_file_reload_preserve_real_values ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+

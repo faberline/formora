@@ -1,0 +1,86 @@
+{
+  "total_count": 3,
+  "jobs": [
+    {
+      "id": 123906464519,
+      "run_id": 41007775568,
+      "workflow_name": "Contract checks (not product acceptance)",
+      "head_branch": "codex/snap-singular-core",
+      "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41007775568",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVausXs8AAAAc2WabBw",
+      "head_sha": "6e026c3376eb23b02b71ede4ac9ec915df288b14",
+      "url": "https://api.github.com/repos/faberline/formora/actions/jobs/123906464519",
+      "html_url": "https://github.com/faberline/formora/actions/runs/41007775568/job/123906464519",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-30T05:19:16Z",
+      "started_at": "2026-10-30T05:19:16Z",
+      "completed_at": "2026-10-30T05:19:19Z",
+      "name": "contracts (macos-15-intel)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123906464519",
+      "labels": [
+        "macos-15-intel"
+      ],
+      "runner_id": 0,
+      "runner_name": "",
+      "runner_group_id": 0,
+      "runner_group_name": ""
+    },
+    {
+      "id": 123906464713,
+      "run_id": 41007775568,
+      "workflow_name": "Contract checks (not product acceptance)",
+      "head_branch": "codex/snap-singular-core",
+      "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41007775568",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVausXs8AAAAc2WabyQ",
+      "head_sha": "6e026c3376eb23b02b71ede4ac9ec915df288b14",
+      "url": "https://api.github.com/repos/faberline/formora/actions/jobs/123906464713",
+      "html_url": "https://github.com/faberline/formora/actions/runs/41007775568/job/123906464713",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-30T05:19:16Z",
+      "started_at": "2026-10-30T05:19:16Z",
+      "completed_at": "2026-10-30T05:19:17Z",
+      "name": "contracts (ubuntu-latest)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123906464713",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 0,
+      "runner_name": "",
+      "runner_group_id": 0,
+      "runner_group_name": ""
+    },
+    {
+      "id": 123906464760,
+      "run_id": 41007775568,
+      "workflow_name": "Contract checks (not product acceptance)",
+      "head_branch": "codex/snap-singular-core",
+      "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41007775568",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVausXs8AAAAc2Wab-A",
+      "head_sha": "6e026c3376eb23b02b71ede4ac9ec915df288b14",
+      "url": "https://api.github.com/repos/faberline/formora/actions/jobs/123906464760",
+      "html_url": "https://github.com/faberline/formora/actions/runs/41007775568/job/123906464760",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-30T05:19:16Z",
+      "started_at": "2026-10-30T05:19:16Z",
+      "completed_at": "2026-10-30T05:19:18Z",
+      "name": "contracts (windows-latest)",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/123906464760",
+      "labels": [
+        "windows-latest"
+      ],
+      "runner_id": 0,
+      "runner_name": "",
+      "runner_group_id": 0,
+      "runner_group_name": ""
+    }
+  ]
+}

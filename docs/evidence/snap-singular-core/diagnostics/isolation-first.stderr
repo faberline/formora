@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/isolation-driver.py", line 134, in <module>
+    main()
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/isolation-driver.py", line 75, in main
+    call('scene_apply', setup)
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/isolation-driver.py", line 56, in call
+    assert response['id'] == sequence and response['ok'] is (not error), response
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'error': 'missing field `uv_layers`', 'id': 1, 'ok': False}

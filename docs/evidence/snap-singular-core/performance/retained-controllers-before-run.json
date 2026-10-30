@@ -1,0 +1,48 @@
+{
+  "implementation_head": "aa2afb53b804d84dc530b6a1c8f5d98fe75d4c97",
+  "controllers": [
+    {
+      "label": "90",
+      "source_path": "docs/evidence/snap-delta-core/performance/run-retained-90-02.py",
+      "source_sha256": "d8c34b744e29e141841724fc92ae29a5fb77f48021991648d0c3fa8269701f81",
+      "controller_path": "docs/evidence/snap-singular-core/performance/retained-run-90-01.py",
+      "controller_sha256": "8e2d3ad9ac318179d8cc5a9f1eaf7d53896b576ae0aac1860b2c331b04afbf26",
+      "changes": "Implementation head and fresh output/driver paths only. Authored input paths, native driver source, clocks, forms, counts and limits unchanged."
+    },
+    {
+      "label": "39",
+      "source_path": "docs/evidence/snap-delta-core/performance/run-retained-39-02.py",
+      "source_sha256": "064c2f31858fc34333e3d64b39c7bad129b1776432f6f728da171dd106982d05",
+      "controller_path": "docs/evidence/snap-singular-core/performance/retained-run-39-01.py",
+      "controller_sha256": "9f050cb45624ca2f63f48dc979736a8b38c8ccb79187d3fcbc8736ab0531289f",
+      "changes": "Implementation head and fresh output/driver paths only. Authored input paths, native driver source, clocks, forms, counts and limits unchanged."
+    },
+    {
+      "label": "rotation",
+      "source_path": "docs/evidence/snap-delta-core/performance/run-retained-rotation-24.py",
+      "source_sha256": "64d28b9830809e192d5084dc3f75334bec9f74ebd48021fb6d40ed3edece8c28",
+      "controller_path": "docs/evidence/snap-singular-core/performance/retained-run-rotation-01.py",
+      "controller_sha256": "763193fd3ef9d0a4ea09e96a425aef0c2eee15c74547fd93e478a1ed62e7f1ca",
+      "changes": "Implementation head and fresh output/driver paths only. Authored input paths, native driver source, clocks, forms, counts and limits unchanged."
+    },
+    {
+      "label": "delta",
+      "source_path": "docs/evidence/snap-delta-core/performance/run-raw-24.py",
+      "source_sha256": "03055d0e1a7a330622510b6673a9487c0c509454f01d2f72697701303b8ee5f2",
+      "controller_path": "docs/evidence/snap-singular-core/performance/retained-run-delta-01.py",
+      "controller_sha256": "3fa3d3223c0cff5d7066fc8059a12e991e5ee13cb3fb5a15a85176a5ed87eb65",
+      "changes": "Implementation head and fresh output/driver paths only. Authored input paths, native driver source, clocks, forms, counts and limits unchanged."
+    }
+  ],
+  "required_samples": 177,
+  "samples_by_group": {
+    "scene": 90,
+    "single": 30,
+    "transform": 9,
+    "rotation": 24,
+    "delta": 24
+  },
+  "native_drivers_unchanged": true,
+  "source_comparisons": "unrun",
+  "product_acceptance": "unrun"
+}

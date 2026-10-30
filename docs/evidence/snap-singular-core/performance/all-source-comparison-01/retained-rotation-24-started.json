@@ -1,0 +1,17 @@
+{
+  "pid": 60337,
+  "command": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/compare-performance.py",
+    "--binary",
+    "/private/tmp/formora-target-actual185/debug/formora",
+    "--samples",
+    "/private/tmp/formora-zero-retained-rotation-01/samples",
+    "--source",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/source",
+    "--controller",
+    "/private/tmp/formora-zero-retained-rotation-01/controller-report.json",
+    "--output",
+    "/private/tmp/formora-zero-all-source-performance-01/retained-rotation-24.json"
+  ]
+}

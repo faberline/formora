@@ -1,0 +1,898 @@
+[
+  {
+    "id": "singular_snap_1208",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1209",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1210",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1211",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1216",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1217",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1218",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1219",
+    "zero": {
+      "role": "target",
+      "mask": 1,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1224",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1225",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1226",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1227",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1232",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1233",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1234",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1235",
+    "zero": {
+      "role": "target",
+      "mask": 2,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1240",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1241",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1242",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1243",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1248",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1249",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1250",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1251",
+    "zero": {
+      "role": "target",
+      "mask": 3,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1256",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1257",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1258",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1259",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1264",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1265",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1266",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1267",
+    "zero": {
+      "role": "target",
+      "mask": 4,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1272",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1273",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1274",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1275",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1280",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1281",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1282",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1283",
+    "zero": {
+      "role": "target",
+      "mask": 5,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1288",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1289",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1290",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1291",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1296",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1297",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1298",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1299",
+    "zero": {
+      "role": "target",
+      "mask": 6,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1304",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1305",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1306",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1307",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1312",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: 0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1313",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": false,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1314",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": false
+    },
+    "error": "component differs: actual available local matrix/0/3: -0.375 != -1.125",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  },
+  {
+    "id": "singular_snap_1315",
+    "zero": {
+      "role": "target",
+      "mask": 7,
+      "channel": "normal"
+    },
+    "rot": "XYZ",
+    "operator": "snap_selected_to_cursor",
+    "params": {
+      "use_offset": true,
+      "use_rotation": true
+    },
+    "error": "component differs: actual available local matrix/0/0: 0.8528168797492981 != 1.064050555229187",
+    "operation_error": "object parent inverse must be a finite affine matrix"
+  }
+]

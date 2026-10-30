@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition",
+    "2024",
+    "-O",
+    "docs/evidence/snap-singular-core/performance/capture-driver.rs",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "-o",
+    "/private/tmp/formora-zero-performance-driver-01"
+  ],
+  "terminal_exit_code": 0,
+  "driver_source_sha256": "40477fa39bc98ccf2422d80e9404e7b61f243c8030b516bc0d5d1c9231fd48e4",
+  "library_sha256": "7b20ef8866b5676ad5a117a3f119c6d456bc283336e8d3a1e99da04cb2ab3482",
+  "driver_sha256": "a85f87259465dc235be38d10ed2f43141cd5532ed65290e8d7f3ca42c4872d77",
+  "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)"
+}
