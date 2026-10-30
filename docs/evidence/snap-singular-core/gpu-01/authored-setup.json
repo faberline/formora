@@ -1,0 +1,366 @@
+{
+  "expected_revision": 0,
+  "commands": [
+    {
+      "operation": "set_mesh_asset",
+      "id": "unseen",
+      "asset": {
+        "vertices": {
+          "a": [
+            -3.5,
+            -2.5,
+            0.0
+          ],
+          "b": [
+            3.5,
+            -2.5,
+            0.0
+          ],
+          "c": [
+            0.0,
+            2.5,
+            0.125
+          ]
+        },
+        "triangles": {
+          "tri": {
+            "vertices": [
+              "a",
+              "b",
+              "c"
+            ],
+            "material_slot": null,
+            "uv_layers": {},
+            "corner_normals": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "orange",
+      "material": {
+        "base_color": [
+          0.9,
+          0.2,
+          0.08,
+          1.0
+        ],
+        "roughness": 0.6,
+        "metallic": 0.0
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "parent",
+      "entity": {
+        "name": "parent",
+        "parent": null,
+        "transform": {
+          "translation": [
+            6.5,
+            -7.25,
+            0.875
+          ],
+          "rotation": {
+            "kind": "euler",
+            "angles": [
+              0.37,
+              -0.23,
+              0.51
+            ],
+            "order": "xyz"
+          },
+          "scale": [
+            -1.2,
+            0.7,
+            0.0
+          ],
+          "precision": "f32",
+          "delta": {
+            "translation": [
+              0.125,
+              -0.25,
+              0.375
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "content": {
+          "kind": "empty"
+        }
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "target",
+      "entity": {
+        "name": "target",
+        "parent": "parent",
+        "transform": {
+          "translation": [
+            0.625,
+            -0.875,
+            0.375
+          ],
+          "rotation": {
+            "kind": "euler",
+            "angles": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "order": "yxz"
+          },
+          "scale": [
+            0.9,
+            1.4,
+            0.8
+          ],
+          "precision": "f32",
+          "delta": {
+            "translation": [
+              0.125,
+              -0.25,
+              0.375
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "content": {
+          "kind": "empty"
+        }
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "child",
+      "entity": {
+        "name": "child",
+        "parent": "target",
+        "transform": {
+          "translation": [
+            0.25,
+            -0.75,
+            0.5
+          ],
+          "rotation": {
+            "kind": "euler",
+            "angles": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "order": "xyz"
+          },
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "precision": "f32",
+          "delta": {
+            "translation": [
+              -0.25,
+              0.125,
+              0.0625
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "unseen"
+          },
+          "material": "orange"
+        }
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "camera",
+      "entity": {
+        "name": "camera",
+        "parent": null,
+        "transform": {
+          "translation": [
+            6.0,
+            -12.0,
+            5.0
+          ],
+          "rotation": [
+            0.3826834323650898,
+            0.0,
+            0.0,
+            0.9238795325112867
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "precision": "f64",
+          "delta": {
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "content": {
+          "kind": "camera",
+          "vertical_fov_degrees": 65.0,
+          "near": 0.1,
+          "far": 100.0
+        }
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "light",
+      "entity": {
+        "name": "light",
+        "parent": null,
+        "transform": {
+          "translation": [
+            6.0,
+            -10.0,
+            5.0
+          ],
+          "rotation": {
+            "kind": "euler",
+            "angles": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "order": "xyz"
+          },
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "precision": "f32",
+          "delta": {
+            "translation": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        },
+        "content": {
+          "kind": "light",
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "intensity": 2.0
+        }
+      }
+    },
+    {
+      "operation": "set_active_camera",
+      "id": "camera"
+    },
+    {
+      "operation": "set_object_context",
+      "context": {
+        "order": [
+          "parent",
+          "target",
+          "child",
+          "camera",
+          "light"
+        ],
+        "selected": [
+          "target"
+        ],
+        "active": "target"
+      }
+    }
+  ]
+}

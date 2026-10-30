@@ -1,0 +1,28 @@
+{
+  "scope": "DIAGNOSTIC_ONLY_NOT_ACCEPTANCE",
+  "compile_command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition",
+    "2024",
+    "-O",
+    "docs/evidence/snap-singular-core/performance/profile-stages.rs",
+    "--extern",
+    "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-target-actual185/release/deps",
+    "--extern",
+    "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "-o",
+    "/private/tmp/formora-zero-stage-profiler-01"
+  ],
+  "compile_exit": 0,
+  "run_command": [
+    "/private/tmp/formora-zero-stage-profiler-01",
+    "docs/evidence/snap-singular-core/performance/input-parent-zero.json"
+  ],
+  "run_exit": 0,
+  "driver_sha256": "5f9fc75e9b269baa102fb5139fa82b406896ab4954c3ceade5bf88bb3ccbcfea",
+  "library_sha256": "7b20ef8866b5676ad5a117a3f119c6d456bc283336e8d3a1e99da04cb2ab3482",
+  "profiler_sha256": "5f48625a6caf57eef8f730b65e4d106d8bae71a4e66762824be0192545c2d875",
+  "concurrent_functional_gates_running": true
+}

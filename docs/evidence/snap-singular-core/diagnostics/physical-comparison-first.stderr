@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/compare-physical-results.py", line 161, in <module>
+    report = compare(args.binary, args.samples, args.source, args.controller)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/compare-physical-results.py", line 102, in compare
+    cache[frame['id']] = inspect(path)
+                         ^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/compare-physical-results.py", line 94, in inspect
+    assert scene == load(path)
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError

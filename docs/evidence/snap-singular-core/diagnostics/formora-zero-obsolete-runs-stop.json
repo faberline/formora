@@ -1,0 +1,20 @@
+[
+  {
+    "label": "zero_full",
+    "root_pid": 48109,
+    "descendant_pids_signalled": [],
+    "signal": "SIGTERM",
+    "reason": "Known rejected finite zero parent-inverse source results; preserve partial artifacts and fix product before repeating gates.",
+    "required_full_gate_passed": false
+  },
+  {
+    "label": "retained",
+    "root_pid": 68221,
+    "descendant_pids_signalled": [
+      68222
+    ],
+    "signal": "SIGTERM",
+    "reason": "Known rejected finite zero parent-inverse source results; preserve partial artifacts and fix product before repeating gates.",
+    "required_full_gate_passed": false
+  }
+]

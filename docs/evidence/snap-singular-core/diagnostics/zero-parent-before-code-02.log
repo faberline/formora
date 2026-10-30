@@ -1,0 +1,37 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.60s
+     Running tests/zero_parent_inverse.rs (/private/tmp/formora-target-actual185/debug/deps/zero_parent_inverse-7baf5f529d1d4483)
+
+running 4 tests
+test projective_near_zero_and_nonfinite_parent_inverses_remain_rejected ... ok
+test exact_zero_parent_inverse_is_persisted_and_queried_without_fabricated_affine_row ... FAILED
+test singular_skip_children_keeps_successful_receipts_and_the_actual_source_zero_world ... FAILED
+test zero_compensation_undo_replay_and_fresh_file_reload_preserve_real_values ... FAILED
+
+failures:
+
+---- exact_zero_parent_inverse_is_persisted_and_queried_without_fabricated_affine_row stdout ----
+
+thread 'exact_zero_parent_inverse_is_persisted_and_queried_without_fabricated_affine_row' panicked at tests/zero_parent_inverse.rs:78:22:
+called `Result::unwrap()` on an `Err` value: SceneError("object parent inverse must be a finite affine matrix")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- singular_skip_children_keeps_successful_receipts_and_the_actual_source_zero_world stdout ----
+
+thread 'singular_skip_children_keeps_successful_receipts_and_the_actual_source_zero_world' panicked at tests/zero_parent_inverse.rs:118:69:
+called `Result::unwrap()` on an `Err` value: SceneError("object parent inverse must be a finite affine matrix")
+
+---- zero_compensation_undo_replay_and_fresh_file_reload_preserve_real_values stdout ----
+
+thread 'zero_compensation_undo_replay_and_fresh_file_reload_preserve_real_values' panicked at tests/zero_parent_inverse.rs:147:41:
+called `Result::unwrap()` on an `Err` value: SceneError("object parent inverse must be a finite affine matrix")
+
+
+failures:
+    exact_zero_parent_inverse_is_persisted_and_queried_without_fabricated_affine_row
+    singular_skip_children_keeps_successful_receipts_and_the_actual_source_zero_world
+    zero_compensation_undo_replay_and_fresh_file_reload_preserve_real_values
+
+test result: FAILED. 1 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--test zero_parent_inverse`
