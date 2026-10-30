@@ -529,6 +529,10 @@ pub(super) fn apply(
         if !editing.mode.contains(&Domain::Vertex) {
             editing.selected = Elements::default();
         }
+        // BM_select_history_merge_from_targetmap marks the ORIGINAL entries.
+        // A mapped destination absent from that set has no overlap flag and
+        // is removed. It must not acquire a newly invented history entry.
+        let original_history: BTreeSet<_> = old.history.iter().cloned().collect();
         let mut seen = BTreeSet::new();
         editing.history = old
             .history
@@ -550,7 +554,8 @@ pub(super) fn apply(
                     Component::Edge { id } => editing.selected.edges.contains(id),
                     Component::Face { face } => editing.selected.faces.contains(face),
                 };
-                (selected && seen.insert(item.clone())).then_some(item)
+                (selected && original_history.contains(&item) && seen.insert(item.clone()))
+                    .then_some(item)
             })
             .collect();
         editing.active_face = old

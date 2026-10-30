@@ -68,3 +68,23 @@ ignored tests. All-feature/all-target Clippy passed with warnings denied.
 The release build and frozen thirty-sample driver compilation passed.
 The complete 2,048-request interface gate and actual timing gates remain
 unrun at this preparation seal. Independent acceptance remains unrun.
+
+## Large-grid history failure and complete input inventory
+
+The first thirty timing samples met all limits, but their physical source
+comparison failed on history. The grid's only history vertex was removed.
+The Rust core invented a survivor entry absent from original history. The
+pinned marking source requires a destination's original overlap flag.
+Five controls were frozen at 1f10b7ba before repair: two passed, three failed.
+The repair checks that original typed history set before deduplication.
+All 293 all-feature/all-target Rust tests passed, with zero ignored. Both
+builds, all-feature/all-target Clippy and formatting passed. Every required
+interface, timing/source and retained gate must run at the repaired code.
+
+The first full interface run executed all 2,048 requests with no functional
+comparison failures, but the whole gate failed input integrity. A sparse
+path update removed the tracked receipt contract from the checkout. Its
+bytes and the executable did not change. Preserve the complete failed run.
+The existing isolated worktree is now fully materialized, including that
+exact original contract. Freeze the full inventory before the next run.
+No failed gate, source history mismatch or lost contract is accepted.
