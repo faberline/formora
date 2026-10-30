@@ -1,0 +1,34 @@
+{
+  "source_capture_checks_passed": true,
+  "scope": "focused_distance_class_a_source_diagnostic",
+  "cases": 1,
+  "records": [
+    {
+      "id": "distance_class_a_000",
+      "native_ms": {
+        "core": 25450.326625,
+        "pipeline": 27927.457583
+      },
+      "budget_observations": {
+        "edited_data": 1,
+        "core_limit_ms": 250,
+        "pipeline_limit_ms": 2000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "1797dd37060bd4663087629fb8ed86475a80d1c5799fffa116a01316eff49ec8"
+    }
+  ],
+  "source_pid": 978,
+  "capacity_seal_sha256": "3a3087437b328b8fd3fe38b63aeab3749a3f746876a4f5a7971e31f82ea742bb",
+  "source_over_budget_samples": {
+    "core": 1,
+    "pipeline": 1
+  },
+  "complete_capacity_source_gate": "unrun",
+  "rust_product_timing": "unrun",
+  "product_acceptance": "unrun"
+}

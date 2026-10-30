@@ -6,8 +6,9 @@ The parent is draft PR #81 at
 Its dependencies and all 11 milestones remain unaccepted.
 Current complete functional evidence: two fresh sealed captures, 2,412 cases
 each, complete state/reload comparison and 38 rejected corruption controls.
-Capacity has 192 prepared samples; its harness/seal/native results remain
-unfinished. Full source admission and Rust product acceptance remain unrun.
+Capacity has 192 sealed samples. Two focused native captures completed eight
+samples; one has passed its offline check and seven await their check. Paired
+complete capacity captures and Rust product acceptance remain unrun.
 Earlier sections below retain the preparation history. The latest full
 functional evidence is in the final section.
 The existing full multi-data raw audit and timing controller ended before
@@ -397,3 +398,31 @@ The seal records actual Apple M1 Max, 64 GiB, arm64, macOS 26.5.2 hardware.
 seal controls. No forged native operation ran. Native capacity execution,
 paired capacity comparison and Rust product timing remain unrun here.
 This section supersedes the earlier unfinished capacity harness status.
+
+## Native capacity setup diagnostics
+
+Two fresh viewport processes completed the explicit diagnostic subsets.
+PID 978 exited 0 after sample 000. PID 3731 exited 0 after samples
+003/006/009/012/015/018/021. Actual parent waits took 53.588 and 903.925 seconds.
+The eight forms cover one/two class-A data, all/alternating selection and
+automatic/custom constant normals for the first boolean option combination.
+They do not cover the complete 192-sample registry or all eight option sets.
+
+`capacity-diagnostic-01/` and `capacity-diagnostic-02/` retain 34 lossless files,
+including eight raw full-state records, initial checkpoints and native saves.
+All copies were read back and compared with retained originals.
+`capacity-checks-01/diagnostic-check-01.json` records the completed first
+offline check. Its tool process exited 0. Complete state, checkpoint, native
+file, initial/output/reload and parent receipt checks passed for that sample.
+Its native core/pipeline times were 25,450.327/27,927.458 ms. Both exceed the
+unchanged 250/2,000 ms product budgets; neither is a Rust timing pass.
+
+The seven-sample offline check is running. Its success and the new capacity
+corruption controls are not claimed here. Two fresh complete capacity source
+captures and their paired comparison remain unrun. No Rust distance operation
+or product acceptance was added. Issue #82 remains open with `agy:doing`.
+
+`capacity-ci-01/` retains actual run 41131968319 at published source head
+`6e269fee2fe8168bc1a3e003e9becdd7786d15cb`. Three platform jobs failed before
+any step. Their actual annotations report failed account payments or a
+spending limit. Required CI remains unrun; no PR diff review or merge occurred.
