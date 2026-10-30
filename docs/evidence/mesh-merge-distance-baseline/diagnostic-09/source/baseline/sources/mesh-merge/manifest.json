@@ -1,0 +1,267 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "purpose": "Native vertex merge, weld topology, selection history and UV/group data before source capture",
+  "files": [
+    {
+      "repository_path": "baseline/sources/mesh-merge/editmesh_tools.cc",
+      "path": "source/blender/editors/mesh/editmesh_tools.cc",
+      "git_blob": "a03e468905ab1f38feb6187185c36b5b7281febe",
+      "sha256": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/editmesh_tools.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmo_removedoubles.cc",
+      "path": "source/blender/bmesh/operators/bmo_removedoubles.cc",
+      "git_blob": "779cff086c9800ddb976c17f590ca87f58f30bb6",
+      "sha256": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/operators/bmo_removedoubles.cc"
+    },
+    {
+      "repository_path": "baseline/sources/snap-rotation/rna_scene.cc",
+      "path": "source/blender/makesrna/intern/rna_scene.cc",
+      "git_blob": "6f5c8164fc0bc86a0f0c8e25398c73c36eda51a5",
+      "sha256": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesrna/intern/rna_scene.cc"
+    },
+    {
+      "repository_path": "baseline/sources/snap-rotation/scene.cc",
+      "path": "source/blender/blenkernel/intern/scene.cc",
+      "git_blob": "f8fb761e96e437c8ec420d7ecd3c60d9d72f0785",
+      "sha256": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/scene.cc"
+    },
+    {
+      "repository_path": "baseline/sources/snap-rotation/DNA_scene_types.h",
+      "path": "source/blender/makesdna/DNA_scene_types.h",
+      "git_blob": "62ae847c7d1e879f38cd0dfe239efd51319ec726",
+      "sha256": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesdna/DNA_scene_types.h"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/view3d_snap.cc",
+      "path": "source/blender/editors/space_view3d/view3d_snap.cc",
+      "git_blob": "e0d93b45940f60a4df997ad9293589814db5dfba",
+      "sha256": "6892b6ed897d2a51993ef534ae747bb8d897b5a26576f0bfd31dcaa76582853e",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/space_view3d/view3d_snap.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/view3d_draw.cc",
+      "path": "source/blender/editors/space_view3d/view3d_draw.cc",
+      "git_blob": "71ce959d8f3721ccbe52f85e6a0b0e3861e71597",
+      "sha256": "6863088510dd8e32b8470969b3cf56fb8cffed08f3a73d3299c2be967f511a29",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/space_view3d/view3d_draw.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/ed_transverts.cc",
+      "path": "source/blender/editors/util/ed_transverts.cc",
+      "git_blob": "e126f783b5b206cebc867e9bdb1082736bdf0724",
+      "sha256": "4262ee23428a72062843c56c71f0b41fb8194cad605f706d3542f90627aa6e69",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/util/ed_transverts.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/transform_snap.cc",
+      "path": "source/blender/editors/transform/transform_snap.cc",
+      "git_blob": "3d6303639979be4e3d925c1b33e389730ac2a7d2",
+      "sha256": "111a6bcd1062d8aa692dae479a03a488b1150ba1e1c78872d3480a1cb29552b3",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_snap.cc",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/transform_snap.hh",
+      "path": "source/blender/editors/transform/transform_snap.hh",
+      "git_blob": "8f8be02c670bbb82629ffb85e11d34fbf0e97b6c",
+      "sha256": "43147377fe09242483fdb081177f5299103e8d625915279efd31ac6bfd83404f",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_snap.hh",
+      "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/snap.rst",
+      "path": "manual/scene_layout/object/editing/snap.rst",
+      "git_blob": "7f47c81b7a34df3c7949654b13248168e2ea76b6",
+      "sha256": "c7348a30b42b25b23ec8629e5a20916346bd96dc8b679163323dda91e82fbd62",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/scene_layout/object/editing/snap.rst",
+      "commit": "4a3be8f9ed3b66b24913e0a0d491d3429a70ea08"
+    },
+    {
+      "repository_path": "baseline/sources/snap-menu/snapping.rst",
+      "path": "manual/editors/3dview/controls/snapping.rst",
+      "git_blob": "df78e424768183fd03d5a83572343cf747e4afed",
+      "sha256": "fa4e1c93a92c4089811974e65fdb9b5b259eb524e9ccb15939e840dc417063fa",
+      "url": "https://projects.blender.org/blender/blender-manual/src/commit/4a3be8f9ed3b66b24913e0a0d491d3429a70ea08/manual/editors/3dview/controls/snapping.rst",
+      "commit": "4a3be8f9ed3b66b24913e0a0d491d3429a70ea08"
+    },
+    {
+      "repository_path": "baseline/sources/physical-transform/BLI_simd.hh",
+      "path": "source/blender/blenlib/BLI_simd.hh",
+      "git_blob": "f7f0fd40027512d99701f857e44d2804156b7f22",
+      "sha256": "d196f59ed24faa35d3fd254506bc4998a47572161d7bc484db15b555205b2742",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_simd.hh"
+    },
+    {
+      "repository_path": "baseline/sources/physical-transform/object.cc",
+      "path": "source/blender/blenkernel/intern/object.cc",
+      "git_blob": "3555b11ea69215ef5b09085e9b25e1c695c2ea32",
+      "sha256": "a0e3d890c650aab94f74204a66cae12a75f85e011e1ae550597b1bc10a8fe1f5",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/object.cc"
+    },
+    {
+      "repository_path": "baseline/sources/physical-transform/mathutils_Matrix.cc",
+      "path": "source/blender/python/mathutils/mathutils_Matrix.cc",
+      "git_blob": "eb1fe20ff78f25a59c2ed063c92f7ef9d93880c8",
+      "sha256": "221e84672da3ad26bf7dd9127ce3ee2e22e799cce982517f515699c8e8c19c3b",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/mathutils/mathutils_Matrix.cc"
+    },
+    {
+      "repository_path": "baseline/sources/physical-transform/mathutils_Vector.cc",
+      "path": "source/blender/python/mathutils/mathutils_Vector.cc",
+      "git_blob": "2e2ac17414e72e16f69051ad301797a315beaf34",
+      "sha256": "8d05ac74e700b2491fc5ea55a481cede27ef82474bc4ef80829e4ce989658f09",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/python/mathutils/mathutils_Vector.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-gimbal-transform/math_rotation_c.cc",
+      "path": "source/blender/blenlib/intern/math_rotation_c.cc",
+      "git_blob": "508eb880c2721ce9110329eb7bd09c9a593c745b",
+      "sha256": "58fa312f5765ae55a84f9f68d8f809bf7e7ac61e220adb9d93ac7ce16f300260",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_rotation_c.cc"
+    },
+    {
+      "repository_path": "baseline/sources/scene-snap-core/object_data_transform.cc",
+      "path": "source/blender/editors/object/object_data_transform.cc",
+      "git_blob": "81aa51ca0eace00bf192ac4800dc6dbd01697641",
+      "sha256": "036f58fd85024822ccf3fbf8b6f6a0a27b458cd79fd7f45e0a7f0ef7d215427e",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/object/object_data_transform.cc"
+    },
+    {
+      "repository_path": "baseline/sources/scene-snap-core/layer.cc",
+      "path": "source/blender/blenkernel/intern/layer.cc",
+      "git_blob": "26401ec094b5bb74f50faa41fd6a2a5121d1cd50",
+      "sha256": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/layer.cc"
+    },
+    {
+      "repository_path": "baseline/sources/scene-snap-core/layer_utils.cc",
+      "path": "source/blender/blenkernel/intern/layer_utils.cc",
+      "git_blob": "9a2dde96c59b184fa9c29e0b43e6d86bfc0b983b",
+      "sha256": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/layer_utils.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-safe-transform/math_matrix_c.cc",
+      "path": "source/blender/blenlib/intern/math_matrix_c.cc",
+      "git_blob": "de242da1285e361d20df50834330fea90993700f",
+      "sha256": "ef68e49a889b67e8628fb8a731ab15cc16b6bb0ecd978d99cfdf179fdfdb4c79",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/intern/math_matrix_c.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-safe-transform/BLI_math_matrix.h",
+      "path": "source/blender/blenlib/BLI_math_matrix.h",
+      "git_blob": "be7105bc5332773e1a1a9ef66e1598d658a942dd",
+      "sha256": "c02992f3890974d1e8a96aba74224fbd467c1e1645954b0c84c380ae18285e38",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_math_matrix.h"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-safe-transform/BLI_math_vector_types.hh",
+      "path": "source/blender/blenlib/BLI_math_vector_types.hh",
+      "git_blob": "a022e2ee9efc60565d1ff083dad27b3ad00b167f",
+      "sha256": "2fcd42d3b78bac30b64cc027fa0097bf2e8e0cc63b742a37cd0b92e2677d37cc",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenlib/BLI_math_vector_types.hh"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-safe-transform/transform_convert.cc",
+      "path": "source/blender/editors/transform/transform_convert.cc",
+      "git_blob": "ada77167129f26c164422230499578e7d27eff90",
+      "sha256": "637f1ba6114a19658e0e2ea2c64d5d76bb84af8d9c6a07a79d4e89505bf2d015",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/transform/transform_convert.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmesh_interp.cc",
+      "path": "source/blender/bmesh/intern/bmesh_interp.cc",
+      "git_blob": "b513b713191b4011a5a640091984f92fa416156b",
+      "sha256": "ff5aa14ff122928f29e434e86a0f43da4a8067a6ffd7e61d597bb4c00913396c",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_interp.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmesh_core.cc",
+      "path": "source/blender/bmesh/intern/bmesh_core.cc",
+      "git_blob": "82b276d2e1f40aedf36a2e9e3e3db98fcad138cb",
+      "sha256": "6f573ba4ffed9dca44727155d8d4226b86042f7c4b2dbd941cf8f4da9899ca59",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_core.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmesh_mods.cc",
+      "path": "source/blender/bmesh/intern/bmesh_mods.cc",
+      "git_blob": "dd3394ee9870d3e315e1b3d6c349424db4c707bf",
+      "sha256": "ba394b9b7e879dfe2a3ce8c1eab4a9650f1ebf05f892e735a4528c83b79cf41f",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_mods.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmesh_operators.cc",
+      "path": "source/blender/bmesh/intern/bmesh_operators.cc",
+      "git_blob": "196d59561dd0652fa92116076a5dbce13c95719e",
+      "sha256": "4fec9e1587120cf39a7f394ab13522bf2856b8d1023704f9d14afa69a937ea60",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_operators.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmesh_walkers_impl.cc",
+      "path": "source/blender/bmesh/intern/bmesh_walkers_impl.cc",
+      "git_blob": "12c685ebf066b7e28ae7abe519c4820252922ac9",
+      "sha256": "104cdf8b62e4ad3a7563ffce6bb4b49cab3fc33d1b23bb57afe9736689809b3d",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_walkers_impl.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/customdata.cc",
+      "path": "source/blender/blenkernel/intern/customdata.cc",
+      "git_blob": "2146a0ae3b2a22522300a4197c8cf54f1695a6ac",
+      "sha256": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/customdata.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/deform.cc",
+      "path": "source/blender/blenkernel/intern/deform.cc",
+      "git_blob": "a4b82bcedcfbab48b344f1083d21fc5f49efa51c",
+      "sha256": "42e5a7fd06c20f479ca459b73aea8bac8a188ab8610b63d76b6a10c54980e375",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/deform.cc"
+    },
+    {
+      "repository_path": "baseline/sources/mesh-merge/bmesh_opdefines.cc",
+      "path": "source/blender/bmesh/intern/bmesh_opdefines.cc",
+      "git_blob": "2b1e4cb1e1230a66add16d9784c8de4f8f0b8afb",
+      "sha256": "6452b85accdb60ee4f3db1369970779cdc91a81f6ea7ce751289637c410023da",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/bmesh/intern/bmesh_opdefines.cc"
+    }
+  ],
+  "reused_manifests": [
+    {
+      "path": "baseline/sources/snap-rotation/manifest.json",
+      "sha256": "7740a756a59ce89c10d767d495df33172f4d86b6616eed4fc1b5870243b1a2f4"
+    },
+    {
+      "path": "baseline/sources/snap-menu/manifest.json",
+      "sha256": "40a0beb9eb8095cbe53dd98455b88655b413e4be9a5849777a4beb655b35e2be"
+    },
+    {
+      "path": "baseline/sources/physical-transform/manifest.json",
+      "sha256": "86853def7c2f5fa46d415883ca8729dcbefe10542a7c5f70eda7ffb2cf03c206"
+    },
+    {
+      "path": "baseline/sources/mesh-gimbal-transform/manifest.json",
+      "sha256": "4ca2e2c41c2782566efbcb9458cb891bb60f65db9df4f495040c301ab39f6c90"
+    },
+    {
+      "path": "baseline/sources/scene-snap-core/manifest.json",
+      "sha256": "f1602201d0a9657b51aa8db22a2723737dd51d29ba9a6892ab74f48957222609"
+    },
+    {
+      "path": "baseline/sources/mesh-safe-transform/manifest.json",
+      "sha256": "f13ccafa3c9be64e7825c70689ddb034c0627ef7f65ac0a2e050c360f42fffd9"
+    },
+    {
+      "path": "baseline/sources/snap-delta/manifest.json",
+      "sha256": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f"
+    }
+  ]
+}

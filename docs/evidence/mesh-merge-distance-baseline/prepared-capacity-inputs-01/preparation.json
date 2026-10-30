@@ -1,0 +1,16 @@
+{
+  "input_report_sha256": "459c1cfe3ff8bfd1be0c4662e2c5a9ab22999db0ceccd83855e570226442f8b5",
+  "hardware": {
+    "cpu": "Apple M1 Max",
+    "memory_bytes": 68719476736,
+    "query": "/usr/sbin/sysctl -n machdep.cpu.brand_string hw.memsize",
+    "actual_exit": 0,
+    "initial_sandbox_read_exit": 1
+  },
+  "capacity_forms": 64,
+  "samples_per_form": 3,
+  "capacity_cases": 192,
+  "capacity_harness_admitted": false,
+  "source_capacity_execution": "unrun",
+  "rust_product_timing": "unrun"
+}

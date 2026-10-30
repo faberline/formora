@@ -1,0 +1,32 @@
+{
+  "manual_repository": "https://projects.blender.org/blender/blender-manual",
+  "branch": "blender-v5.2-release",
+  "manual_commit": "4a3be8f9ed3b66b24913e0a0d491d3429a70ea08",
+  "source_path": "manual/modeling/meshes/editing/mesh/merge.rst",
+  "immutable_source_api": "https://projects.blender.org/api/v1/repos/blender/blender-manual/contents/manual/modeling/meshes/editing/mesh/merge.rst?ref=4a3be8f9ed3b66b24913e0a0d491d3429a70ea08",
+  "git_blob": "96aad1696be80b36a8ac685b37e848f9bd93ef13",
+  "manual_page": "https://docs.blender.org/manual/en/5.2/modeling/meshes/editing/mesh/merge.html",
+  "source_sha256": "af9f0268a9f1367641074d1f4edf1ae14dbce63cc05d43588fe876709b2a9b31",
+  "html_sha256": "a202f85ed74a486e4c1c89a6e666315a64c14396e7f6f264e64368f7f42eed7c",
+  "stored_html_sha256": "4f26814b5e88f8d6272c5099e21c8ac7c9e1527c032645068105c7b03c4ffa0b",
+  "branch_response_sha256": "483c29ce3ec84bb00129fa8342298fb5f3978a177b7438b8ec16a977117eecd5",
+  "file_api_response_sha256": "2f29f98d0a37df112e7b9adb7f897190d9f9cb0c8ee8c6ba61c0c7b8638d685f",
+  "branch_and_immutable_bytes_equal": true,
+  "content_reviewed": true,
+  "review_scope": "distance merge subsection only; full page also describes mesh.merge",
+  "documented_options": [
+    "Merge Distance",
+    "Centroid Merge",
+    "Unselected",
+    "Sharp Edges"
+  ],
+  "numeric_boundary_authority": "fixed native source and independently authored next-f32 diagnostics; prose says closer than",
+  "failed_raw_commit_requests": {
+    "count": 2,
+    "http_status": 403,
+    "retained_logs": "/private/tmp/formora-distance-manual-retrieval-06"
+  },
+  "all_manual_function_contracts_accepted": false,
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun"
+}

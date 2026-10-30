@@ -1,0 +1,1795 @@
+{
+  "source_diagnostic_passed": true,
+  "cases": 116,
+  "operation_counts": {
+    "finished_unchanged": 37,
+    "finished_with_merge": 30,
+    "finished_all_data_skipped_empty_selection": 1,
+    "rejected_no_operation": 45,
+    "finished_native_nonfinite_probe": 3
+  },
+  "data_counts": {
+    "finished_unchanged": 57,
+    "merged": 31,
+    "skipped_empty_selection": 2
+  },
+  "controls": [
+    {
+      "control": "source_rejection_disguised_as_finish",
+      "rejected": true,
+      "error": "rejected source input status"
+    },
+    {
+      "control": "source_finish_disguised_as_rejection",
+      "rejected": true,
+      "error": "finished source input status"
+    },
+    {
+      "control": "empty_skip_changes_data",
+      "rejected": true,
+      "error": "('empty-source-data/groups/weights/v000000/pin', 0.0, 0.5, 0.5, 0.0)"
+    }
+  ],
+  "records": [
+    {
+      "id": "distance_diag_000",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "848ebcc929780bb5e252881248d90835d855d9a4a86c956f47b131552829dc1f"
+    },
+    {
+      "id": "distance_diag_001",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "cfea8add1c0b9a7e6502f3cddc533636e1a7c7c12992e92283c27e8c0e1101b3"
+    },
+    {
+      "id": "distance_diag_002",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "d57589d9106a6a8485a9b000a59a119753b4671df31ddd7ca934c93abcc45819"
+    },
+    {
+      "id": "distance_diag_003",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "6fd4aa075a622a2842903cba13990fe0b3efdb8d9c4f3b7dfe046f7bc1ca2754"
+    },
+    {
+      "id": "distance_diag_004",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 2,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "4528bc4356028724756ac1bfe734ef99e974905c72eeb6a0201c275a04969442"
+    },
+    {
+      "id": "distance_diag_005",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "ec5395a63f61b885a4c6bbc2007136e0e54887c42e5a327a38cdf55ffc1a8466"
+    },
+    {
+      "id": "distance_diag_006",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 3,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "66ce21e43d47411a97e69979bed62f08923a75999ee6d707e0231ff4e1b82bef"
+    },
+    {
+      "id": "distance_diag_007",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "057f989cef1476329c13bd8b47250fbd0a9285191f2fb7eba0aa8487e582aa91"
+    },
+    {
+      "id": "distance_diag_008",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "40b2a1b3875f91326816e515417e1e309ac8903a58c6b9952dc61b39a9900b3f"
+    },
+    {
+      "id": "distance_diag_009",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 3,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "ecbda264ee2968d5c79d100806f2ff176770a25a91de86dc96de69f42104d896"
+    },
+    {
+      "id": "distance_diag_010",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "8f9bdeff84f8d4aa7f9dfc74cfccda84b8f46030a6d9ff5782d7d6231c30d4ed"
+    },
+    {
+      "id": "distance_diag_011",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 2,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "26df1d9ac2aca0182b1211b05dc0b676709c71e51fb670fb65a6b51b82e73452"
+    },
+    {
+      "id": "distance_diag_012",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 2,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "5cd6372181933528e35c88bf04a8b18df7646380ababa24e07a484ac795ef632"
+    },
+    {
+      "id": "distance_diag_013",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "344422124193130abef668d0c1d5c6159e7565b99e2977c424bbb592b22eec94"
+    },
+    {
+      "id": "distance_diag_014",
+      "operation": "finished_all_data_skipped_empty_selection",
+      "numeric_match_claimed": false,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "skipped_empty_selection",
+          "removed": 0,
+          "numeric_match_claimed": false
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "skipped_empty_selection",
+          "removed": 0,
+          "numeric_match_claimed": false
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "5266ecff943ce8a9da334961e1ec0f9d199723dc97c886c6b180024dd3b54bd2"
+    },
+    {
+      "id": "distance_diag_015",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "a6496d9235bead0958a6be670a45f1db2b50231b85fff904c1e7eddff948897e"
+    },
+    {
+      "id": "distance_diag_016",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "8b99294ca40244f2532002b8e168a1df5225a7e09f9c1af5d3e2a1a44af8aa3c"
+    },
+    {
+      "id": "distance_diag_017",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "41464c1557e7f0230be4757a7af22e13c75a8e85744131b2d96d266925e3f3ae"
+    },
+    {
+      "id": "distance_diag_018",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "d01758af735ddef34b6a8596bb14e92a737f2ec70e675caf0fcc040db3e50c49"
+    },
+    {
+      "id": "distance_diag_019",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "d39a885268f06b7c5d1922324b8b629723c121967439174dd5e8214aac9857e3"
+    },
+    {
+      "id": "distance_diag_020",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "0745f449921428080de98c54e0a6f29ecfe42480980da6c1974f780ba827d790"
+    },
+    {
+      "id": "distance_diag_021",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "9cbde12087c4461ed7a421fe871d34b2bb1b0eedd1be979c266515af5546a748"
+    },
+    {
+      "id": "distance_diag_022",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "b2b700947e007186188e6b5a4e35a5993e9bd8c97f61f3451fc85692007f15b7"
+    },
+    {
+      "id": "distance_diag_023",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "57ba80c02f8aa20c85e7970ed107c4387db7d53118cc0be4bface2e1f497ff03"
+    },
+    {
+      "id": "distance_diag_024",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "7caa9c5e303517372ac44b133fb3ace6d1a34c6d5b8d690bc40770304dba15cc"
+    },
+    {
+      "id": "distance_diag_025",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "ca6114a61b6cdcc99c2440a6c4aff1bcc739698f4acfbeb00056a8eb6b7117bb"
+    },
+    {
+      "id": "distance_diag_026",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "7fb29ce62caa6b73dc1727c85f7161b8e683a2acb5badfe2bc13f1024370ede8"
+    },
+    {
+      "id": "distance_diag_027",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "4ce7e24312ff98feb6482b2d377dae18e60405a25407996de1b7f2707a2babba"
+    },
+    {
+      "id": "distance_diag_028",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "eeb960486b390e4fba8d5d50434dffdee844b625c1bf3bfbed23766274643c76"
+    },
+    {
+      "id": "distance_diag_029",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "11be274fec2c4ede1f185516fac4484afc3131a3dd628096a24a2da2257422fe"
+    },
+    {
+      "id": "distance_diag_030",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "ff8bfd6bedcfed5c87a273f24362e779da804591b2eb2b12eebf375d039587d6"
+    },
+    {
+      "id": "distance_diag_031",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "45e4314986b9abc62e45250fc6bed04dd962d8b188b5ccb7f7687c147ff81abe"
+    },
+    {
+      "id": "distance_diag_032",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "alias",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        },
+        {
+          "owner": "b",
+          "asset": "mesh_b",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "281b8e4e0fdbe239e348e650ea7354f7df9cc2b314aad1a17a0ec0896c4f7212"
+    },
+    {
+      "id": "distance_diag_033",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "d2df21bf0613c817f588732a4a2e123e22bbec55f9b927d1ddeb1028d9b91c59"
+    },
+    {
+      "id": "distance_diag_034",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "cfd90793809a7e9320ccdb471f7b6556fffb0b86cc5b2bc11a8c9aba4aa1e07b"
+    },
+    {
+      "id": "distance_diag_035",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "dc56901fd37d73dc27dfe5344e5e2a0b82c2ef2420c56c8e01de86c2fe2da0bf"
+    },
+    {
+      "id": "distance_diag_036",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "b0d1e5edddcd8c51520c054754bbdadfb405a091c3184095ee70d2a26898f00d"
+    },
+    {
+      "id": "distance_diag_037",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "75d11f98f0c270cc52dccfcdb4b97364c19bd2f26707e0941c12a92f6728019b"
+    },
+    {
+      "id": "distance_diag_038",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "f6e3144b82b9026b57c7e8397cec2c1df0419b277d8b2fba72efe85110382751"
+    },
+    {
+      "id": "distance_diag_039",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "63c26f71bb9759bd45d2d02562419484ad22918a92d541e787f1b29e9f25cb56"
+    },
+    {
+      "id": "distance_diag_040",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "a1c14790b8f5bc60d6bd0906cc79fad4839b97cd09f6c5167a4604db8a933376"
+    },
+    {
+      "id": "distance_diag_041",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "0b6d3ed4c9e18c0105a8a480b0aaf7f80453f4cfe49f928afb498d3eff90e72c"
+    },
+    {
+      "id": "distance_diag_042",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "12cd6987c35d2876e79e370fc9f2566994eff127241a1aa42e3ec304ce5c7c55"
+    },
+    {
+      "id": "distance_diag_043",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "5c7cb7dd0182d79c0397e1cd91bec7c04d4c38faae0497402bdba130c3284590"
+    },
+    {
+      "id": "distance_diag_044",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "05dd7ffb3e87350b023c66a478a3ff0c3bf6b9198c15b0604fcb7c6b5e6abcdb"
+    },
+    {
+      "id": "distance_diag_045",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "c323e4dde6dba0254fd9cd19dbca8adb4f4a2faf95e1c8510bed6f5fa019b38d"
+    },
+    {
+      "id": "distance_diag_046",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "a37bf7299715ae58ce8ea7c9c94d3ad20b29f283e382a642b452c8d345a830ea"
+    },
+    {
+      "id": "distance_diag_047",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "0fb38b85d873e67888914d150d98d0c0ae94b41e0950095acb63c72cd3fe5f6c"
+    },
+    {
+      "id": "distance_diag_048",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "7937f982af4c4c26c7fcf2fc569c9b542028d004379b48ef57fc5e3fd725c2eb"
+    },
+    {
+      "id": "distance_diag_049",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "20fdc44b41ef92b9b71115f3cba2a0ca25916f086d4074d6bdbb898b7e2b516a"
+    },
+    {
+      "id": "distance_diag_050",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "20b48d60c8dabbf2e5279b8452aa07f4e112e656395c5b5dbaf41c91968a6a29"
+    },
+    {
+      "id": "distance_diag_051",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "1b4855f4230a287d38f2c6d9869e44e4ee946011195fb89b03f566113a93de71"
+    },
+    {
+      "id": "distance_diag_052",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "7cad070764403b8828ccaf91a4b59d9244a575d6118746ca3a39b39fb266f496"
+    },
+    {
+      "id": "distance_diag_053",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "1a0380ca307578437881e0446bf57ee3aaab153edc29787581b098007d424ced"
+    },
+    {
+      "id": "distance_diag_054",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "1011dfcd2ba41afa50069443dea10dc33265225631f2c823fe8ca6feef736cca"
+    },
+    {
+      "id": "distance_diag_055",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "3dd921330417403789047a5460623855de7caafe542b0cd0e3e40a41cba9c271"
+    },
+    {
+      "id": "distance_diag_056",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "d48c7016f69838e034b7662f38d0c9ba20bcf60168d18779a3859aaaafe5ba75"
+    },
+    {
+      "id": "distance_diag_057",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "9719e4a91fabd463b230027f37a4e33bbaa9fa26cab9e2045206863a04a40a7a"
+    },
+    {
+      "id": "distance_diag_058",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "731999ef0901150be8f0f0e6466192605f123b33131ee1154e174a904003394b"
+    },
+    {
+      "id": "distance_diag_059",
+      "operation": "finished_unchanged",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "finished_unchanged",
+          "removed": 0,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "f735a2d3b736b6b1b4de240bf6765fa32f05dc401f418f12499d70c89c2d48bf"
+    },
+    {
+      "id": "distance_diag_060",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "37f33d155e643d2912ab791686ec52d77f67dca0f4b3293704b94c2cba92f756"
+    },
+    {
+      "id": "distance_diag_061",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "27bacb6607233b3f68cc94db90867f60d8f5cab5ed9578f55f8bedb0ce15dc89"
+    },
+    {
+      "id": "distance_diag_062",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "37510b39132ea0c976c9920af078f123fd16adfb0284e976073083f42d03788e"
+    },
+    {
+      "id": "distance_diag_063",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "4f693738cee57185a78f5c68ac258c6d34736415e03090d5b78b5d0640c8fd6e"
+    },
+    {
+      "id": "distance_diag_064",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "8387bc8d2f6dfa69e6b92c82bef969c80cce449dad03d4ab99bc215a3e7542b2"
+    },
+    {
+      "id": "distance_diag_065",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "3f7f9c93f9a99a968d3600f2bb8cb7b6850cf8e451de3ef282b08c166212a918"
+    },
+    {
+      "id": "distance_diag_066",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "a8ee0e2168def2648ed346d791101d7decfdb4a7f7807ac41145fef13fc369fb"
+    },
+    {
+      "id": "distance_diag_067",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "540cd462fa1d7c8ca235db2a2f123c7595cec8710957a4218740b6aa2b002673"
+    },
+    {
+      "id": "distance_diag_068",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "64597f73bc16e274ad45bae23d626249de84b8f7c345d2264eaddcf6f81101fa"
+    },
+    {
+      "id": "distance_diag_069",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "73c2533e20dc89fce878606975f5caf0d4950ce29e6022610be0ea4533ad490f"
+    },
+    {
+      "id": "distance_diag_070",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "7c8b84fd13ea66be9a51fb55a5ba68af4276259d14f17fdee77d3a05e9f8655d"
+    },
+    {
+      "id": "distance_diag_071",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "207bcfda183916c6e8cd9374c15952e248d02a2c7671113cbe55db1e7ac94ebd"
+    },
+    {
+      "id": "distance_diag_072",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "66daea40c803526ccdcdd1c602a1172c3183a00b553ef1ab1f6a0e00338e92fc"
+    },
+    {
+      "id": "distance_diag_073",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "e04dfd5fd9959ef02acb56b685f58009f649919d083db629f5fbc46cf5e50c0b"
+    },
+    {
+      "id": "distance_diag_074",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "ebcb089e0c6a45806899d76bbf90506828d005e0b499798d25a32056f711b098"
+    },
+    {
+      "id": "distance_diag_075",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "c39ed07feb4060ac886fd54a604ed189ae4552ac833d25f2fe321fcb81d2612b"
+    },
+    {
+      "id": "distance_diag_076",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "913aab1cb34c0c318c77be0b487ff067f29a2432f86340c105d31c659d6c02e0"
+    },
+    {
+      "id": "distance_diag_077",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "26df7d1fa6474e5678737479e0147bf067ae5712ee46cd342325b86f2244ccff"
+    },
+    {
+      "id": "distance_diag_078",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "cd4481231ad82bea60da0a05773059cccfe4a3570f5d694f32bf67bf7caece5a"
+    },
+    {
+      "id": "distance_diag_079",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "e3a947049811af8b93b8a8841fdaf3020455c79da8398aaf3912451ee28e629d"
+    },
+    {
+      "id": "distance_diag_080",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "d08d7167b2f856a42368e3257bf2dea6151fbc9cbe28598c64f58d18842d4463"
+    },
+    {
+      "id": "distance_diag_081",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "5b233dd257a8e0a1b87bfb45556d0bb73ea793e24548ec3ccd6467b28e67bb1b"
+    },
+    {
+      "id": "distance_diag_082",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "7ac23c31cf749a1beb208f56879eb627833030323c66f2fcc6630058dfa80453"
+    },
+    {
+      "id": "distance_diag_083",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "0357de7f95c134e3ad90a4a0a996501d66e3ffcb212ee5a52715c4fe3fd21f00"
+    },
+    {
+      "id": "distance_diag_084",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "51f142f625b2e3dcda028b121e5069330a48764aef7c170a043f8441aa207f44"
+    },
+    {
+      "id": "distance_diag_085",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "726d81e76292b613f409d411d3c613c14a859ff497442b067a580c7979d52435"
+    },
+    {
+      "id": "distance_diag_086",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "48ed73bacd5f78837dfbfbc3a4319d7bb488cc7c5bfd3f7ef4bc97e34947121d"
+    },
+    {
+      "id": "distance_diag_087",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "5930caa3f0be1c824d69f7c0ef804baa30487ca670397b5f6bbd136ab42f7420"
+    },
+    {
+      "id": "distance_diag_088",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "c874ca60ce78876e48bd569b0d82b62e7a6eef17b2a150440d4ece7ffd3b5a7a"
+    },
+    {
+      "id": "distance_diag_089",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "04a9340b841a6abe2d3a2d65efe5014a900df4e50c78773e7f056db55e9ed9b6"
+    },
+    {
+      "id": "distance_diag_090",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "247935deeecebbef4e7ae9bf3360879f4669222191766af2384ccb698fcd1524"
+    },
+    {
+      "id": "distance_diag_091",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "f4c8f89b7b5fddf71c9b7d957cc94f4d705c869d8d28af46fcfccd3cc40bae93"
+    },
+    {
+      "id": "distance_diag_092",
+      "operation": "finished_with_merge",
+      "numeric_match_claimed": true,
+      "data": [
+        {
+          "owner": "a",
+          "asset": "mesh_a",
+          "classification": "merged",
+          "removed": 1,
+          "numeric_match_claimed": true
+        }
+      ],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "526a8316d73613d8c4ffc37bc55513bb47c41d76c9b3544c018419755bfa5848"
+    },
+    {
+      "id": "distance_diag_093",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "b07a8d4e37e37653c9504805a25504c6e6ee251a52bd8e60aefb05bf7436cef5"
+    },
+    {
+      "id": "distance_diag_094",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "ad057247c461ac877269183784526587f40bf153b07220e0dffa01f7ffcb9d50"
+    },
+    {
+      "id": "distance_diag_095",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "93fc4267a4250c1b20eec0d2c7fc1ccff0175d81e87a389ee00a03cd001868ec"
+    },
+    {
+      "id": "distance_diag_096",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "522cc49819a0f1958eca2369fec33c22cc2dfd66d941799110d675c62cae218b"
+    },
+    {
+      "id": "distance_diag_097",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "48f1c736411a708253b0017b0a5e1fb9e54a27163938a89ff3dc94a95cb01faa"
+    },
+    {
+      "id": "distance_diag_098",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "1706e117d43e1c30dc917151c84f57b29bd5e95cd7f49cfcca8baf1482c68227"
+    },
+    {
+      "id": "distance_diag_099",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "4c6ce24905fd0c22cf22f5bdc2de34389184e3457173126e6edfc981915c166d"
+    },
+    {
+      "id": "distance_diag_100",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "1c0c2667365262ec764dbeca9d6e99a14a0983347dda1cc3f6c9db61df03bd01"
+    },
+    {
+      "id": "distance_diag_101",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "f772802e9ec279548c703baed5ab864c097c7545ecb4d6b7b1a0b26c3ea39ac7"
+    },
+    {
+      "id": "distance_diag_102",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "198ca282713c8bd2077912765b70151df7f22ea04cf64257730b042c5f20955e"
+    },
+    {
+      "id": "distance_diag_103",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "0b8621f5279946f5f855564fd3923b03d2514ca5acfafa14009aaf6ad63c6d2e"
+    },
+    {
+      "id": "distance_diag_104",
+      "operation": "finished_native_nonfinite_probe",
+      "numeric_match_claimed": false,
+      "native_token": "nan",
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "json_numeric_input_admitted": false,
+      "raw_source_sha256": "95851b0efc035c7f73c9641e29fa3e7b8033e5408f9d5180a5c84968241e6234"
+    },
+    {
+      "id": "distance_diag_105",
+      "operation": "finished_native_nonfinite_probe",
+      "numeric_match_claimed": false,
+      "native_token": "positive_infinity",
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "json_numeric_input_admitted": false,
+      "raw_source_sha256": "d8e3015d3b28a5ba42c55b4ae84876d089b65bfc4c46e8b1f4fc6f4e971fa542"
+    },
+    {
+      "id": "distance_diag_106",
+      "operation": "finished_native_nonfinite_probe",
+      "numeric_match_claimed": false,
+      "native_token": "negative_infinity",
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "json_numeric_input_admitted": false,
+      "raw_source_sha256": "ecbfe01ec844007cd17a7b59c765080f60bfb1839e11fd2d258dc9c7dd1b898e"
+    },
+    {
+      "id": "distance_diag_107",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "74ea7120131c7915bec53901feb4acc08dad855177cc16813dd0ac8926fbdb40"
+    },
+    {
+      "id": "distance_diag_108",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "6a00bd60d546614a403ca42140b30e3356b8df08dedaa6861a233a4838e044dd"
+    },
+    {
+      "id": "distance_diag_109",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "627f8bdce6deec4d7a0aee3cf04a320174ded88e51b3fc120cb74d71bce0311d"
+    },
+    {
+      "id": "distance_diag_110",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "78e9756eacb6734c9bfc32aa9bfa57708901e74de6d2728268494ebd44767372"
+    },
+    {
+      "id": "distance_diag_111",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "fabf1e37e9005e44c2faf49edc498bf2e84830fe24f282ec8b468381cb727f65"
+    },
+    {
+      "id": "distance_diag_112",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "5285a834c135c4b91e32da0906aaec6f77f066448b96a756ac5539e20b0ec89f"
+    },
+    {
+      "id": "distance_diag_113",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "2bdfe6a2edd614ff12fb7db9fe10d285c799d1fe43b777fd44efdd0ef4b50cde"
+    },
+    {
+      "id": "distance_diag_114",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "352443193f31857be66f1589d55ff97edf5911a7b80f876a9f24a47aa660c58a"
+    },
+    {
+      "id": "distance_diag_115",
+      "operation": "rejected_no_operation",
+      "numeric_match_claimed": false,
+      "data": [],
+      "cancelled": false,
+      "source_defect": false,
+      "raw_source_sha256": "1131c2f8c81e4e7bf3c9f972a1a56ad514b68e23ceed5e908c7ac3cb48adc4ab"
+    }
+  ],
+  "input_hashes": {
+    "/private/tmp/formora-merge-distance-baseline/tools/audit_merge_distance_outcomes.py": "8ecd5236fa4d8867ea10f6325361e11975b9c08f212dcc890fe43a53f5716aa0",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_cluster_reference.py": "f8827be0154854d68888010598cd181feb2043c446de53caafcee0a8da9dd30c",
+    "/private/tmp/formora-merge-distance-baseline/tools/merge_distance_parameter_reference.py": "80623a549e64c366eef62f52705aa10094129dadc24d01383807cd334e27c104",
+    "baseline/fixtures/mesh-merge-distance-diagnostic-11.json": "adc78ed7c05f140ffbd3a058817161b5934683b0a05ee000a05e96285f331373",
+    "/private/tmp/formora-merge-distance-native-diagnostic-11/capture/manifest.json": "0aaa8855b228d1d940dbd34191097272f41f8d7c987f274b05b03929345bea04",
+    "/private/tmp/formora-merge-distance-native-diagnostic-11/terminal.json": "d58356ad1828f377ff127618b555bdee7cd25db2de015aee175314515260d24d"
+  },
+  "numeric_rejection_matches_claimed": 0,
+  "forged_operations_executed": false,
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun"
+}

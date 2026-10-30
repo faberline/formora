@@ -1,0 +1,16 @@
+{
+  "process_id": 17685,
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_merge_distance_schema.py",
+    "--",
+    "--output",
+    "/private/tmp/formora-merge-distance-baseline/docs/evidence/mesh-merge-distance-baseline/native-schema-01/schema.json"
+  ],
+  "input_hashes": {
+    "/Applications/Blender.app/Contents/MacOS/Blender": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_merge_distance_schema.py": "4920d84b7059becf9cf9e563162235de9f904ef4452bfd85332679895a6f18c9"
+  }
+}

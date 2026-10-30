@@ -1,0 +1,29 @@
+{
+  "complete_cases": 2319,
+  "original_assignments_unchanged": 1188,
+  "expanded_pair_assignments": 1586,
+  "complete_three_factor_products": 3,
+  "hidden_cases": 253,
+  "constructor_file_reads": 0,
+  "input_checks_passed": true,
+  "native_execution": "unrun",
+  "input_seal": "pending",
+  "product_acceptance": "unrun",
+  "negative_controls": [
+    {
+      "name": "source_answer",
+      "rejected": true,
+      "error": "independent regeneration"
+    },
+    {
+      "name": "lost_case",
+      "rejected": true,
+      "error": "independent regeneration"
+    },
+    {
+      "name": "changed_original_input",
+      "rejected": true,
+      "error": "independent regeneration"
+    }
+  ]
+}

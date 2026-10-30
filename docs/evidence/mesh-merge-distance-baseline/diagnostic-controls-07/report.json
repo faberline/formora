@@ -1,0 +1,250 @@
+{
+  "genuine_diagnostic_passed": true,
+  "forged_controls_rejected": 34,
+  "controls": [
+    {
+      "control": "wrong_pair_centroid",
+      "rejected": true,
+      "expected_check": "source-cluster/vertices",
+      "error": "('source-cluster/vertices/a/v000000/0', 0.0625, 0.0626, 0.00010000000000000286, 1e-06)\nafter/full-state: component differs: a/world position/0: 0.06260000169277191 != 0.0625\n('complete-source-reload/meshes/a/geometry/vertices/v000000/0', 0.0626, 0.0625, 0.00010000000000000286, 1e-06)",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-so8mk9y1/native"
+    },
+    {
+      "control": "wrong_equal_distance_boundary",
+      "rejected": true,
+      "expected_check": "source-cluster/vertices",
+      "error": "('source-cluster/vertices/a', 'fields differ')\nafter/full-state: missing group membership records\n('complete-source-reload/meshes/a/geometry/vertices', 'fields differ')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-vfyz5d_f/native"
+    },
+    {
+      "control": "wrong_lower_distance_boundary",
+      "rejected": true,
+      "expected_check": "source-cluster/vertices",
+      "error": "('source-cluster/vertices/a', 'fields differ')\nafter/full-state: invalid component ID set\n('complete-source-reload/meshes/a/geometry/vertices', 'fields differ')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-zhsbmjrg/native"
+    },
+    {
+      "control": "executed_parameters_changed",
+      "rejected": true,
+      "expected_check": "executed-native-parameters",
+      "error": "('executed-native-parameters/threshold', 0.1249999925494194, 0.5, 0.3750000074505806, 0.0)",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-y1nbd1xo/native"
+    },
+    {
+      "control": "executed_parameters_missing",
+      "rejected": true,
+      "expected_check": "executed_parameters",
+      "error": "'executed_parameters'",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-gm85k7hc/native"
+    },
+    {
+      "control": "wrong_transitive_chain_merge",
+      "rejected": true,
+      "expected_check": "source-cluster/vertices",
+      "error": "('source-cluster/vertices/a', 'fields differ')\nafter/full-state: invalid edge endpoints\n('complete-source-reload/meshes/a/geometry/vertices', 'fields differ')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-e8rrmj86/native"
+    },
+    {
+      "control": "unselected_outside_data_changed",
+      "rejected": true,
+      "expected_check": "unedited-mesh/untouched",
+      "error": "('unedited-mesh/untouched/geometry/vertices/v000000/0', 8.0, 9.0, 1.0, 0.0)\nafter/full-state: component differs: untouched/world position/0: 9.0 != 8.0\n('complete-source-reload/meshes/untouched/geometry/vertices/v000000/0', 9.0, 8.0, 1.0, 1e-06)",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-42dd03hv/native"
+    },
+    {
+      "control": "object_world_changed",
+      "rejected": true,
+      "expected_check": "unchanged-scene/objects",
+      "error": "('unchanged-scene/objects/a/matrix_world/0/3', 0.0, 0.5, 0.5, 0.0)\nafter/full-state: component differs: a/world position/0: 0.5 != 0.0\n('complete-source-reload/objects/a/matrix_world/0/3', 0.5, 0.0, 0.5, 1e-06)",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-iz87pybn/native"
+    },
+    {
+      "control": "shared_mesh_detached",
+      "rejected": true,
+      "expected_check": "unchanged-scene/sharing",
+      "error": "('unchanged-scene/sharing', 'length differs')\n('complete-source-reload/sharing', 'length differs')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-6h1hf0vk/native"
+    },
+    {
+      "control": "wrong_edit_data_provider",
+      "rejected": true,
+      "expected_check": "edit-context/unique_data_iteration",
+      "error": "('edit-context/unique_data_iteration/0', 'alias', 'a')\n('unchanged-scene/edit_context/unique_data_iteration/0', 'a', 'alias')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-fwpm9dd2/native"
+    },
+    {
+      "control": "missing_uv_corner",
+      "rejected": true,
+      "expected_check": "a/geometry/uv_layers",
+      "error": "('a/geometry/uv_layers/Detail/f000000', 'length differs')\nbefore/full-state: invalid corner UV",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-vguxiamr/native"
+    },
+    {
+      "control": "explicit_zero_weight_lost",
+      "rejected": true,
+      "expected_check": "a/groups/weights",
+      "error": "('a/groups/weights/v000000', 'fields differ')\nbefore/full-state: fields differ: shared mesh/groups/weights/v000000",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-ypzujhck/native"
+    },
+    {
+      "control": "integer_replaced_by_boolean",
+      "rejected": true,
+      "expected_check": "a/integers",
+      "error": "('a/integers/VERT/vertices_signed/v000000', -11, True)\nbefore/full-state: invalid signed integer value",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-q69fk85i/native"
+    },
+    {
+      "control": "packed_normal_off_by_one",
+      "rejected": true,
+      "expected_check": "a/encoded-custom-normal",
+      "error": "('a/encoded-custom-normal/f000000/0/0', 19928, 19929)\nbefore/full-state: shared packed_custom_normals",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-bjrhykj9/native"
+    },
+    {
+      "control": "decoded_normal_over_limit",
+      "rejected": true,
+      "expected_check": "a/source-decoded-custom-normal",
+      "error": "('a/source-decoded-custom-normal/f000000/0/0', 0.5773360729217529, 9.0, 8.422663927078247, 1e-06)\nbefore/full-state: normal is not zero or unit length",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-dxngnrwr/native"
+    },
+    {
+      "control": "native_reload_attribute_lost",
+      "rejected": true,
+      "expected_check": "complete-source-reload/meshes/a/integer_attributes",
+      "error": "reloaded/full-state: integer layer names differ\n('complete-source-reload/meshes/a/integer_attributes/VERT', 'fields differ')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-ujlkdwg4/native"
+    },
+    {
+      "control": "source_answer_in_authored_suite",
+      "rejected": true,
+      "expected_check": "pure-authored-suite",
+      "error": "('pure-authored-suite/mesh_fixtures/loose_pair', 'fields differ')",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-l9b077wq/native"
+    },
+    {
+      "control": "missing_case",
+      "rejected": true,
+      "expected_check": "source case membership",
+      "error": "source case membership",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-n8x_nz8r/native"
+    },
+    {
+      "control": "duplicate_case",
+      "rejected": true,
+      "expected_check": "source case membership",
+      "error": "source case membership",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-ogx9yc__/native"
+    },
+    {
+      "control": "source_binary_substitution",
+      "rejected": true,
+      "expected_check": "source binary",
+      "error": "source binary",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-y319s3xo/native"
+    },
+    {
+      "control": "failed_native_terminal",
+      "rejected": true,
+      "expected_check": "native terminal failed",
+      "error": "native terminal failed",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-r_lo1zhr/native"
+    },
+    {
+      "control": "missing_native_terminal_field",
+      "rejected": true,
+      "expected_check": "terminal_exit_code",
+      "error": "'terminal_exit_code'",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-edj027f1/native"
+    },
+    {
+      "control": "missing_native_terminal_file",
+      "rejected": true,
+      "expected_check": "terminal.json",
+      "error": "[Errno 2] No such file or directory: '/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-w4i2k2z6/native/terminal.json'",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-w4i2k2z6/native"
+    },
+    {
+      "control": "timed_out_native_terminal",
+      "rejected": true,
+      "expected_check": "native terminal failed",
+      "error": "native terminal failed",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-121jp8na/native"
+    },
+    {
+      "control": "wrong_native_pid",
+      "rejected": true,
+      "expected_check": "native PID binding",
+      "error": "native PID binding",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-pyh2ukj4/native"
+    },
+    {
+      "control": "wrong_native_log_identity",
+      "rejected": true,
+      "expected_check": "native log identity",
+      "error": "native log identity",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-napd0_ed/native"
+    },
+    {
+      "control": "missing_input_hash",
+      "rejected": true,
+      "expected_check": "source input hash membership",
+      "error": "source input hash membership",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-h6rz1lev/native"
+    },
+    {
+      "control": "empty_input_hashes",
+      "rejected": true,
+      "expected_check": "source input hash membership",
+      "error": "source input hash membership",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-rbnoduvu/native"
+    },
+    {
+      "control": "extra_input_hash",
+      "rejected": true,
+      "expected_check": "source input hash membership",
+      "error": "source input hash membership",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-bx1fckce/native"
+    },
+    {
+      "control": "wrong_parent_suite_hash",
+      "rejected": true,
+      "expected_check": "parent suite identity",
+      "error": "parent suite identity",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-8sj21yb7/native"
+    },
+    {
+      "control": "smooth_fan_sharp_edge_changed",
+      "rejected": true,
+      "expected_check": "a/geometry/edge_sharp",
+      "error": "('a/geometry/edge_sharp/e000000', False, True)",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-55wbxk9z/native"
+    },
+    {
+      "control": "cyclic_fan_packed_normal_changed",
+      "rejected": true,
+      "expected_check": "a/encoded-custom-normal",
+      "error": "('a/encoded-custom-normal/f000000/0/0', 12650, 1)\nbefore/full-state: shared packed_custom_normals",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-4k8m87cu/native"
+    },
+    {
+      "control": "cyclic_fan_zero_default_changed",
+      "rejected": true,
+      "expected_check": "a/source-decoded-custom-normal",
+      "error": "('a/source-decoded-custom-normal/f000000/0/0', 0.0, 9.0, 9.0, 1e-06)\nbefore/full-state: normal is not zero or unit length",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-ffps1it5/native"
+    },
+    {
+      "control": "native_nan_probe_changes_data",
+      "rejected": true,
+      "expected_check": "native-nan-no-change",
+      "error": "('native-nan-no-change/meshes/a/geometry/vertices/v000000/0', 0.0, 0.5, 0.5, 0.0)\nafter/full-state: component differs: a/world position/0: 0.5 != 0.0\n('complete-source-reload/meshes/a/geometry/vertices/v000000/0', 0.5, 0.0, 0.5, 1e-06)",
+      "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-55sczkzd/native"
+    }
+  ],
+  "source_manifest_sha256": "0aaa8855b228d1d940dbd34191097272f41f8d7c987f274b05b03929345bea04",
+  "checker_sha256": "6d54faf4718a66b8c8784008761a08ace472255ae59989b9eeed240bc14b9953",
+  "control_script_sha256": "12d6a754fe19be9c5f0d9a31da69f2050f145c33ed47c6a067725d263fd0a735",
+  "forged_operations_executed": false,
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun"
+}

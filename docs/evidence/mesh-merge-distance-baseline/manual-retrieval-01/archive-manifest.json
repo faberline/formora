@@ -1,0 +1,78 @@
+{
+  "originals_preserved": true,
+  "files": [
+    {
+      "source": "/private/tmp/formora-distance-manual-retrieval-06/immutable-retry-08-stderr",
+      "stored": "retrieval/immutable-retry-08-stderr.gz",
+      "raw_sha256": "41b80186d4eac0c002cb9b21f63163b09aac8bc70acee4c76aaaae78af861f1e",
+      "stored_sha256": "1b6e668ea7c3d7bca7c44d77c24ff33456b4c6fdacccff33a9179d6ce418b632"
+    },
+    {
+      "source": "/private/tmp/formora-distance-manual-retrieval-06/immutable-retry-08-stdout",
+      "stored": "retrieval/immutable-retry-08-stdout.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "f1b651238a58fe290baec6c5e32f3bdb1943dd2bd582f02569231f7a757c7837"
+    },
+    {
+      "source": "/private/tmp/formora-distance-manual-retrieval-06/immutable-retry-08-terminal.json",
+      "stored": "retrieval/immutable-retry-08-terminal.json",
+      "raw_sha256": "82afd4668318003cde6f549b9a0bff4f20e2d07759ad280e51cd26a343a00541",
+      "stored_sha256": "82afd4668318003cde6f549b9a0bff4f20e2d07759ad280e51cd26a343a00541"
+    },
+    {
+      "source": "/private/tmp/formora-distance-manual-retrieval-06/report.json",
+      "stored": "retrieval/report.json",
+      "raw_sha256": "c33837feae72c22f93636ce8ab6433d9ed2517604c7791ea921ca53bbca94100",
+      "stored_sha256": "c33837feae72c22f93636ce8ab6433d9ed2517604c7791ea921ca53bbca94100"
+    },
+    {
+      "source": "/private/tmp/formora-distance-manual-retrieval-06/response-0.bin",
+      "stored": "retrieval/response-0.bin.gz",
+      "raw_sha256": "a202f85ed74a486e4c1c89a6e666315a64c14396e7f6f264e64368f7f42eed7c",
+      "stored_sha256": "4f26814b5e88f8d6272c5099e21c8ac7c9e1527c032645068105c7b03c4ffa0b"
+    },
+    {
+      "source": "/private/tmp/formora-distance-manual-retrieval-06/response-1.bin",
+      "stored": "retrieval/response-1.bin.gz",
+      "raw_sha256": "af9f0268a9f1367641074d1f4edf1ae14dbce63cc05d43588fe876709b2a9b31",
+      "stored_sha256": "0d64df5db243ccc524172e7c2bab5e753128add12f0de5b746c0bdc93afdb321"
+    },
+    {
+      "source": "/private/tmp/formora-merge-distance-fetch-manual-06.py",
+      "stored": "controllers/formora-merge-distance-fetch-manual-06.py",
+      "raw_sha256": "9456666e937780cbd419efbe3591bbd8af6b367a97bbe844a262be1df630c69a",
+      "stored_sha256": "9456666e937780cbd419efbe3591bbd8af6b367a97bbe844a262be1df630c69a"
+    },
+    {
+      "source": "/private/tmp/formora-merge-distance-pin-manual-07.py",
+      "stored": "controllers/formora-merge-distance-pin-manual-07.py",
+      "raw_sha256": "4ec663454696152991866f7e311aff8ee6d10255854161c0c79e759c39888fc3",
+      "stored_sha256": "4ec663454696152991866f7e311aff8ee6d10255854161c0c79e759c39888fc3"
+    },
+    {
+      "source": "/private/tmp/formora-merge-distance-pin-manual-08.py",
+      "stored": "controllers/formora-merge-distance-pin-manual-08.py",
+      "raw_sha256": "75f6b59ed333c1149e89eccbc98de1a1bdd9f452b22dd52a07e75f8e1a1af5cf",
+      "stored_sha256": "75f6b59ed333c1149e89eccbc98de1a1bdd9f452b22dd52a07e75f8e1a1af5cf"
+    },
+    {
+      "source": "/private/tmp/formora-merge-distance-retry-manual-08.py",
+      "stored": "controllers/formora-merge-distance-retry-manual-08.py",
+      "raw_sha256": "761a80098a7e1881f8a37986fce97297926fbf256ac3267f84876802987f63f7",
+      "stored_sha256": "761a80098a7e1881f8a37986fce97297926fbf256ac3267f84876802987f63f7"
+    },
+    {
+      "source": "/private/tmp/formora-merge-distance-pin-manual-api-09.py",
+      "stored": "controllers/formora-merge-distance-pin-manual-api-09.py",
+      "raw_sha256": "26b5610aef2b359e7a146475663dd8308c93c460766100a485ae1ab8693a7428",
+      "stored_sha256": "26b5610aef2b359e7a146475663dd8308c93c460766100a485ae1ab8693a7428"
+    }
+  ],
+  "manual_commit": "4a3be8f9ed3b66b24913e0a0d491d3429a70ea08",
+  "branch_and_immutable_bytes_equal": true,
+  "retrieval_report_precedes_content_review": true,
+  "immutable_raw_requests_failed": 2,
+  "official_contents_api_succeeded": true,
+  "content_review_scope": "distance subsection only",
+  "full_source_gate": "unrun"
+}

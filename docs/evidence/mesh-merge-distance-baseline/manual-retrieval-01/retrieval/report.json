@@ -1,0 +1,23 @@
+{
+  "attempts": [
+    {
+      "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/editing/mesh/merge.html",
+      "http_status": 200,
+      "error": null,
+      "stored": "response-0.bin",
+      "bytes": 466606,
+      "sha256": "a202f85ed74a486e4c1c89a6e666315a64c14396e7f6f264e64368f7f42eed7c",
+      "content_reviewed": false
+    },
+    {
+      "url": "https://projects.blender.org/blender/blender-manual/raw/branch/blender-v5.2-release/manual/modeling/meshes/editing/mesh/merge.rst",
+      "http_status": 200,
+      "error": null,
+      "stored": "response-1.bin",
+      "bytes": 2305,
+      "sha256": "af9f0268a9f1367641074d1f4edf1ae14dbce63cc05d43588fe876709b2a9b31",
+      "content_reviewed": false
+    }
+  ],
+  "manual_content_acceptance": "pending"
+}

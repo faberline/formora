@@ -1,0 +1,90 @@
+{
+  "archives": [
+    {
+      "attempt": "diagnostic-01",
+      "cases": 15,
+      "passes": 13,
+      "failures": 2,
+      "files": 47,
+      "manifest_sha256": "4fc459772c767a9b9e78ceb29dab54a7f8e6933f77c5ae007378b001a310416a"
+    },
+    {
+      "attempt": "diagnostic-02",
+      "cases": 15,
+      "passes": 14,
+      "failures": 1,
+      "files": 47,
+      "manifest_sha256": "53e387b9018b7dbf4ca3ac75f240a6f8350bd98d15a31851cc336893a8cec4b3"
+    },
+    {
+      "attempt": "diagnostic-03",
+      "cases": 21,
+      "passes": 19,
+      "failures": 2,
+      "files": 67,
+      "manifest_sha256": "ef407150f111f24c37c5de2017d917d08d6115ad939d03a97954626feed3fdee"
+    },
+    {
+      "attempt": "diagnostic-04",
+      "cases": 21,
+      "passes": 21,
+      "failures": 0,
+      "files": 73,
+      "manifest_sha256": "1351dd7557ade9b9ba424199fa5a51136e86dd44da8fa71097c786f168f90208"
+    },
+    {
+      "attempt": "diagnostic-05",
+      "cases": 21,
+      "passes": 21,
+      "failures": 0,
+      "files": 77,
+      "manifest_sha256": "d07d051aaad09685884864617a90743a25c7bbe7627fe1a2cb7256592cf3aa8f"
+    },
+    {
+      "attempt": "diagnostic-06",
+      "cases": 21,
+      "passes": 21,
+      "failures": 0,
+      "files": 92,
+      "manifest_sha256": "fb617e640bc2fe56994701d47291762565f595d11557319b323b6fa7fe96d95a"
+    },
+    {
+      "attempt": "diagnostic-07",
+      "cases": 33,
+      "passes": 33,
+      "failures": 0,
+      "files": 118,
+      "manifest_sha256": "56d54dd54ac45ef9b56b3d591b58d9e5dc48b2d5d403ba90ca7a0d058ea21502"
+    },
+    {
+      "attempt": "diagnostic-08",
+      "cases": 104,
+      "passes": 104,
+      "failures": 0,
+      "files": 266,
+      "manifest_sha256": "b1217a878f1c3b99c858db05447712b721cc9ad67bcc9259a2e49389a5762fa0"
+    },
+    {
+      "attempt": "diagnostic-09",
+      "cases": 104,
+      "passes": 104,
+      "failures": 0,
+      "files": 313,
+      "manifest_sha256": "e2e9c5dd5e034c7f0baade2771899b4a011fbe45299ba5f90a1837cdbab34de1"
+    },
+    {
+      "attempt": "diagnostic-10",
+      "cases": 104,
+      "passes": 104,
+      "failures": 0,
+      "files": 313,
+      "manifest_sha256": "a0c17f9232c495ed6b0eb498311d3deac38245d2bcddf6291cb1947e9a875b90"
+    }
+  ],
+  "attempts": 10,
+  "native_cases": 459,
+  "lossless_files": 1413,
+  "failed_initial_checks_retained": 5,
+  "full_source_gate": "unrun",
+  "product_acceptance": "unrun"
+}

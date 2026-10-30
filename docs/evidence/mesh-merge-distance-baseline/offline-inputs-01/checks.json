@@ -1,0 +1,57 @@
+{
+  "draft_cases": 1188,
+  "fixtures": 8,
+  "required_two_factor_assignments": 1150,
+  "checked_two_factor_assignments": 1150,
+  "focused_three_factor_products": 3,
+  "native_execution": "unrun",
+  "input_freeze": "pending",
+  "offline_input_checks_passed": true,
+  "constructor_filesystem_reads": 0,
+  "negative_controls": [
+    {
+      "control": "source_answer_in_fixture",
+      "rejected": true,
+      "error": "source answer field in input"
+    },
+    {
+      "control": "duplicate_case",
+      "rejected": true,
+      "error": "duplicate case identity"
+    },
+    {
+      "control": "numeric_boolean",
+      "rejected": true,
+      "error": "boolean parameter type differs"
+    },
+    {
+      "control": "lost_pair_coverage",
+      "rejected": true,
+      "error": "pair coverage missing: mode/context"
+    },
+    {
+      "control": "lost_three_factor_coverage",
+      "rejected": true,
+      "error": "focused coverage missing: ('fixture', 'options', 'distance')"
+    },
+    {
+      "control": "missing_uv_corner",
+      "rejected": true,
+      "error": "UV loop coverage differs"
+    },
+    {
+      "control": "boolean_integer_attribute",
+      "rejected": true,
+      "error": "integer type/range differs"
+    },
+    {
+      "control": "threshold_boundary_moved",
+      "rejected": true,
+      "error": "threshold binding differs"
+    }
+  ],
+  "forged_operations_executed": false,
+  "native_capture_ready": false,
+  "product_acceptance": "unrun",
+  "input_sha256": "69630c3a5235e5ced0e21ea40d7a8c7b7a62b8d16ea8b704ab121d36ca6ac8db"
+}

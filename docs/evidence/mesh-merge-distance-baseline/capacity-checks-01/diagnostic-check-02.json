@@ -1,0 +1,142 @@
+{
+  "source_capture_checks_passed": true,
+  "scope": "focused_distance_class_a_source_diagnostic",
+  "cases": 7,
+  "records": [
+    {
+      "id": "distance_class_a_003",
+      "native_ms": {
+        "core": 113151.566917,
+        "pipeline": 115857.626708
+      },
+      "budget_observations": {
+        "edited_data": 1,
+        "core_limit_ms": 250,
+        "pipeline_limit_ms": 2000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "c4a951ab89f8618d32622f8c905c0e67fe514e2c65ccd7b7e8f7e2fb583118b6"
+    },
+    {
+      "id": "distance_class_a_006",
+      "native_ms": {
+        "core": 30894.994917,
+        "pipeline": 38703.619958
+      },
+      "budget_observations": {
+        "edited_data": 1,
+        "core_limit_ms": 250,
+        "pipeline_limit_ms": 2000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "ba8208bc741a9e4eacd95f0e581530fda0b5732abae3a8abb26462cface68cbf"
+    },
+    {
+      "id": "distance_class_a_009",
+      "native_ms": {
+        "core": 118638.036792,
+        "pipeline": 126514.210209
+      },
+      "budget_observations": {
+        "edited_data": 1,
+        "core_limit_ms": 250,
+        "pipeline_limit_ms": 2000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "e4934081d9341aa4dcc2cb25d6a62128e8e4d65fca0de5293e3eefe7dd477852"
+    },
+    {
+      "id": "distance_class_a_012",
+      "native_ms": {
+        "core": 38167.711958,
+        "pipeline": 41617.8645
+      },
+      "budget_observations": {
+        "edited_data": 2,
+        "core_limit_ms": 500,
+        "pipeline_limit_ms": 4000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "16d39af54fc42b8afe4844f64b869b6f8a5912b5c1674a692aa878ddbe76394e"
+    },
+    {
+      "id": "distance_class_a_015",
+      "native_ms": {
+        "core": 168249.44975,
+        "pipeline": 171716.45
+      },
+      "budget_observations": {
+        "edited_data": 2,
+        "core_limit_ms": 500,
+        "pipeline_limit_ms": 4000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "8f53e8830cd6397174616ddfb75bbf70e3d0c270b113032a86207a3b31bcff05"
+    },
+    {
+      "id": "distance_class_a_018",
+      "native_ms": {
+        "core": 48634.089292,
+        "pipeline": 60527.317833
+      },
+      "budget_observations": {
+        "edited_data": 2,
+        "core_limit_ms": 500,
+        "pipeline_limit_ms": 4000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "3d9c808a7027150278e4303be03c6db9f8c950c1cf9884fbde00b52d3ff0db33"
+    },
+    {
+      "id": "distance_class_a_021",
+      "native_ms": {
+        "core": 178184.131917,
+        "pipeline": 190123.085125
+      },
+      "budget_observations": {
+        "edited_data": 2,
+        "core_limit_ms": 500,
+        "pipeline_limit_ms": 4000,
+        "native_core_within_product_budget": false,
+        "native_pipeline_within_product_budget": false,
+        "is_rust_product_timing": false,
+        "rust_acceptance": "unrun"
+      },
+      "checks_passed": true,
+      "raw_sha256": "806ab55d1b1e73cb7ca13bbd6d71f77ba60000b9500c966aeb9dbf06ce723a41"
+    }
+  ],
+  "source_pid": 3731,
+  "capacity_seal_sha256": "3a3087437b328b8fd3fe38b63aeab3749a3f746876a4f5a7971e31f82ea742bb",
+  "source_over_budget_samples": {
+    "core": 7,
+    "pipeline": 7
+  },
+  "complete_capacity_source_gate": "unrun",
+  "rust_product_timing": "unrun",
+  "product_acceptance": "unrun"
+}

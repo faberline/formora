@@ -1,0 +1,17 @@
+{
+  "process_id": 57586,
+  "command_line": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/private/tmp/formora-merge-distance-baseline/tools/compare_merge_distance_complete.py",
+    "--suite",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-complete-02.json",
+    "--seal",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-source-seal-01.json",
+    "--first",
+    "/private/tmp/formora-distance-complete-source-01",
+    "--second",
+    "/private/tmp/formora-distance-complete-source-02",
+    "--output",
+    "/private/tmp/formora-distance-complete-pair-01.json"
+  ]
+}
