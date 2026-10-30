@@ -20,7 +20,8 @@ def digest(stream):
 for row in data['records']:
     source = ORIGINAL / row['archive']
     compressed = row['bytes'] > 1024 * 1024 and source.suffix in ['.json', '.stdout']
-    target = OUT / (row['archive'] + ('.gz' if compressed else ''))
+    suffix = '.gz' if compressed else '.bytes' if source.name.endswith('.formora.lock') else ''
+    target = OUT / (row['archive'] + suffix)
     target.parent.mkdir(parents=True, exist_ok=True)
     if compressed:
         with source.open('rb') as raw, target.open('xb') as stream, gzip.GzipFile(filename='', mode='wb', fileobj=stream, mtime=0, compresslevel=6) as packed:
