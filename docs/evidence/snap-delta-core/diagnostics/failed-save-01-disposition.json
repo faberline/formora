@@ -1,0 +1,8 @@
+{
+  "terminal_exit_code": 1,
+  "cause": "After actual failed save and undo, empty mesh_assets is omitted by the existing scene serializer. The new harness indexed the optional field instead of checking its empty default.",
+  "actual_original_disk_and_memory_rollback_checks_completed": true,
+  "all_gate_checks_completed": false,
+  "product_or_threshold_changes": "none",
+  "retry": "Use the existing empty-map default and a fresh output directory; preserve the entire first run."
+}

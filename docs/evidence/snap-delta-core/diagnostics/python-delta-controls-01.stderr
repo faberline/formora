@@ -1,0 +1,33 @@
+test_authored_setup_does_not_read_source_files (test_delta_snap_runtime.DeltaRuntimeControls.test_authored_setup_does_not_read_source_files) ... ok
+test_delta_scale_cannot_be_duplicated (test_delta_snap_runtime.DeltaRuntimeControls.test_delta_scale_cannot_be_duplicated) ... ok
+test_delta_world_frame_cannot_be_stale (test_delta_snap_runtime.DeltaRuntimeControls.test_delta_world_frame_cannot_be_stale) ... ok
+test_false_delta_receipt_fails (test_delta_snap_runtime.DeltaRuntimeControls.test_false_delta_receipt_fails) ... ok
+test_inactive_delta_euler_cannot_change (test_delta_snap_runtime.DeltaRuntimeControls.test_inactive_delta_euler_cannot_change) ... ok
+test_omitted_delta_translation_fails (test_delta_snap_runtime.DeltaRuntimeControls.test_omitted_delta_translation_fails) ... ok
+test_raw_delta_quaternion_cannot_be_normalized (test_delta_snap_runtime.DeltaRuntimeControls.test_raw_delta_quaternion_cannot_be_normalized) ... ok
+test_raw_delta_sign_cannot_be_folded (test_delta_snap_runtime.DeltaRuntimeControls.test_raw_delta_sign_cannot_be_folded) ... ok
+test_real_delta_channels_and_frames_pass (test_delta_snap_runtime.DeltaRuntimeControls.test_real_delta_channels_and_frames_pass) ... ok
+test_saved_scene_supplies_delta_snapshot (test_delta_snap_runtime.DeltaRuntimeControls.test_saved_scene_supplies_delta_snapshot) ... FAIL
+
+======================================================================
+FAIL: test_saved_scene_supplies_delta_snapshot (test_delta_snap_runtime.DeltaRuntimeControls.test_saved_scene_supplies_delta_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/tools/tests/test_delta_snap_runtime.py", line 61, in test_saved_scene_supplies_delta_snapshot
+    state=snapshot(changed,v['queries']['after'],v['world_queries']['after'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/delta_snap_runtime.py", line 33, in snapshot
+    result = rotation.snapshot(inspection, queries, worlds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/rotation_snap_runtime.py", line 50, in snapshot
+    meshes={id:mesh_snapshot(queries[e['content']['geometry']['id']],scene,worlds[id],id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/faberlines/formora/tools/scene_snap_runtime_smoke.py", line 67, in mesh_snapshot
+    assert world['id']==id and world['entity']==scene['entities'][id]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.163s
+
+FAILED (failures=1)

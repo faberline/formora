@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/blender-grid-reference.py",
+    "--",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/source"
+  ],
+  "started_utc": "2026-10-29T22:42:02.929742+00:00",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "capture_script_sha256": "00309067142b803949eced889b5da524597e0c1c021f20bc96c76b11f13c2a05",
+  "terminal_exit_code": 0,
+  "process_id": 72828,
+  "finished_utc": "2026-10-29T22:42:20.091057+00:00",
+  "source.stdout_sha256": "f04ed456ed0a57ff5b90b89b6a7332bb2467aa3da393855a5314d0b731d9de1e",
+  "source.stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "manifest_sha256": "92f3b6c2d0072b36d4f27726f67d38052d6c289d87d9f54b5c7650b2d507e5e1"
+}

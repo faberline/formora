@@ -1,0 +1,119 @@
+{
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "process_id": 72828,
+  "background": false,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/blender-grid-reference.py",
+    "--",
+    "--output",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/source"
+  ],
+  "input_hashes": {
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/authored-grid.json": "8f29def12ade5467214e888fdcacec23b3d78ed4954e470207a00479ac149536",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/authored-modes.json": "c135b632e2a747a840f6176287e10602f0e2ffddd8e165ea3695f6f9869859eb",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/blender-grid-reference.py": "00309067142b803949eced889b5da524597e0c1c021f20bc96c76b11f13c2a05",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/scene-snap-core/performance/blender-grid-reference.py": "3d8d68f6eea8e7c2ccbe10ab6324744150b072f114b65de9dac8a9a7c1ef3e74",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_rotation_reference.py": "d5db093f0c3f50786dd2ec3288194ad6df13aec91bfcd9f8af082edca91ec641",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_menu_reference.py": "8ba885386c1ef8b6e84044ea476f05cae72816d5b5e86d5641fa1264c6b5b02e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_transform_reference.py": "d5978727a79d49a5aa2bda979b469bc9855771cbb6eb783dffd958b89c5ca386",
+    "/Users/chrischeng/faberlines/formora/tools/blender_selection_reference.py": "22ea80afab0abfc25866806963842f87a9e5771c764cf78c1b5e0c799a9ce95a",
+    "/Users/chrischeng/faberlines/formora/docs/contracts/snap-delta-core.md": "7b8808d2b2d119b4f9c264dec18c14c5b2fc184d262db989e31223ac53305143",
+    "/Users/chrischeng/faberlines/formora/baseline/fixtures/snap-menu.json": "739609dff0ec611641783010c1ad0ea7c076f3d492e5f012a243f2f27ec1a9c4",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_rotation_cases.py": "f59b02ab26e1d0444aad67ddb23934b09b8091dd3c49e7848d190f5352b7681b",
+    "/Users/chrischeng/faberlines/formora/tools/generate_snap_delta_cases.py": "ca0514e4ec32b06267f57ae25bb380451d36f15179cbbccba18942b941c0b46e",
+    "/Users/chrischeng/faberlines/formora/tools/blender_snap_delta_reference.py": "f37391b11aa8f9acea013699a7dee14f1a0c32d50513c41ff56d00eaa5ef3c2b",
+    "/Users/chrischeng/faberlines/formora/baseline/sources/snap-delta/manifest.json": "ef6be3d9c19e73de276059b83565d121389797a90d2f3e87daa8b633d3d1164f"
+  },
+  "runs": [
+    {
+      "mode": "XYZ",
+      "file": "XYZ.json.gz",
+      "sha256": "f5f840361129a88498f4d3dbaae1fb3772f4240fc133ca0e001fe94f44599305",
+      "raw_sha256": "a987aa4ac56b137328b572400d7cd6e6b918aa129b0cd0692e4cf233c57ba7f3",
+      "raw_bytes": 13525912,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "XZY",
+      "file": "XZY.json.gz",
+      "sha256": "300d31c2bd61cf7bab701ffedf8ca1eef062e7d8123d97a963a7d1bacc422744",
+      "raw_sha256": "feb06873b4db27b411f4af1c6f27601413b89c06528b0b9dbaea73fc3711b208",
+      "raw_bytes": 13548961,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "YXZ",
+      "file": "YXZ.json.gz",
+      "sha256": "4f29ea51143550b6613cfdee32c3b447bcbd21a82ded86a5db59c9df8757f421",
+      "raw_sha256": "28634802321848319adcc7c14d838ad2c6ad7b4ae3bfd1d634ff5964c99400f3",
+      "raw_bytes": 13523747,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "YZX",
+      "file": "YZX.json.gz",
+      "sha256": "b53bc0c1f12618335fc90873c258b6fcd98b673439ddeccfb636662c5e3834a1",
+      "raw_sha256": "42c2df63cc197f649f6260219fad8e5d7de0fc9a9f19b9f9d926234e2786264d",
+      "raw_bytes": 13524079,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "ZXY",
+      "file": "ZXY.json.gz",
+      "sha256": "211c17274a0f3aa0b72b8ea06d00113b49afb2da8c9af6e6140cc8df44f8305c",
+      "raw_sha256": "3e8d1e0ee4e3dba980ac6ec1261ff0b3f1913c32d04ca9b297f459f002aae5c1",
+      "raw_bytes": 13543846,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "ZYX",
+      "file": "ZYX.json.gz",
+      "sha256": "b241a5499f28d3eb9e6c6cb99a17152adbcc9ec83a4befd194df0c08f147bf8e",
+      "raw_sha256": "792b8c557d3c493e858367973e4da8c6b6468a435cab21646781ddf135092ca8",
+      "raw_bytes": 13522930,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "QUATERNION",
+      "file": "QUATERNION.json.gz",
+      "sha256": "b36fd2fa26e905d085fa88789315c2c903ddeda997c7ff4b3c669b5f2dd0eeb2",
+      "raw_sha256": "03f0a5197ecb033c2303b1f8eeeb94f96fea6f4e5d04d253b5fdf7f8611a030b",
+      "raw_bytes": 10090252,
+      "status": [
+        "FINISHED"
+      ]
+    },
+    {
+      "mode": "AXIS_ANGLE",
+      "file": "AXIS_ANGLE.json.gz",
+      "sha256": "11f9fc56ea255bce8535d805cc32b34431e3a4b2e3dfdc2dc253252d4c2f5441",
+      "raw_sha256": "ea2505d753d237c555ac9304476be01f433f483d682ac5f2e33031b63d40aee8",
+      "raw_bytes": 13641059,
+      "status": [
+        "FINISHED"
+      ]
+    }
+  ],
+  "product_acceptance": "unrun"
+}

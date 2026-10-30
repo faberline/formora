@@ -1,0 +1,15 @@
+test_authored_setup_does_not_read_source_files (test_delta_snap_runtime.DeltaRuntimeControls.test_authored_setup_does_not_read_source_files) ... ok
+test_delta_scale_cannot_be_duplicated (test_delta_snap_runtime.DeltaRuntimeControls.test_delta_scale_cannot_be_duplicated) ... ok
+test_delta_world_frame_cannot_be_stale (test_delta_snap_runtime.DeltaRuntimeControls.test_delta_world_frame_cannot_be_stale) ... ok
+test_false_delta_receipt_fails (test_delta_snap_runtime.DeltaRuntimeControls.test_false_delta_receipt_fails) ... ok
+test_inactive_delta_euler_cannot_change (test_delta_snap_runtime.DeltaRuntimeControls.test_inactive_delta_euler_cannot_change) ... ok
+test_omitted_delta_translation_fails (test_delta_snap_runtime.DeltaRuntimeControls.test_omitted_delta_translation_fails) ... ok
+test_raw_delta_quaternion_cannot_be_normalized (test_delta_snap_runtime.DeltaRuntimeControls.test_raw_delta_quaternion_cannot_be_normalized) ... ok
+test_raw_delta_sign_cannot_be_folded (test_delta_snap_runtime.DeltaRuntimeControls.test_raw_delta_sign_cannot_be_folded) ... ok
+test_real_delta_channels_and_frames_pass (test_delta_snap_runtime.DeltaRuntimeControls.test_real_delta_channels_and_frames_pass) ... ok
+test_saved_scene_supplies_delta_snapshot (test_delta_snap_runtime.DeltaRuntimeControls.test_saved_scene_supplies_delta_snapshot) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.167s
+
+OK

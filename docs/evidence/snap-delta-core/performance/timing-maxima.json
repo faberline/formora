@@ -1,0 +1,34 @@
+[
+  {
+    "gate": "raw-01",
+    "samples": 24,
+    "maximum_core_ms": 133.431208,
+    "maximum_pipeline_ms": 397.655708
+  },
+  {
+    "gate": "retained-rotation-01",
+    "samples": 24,
+    "maximum_core_ms": 159.03125,
+    "maximum_pipeline_ms": 360.901
+  },
+  {
+    "gate": "single",
+    "samples": 30,
+    "maximum_core_ms": 243.847625,
+    "maximum_pipeline_ms": 745.562792
+  },
+  {
+    "gate": "transform",
+    "samples": 9,
+    "maximum_core_ms": 240.459916,
+    "maximum_pipeline_ms": 406.394791
+  },
+  {
+    "gate": "scene90",
+    "samples": 90,
+    "maximum_core_ms": 293.168125,
+    "maximum_pipeline_ms": 600.453417,
+    "maximum_core_AB": 225.967083,
+    "maximum_core_C": 293.168125
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "requests": 14326,
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "implementation_commit": "e16eab6471f32aa85c2bbba867e6fd4e09ead640",
+  "gates": [
+    {
+      "gate": "runtime-full",
+      "requests": 3584,
+      "passed": true,
+      "declared_inputs_rehashed": 16004
+    },
+    {
+      "gate": "runtime-rotation",
+      "requests": 4992,
+      "passed": true,
+      "declared_inputs_rehashed": 16004
+    },
+    {
+      "gate": "runtime-scene",
+      "requests": 1100,
+      "passed": true,
+      "declared_inputs_rehashed": 16004
+    },
+    {
+      "gate": "runtime-single",
+      "requests": 2244,
+      "passed": true,
+      "declared_inputs_rehashed": 16004
+    },
+    {
+      "gate": "runtime-transform",
+      "requests": 2406,
+      "passed": true,
+      "declared_inputs_rehashed": 16003
+    }
+  ],
+  "product_acceptance": "unrun"
+}

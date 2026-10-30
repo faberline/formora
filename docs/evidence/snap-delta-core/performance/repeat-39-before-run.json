@@ -1,0 +1,40 @@
+{
+  "implementation_commit": "e16eab6471f32aa85c2bbba867e6fd4e09ead640",
+  "first_trial": "/private/tmp/formora-delta-retained-39-01",
+  "first_trial_required_gate_passed": false,
+  "single_failed_samples": [
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "core_end_ns": 16140496625,
+      "core_ms": 268.973625,
+      "core_start_ns": 15871523000,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250,
+      "maximum_pipeline_ms": 2000,
+      "operation_save_reload_ms": 378.534708,
+      "passed": false,
+      "pipeline_end_ns": 16636066458,
+      "pipeline_start_ns": 16257531750,
+      "receipt_equal": true,
+      "sample": 2,
+      "topology_and_editing_preserved": true
+    }
+  ],
+  "failing_form_saved_scenes_identical_in_all_three_samples": {
+    "1": "a0d773c1cd01551222c2ade799834c128fd0b88962cf578c59a03cf481749a7c",
+    "2": "a0d773c1cd01551222c2ade799834c128fd0b88962cf578c59a03cf481749a7c",
+    "3": "a0d773c1cd01551222c2ade799834c128fd0b88962cf578c59a03cf481749a7c"
+  },
+  "original_limit_ms": 250,
+  "first_transform_samples": 9,
+  "first_transform_gate_passed": true,
+  "causal_attribution": "not established; the failed sample is a wall-time outlier with byte-identical results",
+  "repeat_plan": "Run one wholly fresh full 39-sample group with the unchanged source, executables, workload, timers and thresholds. Keep all 30 single snaps and all nine transforms; select no samples and combine no trials. Keep the first failed group unaccepted. If it fails again, investigate instead of looping until a pass.",
+  "host_settings_priorities_other_processes_changed": false,
+  "product_acceptance": "unrun"
+}

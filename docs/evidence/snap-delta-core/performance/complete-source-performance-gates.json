@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "samples": 177,
+  "checks": [
+    {
+      "report": "raw-source-comparison-01.json",
+      "samples": 24,
+      "passed": true
+    },
+    {
+      "report": "retained-90-source-comparison-02.json",
+      "samples": 90,
+      "passed": true
+    },
+    {
+      "report": "retained-rotation-source-comparison-01.json",
+      "samples": 24,
+      "passed": true
+    },
+    {
+      "report": "retained-30-source-comparison-02.json",
+      "samples": 30,
+      "passed": true
+    },
+    {
+      "report": "retained-9-source-comparison-02.json",
+      "samples": 9,
+      "passed": true
+    }
+  ],
+  "first_failed_trials_stay_unaccepted": true,
+  "unaccepted_trial_samples": 129,
+  "actual_over_limit_rows_in_unaccepted_trials": 11,
+  "no_samples_combined_or_criteria_changed": true,
+  "product_acceptance": "unrun"
+}

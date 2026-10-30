@@ -1,0 +1,18 @@
+{
+  "implementation_commit": "e16eab6471f32aa85c2bbba867e6fd4e09ead640",
+  "first_trial": "diagnostics/retained-90-01",
+  "first_trial_required_gate_passed": false,
+  "first_trial_failed_samples": 10,
+  "first_trial_failed_class": "A",
+  "first_trial_max_failing_core_ms": 302.011166,
+  "class_A_limit_ms": 250,
+  "observed_first_host_idle_percent": 0,
+  "older_passing_baseline_host_idle_percent": 53.94,
+  "observed_later_host_idle_percent": 30.72,
+  "causal_attribution": "not established; host contention is observed, code contribution is not excluded",
+  "repeat_plan": "After all own diagnostic/compile jobs finish, run one wholly fresh complete 90-sample experiment with the unchanged executable, sources, workload, timers, limits and all three samples per group. Do not combine trials or select passing samples. Keep the failed trial unaccepted. If the repeat fails, investigate rather than looping until a pass.",
+  "host_priority_or_other_process_changes": "none",
+  "remaining_old_raw_rotation_24": "unrun",
+  "remaining_old_single_transform_39": "unrun",
+  "product_acceptance": "unrun"
+}

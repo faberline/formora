@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/failed-save-driver.py", line 47, in <module>
+    assert not undone['entities'] and not undone['mesh_assets'] and undone['revision']==2
+                                          ~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'mesh_assets'

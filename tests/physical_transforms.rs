@@ -73,6 +73,7 @@ fn all_euler_orders_keep_authored_angles_and_match_sequential_physical_rotations
             rotation: TransformRotation::Authored(RotationAngles::Euler { angles, order }),
             scale: [1.2, -0.7, 1.1],
             translation: [0.17, -0.23, 0.31],
+            delta: Default::default(),
         };
         let matrix = transforms::local(&t).unwrap();
         let mut expected = [0.24, 0.21, 0.44];

@@ -1,0 +1,13 @@
+{
+  "captured_at_utc": "2026-10-29T23:26:27.436979+00:00",
+  "top": {
+    "exit_code": 0,
+    "stdout": "Processes: 1061 total, 5 running, 2 stuck, 1054 sleeping, 6334 threads \n2026/10/30 07:26:28\nLoad Avg: 12.26, 13.79, 13.71 \nCPU usage: 33.12% user, 20.6% sys, 46.81% idle \nSharedLibs: 1070M resident, 178M data, 428M linkedit.\nMemRegions: 651206 total, 21G resident, 707M private, 4668M shared.\nPhysMem: 60G used (5463M wired, 3283M compressor), 2906M unused.\nVM: 476T vsize, 6144M framework vsize, 0(0) swapins, 0(0) swapouts.\nNetworks: packets: 68200497/48G in, 70601573/63G out.\nDisks: 253445980/3814G read, 78659723/1635G written.\n\n\n",
+    "stderr": ""
+  },
+  "swap": {
+    "exit_code": 0,
+    "stdout": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)\n",
+    "stderr": ""
+  }
+}

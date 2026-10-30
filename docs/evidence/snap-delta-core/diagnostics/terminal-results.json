@@ -1,0 +1,215 @@
+{
+  "implementation_commit": "e16eab6471f32aa85c2bbba867e6fd4e09ead640",
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "terminal_results": [
+    {
+      "name": "rust271",
+      "tool_session_id": 93329,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "python190",
+      "tool_session_id": 51782,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "fmt_clippy_debug_build",
+      "tool_session_id": 63638,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "release_library",
+      "tool_session_id": 7840,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "pilot36_pre_f64_guard",
+      "tool_session_id": 12535,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "new3584",
+      "tool_session_id": 24568,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained_rotation4992",
+      "tool_session_id": 15653,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "legacy5750_group",
+      "tool_session_id": 76467,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained_assets_rng_mcp",
+      "tool_session_id": 71273,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "rng_one_shot48",
+      "tool_session_id": 90015,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "new_gpu",
+      "tool_session_id": 65930,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained_gpu3",
+      "tool_session_id": 12946,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained_isolation_initial_group",
+      "tool_session_id": 65691,
+      "actual_terminal_exit_code": 1
+    },
+    {
+      "name": "metadata_wrapper",
+      "tool_session_id": 56140,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "new_perf_driver_compile",
+      "tool_session_id": 81972,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained3_perf_drivers_compile",
+      "tool_session_id": 24558,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained_rotation_driver_compile",
+      "tool_session_id": 82833,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "new_perf24_timing",
+      "tool_session_id": 61586,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "new_perf24_source",
+      "tool_session_id": 72012,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "first_scene90_timing",
+      "tool_session_id": 61585,
+      "actual_terminal_exit_code": 1
+    },
+    {
+      "name": "first_scene90_source_env_failure",
+      "tool_session_id": 56804,
+      "actual_terminal_exit_code": 1
+    },
+    {
+      "name": "first_scene90_source_diagnostic_expected_failed_gate",
+      "tool_session_id": 1852,
+      "actual_terminal_exit_code": 1
+    },
+    {
+      "name": "retained_timing_batch_with_first_single_failure",
+      "tool_session_id": 40504,
+      "actual_terminal_exit_code": 1
+    },
+    {
+      "name": "repeat_scene90_source",
+      "tool_session_id": 63842,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "retained_rotation24_source",
+      "tool_session_id": 38694,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "repeat_single_transform39_timing",
+      "tool_session_id": 64199,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "repeat_single30_source",
+      "tool_session_id": 80473,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "repeat_transform9_source",
+      "tool_session_id": 19223,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "complete_api_evidence",
+      "tool_session_id": 27035,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "archive_first_scene90",
+      "tool_session_id": 61761,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "archive_first39",
+      "tool_session_id": 57939,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "archive_new24",
+      "tool_session_id": 79689,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "archive_retained_rotation24",
+      "tool_session_id": 30028,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "archive_repeat39",
+      "tool_session_id": 41120,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "archive_repeat90",
+      "tool_session_id": 15960,
+      "actual_terminal_exit_code": 0
+    },
+    {
+      "name": "full_local_evidence_audit",
+      "tool_session_id": 58671,
+      "actual_terminal_exit_code": 0
+    }
+  ],
+  "immediate_verified_terminals": {
+    "new_native_delta_isolation": 0,
+    "retained_rng_isolation_path_retry": 0,
+    "new_delta_recipe": 0,
+    "both_retained_recipes": 0,
+    "six_euler_oracle": 0,
+    "failed_save_first_harness": 1,
+    "failed_save_full_retry": 0,
+    "seven_analytic_actions": 0,
+    "thirteen_input_rejections": 0
+  },
+  "first_isolation_group_failure": "No native RNG run started: the retained fixed output directory correctly refused overwrite. A fresh output path replay passed.",
+  "first_scene90_source_diagnostic_exit1": "Expected required performance gate remains false; all ninety numeric source comparisons passed.",
+  "retained_timing_batch_components": {
+    "scene90_full_repeat": 0,
+    "rotation24": 0,
+    "single_transform39_first_trial": 1
+  },
+  "metadata_actual_exit": 0,
+  "strict_metadata_actual_exit": 2,
+  "release_performance_final_samples": 177,
+  "unaccepted_complete_trial_samples_preserved": 129,
+  "actual_time_failures_in_those_trials": 11,
+  "three_platform_ci": "unrun",
+  "dependency_integration": "unrun",
+  "independent_codex_acceptance": "unrun",
+  "product_acceptance": "unrun",
+  "all_required_local_gates_passed": true,
+  "full_local_evidence_report": "docs/evidence/snap-delta-core/local-evidence.json"
+}

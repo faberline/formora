@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "revision": 6,
+  "time_seconds": 0.0,
+  "entities": {
+    "target": {
+      "name": "Delta save rollback",
+      "parent": null,
+      "transform": {
+        "translation": [
+          1.125,
+          -0.5,
+          0.125
+        ],
+        "rotation": {
+          "kind": "channels",
+          "channels": {
+            "mode": "quaternion",
+            "euler": [
+              0.21345678901234566,
+              -0.27,
+              0.43
+            ],
+            "quaternion_wxyz": [
+              0.800000011920929,
+              -0.5,
+              0.0,
+              0.6000000238418579
+            ],
+            "axis_angle": [
+              0.71,
+              -3.0,
+              2.0,
+              4.0
+            ]
+          }
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.11345678901234567,
+            -0.31789,
+            0.4789
+          ],
+          "quaternion_wxyz": [
+            -2.0,
+            0.0,
+            0.0,
+            -2.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    }
+  },
+  "materials": {},
+  "doors": {},
+  "active_camera": null,
+  "annotations": [],
+  "authoring_context": {
+    "cursor_location": [
+      1.25,
+      -0.75,
+      0.5
+    ],
+    "cursor_rotation": [
+      0.21345678901234566,
+      -0.27,
+      0.43
+    ],
+    "cursor_orientation": {
+      "mode": "quaternion",
+      "euler": [
+        0.21345678901234566,
+        -0.27,
+        0.43
+      ],
+      "quaternion_wxyz": [
+        0.8,
+        0.0,
+        0.0,
+        0.6
+      ],
+      "axis_angle": [
+        0.71,
+        -3.0,
+        2.0,
+        4.0
+      ]
+    },
+    "view_rotation": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "object_context": {
+    "order": [],
+    "selected": [
+      "target"
+    ],
+    "active": "target",
+    "edit_objects": [],
+    "states": {
+      "target": {
+        "lock_location": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation": [
+          true,
+          false,
+          false
+        ]
+      }
+    },
+    "skip_children": false,
+    "origins_only": false
+  }
+}

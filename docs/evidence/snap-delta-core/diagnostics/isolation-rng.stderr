@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/rng-rotation-isolation-driver.py", line 3, in <module>
+    root=Path('/Users/chrischeng/faberlines/formora');source_binary=Path('/private/tmp/formora-target-actual185/debug/formora');output=root/'docs/evidence/snap-rotation-core/rng-rotation-isolation';output.mkdir(parents=True,exist_ok=False)
+                                                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/chrischeng/.pyenv/versions/3.12.11/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileExistsError: [Errno 17] File exists: '/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/rng-rotation-isolation'

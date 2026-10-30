@@ -1,0 +1,81 @@
+{
+  "class": "A",
+  "edges_per_mesh": 20200,
+  "faces_per_mesh": 10000,
+  "form": "selected-cursor-false-true",
+  "grid": [
+    100,
+    100
+  ],
+  "issue_acceptance": "unrun",
+  "milestone_acceptance": "unrun",
+  "passed": true,
+  "profile": "release",
+  "runs": [
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "class": "A",
+      "core_end_ns": 22424425125,
+      "core_ms": 130.841584,
+      "core_start_ns": 22293583541,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 290.115417,
+      "passed": true,
+      "pipeline_end_ns": 22838311625,
+      "pipeline_start_ns": 22548196208,
+      "receipt_equal": true,
+      "sample": 1
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "class": "A",
+      "core_end_ns": 23044570916,
+      "core_ms": 129.4985,
+      "core_start_ns": 22915072416,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 295.706541,
+      "passed": true,
+      "pipeline_end_ns": 23545238666,
+      "pipeline_start_ns": 23249532125,
+      "receipt_equal": true,
+      "sample": 2
+    },
+    {
+      "action": {
+        "kind": "selected_to_cursor",
+        "use_offset": false,
+        "use_rotation": true
+      },
+      "class": "A",
+      "core_end_ns": 23751327625,
+      "core_ms": 128.454792,
+      "core_start_ns": 23622872833,
+      "form": "selected-cursor-false-true",
+      "fresh_reload_equal": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "operation_save_reload_ms": 309.0395,
+      "passed": true,
+      "pipeline_end_ns": 24190300500,
+      "pipeline_start_ns": 23881261000,
+      "receipt_equal": true,
+      "sample": 3
+    }
+  ],
+  "samples": 3,
+  "vertices_per_mesh": 10201
+}

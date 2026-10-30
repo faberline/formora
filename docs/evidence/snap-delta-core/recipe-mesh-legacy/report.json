@@ -1,0 +1,4178 @@
+{
+  "passed": true,
+  "binary_sha256": "bd666398596d8a9ec61d8e12db62df53bd7c2aa53ba5492ceba65ab4ea655bef",
+  "driver_sha256": "4d8354f0b0e6d67424e14daa8c9305c6097edf7f618344e5e3559e40602c7e15",
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "cursor_only_preserves_recipe": true,
+  "geometry_edit_marks_recipe": true,
+  "failed_batch_preserves_recipe_and_disk": true,
+  "undo_replay_checked": true,
+  "regeneration_restores_original_authored_geometry_and_attributes": true,
+  "fresh_reload_equal": true,
+  "calls": [
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "create_mesh_object",
+            "creation": {
+              "id": "cube",
+              "asset": "mesh",
+              "name": "Recipe cube",
+              "primitive": {
+                "kind": "cube",
+                "size": 1.3
+              }
+            }
+          },
+          {
+            "operation": "set_authoring_context",
+            "context": {
+              "cursor_location": [
+                2.1,
+                -1.3,
+                0.7
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ]
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 1,
+        "ok": true,
+        "result": {
+          "creation": [
+            {
+              "command_index": 0,
+              "created": {
+                "edges": [
+                  "e000000",
+                  "e000001",
+                  "e000002",
+                  "e000003",
+                  "e000004",
+                  "e000005",
+                  "e000006",
+                  "e000007",
+                  "e000008",
+                  "e000009",
+                  "e000010",
+                  "e000011"
+                ],
+                "faces": [
+                  {
+                    "id": "p000000",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000001",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000002",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000003",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000004",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000005",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              },
+              "edit_ready": true,
+              "entity": "cube",
+              "kind": "new_object",
+              "mesh_asset": "mesh"
+            }
+          ],
+          "revision": 1
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 2,
+        "ok": true,
+        "result": {
+          "revision": 1,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                2.1,
+                -1.3,
+                0.7
+              ],
+              "cursor_rotation": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "view_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "cube": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Recipe cube",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "e000000": [
+                    "v000000",
+                    "v000001"
+                  ],
+                  "e000001": [
+                    "v000001",
+                    "v000003"
+                  ],
+                  "e000002": [
+                    "v000003",
+                    "v000002"
+                  ],
+                  "e000003": [
+                    "v000002",
+                    "v000000"
+                  ],
+                  "e000004": [
+                    "v000003",
+                    "v000007"
+                  ],
+                  "e000005": [
+                    "v000007",
+                    "v000006"
+                  ],
+                  "e000006": [
+                    "v000006",
+                    "v000002"
+                  ],
+                  "e000007": [
+                    "v000007",
+                    "v000005"
+                  ],
+                  "e000008": [
+                    "v000005",
+                    "v000004"
+                  ],
+                  "e000009": [
+                    "v000004",
+                    "v000006"
+                  ],
+                  "e000010": [
+                    "v000005",
+                    "v000001"
+                  ],
+                  "e000011": [
+                    "v000000",
+                    "v000004"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": []
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "e000000",
+                      "e000001",
+                      "e000002",
+                      "e000003",
+                      "e000004",
+                      "e000005",
+                      "e000006",
+                      "e000007",
+                      "e000008",
+                      "e000009",
+                      "e000010",
+                      "e000011"
+                    ],
+                    "faces": [
+                      {
+                        "id": "p000000",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000001",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000002",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000003",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000004",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000005",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000002",
+                      "v000003",
+                      "v000004",
+                      "v000005",
+                      "v000006",
+                      "v000007"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "p000000": {
+                    "corner_normals": [
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.375,
+                          0.25
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000003",
+                      "v000002"
+                    ]
+                  },
+                  "p000001": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000003",
+                      "v000007",
+                      "v000006"
+                    ]
+                  },
+                  "p000002": {
+                    "corner_normals": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000006",
+                      "v000007",
+                      "v000005",
+                      "v000004"
+                    ]
+                  },
+                  "p000003": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          1.0
+                        ],
+                        [
+                          0.375,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000004",
+                      "v000005",
+                      "v000001",
+                      "v000000"
+                    ]
+                  },
+                  "p000004": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.125,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.125,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000006",
+                      "v000004",
+                      "v000000"
+                    ]
+                  },
+                  "p000005": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000007",
+                      "v000003",
+                      "v000001",
+                      "v000005"
+                    ]
+                  }
+                },
+                "recipe": {
+                  "creation_frame": {
+                    "matrix": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "edited": false,
+                  "max_components": 1000000,
+                  "primitive": {
+                    "calc_uvs": true,
+                    "kind": "cube",
+                    "scale": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "size": 1.3
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "UVMap",
+                  "layers": [
+                    "UVMap"
+                  ]
+                },
+                "vertices": {
+                  "v000000": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000001": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000002": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000003": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000004": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000005": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000006": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000007": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ]
+                }
+              }
+            },
+            "revision": 1,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 1,
+        "commands": [
+          {
+            "operation": "set_mesh_editing",
+            "id": "mesh",
+            "editing": {
+              "mode": [
+                "vertex"
+              ],
+              "selected": {
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              },
+              "preview": false
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 3,
+        "ok": true,
+        "result": {
+          "revision": 2
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 2,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "cube",
+              "action": {
+                "kind": "cursor_to_center"
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 4,
+        "ok": true,
+        "result": {
+          "revision": 3,
+          "snaps": [
+            {
+              "action": {
+                "kind": "cursor_to_center"
+              },
+              "changed": {
+                "edges": [],
+                "faces": [],
+                "vertices": []
+              },
+              "command_index": 0,
+              "cursor_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_before": [
+                2.1,
+                -1.3,
+                0.7
+              ],
+              "cursor_changed": true,
+              "cursor_rotation_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation_before": [
+                0.17,
+                0.23,
+                0.41
+              ],
+              "entity": "cube",
+              "grid_spacing_metres": null,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "cube"
+              ],
+              "status": "finished",
+              "target_world": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 5,
+        "ok": true,
+        "result": {
+          "revision": 3,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "cube": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Recipe cube",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "e000000": [
+                    "v000000",
+                    "v000001"
+                  ],
+                  "e000001": [
+                    "v000001",
+                    "v000003"
+                  ],
+                  "e000002": [
+                    "v000003",
+                    "v000002"
+                  ],
+                  "e000003": [
+                    "v000002",
+                    "v000000"
+                  ],
+                  "e000004": [
+                    "v000003",
+                    "v000007"
+                  ],
+                  "e000005": [
+                    "v000007",
+                    "v000006"
+                  ],
+                  "e000006": [
+                    "v000006",
+                    "v000002"
+                  ],
+                  "e000007": [
+                    "v000007",
+                    "v000005"
+                  ],
+                  "e000008": [
+                    "v000005",
+                    "v000004"
+                  ],
+                  "e000009": [
+                    "v000004",
+                    "v000006"
+                  ],
+                  "e000010": [
+                    "v000005",
+                    "v000001"
+                  ],
+                  "e000011": [
+                    "v000000",
+                    "v000004"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": []
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "e000000",
+                      "e000001",
+                      "e000002",
+                      "e000003",
+                      "e000004",
+                      "e000005",
+                      "e000006",
+                      "e000007",
+                      "e000008",
+                      "e000009",
+                      "e000010",
+                      "e000011"
+                    ],
+                    "faces": [
+                      {
+                        "id": "p000000",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000001",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000002",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000003",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000004",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000005",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000002",
+                      "v000003",
+                      "v000004",
+                      "v000005",
+                      "v000006",
+                      "v000007"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "p000000": {
+                    "corner_normals": [
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.375,
+                          0.25
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000003",
+                      "v000002"
+                    ]
+                  },
+                  "p000001": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000003",
+                      "v000007",
+                      "v000006"
+                    ]
+                  },
+                  "p000002": {
+                    "corner_normals": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000006",
+                      "v000007",
+                      "v000005",
+                      "v000004"
+                    ]
+                  },
+                  "p000003": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          1.0
+                        ],
+                        [
+                          0.375,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000004",
+                      "v000005",
+                      "v000001",
+                      "v000000"
+                    ]
+                  },
+                  "p000004": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.125,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.125,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000006",
+                      "v000004",
+                      "v000000"
+                    ]
+                  },
+                  "p000005": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000007",
+                      "v000003",
+                      "v000001",
+                      "v000005"
+                    ]
+                  }
+                },
+                "recipe": {
+                  "creation_frame": {
+                    "matrix": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "edited": false,
+                  "max_components": 1000000,
+                  "primitive": {
+                    "calc_uvs": true,
+                    "kind": "cube",
+                    "scale": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "size": 1.3
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "UVMap",
+                  "layers": [
+                    "UVMap"
+                  ]
+                },
+                "vertices": {
+                  "v000000": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000001": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000002": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000003": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000004": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000005": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000006": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000007": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ]
+                }
+              }
+            },
+            "revision": 3,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 3,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "cube",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.75
+              }
+            }
+          },
+          {
+            "operation": "delete_entity",
+            "id": "missing"
+          }
+        ]
+      },
+      "response": {
+        "error": "unknown entity: missing",
+        "id": 6,
+        "ok": false
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 7,
+        "ok": true,
+        "result": {
+          "revision": 3,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "cube": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Recipe cube",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "e000000": [
+                    "v000000",
+                    "v000001"
+                  ],
+                  "e000001": [
+                    "v000001",
+                    "v000003"
+                  ],
+                  "e000002": [
+                    "v000003",
+                    "v000002"
+                  ],
+                  "e000003": [
+                    "v000002",
+                    "v000000"
+                  ],
+                  "e000004": [
+                    "v000003",
+                    "v000007"
+                  ],
+                  "e000005": [
+                    "v000007",
+                    "v000006"
+                  ],
+                  "e000006": [
+                    "v000006",
+                    "v000002"
+                  ],
+                  "e000007": [
+                    "v000007",
+                    "v000005"
+                  ],
+                  "e000008": [
+                    "v000005",
+                    "v000004"
+                  ],
+                  "e000009": [
+                    "v000004",
+                    "v000006"
+                  ],
+                  "e000010": [
+                    "v000005",
+                    "v000001"
+                  ],
+                  "e000011": [
+                    "v000000",
+                    "v000004"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": []
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "e000000",
+                      "e000001",
+                      "e000002",
+                      "e000003",
+                      "e000004",
+                      "e000005",
+                      "e000006",
+                      "e000007",
+                      "e000008",
+                      "e000009",
+                      "e000010",
+                      "e000011"
+                    ],
+                    "faces": [
+                      {
+                        "id": "p000000",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000001",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000002",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000003",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000004",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000005",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000002",
+                      "v000003",
+                      "v000004",
+                      "v000005",
+                      "v000006",
+                      "v000007"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "p000000": {
+                    "corner_normals": [
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.375,
+                          0.25
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000003",
+                      "v000002"
+                    ]
+                  },
+                  "p000001": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000003",
+                      "v000007",
+                      "v000006"
+                    ]
+                  },
+                  "p000002": {
+                    "corner_normals": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000006",
+                      "v000007",
+                      "v000005",
+                      "v000004"
+                    ]
+                  },
+                  "p000003": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          1.0
+                        ],
+                        [
+                          0.375,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000004",
+                      "v000005",
+                      "v000001",
+                      "v000000"
+                    ]
+                  },
+                  "p000004": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.125,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.125,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000006",
+                      "v000004",
+                      "v000000"
+                    ]
+                  },
+                  "p000005": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000007",
+                      "v000003",
+                      "v000001",
+                      "v000005"
+                    ]
+                  }
+                },
+                "recipe": {
+                  "creation_frame": {
+                    "matrix": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "edited": false,
+                  "max_components": 1000000,
+                  "primitive": {
+                    "calc_uvs": true,
+                    "kind": "cube",
+                    "scale": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "size": 1.3
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "UVMap",
+                  "layers": [
+                    "UVMap"
+                  ]
+                },
+                "vertices": {
+                  "v000000": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000001": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000002": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000003": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000004": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000005": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000006": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000007": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ]
+                }
+              }
+            },
+            "revision": 3,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 3,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "cube",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.75
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 8,
+        "ok": true,
+        "result": {
+          "revision": 4,
+          "snaps": [
+            {
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.75
+              },
+              "changed": {
+                "edges": [
+                  "e000000",
+                  "e000001",
+                  "e000002",
+                  "e000003",
+                  "e000004",
+                  "e000005",
+                  "e000006",
+                  "e000007",
+                  "e000008",
+                  "e000009",
+                  "e000010",
+                  "e000011"
+                ],
+                "faces": [
+                  {
+                    "id": "p000000",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000001",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000002",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000003",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000004",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000005",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              },
+              "command_index": 0,
+              "cursor_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_before": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_changed": false,
+              "cursor_rotation_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation_before": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "entity": "cube",
+              "grid_spacing_metres": 0.75,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "cube"
+              ],
+              "status": "finished",
+              "target_world": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 9,
+        "ok": true,
+        "result": {
+          "revision": 4,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "cube": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Recipe cube",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "e000000": [
+                    "v000000",
+                    "v000001"
+                  ],
+                  "e000001": [
+                    "v000001",
+                    "v000003"
+                  ],
+                  "e000002": [
+                    "v000003",
+                    "v000002"
+                  ],
+                  "e000003": [
+                    "v000002",
+                    "v000000"
+                  ],
+                  "e000004": [
+                    "v000003",
+                    "v000007"
+                  ],
+                  "e000005": [
+                    "v000007",
+                    "v000006"
+                  ],
+                  "e000006": [
+                    "v000006",
+                    "v000002"
+                  ],
+                  "e000007": [
+                    "v000007",
+                    "v000005"
+                  ],
+                  "e000008": [
+                    "v000005",
+                    "v000004"
+                  ],
+                  "e000009": [
+                    "v000004",
+                    "v000006"
+                  ],
+                  "e000010": [
+                    "v000005",
+                    "v000001"
+                  ],
+                  "e000011": [
+                    "v000000",
+                    "v000004"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": []
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "e000000",
+                      "e000001",
+                      "e000002",
+                      "e000003",
+                      "e000004",
+                      "e000005",
+                      "e000006",
+                      "e000007",
+                      "e000008",
+                      "e000009",
+                      "e000010",
+                      "e000011"
+                    ],
+                    "faces": [
+                      {
+                        "id": "p000000",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000001",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000002",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000003",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000004",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000005",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000002",
+                      "v000003",
+                      "v000004",
+                      "v000005",
+                      "v000006",
+                      "v000007"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "p000000": {
+                    "corner_normals": [
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      -1.0,
+                      -0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.375,
+                          0.25
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000003",
+                      "v000002"
+                    ]
+                  },
+                  "p000001": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000003",
+                      "v000007",
+                      "v000006"
+                    ]
+                  },
+                  "p000002": {
+                    "corner_normals": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      1.0,
+                      -0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000006",
+                      "v000007",
+                      "v000005",
+                      "v000004"
+                    ]
+                  },
+                  "p000003": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          1.0
+                        ],
+                        [
+                          0.375,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000004",
+                      "v000005",
+                      "v000001",
+                      "v000000"
+                    ]
+                  },
+                  "p000004": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.125,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.125,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000006",
+                      "v000004",
+                      "v000000"
+                    ]
+                  },
+                  "p000005": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -0.0,
+                      1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000007",
+                      "v000003",
+                      "v000001",
+                      "v000005"
+                    ]
+                  }
+                },
+                "recipe": {
+                  "creation_frame": {
+                    "matrix": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "edited": true,
+                  "max_components": 1000000,
+                  "primitive": {
+                    "calc_uvs": true,
+                    "kind": "cube",
+                    "scale": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "size": 1.3
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "UVMap",
+                  "layers": [
+                    "UVMap"
+                  ]
+                },
+                "vertices": {
+                  "v000000": [
+                    -0.75,
+                    -0.75,
+                    -0.75
+                  ],
+                  "v000001": [
+                    -0.75,
+                    -0.75,
+                    0.75
+                  ],
+                  "v000002": [
+                    -0.75,
+                    0.75,
+                    -0.75
+                  ],
+                  "v000003": [
+                    -0.75,
+                    0.75,
+                    0.75
+                  ],
+                  "v000004": [
+                    0.75,
+                    -0.75,
+                    -0.75
+                  ],
+                  "v000005": [
+                    0.75,
+                    -0.75,
+                    0.75
+                  ],
+                  "v000006": [
+                    0.75,
+                    0.75,
+                    -0.75
+                  ],
+                  "v000007": [
+                    0.75,
+                    0.75,
+                    0.75
+                  ]
+                }
+              }
+            },
+            "revision": 4,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_undo",
+      "arguments": {
+        "expected_revision": 4
+      },
+      "response": {
+        "id": 10,
+        "ok": true,
+        "result": {
+          "revision": 5
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 11,
+        "ok": true,
+        "result": {
+          "revision": 5,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "cube": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Recipe cube",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "e000000": [
+                    "v000000",
+                    "v000001"
+                  ],
+                  "e000001": [
+                    "v000001",
+                    "v000003"
+                  ],
+                  "e000002": [
+                    "v000003",
+                    "v000002"
+                  ],
+                  "e000003": [
+                    "v000002",
+                    "v000000"
+                  ],
+                  "e000004": [
+                    "v000003",
+                    "v000007"
+                  ],
+                  "e000005": [
+                    "v000007",
+                    "v000006"
+                  ],
+                  "e000006": [
+                    "v000006",
+                    "v000002"
+                  ],
+                  "e000007": [
+                    "v000007",
+                    "v000005"
+                  ],
+                  "e000008": [
+                    "v000005",
+                    "v000004"
+                  ],
+                  "e000009": [
+                    "v000004",
+                    "v000006"
+                  ],
+                  "e000010": [
+                    "v000005",
+                    "v000001"
+                  ],
+                  "e000011": [
+                    "v000000",
+                    "v000004"
+                  ]
+                },
+                "editing": {
+                  "active_face": null,
+                  "hidden": {
+                    "edges": [],
+                    "faces": [],
+                    "vertices": []
+                  },
+                  "history": [],
+                  "mode": [
+                    "vertex"
+                  ],
+                  "preview": false,
+                  "selected": {
+                    "edges": [
+                      "e000000",
+                      "e000001",
+                      "e000002",
+                      "e000003",
+                      "e000004",
+                      "e000005",
+                      "e000006",
+                      "e000007",
+                      "e000008",
+                      "e000009",
+                      "e000010",
+                      "e000011"
+                    ],
+                    "faces": [
+                      {
+                        "id": "p000000",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000001",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000002",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000003",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000004",
+                        "kind": "polygon"
+                      },
+                      {
+                        "id": "p000005",
+                        "kind": "polygon"
+                      }
+                    ],
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000002",
+                      "v000003",
+                      "v000004",
+                      "v000005",
+                      "v000006",
+                      "v000007"
+                    ]
+                  }
+                },
+                "material_slots": [],
+                "polygons": {
+                  "p000000": {
+                    "corner_normals": [
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.375,
+                          0.25
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000003",
+                      "v000002"
+                    ]
+                  },
+                  "p000001": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000003",
+                      "v000007",
+                      "v000006"
+                    ]
+                  },
+                  "p000002": {
+                    "corner_normals": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000006",
+                      "v000007",
+                      "v000005",
+                      "v000004"
+                    ]
+                  },
+                  "p000003": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          1.0
+                        ],
+                        [
+                          0.375,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000004",
+                      "v000005",
+                      "v000001",
+                      "v000000"
+                    ]
+                  },
+                  "p000004": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.125,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.125,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000006",
+                      "v000004",
+                      "v000000"
+                    ]
+                  },
+                  "p000005": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000007",
+                      "v000003",
+                      "v000001",
+                      "v000005"
+                    ]
+                  }
+                },
+                "recipe": {
+                  "creation_frame": {
+                    "matrix": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "edited": false,
+                  "max_components": 1000000,
+                  "primitive": {
+                    "calc_uvs": true,
+                    "kind": "cube",
+                    "scale": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "size": 1.3
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "UVMap",
+                  "layers": [
+                    "UVMap"
+                  ]
+                },
+                "vertices": {
+                  "v000000": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000001": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000002": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000003": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000004": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000005": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000006": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000007": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ]
+                }
+              }
+            },
+            "revision": 5,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 5,
+        "commands": [
+          {
+            "operation": "snap_mesh",
+            "snap": {
+              "entity": "cube",
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.75
+              }
+            }
+          }
+        ]
+      },
+      "response": {
+        "id": 12,
+        "ok": true,
+        "result": {
+          "revision": 6,
+          "snaps": [
+            {
+              "action": {
+                "kind": "selected_to_grid",
+                "spacing": 0.75
+              },
+              "changed": {
+                "edges": [
+                  "e000000",
+                  "e000001",
+                  "e000002",
+                  "e000003",
+                  "e000004",
+                  "e000005",
+                  "e000006",
+                  "e000007",
+                  "e000008",
+                  "e000009",
+                  "e000010",
+                  "e000011"
+                ],
+                "faces": [
+                  {
+                    "id": "p000000",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000001",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000002",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000003",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000004",
+                    "kind": "polygon"
+                  },
+                  {
+                    "id": "p000005",
+                    "kind": "polygon"
+                  }
+                ],
+                "vertices": [
+                  "v000000",
+                  "v000001",
+                  "v000002",
+                  "v000003",
+                  "v000004",
+                  "v000005",
+                  "v000006",
+                  "v000007"
+                ]
+              },
+              "command_index": 0,
+              "cursor_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_before": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_changed": false,
+              "cursor_rotation_after": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation_before": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "entity": "cube",
+              "grid_spacing_metres": 0.75,
+              "mesh_asset": "mesh",
+              "pivot": "median",
+              "pivot_world": null,
+              "reason": null,
+              "rotation_applied": false,
+              "shared_instances": [
+                "cube"
+              ],
+              "status": "finished",
+              "target_world": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scene_apply",
+      "arguments": {
+        "expected_revision": 6,
+        "commands": [
+          {
+            "operation": "regenerate_mesh_primitive",
+            "id": "mesh"
+          }
+        ]
+      },
+      "response": {
+        "id": 13,
+        "ok": true,
+        "result": {
+          "revision": 7
+        }
+      }
+    },
+    {
+      "name": "scene_inspect",
+      "arguments": {},
+      "response": {
+        "id": 14,
+        "ok": true,
+        "result": {
+          "revision": 7,
+          "scene": {
+            "active_camera": null,
+            "annotations": [],
+            "authoring_context": {
+              "cursor_location": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "doors": {},
+            "entities": {
+              "cube": {
+                "content": {
+                  "geometry": {
+                    "id": "mesh",
+                    "kind": "asset"
+                  },
+                  "kind": "mesh",
+                  "material": null
+                },
+                "name": "Recipe cube",
+                "parent": null,
+                "transform": {
+                  "rotation": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "materials": {},
+            "mesh_assets": {
+              "mesh": {
+                "edges": {
+                  "e000000": [
+                    "v000000",
+                    "v000001"
+                  ],
+                  "e000001": [
+                    "v000001",
+                    "v000003"
+                  ],
+                  "e000002": [
+                    "v000003",
+                    "v000002"
+                  ],
+                  "e000003": [
+                    "v000002",
+                    "v000000"
+                  ],
+                  "e000004": [
+                    "v000003",
+                    "v000007"
+                  ],
+                  "e000005": [
+                    "v000007",
+                    "v000006"
+                  ],
+                  "e000006": [
+                    "v000006",
+                    "v000002"
+                  ],
+                  "e000007": [
+                    "v000007",
+                    "v000005"
+                  ],
+                  "e000008": [
+                    "v000005",
+                    "v000004"
+                  ],
+                  "e000009": [
+                    "v000004",
+                    "v000006"
+                  ],
+                  "e000010": [
+                    "v000005",
+                    "v000001"
+                  ],
+                  "e000011": [
+                    "v000000",
+                    "v000004"
+                  ]
+                },
+                "material_slots": [],
+                "polygons": {
+                  "p000000": {
+                    "corner_normals": [
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        -1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      -1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.0
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.375,
+                          0.25
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000000",
+                      "v000001",
+                      "v000003",
+                      "v000002"
+                    ]
+                  },
+                  "p000001": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.25
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000003",
+                      "v000007",
+                      "v000006"
+                    ]
+                  },
+                  "p000002": {
+                    "corner_normals": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        1.0,
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      1.0,
+                      0.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000006",
+                      "v000007",
+                      "v000005",
+                      "v000004"
+                    ]
+                  },
+                  "p000003": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        -1.0,
+                        0.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      -1.0,
+                      0.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          1.0
+                        ],
+                        [
+                          0.375,
+                          1.0
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000004",
+                      "v000005",
+                      "v000001",
+                      "v000000"
+                    ]
+                  },
+                  "p000004": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        -1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      -1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.125,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.5
+                        ],
+                        [
+                          0.375,
+                          0.75
+                        ],
+                        [
+                          0.125,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000002",
+                      "v000006",
+                      "v000004",
+                      "v000000"
+                    ]
+                  },
+                  "p000005": {
+                    "corner_normals": [
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0
+                      ]
+                    ],
+                    "material_slot": null,
+                    "normal": [
+                      0.0,
+                      0.0,
+                      1.0
+                    ],
+                    "smooth": false,
+                    "uv_layers": {
+                      "UVMap": [
+                        [
+                          0.625,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.5
+                        ],
+                        [
+                          0.875,
+                          0.75
+                        ],
+                        [
+                          0.625,
+                          0.75
+                        ]
+                      ]
+                    },
+                    "vertices": [
+                      "v000007",
+                      "v000003",
+                      "v000001",
+                      "v000005"
+                    ]
+                  }
+                },
+                "recipe": {
+                  "creation_frame": {
+                    "matrix": [
+                      [
+                        1.0,
+                        0.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        1.0,
+                        0.0,
+                        0.0
+                      ],
+                      [
+                        0.0,
+                        0.0,
+                        1.0,
+                        0.0
+                      ]
+                    ]
+                  },
+                  "edited": false,
+                  "max_components": 1000000,
+                  "primitive": {
+                    "calc_uvs": true,
+                    "kind": "cube",
+                    "scale": [
+                      1.0,
+                      1.0,
+                      1.0
+                    ],
+                    "size": 1.3
+                  }
+                },
+                "triangles": {},
+                "uv_layout": {
+                  "active": "UVMap",
+                  "layers": [
+                    "UVMap"
+                  ]
+                },
+                "vertices": {
+                  "v000000": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000001": [
+                    -0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000002": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000003": [
+                    -0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000004": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000005": [
+                    0.6499999761581421,
+                    -0.6499999761581421,
+                    0.6499999761581421
+                  ],
+                  "v000006": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    -0.6499999761581421
+                  ],
+                  "v000007": [
+                    0.6499999761581421,
+                    0.6499999761581421,
+                    0.6499999761581421
+                  ]
+                }
+              }
+            },
+            "revision": 7,
+            "schema_version": 1,
+            "time_seconds": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "artifacts": {
+    "before.json": "52235ac769221c2799f67f17a6b7c753dc31f4cd3d5051b0c39b4a5f02b78bf1",
+    "after.json": "52027d3e747a494be1a3fd1e745f750c24d046090289580f0671016eaec03513",
+    "scene.json": "aaa1c55480602bd13b865f00bb78a1da5031354909fded85a4de1db2504d2faf",
+    "regenerated.json": "26b1ea0298f33094a7e1c1ff5c5c5d2e69a8a6ecfff9d04ca2d5f8ca1a8cef7c",
+    "calls.jsonl": "bc493386442aa7ed9e8120cfe47407214aa8d3db739ac6a96fb758a327eb0e22",
+    "receipt.json": "b1b863a420c812ee2edc0e7662b298a371dbc535bb273d9513d4cd4ab6ba6cf4"
+  },
+  "product_acceptance": "unrun"
+}
