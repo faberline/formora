@@ -39,12 +39,14 @@ The fixture, constructor and checker hashes remain unchanged during that run.
 The input state remains draft. These files are not the final before-code seal.
 Frame and unit literals, the distinct second mesh, outside data, native context
 creation, selection/history flush and custom-normal setup still need adapters.
-The real RNA schema, invalid/coercion/nonfinite probes, manual page, capture
-code, independent initial binding and source corruption controls remain unrun.
+Hidden-data patterns and omitted-parameter probes also remain required.
+Invalid/coercion/nonfinite probes, the manual page, capture code, independent
+initial binding and source corruption controls remain unrun.
 Capacity inputs and their native results also remain unrun.
 
-Wait for the current PR #81 post-full controller to end before starting new
-Blender/native loads. Then obtain the real schema, complete the adapters,
+The PR #81 post-full controller has now ended. All 207 timings and their
+physical source comparisons passed before this new native probe started.
+Complete the adapters,
 run diagnostics and fix authored input problems with retained failures.
 Freeze the full registry and capture/check code before complete source runs.
 All frozen cases must then run in two fresh native viewport processes.
@@ -53,3 +55,28 @@ The original issue #82 requirements and comparison limits remain intact.
 No Rust distance-merge product operation, CLI/MCP acceptance or product timing
 was added. No baseline catalog, inventory, source lock or review flag changed.
 Platform CI, dependency integration and independent acceptance remain required.
+
+## Actual native parameter schema
+
+`native-schema-01/` records fresh Blender process 17685 and its actual zero
+terminal exit. It runs with factory startup and a real VIEW_3D area.
+`background` is false. Version is 5.2.3 and build is `e13b728c6880`.
+The executable hash matches the admitted fixed source binary.
+The parent binds the script hash, PID, command, output hashes and actual wait.
+No mesh operator is executed by the probe. Full source cases executed: zero.
+
+The actual `mesh.remove_doubles` schema contains exactly four parameters:
+
+| Parameter | Type | Default | Hard range |
+| --- | --- | --- | --- |
+| threshold | FLOAT, DISTANCE | f32(0.0001) | f32(0.000001) to 50 |
+| use_centroid | BOOLEAN | true | false or true |
+| use_unselected | BOOLEAN | false | false or true |
+| use_sharp_edge_from_normals | BOOLEAN | false | false or true |
+
+The threshold soft range is f32(0.00001) to 10. The raw schema preserves the
+actual floating point values. These defaults and bounds match the pinned
+editor source. All actual operator parameters are accounted for.
+The source input draft and its earlier offline proof remain byte-identical.
+Its original before-RNA state records when it was authored. Readiness belongs
+to the separate capture evidence. Final input freezing is still pending.

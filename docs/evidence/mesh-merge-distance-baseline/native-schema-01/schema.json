@@ -1,0 +1,77 @@
+{
+  "schema_captured": true,
+  "process_id": 17685,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-merge-distance-baseline/tools/blender_merge_distance_schema.py",
+    "--",
+    "--output",
+    "/private/tmp/formora-merge-distance-baseline/docs/evidence/mesh-merge-distance-baseline/native-schema-01/schema.json"
+  ],
+  "binary_path": "/Applications/Blender.app/Contents/MacOS/Blender",
+  "version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "background": false,
+  "windows": [
+    {
+      "screen": "Layout",
+      "areas": [
+        "PROPERTIES",
+        "OUTLINER",
+        "DOPESHEET_EDITOR",
+        "VIEW_3D"
+      ]
+    }
+  ],
+  "operator": "MESH_OT_remove_doubles",
+  "properties": {
+    "threshold": {
+      "type": "FLOAT",
+      "subtype": "DISTANCE",
+      "is_readonly": false,
+      "is_required": false,
+      "default": 9.999999747378752e-05,
+      "hard_min": 9.999999974752427e-07,
+      "hard_max": 50.0,
+      "soft_min": 9.999999747378752e-06,
+      "soft_max": 10.0,
+      "unit": "LENGTH",
+      "precision": 3,
+      "step": 1.0
+    },
+    "use_centroid": {
+      "type": "BOOLEAN",
+      "subtype": "NONE",
+      "is_readonly": false,
+      "is_required": false,
+      "default": true,
+      "unit": "NONE"
+    },
+    "use_unselected": {
+      "type": "BOOLEAN",
+      "subtype": "NONE",
+      "is_readonly": false,
+      "is_required": false,
+      "default": false,
+      "unit": "NONE"
+    },
+    "use_sharp_edge_from_normals": {
+      "type": "BOOLEAN",
+      "subtype": "NONE",
+      "is_readonly": false,
+      "is_required": false,
+      "default": false,
+      "unit": "NONE"
+    }
+  },
+  "script_sha256": "4920d84b7059becf9cf9e563162235de9f904ef4452bfd85332679895a6f18c9",
+  "mesh_operations_executed": 0,
+  "full_source_capture": "unrun",
+  "product_acceptance": "unrun"
+}
