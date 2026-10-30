@@ -1,9 +1,15 @@
-# Distance merge: draft source inputs
+# Distance merge source evidence
 
 Issue #82. This is source-only preparation in an isolated branch.
 The parent is draft PR #81 at
 `9ebb82fd388dbf51171c81abc7f04e5cb4a705a1`.
 Its dependencies and all 11 milestones remain unaccepted.
+Current complete functional evidence: two fresh sealed captures, 2,412 cases
+each, complete state/reload comparison and 38 rejected corruption controls.
+Capacity has 192 prepared samples; its harness/seal/native results remain
+unfinished. Full source admission and Rust product acceptance remain unrun.
+Earlier sections below retain the preparation history. The latest full
+functional evidence is in the final section.
 The existing full multi-data raw audit and timing controller ended before
 these native distance probes. Their source files and executable stay unchanged.
 
@@ -34,7 +40,7 @@ deny access. Constructor filesystem reads are zero. Eight forged input controls
 are rejected at their intended checks. No forged operation is executed.
 The fixture, constructor and checker hashes remain unchanged during that run.
 
-## Required next work
+## Historical next work at the original draft
 
 The input state remains draft. These files are not the final before-code seal.
 Frame and unit literals, a distinct second mesh, outside data, native context,
@@ -317,3 +323,65 @@ required before a Rust distance-merge issue or product acceptance.
 
 Full source acceptance, capacity acceptance and Rust product acceptance all
 remain unrun. No issue or milestone is complete from these diagnostics.
+
+## Sealed complete functional captures
+
+The complete registry is
+`baseline/fixtures/mesh-merge-distance-complete-02.json`: 2,412 cases,
+11 literal fixtures, 1,636 two-factor assignments, three named complete
+three-factor products and 253 hidden-data cases. Sixteen explicit cases detect
+a shared mesh being processed twice. All 1,188 original assignments remain
+unchanged. Candidate01 was never sealed or executed and is retained.
+
+The input/code commit is `072318e2f5f46fcf6f0222cafa161b3d2b165a28`.
+The seal was committed before native execution at
+`c38b20204f27cf89740186a0ad66d3e183844e34`. It binds 110 files, source identity,
+historical baseline and original limits. Its SHA-256 is
+`235eaae347e8a530be16f7c8d1f10bafef3bb485bf738c32ffcae4bc4e9ae401`.
+Eight altered seal controls are rejected. No forged native operation runs.
+
+| Complete source run | PID | Actual exit | Cases | Case checks |
+| --- | --- | --- | --- | --- |
+| 01 | 45452 | 0 | 2,412 | All pass. Checker 50627 exited 0. |
+| 02 | 52353 | 0 | 2,412 | All pass. Checker 56999 exited 0. |
+
+Each case creates the literal scene, runs the source operation, saves a real
+native file and reopens it. All 7,236 before/after/reloaded states per capture
+pass full invariants. The two fresh captures match all declared semantic
+fields at the unchanged limits. Comparison process 57586 exited 0. Native file
+timestamps/digests remain independently bound; they are not semantic state.
+
+`complete-functional-01/` and `complete-functional-02/` preserve 4,824 raw case
+records. Their 9,884 lossless input/output/controller copies all pass stored
+and raw digest verification. `complete-comparison-01/` retains individual
+checks, paired comparison, outcome categories, commands and actual waits.
+
+| Operation category per capture | Count |
+| --- | --- |
+| Finished with merge | 573 |
+| Finished unchanged | 1,519 |
+| Finished with all data skipped for empty selection | 272 |
+| Rejected before operation | 45 |
+| Native nonfinite probe | 3 |
+
+Normal accepted calls contain 669 merged, 1,690 unchanged and 411 skipped data
+records. Rejection, empty skip and native nonfinite probes do not count as
+numeric matches. Three additional forged outcome controls are rejected.
+
+`complete-controls-01/` retains 38 rehashed corruption controls against the
+full frozen registry. Every control reaches its intended rejection. They
+include duplicate shared-data processing, native file substitution and strict
+integer terminal receipts. Process 59963 actually exited 0; the frozen control
+script stayed unchanged. No forged source operation runs.
+
+The capacity registry now contains 192 samples: 64 forms with three samples
+each. It covers eight option combinations, single/two edited class-A data,
+all/alternating selection and automatic/custom normals. Two distinct grids
+each have 10,201 vertices, 20,200 edges and 10,000 quads. The asset pack and
+registry regenerate with file access denied. CPU and memory were read as
+Apple M1 Max and 64 GiB. This is prepared input evidence only. The capacity
+harness is intentionally not admitted for native execution yet.
+
+Capacity code sealing, native capacity results, source admission, platform
+CI, dependency integration and independent acceptance remain required.
+No Rust distance operation was added. Source #82 and all milestones stay open.

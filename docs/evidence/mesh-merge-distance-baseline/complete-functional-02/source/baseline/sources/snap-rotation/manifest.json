@@ -1,0 +1,33 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "purpose": "Cursor rotation RNA, physical pose and persistent representation before native capture",
+  "files": [
+    {
+      "file": "rna_scene.cc",
+      "path": "source/blender/makesrna/intern/rna_scene.cc",
+      "git_blob": "6f5c8164fc0bc86a0f0c8e25398c73c36eda51a5",
+      "sha256": "eb9cd754fcd09aee2f8c384dc866a2fd1587bc07da0c9e37922462f336deaa30",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesrna/intern/rna_scene.cc"
+    },
+    {
+      "file": "scene.cc",
+      "path": "source/blender/blenkernel/intern/scene.cc",
+      "git_blob": "f8fb761e96e437c8ec420d7ecd3c60d9d72f0785",
+      "sha256": "5a1a4aca68eff3b30cedebc8d2be3c2b16691caedb99488375c084ce8909e365",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/scene.cc"
+    },
+    {
+      "file": "DNA_scene_types.h",
+      "path": "source/blender/makesdna/DNA_scene_types.h",
+      "git_blob": "62ae847c7d1e879f38cd0dfe239efd51319ec726",
+      "sha256": "542459fcc77620124e7b7ef66692c9f408d5e7d9c533d238b12e2259db77fbb5",
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/makesdna/DNA_scene_types.h"
+    }
+  ],
+  "reused_source_manifests": [
+    "baseline/sources/snap-menu/manifest.json",
+    "baseline/sources/physical-transform/manifest.json",
+    "baseline/sources/mesh-gimbal-transform/manifest.json",
+    "baseline/sources/scene-snap-core/manifest.json"
+  ]
+}

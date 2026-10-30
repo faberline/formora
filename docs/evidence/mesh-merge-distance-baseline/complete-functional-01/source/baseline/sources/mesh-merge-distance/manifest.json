@@ -1,0 +1,22 @@
+{
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "purpose": "independent custom-normal quantization binding before Rust distance merge",
+  "files": [
+    {
+      "path": "source/blender/blenkernel/intern/mesh_normals.cc",
+      "repository_path": "baseline/sources/mesh-merge-distance/mesh_normals.cc",
+      "git_blob": "13a694aa581da9b9a7b93912de7a466eed61fb12",
+      "sha256": "50c001bb7e48b425fa9f5c6ed97dbddbd4f7915d9ee8fb445f0d53a7961272ec",
+      "bytes": 70041,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/mesh_normals.cc"
+    },
+    {
+      "path": "source/blender/blenkernel/BKE_mesh.hh",
+      "repository_path": "baseline/sources/mesh-merge-distance/BKE_mesh.hh",
+      "git_blob": "4230fe710ed79c70b1e434d1889e5b2d5a8c977e",
+      "sha256": "53fbfd40cf93d3b5f2566761ca6803357fc39f6cb4f4182ad5cf516c2640fc17",
+      "bytes": 19680,
+      "url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/BKE_mesh.hh"
+    }
+  ]
+}

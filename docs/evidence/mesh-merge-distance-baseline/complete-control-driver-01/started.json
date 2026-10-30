@@ -1,0 +1,16 @@
+{
+  "process_id": 59963,
+  "command_line": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/private/tmp/formora-merge-distance-baseline/tools/check_merge_distance_diagnostic_controls.py",
+    "--suite",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-complete-02.json",
+    "--seal",
+    "/private/tmp/formora-merge-distance-baseline/baseline/fixtures/mesh-merge-distance-source-seal-01.json",
+    "--native",
+    "/private/tmp/formora-distance-complete-source-01",
+    "--output",
+    "/private/tmp/formora-merge-distance-baseline/docs/evidence/mesh-merge-distance-baseline/complete-controls-01"
+  ],
+  "script_sha256": "dac93ea9f241c83717c151cb6e882a13bae22daee151c16bfb54818ee2f7e7d5"
+}
