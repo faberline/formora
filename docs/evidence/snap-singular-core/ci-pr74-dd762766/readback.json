@@ -1,0 +1,70 @@
+{
+  "head_sha": "dd762766357592bc71e26853c483f585aaaf85cd",
+  "jobs": [
+    {
+      "run": 41003600761,
+      "job_id": 123893368483,
+      "name": "contracts (windows-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "messages": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    },
+    {
+      "run": 41003600761,
+      "job_id": 123893368702,
+      "name": "contracts (ubuntu-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "messages": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+        "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+      ]
+    },
+    {
+      "run": 41003600761,
+      "job_id": 123893368704,
+      "name": "contracts (macos-15-intel)",
+      "conclusion": "failure",
+      "steps": 0,
+      "messages": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    },
+    {
+      "run": 41003666282,
+      "job_id": 123893571502,
+      "name": "contracts (macos-15-intel)",
+      "conclusion": "failure",
+      "steps": 0,
+      "messages": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    },
+    {
+      "run": 41003666282,
+      "job_id": 123893571722,
+      "name": "contracts (ubuntu-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "messages": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+        "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+      ]
+    },
+    {
+      "run": 41003666282,
+      "job_id": 123893571877,
+      "name": "contracts (windows-latest)",
+      "conclusion": "failure",
+      "steps": 0,
+      "messages": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ]
+    }
+  ],
+  "code_review_performed": false,
+  "rerun_performed": false,
+  "billing_or_runner_changes": false
+}

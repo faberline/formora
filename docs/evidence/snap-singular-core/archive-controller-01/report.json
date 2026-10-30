@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "name": "trial-03",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/archive-artifacts.py",
+        "/private/tmp/formora-zero-performance-03",
+        "docs/evidence/snap-singular-core/performance/trial-03-archive"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "retained-90-01",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/archive-artifacts.py",
+        "/private/tmp/formora-zero-retained-90-01",
+        "docs/evidence/snap-singular-core/performance/retained-90-01-archive"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "retained-39-01",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/archive-artifacts.py",
+        "/private/tmp/formora-zero-retained-39-01",
+        "docs/evidence/snap-singular-core/performance/retained-39-01-archive"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "retained-rotation-01",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/archive-artifacts.py",
+        "/private/tmp/formora-zero-retained-rotation-01",
+        "docs/evidence/snap-singular-core/performance/retained-rotation-01-archive"
+      ],
+      "terminal_exit_code": 0
+    },
+    {
+      "name": "retained-delta-01",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-singular-core/archive-artifacts.py",
+        "/private/tmp/formora-zero-retained-delta-01",
+        "docs/evidence/snap-singular-core/performance/retained-delta-01-archive"
+      ],
+      "terminal_exit_code": 0
+    }
+  ],
+  "original_files_unchanged": true,
+  "product_acceptance": "unrun"
+}

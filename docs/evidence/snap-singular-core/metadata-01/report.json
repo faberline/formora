@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "commands": [
+    {
+      "name": "normal",
+      "command": [
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "baseline",
+        "check"
+      ],
+      "terminal_exit_code": 0,
+      "report": {
+        "structurally_valid": true,
+        "baseline_ready": false,
+        "product_acceptance": "unrun",
+        "sources": 9047,
+        "features": 38,
+        "pending_sources": 8994,
+        "pending_features": 38,
+        "uncovered_sources": 0,
+        "incomplete_products": [
+          "blender",
+          "unreal"
+        ],
+        "unverified_builds": [],
+        "problems": []
+      }
+    },
+    {
+      "name": "strict",
+      "command": [
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "baseline",
+        "check",
+        "--strict"
+      ],
+      "terminal_exit_code": 2,
+      "report": {
+        "structurally_valid": true,
+        "baseline_ready": false,
+        "product_acceptance": "unrun",
+        "sources": 9047,
+        "features": 38,
+        "pending_sources": 8994,
+        "pending_features": 38,
+        "uncovered_sources": 0,
+        "incomplete_products": [
+          "blender",
+          "unreal"
+        ],
+        "unverified_builds": [],
+        "problems": []
+      }
+    }
+  ],
+  "complete_products": [],
+  "product_acceptance": "unrun"
+}

@@ -1,0 +1,469 @@
+{
+  "passed": true,
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "driver_sha256": "e700dc8d202323fdb230db1499df5d5c15a0c37e460408f487bff7ab91842e90",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/Users/chrischeng/faberlines/formora\"))",
+  "denial_control_exit_code": 1,
+  "denial_control_stderr": "cat: /Users/chrischeng/faberlines/formora/Cargo.toml: Operation not permitted\n",
+  "repository_reads": "denied by macOS sandbox",
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "native_calls": 29,
+  "raw_nonunit_delta_and_inactive_channels_preserved": true,
+  "actual_delta_frame_analytic_match": true,
+  "child_delta_preserved": true,
+  "source_driver_reused": "docs/evidence/snap-rotation-core/isolation-driver.py",
+  "raw_nonunit_and_inactive_channels_preserved": true,
+  "physical_rotation_analytic_match": true,
+  "parent_conversion_analytic_match": true,
+  "child_world_and_real_parent_inverse_checked": true,
+  "locks_checked": true,
+  "undo_replay_checked": true,
+  "fresh_reload_equal": true,
+  "atomic_rejections_checked": true,
+  "cursor_active_only_clear_checked": true,
+  "setup": {
+    "expected_revision": 0,
+    "commands": [
+      {
+        "operation": "set_mesh_asset",
+        "id": "mesh",
+        "asset": {
+          "vertices": {
+            "a": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "b": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "c": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          "triangles": {
+            "tri": {
+              "vertices": [
+                "a",
+                "b",
+                "c"
+              ],
+              "uv_layers": {
+                "UV": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    1
+                  ]
+                ]
+              },
+              "corner_normals": null,
+              "material_slot": null
+            }
+          },
+          "material_slots": [],
+          "editing": {
+            "selected": {
+              "vertices": [
+                "a"
+              ]
+            },
+            "history": [
+              {
+                "domain": "vertex",
+                "id": "a"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "target",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": null,
+          "transform": {
+            "translation": [
+              0.25,
+              -0.5,
+              0.75
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "quaternion",
+                "euler": [
+                  0.12345678901234566,
+                  -0.27,
+                  0.43
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32",
+            "delta": {
+              "translation": [
+                0.125,
+                -0.25,
+                0.375
+              ],
+              "euler": [
+                0.21345678901234566,
+                -0.31789,
+                0.4789
+              ],
+              "quaternion_wxyz": [
+                -2.0,
+                0.0,
+                0.0,
+                -2.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "linked",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": null,
+          "transform": {
+            "translation": [
+              -2.0,
+              1.0,
+              0.0
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "quaternion",
+                "euler": [
+                  0.12345678901234566,
+                  -0.27,
+                  0.43
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "follower",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": "target",
+          "transform": {
+            "translation": [
+              0.25,
+              -0.5,
+              0.75
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "xyz",
+                "euler": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32",
+            "delta": {
+              "translation": [
+                0.125,
+                0.25,
+                -0.125
+              ],
+              "euler": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quaternion_wxyz": [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "parent",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": null,
+          "transform": {
+            "translation": [
+              1.0,
+              2.0,
+              3.0
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "xyz",
+                "euler": [
+                  0.0,
+                  0.0,
+                  1.5707963267948966
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "empty"
+          }
+        }
+      },
+      {
+        "operation": "create_entity",
+        "id": "parented",
+        "entity": {
+          "name": "Unseen raw rotation",
+          "parent": "parent",
+          "transform": {
+            "translation": [
+              0.25,
+              0.75,
+              -0.5
+            ],
+            "rotation": {
+              "kind": "channels",
+              "channels": {
+                "mode": "xzy",
+                "euler": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "quaternion_wxyz": [
+                  0.5,
+                  -0.5,
+                  0.5,
+                  0.5
+                ],
+                "axis_angle": [
+                  0.71,
+                  -3.0,
+                  2.0,
+                  4.0
+                ]
+              }
+            },
+            "scale": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "precision": "f32"
+          },
+          "content": {
+            "kind": "mesh",
+            "geometry": {
+              "kind": "asset",
+              "id": "mesh"
+            },
+            "material": null
+          }
+        }
+      },
+      {
+        "operation": "set_authoring_context",
+        "context": {
+          "cursor_location": [
+            1.25,
+            -0.75,
+            0.5
+          ],
+          "cursor_rotation": [
+            0.12345678901234566,
+            -0.27,
+            0.43
+          ],
+          "cursor_orientation": {
+            "mode": "quaternion",
+            "euler": [
+              0.12345678901234566,
+              -0.27,
+              0.43
+            ],
+            "quaternion_wxyz": [
+              0.8,
+              0.0,
+              0.0,
+              0.6
+            ],
+            "axis_angle": [
+              0.71,
+              -3.0,
+              2.0,
+              4.0
+            ]
+          }
+        }
+      },
+      {
+        "operation": "set_object_context",
+        "context": {
+          "order": [
+            "target",
+            "linked",
+            "follower",
+            "parent",
+            "parented"
+          ],
+          "selected": [
+            "target"
+          ],
+          "active": "target",
+          "states": {
+            "target": {
+              "lock_rotation": [
+                true,
+                false,
+                false
+              ],
+              "lock_rotation_w": false,
+              "lock_rotations_4d": true
+            }
+          },
+          "skip_children": true
+        }
+      }
+    ]
+  },
+  "artifacts": {
+    "before.json": "2e266b0d943b8a367e53209eebf4c8c8b480ca5ea230692e051d5f304cdec3a9",
+    "after-locked.json": "09acadcfc54e68cfec3846f98103cd7d294eafde358ae418303fbaf5ce3655a6",
+    "locked-receipt.json": "60594ae531aa636eb8e1250f32dcc0589b9dffa4e25936e3717522d586add3e6",
+    "parented-after.json": "ed9b4881190b13801a05248027d9ab0d3cca145a0e3589ea1c3972a7d5be3ff4",
+    "follower-after.json": "3ecd9e1fda0fc3bdf9dd41a8c2544da89c6199aa0efd4be5c8d9e2e1e4d91738",
+    "clear-receipt.json": "dbb3145747d1b23605e8f542368ac00d0d6b857d6a49d161a1e269632268b22d",
+    "world-query.json": "175f586d00de528734d06f43c9228173fa3f92af0147b5a6f68023598a31507e",
+    "parent-query.json": "3dc7e91fb232ddb4afb27b9cb67bb7a82765c7c7b0a8c47b1a9dc2d8ea03e82b",
+    "parent-receipt.json": "bae18fa0ea1f68c7af2c43712069e12e6012ddd50b0e8a85888c246fc2e0818e",
+    "parented-before.json": "73f07b49162edadf27a78dde03625cdcd34e9c16e16b68e667fa3ee6ba07eb7c",
+    "final.json": "5cc970ea183b1b4b399146f07fb261b9ed1b562447ad2b524e49e7fa37488f00",
+    "calls.jsonl": "05d218300abeb14902cc711471bb9e751fc6a5e53c511f0967ae9bf10128fa3c",
+    "follower-before.json": "423af14cb1028a11844c68cddf973697cd2a150343f94dd17628318dfb1b02e0"
+  },
+  "product_acceptance": "unrun"
+}

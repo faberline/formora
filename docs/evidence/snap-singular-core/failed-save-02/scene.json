@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "revision": 6,
+  "time_seconds": 0.0,
+  "entities": {
+    "child": {
+      "name": "child",
+      "parent": "target",
+      "transform": {
+        "translation": [
+          0.25,
+          -0.75,
+          0.5
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            -0.25,
+            0.125,
+            0.0625
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "unseen"
+        },
+        "material": null
+      }
+    },
+    "parent": {
+      "name": "parent",
+      "parent": null,
+      "transform": {
+        "translation": [
+          6.5,
+          -7.25,
+          0.875
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.37,
+            -0.23,
+            0.51
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          -1.2,
+          0.7,
+          0.0
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "target": {
+      "name": "target",
+      "parent": "parent",
+      "transform": {
+        "translation": [
+          0.625,
+          -0.875,
+          0.375
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            1.5707963267948966,
+            -0.0,
+            -0.0
+          ],
+          "order": "yxz"
+        },
+        "scale": [
+          0.9,
+          1.4,
+          0.8
+        ],
+        "precision": "f32",
+        "delta": {
+          "translation": [
+            0.125,
+            -0.25,
+            0.375
+          ],
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "content": {
+        "kind": "empty"
+      }
+    }
+  },
+  "materials": {},
+  "mesh_assets": {
+    "unseen": {
+      "vertices": {
+        "a": [
+          -3.5,
+          -2.5,
+          0.0
+        ],
+        "b": [
+          3.5,
+          -2.5,
+          0.0
+        ],
+        "c": [
+          0.0,
+          2.5,
+          0.125
+        ]
+      },
+      "triangles": {
+        "tri": {
+          "vertices": [
+            "a",
+            "b",
+            "c"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    }
+  },
+  "doors": {},
+  "active_camera": null,
+  "annotations": [],
+  "object_context": {
+    "order": [
+      "parent",
+      "target",
+      "child"
+    ],
+    "selected": [
+      "target"
+    ],
+    "active": "target",
+    "edit_objects": [],
+    "states": {},
+    "skip_children": false,
+    "origins_only": false
+  }
+}

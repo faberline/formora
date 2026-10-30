@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "library_sha256": "8175a0db4ef98a8c156529f8f5e3e9c09f75aa36422bbaf6d5bad918a35f4b53",
+  "rustc_version": "rustc 1.85.0 (4d91de4e4 2025-02-17)",
+  "drivers": [
+    {
+      "name": "90",
+      "command": [
+        "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+        "--edition",
+        "2024",
+        "-C",
+        "opt-level=3",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/capture-driver-one-process.rs",
+        "-o",
+        "/private/tmp/formora-zero-retained-90-driver-01",
+        "-L",
+        "dependency=/private/tmp/formora-target-actual185/release/deps",
+        "--extern",
+        "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+        "--extern",
+        "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+      ],
+      "terminal_exit_code": 0,
+      "driver_source_sha256": "2986aa4061ad2c7601463533eca53a49a99b9d42e3e4100600ef48627151b4bf",
+      "driver_sha256": "4bb5aefc54cb852c52bd6327e75d5d8a60342c1552ae1b28c7a6c0daa599468a"
+    },
+    {
+      "name": "single",
+      "command": [
+        "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+        "--edition",
+        "2024",
+        "-C",
+        "opt-level=3",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/legacy-single-driver.rs",
+        "-o",
+        "/private/tmp/formora-zero-retained-single-driver-01",
+        "-L",
+        "dependency=/private/tmp/formora-target-actual185/release/deps",
+        "--extern",
+        "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+        "--extern",
+        "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+      ],
+      "terminal_exit_code": 0,
+      "driver_source_sha256": "857be0a1ed33a7164c9a8045241e9c899d1fd889d4c5d73c0e87d3b779d9ae5d",
+      "driver_sha256": "1b8d70549d106b48a47c19679c3eca254b94e210933f4b2f5ac9ff8a1ad548c2"
+    },
+    {
+      "name": "transform",
+      "command": [
+        "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+        "--edition",
+        "2024",
+        "-C",
+        "opt-level=3",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/legacy-transform-driver.rs",
+        "-o",
+        "/private/tmp/formora-zero-retained-transform-driver-01",
+        "-L",
+        "dependency=/private/tmp/formora-target-actual185/release/deps",
+        "--extern",
+        "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+        "--extern",
+        "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+      ],
+      "terminal_exit_code": 0,
+      "driver_source_sha256": "14aab843190d88368d0322986f9fb0ddc2b72b9add5bbde8f2cf56fec3394510",
+      "driver_sha256": "8922dfbf8f9f19d119fcfefa66391af1fb4ada2b02f33f94c2771c489037142c"
+    },
+    {
+      "name": "rotation",
+      "command": [
+        "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+        "--edition",
+        "2024",
+        "-C",
+        "opt-level=3",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-rotation-core/performance/capture-driver-02.rs",
+        "-o",
+        "/private/tmp/formora-zero-retained-rotation-driver-01",
+        "-L",
+        "dependency=/private/tmp/formora-target-actual185/release/deps",
+        "--extern",
+        "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+        "--extern",
+        "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+      ],
+      "terminal_exit_code": 0,
+      "driver_source_sha256": "125e7510aabeb825773e718c7b280ccac2cb4e3b25d2ededfc1a8b390984aaf7",
+      "driver_sha256": "8ce2eb111113361399319b73c078f47ee1cf55237b40f3b47ae69bfac8641dd4"
+    },
+    {
+      "name": "delta",
+      "command": [
+        "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+        "--edition",
+        "2024",
+        "-C",
+        "opt-level=3",
+        "/Users/chrischeng/faberlines/formora/docs/evidence/snap-delta-core/performance/capture-driver.rs",
+        "-o",
+        "/private/tmp/formora-zero-retained-delta-driver-01",
+        "-L",
+        "dependency=/private/tmp/formora-target-actual185/release/deps",
+        "--extern",
+        "formora=/private/tmp/formora-target-actual185/release/libformora.rlib",
+        "--extern",
+        "serde_json=/private/tmp/formora-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib"
+      ],
+      "terminal_exit_code": 0,
+      "driver_source_sha256": "235bc04921abe40c09007561eea46597d61a773f61aaf433c7104a2c8a573c05",
+      "driver_sha256": "a6f3be0cb74f582bcd1b12b884f0d414ed70fa042735514803a017624f69ffca"
+    }
+  ]
+}

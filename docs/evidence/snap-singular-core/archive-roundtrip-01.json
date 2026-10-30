@@ -1,0 +1,192 @@
+{
+  "passed": true,
+  "restore_command": [
+    "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/archive-artifacts.py",
+    "/Users/chrischeng/faberlines/formora/docs/evidence/snap-singular-core/performance/trial-03-archive",
+    "/private/tmp/formora-zero-restored-trial03-check",
+    "--restore"
+  ],
+  "restore_exit": 0,
+  "restore_stdout": "{\"restored_files\": 187, \"all_raw_hashes_match\": true}\n",
+  "restored_files": 187,
+  "manifest_sha256": "3937d2150343a7dfca1c3fd94ae1cbfb7aad52d6f851d836500198495dc0f257",
+  "native_query_command": [
+    "/private/tmp/formora-target-actual185/debug/formora",
+    "scene",
+    "inspect",
+    "--scene",
+    "/private/tmp/formora-zero-restored-trial03-check/samples/parent-zero-selected-cursor-false-true-1.json",
+    "--entity",
+    "child",
+    "--world"
+  ],
+  "native_query_exit": 0,
+  "native_query_response": {
+    "entity": {
+      "content": {
+        "kind": "empty"
+      },
+      "name": "Child",
+      "parent": "target",
+      "transform": {
+        "delta": {
+          "euler": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "quaternion_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "translation": [
+            -0.25,
+            0.125,
+            0.0625
+          ]
+        },
+        "precision": "f32",
+        "rotation": {
+          "channels": {
+            "axis_angle": [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "euler": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "mode": "xyz",
+            "quaternion_wxyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "kind": "channels"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.25,
+          -0.75,
+          0.5
+        ]
+      }
+    },
+    "id": "child",
+    "object_frames": {
+      "edit_mode": false,
+      "lock_location": [
+        false,
+        false,
+        false
+      ],
+      "lock_rotation": [
+        false,
+        false,
+        false
+      ],
+      "matrix_basis": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.625
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.5625
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "matrix_local": null,
+      "matrix_local_error": "cannot_invert",
+      "matrix_parent_inverse": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "selected": false
+    },
+    "revision": 1,
+    "world_matrix": [
+      [
+        -0.9177430272102356,
+        2.257904618829798e-08,
+        0.29517051577568054,
+        1.4353628158569336
+      ],
+      [
+        -0.5133475661277771,
+        -3.3131890120330354e-08,
+        -0.4331253468990326,
+        -1.8635828495025635
+      ],
+      [
+        -0.24621573090553284,
+        -1.508265512484286e-08,
+        -0.19717197120189667,
+        1.9766521453857422
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "all_raw_hashes_match": true,
+  "product_acceptance": "unrun"
+}

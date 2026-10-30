@@ -1,0 +1,14 @@
+{
+  "captured_at_utc": "2026-10-30T04:29:24.693293+00:00",
+  "hardware": "Apple M1 Max",
+  "top": {
+    "exit_code": 0,
+    "stdout": "Processes: 1112 total, 4 running, 2 stuck, 1106 sleeping, 7089 threads \n2026/10/30 12:29:25\nLoad Avg: 9.54, 9.89, 9.04 \nCPU usage: 23.8% user, 19.12% sys, 57.79% idle \nSharedLibs: 1081M resident, 181M data, 429M linkedit.\nMemRegions: 697098 total, 25G resident, 737M private, 7030M shared.\nPhysMem: 62G used (5881M wired, 3804M compressor), 821M unused.\nVM: 501T vsize, 6144M framework vsize, 0(0) swapins, 0(0) swapouts.\nNetworks: packets: 73750698/52G in, 76761531/68G out.\nDisks: 316031202/5185G read, 86429950/1793G written.\n\n\n",
+    "stderr": ""
+  },
+  "swap": {
+    "exit_code": 0,
+    "stdout": "vm.swapusage: total = 0.00M  used = 0.00M  free = 0.00M  (encrypted)\n",
+    "stderr": ""
+  }
+}

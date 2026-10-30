@@ -1,0 +1,10 @@
+{
+  "original": "docs/evidence/snap-delta-core/check-api-evidence.py",
+  "original_sha256": "29bc86632d8a99336529a513eea06e264e9fcad8c98ffadf00dcda962f5a7532",
+  "new": "docs/evidence/snap-singular-core/check-api-evidence.py",
+  "new_sha256": "d5f247b2c810eb6febdd0e6e1d09751896e1441da01476fd3b85e6224e48c18d",
+  "retained_validation": "unchanged comparisons, counts, expected outcomes and tolerances; new artifact roots/head/binary bindings only",
+  "additional_validation": "3528 zero-scale raw responses, reconstructed snapshots, actual receipts, both native source captures, and separate numeric/unavailable getter counts",
+  "required_requests": 17854,
+  "product_acceptance": "unrun"
+}

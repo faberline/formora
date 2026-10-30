@@ -1,0 +1,16 @@
+[
+  {
+    "original": "docs/evidence/snap-delta-core/gpu-rng-legacy-driver.py",
+    "original_sha256": "068925a1db907d75c2fb7c9d60464f21a500dba8832a24dccea9fc3ea2252296",
+    "copy": "docs/evidence/snap-singular-core/retained-gpu-rng-driver.py",
+    "copy_sha256": "4e53626b7f618c530e2cf1f01d931e204d76d67b3df4de7673718533cc34f7e0",
+    "changes": "Fresh output directory only. Rendering inputs, arithmetic, pixel checks and native Metal assertions unchanged."
+  },
+  {
+    "original": "docs/evidence/snap-delta-core/gpu-mirror-legacy-driver.py",
+    "original_sha256": "89bb2f52ddce842fe2fa86b340a1bde54da93a332b635a5a95dae4870ae796b1",
+    "copy": "docs/evidence/snap-singular-core/retained-gpu-mirror-driver.py",
+    "copy_sha256": "be4bc29d4330a208a52bc0c6ec14d8a0ab51fb72ccdf65e2cd4e74d40352d3fe",
+    "changes": "Fresh output directory only. Rendering inputs, arithmetic, pixel checks and native Metal assertions unchanged."
+  }
+]

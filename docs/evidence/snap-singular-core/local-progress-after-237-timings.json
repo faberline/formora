@@ -1,0 +1,21 @@
+{
+  "required_timing_samples": 237,
+  "new_samples": 60,
+  "retained_samples": 177,
+  "all_timing_gates_passed": true,
+  "new_source_comparison": "running",
+  "retained_source_comparisons": "queued behind the running new-source comparison",
+  "complete_zero_API_3528": "running",
+  "complete_retained_API_14326": "running",
+  "rust_tests": 280,
+  "python_tests": 229,
+  "rustc": "1.85.0",
+  "ignored_rust_tests": 0,
+  "CI_head": "dd762766357592bc71e26853c483f585aaaf85cd",
+  "CI_platform_jobs_executed_steps": 0,
+  "CI_passed": false,
+  "integrated_acceptance": "unrun",
+  "independent_Codex_acceptance": "unrun",
+  "milestones_accepted": 0,
+  "first_failed_trials_remain_failed": true
+}

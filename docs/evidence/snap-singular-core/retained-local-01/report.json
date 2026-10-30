@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "records": [
+    {
+      "name": "recipe-delta",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-delta-core/recipe-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-local-01/recipe-delta"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "driver_sha256": "11241af6d7fd892a67defc7d34d0330f1473c16f80325f9d44723a22cbe2e788",
+      "report_sha256": "a4c5ae3d54077f3a9ef963af92609a21f5b4e5984a1cb798287022323a0068e6"
+    },
+    {
+      "name": "recipe-raw",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-rotation-core/recipe-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-local-01/recipe-raw"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "driver_sha256": "b970768d7721cc4063f1d178d49c21946f918378ed4cce2c808b4ea49c54dfec",
+      "report_sha256": "b1f599d9e46a714a521b5ba36bf2b4048140bba7c924b5ceed59415d31cc14af"
+    },
+    {
+      "name": "recipe-mesh",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/mesh-snap-core/recipe-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-local-01/recipe-mesh"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "driver_sha256": "4d8354f0b0e6d67424e14daa8c9305c6097edf7f618344e5e3559e40602c7e15",
+      "report_sha256": "80c6762d83854dafb4fed585fe1f30e291a53b07f7239ebad084b7b88db9316a"
+    },
+    {
+      "name": "seven-actions",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-delta-core/seven-actions-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-local-01/seven-actions"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "driver_sha256": "dc2dd324b5bd8d770851bc54be05d87b43236f76c98525bdd623c985d326d633",
+      "report_sha256": "b73641f3f95049d97f0bada1fd29e535ce527d116ead1188a4b5f18907278522"
+    },
+    {
+      "name": "input-rejections",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "docs/evidence/snap-delta-core/input-rejections-driver.py",
+        "/private/tmp/formora-target-actual185/debug/formora",
+        "/private/tmp/formora-zero-retained-local-01/input-rejections"
+      ],
+      "terminal_exit_code": 0,
+      "passed": true,
+      "driver_sha256": "d070774dff5cba1c3dfe37cc10ec189c2c2006408437e534fe14643af8e00c4c",
+      "report_sha256": "5c3134582539184bfd85a1971f4deea1bc460a9f3cf2aa6dfb3122e3cce81022"
+    }
+  ],
+  "product_acceptance": "unrun"
+}

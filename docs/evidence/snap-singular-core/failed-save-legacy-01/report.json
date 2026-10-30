@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "binary_sha256": "e31f7db014dc1842a69424c090120cf3ddbb0fa7103d6b968d8c47cde7e2a4fc",
+  "driver_sha256": "147fe46ba812dbdff900fe0d780898832d15a2c5b1699c518f084bc028e9e85b",
+  "actual_persistence_failure": "Is a directory (os error 21)",
+  "failed_save_preserves_memory_revision_original_disk": true,
+  "failed_save_adds_no_undo_entry": true,
+  "delta_and_inactive_channels_preserved": true,
+  "physical_delta_point_matches_analytic": true,
+  "real_receipt_matches_saved_transform": true,
+  "undo_replay_and_fresh_reload_equal": true,
+  "native_terminal_exit": 0,
+  "fresh_process_exit": 0,
+  "native_calls": 15,
+  "artifacts": {
+    "before.json": "f46ab6cacbfa4dbd5c3c7c18b4f8563c4944120d0eca07daad941a5ed701f382",
+    "before-failed-save.json": "e68991e521eaf10c2266d4904a551986a8869cb8eda93703f03b581c1972443c",
+    "after.json": "b100d5e9541d959fdc725e5c951d22f48ae741d715ddad2e02f8dae88bfcb6cd",
+    "undo-after-save-failure.json": "95a868f3a44514b03f18fbba1e2e904c6294b4d28a540213d7a8c0b9d33bbb63",
+    "scene.json": "88eabde6cf7cadd92f6d579ff6cf99db2ea5c93cf80dd9e4a24d4721f970eb66",
+    "final.json": "1a0e56a7c44452213741f4791d2f83d04e1205c5ae84466a5f91d684fd3d4d10",
+    "calls.jsonl": "3469c5b3bb919fa163c6b168d6c274db1b74b90273d92d7904ded32f70c738d3",
+    "receipt.json": "e3e1c45f19233108211a0d8674c4454e435ca3f9241a21f78ef2294e492a85b0"
+  },
+  "product_acceptance": "unrun"
+}
