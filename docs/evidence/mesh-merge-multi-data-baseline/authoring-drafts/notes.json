@@ -1,0 +1,56 @@
+{
+  "status": "source-reading notes; multi-independent-mesh native execution unrun",
+  "blender_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "files": [
+    {
+      "path": "baseline/sources/mesh-merge/editmesh_tools.cc",
+      "sha256": "1b6f259ceca565839b1ddeb46b69ed60472a0d1aff95451e43ff31c833061726",
+      "pinned_source_url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/editors/mesh/editmesh_tools.cc"
+    },
+    {
+      "path": "baseline/sources/scene-snap-core/layer_utils.cc",
+      "sha256": "647e98ae5c67a90d753b3b41acc809c856af724bc98f9e9ceaa77fddde83ec6b",
+      "pinned_source_url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/layer_utils.cc"
+    },
+    {
+      "path": "baseline/sources/scene-snap-core/layer.cc",
+      "sha256": "ce1a31dc9829bf4b07c8019be4cfd0c9659745b6c49a6dc787277366c2f61064",
+      "pinned_source_url": "https://github.com/blender/blender/blob/e13b728c6880d3084d9d57c30031ed5df8b39dee/source/blender/blenkernel/intern/layer.cc"
+    }
+  ],
+  "observations": [
+    {
+      "lines": "editmesh_tools.cc:3491-3508",
+      "finding": "enumerate unique edit-mode mesh data and skip a mesh with no selected vertices"
+    },
+    {
+      "lines": "editmesh_tools.cc:3510-3558",
+      "finding": "CENTER/CURSOR/COLLAPSE can continue across unique meshes; unsuccessful per-mesh work is skipped; FIRST/LAST breaks after the first successful mesh; do not replace this with an inferred unconditional per-entity loop"
+    },
+    {
+      "lines": "layer.cc:2348-2400 and layer_utils.cc:153-161",
+      "finding": "the active base is visited first when visible and in mode; other eligible bases follow the view-layer order; mesh data is deduplicated"
+    },
+    {
+      "lines": "editmesh_tools.cc:3566-3614",
+      "finding": "FIRST/LAST availability comes from the active edit mesh selection mode and typed history endpoints, not just selection on any mesh"
+    },
+    {
+      "lines": "editmesh_tools.cc:3509 and 3541-3554",
+      "finding": "selected-mesh custom corner normals use temporary vector data; successful non-vertex-only modes clear component selection"
+    }
+  ],
+  "native_cases_required_before_product_extension": [
+    "two independent edit meshes plus a linked user sharing one mesh and a non-edit mesh",
+    "vary the active object and view-layer ordering; use distinct noncommuting owner frames",
+    "an active empty selection with another selected mesh; active and secondary history availability must be observed",
+    "all five methods and both UV settings; vertex, edge, face and mixed modes",
+    "changed, unchanged, enum-rejected and per-mesh skipped results; shared data must be changed once",
+    "actual source positions/world frames/normals/UVs/groups/integer data/selection/history; two fresh native processes and full exact counts"
+  ],
+  "source_reading_is_native_acceptance": false,
+  "numeric_tolerance_change": false,
+  "product_code_change": false,
+  "current_1024_source_cases": "bounded historical suite; not multiple independent edit meshes",
+  "issue_or_milestone_acceptance": "unrun"
+}
