@@ -1,15 +1,16 @@
 # Distance merge source evidence
 
-Issue #82. This is source-only preparation in an isolated branch.
+Issue #82. [Source draft PR #83](https://github.com/faberline/formora/pull/83)
+tracks this source-only preparation in an isolated branch.
 The parent is draft PR #81 at
 `9ebb82fd388dbf51171c81abc7f04e5cb4a705a1`.
 Its dependencies and all 11 milestones remain unaccepted.
 Current complete functional evidence: two fresh sealed captures, 2,412 cases
 each, complete state/reload comparison and 38 rejected corruption controls.
 Capacity has 192 sealed samples. Two focused native captures completed eight
-samples; all eight have passed full offline checks. Capacity corruption controls
-are running. Paired
-complete capacity captures and Rust product acceptance remain unrun.
+samples; all eight have passed full offline checks. All 34 capacity corruption
+controls rejected forged records. Two complete capacity captures and their
+paired source gate remain pending. Rust product acceptance remains unrun.
 Earlier sections below retain the preparation history. The latest full
 functional evidence is in the final section.
 The existing full multi-data raw audit and timing controller ended before
@@ -423,9 +424,8 @@ seconds. `capacity-checks-01/diagnostic-check-02.json` and
 `capacity-check-02-proof/` retain the report and actual parent wait. All seven
 core/pipeline source observations exceed the unchanged product budgets. Together
 with the first sample, all eight source diagnostic checks pass; none is a Rust
-timing pass. The capacity corruption driver is running, not yet passed.
-Two fresh complete capacity source
-captures and their paired comparison remain unrun. No Rust distance operation
+timing pass. The capacity corruption driver has now passed, as recorded below.
+Two complete capacity source captures and their paired comparison remain pending. No Rust distance operation
 or product acceptance was added. Issue #82 remains open with `agy:doing`.
 
 `capacity-ci-01/` retains actual run 41131968319 at published source head
@@ -440,8 +440,9 @@ execution controller. It requires both passed diagnostic reports, actual
 successful checker/control waits, all 34 rejected capacity corruptions, and
 the unchanged source seal and actual hardware. Only then can it run two full
 captures, each individual checker and their pair comparison in sequence.
-Each native launch has a 43,200-second hard deadline. No complete capture has
-started yet. Every required stage must have an actual successful terminal wait.
+Each native launch has a 43,200-second hard deadline. No complete capture had
+started at this preparation checkpoint. Every required stage must have an
+actual successful terminal wait.
 
 `capacity-complete-admission-control-01/` preserves a real missing-admission
 negative test. Controller PID 26234 exited 1 at the required missing completion
@@ -452,3 +453,32 @@ operation ran. The test driver exited 0 only after checking those facts.
 `a5f877ce9ef447e01d580e429abf9df059cc739c`. All three platform jobs failed with
 zero steps and actual account-payment/spending annotations. Source and product
 acceptance, dependency integration and PR diff review remain unrun.
+
+## Capacity corruption control results
+
+PID 29455 exited 0 after 592.384 seconds. The actual stage wait and full
+controller completion are preserved in `capacity-controller-02/`. All 34
+controls reached their intended rejection. `capacity-controls-01/` preserves
+every complete forged capture and result, including rehashed raw records.
+No forged native operation ran. The genuine one-sample source capture passed
+the complete checker before any mutation control.
+
+The controls cover partial captures claimed as complete, missing/duplicate
+cases, source and input identities, hardware, actual failed/missing/wrongly
+typed waits, source-answer input, initial checkpoint, operation/save/reopen
+status, native file replacement, zero weights, output positions, reload
+integer data, clock types/order/derived values, removed validation, source
+timing claimed as Rust timing, raised budgets and false over-budget passes.
+The original limits and all 122 sealed code/input files remain unchanged.
+
+`capacity-controls-archive-audit-01.json` records exact readback of 328 lossless
+files across the controls, controller, current-head CI and draft PR metadata.
+Originals and earlier failures remain in place. `capacity-ci-03/` records
+push run 41135679795 and PR run 41135766276 at
+`e903bb94bedca2748681375299953aa13777ba8b`. Both have three failed platform
+jobs, zero steps and actual billing/payment/spending annotations.
+
+PR #83 remains a draft in milestone 0.0. Issue #82 remains open and
+`agy:doing`, with complete capacity evidence still pending. No Rust distance
+operation, PR diff review, merge, source admission or independent product
+acceptance is claimed. All eleven milestones remain open.
