@@ -1,0 +1,17 @@
+{
+  "scope": "before integer interpolation helper code",
+  "base_commit": "3f9be6f659fccbd47e859349e4adac461c2e0fa6",
+  "terminal_exit_code": 101,
+  "tests_executed": 0,
+  "expected_failure": "missing interpolate_vertices API",
+  "input_hashes": {
+    "tests/integer_attribute_interpolation.rs": "1eb66a33c393f915ffff97c4e0528e49b41cc73f5f6c9e9c2bbf4e104525e36a",
+    "docs/contracts/mesh-merge-interpolation.md": "697b6ffe10c39edef9de1a4a577e0f5165279c8dee36a1a86c4edd6219deb25b",
+    "docs/contracts/mesh-merge-core.md": "add12089435972c9efc5b87638de47ea567fa6e31596cb2438a7ffb71fd207fc",
+    "baseline/sources/mesh-merge/customdata.cc": "f33aebaf7469edcee2cf8129bd0ad34a4bd5752b6745b8756f97ef9e7860ad77",
+    "baseline/sources/mesh-merge/bmo_removedoubles.cc": "dc8bebaace43fb5a0f8736605895443bf59ca6e92b0f84659f5f37a220d2a0b2"
+  },
+  "original_merge_tests_unchanged": true,
+  "full_merge_issue_acceptance": "unrun",
+  "milestones_accepted": 0
+}

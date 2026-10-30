@@ -1,0 +1,62 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling version_check v0.9.5
+   Compiling libc v0.2.191
+   Compiling serde_core v1.0.229
+   Compiling typenum v1.20.1
+   Compiling zmij v1.0.23
+   Compiling serde_json v1.0.154
+   Compiling serde v1.0.229
+   Compiling ref-cast v1.0.27
+   Compiling generic-array v0.14.7
+   Compiling itoa v1.0.18
+   Compiling memchr v2.8.3
+   Compiling dyn-clone v1.0.20
+   Compiling cfg-if v1.0.5
+   Compiling cpufeatures v0.2.17
+   Compiling fs2 v0.4.3
+   Compiling syn v3.0.9
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling serde_derive_internals v0.30.0
+   Compiling serde_derive v1.0.229
+   Compiling ref-cast-impl v1.0.27
+   Compiling schemars_derive v1.2.3
+   Compiling schemars v1.2.3
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:20:16
+   |
+20 |     attributes.interpolate_vertices("a", &["a", "b"]).unwrap();
+   |                ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:38:16
+   |
+38 |     attributes.interpolate_vertices("a", &["a", "b", "c"]).unwrap();
+   |                ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:53:28
+   |
+53 |         assert!(attributes.interpolate_vertices("a", &contributors).is_err());
+   |                            ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:65:16
+   |
+65 |     attributes.interpolate_vertices("a", &["a"]).unwrap();
+   |                ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:67:24
+   |
+67 |     assert!(attributes.interpolate_vertices("a", &["a", "b"]).is_err());
+   |                        ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `formora` (test "integer_attribute_interpolation") due to 5 previous errors
+warning: build failed, waiting for other jobs to finish...

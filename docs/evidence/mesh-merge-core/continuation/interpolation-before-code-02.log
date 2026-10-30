@@ -1,0 +1,42 @@
+   Compiling formora v0.0.0 (/private/tmp/formora-mesh-merge-sparse)
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:25:16
+   |
+25 |     attributes.interpolate_vertices("a", &["a", "b"]).unwrap();
+   |                ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:50:10
+   |
+49 | /     attributes
+50 | |         .interpolate_vertices("a", &["a", "b", "c"])
+   | |         -^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+   | |_________|
+   |
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:69:28
+   |
+69 |         assert!(attributes.interpolate_vertices("a", &contributors).is_err());
+   |                            ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:81:16
+   |
+81 |     attributes.interpolate_vertices("a", &["a"]).unwrap();
+   |                ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:83:24
+   |
+83 |     assert!(attributes.interpolate_vertices("a", &["a", "b"]).is_err());
+   |                        ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+error[E0599]: no method named `interpolate_vertices` found for struct `IntegerAttributes` in the current scope
+  --> tests/integer_attribute_interpolation.rs:97:24
+   |
+97 |     assert!(attributes.interpolate_vertices("a", &["a", "b"]).is_err());
+   |                        ^^^^^^^^^^^^^^^^^^^^ method not found in `IntegerAttributes`
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `formora` (test "integer_attribute_interpolation") due to 6 previous errors
