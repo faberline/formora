@@ -123,7 +123,8 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
             continue;
         }
         let asset = &scene.mesh_assets[id];
-        let counts = Counts::of(&asset.validated_topology()?)?;
+        let graph = asset.validated_topology()?;
+        let counts = Counts::of(&graph)?;
         add(&mut before, &counts)?;
         let empty = asset
             .editing
@@ -149,6 +150,7 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
             counts,
             empty,
             shared_instances,
+            graph,
         ));
     }
     before.budget(request.max_components)?;
@@ -156,7 +158,7 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     let mut after = zero();
     let mut providers = Vec::new();
     let mut stopped = false;
-    for (entity, mesh_asset, counts, empty, shared_instances) in plans {
+    for (entity, mesh_asset, counts, empty, shared_instances, graph) in plans {
         let (outcome, merge) = if stopped {
             add(&mut after, &counts)?;
             (Outcome::NotProcessedAfterSuccess, None)
@@ -164,7 +166,7 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
             add(&mut after, &counts)?;
             (Outcome::SkippedEmptySelection, None)
         } else {
-            let receipt = super::execute(
+            let receipt = super::execute_prepared(
                 scene,
                 &MeshRequest {
                     entity: entity.clone(),
@@ -172,6 +174,8 @@ pub(crate) fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
                     uvs: request.uvs,
                     max_components: request.max_components,
                 },
+                mesh_asset.clone(),
+                graph,
             )?;
             add(&mut after, &receipt.after)?;
             let outcome = if matches!(receipt.status, Status::Cancelled) {
