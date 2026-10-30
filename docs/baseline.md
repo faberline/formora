@@ -141,7 +141,8 @@ Rust 候選實作已包含網格變換、直接吸附、旋轉通道、增量變
 [執行終止證據](evidence/mesh-merge-multi-data-core/full-runtime-terminal-01.md)
 保留完成比對與明確拒絕的個別數量。
 [完整原始紀錄回查與 30 個壞資料控制](evidence/mesh-merge-multi-data-core/completed-full-runtime-03.md)
-也已通過。207 個保留效能樣本已通過，其逐份來源比對仍在執行。
+也已通過。[207 個保留效能樣本與逐份來源比對](evidence/mesh-merge-multi-data-core/completed-timing-source-04.md)
+均已通過。這些結果只涵蓋各自明列的案例範圍。
 必要平台 CI、依賴整合及獨立驗收也尚未通過。
 歷次紀錄中的失敗及未執行狀態都保留，不能當作目前通過的證據。
 

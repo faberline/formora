@@ -1,0 +1,61 @@
+{
+  "all_207_timing_and_physical_sources_passed": true,
+  "groups": {
+    "scene-A": {
+      "samples": 30,
+      "maximum_core_ms": 126.250958,
+      "maximum_pipeline_ms": 280.361708,
+      "core_limit_ms": 250.0,
+      "pipeline_limit_ms": 2000.0
+    },
+    "scene-B": {
+      "samples": 30,
+      "maximum_core_ms": 125.251542,
+      "maximum_pipeline_ms": 277.595041,
+      "core_limit_ms": 250.0,
+      "pipeline_limit_ms": 2000.0
+    },
+    "scene-C": {
+      "samples": 30,
+      "maximum_core_ms": 255.479084,
+      "maximum_pipeline_ms": 557.611167,
+      "core_limit_ms": 500.0,
+      "pipeline_limit_ms": 4000.0
+    },
+    "rotation": {
+      "samples": 24,
+      "maximum_core_ms": 132.122917,
+      "maximum_pipeline_ms": 304.492708,
+      "core_limit_ms": 250.0,
+      "pipeline_limit_ms": 2000.0
+    },
+    "delta": {
+      "samples": 24,
+      "maximum_core_ms": 129.042709,
+      "maximum_pipeline_ms": 291.583166,
+      "core_limit_ms": 250.0,
+      "pipeline_limit_ms": 2000.0
+    },
+    "single-snap": {
+      "samples": 30,
+      "maximum_core_ms": 213.904833,
+      "maximum_pipeline_ms": 368.190458,
+      "core_limit_ms": 250,
+      "pipeline_limit_ms": 2000
+    },
+    "transform": {
+      "samples": 9,
+      "maximum_core_ms": 221.750208,
+      "maximum_pipeline_ms": 376.542084,
+      "core_limit_ms": 250,
+      "pipeline_limit_ms": 2000
+    },
+    "single-merge": {
+      "samples": 30,
+      "maximum_core_ms": 158.190167,
+      "maximum_pipeline_ms": 179.505,
+      "core_limit_ms": 250.0,
+      "pipeline_limit_ms": 2000.0
+    }
+  }
+}

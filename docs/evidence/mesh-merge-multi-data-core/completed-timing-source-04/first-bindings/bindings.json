@@ -1,0 +1,343 @@
+{
+  "wrappers": [
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-run-90-01.py",
+      "source_sha256": "d1871baf9f6d733a9136247bb17d4930f82dd46bb30b7cd3718f2aa2b4040eb0",
+      "copy": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-90-01.py",
+      "copy_sha256": "afdfff6209cd9da1eba795391540f29e2fb84442017493168f46b3238469e8ec",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/",
+          "/private/tmp/formora-multi-merge-target-actual185/"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-",
+          "/private/tmp/formora-multi-merge-retained-"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -6,12 +6,12 @@\n",
+        " from pathlib import Path\n",
+        " import subprocess\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " HERE=ROOT/'docs/evidence/snap-delta-core/performance'\n",
+        "-RUN=Path('/private/tmp/formora-merge-regen-retained-90-01')\n",
+        "+RUN=Path('/private/tmp/formora-multi-merge-retained-90-01')\n",
+        " SAMPLES=RUN/'samples'\n",
+        "-DRIVER=Path('/private/tmp/formora-merge-regen-retained-90-driver-01')\n",
+        "-IMPLEMENTATION='5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d'\n",
+        "+DRIVER=Path('/private/tmp/formora-multi-merge-retained-90-driver-01')\n",
+        "+IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " RUN.mkdir(exist_ok=False)\n",
+        " assert ROOT.stat().st_dev==RUN.stat().st_dev,'same filesystem required'\n",
+        "@@ -25,7 +25,7 @@\n",
+        "     names=[p for p in native['input_hashes'] if p.endswith(f'/input-{c}.json')]\n",
+        "     assert len(names)==1 and native['input_hashes'][names[0]]==sha(authored/f'input-{c}.json')\n",
+        " paths=[*source_paths,Path(__file__),HERE/'capture-driver-one-process.rs',DRIVER,\n",
+        "-       Path('/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib'),*[authored/f'input-{c}.json' for c in ['A','B','C']]]\n",
+        "+       Path('/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib'),*[authored/f'input-{c}.json' for c in ['A','B','C']]]\n",
+        " hashes={str(p):sha(p) for p in paths}\n",
+        " def host(name):\n",
+        "     record={'captured_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-run-39-01.py",
+      "source_sha256": "434a52002b97b4d0aebff4c4be64c9c14d1b581110c5e68469bf332b9d0aa224",
+      "copy": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-39-01.py",
+      "copy_sha256": "7218846b2cb3e43d764e39a00c1a2e62432a125ae8c688bd0cee7c8931d50c9c",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/",
+          "/private/tmp/formora-multi-merge-target-actual185/"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-",
+          "/private/tmp/formora-multi-merge-retained-"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -5,18 +5,18 @@\n",
+        " from pathlib import Path\n",
+        " import subprocess\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " HERE=ROOT/'docs/evidence/snap-delta-core/performance'\n",
+        "-RUN=Path('/private/tmp/formora-merge-regen-retained-39-01')\n",
+        "+RUN=Path('/private/tmp/formora-multi-merge-retained-39-01')\n",
+        " RUN.mkdir(exist_ok=False)\n",
+        " assert RUN.stat().st_dev==ROOT.stat().st_dev\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " commands=[('single',30,[\n",
+        "-    '/private/tmp/formora-merge-regen-retained-single-driver-01',\n",
+        "+    '/private/tmp/formora-multi-merge-retained-single-driver-01',\n",
+        "     str(ROOT/'docs/evidence/mesh-snap-core/performance/fixed-samples/input.json'),str(RUN/'single')]),\n",
+        "-    ('transform',9,['/private/tmp/formora-merge-regen-retained-transform-driver-01',str(RUN/'transform')])]\n",
+        "+    ('transform',9,['/private/tmp/formora-multi-merge-retained-transform-driver-01',str(RUN/'transform')])]\n",
+        " paths=[ROOT/'Cargo.toml',ROOT/'Cargo.lock',Path(__file__),HERE/'legacy-single-driver.rs',HERE/'legacy-transform-driver.rs',\n",
+        "-       Path('/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib'),\n",
+        "+       Path('/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib'),\n",
+        "        *[Path(command[0]) for _,_,command in commands],*[p for p in sorted((ROOT/'src').rglob('*')) if p.is_file()]]\n",
+        " hashes={str(p):sha(p) for p in paths}\n",
+        " records=[]\n",
+        "@@ -33,7 +33,7 @@\n",
+        "     records.append(record);print(json.dumps(record),flush=True)\n",
+        " unchanged=hashes=={str(p):sha(p) for p in paths}\n",
+        " result={'passed':unchanged and all(r['passed'] for r in records),'checks':records,'input_hashes':hashes,\n",
+        "-        'verification_inputs_unchanged':unchanged,'implementation_commit':'5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d',\n",
+        "+        'verification_inputs_unchanged':unchanged,'implementation_commit':'bd13f3d424f2649b4b25c16305c4e5b0eb7f8542',\n",
+        "         'source_comparison':'required separately','product_acceptance':'unrun','milestone_acceptance':'unrun'}\n",
+        " (RUN/'controller-report.json').write_text(json.dumps(result,indent=2)+'\\n')\n",
+        " if not result['passed']:raise SystemExit(1)\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-run-rotation-01.py",
+      "source_sha256": "0df501b49696f0742fd16220fbb4c658845c86a6237f5dcf7c9061f627b5f717",
+      "copy": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-rotation-01.py",
+      "copy_sha256": "52b0cfc6569c5f851072a992f2b08b498cbf7c581c5efab6b1efca5b43144312",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/",
+          "/private/tmp/formora-multi-merge-target-actual185/"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-",
+          "/private/tmp/formora-multi-merge-retained-"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -5,18 +5,18 @@\n",
+        " from pathlib import Path\n",
+        " import subprocess\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " HERE=ROOT/'docs/evidence/snap-rotation-core/performance'\n",
+        "-RUN=Path('/private/tmp/formora-merge-regen-retained-rotation-01')\n",
+        "-DRIVER=Path('/private/tmp/formora-merge-regen-retained-rotation-driver-01')\n",
+        "-BINARY=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora')\n",
+        "-IMPLEMENTATION='5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d'\n",
+        "+RUN=Path('/private/tmp/formora-multi-merge-retained-rotation-01')\n",
+        "+DRIVER=Path('/private/tmp/formora-multi-merge-retained-rotation-driver-01')\n",
+        "+BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora')\n",
+        "+IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " RUN.mkdir(exist_ok=False);assert RUN.stat().st_dev==ROOT.stat().st_dev\n",
+        " source=[ROOT/'Cargo.toml',ROOT/'Cargo.lock',*[p for p in sorted((ROOT/'src').rglob('*')) if p.is_file()]]\n",
+        " for path in source:assert subprocess.check_output(['git','show',IMPLEMENTATION+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT)==path.read_bytes()\n",
+        " paths=[*source,Path(__file__),HERE/'capture-driver-02.rs',HERE/'authored-grid.json',HERE/'authored-modes.json',\n",
+        "-       DRIVER,BINARY,Path('/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib')]\n",
+        "+       DRIVER,BINARY,Path('/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib')]\n",
+        " hashes={str(p):sha(p) for p in paths}\n",
+        " hardware=subprocess.run(['/usr/sbin/sysctl','-n','machdep.cpu.brand_string'],capture_output=True,text=True)\n",
+        " assert hardware.returncode==0 and hardware.stdout.strip()=='Apple M1 Max'\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-run-delta-01.py",
+      "source_sha256": "a9557994b360d4b8da45063bda45675a9945cf442fb9f44429a7f5b4eb3b94d7",
+      "copy": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-delta-01.py",
+      "copy_sha256": "101fd52ccd66bc740708aa0191e3617e4dd5eace5ff3a6cae9294572f84e20e8",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/",
+          "/private/tmp/formora-multi-merge-target-actual185/"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-",
+          "/private/tmp/formora-multi-merge-retained-"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -5,18 +5,18 @@\n",
+        " from pathlib import Path\n",
+        " import subprocess\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " HERE=ROOT/'docs/evidence/snap-delta-core/performance'\n",
+        "-RUN=Path('/private/tmp/formora-merge-regen-retained-delta-01')\n",
+        "-DRIVER=Path('/private/tmp/formora-merge-regen-retained-delta-driver-01')\n",
+        "-BINARY=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora')\n",
+        "-IMPLEMENTATION='5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d'\n",
+        "+RUN=Path('/private/tmp/formora-multi-merge-retained-delta-01')\n",
+        "+DRIVER=Path('/private/tmp/formora-multi-merge-retained-delta-driver-01')\n",
+        "+BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora')\n",
+        "+IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " RUN.mkdir(exist_ok=False);assert RUN.stat().st_dev==ROOT.stat().st_dev\n",
+        " source=[ROOT/'Cargo.toml',ROOT/'Cargo.lock',*[p for p in sorted((ROOT/'src').rglob('*')) if p.is_file()]]\n",
+        " for path in source:assert subprocess.check_output(['git','show',IMPLEMENTATION+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT)==path.read_bytes()\n",
+        " paths=[*source,Path(__file__),HERE/'capture-driver.rs',HERE/'authored-grid.json',HERE/'authored-modes.json',\n",
+        "-       DRIVER,BINARY,Path('/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib')]\n",
+        "+       DRIVER,BINARY,Path('/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib')]\n",
+        " hashes={str(p):sha(p) for p in paths}\n",
+        " hardware=subprocess.run(['/usr/sbin/sysctl','-n','machdep.cpu.brand_string'],capture_output=True,text=True)\n",
+        " assert hardware.returncode==0 and hardware.stdout.strip()=='Apple M1 Max'\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-timing-controller-01.py",
+      "source_sha256": "91c4275833dbfe62d4d099d1dfbe83d9bdf37f35b064452a46f0499eddeeb6b6",
+      "copy": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-timing-controller-01.py",
+      "copy_sha256": "02c66c4bac9664268429e9aca6750f03185f751ee787cc8246efdb1918c531fb",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-retained-",
+          "/private/tmp/formora-multi-merge-retained-"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,19 +1,19 @@\n",
+        " \"\"\"Run all 177 retained timing samples once with their unchanged native drivers.\"\"\"\n",
+        " from pathlib import Path\n",
+        " import hashlib,json,subprocess,sys\n",
+        "-ROOT=Path(__file__).resolve().parents[4];HERE=Path(__file__).resolve().parent\n",
+        "-OUT=Path('/private/tmp/formora-merge-regen-retained-timing-controller-01');OUT.mkdir(exist_ok=False)\n",
+        "-compile_report=json.loads(Path('/private/tmp/formora-merge-regen-retained-compile-01/report.json').read_text());assert compile_report['passed']\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core');HERE=Path(__file__).resolve().parent\n",
+        "+OUT=Path('/private/tmp/formora-multi-merge-retained-timing-controller-01');OUT.mkdir(exist_ok=False)\n",
+        "+compile_report=json.loads(Path('/private/tmp/formora-multi-merge-retained-compile-01/report.json').read_text());assert compile_report['passed']\n",
+        " rows=[]\n",
+        " for name,count in [('90',90),('39',39),('rotation',24),('delta',24)]:\n",
+        "  command=[sys.executable,str(HERE/f'regenerate-retained-run-{name}-01.py')]\n",
+        "  with (OUT/(name+'.stdout')).open('xb') as stdout,(OUT/(name+'.stderr')).open('xb') as stderr:\n",
+        "   child=subprocess.Popen(command,cwd=ROOT,stdout=stdout,stderr=stderr);code=child.wait()\n",
+        "- path=Path(f'/private/tmp/formora-merge-regen-retained-{name}-01/controller-report.json')\n",
+        "+ path=Path(f'/private/tmp/formora-multi-merge-retained-{name}-01/controller-report.json')\n",
+        "  report=json.loads(path.read_text()) if path.exists() else None\n",
+        "  row={'name':name,'expected_samples':count,'command':command,'process_id':child.pid,'terminal_exit_code':code,'passed':code==0 and report is not None and report['passed'],'report_sha256':hashlib.sha256(path.read_bytes()).hexdigest() if path.exists() else None}\n",
+        "  rows.append(row);print(json.dumps(row),flush=True)\n",
+        "  (OUT/'progress.json').write_text(json.dumps(rows,indent=2)+'\\n')\n",
+        "-result={'passed':all(r['passed'] for r in rows),'samples':177,'records':rows,'implementation_commit':'5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d','source_comparison':'unrun','product_acceptance':'unrun'}\n",
+        "+result={'passed':all(r['passed'] for r in rows),'samples':177,'records':rows,'implementation_commit':'bd13f3d424f2649b4b25c16305c4e5b0eb7f8542','source_comparison':'unrun','product_acceptance':'unrun'}\n",
+        " (OUT/'report.json').write_text(json.dumps(result,indent=2)+'\\n')\n",
+        " raise SystemExit(0 if result['passed'] else 1)\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-run-performance-01.py",
+      "source_sha256": "d68f94d22bca24266f65dfd2420321b05be70f21e550e409660f054dc0cf60bc",
+      "copy": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-run-performance-01.py",
+      "copy_sha256": "7dfdc074e8171b0f48078c78aada3994d9d923241261db3b3b47ed1e60b65eff",
+      "only_path_head_bindings_changed": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/",
+          "/private/tmp/formora-multi-merge-target-actual185/"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-performance-",
+          "/private/tmp/formora-multi-merge-performance-"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -5,18 +5,18 @@\n",
+        " import subprocess\n",
+        " import time\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " AUTHORED=ROOT/'docs/evidence/mesh-merge-core/performance'\n",
+        "-OUTPUT=Path('/private/tmp/formora-merge-regen-performance-01')\n",
+        "-DRIVER=Path('/private/tmp/formora-merge-regen-performance-driver-01')\n",
+        "-LIBRARY=Path('/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib')\n",
+        "+OUTPUT=Path('/private/tmp/formora-multi-merge-performance-01')\n",
+        "+DRIVER=Path('/private/tmp/formora-multi-merge-performance-driver-01')\n",
+        "+LIBRARY=Path('/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib')\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " OUTPUT.mkdir(exist_ok=False)\n",
+        " sealed=json.loads((AUTHORED/'before-product-code-final.json').read_bytes())\n",
+        " for relative,digest in sealed['files'].items():assert sha(ROOT/relative)==digest,relative\n",
+        " assert sealed['source_terminal_exit']==sealed['source_checker_terminal_exit']==0\n",
+        " assert sealed['source_forms_checked']==10 and sealed['source_process_id']==76326\n",
+        "-bindings={'implementation':'5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d','head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),\n",
+        "+bindings={'implementation':'bd13f3d424f2649b4b25c16305c4e5b0eb7f8542','head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),\n",
+        "     'driver':str(DRIVER),'driver_sha256':sha(DRIVER),'library':str(LIBRARY),'library_sha256':sha(LIBRARY),\n",
+        "     'sealed_inputs':sealed['files'],'rustc':subprocess.check_output(['/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc','-vV'],text=True),\n",
+        "     'all_samples_required':30,'discarded_warmup_samples':0,'maximum_core_ms':250,'maximum_pipeline_ms':2000}\n"
+      ]
+    }
+  ],
+  "frozen_native_sources_unchanged": true,
+  "timing_samples_executed": 0,
+  "required_samples": 207,
+  "performance_acceptance": "unrun",
+  "execution_precondition": "Wait for the full functional matrix and raw audit to stop before timing."
+}
