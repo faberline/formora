@@ -1,0 +1,66 @@
+{
+  "head": "878c8dcdf3b61c8ccda68ea5d37e0f39e181a21c",
+  "binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+  "records": [
+    {
+      "strict": false,
+      "command": [
+        "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+        "baseline",
+        "check",
+        "--root",
+        "/private/tmp/formora-mesh-merge-multi-data-core"
+      ],
+      "process_id": 15979,
+      "terminal_exit_code": 0,
+      "report_sha256": "3c38f17aade1a7568e6e4b4640ce90a81cd47da992c4431a38f7c9acfaceea23",
+      "report": {
+        "structurally_valid": true,
+        "baseline_ready": false,
+        "product_acceptance": "unrun",
+        "sources": 9047,
+        "features": 39,
+        "pending_sources": 8993,
+        "pending_features": 39,
+        "uncovered_sources": 0,
+        "incomplete_products": [
+          "blender",
+          "unreal"
+        ],
+        "unverified_builds": [],
+        "problems": []
+      }
+    },
+    {
+      "strict": true,
+      "command": [
+        "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+        "baseline",
+        "check",
+        "--root",
+        "/private/tmp/formora-mesh-merge-multi-data-core",
+        "--strict"
+      ],
+      "process_id": 16388,
+      "terminal_exit_code": 2,
+      "report_sha256": "3c38f17aade1a7568e6e4b4640ce90a81cd47da992c4431a38f7c9acfaceea23",
+      "report": {
+        "structurally_valid": true,
+        "baseline_ready": false,
+        "product_acceptance": "unrun",
+        "sources": 9047,
+        "features": 39,
+        "pending_sources": 8993,
+        "pending_features": 39,
+        "uncovered_sources": 0,
+        "incomplete_products": [
+          "blender",
+          "unreal"
+        ],
+        "unverified_builds": [],
+        "problems": []
+      }
+    }
+  ],
+  "baseline_acceptance": "unrun"
+}
