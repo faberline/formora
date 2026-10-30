@@ -1,0 +1,60 @@
+{
+  "genuine_seal_verified": true,
+  "source_seal_sha256": "235eaae347e8a530be16f7c8d1f10bafef3bb485bf738c32ffcae4bc4e9ae401",
+  "code_commit": "072318e2f5f46fcf6f0222cafa161b3d2b165a28",
+  "cases": 2412,
+  "sealed_inputs": 110,
+  "controls": [
+    {
+      "name": "wrong_limit",
+      "rejected": true,
+      "error": "source seal limits",
+      "file": "wrong_limit.json"
+    },
+    {
+      "name": "wrong_source",
+      "rejected": true,
+      "error": "source seal identity",
+      "file": "wrong_source.json"
+    },
+    {
+      "name": "wrong_binary",
+      "rejected": true,
+      "error": "source seal identity",
+      "file": "wrong_binary.json"
+    },
+    {
+      "name": "wrong_case_count",
+      "rejected": true,
+      "error": "source seal suite binding",
+      "file": "wrong_case_count.json"
+    },
+    {
+      "name": "wrong_suite_hash",
+      "rejected": true,
+      "error": "source seal suite binding",
+      "file": "wrong_suite_hash.json"
+    },
+    {
+      "name": "missing_code_input",
+      "rejected": true,
+      "error": "source seal code/source binding",
+      "file": "missing_code_input.json"
+    },
+    {
+      "name": "changed_code_input",
+      "rejected": true,
+      "error": "source seal code/source binding",
+      "file": "changed_code_input.json"
+    },
+    {
+      "name": "post_execution_seal",
+      "rejected": true,
+      "error": "before-execution source seal",
+      "file": "post_execution_seal.json"
+    }
+  ],
+  "forged_native_operations_executed": false,
+  "complete_source_execution": "unrun",
+  "product_acceptance": "unrun"
+}
