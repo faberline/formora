@@ -1,0 +1,18 @@
+{
+  "process_id": 3555,
+  "command_line": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--factory-startup",
+    "--python",
+    "/private/tmp/formora-mesh-merge-multi-data/tools/blender_multi_mesh_merge_reference.py",
+    "--",
+    "--suite",
+    "/private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data.json",
+    "--output",
+    "/private/tmp/formora-mesh-merge-multi-data/docs/evidence/mesh-merge-multi-data-baseline/native-01"
+  ],
+  "started_utc": "2026-10-30T10:32:27.308818+00:00",
+  "binary_sha256": "de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619",
+  "suite_sha256": "7a63c6e29fc8e11850481a20450b6a1e86bf25c3252b71c6abfe53aebb201aa1",
+  "scope": "complete_13440_multi_data_merge_cases"
+}
