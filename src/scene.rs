@@ -485,6 +485,9 @@ pub enum Command {
     MergeMesh {
         merge: Box<crate::mesh::merge::Request>,
     },
+    MergeEditMeshes {
+        merge: Box<crate::mesh::merge::context::Request>,
+    },
     TransformMesh {
         transform: Box<crate::mesh::transform::Request>,
     },
@@ -577,10 +580,16 @@ enum CommandEffect {
     Snap(Box<crate::mesh::snap::Receipt>),
     SceneSnap(Box<crate::objects::snap::Receipt>),
     Merge(Box<crate::mesh::merge::Receipt>),
+    EditMerge(Box<crate::mesh::merge::context::Receipt>),
 }
 impl Command {
     fn apply(&self, scene: &mut Scene) -> Result<CommandEffect> {
         match self {
+            Self::MergeEditMeshes { merge } => {
+                return Ok(CommandEffect::EditMerge(Box::new(
+                    crate::mesh::merge::context::execute(scene, merge)?,
+                )));
+            }
             Self::MergeMesh { merge } => {
                 return Ok(CommandEffect::Merge(Box::new(crate::mesh::merge::execute(
                     scene, merge,
@@ -840,6 +849,7 @@ pub struct EditResult {
     pub snaps: Vec<crate::mesh::snap::Receipt>,
     pub scene_snaps: Vec<crate::objects::snap::Receipt>,
     pub merges: Vec<crate::mesh::merge::Receipt>,
+    pub edit_merges: Vec<crate::mesh::merge::context::Receipt>,
 }
 
 impl Editor {
@@ -884,8 +894,18 @@ impl Editor {
         let mut snaps = Vec::new();
         let mut scene_snaps = Vec::new();
         let mut merges = Vec::new();
+        let mut edit_merges = Vec::new();
         for (command_index, command) in commands.iter().enumerate() {
             match command.apply(&mut candidate)? {
+                CommandEffect::EditMerge(mut receipt) => {
+                    receipt.command_index = command_index;
+                    for provider in &mut receipt.providers {
+                        if let Some(merge) = &mut provider.merge {
+                            merge.command_index = command_index;
+                        }
+                    }
+                    edit_merges.push(*receipt);
+                }
                 CommandEffect::Selection(outcome) => {
                     let Command::SelectMesh { id, .. } = command else {
                         unreachable!("only selectors return an outcome")
@@ -931,6 +951,7 @@ impl Editor {
             snaps,
             scene_snaps,
             merges,
+            edit_merges,
         })
     }
     pub fn undo(&mut self, expected_revision: Option<u64>) -> Result<u64> {
