@@ -20,6 +20,8 @@ import blender_multi_mesh_merge_reference as base
 from merge_distance_scene_inputs import scene, selection
 from merge_distance_provenance import input_paths
 from merge_distance_parameter_reference import native_parameters
+from generate_merge_distance_complete import SCOPE as COMPLETE_SCOPE
+from merge_distance_source_seal import verify as verify_seal
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAINS = ['VERT', 'EDGE', 'FACE']
@@ -162,6 +164,12 @@ class Capture:
         assert not args.output.exists() and not self.stage.exists(); self.stage.mkdir(parents=True)
         self.native_files = Path(tempfile.mkdtemp(prefix='formora-distance-blends-'))
         self.paths = input_paths(args.suite)
+        self.source_seal = None
+        if self.suite['scope'] == COMPLETE_SCOPE:
+            assert args.seal is not None, 'complete capture requires before-execution seal'
+            verify_seal(args.suite, args.seal)
+            self.paths.append(args.seal.resolve())
+            self.source_seal = {'file': str(args.seal.resolve()), 'sha256': base.digest(args.seal)}
         self.hashes = {str(path): base.digest(path) for path in self.paths}
 
     def step(self):
@@ -179,7 +187,8 @@ class Capture:
             return .01
         if len(self.records) == len(self.suite['runs']):
             assert self.hashes == {str(path): base.digest(path) for path in self.paths}
-            write(self.stage/'manifest.json', {'scope': 'diagnostic_distance_merge_capture', 'version': list(bpy.app.version),
+            write(self.stage/'manifest.json', {'scope': 'complete_distance_merge_source_capture' if self.source_seal else 'diagnostic_distance_merge_capture',
+                'source_seal': self.source_seal, 'version': list(bpy.app.version),
                 'build_hash': bpy.app.build_hash.decode(), 'binary_sha256': base.digest(bpy.app.binary_path),
                 'background': bpy.app.background, 'process_id': os.getpid(), 'command_line': sys.argv,
                 'captured_utc': datetime.now(timezone.utc).isoformat(), 'input_hashes': self.hashes,
@@ -210,6 +219,7 @@ class Capture:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--suite', type=Path, required=True); parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--seal', type=Path)
     args = parser.parse_args(sys.argv[sys.argv.index('--')+1:]); state = None
     def start():
         global state

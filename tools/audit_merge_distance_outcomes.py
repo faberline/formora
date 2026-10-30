@@ -52,8 +52,8 @@ def outcome(run, spec, value):
             'data': data, 'cancelled': False, 'source_defect': False}
 
 
-def audit(suite_path, native, output):
-    diagnostic = check(suite_path, native/'capture')
+def audit(suite_path, native, output, seal=None):
+    diagnostic = check(suite_path, native/'capture', seal)
     assert diagnostic['diagnostic_checks_passed'], 'base diagnostic failed'
     suite = json.loads(suite_path.read_text()); manifest = json.loads((native/'capture/manifest.json').read_text())
     records = []; values = []
@@ -92,4 +92,5 @@ def audit(suite_path, native, output):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ['suite', 'native', 'output']: parser.add_argument('--'+name, type=Path, required=True)
-    args = parser.parse_args(); print(json.dumps(audit(args.suite, args.native, args.output)))
+    parser.add_argument('--seal', type=Path)
+    args = parser.parse_args(); print(json.dumps(audit(args.suite, args.native, args.output, args.seal)))

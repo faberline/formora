@@ -11,9 +11,9 @@ import tempfile
 from check_merge_distance_diagnostic import check
 
 
-def controls(suite, native, output):
+def controls(suite, native, output, seal=None):
     output.mkdir(exist_ok=False)
-    assert check(suite, native/'capture')['diagnostic_checks_passed'], 'genuine diagnostic must pass first'
+    assert check(suite, native/'capture', seal)['diagnostic_checks_passed'], 'genuine diagnostic must pass first'
     sha = lambda raw: hashlib.sha256(raw).hexdigest()
     manifest = json.loads((native/'capture/manifest.json').read_text())
     rows = []
@@ -51,7 +51,7 @@ def controls(suite, native, output):
             candidate_suite = stored/'forged-suite.json'
             candidate_suite.write_text(json.dumps(value, indent=2)+'\n')
         try:
-            result = check(candidate_suite, scratch/'capture')
+            result = check(candidate_suite, scratch/'capture', seal)
             error = '\n'.join(error for row in result['records'] for error in row['errors'])
             assert not result['diagnostic_checks_passed'], 'forged diagnostic accepted'
         except (AssertionError, KeyError, FileNotFoundError) as caught:
@@ -75,6 +75,8 @@ def controls(suite, native, output):
            lambda x: x['executed_parameters'].__setitem__('threshold', .5))
     reject('executed_parameters_missing', 'executed_parameters', 'distance_diag_000',
            lambda x: x.pop('executed_parameters'))
+    reject('native_file_substitution', 'native save file identity', 'distance_diag_000',
+           lambda x: x.update(native_file_stored='distance_diag_001.blend.gz'))
     reject('wrong_transitive_chain_merge', 'source-cluster/vertices', 'distance_diag_005',
            lambda x: x['after']['meshes']['a']['geometry'].__setitem__('vertices', {'v000000': [.09375, 0., 0.]}))
     reject('unselected_outside_data_changed', 'unedited-mesh/untouched', 'distance_diag_000',
@@ -103,6 +105,8 @@ def controls(suite, native, output):
     reject('duplicate_case', 'source case membership', envelope=('capture/manifest.json', lambda x: x['runs'].append(copy.deepcopy(x['runs'][0]))))
     reject('source_binary_substitution', 'source binary', envelope=('capture/manifest.json', lambda x: x.update(binary_sha256='0'*64)))
     reject('failed_native_terminal', 'native terminal failed', envelope=('terminal.json', lambda x: x.update(terminal_exit_code=1)))
+    reject('boolean_native_terminal', 'native terminal type', envelope=('terminal.json', lambda x: x.update(terminal_exit_code=False)))
+    reject('float_native_terminal', 'native terminal type', envelope=('terminal.json', lambda x: x.update(terminal_exit_code=0.0)))
     reject('missing_native_terminal_field', 'terminal_exit_code', envelope=('terminal.json', lambda x: x.pop('terminal_exit_code')))
     reject('missing_native_terminal_file', 'terminal.json', missing='terminal.json')
     reject('timed_out_native_terminal', 'native terminal failed', envelope=('terminal.json', lambda x: x.update(timed_out=True)))
@@ -123,6 +127,13 @@ def controls(suite, native, output):
     if nan_case:
         reject('native_nan_probe_changes_data', 'native-nan-no-change', nan_case['id'],
                lambda x: x['after']['meshes']['a']['geometry']['vertices']['v000000'].__setitem__(0, .5))
+    repeat_case = next((run for run in json.loads(suite.read_text())['runs'] if run['purpose'] == 'unique_data_once_repeat_sensitive' and
+                        run['factors']['context'] == 'multi_alias_first'), None)
+    if repeat_case:
+        def duplicate_process(value):
+            for name in ['a', 'alias']:
+                value['after']['meshes'][name]['geometry']['vertices'] = {'v000000': [.125, 0., 0.]}
+        reject('shared_data_processed_twice', 'source-cluster/vertices', repeat_case['id'], duplicate_process)
     result = {'genuine_diagnostic_passed': True, 'forged_controls_rejected': len(rows), 'controls': rows,
               'source_manifest_sha256': sha((native/'capture/manifest.json').read_bytes()),
               'checker_sha256': sha(Path(__file__).with_name('check_merge_distance_diagnostic.py').read_bytes()),
@@ -135,5 +146,6 @@ def controls(suite, native, output):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ['suite', 'native', 'output']: parser.add_argument('--'+name, type=Path, required=True)
+    parser.add_argument('--seal', type=Path)
     args = parser.parse_args()
-    print(json.dumps(controls(args.suite, args.native, args.output)))
+    print(json.dumps(controls(args.suite, args.native, args.output, args.seal)))

@@ -22,6 +22,8 @@ from merge_distance_parameter_reference import converted, recorded_parameters
 from generate_merge_distance_nonfinite_diagnostic import nonfinite_diagnostic
 from merge_distance_provenance import input_paths
 from validate_merge_distance_state import validate as validate_full_state
+from generate_merge_distance_complete import complete, SCOPE as COMPLETE_SCOPE
+from merge_distance_source_seal import verify as verify_seal
 
 
 def authored_suite(suite):
@@ -29,10 +31,11 @@ def authored_suite(suite):
     def deny(*args, **kwargs):
         reads.append(str(args[0])); raise AssertionError('constructor source read')
     with patch.object(builtins, 'open', deny), patch.object(io, 'open', deny):
-        expected = nonfinite_diagnostic() if suite['scope'] == 'targeted_native_nonfinite_scalar_diagnostics_only' else (
+        expected = complete() if suite['scope'] == COMPLETE_SCOPE else (
+            nonfinite_diagnostic() if suite['scope'] == 'targeted_native_nonfinite_scalar_diagnostics_only' else (
             parameter_diagnostic() if suite['scope'] == 'targeted_source_scalar_parameter_diagnostics_only' else (
             fan_diagnostic() if suite['scope'] == 'targeted_source_cluster_and_smooth_fan_diagnostics_only' else (
-            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic())))
+            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic()))))
     assert not reads, 'constructor source reads'
     same(expected, suite, 'pure-authored-suite', 0.)
 
@@ -42,6 +45,7 @@ def receipt(manifest, started, terminal, stdout, stderr):
     assert manifest['version'] == [5, 2, 3] and manifest['build_hash'] == 'e13b728c6880', 'source version'
     binary = 'de1e04556f03716d25682dd01cc776d94e512f7ff8673049a486c3e8b7f9b619'
     assert manifest['binary_sha256'] == started['binary_sha256'] == binary, 'source binary'
+    assert type(terminal['terminal_exit_code']) is int, 'native terminal type'
     assert terminal['terminal_exit_code'] == 0 and terminal['timed_out'] is False, 'native terminal failed'
     assert type(manifest['process_id']) is int and manifest['process_id'] > 0, 'native PID type'
     assert manifest['process_id'] == started['process_id'] == terminal['process_id'], 'native PID binding'
@@ -82,6 +86,10 @@ def postconditions(run, spec, before, after):
             same(before['meshes'][name], after['meshes'][name], 'unedited-mesh/'+name, 0.)
     if spec['selection'] == 'none':
         same(before, after, 'empty-selection-skip', 0.)
+    if run['purpose'] == 'unique_data_once_repeat_sensitive':
+        expected = {'v000000': [.0625, 0., 0.], 'v000001': [.1875, 0., 0.]}
+        for name, data in spec['data_sharing'].items():
+            if data == 'mesh_a': same(expected, after['meshes'][name]['geometry']['vertices'], 'unique-data-once/'+name, 0.)
     # These independently authored two-point inputs have exact binary distances.
     # The fixed find-doubles source compares <= threshold. The fixed weld source
     # retains one point or computes the centroid, as requested.
@@ -180,7 +188,7 @@ def initial(spec, state):
     return approved_singular_queries
 
 
-def check(suite_path, capture):
+def check(suite_path, capture, seal_path=None):
     suite = json.loads(suite_path.read_text()); manifest = json.loads((capture/'manifest.json').read_text())
     authored_suite(suite)
     parent = capture.parent
@@ -190,7 +198,16 @@ def check(suite_path, capture):
     membership(suite, manifest, capture)
     sha = lambda b: hashlib.sha256(b).hexdigest()
     assert started['suite_sha256'] == sha(suite_path.read_bytes()), 'parent suite identity'
-    assert set(manifest['input_hashes']) == {str(path) for path in input_paths(suite_path)}, 'source input hash membership'
+    paths = input_paths(suite_path)
+    if suite['scope'] == COMPLETE_SCOPE:
+        assert seal_path is not None, 'complete source seal required'
+        verify_seal(suite_path, seal_path)
+        expected_seal = {'file': str(seal_path.resolve()), 'sha256': sha(seal_path.read_bytes())}
+        assert manifest['source_seal'] == expected_seal, 'capture source seal binding'
+        assert started['source_seal_sha256'] == expected_seal['sha256'], 'parent source seal binding'
+        assert manifest['scope'] == 'complete_distance_merge_source_capture', 'complete capture scope'
+        paths.append(seal_path.resolve())
+    assert set(manifest['input_hashes']) == {str(path) for path in paths}, 'source input hash membership'
     assert all(sha(Path(name).read_bytes()) == digest for name, digest in manifest['input_hashes'].items()), 'source input hash differs'
     records = []
     for run, row in zip(suite['runs'], manifest['runs']):
@@ -199,6 +216,7 @@ def check(suite_path, capture):
         value = json.loads(raw); assert value['run'] == run
         same(recorded_parameters(run['parameters']), value['executed_parameters'], 'executed-native-parameters', 0.)
         spec = scene(suite, run); same(spec, value['scene_spec'], run['id']+'/authored-input', 0.)
+        assert value['native_file_stored'] == row['native_file'], 'native save file identity'
         native = gzip.decompress((capture/value['native_file_stored']).read_bytes())
         assert sha(native) == value['native_file_sha256'] and len(native) == value['native_file_bytes']
         assert value['save_status'] == value['reopen_status'] == ['FINISHED']
@@ -230,8 +248,9 @@ def check(suite_path, capture):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--suite', type=Path, required=True); parser.add_argument('--capture', type=Path, required=True)
+    parser.add_argument('--seal', type=Path)
     parser.add_argument('--output', type=Path, required=True); args = parser.parse_args()
-    result = check(args.suite, args.capture)
+    result = check(args.suite, args.capture, args.seal)
     with args.output.open('x') as stream: json.dump(result, stream, indent=2); stream.write('\n')
     print(json.dumps(result), flush=True)
     raise SystemExit(0 if result['diagnostic_checks_passed'] else 1)

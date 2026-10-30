@@ -9,8 +9,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def input_paths(suite):
-    paths = {suite.resolve()}
-    scripts = ['blender_merge_distance_reference.py', 'check_merge_distance_diagnostic.py']
+    paths = {suite.resolve(), ROOT/'docs/contracts/mesh-merge-distance-source.md',
+             ROOT/'baseline/fixtures/mesh-merge-distance-source-lock-01.json',
+             ROOT/'baseline/fixtures/mesh-merge-distance-draft.json'}
+    scripts = ['blender_merge_distance_reference.py', 'check_merge_distance_diagnostic.py',
+               'compare_merge_distance_complete.py', 'launch_merge_distance_complete.py',
+               'check_merge_distance_complete_inputs.py', 'check_merge_distance_diagnostic_controls.py',
+               'audit_merge_distance_outcomes.py', 'archive_merge_distance_diagnostic.py']
     pending = [ROOT/'tools'/name for name in scripts]
     while pending:
         path = pending.pop().resolve()
