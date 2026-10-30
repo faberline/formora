@@ -1,0 +1,25 @@
+{
+  "source_gate_passed": true,
+  "cases": 160,
+  "native_processes": [
+    63072,
+    64988
+  ],
+  "source_suite_sha256": "60b7eaf634ebf88621699a39508e9d8035cf9ac43eb949885f30d0e324f20068",
+  "checker_sha256": "c42ee5e36908c80718d816ebab9826bbf113278e6b244d4293881e53649c1b3e",
+  "booleans": "exact",
+  "matrix_limit": 1e-06,
+  "observed_modes": [
+    [
+      "EDIT_MESH",
+      "EDIT_MESH",
+      "EDIT_MESH"
+    ],
+    [
+      "OBJECT",
+      "OBJECT",
+      "OBJECT"
+    ]
+  ],
+  "product_acceptance": "unrun"
+}

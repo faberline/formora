@@ -11,6 +11,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 
+pub mod context;
 mod weld;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
@@ -245,6 +246,21 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
         .get(&id)
         .ok_or_else(|| SceneError("unknown mesh merge asset".into()))?;
     let graph = original.validated_topology()?;
+    execute_prepared(scene, request, id, graph)
+}
+
+// Only the validated context plan may supply a graph. Each planned data set
+// is unique and remains unchanged until this call consumes its graph.
+fn execute_prepared(
+    scene: &mut Scene,
+    request: &Request,
+    id: String,
+    graph: Graph,
+) -> Result<Receipt> {
+    let original = scene
+        .mesh_assets
+        .get(&id)
+        .ok_or_else(|| SceneError("unknown mesh merge asset".into()))?;
     let before = Counts::of(&graph)?;
     before.budget(request.max_components)?;
     let cursor = if request.method == Method::Cursor {

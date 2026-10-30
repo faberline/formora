@@ -1,0 +1,20 @@
+{
+  "admitted_for_Rust_product_implementation": true,
+  "source_root": "/private/tmp/formora-mesh-merge-multi-data",
+  "source_evidence_commit": "279061fbfff074c6aa03f04a961761dc88a5e4d9",
+  "source_gate_files": {
+    "source-comparison-01.json": "04fd0baa301c81fdeeddbb7a0aa8a507532433e01ebd8ec9cd776f5aff531f4f",
+    "full-source-parent-01.json": "a6f483d6fb5d5d35331721f01c6b12e911debf9dd0b715ab4310dff97567af8b",
+    "capacity-source-comparison-01.json": "49c5d79c1cb8b5fc724687d5987fa53cc962202578cb6fd72523547170743af4",
+    "capacity-full-source-parent-01.json": "dc033d2a30d0b3662246f3f002cffff7de2f47d2658e567c33c7541f07d47405"
+  },
+  "frozen_before_code_behavior": "1 legacy pass, 7 unknown-new-operation failures; actual test exit 101",
+  "before_code_library_sha256": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+  "capacity_driver_sha256": "1e0c935ae4366c7275b04480ba38a66951089954837e96ffd5b4cbd572e34799",
+  "core_limit_ms": 500,
+  "pipeline_limit_ms": 4000,
+  "samples": 30,
+  "native_scale_lock_query": "unreported; no pass claimed",
+  "platform_CI_integration_independent_acceptance": "unpassed",
+  "product_acceptance": "unrun"
+}

@@ -36,6 +36,8 @@ pub struct ApplyResult {
     pub scene_snaps: Vec<crate::objects::snap::Receipt>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub merges: Vec<crate::mesh::merge::Receipt>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub edit_merges: Vec<crate::mesh::merge::context::Receipt>,
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, JsonSchema)]
@@ -51,11 +53,43 @@ pub struct InspectRequest {
     pub normals: bool,
     #[serde(default)]
     pub world: bool,
+    #[serde(default)]
+    pub object_state: bool,
 }
 
 impl InspectRequest {
     /// The CLI can inspect a saved scene without taking the writer lock.
     pub fn inspect(&self, scene: &Scene) -> Result<serde_json::Value> {
+        if self.object_state {
+            if self.entity.is_none()
+                || self.mesh_asset.is_some()
+                || self.world
+                || self.tessellate
+                || self.selection_topology
+                || self.normals
+            {
+                return Err(SceneError(
+                    "object state query requires only an entity".into(),
+                ));
+            }
+            let id = self.entity.as_ref().unwrap();
+            let entity = scene
+                .entities
+                .get(id)
+                .ok_or_else(|| SceneError(format!("unknown entity: {id}")))?;
+            let state = scene
+                .object_context
+                .as_ref()
+                .map(|c| c.state(id))
+                .unwrap_or_default();
+            let mut value = serde_json::to_value(&state).map_err(|e| SceneError(e.to_string()))?;
+            // Stored default flags remain omitted for compatibility. The explicit
+            // metadata query must report the actual value even without a context.
+            value["lock_scale"] = serde_json::json!(state.lock_scale);
+            return Ok(
+                serde_json::json!({"revision":scene.revision,"id":id,"entity":entity,"object_state":value}),
+            );
+        }
         if self.world {
             if self.entity.is_none()
                 || self.mesh_asset.is_some()
@@ -302,6 +336,7 @@ impl Session {
             snaps: applied.snaps,
             scene_snaps: applied.scene_snaps,
             merges: applied.merges,
+            edit_merges: applied.edit_merges,
         })
     }
 

@@ -1,0 +1,24 @@
+
+running 8 tests
+test aggregate_budget_stale_revision_and_late_batch_failure_are_atomic ... FAILED
+test all_empty_inputs_finish_with_explicit_skips_and_no_asset_mutation ... FAILED
+test center_processes_both_assets_once_and_preserves_context_and_outside ... FAILED
+test cursor_uses_each_actual_provider_including_an_active_or_secondary_alias ... FAILED
+test first_last_stop_after_active_success_and_leave_other_data_exact ... FAILED
+test legacy_entity_merge_still_only_changes_its_explicit_asset ... ok
+test unavailable_active_history_rejects_without_other_history_fallback ... FAILED
+test undo_replay_and_fresh_scene_load_preserve_all_context_and_results ... FAILED
+
+failures:
+
+failures:
+    aggregate_budget_stale_revision_and_late_batch_failure_are_atomic
+    all_empty_inputs_finish_with_explicit_skips_and_no_asset_mutation
+    center_processes_both_assets_once_and_preserves_context_and_outside
+    cursor_uses_each_actual_provider_including_an_active_or_secondary_alias
+    first_last_stop_after_active_success_and_leave_other_data_exact
+    unavailable_active_history_rejects_without_other_history_fallback
+    undo_replay_and_fresh_scene_load_preserve_all_context_and_results
+
+test result: FAILED. 1 passed; 7 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

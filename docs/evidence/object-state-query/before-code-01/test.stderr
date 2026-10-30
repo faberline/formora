@@ -1,0 +1,22 @@
+
+thread 'defaults_are_explicit_read_only_and_do_not_create_object_context' panicked at tests/object_state_query.rs:86:6:
+the explicit object state query must be admitted: "unknown field `object_state`, expected one of `entity`, `mesh_asset`, `tessellate`, `selection_topology`, `normals`, `world`"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'every_boolean_triple_is_per_object_persistent_and_freshly_reloaded' panicked at tests/object_state_query.rs:77:6:
+the persistent three-axis scale state must be admitted: Error("unknown field `lock_scale`, expected one of `parent_inverse`, `lock_location`, `lock_rotation`, `lock_rotation_w`, `lock_rotations_4d`", line: 0, column: 0)
+
+thread 'failed_save_preserves_memory_file_and_undo_history' panicked at tests/object_state_query.rs:77:6:
+the persistent three-axis scale state must be admitted: Error("unknown field `lock_scale`, expected one of `parent_inverse`, `lock_location`, `lock_rotation`, `lock_rotation_w`, `lock_rotations_4d`", line: 0, column: 0)
+
+thread 'invalid_vectors_and_unknown_state_owners_are_atomic_errors' panicked at tests/object_state_query.rs:77:6:
+the persistent three-axis scale state must be admitted: Error("unknown field `lock_scale`, expected one of `parent_inverse`, `lock_location`, `lock_rotation`, `lock_rotation_w`, `lock_rotations_4d`", line: 0, column: 0)
+
+thread 'metadata_query_works_under_singular_parent_and_rejects_mixed_queries' panicked at tests/object_state_query.rs:77:6:
+the persistent three-axis scale state must be admitted: Error("unknown field `lock_scale`, expected one of `parent_inverse`, `lock_location`, `lock_rotation`, `lock_rotation_w`, `lock_rotations_4d`", line: 0, column: 0)
+
+thread 'stale_revision_and_late_invalid_command_do_not_publish_partial_state' panicked at tests/object_state_query.rs:77:6:
+the persistent three-axis scale state must be admitted: Error("unknown field `lock_scale`, expected one of `parent_inverse`, `lock_location`, `lock_rotation`, `lock_rotation_w`, `lock_rotations_4d`", line: 0, column: 0)
+
+thread 'undo_and_replay_restore_real_state_without_changing_shared_mesh_data' panicked at tests/object_state_query.rs:77:6:
+the persistent three-axis scale state must be admitted: Error("unknown field `lock_scale`, expected one of `parent_inverse`, `lock_location`, `lock_rotation`, `lock_rotation_w`, `lock_rotations_4d`", line: 0, column: 0)

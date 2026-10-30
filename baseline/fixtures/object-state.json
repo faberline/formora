@@ -1,0 +1,1800 @@
+{
+  "schema_version": 1,
+  "source_commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "scope": "object_scale_lock_assignment_query_and_native_save_reload",
+  "initial_locks": {
+    "parent": [
+      false,
+      false,
+      false
+    ],
+    "a": [
+      true,
+      false,
+      false
+    ],
+    "alias": [
+      false,
+      true,
+      false
+    ],
+    "b": [
+      true,
+      true,
+      false
+    ],
+    "untouched": [
+      false,
+      false,
+      true
+    ]
+  },
+  "required_cases": 160,
+  "comparison": {
+    "booleans": "exact",
+    "matrices_absolute": 1e-06
+  },
+  "base_context": "active_a",
+  "runs": [
+    {
+      "id": "object_state_000",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_001",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_002",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_003",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_004",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_005",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_006",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_007",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_008",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_009",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_010",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_011",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_012",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_013",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_014",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_015",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_016",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_017",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_018",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_019",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_020",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_021",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_022",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_023",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_024",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_025",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_026",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_027",
+      "target": "parent",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_028",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_029",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_030",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_031",
+      "target": "parent",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_032",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_033",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_034",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_035",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_036",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_037",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_038",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_039",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_040",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_041",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_042",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_043",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_044",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_045",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_046",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_047",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_048",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_049",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_050",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_051",
+      "target": "a",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_052",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_053",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_054",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_055",
+      "target": "a",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_056",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_057",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_058",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_059",
+      "target": "a",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_060",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_061",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_062",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_063",
+      "target": "a",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_064",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_065",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_066",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_067",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_068",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_069",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_070",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_071",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_072",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_073",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_074",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_075",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_076",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_077",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_078",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_079",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_080",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_081",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_082",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_083",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_084",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_085",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_086",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_087",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_088",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_089",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_090",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_091",
+      "target": "alias",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_092",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_093",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_094",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_095",
+      "target": "alias",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_096",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_097",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_098",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_099",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_100",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_101",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_102",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_103",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_104",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_105",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_106",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_107",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_108",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_109",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_110",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_111",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_112",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_113",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_114",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_115",
+      "target": "b",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_116",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_117",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_118",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_119",
+      "target": "b",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_120",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_121",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_122",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_123",
+      "target": "b",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_124",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_125",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_126",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_127",
+      "target": "b",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_128",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_129",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_130",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_131",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_132",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_133",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_134",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_135",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_136",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_137",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_138",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_139",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_140",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_141",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_142",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_143",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        false
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_144",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_145",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_146",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_147",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_148",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_149",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_150",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_151",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        false,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_152",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_153",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_154",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_155",
+      "target": "untouched",
+      "lock_scale": [
+        false,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_156",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_157",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "OBJECT",
+      "frame": "noncommuting"
+    },
+    {
+      "id": "object_state_158",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "identity"
+    },
+    {
+      "id": "object_state_159",
+      "target": "untouched",
+      "lock_scale": [
+        true,
+        true,
+        true
+      ],
+      "mode": "EDIT_MESH",
+      "frame": "noncommuting"
+    }
+  ]
+}

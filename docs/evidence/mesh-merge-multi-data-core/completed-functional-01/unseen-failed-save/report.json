@@ -1,0 +1,473 @@
+{
+  "passed": true,
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun",
+  "binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+  "driver_sha256": "79f3b2a9412dadec1b0f1393e7232cde00037b8b6c98f443190331d89f29b5c9",
+  "policy": "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+  "denial_controls": [
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/bin/cat",
+        "/private/tmp/formora-mesh-merge-multi-data-core/Cargo.toml"
+      ],
+      "terminal_exit_code": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-mesh-merge-multi-data-core/Cargo.toml: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/bin/cat",
+        "/Users/chrischeng/faberlines/formora/Cargo.toml"
+      ],
+      "terminal_exit_code": 1,
+      "stdout": "",
+      "stderr": "cat: /Users/chrischeng/faberlines/formora/Cargo.toml: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/bin/cat",
+        "/private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data.json"
+      ],
+      "terminal_exit_code": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-mesh-merge-multi-data/baseline/fixtures/mesh-merge-multi-data.json: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/bin/cat",
+        "/private/tmp/formora-multi-merge-api-full-01/cli/multi_merge_00000/record.json.gz"
+      ],
+      "terminal_exit_code": 1,
+      "stdout": "",
+      "stderr": "cat: /private/tmp/formora-multi-merge-api-full-01/cli/multi_merge_00000/record.json.gz: Operation not permitted\n"
+    }
+  ],
+  "cli_calls": [
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+        "scene",
+        "init",
+        "--scene",
+        "/private/tmp/formora-multi-merge-unseen-save-01/scene.json"
+      ],
+      "request": null,
+      "process_id": 94703,
+      "terminal_exit_code": 0,
+      "stdout": "{\"revision\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+        "scene",
+        "apply",
+        "--scene",
+        "/private/tmp/formora-multi-merge-unseen-save-01/scene.json",
+        "--request",
+        "-"
+      ],
+      "request": {
+        "expected_revision": 0,
+        "commands": [
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh_a",
+            "asset": {
+              "vertices": {
+                "apricot": [
+                  0.173,
+                  -0.219,
+                  0.391
+                ],
+                "birch": [
+                  1.837,
+                  0.143,
+                  -0.517
+                ],
+                "cedar": [
+                  3.119,
+                  0.731,
+                  0.263
+                ]
+              },
+              "triangles": {},
+              "edges": {
+                "ab": [
+                  "apricot",
+                  "birch"
+                ],
+                "bc": [
+                  "birch",
+                  "cedar"
+                ]
+              },
+              "material_slots": [],
+              "editing": {
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "vertices": [
+                    "apricot",
+                    "birch",
+                    "cedar"
+                  ],
+                  "edges": [
+                    "ab",
+                    "bc"
+                  ],
+                  "faces": []
+                },
+                "hidden": {},
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "apricot"
+                  },
+                  {
+                    "domain": "vertex",
+                    "id": "cedar"
+                  }
+                ],
+                "active_face": null
+              }
+            }
+          },
+          {
+            "operation": "set_mesh_asset",
+            "id": "mesh_b",
+            "asset": {
+              "vertices": {
+                "apricot": [
+                  -2.13,
+                  1.79,
+                  0.23
+                ],
+                "birch": [
+                  -0.73,
+                  -0.31,
+                  0.67
+                ],
+                "cedar": [
+                  0.91,
+                  0.37,
+                  -0.41
+                ]
+              },
+              "triangles": {},
+              "edges": {
+                "ab": [
+                  "apricot",
+                  "birch"
+                ],
+                "bc": [
+                  "birch",
+                  "cedar"
+                ]
+              },
+              "material_slots": [],
+              "editing": {
+                "mode": [
+                  "vertex"
+                ],
+                "selected": {
+                  "vertices": [
+                    "apricot",
+                    "birch",
+                    "cedar"
+                  ],
+                  "edges": [
+                    "ab",
+                    "bc"
+                  ],
+                  "faces": []
+                },
+                "hidden": {},
+                "history": [
+                  {
+                    "domain": "vertex",
+                    "id": "apricot"
+                  },
+                  {
+                    "domain": "vertex",
+                    "id": "cedar"
+                  }
+                ],
+                "active_face": null
+              }
+            }
+          },
+          {
+            "operation": "set_mesh_asset",
+            "id": "outside",
+            "asset": {
+              "vertices": {
+                "unrelated": [
+                  9.125,
+                  -4.25,
+                  0.875
+                ]
+              },
+              "triangles": {},
+              "material_slots": []
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "a",
+            "entity": {
+              "name": "a",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  2.0,
+                  3.0,
+                  4.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh_a"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "alias",
+            "entity": {
+              "name": "alias",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  3.125,
+                  -1.75,
+                  0.625
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  -2.0,
+                  0.5,
+                  4.0
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh_a"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "b",
+            "entity": {
+              "name": "b",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  -2.25,
+                  0.375,
+                  1.5
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  0.25,
+                  2.0,
+                  -0.5
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "mesh_b"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "create_entity",
+            "id": "outside",
+            "entity": {
+              "name": "outside",
+              "parent": null,
+              "transform": {
+                "translation": [
+                  7.0,
+                  8.0,
+                  9.0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0
+                ],
+                "scale": [
+                  1.0,
+                  1.0,
+                  1.0
+                ],
+                "precision": "f32"
+              },
+              "content": {
+                "kind": "mesh",
+                "geometry": {
+                  "kind": "asset",
+                  "id": "outside"
+                },
+                "material": null
+              }
+            }
+          },
+          {
+            "operation": "set_object_context",
+            "context": {
+              "order": [
+                "outside",
+                "a",
+                "b",
+                "alias"
+              ],
+              "selected": [
+                "a",
+                "alias",
+                "b"
+              ],
+              "active": "alias",
+              "edit_objects": [
+                "alias",
+                "b"
+              ],
+              "states": {
+                "a": {
+                  "lock_scale": [
+                    true,
+                    false,
+                    true
+                  ]
+                },
+                "alias": {
+                  "lock_scale": [
+                    false,
+                    true,
+                    false
+                  ]
+                },
+                "b": {
+                  "lock_scale": [
+                    true,
+                    true,
+                    false
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "operation": "set_authoring_context",
+            "context": {
+              "cursor_location": [
+                -1.375,
+                0.875,
+                0.125
+              ],
+              "cursor_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "view_rotation": [
+                0.125,
+                -0.25,
+                0.375
+              ]
+            }
+          }
+        ]
+      },
+      "process_id": 94706,
+      "terminal_exit_code": 0,
+      "stdout": "{\"revision\":1}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny file-read* (subpath \"/private/tmp/formora-mesh-merge-multi-data-core\")(subpath \"/Users/chrischeng/faberlines/formora\")(subpath \"/private/tmp/formora-mesh-merge-multi-data\")(subpath \"/private/tmp/formora-mesh-merge-sparse\")(subpath \"/private/tmp/formora-multi-merge-api-full-01\")(subpath \"/private/tmp/formora-multi-merge-api-pilot-03\")(subpath \"/private/tmp/formora-multi-merge-retained-api-01\")(subpath \"/private/tmp/formora-multi-merge-single-retained-api-01\")(subpath \"/private/tmp/formora-object-state-runtime-01\"))",
+        "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+        "scene",
+        "inspect",
+        "--scene",
+        "/private/tmp/formora-multi-merge-unseen-save-01/scene.json"
+      ],
+      "request": null,
+      "process_id": 94720,
+      "terminal_exit_code": 0,
+      "stdout": "{\"revision\":4,\"scene\":{\"active_camera\":null,\"annotations\":[],\"authoring_context\":{\"cursor_location\":[-1.375,0.875,0.125],\"cursor_rotation\":[0.0,0.0,0.0],\"view_rotation\":[0.125,-0.25,0.375]},\"doors\":{},\"entities\":{\"a\":{\"content\":{\"geometry\":{\"id\":\"mesh_a\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"a\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[2.0,3.0,4.0]}},\"alias\":{\"content\":{\"geometry\":{\"id\":\"mesh_a\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"alias\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[-2.0,0.5,4.0],\"translation\":[3.125,-1.75,0.625]}},\"b\":{\"content\":{\"geometry\":{\"id\":\"mesh_b\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"b\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[0.25,2.0,-0.5],\"translation\":[-2.25,0.375,1.5]}},\"outside\":{\"content\":{\"geometry\":{\"id\":\"outside\",\"kind\":\"asset\"},\"kind\":\"mesh\",\"material\":null},\"name\":\"outside\",\"parent\":null,\"transform\":{\"precision\":\"f32\",\"rotation\":[0.0,0.0,0.0,1.0],\"scale\":[1.0,1.0,1.0],\"translation\":[7.0,8.0,9.0]}}},\"materials\":{},\"mesh_assets\":{\"mesh_a\":{\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"apricot\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"apricot\"]}},\"material_slots\":[],\"triangles\":{},\"vertices\":{\"apricot\":[2.25,5.25,-0.125]}},\"mesh_b\":{\"editing\":{\"active_face\":null,\"hidden\":{\"edges\":[],\"faces\":[],\"vertices\":[]},\"history\":[{\"domain\":\"vertex\",\"id\":\"apricot\"}],\"mode\":[\"vertex\"],\"selected\":{\"edges\":[],\"faces\":[],\"vertices\":[\"apricot\"]}},\"material_slots\":[],\"triangles\":{},\"vertices\":{\"apricot\":[3.5,0.25,2.75]}},\"outside\":{\"material_slots\":[],\"triangles\":{},\"vertices\":{\"unrelated\":[9.125,-4.25,0.875]}}},\"object_context\":{\"active\":\"alias\",\"edit_objects\":[\"alias\",\"b\"],\"order\":[\"outside\",\"a\",\"b\",\"alias\"],\"origins_only\":false,\"selected\":[\"a\",\"alias\",\"b\"],\"skip_children\":false,\"states\":{\"a\":{\"lock_location\":[false,false,false],\"lock_rotation\":[false,false,false],\"lock_scale\":[true,false,true]},\"alias\":{\"lock_location\":[false,false,false],\"lock_rotation\":[false,false,false],\"lock_scale\":[false,true,false]},\"b\":{\"lock_location\":[false,false,false],\"lock_rotation\":[false,false,false],\"lock_scale\":[true,true,false]}}},\"revision\":4,\"schema_version\":1,\"time_seconds\":0.0}}\n",
+      "stderr": ""
+    }
+  ],
+  "temporary_artifacts_deleted": false,
+  "actual_failed_save_error": "Is a directory (os error 21)",
+  "source_and_prior_answers_read_denied": true,
+  "actual_provider_frames_checked": true,
+  "alias_sharing_checked": true,
+  "both_meshes_failed_save_rollback": true,
+  "undo_history_preserved": true,
+  "undo_replay_fresh_load": true,
+  "native_calls": 27
+}

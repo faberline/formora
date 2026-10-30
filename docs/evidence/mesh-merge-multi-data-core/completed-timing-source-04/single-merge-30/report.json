@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "terminal_exit_code": 0,
+  "native_process_id": 72743,
+  "command": [
+    "/private/tmp/formora-multi-merge-performance-driver-01",
+    "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/performance",
+    "/private/tmp/formora-multi-merge-performance-01/samples"
+  ],
+  "start_ns": 207073019469416,
+  "end_ns": 207090485006708,
+  "bindings": {
+    "implementation": "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542",
+    "head": "9ebb82fd388dbf51171c81abc7f04e5cb4a705a1",
+    "driver": "/private/tmp/formora-multi-merge-performance-driver-01",
+    "driver_sha256": "4fb7bca9f286f592e462c457742e1466c182ce7873b6bd909f030805703c4e4b",
+    "library": "/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib",
+    "library_sha256": "9b6e850f4cbe2e348d9aea69c48ed0f6e5ba8b0a94f6325eed67f2844e568d40",
+    "sealed_inputs": {
+      "docs/contracts/mesh-merge-core.md": "add12089435972c9efc5b87638de47ea567fa6e31596cb2438a7ffb71fd207fc",
+      "tests/mesh_merge.rs": "084e368882d9a32d3e98497ff1b44fa8ab2c6e91130fbe9f7300cc2a15bc71b0",
+      "docs/evidence/mesh-merge-core/performance/author-inputs.py": "2fc3dc00249201dba405e8fb9bfe2c39f7caeabbb63f277fd958aa2b88269896",
+      "docs/evidence/mesh-merge-core/performance/authored-grid.json": "e2f1cae31fff704f5730f93a193796bbb3d56832fff3e8c857604823159db97f",
+      "docs/evidence/mesh-merge-core/performance/authored-forms.json": "1b351a305087b4efea88d805de8f0a3e85e3b469f90e3846ff03b0ed5874b069",
+      "docs/evidence/mesh-merge-core/performance/blender-grid-reference.py": "685ee27e6a9bc19fd1534d2eef7565283cb452e4e48b41b9fdbd4e5f881319a9",
+      "docs/evidence/mesh-merge-core/performance/capture-driver.rs": "247a0988c964d1e6b5e289dab3c8148ca8db72feea20a4240bc8f7a238a9ac91",
+      "docs/evidence/mesh-merge-core/performance/check-source.py": "4caf3936bd1a9ee47eee81de40be5a16034506c436263018020a67b597e50767"
+    },
+    "rustc": "rustc 1.85.0 (4d91de4e4 2025-02-17)\nbinary: rustc\ncommit-hash: 4d91de4e48198da2e33413efdcd9cd2cc0c46688\ncommit-date: 2025-02-17\nhost: aarch64-apple-darwin\nrelease: 1.85.0\nLLVM version: 19.1.7\n",
+    "all_samples_required": 30,
+    "discarded_warmup_samples": 0,
+    "maximum_core_ms": 250,
+    "maximum_pipeline_ms": 2000,
+    "host_before": {
+      "uptime": {
+        "command": [
+          "uptime"
+        ],
+        "exit": 0,
+        "stdout": " 1:43  up 2 days, 14:46, 1 user, load averages: 16.94 18.82 20.66\n",
+        "stderr": ""
+      },
+      "model": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.model"
+        ],
+        "exit": 0,
+        "stdout": "MacBookPro18,2\n",
+        "stderr": ""
+      },
+      "memory": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "exit": 0,
+        "stdout": "68719476736\n",
+        "stderr": ""
+      },
+      "cpu_activity": {
+        "command": [
+          "ps",
+          "-A",
+          "-o",
+          "pcpu="
+        ],
+        "exit": 0,
+        "stdout": "  0.1\n  0.1\n  0.0\n  0.0\n  0.3\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 21.5\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  2.3\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  6.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 18.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.5\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  1.4\n  0.0\n  0.0\n  0.4\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  1.7\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.5\n  0.0\n  2.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  1.8\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.5\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.4\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 10.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  8.8\n  0.0\n  0.0\n  0.0\n  4.3\n  6.3\n  5.7\n  0.1\n  6.3\n  5.1\n  0.1\n  0.0\n  0.1\n  3.9\n  4.3\n  0.1\n  0.0\n  0.1\n  0.1\n  3.3\n  5.4\n  6.9\n  0.0\n  6.4\n  3.4\n  4.7\n  0.0\n  0.0\n  0.0\n  9.4\n  5.6\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  5.5\n 13.8\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n 65.8\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.1\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n  0.0\n",
+        "stderr": ""
+      }
+    }
+  },
+  "inputs_unchanged": true,
+  "all_30_samples_complete": true,
+  "summary_sha256": "0b0540b4078c5480d29b3c06faeb9b4ee8c398b59a3ad802ee108f4e5530fb6e",
+  "actual_samples": 30,
+  "all_source_comparisons": "unrun",
+  "retained_177_samples": "unrun",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

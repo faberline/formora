@@ -1,0 +1,152 @@
+{
+  "drivers": [
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-failed-save-proof-01.py",
+      "source_sha256": "9e54ab5b541dfaf5d33fdfc694e7e6bbef0b6250976fa4638b6de6f756de026c",
+      "copy": "/private/tmp/formora-multi-merge-retained-native-drivers-01/regenerate-failed-save-proof-01.py",
+      "copy_sha256": "c9ea99636ff04d8e3d2c4c3b28f8cffac0010edb378a92f6ddb2cacd178a8a24",
+      "path_bindings": [
+        [
+          "ROOT=Path(__file__).resolve().parents[4]",
+          "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+          "/private/tmp/formora-multi-merge-target-actual185/debug/formora"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-failed-save-01",
+          "/private/tmp/formora-multi-merge-retained-failed-save-01"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-unseen-after-01/profile.sb",
+          "/private/tmp/formora-multi-merge-retained-native-drivers-01/profile.sb"
+        ],
+        [
+          "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542"
+        ]
+      ],
+      "safe_cleanup_change": [
+        "scene.rmdir()",
+        "scene.rename(OUTPUT/'failed-save-directory')"
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -6,14 +6,14 @@\n",
+        " import shutil\n",
+        " import subprocess\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "-OUTPUT=Path('/private/tmp/formora-merge-regen-failed-save-01')\n",
+        "-BINARY=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora')\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        "+OUTPUT=Path('/private/tmp/formora-multi-merge-retained-failed-save-01')\n",
+        "+BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora')\n",
+        " AUTHORED=Path('/private/tmp/formora-merge-authored-input-01.json')\n",
+        " OUTPUT.mkdir(exist_ok=False)\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " binary_hash=sha(BINARY);scene=OUTPUT/'scene.json';shutil.copyfile(AUTHORED,scene)\n",
+        "-profile=Path('/private/tmp/formora-merge-regen-unseen-after-01/profile.sb').read_text()\n",
+        "+profile=Path('/private/tmp/formora-multi-merge-retained-native-drivers-01/profile.sb').read_text()\n",
+        " denial=subprocess.run(['/usr/bin/sandbox-exec','-p',profile,'/bin/cat',str(ROOT/'Cargo.toml')],capture_output=True,text=True,cwd=OUTPUT)\n",
+        " assert denial.returncode==1 and not denial.stdout and 'Cargo.toml' in denial.stderr and 'Operation not permitted' in denial.stderr\n",
+        " calls=[];command=['/usr/bin/sandbox-exec','-p',profile,str(BINARY),'scene','serve','--scene',str(scene)]\n",
+        "@@ -46,7 +46,7 @@\n",
+        "     assert inspect()==initial and backup.read_bytes()==saved and list(scene.iterdir())==[]\n",
+        "     result,error=call('scene_undo',{'expected_revision':0});assert result is None and error and 'nothing to undo' in error,error\n",
+        "     assert inspect()==initial\n",
+        "-    scene.rmdir();backup.rename(scene)\n",
+        "+    scene.rename(OUTPUT/'failed-save-directory');backup.rename(scene)\n",
+        "     result,error=call('scene_apply',{'expected_revision':0,'commands':[merge]});assert error is None,error\n",
+        "     after=inspect();assert after['revision']==result['revision']==1\n",
+        "     assert len(result['merges'])==1 and result['merges'][0]['shared_instances']==['owner','shared']\n",
+        "@@ -74,5 +74,5 @@\n",
+        "     'repository_and_prior_results_reads_denied':True,'denial_control':{'exit':denial.returncode,'stderr':denial.stderr},\n",
+        "     'fresh_process':{'command':fresh_command,'exit':fresh.returncode,'stdout':fresh.stdout,'stderr':fresh.stderr},\n",
+        "     'binary_sha256':binary_hash,'authored_input_sha256':sha(AUTHORED),'scene_sha256':sha(scene),\n",
+        "-    'product_implementation':'5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d','product_acceptance':'unrun','independent_acceptance':'unrun'}\n",
+        "+    'product_implementation':'bd13f3d424f2649b4b25c16305c4e5b0eb7f8542','product_acceptance':'unrun','independent_acceptance':'unrun'}\n",
+        " (OUTPUT/'report.json').write_text(json.dumps(report,indent=2)+'\\n');print(json.dumps({key:report[key] for key in ['passed','native_calls','native_terminal_exit','actual_failed_save_error','fresh_process_reload_equal']}),flush=True)\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-rng-one-shot-01.py",
+      "source_sha256": "1bedeed74936a8fd8b6e302ca67719c773be1878f2fba997fbc8fd3e2d08d6b2",
+      "copy": "/private/tmp/formora-multi-merge-retained-native-drivers-01/regenerate-retained-rng-one-shot-01.py",
+      "copy_sha256": "794e3f2c39bb405da4e5d0b72a501831ec0532f174a81889237bd2f05c014329",
+      "path_bindings": [
+        [
+          "/private/tmp/formora-mesh-merge-sparse",
+          "/private/tmp/formora-mesh-merge-multi-data-core"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+          "/private/tmp/formora-multi-merge-target-actual185/debug/formora"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-rng-one-shot-01",
+          "/private/tmp/formora-multi-merge-retained-rng-one-shot-01"
+        ]
+      ],
+      "safe_cleanup_change": null,
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,8 +1,8 @@\n",
+        " import copy,hashlib,json,subprocess,sys,tempfile\n",
+        " from pathlib import Path\n",
+        "-root=Path('/private/tmp/formora-mesh-merge-sparse');sys.path.insert(0,str(root/'tools'))\n",
+        "+root=Path('/private/tmp/formora-mesh-merge-multi-data-core');sys.path.insert(0,str(root/'tools'))\n",
+        " import random_falloff_runtime as rng\n",
+        "-binary=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora');out=Path('/private/tmp/formora-merge-regen-rng-one-shot-01');out.mkdir(exist_ok=False)\n",
+        "+binary=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora');out=Path('/private/tmp/formora-multi-merge-retained-rng-one-shot-01');out.mkdir(exist_ok=False)\n",
+        " source=root/'baseline/reference/blender-5.2.3/random-falloff/first-sequence.bin';reference=source.read_bytes();sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();binary_sha=sha(binary)\n",
+        " base=root/'docs/evidence/snap-delta-core/retained/rng';records=json.loads((base/'report.json').read_text());assert records['passed'] and records['checks']==96\n",
+        " cases=[r for r in records['records'] if r['interface']=='cli'];assert len(cases)==48;results=[]\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-source-oracle-01.py",
+      "source_sha256": "cf4f127ec891f5f19c8749c3b3cad9dc3ae7007c61d889f4f2f99c1fcef829e3",
+      "copy": "/private/tmp/formora-multi-merge-retained-native-drivers-01/regenerate-retained-source-oracle-01.py",
+      "copy_sha256": "c5c3d1bd17d988a1d12ccb18f5b6da08d2ef91e5868879df83f43cdf2405cee6",
+      "path_bindings": [
+        [
+          "/private/tmp/formora-mesh-merge-sparse",
+          "/private/tmp/formora-mesh-merge-multi-data-core"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+          "/private/tmp/formora-multi-merge-target-actual185/debug/formora"
+        ],
+        [
+          "/private/tmp/formora-merge-regen-source-oracle-01",
+          "/private/tmp/formora-multi-merge-retained-source-oracle-01"
+        ]
+      ],
+      "safe_cleanup_change": null,
+      "reverse_mapping_recovers_exact_original": true,
+      "all_assertion_syntax_trees_unchanged": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,6 +1,6 @@\n",
+        " from pathlib import Path\n",
+        " import json,subprocess,hashlib,tempfile\n",
+        "-root=Path('/private/tmp/formora-mesh-merge-sparse');binary=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora');output=Path('/private/tmp/formora-merge-regen-source-oracle-01');output.mkdir(exist_ok=False);source=json.load(open('/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-transform-core/frame-source-oracle-final/reference-report.json'));records=[];sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        "+root=Path('/private/tmp/formora-mesh-merge-multi-data-core');binary=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora');output=Path('/private/tmp/formora-multi-merge-retained-source-oracle-01');output.mkdir(exist_ok=False);source=json.load(open('/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-transform-core/frame-source-oracle-final/reference-report.json'));records=[];sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " with tempfile.TemporaryDirectory(prefix='formora-frame-oracle-') as temporary:\n",
+        "  for case in source['cases']:\n",
+        "   path=Path(temporary)/(case['id']+'.json');calls=[]\n"
+      ]
+    }
+  ],
+  "denial_policy": "Keep all original denials and add current source and answer denials.",
+  "cleanup": "Retain and rename only the empty directory made by this test. No deletion call remains."
+}

@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID [--world] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID [--world | --object-state] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -28,6 +28,7 @@ fn options(
             "--selection-topology",
             "--normals",
             "--world",
+            "--object-state",
         ]
         .contains(&key.as_str())
         {
@@ -53,6 +54,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
             "--selection-topology",
             "--normals",
             "--world",
+            "--object-state",
         ],
         "apply" => &["--scene", "--request"],
         "serve" => &["--scene"],
@@ -153,6 +155,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
                     selection_topology: options.contains_key("--selection-topology"),
                     normals: options.contains_key("--normals"),
                     world: options.contains_key("--world"),
+                    object_state: options.contains_key("--object-state"),
                 }
                 .inspect(&scene)
                 .map_err(map_err)?;

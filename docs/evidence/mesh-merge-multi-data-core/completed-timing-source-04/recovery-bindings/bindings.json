@@ -1,0 +1,87 @@
+{
+  "records": [
+    {
+      "original": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-90-01.py",
+      "actual": "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-run-90-01.py",
+      "original_sha256": "afdfff6209cd9da1eba795391540f29e2fb84442017493168f46b3238469e8ec",
+      "actual_sha256": "76e28a6b4e30505db3a6881cab0bac0986f301f976ba8f67cc5ce4aa615527af",
+      "bindings": [
+        [
+          "formora-multi-merge-retained-90-01",
+          "formora-multi-merge-retained-90-02"
+        ]
+      ],
+      "assertions_unchanged": true,
+      "reverse_bindings_exact": true,
+      "diff": "--- \n+++ \n@@ -8,7 +8,7 @@\n \n ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n HERE=ROOT/'docs/evidence/snap-delta-core/performance'\n-RUN=Path('/private/tmp/formora-multi-merge-retained-90-01')\n+RUN=Path('/private/tmp/formora-multi-merge-retained-90-02')\n SAMPLES=RUN/'samples'\n DRIVER=Path('/private/tmp/formora-multi-merge-retained-90-driver-01')\n IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n"
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-rotation-01.py",
+      "actual": "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-run-rotation-01.py",
+      "original_sha256": "52b0cfc6569c5f851072a992f2b08b498cbf7c581c5efab6b1efca5b43144312",
+      "actual_sha256": "15c9121acc493ebce76c148c4d1a344f3ce6bae26b7d3fe231563096cb7ea6e2",
+      "bindings": [
+        [
+          "formora-multi-merge-retained-rotation-01",
+          "formora-multi-merge-retained-rotation-02"
+        ]
+      ],
+      "assertions_unchanged": true,
+      "reverse_bindings_exact": true,
+      "diff": "--- \n+++ \n@@ -7,7 +7,7 @@\n \n ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n HERE=ROOT/'docs/evidence/snap-rotation-core/performance'\n-RUN=Path('/private/tmp/formora-multi-merge-retained-rotation-01')\n+RUN=Path('/private/tmp/formora-multi-merge-retained-rotation-02')\n DRIVER=Path('/private/tmp/formora-multi-merge-retained-rotation-driver-01')\n BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora')\n IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n"
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-run-delta-01.py",
+      "actual": "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-run-delta-01.py",
+      "original_sha256": "101fd52ccd66bc740708aa0191e3617e4dd5eace5ff3a6cae9294572f84e20e8",
+      "actual_sha256": "08b73f549cad1de72d83fc3bd5a567225bf96b0c73ad22348b5ad882faa55d64",
+      "bindings": [
+        [
+          "formora-multi-merge-retained-delta-01",
+          "formora-multi-merge-retained-delta-02"
+        ]
+      ],
+      "assertions_unchanged": true,
+      "reverse_bindings_exact": true,
+      "diff": "--- \n+++ \n@@ -7,7 +7,7 @@\n \n ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n HERE=ROOT/'docs/evidence/snap-delta-core/performance'\n-RUN=Path('/private/tmp/formora-multi-merge-retained-delta-01')\n+RUN=Path('/private/tmp/formora-multi-merge-retained-delta-02')\n DRIVER=Path('/private/tmp/formora-multi-merge-retained-delta-driver-01')\n BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora')\n IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n"
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-source-runners-01/regenerate-retained-compare-all-sources-01.py",
+      "actual": "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-compare-all-sources-01.py",
+      "original_sha256": "f28abed2ca5389add7c499ed2b29639d7686cb99382fa82c7c4d2dc130220dab",
+      "actual_sha256": "a3dfc62cf614147060df17b052d48203769e9e32ec78c59de6d872d665cac016",
+      "bindings": [
+        [
+          "formora-multi-merge-retained-90-01",
+          "formora-multi-merge-retained-90-02"
+        ],
+        [
+          "formora-multi-merge-retained-rotation-01",
+          "formora-multi-merge-retained-rotation-02"
+        ],
+        [
+          "formora-multi-merge-retained-delta-01",
+          "formora-multi-merge-retained-delta-02"
+        ]
+      ],
+      "assertions_unchanged": true,
+      "reverse_bindings_exact": true,
+      "diff": "--- \n+++ \n@@ -30,14 +30,14 @@\n \n commands = [\n     ('retained-scene-90', 90, common(base / 'scene-snap-core/performance/compare-performance.py',\n-        fresh / 'formora-multi-merge-retained-90-01/samples', base / 'scene-snap-core/performance/source-gzip',\n-        fresh / 'formora-multi-merge-retained-90-01/controller-report.json', 'retained-scene-90.json')),\n+        fresh / 'formora-multi-merge-retained-90-02/samples', base / 'scene-snap-core/performance/source-gzip',\n+        fresh / 'formora-multi-merge-retained-90-02/controller-report.json', 'retained-scene-90.json')),\n     ('retained-rotation-24', 24, common(base / 'snap-rotation-core/performance/compare-performance.py',\n-        fresh / 'formora-multi-merge-retained-rotation-01/samples', base / 'snap-rotation-core/performance/source',\n-        fresh / 'formora-multi-merge-retained-rotation-01/controller-report.json', 'retained-rotation-24.json')),\n+        fresh / 'formora-multi-merge-retained-rotation-02/samples', base / 'snap-rotation-core/performance/source',\n+        fresh / 'formora-multi-merge-retained-rotation-02/controller-report.json', 'retained-rotation-24.json')),\n     ('retained-delta-24', 24, common(base / 'snap-delta-core/performance/compare-performance.py',\n-        fresh / 'formora-multi-merge-retained-delta-01/samples', base / 'snap-delta-core/performance/source',\n-        fresh / 'formora-multi-merge-retained-delta-01/controller-report.json', 'retained-delta-24.json')),\n+        fresh / 'formora-multi-merge-retained-delta-02/samples', base / 'snap-delta-core/performance/source',\n+        fresh / 'formora-multi-merge-retained-delta-02/controller-report.json', 'retained-delta-24.json')),\n     ('retained-single-30', 30, [sys.executable, str(ROOT / 'tools/compare_snap_performance.py'),\n         '--binary', str(binary), '--samples', str(fresh / 'formora-multi-merge-retained-39-01/single'),\n         '--source', str(base / 'mesh-snap-core/performance/source'), '--output', str(out / 'retained-single-30.json')]),\n"
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-source-runners-01/retained-source-relocation-01.py",
+      "actual": "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/retained-source-relocation-01.py",
+      "original_sha256": "47d503c7e91d6e6cb289017693b1642fb1792837a2d96caf522bfd9212d0d6ea",
+      "actual_sha256": "47d503c7e91d6e6cb289017693b1642fb1792837a2d96caf522bfd9212d0d6ea",
+      "bindings": [],
+      "assertions_unchanged": true,
+      "reverse_bindings_exact": true,
+      "diff": ""
+    }
+  ],
+  "workloads_clocks_limits_unchanged": true,
+  "first_sandbox_denied_attempts_preserved": true,
+  "already_passed_39_samples_not_repeated": true,
+  "new_timing_samples_executed": 0,
+  "product_acceptance": "unrun"
+}

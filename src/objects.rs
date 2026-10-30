@@ -17,6 +17,8 @@ pub struct State {
     pub lock_location: [bool; 3],
     #[serde(default)]
     pub lock_rotation: [bool; 3],
+    #[serde(default, skip_serializing_if = "all_false")]
+    pub lock_scale: [bool; 3],
     #[serde(default, skip_serializing_if = "is_false")]
     pub lock_rotation_w: bool,
     #[serde(default, skip_serializing_if = "is_false")]
@@ -25,6 +27,10 @@ pub struct State {
 
 fn is_false(value: &bool) -> bool {
     !value
+}
+
+fn all_false(value: &[bool; 3]) -> bool {
+    !value.iter().any(|locked| *locked)
 }
 
 #[derive(Debug, Clone, Default, PartialEq, Serialize, Deserialize, JsonSchema)]

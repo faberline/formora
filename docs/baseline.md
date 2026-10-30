@@ -116,6 +116,41 @@ metadata 記錄文件版本、摘要與子連結。
 
 目前 0.0 未完成。其餘 milestones 也未通過產品驗收。
 
+## 目前清單與驗收進度
+
+以下是目前候選分支的狀態，不是整合後的產品驗收。
+2026-10-31 回讀清單，共有 9,047 個來源。
+其中 54 個已指定功能，8,993 個仍待分類。
+功能對照表有 39 項契約，全部仍為 `pending`。
+兩套產品的 `complete_products` 都尚未填入。
+來源數量不能當作功能完成率。
+
+實際命令列的資料格式檢查結束碼為 0。
+嚴格檢查結束碼為 2，且 `baseline_ready` 為 `false`。
+兩個建置 pin 都有版本證據，沒有 `unverified_builds`。
+這不代表全部功能都有案例，也不代表產品測試通過。
+[本次原始輸出與執行紀錄](evidence/mesh-merge-multi-data-core/baseline-status-01/report.json)
+保留命令、程序 ID、結束碼及執行檔摘要。
+
+Rust 候選實作已包含網格變換、直接吸附、旋轉通道、增量變換及合併。
+[最新保留功能證據](evidence/mesh-merge-multi-data-core/completed-functional-02.md)
+已逐份回查 16,374 筆介面紀錄與 1,687 個資產檢查。
+來源取消、原子拒絕與核准的來源缺陷拒絕仍分開記錄。
+不能把這些紀錄全部列為數值相符。
+新的多資料合併完整介面矩陣已執行完 26,880 筆，實際程序正常退出。
+[執行終止證據](evidence/mesh-merge-multi-data-core/full-runtime-terminal-01.md)
+保留完成比對與明確拒絕的個別數量。
+[完整原始紀錄回查與 30 個壞資料控制](evidence/mesh-merge-multi-data-core/completed-full-runtime-03.md)
+也已通過。[207 個保留效能樣本與逐份來源比對](evidence/mesh-merge-multi-data-core/completed-timing-source-04.md)
+均已通過。這些結果只涵蓋各自明列的案例範圍。
+必要平台 CI、依賴整合及獨立驗收也尚未通過。
+歷次紀錄中的失敗及未執行狀態都保留，不能當作目前通過的證據。
+
+[距離合併來源 issue #82](https://github.com/faberline/formora/issues/82)
+已開始撰寫下一項必要基準的輸入，狀態為 `agy:doing`。
+它對應 `mesh.remove_doubles`，與現有 `mesh.merge` 分開。
+它尚未執行原生案例，也沒有接受新的功能契約。
+
 ## 首批網格案例
 
 [網格基本形狀紀錄](verification/mesh-primitives-reference.md)保留十種形狀的 57 組參考輸入與結果。
@@ -139,6 +174,7 @@ metadata 記錄文件版本、摘要與子連結。
 
 [變換基準紀錄](verification/mesh-transform-reference.md)新增八項待審契約。
 兩個原生參考程序各執行 1,203 組輸入。確定性結果與隨機支援範圍分開檢查。
-輸入涵蓋移動、旋轉、縮放、方向、中心與比例編輯。Rust 變換實作仍未執行。
-所有 9,047 個來源 ID 都保留。現有 31 項功能契約仍全部待審，9,003 個來源仍待分類。
+輸入涵蓋移動、旋轉、縮放、方向、中心與比例編輯。
+這是來源基準。後續 Rust 候選實作與保留檢查見上方的目前進度。
+所有 9,047 個來源 ID 都保留。現有 39 項功能契約仍全部待審，8,993 個來源仍待分類。
 吸附、合併／切割、其他模式與完整數值範圍都保持在後續必要範圍。

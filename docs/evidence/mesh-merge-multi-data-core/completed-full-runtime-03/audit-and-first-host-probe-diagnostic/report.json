@@ -1,0 +1,64 @@
+{
+  "passed": false,
+  "records": [
+    {
+      "name": "full-raw-audit",
+      "process_id": 43142,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-multi-data-core/tools/audit_multi_mesh_merge_runtime.py",
+        "--capture",
+        "/private/tmp/formora-multi-merge-api-full-01",
+        "--output",
+        "/private/tmp/formora-multi-merge-api-full-audit-01.json"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 913.6172022079991,
+      "stdout_sha256": "f1d1267b807286a4b63b4a4e24e18d5775dfb62b2c141505b88b7d86a22d1e73",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "report_path": "/private/tmp/formora-multi-merge-api-full-audit-01.json",
+      "report_sha256": "39dd224534c9f290fc8e0eda76258f0ea0b51989163368241a055d4d489b64b5",
+      "passed": true
+    },
+    {
+      "name": "full-raw-controls",
+      "process_id": 68372,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-multi-data-core/tools/check_multi_mesh_merge_runtime_controls.py",
+        "--capture",
+        "/private/tmp/formora-multi-merge-api-full-01",
+        "--output",
+        "/private/tmp/formora-multi-merge-api-full-controls-01.json"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 16.858941416983726,
+      "stdout_sha256": "abfbe5098735218d535e2ea416047d7642e5a9f25f5100cec68afadea38b6fe8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "report_path": "/private/tmp/formora-multi-merge-api-full-controls-01.json",
+      "report_sha256": "92ffe43423278d3b9ccbc637ca1c97244afd2ba8fd1d0dc3e9d7ccda4b98b05b",
+      "passed": true
+    },
+    {
+      "name": "retained-timing-177",
+      "process_id": 68482,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-timing-controller-01.py"
+      ],
+      "terminal_exit_code": 1,
+      "elapsed_seconds": 31.780769208999118,
+      "stdout_sha256": "fb463098e97fcfcbb49b51bf2b4c982a698c0f224965f5e16c3389edc27f084d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "report_path": "/private/tmp/formora-multi-merge-retained-timing-controller-01/report.json",
+      "report_sha256": "02f4be002364017d7365620f08f947afed7d335bfc24700817970bebe6314853",
+      "passed": false
+    }
+  ],
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun",
+  "full_terminal_sha256": "1b60da97a728854bf2e59f545815156721883b75a6b8d2292ffce082a8647225",
+  "error": "{'name': 'retained-timing-177', 'process_id': 68482, 'command': ['/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3', '/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-timing-controller-01.py'], 'terminal_exit_code': 1, 'elapsed_seconds': 31.780769208999118, 'stdout_sha256': 'fb463098e97fcfcbb49b51bf2b4c982a698c0f224965f5e16c3389edc27f084d', 'stderr_sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'report_path': '/private/tmp/formora-multi-merge-retained-timing-controller-01/report.json', 'report_sha256': '02f4be002364017d7365620f08f947afed7d335bfc24700817970bebe6314853', 'passed': False}",
+  "traceback": "Traceback (most recent call last):\n  File \"/private/tmp/formora-multi-merge-post-full-01.py\", line 88, in <module>\n    run('retained-timing-177',[sys.executable,str(TIMING/'regenerate-retained-timing-controller-01.py')],\n  File \"/private/tmp/formora-multi-merge-post-full-01.py\", line 54, in run\n    assert code==0, row\n           ^^^^^^^\nAssertionError: {'name': 'retained-timing-177', 'process_id': 68482, 'command': ['/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3', '/private/tmp/formora-multi-merge-timing-runners-01/regenerate-retained-timing-controller-01.py'], 'terminal_exit_code': 1, 'elapsed_seconds': 31.780769208999118, 'stdout_sha256': 'fb463098e97fcfcbb49b51bf2b4c982a698c0f224965f5e16c3389edc27f084d', 'stderr_sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'report_path': '/private/tmp/formora-multi-merge-retained-timing-controller-01/report.json', 'report_sha256': '02f4be002364017d7365620f08f947afed7d335bfc24700817970bebe6314853', 'passed': False}\n",
+  "input_hashes_unchanged": true
+}

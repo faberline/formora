@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "name": "retained-90",
+      "process_id": 70697,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-run-90-01.py"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 69.68350420799106,
+      "report_path": "/private/tmp/formora-multi-merge-retained-90-02/controller-report.json",
+      "report_sha256": "bf53f8a517a893aa83f592dbd4602ba4280a4d208582255836a8c9f7760ac37c",
+      "passed": true
+    },
+    {
+      "name": "retained-rotation",
+      "process_id": 71723,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-run-rotation-01.py"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 18.17733637499623,
+      "report_path": "/private/tmp/formora-multi-merge-retained-rotation-02/controller-report.json",
+      "report_sha256": "373358fda62e234261e3dc743f33c6497cb98ac6886091ca0f1c8fe84e9ff2c6",
+      "passed": true
+    },
+    {
+      "name": "retained-delta",
+      "process_id": 72399,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-run-delta-01.py"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 18.02915408401168,
+      "report_path": "/private/tmp/formora-multi-merge-retained-delta-02/controller-report.json",
+      "report_sha256": "b6374ee28a21688cc393b56fc848d48a3e2ea656c8226e6749f10fa5020117c2",
+      "passed": true
+    },
+    {
+      "name": "single-merge-30",
+      "process_id": 72736,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-timing-runners-01/regenerate-run-performance-01.py"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 17.669231582985958,
+      "report_path": "/private/tmp/formora-multi-merge-performance-01/report.json",
+      "report_sha256": "2728ec3694585e0532f7110fa8cbf027731d8133fed333ab1c34d9e3e0557852",
+      "passed": true
+    },
+    {
+      "name": "physical-source-177",
+      "process_id": 72922,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-timing-recovery-drivers-02/regenerate-retained-compare-all-sources-01.py",
+        "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+        "/private/tmp/formora-multi-merge-retained-source-02"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 994.916248916008,
+      "report_path": "/private/tmp/formora-multi-merge-retained-source-02/report.json",
+      "report_sha256": "764f94ffa7380586a7558e199e3bf46abf02b874294c2f5e073d1236e731c729",
+      "passed": true
+    },
+    {
+      "name": "physical-source-30",
+      "process_id": 12943,
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-source-runners-01/regenerate-compare-performance-01.py"
+      ],
+      "terminal_exit_code": 0,
+      "elapsed_seconds": 30.528045292012393,
+      "report_path": "/private/tmp/formora-multi-merge-performance-source-01/report.json",
+      "report_sha256": "560caebfe1b53fc1e99877969b5c178cd467842bb2fcb44a7ed73709b1d16ca9",
+      "passed": true
+    }
+  ],
+  "prior_attempt": "preserved sandbox host-probe failures; not a timing pass",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun",
+  "retained_timing_samples": 207,
+  "retained_physical_source_samples": 207,
+  "new_timing_samples": 168,
+  "prior_passed_samples_reused": 39,
+  "frozen_inputs_unchanged": true
+}

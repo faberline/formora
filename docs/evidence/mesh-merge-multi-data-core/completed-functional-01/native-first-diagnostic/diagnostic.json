@@ -1,0 +1,9 @@
+{
+  "actual_parent_exit_code": 1,
+  "error": "AttributeError: str object has no attribute read_bytes",
+  "cause": "Final hash helper received string path keys after both native tests ran.",
+  "native_terminal_receipts": "not persisted; first attempt not accepted",
+  "correction": "Convert helper paths with Path and persist each actual child start and terminal result immediately. Retain all earlier logs. Rerun with the unchanged binaries and frozen inputs in a fresh output directory.",
+  "product_changed": false,
+  "product_acceptance": "unrun"
+}

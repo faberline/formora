@@ -1,0 +1,119 @@
+{
+  "files": [
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-audit-module-01.py",
+      "source_sha256": "61880cde241d72d4041c11e4cebcdef319461e97f5f98bcb01c82167195ec8ba",
+      "copy": "/private/tmp/formora-multi-merge-retained-audit-drivers-01/regenerate-retained-audit-module-01.py",
+      "copy_sha256": "8787e7602d3d30ecc4365302ebe670205e3ef9522d67ce51399ffcd251c1a72a",
+      "only_binding_changes": [
+        {
+          "from": "ROOT=Path(__file__).resolve().parents[4]",
+          "to": "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')",
+          "occurrences": 1
+        },
+        {
+          "from": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+          "to": "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542",
+          "occurrences": 1
+        },
+        {
+          "from": "0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa",
+          "to": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+          "occurrences": 1
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-retained-api-01",
+          "to": "/private/tmp/formora-multi-merge-retained-api-01",
+          "occurrences": 1
+        }
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -8,7 +8,7 @@\n",
+        " import subprocess\n",
+        " import sys\n",
+        " \n",
+        "-ROOT=Path(__file__).resolve().parents[4]\n",
+        "+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " HERE=Path(__file__).resolve().parent\n",
+        " sys.path.insert(0,str(ROOT/'tools'))\n",
+        " import rotation_snap_runtime as rotation\n",
+        "@@ -19,8 +19,8 @@\n",
+        " from runtime_artifacts import read_json\n",
+        " from compare_snap_menu_reference import tree\n",
+        " \n",
+        "-IMPLEMENTATION='5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d'\n",
+        "-BINARY='0e882777416ca728e55ca7212259d1b65a1bc6703706ded440bd822b7e70d2aa'\n",
+        "+IMPLEMENTATION='bd13f3d424f2649b4b25c16305c4e5b0eb7f8542'\n",
+        "+BINARY='64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019'\n",
+        " sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n",
+        " def passed(path,binary=True):\n",
+        "     value=read_json(path);assert value['passed'] is True,path\n",
+        "@@ -29,7 +29,7 @@\n",
+        " \n",
+        " \n",
+        " def audit(kind,count):\n",
+        "-    folder=Path('/private/tmp/formora-merge-regen-retained-api-01')/{'full':'delta','rotation':'raw-rotation','scene':'scene-snap','single':'single-snap','transform':'mesh-transform'}[kind];report=passed(folder/'report.json')\n",
+        "+    folder=Path('/private/tmp/formora-multi-merge-retained-api-01')/{'full':'delta','rotation':'raw-rotation','scene':'scene-snap','single':'single-snap','transform':'mesh-transform'}[kind];report=passed(folder/'report.json')\n",
+        "     assert report['checks']==count and report['required_full_gate_passed'] and len(report['runs'])==count\n",
+        "     for name,digest in report['input_hashes'].items():assert sha(ROOT/name)==digest,name\n",
+        "     family={'full':'snap-delta','rotation':'snap-rotation','scene':'snap-menu','single':'snap-menu','transform':'mesh-transform'}[kind]\n"
+      ]
+    },
+    {
+      "source": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-audit-one-01.py",
+      "source_sha256": "ad7384824af854c0a3a68553a832b7b7a8944c1147704ab32892a5da1df2394d",
+      "copy": "/private/tmp/formora-multi-merge-retained-audit-drivers-01/regenerate-retained-audit-one-01.py",
+      "copy_sha256": "4ddddeaaa7b779e3db0ded2e6b45e3c827d25ccaa1dbc4c66590c86455e9fd44",
+      "only_binding_changes": [
+        {
+          "from": "ROOT=HERE.parents[3]",
+          "to": "ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')",
+          "occurrences": 1
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-target-actual185/debug/formora",
+          "to": "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+          "occurrences": 1
+        },
+        {
+          "from": "/private/tmp/formora-merge-regen-retained-api-01",
+          "to": "/private/tmp/formora-multi-merge-retained-api-01",
+          "occurrences": 1
+        }
+      ],
+      "reverse_mapping_recovers_exact_original": true,
+      "diff": [
+        "--- \n",
+        "+++ \n",
+        "@@ -1,12 +1,12 @@\n",
+        " \"\"\"Audit one completed retained corpus after its native terminal record exists.\"\"\"\n",
+        " from pathlib import Path\n",
+        " import hashlib,importlib.util,json,subprocess,sys\n",
+        "-HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3]\n",
+        "+HERE=Path(__file__).resolve().parent;ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n",
+        " sys.path.insert(0,str(ROOT/'tools'))\n",
+        " spec=importlib.util.spec_from_file_location('retained_audit',HERE/'regenerate-retained-audit-module-01.py');audit=importlib.util.module_from_spec(spec);spec.loader.exec_module(audit)\n",
+        " kind=sys.argv[1];out=Path(sys.argv[2]);assert not out.exists();out.parent.mkdir(exist_ok=True,parents=True)\n",
+        " name,count={'full':('delta',3584),'rotation':('raw-rotation',4992),'scene':('scene-snap',1100),'single':('single-snap',2244),'transform':('mesh-transform',2406)}[kind]\n",
+        "-folder=Path('/private/tmp/formora-merge-regen-retained-api-01')\n",
+        "+folder=Path('/private/tmp/formora-multi-merge-retained-api-01')\n",
+        " progress=json.loads((folder/'progress.json').read_bytes());row=next(r for r in progress if r['name']==name)\n",
+        " assert row['passed'] and row['terminal_exit_code']==0 and row['actual_checks']==row['expected_checks']==count\n",
+        " assert row['report_sha256']==audit.sha(folder/name/'report.json')\n",
+        "@@ -14,7 +14,7 @@\n",
+        "  for path in sorted((ROOT/rootname).rglob('*')):\n",
+        "   if not path.is_file() or '__pycache__' in path.parts or path.suffix=='.pyc':continue\n",
+        "   assert subprocess.check_output(['git','show',audit.IMPLEMENTATION+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT)==path.read_bytes(),path\n",
+        "-binary=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora');assert audit.sha(binary)==audit.BINARY\n",
+        "+binary=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora');assert audit.sha(binary)==audit.BINARY\n",
+        " result=audit.audit(kind,count)\n",
+        " if kind in ['full','rotation']:assert result['outcomes']=={'defined_numeric_source_comparison':count}\n",
+        " if kind=='scene':assert result['outcomes']=={'defined_numeric_source_comparison':1094,'explicit_cancellation':4,'explicit_atomic_rejection':2}\n"
+      ]
+    }
+  ],
+  "assertions_counts_thresholds_and_source_comparisons": "unchanged"
+}

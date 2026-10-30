@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "original": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/retained-source-relocation-01.py",
+      "actual": "/private/tmp/formora-multi-merge-source-runners-01/retained-source-relocation-01.py",
+      "original_sha256": "8ec117c9d5ae55a9ecb56c4b818a6723979c827fc5542af67ef665651d03907c",
+      "actual_sha256": "47d503c7e91d6e6cb289017693b1642fb1792837a2d96caf522bfd9212d0d6ea",
+      "bindings": [
+        [
+          "Path(__file__).resolve().parents[4]",
+          "Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ]
+      ],
+      "reversible": true,
+      "assertions_unchanged": true,
+      "diff": "--- \n+++ \n@@ -1,7 +1,7 @@\n \"\"\"Run unchanged source checks with captured paths bound to this full checkout.\"\"\"\n import hashlib,importlib.util,json,sys\n from pathlib import Path\n-ROOT=Path(__file__).resolve().parents[4]\n+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n sys.path.insert(0,str(ROOT/'tools'))\n name=sys.argv.pop(1)\n relative={'scene':'docs/evidence/scene-snap-core/performance/compare-performance.py','rotation':'docs/evidence/snap-rotation-core/performance/compare-performance.py','delta':'docs/evidence/snap-delta-core/performance/compare-performance.py'}[name]\n"
+    },
+    {
+      "original": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-retained-compare-all-sources-01.py",
+      "actual": "/private/tmp/formora-multi-merge-source-runners-01/regenerate-retained-compare-all-sources-01.py",
+      "original_sha256": "6475d4c75a83e4dab6dc02ab151aa4989defa565c25c546ef1931b4f69097b81",
+      "actual_sha256": "f28abed2ca5389add7c499ed2b29639d7686cb99382fa82c7c4d2dc130220dab",
+      "bindings": [
+        [
+          "Path(__file__).resolve().parents[4]",
+          "Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "formora-merge-regen-retained-90-01",
+          "formora-multi-merge-retained-90-01"
+        ],
+        [
+          "formora-merge-regen-retained-rotation-01",
+          "formora-multi-merge-retained-rotation-01"
+        ],
+        [
+          "formora-merge-regen-retained-delta-01",
+          "formora-multi-merge-retained-delta-01"
+        ],
+        [
+          "formora-merge-regen-retained-39-01",
+          "formora-multi-merge-retained-39-01"
+        ]
+      ],
+      "reversible": true,
+      "assertions_unchanged": true,
+      "diff": "--- \n+++ \n@@ -8,7 +8,7 @@\n import subprocess\n import sys\n \n-ROOT = Path(__file__).resolve().parents[4]\n+ROOT = Path('/private/tmp/formora-mesh-merge-multi-data-core')\n parser = argparse.ArgumentParser(description=__doc__)\n parser.add_argument('binary', type=Path)\n parser.add_argument('output', type=Path)\n@@ -30,19 +30,19 @@\n \n commands = [\n     ('retained-scene-90', 90, common(base / 'scene-snap-core/performance/compare-performance.py',\n-        fresh / 'formora-merge-regen-retained-90-01/samples', base / 'scene-snap-core/performance/source-gzip',\n-        fresh / 'formora-merge-regen-retained-90-01/controller-report.json', 'retained-scene-90.json')),\n+        fresh / 'formora-multi-merge-retained-90-01/samples', base / 'scene-snap-core/performance/source-gzip',\n+        fresh / 'formora-multi-merge-retained-90-01/controller-report.json', 'retained-scene-90.json')),\n     ('retained-rotation-24', 24, common(base / 'snap-rotation-core/performance/compare-performance.py',\n-        fresh / 'formora-merge-regen-retained-rotation-01/samples', base / 'snap-rotation-core/performance/source',\n-        fresh / 'formora-merge-regen-retained-rotation-01/controller-report.json', 'retained-rotation-24.json')),\n+        fresh / 'formora-multi-merge-retained-rotation-01/samples', base / 'snap-rotation-core/performance/source',\n+        fresh / 'formora-multi-merge-retained-rotation-01/controller-report.json', 'retained-rotation-24.json')),\n     ('retained-delta-24', 24, common(base / 'snap-delta-core/performance/compare-performance.py',\n-        fresh / 'formora-merge-regen-retained-delta-01/samples', base / 'snap-delta-core/performance/source',\n-        fresh / 'formora-merge-regen-retained-delta-01/controller-report.json', 'retained-delta-24.json')),\n+        fresh / 'formora-multi-merge-retained-delta-01/samples', base / 'snap-delta-core/performance/source',\n+        fresh / 'formora-multi-merge-retained-delta-01/controller-report.json', 'retained-delta-24.json')),\n     ('retained-single-30', 30, [sys.executable, str(ROOT / 'tools/compare_snap_performance.py'),\n-        '--binary', str(binary), '--samples', str(fresh / 'formora-merge-regen-retained-39-01/single'),\n+        '--binary', str(binary), '--samples', str(fresh / 'formora-multi-merge-retained-39-01/single'),\n         '--source', str(base / 'mesh-snap-core/performance/source'), '--output', str(out / 'retained-single-30.json')]),\n     ('retained-transform-9', 9, [sys.executable, str(base / 'snap-delta-core/performance/compare-retained-transform.py'),\n-        str(fresh / 'formora-merge-regen-retained-39-01/transform'), str(out / 'retained-transform-9.json')]),\n+        str(fresh / 'formora-multi-merge-retained-39-01/transform'), str(out / 'retained-transform-9.json')]),\n ]\n assert sum(count for _, count, _ in commands) == 177\n records = []\n"
+    },
+    {
+      "original": "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/mesh-merge-core/continuation/regenerate-compare-performance-01.py",
+      "actual": "/private/tmp/formora-multi-merge-source-runners-01/regenerate-compare-performance-01.py",
+      "original_sha256": "ea359667c91b73f726bf9c0f3923b46a92fbca113a442a5e0347b10148b97e95",
+      "actual_sha256": "284bb911a209f3fb1c0b6151cecfdcb620a58e28be5ca179ce136e9517e9cdee",
+      "bindings": [
+        [
+          "Path(__file__).resolve().parents[4]",
+          "Path('/private/tmp/formora-mesh-merge-multi-data-core')"
+        ],
+        [
+          "formora-merge-regen-performance-source-01",
+          "formora-multi-merge-performance-source-01"
+        ],
+        [
+          "formora-merge-regen-performance-01",
+          "formora-multi-merge-performance-01"
+        ],
+        [
+          "formora-merge-regen-target-actual185",
+          "formora-multi-merge-target-actual185"
+        ]
+      ],
+      "reversible": true,
+      "assertions_unchanged": true,
+      "diff": "--- \n+++ \n@@ -7,7 +7,7 @@\n import subprocess\n import sys\n \n-ROOT=Path(__file__).resolve().parents[4]\n+ROOT=Path('/private/tmp/formora-mesh-merge-multi-data-core')\n HERE=ROOT/'docs/evidence/mesh-merge-core/performance'\n sys.path.insert(0,str(ROOT/'tools'))\n from compare_snap_menu_reference import tree\n@@ -15,9 +15,9 @@\n from selection_runtime_smoke import snapshot as selected_snapshot\n from scene_snap_runtime_smoke import frame_snapshot\n \n-OUTPUT=Path('/private/tmp/formora-merge-regen-performance-source-01')\n-SAMPLES=Path('/private/tmp/formora-merge-regen-performance-01/samples')\n-BINARY=Path('/private/tmp/formora-merge-regen-target-actual185/debug/formora')\n+OUTPUT=Path('/private/tmp/formora-multi-merge-performance-source-01')\n+SAMPLES=Path('/private/tmp/formora-multi-merge-performance-01/samples')\n+BINARY=Path('/private/tmp/formora-multi-merge-target-actual185/debug/formora')\n sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\n OUTPUT.mkdir(exist_ok=False)\n binary_hash=sha(BINARY)\n"
+    }
+  ],
+  "executed_source_comparisons": 0,
+  "timing_acceptance": "unrun",
+  "product_acceptance": "unrun"
+}

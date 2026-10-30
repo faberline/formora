@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "suites": 5,
+  "records": [
+    {
+      "name": "merge",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-retained-gpu-drivers-01/regenerate-gpu-proof-01.py"
+      ],
+      "process_id": 21010,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report": "/private/tmp/formora-multi-merge-retained-merge-gpu-01/report.json",
+      "report_sha256": "3ee65808fd06615dbb5a8e37e0ff15c81fb51a77a9055a24d15016eaa7a81ead",
+      "driver_sha256": "64d9ce21882239b8cbb5abc41cdda00151bc9adc2ef1b65469820e70b442c320"
+    },
+    {
+      "name": "delta",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/snap-delta-core/gpu-driver.py",
+        "/private/tmp/formora-object-state-build-02/formora-preview",
+        "/private/tmp/formora-multi-merge-retained-gpu-01/delta"
+      ],
+      "process_id": 21387,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report": "/private/tmp/formora-multi-merge-retained-gpu-01/delta/manifest.json",
+      "report_sha256": "c82e2f54ffff5533875c92da7a8945ab04b210c1671865642a4c567e74ffa0c8",
+      "driver_sha256": "1246e49f37810be909afde4b40299c529de636b2d4c466f32c09ef4b46ca1123"
+    },
+    {
+      "name": "raw",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-mesh-merge-multi-data-core/docs/evidence/snap-rotation-core/gpu-driver.py",
+        "/private/tmp/formora-object-state-build-02/formora-preview",
+        "/private/tmp/formora-multi-merge-retained-gpu-01/raw"
+      ],
+      "process_id": 21787,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report": "/private/tmp/formora-multi-merge-retained-gpu-01/raw/manifest.json",
+      "report_sha256": "0dec3c59b8a3808d1360a2ce56c039c32df9c21a1b376c597a6bf22cdbe13335",
+      "driver_sha256": "96de3b70136ff8e719e40fa4de87eff8de72bcbabd2cd1968cabe92d02597169"
+    },
+    {
+      "name": "rng",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-retained-gpu-drivers-01/regenerate-retained-gpu-rng-01.py"
+      ],
+      "process_id": 22156,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report": "/private/tmp/formora-multi-merge-retained-gpu-01/rng/manifest.json",
+      "report_sha256": "9de0a974bca80530a372597de31e3980caa3e3ae89f466be72e50ba9644af040",
+      "driver_sha256": "ea40698f21092309424989ab79df7dfd0969d8190b01bc4e86deab7119607dfb"
+    },
+    {
+      "name": "mirror",
+      "command": [
+        "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+        "/private/tmp/formora-multi-merge-retained-gpu-drivers-01/regenerate-retained-gpu-mirror-01.py"
+      ],
+      "process_id": 22497,
+      "terminal_exit_code": 0,
+      "passed": true,
+      "report": "/private/tmp/formora-multi-merge-retained-gpu-01/mirror/manifest.json",
+      "report_sha256": "eb6071f0d0143790b08167b0d689b9d0e34e46691bd0fe7cd9cbd96a5e9f4c46",
+      "driver_sha256": "86d712f6fb2c6ca9393c9dc35f21df0475654873f50481fbe5e29693e27851f9"
+    }
+  ],
+  "binary_sha256": "518d5cb60791ccbd40c972e875807d836120aceadb4183c95e0647147bc00b65",
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}

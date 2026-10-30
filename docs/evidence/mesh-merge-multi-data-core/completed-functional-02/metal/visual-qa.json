@@ -1,0 +1,32 @@
+{
+  "inspected_images": {
+    "single_before": {
+      "path": "/private/tmp/formora-multi-merge-retained-merge-gpu-01/before.png",
+      "sha256": "bce46ce0e1801aff22e74668f25b0181c1acbcb6abc276c250aad8f4bd0ff4bb"
+    },
+    "single_after": {
+      "path": "/private/tmp/formora-multi-merge-retained-merge-gpu-01/after.png",
+      "sha256": "45d23f64adbc1149334832a4290882f8e8e089ae7103d9d79a2762c87a7f06d1"
+    },
+    "delta": {
+      "path": "/private/tmp/formora-multi-merge-retained-gpu-01/delta/after.png",
+      "sha256": "4e8fbd3d12af349b1f4d16cef67b44592d4fa8ff61ce3503de00ebaad2ffc0a5"
+    },
+    "raw": {
+      "path": "/private/tmp/formora-multi-merge-retained-gpu-01/raw/after.png",
+      "sha256": "c805e502b529c4ac1f87a1a74ec84d9c2b3a6ff946773b08b771ea06d2d48a9b"
+    },
+    "rng": {
+      "path": "/private/tmp/formora-multi-merge-retained-gpu-01/rng/after.png",
+      "sha256": "8c1cfe90a75d656a23437c303254f6b03eaeeddc53eaf26fb6e40480b31f0741"
+    },
+    "mirror": {
+      "path": "/private/tmp/formora-multi-merge-retained-gpu-01/mirror/after.png",
+      "sha256": "e4e0bb7c46c46400179f53c25f4b87d4d5610ba23b8125611fbc9a6c6a89c6c3"
+    }
+  },
+  "single_merge_filled_face_change_and_selection_visible": true,
+  "single_merge_outside_triangle_visible_unchanged": true,
+  "all_four_retained_after_images_have_visible_filled_surfaces": true,
+  "full_ui_or_rendering_feature_acceptance": "unrun"
+}

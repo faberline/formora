@@ -1,0 +1,31 @@
+{
+  "issue": 79,
+  "product_implementation_changed": false,
+  "compile_command": [
+    "/private/tmp/formora-rustup-cache/toolchains/1.85.0-aarch64-apple-darwin/bin/rustc",
+    "--edition",
+    "2024",
+    "--test",
+    "-C",
+    "opt-level=3",
+    "/private/tmp/formora-mesh-merge-multi-data-core/tests/mesh_merge_multi_data.rs",
+    "--extern",
+    "formora=/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+    "--extern",
+    "serde_json=/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib",
+    "-L",
+    "dependency=/private/tmp/formora-merge-regen-target-actual185/release/deps",
+    "-o",
+    "/private/tmp/formora-multi-data-before-code-01/multi-data-before-code-tests"
+  ],
+  "compile_exit_code": 1,
+  "input_hashes": {
+    "/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+    "/private/tmp/formora-merge-regen-target-actual185/release/deps/libserde_json-7ab9b385339e8dcd.rlib": "90ba8130930f3046b759afed1dd1ae9066fc6bd67a0b305d6bb1ab6617bbec75",
+    "/private/tmp/formora-mesh-merge-multi-data-core/tests/mesh_merge_multi_data.rs": "fb343fe3c92585a1c962e17887062407f52169fae9a251e0e7eea8d1c74056e4",
+    "/private/tmp/formora-mesh-merge-multi-data-core/docs/contracts/mesh-merge-multi-data-core.md": "cfcb91cbdaeaf2159de5984ce5a12876e30b11de35f07d0244731e95c186c43a"
+  },
+  "before_code_behavior_gate": false,
+  "product_acceptance": "unrun",
+  "inputs_unchanged": true
+}

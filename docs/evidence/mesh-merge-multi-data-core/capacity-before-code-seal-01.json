@@ -1,0 +1,33 @@
+{
+  "before_Rust_product_implementation": true,
+  "native_capacity_source_comparison": "pending",
+  "core_limit_ms": 500,
+  "pipeline_limit_ms": 4000,
+  "samples": 30,
+  "core_clock_retains_full_input_and_result_validation": true,
+  "pipeline_clock_retains_input_validation_operation_save_fresh_load_and_validation": true,
+  "files": {
+    "docs/evidence/mesh-merge-multi-data-core/capacity-authored-inputs/authored-grid.json": {
+      "sha256": "6de497cd00209af0da0322c9b44671a5ee619ea576525ad5f28606c83390e547",
+      "bytes": 14380659
+    },
+    "docs/evidence/mesh-merge-multi-data-core/capacity-authored-inputs/authored-forms.json": {
+      "sha256": "2c859066c4fef2ac26215b75974dbc616538dbb7ab9c1ead79458d00cf12ed01",
+      "bytes": 622
+    },
+    "docs/evidence/mesh-merge-multi-data-core/capacity-driver.rs": {
+      "sha256": "1e0c935ae4366c7275b04480ba38a66951089954837e96ffd5b4cbd572e34799",
+      "bytes": 6656
+    },
+    "docs/contracts/mesh-merge-multi-data-core.md": {
+      "sha256": "bcbea12122f4567547295fcc1414948ddc5e964d4b078933bddb6e1b7ea111ff",
+      "bytes": 4493
+    },
+    "tools/multi_mesh_merge_product_inputs.py": {
+      "sha256": "2e4c14619a8e12aade8afe4e31eefb819ae9ec838555da8780cba9f9f0af472e",
+      "bytes": 4379
+    }
+  },
+  "head_before_seal": "363047e8461c787c0040026c69c3599e7395f346",
+  "product_timing": "unrun"
+}

@@ -27,7 +27,7 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
 
 pub fn tools() -> Value {
     json!([
-        {"name":"scene_inspect","description":"Inspect the current scene, one entity, or one mesh_asset (optionally with resolved face/corner normals, or tessellated with polygon corner indices and diagnostics). No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
+        {"name":"scene_inspect","description":"Inspect the current scene, one entity (optionally its persistent object_state), or one mesh_asset (optionally with resolved face/corner normals, or tessellated with polygon corner indices and diagnostics). No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
         {"name":"scene_apply","description":"Apply one atomic command batch at expected_revision. Every command must leave a valid scene. Success is saved before returning. Query the scene first to obtain its revision.","inputSchema":schemars::schema_for!(ApplyRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}},
         {"name":"scene_undo","description":"Undo the last successful batch in this process. The restored scene is saved with a new revision. Undo history is not kept across process restarts.","inputSchema":schemars::schema_for!(UndoRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}}
     ])
