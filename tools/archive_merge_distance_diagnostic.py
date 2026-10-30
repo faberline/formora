@@ -24,7 +24,10 @@ def archive(native, check_path, controller, output):
 
     def copy(source, relative):
         raw = source.read_bytes()
-        keep = source.suffix in ['.gz', '.py'] or source.name in ['report.json', 'manifest.json', 'started.json', 'terminal.json']
+        # Preserve upstream whitespace exactly. Store Python sources with blank
+        # EOF lines as gzip so repository format checks do not alter evidence.
+        keep = (source.suffix == '.gz' or (source.suffix == '.py' and not raw.endswith(b'\n\n')) or
+                source.name in ['report.json', 'manifest.json', 'started.json', 'terminal.json'])
         data = raw if keep else gzip.compress(raw, mtime=0)
         target = output/(relative if keep else relative+'.gz')
         target.parent.mkdir(parents=True, exist_ok=True)

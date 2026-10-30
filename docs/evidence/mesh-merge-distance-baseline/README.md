@@ -269,5 +269,13 @@ attempt remain failures. Source result classes remain 30 merged calls,
 37 unchanged calls, one all-empty skip and 36 rejections in each latest
 104-case run. Full source and product acceptance remain unrun.
 
+Two upstream Python copies contain an extra blank EOF line. The first staged
+format check reported those copies, but the controller continued to commit.
+`source-storage-fix-19.json` records this error. The copies are now stored as
+lossless gzip. Their decoded bytes and raw hashes are unchanged. Plain copies
+remain outside Git. Both earlier manifests remain beside the corrected ones.
+`diagnostic-archive-audit-05.json` binds the current storage representation.
+The source behavior, native results, checks and limits are unchanged.
+
 Full source acceptance, capacity acceptance and Rust product acceptance all
 remain unrun. No issue or milestone is complete from these diagnostics.
