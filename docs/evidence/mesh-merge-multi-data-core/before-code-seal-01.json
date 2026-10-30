@@ -1,0 +1,21 @@
+{
+  "before_product_implementation": true,
+  "before_test_execution": true,
+  "issue": 79,
+  "source_dependency_issue": 77,
+  "source_dependency_pr": 78,
+  "head_before_seal": "09dfb59823017ffd464a4b8d8ebe9525ca3a24b9",
+  "unchanged_product_implementation_commit": "5a69c8851107e2ce30ef523d78f75d4b6d6e2d5d",
+  "files": {
+    "tests/mesh_merge_multi_data.rs": "fb343fe3c92585a1c962e17887062407f52169fae9a251e0e7eea8d1c74056e4",
+    "docs/contracts/mesh-merge-multi-data-core.md": "cfcb91cbdaeaf2159de5984ce5a12876e30b11de35f07d0244731e95c186c43a"
+  },
+  "before_code_library": {
+    "path": "/private/tmp/formora-merge-regen-target-actual185/release/libformora.rlib",
+    "sha256": "a06c8aa897ce51992ca08779627eb4041ef0db51d4ccca9dab08ce3fdbc1a0f6",
+    "rust": "1.85.0"
+  },
+  "expected_controls": 8,
+  "native_capacity_full_comparison": "pending; no product implementation allowed before pass",
+  "product_acceptance": "unrun"
+}
