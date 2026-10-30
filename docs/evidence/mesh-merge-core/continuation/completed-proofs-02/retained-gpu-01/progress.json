@@ -1,0 +1,54 @@
+[
+  {
+    "name": "delta",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-delta-core/gpu-driver.py",
+      "/private/tmp/formora-merge-allfeatures-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-gpu-01/delta"
+    ],
+    "process_id": 72536,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "1246e49f37810be909afde4b40299c529de636b2d4c466f32c09ef4b46ca1123",
+    "report_sha256": "8cfe8f8332a6562094e6eeeaa89ee9f1d4c8887d54a09dcf72d13df838bac09a"
+  },
+  {
+    "name": "raw",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/snap-rotation-core/gpu-driver.py",
+      "/private/tmp/formora-merge-allfeatures-actual185/debug/formora",
+      "/private/tmp/formora-merge-retained-gpu-01/raw"
+    ],
+    "process_id": 73299,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "96de3b70136ff8e719e40fa4de87eff8de72bcbabd2cd1968cabe92d02597169",
+    "report_sha256": "4b63f88847a99b9512e44312e6fd5e18e14fee26b22ffdd10cc6afe65494138c"
+  },
+  {
+    "name": "rng",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-gpu-rng-01.py"
+    ],
+    "process_id": 73787,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "b4d56b2c40405494fc717cf577e6770d97eceda51f8029c02cef875e5d01f8b6",
+    "report_sha256": "3078ac545a455842c68e390bbf45cc85ec72031b7fdac16db8ac17a515e457c9"
+  },
+  {
+    "name": "mirror",
+    "command": [
+      "/Users/chrischeng/.pyenv/versions/3.12.11/bin/python3",
+      "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/retained-gpu-mirror-01.py"
+    ],
+    "process_id": 73935,
+    "terminal_exit_code": 0,
+    "passed": true,
+    "driver_sha256": "938c1850e07800613f760c33ef82732d688d9f32407a470e8bc43d539eb6de87",
+    "report_sha256": "437150f5e25f1b5335482879267bf0c5a10556e442e4535a21f26816203e102a"
+  }
+]

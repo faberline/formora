@@ -37,7 +37,8 @@ Evidence-only commits do not change these builds.
   The maximum operation/save/reload time was 188.243291 ms against 2,000 ms.
   All 30 saved outputs also passed the original physical source checks.
 - All 177 retained timing samples passed their original limits.
-  Their separate physical source checks are still running.
+  All 177 saved outputs also passed their original physical source checks.
+  All 207 new and retained timing/source samples passed.
 - Nine native Rust tests passed with both source trees and prior answer paths denied.
   These are native API tests, not CLI or MCP evidence.
 - Nineteen native protocol calls proved real failed-save rollback, undo and replay.
@@ -61,7 +62,9 @@ The packer checked every decompressed digest against the original file.
 Native files under `/private/tmp` remain intact.
 The extra uncompressed `completed-proofs-01/` directory is local only.
 It is not part of the published evidence set.
-Later source, GPU, RNG and complete retained API reports need a second archive.
+`completed-proofs-02/archive-manifest.json` contains the complete retained
+177 source checks, four retained Metal proofs, 48 CLI RNG cases and six Euler orders.
+The complete retained API reports still need a later archive.
 
 ## Preserve these failures
 
@@ -94,7 +97,7 @@ The original controller report remains failed.
 
 The retained 14,326 CLI/MCP requests and asset regressions are running.
 Their full raw audit is unrun.
-The retained 177 physical source comparisons are running.
+The retained 177 physical source comparisons passed.
 Three-platform CI, dependency integration and independent Codex acceptance are unpassed.
 The full parameter, data and capacity domains remain required follow-up work.
 The source feature catalog is still pending review.
