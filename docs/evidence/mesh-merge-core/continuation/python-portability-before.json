@@ -1,0 +1,13 @@
+{
+  "tests": 215,
+  "failures": 3,
+  "exit": 1,
+  "problem": "negative-control fixtures assumed captured absolute paths matched the current checkout root",
+  "planned_fix": "mutate the single existing captured path selected by exact repository-relative suffix; derive the captured root for relocation",
+  "validators_and_numeric_limits_change": false,
+  "assertions_and_test_count_change": false,
+  "old_files": {
+    "tools/tests/test_snap_delta_native_reference.py": "2bcb0960e7609cbdf417bf5756b0cf3e644dcb928899d522cfb3f9f94dfeaa4d",
+    "tools/tests/test_snap_rotation_reference.py": "3e06d0667cf46ab16a773d20b8854675f4fde7a822810ceb22d5b038382320c3"
+  }
+}

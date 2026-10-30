@@ -111,7 +111,9 @@ class DeltaNativeControls(unittest.TestCase):
 
     def test_changed_capture_program_hash(self):
         manifest = json.loads((self.folder/'manifest.json').read_text())
-        path = str(self.root/'tools/blender_snap_delta_reference.py')
+        paths = [name for name in manifest['input_hashes'] if name.endswith('/tools/blender_snap_delta_reference.py')]
+        self.assertEqual(len(paths), 1)
+        path = paths[0]
         manifest['input_hashes'][path] = '0'*64
         with self.assertRaisesRegex(ValueError, 'capture provenance changed'):
             provenance_inputs(self.folder, manifest, self.root/'baseline/fixtures/snap-delta.json')
