@@ -7,7 +7,8 @@ Its dependencies and all 11 milestones remain unaccepted.
 Current complete functional evidence: two fresh sealed captures, 2,412 cases
 each, complete state/reload comparison and 38 rejected corruption controls.
 Capacity has 192 sealed samples. Two focused native captures completed eight
-samples; one has passed its offline check and seven await their check. Paired
+samples; all eight have passed full offline checks. Capacity corruption controls
+are running. Paired
 complete capacity captures and Rust product acceptance remain unrun.
 Earlier sections below retain the preparation history. The latest full
 functional evidence is in the final section.
@@ -417,8 +418,13 @@ file, initial/output/reload and parent receipt checks passed for that sample.
 Its native core/pipeline times were 25,450.327/27,927.458 ms. Both exceed the
 unchanged 250/2,000 ms product budgets; neither is a Rust timing pass.
 
-The seven-sample offline check is running. Its success and the new capacity
-corruption controls are not claimed here. Two fresh complete capacity source
+The seven-sample offline check now passed. PID 19810 exited 0 after 740.427
+seconds. `capacity-checks-01/diagnostic-check-02.json` and
+`capacity-check-02-proof/` retain the report and actual parent wait. All seven
+core/pipeline source observations exceed the unchanged product budgets. Together
+with the first sample, all eight source diagnostic checks pass; none is a Rust
+timing pass. The capacity corruption driver is running, not yet passed.
+Two fresh complete capacity source
 captures and their paired comparison remain unrun. No Rust distance operation
 or product acceptance was added. Issue #82 remains open with `agy:doing`.
 
@@ -426,3 +432,23 @@ or product acceptance was added. Issue #82 remains open with `agy:doing`.
 `6e269fee2fe8168bc1a3e003e9becdd7786d15cb`. Three platform jobs failed before
 any step. Their actual annotations report failed account payments or a
 spending limit. Required CI remains unrun; no PR diff review or merge occurred.
+
+## Complete capacity execution admission
+
+`capacity-checks-01/complete-controller-01.py.gz` preserves the prepared complete
+execution controller. It requires both passed diagnostic reports, actual
+successful checker/control waits, all 34 rejected capacity corruptions, and
+the unchanged source seal and actual hardware. Only then can it run two full
+captures, each individual checker and their pair comparison in sequence.
+Each native launch has a 43,200-second hard deadline. No complete capture has
+started yet. Every required stage must have an actual successful terminal wait.
+
+`capacity-complete-admission-control-01/` preserves a real missing-admission
+negative test. Controller PID 26234 exited 1 at the required missing completion
+record. No complete capture output directory was created and no native
+operation ran. The test driver exited 0 only after checking those facts.
+
+`capacity-ci-02/` retains run 41134196683 at source head
+`a5f877ce9ef447e01d580e429abf9df059cc739c`. All three platform jobs failed with
+zero steps and actual account-payment/spending annotations. Source and product
+acceptance, dependency integration and PR diff review remain unrun.
