@@ -1,0 +1,30 @@
+{
+  "pre_code_head": "f9cb8130c96f3d20f6deeab25f81585b652f7982",
+  "source_and_product_base": "74a4fc5b852be620e3a1fd9329aa6e73a01e52e1",
+  "files": {
+    "docs/contracts/mesh-merge-core.md": "add12089435972c9efc5b87638de47ea567fa6e31596cb2438a7ffb71fd207fc",
+    "tests/mesh_merge.rs": "084e368882d9a32d3e98497ff1b44fa8ab2c6e91130fbe9f7300cc2a15bc71b0",
+    "docs/evidence/mesh-merge-core/performance/author-inputs.py": "2fc3dc00249201dba405e8fb9bfe2c39f7caeabbb63f277fd958aa2b88269896",
+    "docs/evidence/mesh-merge-core/performance/authored-grid.json": "e2f1cae31fff704f5730f93a193796bbb3d56832fff3e8c857604823159db97f",
+    "docs/evidence/mesh-merge-core/performance/authored-forms.json": "1b351a305087b4efea88d805de8f0a3e85e3b469f90e3846ff03b0ed5874b069",
+    "docs/evidence/mesh-merge-core/performance/blender-grid-reference.py": "685ee27e6a9bc19fd1534d2eef7565283cb452e4e48b41b9fdbd4e5f881319a9",
+    "docs/evidence/mesh-merge-core/performance/capture-driver.rs": "247a0988c964d1e6b5e289dab3c8148ca8db72feea20a4240bc8f7a238a9ac91",
+    "docs/evidence/mesh-merge-core/performance/check-source.py": "4caf3936bd1a9ee47eee81de40be5a16034506c436263018020a67b597e50767"
+  },
+  "source_process_id": 76326,
+  "source_tool_session_id": 53009,
+  "source_terminal_exit": 0,
+  "source_forms_checked": 10,
+  "source_checker_tool_session_id": 44289,
+  "source_checker_terminal_exit": 0,
+  "product_tests": {
+    "rust": "1.85.0",
+    "command": "cargo test --locked --all-features --test mesh_merge",
+    "terminal_exit": 101,
+    "tests_executed": 0,
+    "expected_red_state": "planned EditResult.merges field is absent; product implementation has not started"
+  },
+  "product_code_changed": false,
+  "product_acceptance": "unrun",
+  "milestones_accepted": 0
+}

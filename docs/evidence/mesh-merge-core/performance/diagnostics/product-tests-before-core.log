@@ -1,0 +1,19 @@
+   Compiling formora v0.0.0 (/Users/chrischeng/faberlines/formora)
+error[E0609]: no field `merges` on type `EditResult`
+  --> tests/mesh_merge.rs:90:43
+   |
+90 |     let result = json!({"merges": &result.merges});
+   |                                           ^^^^^^ unknown field
+   |
+   = note: available fields are: `revision`, `selection`, `creation`, `transforms`, `snaps`, `scene_snaps`
+
+error[E0609]: no field `merges` on type `EditResult`
+   --> tests/mesh_merge.rs:171:38
+    |
+171 |         serde_json::to_value(&result.merges)
+    |                                      ^^^^^^ unknown field
+    |
+    = note: available fields are: `revision`, `selection`, `creation`, `transforms`, `snaps`, `scene_snaps`
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `formora` (test "mesh_merge") due to 2 previous errors
