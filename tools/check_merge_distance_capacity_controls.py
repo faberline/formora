@@ -81,8 +81,12 @@ def controls(suite, seal, native, output, case_ids):
     reject('lost_initial_zero_weight', 'a/groups/weights', checkpoint=True,
            mutate=lambda v:v['before']['meshes']['a']['groups']['weights']['v000000'].pop('pin'))
     reject('wrong_output_position', 'source-cluster/vertices/a', mutate=lambda v:v['after']['meshes']['a']['geometry']['vertices']['v000000'].__setitem__(0, 99.))
+    def change_reloaded_integer(value):
+        for name in ['a', 'alias']:
+            layer = value['reloaded']['meshes'][name]['integer_attributes']['VERT']['vertices_signed']
+            layer['v000000'] += 1
     reject('lost_reloaded_integer', 'capacity complete reload/meshes/a/integer_attributes',
-           mutate=lambda v:v['reloaded']['meshes']['a']['integer_attributes']['VERT']['vertices_signed'].__setitem__('v000000', 99))
+           mutate=change_reloaded_integer)
     reject('boolean_clock', 'capacity clock type', mutate=lambda v:v['native_clocks'].update(before_ns=True))
     reject('reversed_clock', 'capacity clock order', mutate=lambda v:v['native_clocks'].update(pipeline_after_ns=1))
     reject('forged_core_ms', 'capacity core clock', mutate=lambda v:v['native_clocks'].update(core_ms=0.))
