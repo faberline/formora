@@ -62,3 +62,45 @@ Still required: all 3,528 requests, retained 14,326 requests, sixty new and
 RNG, recipe and failed-save checks, native Metal proof, three-platform CI,
 dependency integration and independent Codex acceptance. The catalog
 reviews stay pending and complete_products stays empty.
+
+## Full-corpus failure and exact-zero compensation repair
+
+The first complete CLI corpus at implementation 10834244 executed all 1,764
+cases: 1,708 passed and 56 failed. The source legitimately writes an exact
+4x4 zero child parent inverse during singular skip-children compensation.
+The affine-only persistent state validator incorrectly rejected that result.
+Every source scalar and physical coordinate is finite. The zero bottom row
+is source data and must not be replaced by an invented affine row.
+
+The interrupted evidence retains all 1,764 CLI records plus 512 MCP records.
+It also retains 2,045 older delta regression records. Both processes were
+stopped deliberately before repairing the confirmed bug; their actual tool
+exits are 143. Neither interrupted complete gate passed.
+
+Commit f86c73c7 fixed the exact-zero contract and four additional tests before
+the validator repair. Before repair, one test passed and three failed.
+Implementation aa2afb53 accepts exact all-zero matrices in addition to the
+unchanged finite affine domain. It still rejects other projective matrices,
+near-zero non-affine matrices, nonfinite values and f32 range overflow.
+All nine query/compensation tests passed. Then all 280 Rust tests passed,
+with no ignored tests. Clippy, formatting and both builds passed on actual
+Rust 1.85, with unchanged verification inputs.
+
+At the earlier implementation, all sixty timed trial-02 physical outputs
+passed source comparison. Timing still failed: parent-zero cursor-origin
+sample three took 287.408084 ms against 250 ms. The complete lossless archive
+retains 187 files, 576,983,950 raw bytes. The separate physical comparison
+report still has passed:false and required_new_performance_gate_passed:false.
+An initial canonical-input comparison failed on selected-set ordering and
+omitted default-false flags. Those failures remain. The checker now compares
+the same authored values using the documented canonical serializer spelling;
+it does not change any input, output, numeric value or timing limit.
+
+The repaired aa2afb53 implementation completed a new full sixty-sample
+trial-03 with exit zero. All time limits passed: maximum core 173.4855 ms,
+maximum operation/save/reload 501.955209 ms. These are a different corrected
+implementation, not selected samples from the failed trial. Its source
+comparison and the 177 retained timing/source samples are still required.
+The retained native drivers, workloads, forms, clocks, counts and limits
+remain byte-for-byte unchanged. Their new controllers only bind this
+implementation and fresh output/executable paths.
