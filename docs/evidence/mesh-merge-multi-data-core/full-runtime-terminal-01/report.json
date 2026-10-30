@@ -1,0 +1,88 @@
+{
+  "runtime_parent_wait_verified": true,
+  "process_id": 5100,
+  "terminal_exit_code": 0,
+  "runtime_report_complete": true,
+  "interface_records": 26880,
+  "outcomes": {
+    "finished_source_comparison": 18176,
+    "explicit_enum_rejection": 8704
+  },
+  "required_interfaces": [
+    "cli",
+    "official_mcp_sdk"
+  ],
+  "per_interface": {
+    "cli": {
+      "finished_source_comparison": 9088,
+      "explicit_enum_rejection": 4352
+    },
+    "official_mcp_sdk": {
+      "finished_source_comparison": 9088,
+      "explicit_enum_rejection": 4352
+    }
+  },
+  "frozen_input_files_verified": 216,
+  "input_hashes_unchanged": true,
+  "frozen_head": "bd13f3d424f2649b4b25c16305c4e5b0eb7f8542",
+  "evidence_head_before_this_doc": "0c6a18ac3954809dea46c463d27bb81f2bd530e4",
+  "binary_sha256": "64ac734c68a8860d5b65e5694c7ea81bb4df7d5db922a0c07f876bcccd1c8019",
+  "copies": [
+    {
+      "original": "/private/tmp/formora-multi-merge-api-full-01/report.json",
+      "stored": "runtime-report.json.gz",
+      "raw_sha256": "641ad677bd98e60f0dc7c34eac1360debab408045e3a805189925d5bbdbc6852",
+      "stored_sha256": "9bacbdcfc4671be2b98888ff0e6bdc28ccfdee2abc9d97fa9654a1c5ccffd8e4",
+      "raw_bytes": 7013058,
+      "compressed": true
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-api-full-01/started.json",
+      "stored": "runtime-started.json",
+      "raw_sha256": "2dc3615e3144374c0c9ec2e492718f0b9425eeb517a09118b6b74a267fb5ad57",
+      "stored_sha256": "2dc3615e3144374c0c9ec2e492718f0b9425eeb517a09118b6b74a267fb5ad57",
+      "raw_bytes": 23406,
+      "compressed": false
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-full-process-01/started.json",
+      "stored": "parent-started.json",
+      "raw_sha256": "d1f1ff7f96b3085a401f8551cf32ec9dd8fef0e169a188bfcd3ce8482bef408a",
+      "stored_sha256": "d1f1ff7f96b3085a401f8551cf32ec9dd8fef0e169a188bfcd3ce8482bef408a",
+      "raw_bytes": 403,
+      "compressed": false
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-full-process-01/terminal.json",
+      "stored": "parent-terminal.json",
+      "raw_sha256": "1b60da97a728854bf2e59f545815156721883b75a6b8d2292ffce082a8647225",
+      "stored_sha256": "1b60da97a728854bf2e59f545815156721883b75a6b8d2292ffce082a8647225",
+      "raw_bytes": 267,
+      "compressed": false
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-full-process-01/stdout",
+      "stored": "parent-stdout.gz",
+      "raw_sha256": "a1068ff21f2c3a144fc213b213c43e83c0e14c15130723b64db5aaec75662eb7",
+      "stored_sha256": "ade0f0b4cf942c873fe3a02086bbe157e612c84be8795a15bb9ea005cc544e08",
+      "raw_bytes": 111455,
+      "compressed": true
+    },
+    {
+      "original": "/private/tmp/formora-multi-merge-full-process-01/stderr",
+      "stored": "parent-stderr.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "f1b651238a58fe290baec6c5e32f3bdb1943dd2bd582f02569231f7a757c7837",
+      "raw_bytes": 0,
+      "compressed": true
+    }
+  ],
+  "originals_preserved": true,
+  "all_raw_records_audit": "running; not accepted",
+  "full_corruption_controls": "unrun",
+  "retained_207_timing_source_samples": "unrun",
+  "required_ci": "unpassed",
+  "full_interface_gate_accepted": false,
+  "product_acceptance": "unrun",
+  "independent_acceptance": "unrun"
+}
