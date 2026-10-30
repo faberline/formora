@@ -1,0 +1,54 @@
+{
+  "implementation_commit": "43b5f2078a78d12da36341df43fd8334027e9cd3",
+  "commands": [
+    {
+      "name": "preview",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--features",
+        "preview",
+        "--bin",
+        "formora"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "default",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--bin",
+        "formora"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "release-lib",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--release",
+        "--lib"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "artifacts": {
+    "preview": {
+      "path": "/private/tmp/formora-multi-merge-build-02/formora-preview",
+      "sha256": "250b5d6c53d1b6caf06d09dac1a6d04a3bd3231d5ce32754ca369e0bc880d3fe"
+    },
+    "default": {
+      "path": "/private/tmp/formora-multi-merge-target-actual185/debug/formora",
+      "sha256": "381c99ae25fa7bd973b436078da17053b734afdbb22140f63abca237ea512231"
+    },
+    "release-lib": {
+      "path": "/private/tmp/formora-multi-merge-target-actual185/release/libformora.rlib",
+      "sha256": "74c9a503bfd5ae92a33b725944c330b7718902825ccf6bdcbb05cf8880c56e0a"
+    }
+  }
+}
