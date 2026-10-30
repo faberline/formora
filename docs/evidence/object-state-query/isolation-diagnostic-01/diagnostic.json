@@ -1,0 +1,8 @@
+{
+  "actual_driver_exit_code": 1,
+  "error": "KeyError: object_context",
+  "cause": "After undo, valid legacy scene output omits an absent optional object context. The first isolation driver incorrectly indexed the omitted key.",
+  "correction": "Read the optional context with get, then keep the exact absent-context check and all explicit default getter assertions.",
+  "thresholds_inputs_and_product_unchanged": true,
+  "product_acceptance": "pending"
+}

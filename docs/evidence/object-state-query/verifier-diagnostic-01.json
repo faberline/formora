@@ -1,0 +1,10 @@
+{
+  "scope": "first raw runtime verifier attempt",
+  "command": ["python3", "tools/verify_object_state_runtime.py", "--capture", "/private/tmp/formora-object-state-runtime-01", "--output", "/private/tmp/formora-object-state-runtime-01-verification.json"],
+  "actual_exit_code": 1,
+  "error": "AssertionError comparing fresh source report with JSON-loaded runtime source report",
+  "cause": "The source validator returns tuples in observed_modes. JSON stores these tuples as arrays. Direct Python equality rejected the report before product records were checked.",
+  "correction": "Convert the freshly computed source report through JSON before exact comparison. Keep every source value, input, record, threshold and product result unchanged.",
+  "raw_runtime_records_checked_by_this_attempt": 0,
+  "product_acceptance": "pending"
+}
