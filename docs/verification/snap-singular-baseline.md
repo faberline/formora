@@ -83,18 +83,18 @@ Python command passed all 208 tests with terminal exit 0. Its log and actual
 terminal result are retained. The strict readiness check still exits 2;
 all 38 features remain pending and both products remain incomplete.
 
-## Pending policy and product work
+## Approved policy and pending product work
 
-A separate human decision is pending for these 12 invalid getter cases.
-The existing approval to reject 14 undefined mesh-axis inputs does not apply
-to this new defect. Preserve the failed strict capture while waiting.
-No source rule, product behavior or acceptance limit has been changed.
+The user has approved an explicit unavailable/cannot-invert local-matrix
+query while preserving valid operations and world results. The decision is
+recorded in issue #68, comment 6513201148. The exact amended policy is frozen
+in docs/contracts/snap-singular-local-matrix-policy.md. The earlier approval
+to reject fourteen undefined mesh-axis inputs remains separate.
 
-The proposed choices are an explicit unavailable-local-matrix result while
-preserving valid world results, or atomic rejection of the whole operation.
-Neither policy is treated as approved until the user answers. After that
-decision, freeze the exact policy and its product tests before implementation.
-Retain all original cases, raw failures and unchanged numeric limits.
+The original failed strict capture and diagnostic-only reports remain
+unchanged. The amended source validator and product implementation are still
+pending. No unavailable local query is a numeric matrix match. Keep all
+original cases and unchanged numeric limits; do not reject the valid operation.
 
 This draft contains no product implementation or performance acceptance.
 Three-platform CI, stack integration and independent Codex acceptance remain
