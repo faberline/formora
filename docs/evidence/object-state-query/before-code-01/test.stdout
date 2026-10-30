@@ -1,0 +1,24 @@
+
+running 8 tests
+test defaults_are_explicit_read_only_and_do_not_create_object_context ... FAILED
+test every_boolean_triple_is_per_object_persistent_and_freshly_reloaded ... FAILED
+test failed_save_preserves_memory_file_and_undo_history ... FAILED
+test invalid_vectors_and_unknown_state_owners_are_atomic_errors ... FAILED
+test legacy_entity_and_world_queries_keep_their_original_shapes ... ok
+test metadata_query_works_under_singular_parent_and_rejects_mixed_queries ... FAILED
+test stale_revision_and_late_invalid_command_do_not_publish_partial_state ... FAILED
+test undo_and_replay_restore_real_state_without_changing_shared_mesh_data ... FAILED
+
+failures:
+
+failures:
+    defaults_are_explicit_read_only_and_do_not_create_object_context
+    every_boolean_triple_is_per_object_persistent_and_freshly_reloaded
+    failed_save_preserves_memory_file_and_undo_history
+    invalid_vectors_and_unknown_state_owners_are_atomic_errors
+    metadata_query_works_under_singular_parent_and_rejects_mixed_queries
+    stale_revision_and_late_invalid_command_do_not_publish_partial_state
+    undo_and_replay_restore_real_state_without_changing_shared_mesh_data
+
+test result: FAILED. 1 passed; 7 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+

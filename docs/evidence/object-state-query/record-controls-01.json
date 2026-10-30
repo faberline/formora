@@ -1,0 +1,60 @@
+{
+  "negative_controls_passed": true,
+  "controls": 10,
+  "rows": [
+    {
+      "control": "wrong_assigned_value",
+      "rejected": true,
+      "error": "authored boolean value differs"
+    },
+    {
+      "control": "shared_user_state_conflated",
+      "rejected": true,
+      "error": "authored boolean value differs"
+    },
+    {
+      "control": "lost_saved_value",
+      "rejected": true,
+      "error": "authored boolean value differs"
+    },
+    {
+      "control": "geometry_changed",
+      "rejected": true,
+      "error": "source geometry changed"
+    },
+    {
+      "control": "frame_changed",
+      "rejected": true,
+      "error": "component differs: a/authored world/0/3: 0.9200742244720459 != 99.0"
+    },
+    {
+      "control": "sharing_changed",
+      "rejected": true,
+      "error": "source sharing differs"
+    },
+    {
+      "control": "save_failed",
+      "rejected": true,
+      "error": "native save/reopen failed"
+    },
+    {
+      "control": "wrong_request",
+      "rejected": true,
+      "error": "authored source request differs"
+    },
+    {
+      "control": "missing_object",
+      "rejected": true,
+      "error": "source object identity differs"
+    },
+    {
+      "control": "numeric_boolean",
+      "rejected": true,
+      "error": "authored boolean value differs"
+    }
+  ],
+  "forged_operations_executed": false,
+  "source_manifest_sha256": "646bef3ffcf6801109d11b6d0099f3bc23887136d89d99dd44b3fdb0b9ea6e3f",
+  "source_records_unchanged": true,
+  "product_acceptance": "unrun"
+}
