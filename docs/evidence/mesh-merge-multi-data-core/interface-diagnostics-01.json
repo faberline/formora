@@ -1,0 +1,10 @@
+{
+  "scope": "first full-interface pilot source preflight",
+  "actual_exit_code": 1,
+  "error": "ValueError: capture command differs",
+  "product_cases_executed": 0,
+  "cause": "The frozen source checker correctly binds actual source command paths. Native sources ran in the original admitted source worktree, before the separate product worktree existed.",
+  "correction": "Run the unchanged source validator with both source module roots set to the exact admitted source worktree. Keep all original command, path, receipt and hash assertions. Separately bind the current product worktree's copied source headers and all source input files to those same hashes.",
+  "source_or_product_or_threshold_changed": false,
+  "product_acceptance": "unrun"
+}

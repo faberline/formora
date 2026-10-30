@@ -10,7 +10,10 @@ from pathlib import Path
 import subprocess
 import sys
 import traceback
+from unittest.mock import patch
 
+import compare_multi_mesh_merge_reference as native_checker
+import multi_mesh_merge_inputs as native_inputs
 from compare_multi_mesh_merge_reference import bind_suite, load_capture, validate_run, digest
 from compare_snap_menu_reference import tree
 from multi_mesh_merge_product_inputs import scene as authored_scene
@@ -22,7 +25,19 @@ from runtime_artifacts import write_json
 def source_preflight(suite_path, suite):
     bind_suite(suite)
     folders = [ROOT/'docs/evidence/mesh-merge-multi-data-baseline'/name for name in ['native-01', 'native-02']]
-    manifests = [load_capture(folder, suite_path, suite['runs'], False) for folder in folders]
+    # Native processes ran in the admitted source worktree, before the product
+    # worktree existed. Keep exact original command/path checks there. Also bind
+    # the product worktree's evidence and source-input copies byte for byte.
+    admitted = Path('/private/tmp/formora-mesh-merge-multi-data')
+    original_folders = [admitted/f.relative_to(ROOT) for f in folders]
+    with patch.object(native_checker, 'ROOT', admitted), patch.object(native_inputs, 'ROOT', admitted):
+        manifests = [load_capture(folder, admitted/suite_path.relative_to(ROOT), suite['runs'], False)
+                     for folder in original_folders]
+    for folder, original, manifest in zip(folders, original_folders, manifests):
+        for path in ['manifest.json', 'capture-lock.json', 'operator-properties.json']:
+            assert digest(folder/path) == digest(original/path), 'copied source header differs'
+        for relative, sha in manifest['input_hashes'].items():
+            assert digest(ROOT/relative) == sha, 'current source input differs/'+relative
     assert manifests[0]['process_id'] != manifests[1]['process_id']
     assert manifests[0]['input_hashes'] == manifests[1]['input_hashes']
     report_path = ROOT/'docs/evidence/mesh-merge-multi-data-baseline/source-comparison-01.json'

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from compare_snap_menu_reference import tree
 from compare_multi_mesh_merge_reference import edit_providers, selected_data, context
-from multi_mesh_merge_product_inputs import scene as authored_scene, request as authored_request
+from multi_mesh_merge_product_inputs import scene as authored_scene
 from multi_mesh_merge_runtime_inputs import setup, operation
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -252,6 +252,7 @@ def aggregate_receipt(suite, run, before, after, result):
 
 
 def check_record(suite, run, record, references):
+    bind_transport(record)
     assert record['run'] == run and record['input'] == authored_scene(suite, run), 'source answer leaked into setup'
     assert record['setup'] == setup(suite, run), 'source answer leaked into public setup'
     assert record['request'] == operation(run), 'authored request differs'
@@ -269,3 +270,57 @@ def check_record(suite, run, record, references):
     assert record['error'] is None
     aggregate_receipt(suite, run, before, after, record['result'])
     return 'finished_source_comparison'
+
+
+def bind_transport(record):
+    expected = [('init', {}, {'revision': 0}, None),
+                ('scene_apply', record['setup'], record['setup_result'], None)]
+    for phase in ['before', 'after']:
+        part = record[phase]
+        current = part['scene']
+        expected.append(('scene_inspect', {}, {'revision': current['revision'], 'scene': current}, None))
+        for data in sorted(current['mesh_assets']):
+            expected.append(('scene_inspect', {'mesh_asset': data, 'normals': True}, part['queries'][data], None))
+        for name in sorted(current['entities']):
+            expected.append(('scene_inspect', {'entity': name, 'world': True}, part['worlds'][name], None))
+            expected.append(('scene_inspect', {'entity': name, 'object_state': True}, part['states'][name], None))
+        if phase == 'before':
+            expected.append(('scene_apply', record['request'], record['result'], record['error']))
+    expected.append(('scene_inspect', {}, {'revision': record['fresh_scene']['revision'], 'scene': record['fresh_scene']}, None))
+    assert len(expected) == len(record['calls']) == 32, 'raw call coverage differs'
+    for index, (call, (name, args, result, error)) in enumerate(zip(record['calls'], expected)):
+        assert call['request'] == args, 'raw request differs'
+        expected_cli = record['interface'] == 'cli' or index in [0, len(expected)-1]
+        assert (call['interface'] == 'cli') == expected_cli, 'wrong actual interface'
+        if expected_cli:
+            command = call['command']
+            assert command[1:3] == ['scene', name.removeprefix('scene_')]
+            assert type(call['process_id']) is int and call['process_id'] > 0
+            assert (call['terminal_exit_code'] == 0) == (error is None), 'raw CLI terminal differs'
+            assert json.loads(call['stdout']) == (result if error is None else {'error': error}), 'raw CLI result differs'
+            if name == 'scene_apply':
+                assert command[-2:] == ['--request', '-']
+            else:
+                actual = {}
+                for key in ['entity', 'mesh_asset']:
+                    flag = '--'+key.replace('_', '-')
+                    if flag in command:
+                        actual[key] = command[command.index(flag)+1]
+                for key in ['normals', 'world', 'object_state']:
+                    if '--'+key.replace('_', '-') in command:
+                        actual[key] = True
+                assert actual == args, 'raw CLI flags differ'
+        else:
+            assert call['name'] == name
+            response = call['response']
+            assert response['isError'] is (error is not None), 'raw MCP error flag differs'
+            if error is None:
+                assert response['structuredContent'] == result, 'raw MCP result differs'
+                assert json.loads(response['content'][0]['text']) == result, 'raw MCP text differs'
+            else:
+                assert response['structuredContent'] is None and response['content'][0]['text'] == error
+    if record['interface'] == 'official_mcp_sdk':
+        assert record['mcp_initialization']['protocolVersion'] == '2025-11-25'
+        started, terminal = [record['mcp_process'][key] for key in ['started', 'terminal']]
+        assert type(started['process_id']) is int and started['process_id'] > 0
+        assert started['process_id'] == terminal['process_id'] and terminal['terminal_exit_code'] == 0, 'raw MCP terminal differs'
