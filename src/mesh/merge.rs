@@ -107,7 +107,7 @@ pub struct Receipt {
 struct Cluster {
     survivor: usize,
     vertices: Vec<usize>,
-    point: [f32; 3],
+    point: Option<[f32; 3]>,
 }
 
 fn clusters(
@@ -158,14 +158,15 @@ fn clusters(
     if method != Method::Collapse {
         let survivor = endpoint.unwrap_or(selected[0]);
         let point = match method {
-            Method::Center => snap::average(
+            Method::Center => Some(snap::average(
                 selected
                     .iter()
                     .map(|i| snap::point(graph.positions[*i]))
                     .collect::<Result<Vec<_>>>()?,
-            ),
-            Method::Cursor => cursor.expect("cursor prepared from the actual scene"),
-            _ => snap::point(graph.positions[survivor])?,
+            )),
+            Method::Cursor => Some(cursor.expect("cursor prepared from the actual scene")),
+            // Explicit pointmerge does not write the target coordinate.
+            _ => None,
         };
         let mut vertices = vec![survivor];
         vertices.extend(selected.into_iter().filter(|v| *v != survivor));
@@ -218,7 +219,7 @@ fn clusters(
         result.push(Cluster {
             survivor,
             vertices: vertices.into_iter().collect(),
-            point: sum.map(|n| n * factor),
+            point: Some(sum.map(|n| n * factor)),
         });
     }
     Ok(result)
@@ -268,7 +269,7 @@ pub fn execute(scene: &mut Scene, request: &Request) -> Result<Receipt> {
     let clusters = clusters(&graph, original, request.method, cursor)?;
     if clusters
         .iter()
-        .any(|cluster| cluster.point.iter().any(|n| !n.is_finite()))
+        .any(|cluster| cluster.point.iter().flatten().any(|n| !n.is_finite()))
     {
         return Err(SceneError(
             "mesh merge result exceeds finite f32 range".into(),

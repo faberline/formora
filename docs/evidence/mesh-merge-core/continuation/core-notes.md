@@ -35,3 +35,20 @@ performance samples with source comparisons, three-platform CI, stack
 integration and independent Codex acceptance. Complete numeric domains,
 multiple independent edit assets and all other product functions remain in
 the original goal. No feature or milestone acceptance is claimed.
+
+## Additional persistence and receipt failures
+
+The first implementation passed all 1,024 native-protocol source cases.
+That result did not cover all authored acceptance requirements. Three
+additional frozen controls then failed: explicit endpoint f64 persistence,
+an existing edge whose geometry moved, and successful edge-mode collapse
+with no selected edges. Preserve all three actual failures. The test seal
+is 46e8856c and the contract seal is 1d7c83ad, both before repair.
+
+The repair preserves explicit endpoint coordinates without conversion.
+Center/cursor/collapse retain source f32 arithmetic. Receipts compare real
+stored values, moved geometry and actual selected/hidden flags. Successful
+edge-only collapse clears selected flags even with an empty edge buffer.
+All 64 focused Rust tests passed with zero ignored. Library Clippy, build
+and formatting passed. Source and full interface gates must run again at
+this repaired implementation. Prior source success does not pass it.

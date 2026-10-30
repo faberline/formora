@@ -220,6 +220,17 @@ pub(super) fn apply(
         });
     }
     if clusters.is_empty() {
+        // The source's collapse operator succeeds with an empty edge buffer.
+        // With selected vertices, the editor still clears nonvertex modes.
+        if method == Method::Collapse {
+            if let Some(editing) = &mut asset.editing {
+                if !editing.mode.contains(&Domain::Vertex) && !editing.selected.vertices.is_empty()
+                {
+                    editing.selected = Elements::default();
+                    editing.history.clear();
+                }
+            }
+        }
         return Ok(lineage);
     }
     let mut faces: Vec<_> = graph
@@ -265,9 +276,11 @@ pub(super) fn apply(
                 );
             }
         }
-        asset
-            .vertices
-            .insert(survivor.clone(), cluster.point.map(f64::from));
+        if let Some(point) = cluster.point {
+            asset
+                .vertices
+                .insert(survivor.clone(), point.map(f64::from));
+        }
         for id in ids {
             lineage.vertices.insert(id.into(), survivor.clone());
         }
@@ -548,17 +561,50 @@ pub(super) fn apply(
     Ok(lineage)
 }
 
+fn flags(asset: &MeshAsset, component: &Component) -> (bool, bool) {
+    let Some(editing) = &asset.editing else {
+        return (false, false);
+    };
+    let contains = |elements: &Elements| match component {
+        Component::Vertex { id } => elements.vertices.contains(id),
+        Component::Edge { id } => elements.edges.contains(id),
+        Component::Face { face } => elements.faces.contains(face),
+    };
+    (contains(&editing.selected), contains(&editing.hidden))
+}
+
+fn integers<'a>(
+    layers: Option<&'a BTreeMap<String, crate::mesh::attributes::IntegerLayer>>,
+    id: &str,
+) -> Vec<(&'a str, Option<i32>)> {
+    layers
+        .into_iter()
+        .flatten()
+        .map(|(name, layer)| (name.as_str(), layer.0.get(id).copied()))
+        .collect()
+}
+
 pub(super) fn changed(before: &MeshAsset, after: &MeshAsset, old: &Graph, new: &Graph) -> Elements {
-    let vertices = new
+    let moved: BTreeSet<_> = new
         .vertex_ids
         .iter()
         .filter(|id| {
             before
                 .vertices
                 .get(*id)
-                .is_some_and(|point| point != &after.vertices[*id])
-                || before.vertices.contains_key(*id)
-                    && (before
+                .is_some_and(|p| p != &after.vertices[*id])
+        })
+        .cloned()
+        .collect();
+    let a = before.integer_attributes.as_ref();
+    let b = after.integer_attributes.as_ref();
+    let vertices = new
+        .vertex_ids
+        .iter()
+        .filter(|id| {
+            before.vertices.contains_key(*id)
+                && (moved.contains(*id)
+                    || before
                         .vertex_weights
                         .as_ref()
                         .and_then(|weights| weights.0.get(*id))
@@ -566,19 +612,10 @@ pub(super) fn changed(before: &MeshAsset, after: &MeshAsset, old: &Graph, new: &
                             .vertex_weights
                             .as_ref()
                             .and_then(|weights| weights.0.get(*id))
-                        || before.integer_attributes.as_ref().map(|attrs| {
-                            attrs
-                                .vertices
-                                .iter()
-                                .map(|(name, layer)| (name, layer.0.get(*id)))
-                                .collect::<Vec<_>>()
-                        }) != after.integer_attributes.as_ref().map(|attrs| {
-                            attrs
-                                .vertices
-                                .iter()
-                                .map(|(name, layer)| (name, layer.0.get(*id)))
-                                .collect::<Vec<_>>()
-                        }))
+                    || integers(a.map(|attrs| &attrs.vertices), id)
+                        != integers(b.map(|attrs| &attrs.vertices), id)
+                    || flags(before, &Component::Vertex { id: (*id).clone() })
+                        != flags(after, &Component::Vertex { id: (*id).clone() }))
         })
         .cloned()
         .collect();
@@ -587,8 +624,25 @@ pub(super) fn changed(before: &MeshAsset, after: &MeshAsset, old: &Graph, new: &
         .iter()
         .filter(|edge| {
             old.edge_index.contains_key(&edge.id)
-                && (before.edge_seams.contains(&edge.id) != after.edge_seams.contains(&edge.id)
-                    || before.edges.get(&edge.id) != after.edges.get(&edge.id))
+                && (edge
+                    .vertices
+                    .iter()
+                    .any(|v| moved.contains(&new.vertex_ids[*v]))
+                    || before.edges.get(&edge.id) != after.edges.get(&edge.id)
+                    || before.edge_seams.contains(&edge.id) != after.edge_seams.contains(&edge.id)
+                    || integers(a.map(|attrs| &attrs.edges), &edge.id)
+                        != integers(b.map(|attrs| &attrs.edges), &edge.id)
+                    || flags(
+                        before,
+                        &Component::Edge {
+                            id: edge.id.clone(),
+                        },
+                    ) != flags(
+                        after,
+                        &Component::Edge {
+                            id: edge.id.clone(),
+                        },
+                    ))
         })
         .map(|edge| edge.id.clone())
         .collect();
@@ -597,14 +651,35 @@ pub(super) fn changed(before: &MeshAsset, after: &MeshAsset, old: &Graph, new: &
         .iter()
         .filter(|face| {
             old.face_index.contains_key(&face.key)
-                && match &face.key {
-                    FaceRef::Polygon(id) => before.polygons[id] != after.polygons[id],
-                    FaceRef::Triangle(id) => {
-                        before.triangles[id] != after.triangles[id]
-                            || before.smooth_triangles.contains(id)
-                                != after.smooth_triangles.contains(id)
-                    }
-                }
+                && (face
+                    .vertices
+                    .iter()
+                    .any(|v| moved.contains(&new.vertex_ids[*v]))
+                    || flags(
+                        before,
+                        &Component::Face {
+                            face: face.key.clone(),
+                        },
+                    ) != flags(
+                        after,
+                        &Component::Face {
+                            face: face.key.clone(),
+                        },
+                    )
+                    || match &face.key {
+                        FaceRef::Polygon(id) => {
+                            before.polygons[id] != after.polygons[id]
+                                || integers(a.map(|attrs| &attrs.polygons), id)
+                                    != integers(b.map(|attrs| &attrs.polygons), id)
+                        }
+                        FaceRef::Triangle(id) => {
+                            before.triangles[id] != after.triangles[id]
+                                || before.smooth_triangles.contains(id)
+                                    != after.smooth_triangles.contains(id)
+                                || integers(a.map(|attrs| &attrs.triangles), id)
+                                    != integers(b.map(|attrs| &attrs.triangles), id)
+                        }
+                    })
         })
         .map(|face| face.key.clone())
         .collect();
