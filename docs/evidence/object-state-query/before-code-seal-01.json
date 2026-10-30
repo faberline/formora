@@ -1,0 +1,15 @@
+{
+  "issue": 80,
+  "before_product_changes": true,
+  "before_test_execution": true,
+  "tests": 8,
+  "input_hashes": {
+    "tests/object_state_query.rs": "2a368ca82b87e9168a8db9675e383e12dc4625e78ad6bf78ca0df3d18989a205",
+    "docs/contracts/object-state-query.md": "f78c51eb037a573db011f021eb2862af29d591f0b4548962dcf1d83cb79b16c9"
+  },
+  "unchanged_core_implementation": "43b5f2078a78d12da36341df43fd8334027e9cd3",
+  "head_before_seal": "d76e3b27885082d6fb5ffec818b083f69fc50461",
+  "before_library_sha256": "74c9a503bfd5ae92a33b725944c330b7718902825ccf6bdcbb05cf8880c56e0a",
+  "source_gate": "second complete native capture binding passed; independent repeat pending",
+  "product_acceptance": "unrun"
+}
