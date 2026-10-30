@@ -166,7 +166,8 @@ class Capture:
                   'generate_merge_distance_diagnostic.py', 'generate_merge_distance_normal_diagnostic.py',
                   'compare_snap_rotation_reference.py', 'compare_snap_delta_reference.py',
                   'merge_distance_cluster_reference.py', 'merge_distance_fan_reference.py',
-                  'generate_merge_distance_fan_diagnostic.py']
+                  'generate_merge_distance_fan_diagnostic.py', 'generate_merge_distance_parameter_diagnostic.py',
+                  'merge_distance_parameter_reference.py']
         self.paths = [args.suite, *[ROOT/'tools'/name for name in names],
                       *sorted((ROOT/'baseline/sources/mesh-merge-distance').glob('*')),
                       *[ROOT/'baseline/sources/mesh-merge'/name for name in
@@ -202,7 +203,7 @@ class Capture:
             try:
                 result = {'status': sorted(bpy.ops.mesh.remove_doubles(**run['parameters'])), 'error': None}
             except (TypeError, RuntimeError) as error:
-                result = {'status': ['OPERATOR_EXCEPTION'], 'error': str(error)}
+                result = {'status': ['OPERATOR_EXCEPTION'], 'error': str(error), 'error_type': type(error).__name__}
         bpy.context.view_layer.update(); after = snapshot(spec)
         native = self.native_files/(run['id']+'.blend'); assert not native.exists()
         saved = sorted(bpy.ops.wm.save_as_mainfile(filepath=str(native), check_existing=False))

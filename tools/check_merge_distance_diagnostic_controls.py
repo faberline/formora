@@ -104,7 +104,7 @@ def controls(suite, native, output):
     reject('timed_out_native_terminal', 'native terminal failed', envelope=('terminal.json', lambda x: x.update(timed_out=True)))
     reject('wrong_native_pid', 'native PID binding', envelope=('terminal.json', lambda x: x.update(process_id=1)))
     reject('wrong_native_log_identity', 'native log identity', envelope=('terminal.json', lambda x: x.update(stdout_sha256='0'*64)))
-    if len(json.loads(suite.read_text())['runs']) == 33:
+    if any(run['purpose'].startswith('smooth_cyclic_') for run in json.loads(suite.read_text())['runs']):
         reject('smooth_fan_sharp_edge_changed', 'a/geometry/edge_sharp', 'distance_diag_021',
                lambda x: x['before']['meshes']['a']['geometry']['edge_sharp'].__setitem__('e000000', True))
         reject('cyclic_fan_packed_normal_changed', 'a/encoded-custom-normal', 'distance_diag_027',

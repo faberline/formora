@@ -1,0 +1,883 @@
+{
+  "control": "native_reload_attribute_lost",
+  "rejected": true,
+  "expected_check": "a/reload/integer_attributes",
+  "error": "('a/reload/integer_attributes/VERT', 'fields differ')",
+  "preserved_forged_copy": "/var/folders/r_/zwj_t8895ms334wn1pq5gf_w0000gn/T/formora-distance-forged-jnvu5uu7/native",
+  "result": {
+    "diagnostic_checks_passed": false,
+    "cases": 104,
+    "records": [
+      {
+        "id": "distance_diag_000",
+        "purpose": "pair_below",
+        "checks_passed": false,
+        "errors": [
+          "('a/reload/integer_attributes/VERT', 'fields differ')"
+        ],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_001",
+        "purpose": "pair_equal",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_002",
+        "purpose": "pair_above_keep",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_003",
+        "purpose": "pair_above_centroid",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_004",
+        "purpose": "triplet_centroid",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_005",
+        "purpose": "distance_chain",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_006",
+        "purpose": "centroid_tie",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_007",
+        "purpose": "concave_face_mode",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_008",
+        "purpose": "nonmanifold_edges",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_009",
+        "purpose": "coincident_zero_axis",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_010",
+        "purpose": "pair_zero_parent",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [
+          {
+            "entity": "a",
+            "classification": "cannot_invert",
+            "raw_source_matrix_local": [
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "numeric_match_claimed": false
+          }
+        ],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_011",
+        "purpose": "hidden_vertex",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_012",
+        "purpose": "custom_flat",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_013",
+        "purpose": "custom_split_alias",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_014",
+        "purpose": "empty_selection",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_015",
+        "purpose": "normal_codec_diagonal",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_016",
+        "purpose": "normal_codec_negative",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_017",
+        "purpose": "normal_codec_nonunit",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_018",
+        "purpose": "normal_codec_near_auto",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_019",
+        "purpose": "normal_codec_tiny",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_020",
+        "purpose": "normal_codec_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_021",
+        "purpose": "smooth_open_fan_constant_sharpfalse",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_022",
+        "purpose": "smooth_open_fan_constant_sharptrue",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_023",
+        "purpose": "smooth_open_custom_split_sharpfalse",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_024",
+        "purpose": "smooth_open_custom_split_sharptrue",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_025",
+        "purpose": "smooth_open_probe_zero_sharpfalse",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_026",
+        "purpose": "smooth_open_probe_zero_sharptrue",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_027",
+        "purpose": "smooth_cyclic_fan_constant_sharpfalse",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_028",
+        "purpose": "smooth_cyclic_fan_constant_sharptrue",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_029",
+        "purpose": "smooth_cyclic_custom_split_sharpfalse",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_030",
+        "purpose": "smooth_cyclic_custom_split_sharptrue",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_031",
+        "purpose": "smooth_cyclic_probe_zero_sharpfalse",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_032",
+        "purpose": "smooth_cyclic_probe_zero_sharptrue",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_033",
+        "purpose": "omit_parameters_1",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_034",
+        "purpose": "omit_parameters_2",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_035",
+        "purpose": "omit_parameters_3",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_036",
+        "purpose": "omit_parameters_4",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_037",
+        "purpose": "omit_parameters_5",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_038",
+        "purpose": "omit_parameters_6",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_039",
+        "purpose": "omit_parameters_7",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_040",
+        "purpose": "omit_parameters_8",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_041",
+        "purpose": "omit_parameters_9",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_042",
+        "purpose": "omit_parameters_10",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_043",
+        "purpose": "omit_parameters_11",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_044",
+        "purpose": "omit_parameters_12",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_045",
+        "purpose": "omit_parameters_13",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_046",
+        "purpose": "omit_parameters_14",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_047",
+        "purpose": "omit_parameters_15",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_048",
+        "purpose": "threshold_below_hard_min",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_049",
+        "purpose": "threshold_hard_min",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_050",
+        "purpose": "threshold_soft_min",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_051",
+        "purpose": "threshold_soft_max",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_052",
+        "purpose": "threshold_hard_max",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_053",
+        "purpose": "threshold_above_hard_max",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_054",
+        "purpose": "threshold_zero_float",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_055",
+        "purpose": "threshold_negative_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_056",
+        "purpose": "threshold_negative_float",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_057",
+        "purpose": "threshold_integer_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_058",
+        "purpose": "threshold_integer_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_059",
+        "purpose": "threshold_boolean_false",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_060",
+        "purpose": "threshold_boolean_true",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_061",
+        "purpose": "threshold_numeric_string",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_062",
+        "purpose": "threshold_none",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_063",
+        "purpose": "threshold_list",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_064",
+        "purpose": "threshold_dict",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_065",
+        "purpose": "threshold_f32_overflow",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_066",
+        "purpose": "threshold_integer_overflow",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_067",
+        "purpose": "use_centroid_integer_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_068",
+        "purpose": "use_centroid_integer_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_069",
+        "purpose": "use_centroid_negative_integer",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_070",
+        "purpose": "use_centroid_integer_two",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_071",
+        "purpose": "use_centroid_float_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_072",
+        "purpose": "use_centroid_float_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_073",
+        "purpose": "use_centroid_float_half",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_074",
+        "purpose": "use_centroid_string",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_075",
+        "purpose": "use_centroid_none",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_076",
+        "purpose": "use_centroid_list",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_077",
+        "purpose": "use_centroid_dict",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_078",
+        "purpose": "use_centroid_integer_i32_overflow",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_079",
+        "purpose": "use_unselected_integer_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_080",
+        "purpose": "use_unselected_integer_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_081",
+        "purpose": "use_unselected_negative_integer",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_082",
+        "purpose": "use_unselected_integer_two",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_083",
+        "purpose": "use_unselected_float_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_084",
+        "purpose": "use_unselected_float_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_085",
+        "purpose": "use_unselected_float_half",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_086",
+        "purpose": "use_unselected_string",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_087",
+        "purpose": "use_unselected_none",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_088",
+        "purpose": "use_unselected_list",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_089",
+        "purpose": "use_unselected_dict",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_090",
+        "purpose": "use_unselected_integer_i32_overflow",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_091",
+        "purpose": "use_sharp_edge_from_normals_integer_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_092",
+        "purpose": "use_sharp_edge_from_normals_integer_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "finished_numeric"
+      },
+      {
+        "id": "distance_diag_093",
+        "purpose": "use_sharp_edge_from_normals_negative_integer",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_094",
+        "purpose": "use_sharp_edge_from_normals_integer_two",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_095",
+        "purpose": "use_sharp_edge_from_normals_float_zero",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_096",
+        "purpose": "use_sharp_edge_from_normals_float_one",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_097",
+        "purpose": "use_sharp_edge_from_normals_float_half",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_098",
+        "purpose": "use_sharp_edge_from_normals_string",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_099",
+        "purpose": "use_sharp_edge_from_normals_none",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_100",
+        "purpose": "use_sharp_edge_from_normals_list",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_101",
+        "purpose": "use_sharp_edge_from_normals_dict",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_102",
+        "purpose": "use_sharp_edge_from_normals_integer_i32_overflow",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      },
+      {
+        "id": "distance_diag_103",
+        "purpose": "unknown_keyword",
+        "checks_passed": true,
+        "errors": [],
+        "approved_singular_local_queries": [],
+        "operation_classification": "rejected_no_operation"
+      }
+    ],
+    "comparison_limit": 1e-06,
+    "discrete": "exact",
+    "full_source_gate": "unrun",
+    "product_acceptance": "unrun"
+  }
+}

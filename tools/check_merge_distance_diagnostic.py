@@ -17,6 +17,8 @@ from merge_distance_cluster_reference import vertex_result
 from generate_merge_distance_diagnostic import diagnostic
 from generate_merge_distance_normal_diagnostic import normal_diagnostic
 from generate_merge_distance_fan_diagnostic import fan_diagnostic
+from generate_merge_distance_parameter_diagnostic import parameter_diagnostic
+from merge_distance_parameter_reference import converted
 
 
 def authored_suite(suite):
@@ -24,8 +26,9 @@ def authored_suite(suite):
     def deny(*args, **kwargs):
         reads.append(str(args[0])); raise AssertionError('constructor source read')
     with patch.object(builtins, 'open', deny), patch.object(io, 'open', deny):
-        expected = fan_diagnostic() if suite['scope'] == 'targeted_source_cluster_and_smooth_fan_diagnostics_only' else (
-            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic())
+        expected = parameter_diagnostic() if suite['scope'] == 'targeted_source_scalar_parameter_diagnostics_only' else (
+            fan_diagnostic() if suite['scope'] == 'targeted_source_cluster_and_smooth_fan_diagnostics_only' else (
+            normal_diagnostic() if len(suite['runs']) == 21 else diagnostic()))
     assert not reads, 'constructor source reads'
     same(expected, suite, 'pure-authored-suite', 0.)
 
@@ -57,9 +60,13 @@ def postconditions(run, spec, before, after):
     for key in ['objects', 'sharing', 'active_object', 'mode', 'edit_context', 'materials', 'settings']:
         same(before[key], after[key], 'unchanged-scene/'+key, 0.)
     edited = {spec['data_sharing'][name] for name in spec['object_context']['edit_objects']}
+    conversion = converted(run['parameters'])
+    if conversion['classification'] == 'rejected_no_operation':
+        same(before, after, 'rejected-input-no-operation', 0.)
+        return
     for name in spec['object_context']['edit_objects']:
         mesh = spec['mesh_assets'][spec['data_sharing'][name]]
-        prediction = vertex_result(mesh, selection(mesh, spec, True), run['parameters'])
+        prediction = vertex_result(mesh, selection(mesh, spec, True), conversion['parameters'])
         same(prediction['vertices'], after['meshes'][name]['geometry']['vertices'], 'source-cluster/vertices/'+name)
         actual_removed = len(mesh['vertices'])-len(after['meshes'][name]['geometry']['vertices'])
         same(prediction['removed'], actual_removed, 'source-cluster/removed/'+name, 0.)
@@ -184,7 +191,12 @@ def check(suite_path, capture):
         native = gzip.decompress((capture/value['native_file_stored']).read_bytes())
         assert sha(native) == value['native_file_sha256'] and len(native) == value['native_file_bytes']
         assert value['save_status'] == value['reopen_status'] == ['FINISHED']
-        assert value['result'] == {'status': ['FINISHED'], 'error': None}
+        conversion = converted(run['parameters'])
+        if conversion['classification'] == 'rejected_no_operation':
+            assert value['result']['status'] == ['OPERATOR_EXCEPTION'] and value['result']['error_type'] == 'TypeError'
+            assert conversion['parameter'] in value['result']['error'], 'source input rejection parameter'
+        else:
+            assert value['result'] == {'status': ['FINISHED'], 'error': None}
         errors = []
         try: classifications = initial(spec, value['before'])
         except AssertionError as error: errors.append(str(error)); classifications = []
@@ -196,7 +208,8 @@ def check(suite_path, capture):
                     same(value['after']['meshes'][name][key], value['reloaded']['meshes'][name][key], name+'/reload/'+key)
         except AssertionError as error: errors.append(str(error))
         records.append({'id': run['id'], 'purpose': run['purpose'], 'checks_passed': not errors,
-                        'errors': errors, 'approved_singular_local_queries': classifications})
+                        'errors': errors, 'approved_singular_local_queries': classifications,
+                        'operation_classification': conversion['classification']})
     return {'diagnostic_checks_passed': all(r['checks_passed'] for r in records), 'cases': len(records),
             'records': records, 'comparison_limit': 1e-6, 'discrete': 'exact',
             'full_source_gate': 'unrun', 'product_acceptance': 'unrun'}

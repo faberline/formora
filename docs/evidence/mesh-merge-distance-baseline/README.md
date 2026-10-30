@@ -40,7 +40,8 @@ The input state remains draft. These files are not the final before-code seal.
 Frame and unit literals, a distinct second mesh, outside data, native context,
 selection/history and single-corner custom-normal setup now have diagnostic
 adapters. They do not cover the full required domain. Omitted parameters,
-invalid/coercion/nonfinite probes remain pending. The manual page is now
+nonfinite probes remain pending. Omission, bounds and finite type/coercion
+diagnostics are now recorded below. The manual page is now
 retrieved and pinned. Targeted smooth-fan setup passes the diagnostics below.
 Full post-merge topology/data analysis remains pending. Capacity inputs and
 their native results remain unrun.
@@ -98,6 +99,7 @@ registries contain 15 targeted cases and six extra normal-codec cases.
 | diagnostic-05 | 67126 | 0 | 21 | 21 | None. Added receipts and analytic pair checks. |
 | diagnostic-06 | 70821 | 0 | 21 | 21 | None. Added pinned distance-group vertex reference. |
 | diagnostic-07 | 72369 | 0 | 33 | 33 | None. Added open/cyclic smooth-fan setup. |
+| diagnostic-08 | 94006 | 0 | 104 | 104 | None. Includes 36 correct input rejections; these are not numeric matches. |
 
 All attempts preserve raw records, native saved files, inputs, scripts and
 actual parent wait receipts. `archive-manifest.json` binds each lossless copy.
@@ -181,10 +183,52 @@ file and altered smooth-fan sharp flags, cyclic packed normals and zero-default
 normals. All reach their intended rejections. Each complete forged copy stays
 in its own temporary directory. No genuine evidence is changed.
 
-All seven native attempts now preserve 147 diagnostic case records. Their
+The first seven native attempts preserve 147 diagnostic case records. Their
 521 input/output/controller copies retain exact stored and decoded hashes.
 The original 1,188-case draft remains unchanged. Final complete-registry
 freezing and both complete fresh source captures remain unrun.
+
+## Scalar arguments and source outcomes
+
+Diagnostic 08 adds 71 independent scalar argument probes to the 33-case
+registry. It covers all 15 nonempty omission sets, hard/soft bounds, adjacent
+hard-bound float values, negative/zero values, integers, booleans, finite
+float overflow, integer overflow, strings, null, lists, maps and an unknown
+keyword. The three boolean fields each get explicit 0/1 and invalid inputs.
+No nonfinite input was executed in this attempt.
+
+The reference derives conversions from pinned Python/RNA code. Float inputs
+are cast and clamped. Boolean arguments accept integer/bool 0 or 1; floats
+are not accepted for these fields. The scalar helper files and Git identities
+are preserved with the other fixed sources. Default values come from the
+actual admitted RNA schema. The Rust API input contract is not changed here.
+
+The real source process 94006 exited 0. All 104 diagnostic checks pass.
+Checker process 94722 also exited 0. `diagnostic-08-checker/` retains its
+command, stdout, stderr and actual wait receipt. All native saves and reopens
+completed, including for the rejected calls. Rejected calls leave the scene
+unchanged. No rejected call is claimed as a numeric match.
+
+`diagnostic-08-outcomes.json` separates source operator results:
+
+| Source operation class | Count |
+| --- | --- |
+| Finished with a merge | 30 |
+| Finished unchanged | 37 |
+| Finished with all data skipped for empty selection | 1 |
+| Rejected before an operation | 36 |
+
+Accepted calls contain 31 merged, 57 unchanged and two empty/skipped data
+records. Two data records belong to the one empty-selection call. Three
+forged outcome controls reject a disguised failure, a disguised completion
+and a changed empty-selection result. These are source diagnostics, not
+independent product acceptance. `diagnostic-controls-04/` also retains all
+27 complete-checker corruption controls against the 104-case capture.
+
+All eight attempts preserve 251 raw case records and 787 lossless copies.
+Full post-merge topology, data interpolation, selection/history and normal
+transfer still require complete validation. Nonfinite probes, final input
+freezing, two full fresh source runs and capacity evidence remain pending.
 
 Full source acceptance, capacity acceptance and Rust product acceptance all
 remain unrun. No issue or milestone is complete from these diagnostics.
