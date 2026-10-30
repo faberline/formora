@@ -1,0 +1,63 @@
+{
+  "form": "first-no-uv",
+  "milestone_acceptance": "unrun",
+  "passed": true,
+  "product_acceptance": "unrun",
+  "runs": [
+    {
+      "core_end_ns": 12809672000,
+      "core_ms": 195.374833,
+      "core_start_ns": 12614297167,
+      "form": "first-no-uv",
+      "fresh_reload_equal": true,
+      "full_input_and_result_validation_inside_clocks": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "method": "first",
+      "operation_save_reload_ms": 216.309167,
+      "passed": true,
+      "pipeline_end_ns": 13189065417,
+      "pipeline_start_ns": 12972756250,
+      "receipt_equal": true,
+      "sample": 1,
+      "uvs": false
+    },
+    {
+      "core_end_ns": 13479593667,
+      "core_ms": 196.697042,
+      "core_start_ns": 13282896625,
+      "form": "first-no-uv",
+      "fresh_reload_equal": true,
+      "full_input_and_result_validation_inside_clocks": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "method": "first",
+      "operation_save_reload_ms": 233.050125,
+      "passed": true,
+      "pipeline_end_ns": 13872077625,
+      "pipeline_start_ns": 13639027500,
+      "receipt_equal": true,
+      "sample": 2,
+      "uvs": false
+    },
+    {
+      "core_end_ns": 14162142042,
+      "core_ms": 197.913625,
+      "core_start_ns": 13964228417,
+      "form": "first-no-uv",
+      "fresh_reload_equal": true,
+      "full_input_and_result_validation_inside_clocks": true,
+      "maximum_core_ms": 250.0,
+      "maximum_pipeline_ms": 2000.0,
+      "method": "first",
+      "operation_save_reload_ms": 214.997,
+      "passed": true,
+      "pipeline_end_ns": 14537536958,
+      "pipeline_start_ns": 14322539958,
+      "receipt_equal": true,
+      "sample": 3,
+      "uvs": false
+    }
+  ],
+  "samples": 3
+}

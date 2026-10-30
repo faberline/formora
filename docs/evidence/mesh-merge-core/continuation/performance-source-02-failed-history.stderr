@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-mesh-merge-sparse/docs/evidence/mesh-merge-core/continuation/compare-performance-02.py", line 90, in <module>
+    tree({key:reference['after']['meshes'][id][key] for key in actual},actual,'complete saved merge data/'+id)
+  File "/private/tmp/formora-mesh-merge-sparse/tools/compare_snap_menu_reference.py", line 34, in tree
+    for key in a:tree(a[key],b[key],path+'/'+key,tolerance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/formora-mesh-merge-sparse/tools/compare_snap_menu_reference.py", line 36, in tree
+    require(isinstance(b,list) and len(a)==len(b),'array differs: '+path)
+  File "/private/tmp/formora-mesh-merge-sparse/tools/compare_selection_reference.py", line 16, in require
+    raise ValueError(message)
+ValueError: array differs: complete saved merge data/target/history

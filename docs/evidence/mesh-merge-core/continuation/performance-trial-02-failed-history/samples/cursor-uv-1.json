@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "time_seconds": 0.0,
+  "entities": {
+    "child": {
+      "name": "Child",
+      "parent": "target",
+      "transform": {
+        "translation": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "secondary": {
+      "name": "Shared grid",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -1.25,
+          2.375,
+          -0.75
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "grid"
+        },
+        "material": null
+      }
+    },
+    "target": {
+      "name": "Grid",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": {
+          "kind": "euler",
+          "angles": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "order": "xyz"
+        },
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "precision": "f32"
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "grid"
+        },
+        "material": null
+      }
+    }
+  },
+  "materials": {},
+  "mesh_assets": {
+    "grid": {
+      "vertices": {
+        "v000000": [
+          0.375,
+          -0.625,
+          0.875
+        ]
+      },
+      "triangles": {},
+      "uv_layout": {
+        "layers": [
+          "Detail",
+          "Layout"
+        ],
+        "active": "Layout"
+      },
+      "material_slots": [],
+      "editing": {
+        "mode": [
+          "vertex"
+        ],
+        "selected": {
+          "vertices": [
+            "v000000"
+          ],
+          "edges": [],
+          "faces": []
+        },
+        "hidden": {
+          "vertices": [],
+          "edges": [],
+          "faces": []
+        },
+        "history": [
+          {
+            "domain": "vertex",
+            "id": "v000000"
+          }
+        ],
+        "active_face": null
+      },
+      "vertex_groups": [
+        "pin",
+        "soft"
+      ],
+      "vertex_weights": {
+        "v000000": {
+          "pin": 0.4999314844608307,
+          "soft": 0.5832563042640686
+        }
+      },
+      "integer_attributes": {
+        "vertices": {
+          "formora_v_id": {
+            "v000000": 5100
+          },
+          "signed_label": {
+            "v000000": 0
+          }
+        },
+        "edges": {
+          "formora_e_id": {},
+          "signed_edge": {}
+        },
+        "polygons": {
+          "formora_f_id": {},
+          "signed_face": {}
+        },
+        "triangles": {}
+      }
+    }
+  },
+  "doors": {},
+  "active_camera": null,
+  "annotations": [],
+  "authoring_context": {
+    "cursor_location": [
+      0.375,
+      -0.625,
+      0.875
+    ],
+    "cursor_rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "view_rotation": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "object_context": {
+    "order": [
+      "target",
+      "secondary",
+      "child"
+    ],
+    "selected": [
+      "secondary",
+      "target"
+    ],
+    "active": "target",
+    "edit_objects": [
+      "target"
+    ],
+    "states": {},
+    "skip_children": false,
+    "origins_only": false
+  }
+}
