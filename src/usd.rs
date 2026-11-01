@@ -64,14 +64,24 @@ fn identifier(id: &str) -> String {
     out
 }
 fn quoted(s: &str) -> String {
-    // JSON's UTF-8 escaping is also valid for USD quoted strings except control
-    // Unicode escapes. Reject control characters instead of emitting a false name.
-    serde_json::to_string(s).expect("string serializes")
+    // Pinned OpenUSD TfEscapeStringReplaceChar decodes exactly two hex digits.
+    // JSON's Unicode escape spelling would change the value in a USD string.
+    let mut out = String::with_capacity(s.len() + 2);
+    out.push('"');
+    for c in s.chars() {
+        match c {
+            '"' => out.push_str("\\\""),
+            '\\' => out.push_str("\\\\"),
+            c if c.is_ascii_control() => {
+                write!(out, "\\x{:02x}", c as u32).expect("String write");
+            }
+            c => out.push(c),
+        }
+    }
+    out.push('"');
+    out
 }
 fn text_value(s: &str) -> Result<String> {
-    if s.chars().any(char::is_control) {
-        return Err(error("control characters are not supported in names"));
-    }
     Ok(quoted(s))
 }
 fn float(v: f64) -> Result<f32> {
@@ -87,12 +97,31 @@ fn vector<const N: usize>(v: [f64; N]) -> Result<String> {
     Ok(out)
 }
 fn write_vector<const N: usize>(out: &mut String, v: [f64; N]) -> Result<()> {
+    let mut buffer = zmij::Buffer::new();
     out.push('(');
     for (i, value) in v.into_iter().enumerate() {
         if i != 0 {
             out.push_str(", ");
         }
-        write!(out, "{}", float(value)?).expect("String write");
+        let value = float(value)?;
+        let text = buffer.format_finite(value);
+        // The two shortest-decimal formatters use different tie choices.
+        // An exact binary fraction is halfway at p decimal places when its
+        // reduced denominator is 2^(p+1). Preserve Display in that rare case.
+        let halfway = text.find('.').is_some_and(|dot| {
+            let bits = value.to_bits() & 0x7fff_ffff;
+            let exponent = ((bits >> 23) & 255) as i32;
+            let significand = (bits & 0x7f_ffff) | if exponent == 0 { 0 } else { 1 << 23 };
+            let denominator = if exponent == 0 { 149 } else { 150 - exponent }
+                - significand.trailing_zeros() as i32;
+            denominator - 1 == (text.len() - dot - 1) as i32
+        });
+        if text.contains('e') || halfway {
+            // Keep the existing fixed-point spelling and tie choices.
+            write!(out, "{value}").expect("String write");
+        } else {
+            out.push_str(text.strip_suffix(".0").unwrap_or(text));
+        }
     }
     out.push(')');
     Ok(())
@@ -124,8 +153,8 @@ fn list<T: std::fmt::Display>(values: impl IntoIterator<Item = T>) -> String {
 struct Face<'a> {
     kind: &'static str,
     id: &'a str,
-    vertices: Vec<&'a str>,
-    uv: BTreeMap<&'a str, Vec<[f64; 2]>>,
+    vertices: &'a [String],
+    uv: BTreeMap<&'a str, &'a [[f64; 2]]>,
     material: Option<usize>,
 }
 fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
@@ -135,11 +164,11 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
         .map(|(id, f)| Face {
             kind: "triangle",
             id,
-            vertices: f.vertices.iter().map(String::as_str).collect(),
+            vertices: &f.vertices,
             uv: f
                 .uv_layers
                 .iter()
-                .map(|(k, v)| (k.as_str(), v.to_vec()))
+                .map(|(k, v)| (k.as_str(), v.as_slice()))
                 .collect(),
             material: f.material_slot,
         })
@@ -147,11 +176,11 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
             Face {
                 kind: "polygon",
                 id,
-                vertices: f.vertices.iter().map(String::as_str).collect(),
+                vertices: &f.vertices,
                 uv: f
                     .uv_layers
                     .iter()
-                    .map(|(k, v)| (k.as_str(), v.clone()))
+                    .map(|(k, v)| (k.as_str(), v.as_slice()))
                     .collect(),
                 material: f.material_slot,
             }
@@ -176,7 +205,7 @@ fn supported(asset: &MeshAsset, faces: &[Face<'_>]) -> Result<()> {
     }
     let used: HashSet<_> = faces
         .iter()
-        .flat_map(|f| f.vertices.iter().copied())
+        .flat_map(|f| f.vertices.iter().map(String::as_str))
         .collect();
     if used.len() != asset.vertices.len() {
         return Err(error("isolated vertices"));
@@ -185,8 +214,8 @@ fn supported(asset: &MeshAsset, faces: &[Face<'_>]) -> Result<()> {
     if !asset.edges.is_empty() {
         for f in faces {
             for i in 0..f.vertices.len() {
-                let a = f.vertices[i];
-                let b = f.vertices[(i + 1) % f.vertices.len()];
+                let a = f.vertices[i].as_str();
+                let b = f.vertices[(i + 1) % f.vertices.len()].as_str();
                 used_edges.insert(if a < b { (a, b) } else { (b, a) });
             }
         }
@@ -392,9 +421,9 @@ impl Writer<'_> {
         self.out.push_str("\nint[] faceVertexIndices = ");
         write_list(
             &mut self.out,
-            faces.iter().flat_map(|f| &f.vertices),
+            faces.iter().flat_map(|f| f.vertices),
             |out, id| {
-                write!(out, "{}", index[id]).expect("String write");
+                write!(out, "{}", index[id.as_str()]).expect("String write");
                 Ok(())
             },
         )?;
@@ -431,7 +460,7 @@ impl Writer<'_> {
             write!(self.out, "texCoord2f[] primvars:{name} = ").expect("String write");
             write_list(
                 &mut self.out,
-                faces.iter().flat_map(|f| &f.uv[layer]),
+                faces.iter().flat_map(|f| f.uv[layer]),
                 |out, v| write_vector(out, *v),
             )?;
             writeln!(
@@ -587,6 +616,34 @@ pub fn export(scene: &Scene, request: &ExportRequest) -> Result<ExportReceipt> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn scalar_spelling_matches_original_display_across_f32_range() {
+        for bits in (0..=u32::MAX).step_by(1_047_299).chain([
+            0, 0x80000000, 1, 0x007fffff, 0x00800000, 0x3f7fffff, 0x3f800000, 0x3f800001,
+            0x7f7fffff, 0x48a951a4,
+        ]) {
+            let v = f32::from_bits(bits);
+            if v.is_finite() {
+                assert_eq!(
+                    vector([f64::from(v)]).unwrap(),
+                    format!("({v})"),
+                    "bits {bits:08x}"
+                );
+            }
+        }
+    }
+    #[test]
+    fn quote_preserves_controls_and_literal_escape_text_distinctly() {
+        let reference: serde_json::Value = serde_json::from_str(include_str!(
+            "../baseline/static-usd-string-escaping/reference.json"
+        ))
+        .unwrap();
+        let out = quoted(reference["input"].as_str().unwrap());
+        assert!(out.contains(reference["escaped_ascii_controls"].as_str().unwrap()));
+        assert_eq!(quoted("a\0z"), "\"a\\x00z\"");
+        assert_eq!(quoted("\\x00"), "\"\\\\x00\"");
+        assert!(out.contains("中文 🌋"));
+    }
     fn model() -> Scene {
         let mut scene = Scene::default();
         let request: crate::session::ApplyRequest =
@@ -629,7 +686,7 @@ mod tests {
         assert!(project(&s, "rock").is_err());
         let mut s = model();
         s.entities.get_mut("rock_body").unwrap().name = "bad\nname".into();
-        assert!(project(&s, "rock").is_err());
+        assert!(project(&s, "rock").unwrap().text.contains("bad\\x0aname"));
         let mut s = model();
         s.mesh_assets
             .get_mut("rock_body")

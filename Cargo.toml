@@ -16,6 +16,7 @@ schemars = "1.2"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["float_roundtrip"] }
 sha2 = "0.10"
+zmij = "1.0.23"
 bytemuck = { version = "1", features = ["derive"], optional = true }
 arboard = { version = "3.6", default-features = false, optional = true }
 glam = { version = "0.34", optional = true }

@@ -1,6 +1,8 @@
 # Native static USD gate (#86)
 
-Status: contract frozen before exporter code. No product or device test has passed yet.
+Status at initial freeze: no product or device test had passed yet.
+The contract below was frozen before exporter code. Current evidence is recorded
+in `docs/verification/static-usd.md`; this document is not a live pass report.
 Base: c67c23031cf305b4730702de689160a5c91abf06 (unmerged PR #81).
 The editable mother file is Formora scene JSON. USD is a static projection.
 

@@ -2,7 +2,7 @@
 use crate::scene::{Result, SceneError, unique_map, valid_id};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, BTreeSet, HashSet};
 pub mod attributes;
 pub mod creation;
 pub(crate) mod frame_math;
@@ -210,12 +210,14 @@ impl MeshAsset {
                 return Err(SceneError(format!("invalid mesh vertex: {id}")));
             }
         }
+        // Membership only. Authored order and every validation rule are retained.
+        let vertex_ids: HashSet<_> = self.vertices.keys().map(String::as_str).collect();
         let mut pairs = BTreeSet::new();
         for (id, [a, b]) in &self.edges {
             if !valid_id(id)
                 || a == b
-                || !self.vertices.contains_key(a)
-                || !self.vertices.contains_key(b)
+                || !vertex_ids.contains(a.as_str())
+                || !vertex_ids.contains(b.as_str())
                 || !pairs.insert(edge_pair(a, b))
             {
                 return Err(SceneError(format!("invalid mesh edge: {id}")));
@@ -229,7 +231,7 @@ impl MeshAsset {
                 || polygon
                     .vertices
                     .iter()
-                    .any(|v| !self.vertices.contains_key(v))
+                    .any(|v| !vertex_ids.contains(v.as_str()))
                 || (0..count).any(|i| {
                     !pairs.contains(&edge_pair(
                         &polygon.vertices[i],
@@ -266,11 +268,13 @@ impl MeshAsset {
         }
         for (id, triangle) in &self.triangles {
             if !valid_id(id)
-                || triangle.vertices.iter().collect::<BTreeSet<_>>().len() != 3
+                || triangle.vertices[0] == triangle.vertices[1]
+                || triangle.vertices[0] == triangle.vertices[2]
+                || triangle.vertices[1] == triangle.vertices[2]
                 || triangle
                     .vertices
                     .iter()
-                    .any(|v| !self.vertices.contains_key(v))
+                    .any(|v| !vertex_ids.contains(v.as_str()))
                 || triangle
                     .material_slot
                     .is_some_and(|i| i >= self.material_slots.len())

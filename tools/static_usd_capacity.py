@@ -42,15 +42,18 @@ for copies in (1,2):
         target=output/f'capacity-{copies}-{sample}.usda'
         start=time.monotonic_ns()
         receipt=runner.run([binary,'scene','export','--scene',source,'--root','root','--format','usda','--output',target])
+        exported=time.monotonic_ns()
         verification_error=None
+        reopened_at=None
         try:
             reopened=runner.run([binary,'scene','inspect','--scene',source])['scene']
             for key,value in scene.items(): assert reopened[key]==value
+            reopened_at=time.monotonic_ns()
             validate_usd(target,scene,'root',normal_policy='frozen_preview_f32_newell')
         except (AssertionError,ValueError,KeyError) as problem:
             verification_error=str(problem) or type(problem).__name__
         elapsed=time.monotonic_ns()-start
-        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'core_phases_ns':receipt['core_phases_ns'],'pipeline_ns':elapsed,'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
+        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'core_phases_ns':receipt['core_phases_ns'],'pipeline_ns':elapsed,'pipeline_phases_ns':{'export':exported-start,'reopen_compare':None if reopened_at is None else reopened_at-exported,'usd_compare':None if reopened_at is None else start+elapsed-reopened_at},'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
         item['passed']=verification_error is None and item['core_ns']<=copies*250000000 and elapsed<=copies*2000000000
         results.append(item)
         (output/'report.json').write_text(json.dumps({'passed':all(x['passed'] for x in results),'samples':results},indent=2)+'\n')

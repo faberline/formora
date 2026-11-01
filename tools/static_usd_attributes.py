@@ -23,6 +23,7 @@ async def run(binary,output):
         {'operation':'create_entity','id':'root','entity':{'name':'Root \\" 中文','parent':None,'transform':identity,'content':{'kind':'empty'}}},
         {'operation':'create_entity','id':'child','entity':{'name':'child','parent':'root','transform':transform,'content':{'kind':'mesh','geometry':{'kind':'asset','id':'fixture'},'material':'fallback'}}},
         {'operation':'create_entity','id':'outside_camera','entity':{'name':'outside_camera','parent':None,'transform':identity,'content':{'kind':'camera','vertical_fov_degrees':45,'near':.01,'far':100}}}]}
+    request['commands'][3]['entity']['name']=load(ROOT/'baseline/static-usd-string-escaping/reference.json')['input']
     for interface in ('cli','official_mcp_sdk'):
         folder=output/interface;folder.mkdir();scene=folder/'scene.json';usd=folder/'attribute.usda'
         runner.run([binary,'scene','init','--scene',scene])

@@ -193,6 +193,12 @@ Windows core100k:0.867343600,0.809427600,0.787358900s; pipeline100k:
 3.516000000,3.094000000,3.063000000s. Windows core200k:
 1.616188400,1.553710800,1.569625700s; pipeline200k:
 6.719000000,5.985000000,6.047000000s.
+macOS job124841939280 also passed every four-model/attribute/rejection stage and
+FAILED speed with all content comparisons passing. Core100k:
+0.990737229,0.996916540,1.037603198s; pipeline100k:
+4.859936158,4.135733809,4.029481645s. Core200k:
+2.010822300,2.142661951,2.050301894s; pipeline200k:
+8.032487012,8.526337768,8.014650010s. Its complete log and digest are also archived.
 Limits remain0.25/2s per100k and0.5/4s per200k. No timing pass is claimed.
 
 The Linux diagnostic job124841939464 passed all53 selected CLI rotation probes.
@@ -221,3 +227,50 @@ explicitly edit the native asset and preserve its eight corners, normal payload,
 two UV layers and IDs. It also checks UTF-8/escaped names and an unrelated camera
 sibling outside the selected subtree. These additions have only syntax checks
 locally; functional execution remains CI-only. No original fixture was changed.
+
+## Candidate 3739abe and the next repair
+
+Linux static job124848530964 in run41306725508 passed the entire new gate,
+including both concave-polygon interfaces and all six capacity samples.
+Core100k:0.194760426,0.200629028,0.198621060s; pipeline100k:
+1.725147736,1.503380839,1.497608275s. Core200k:
+0.455053676,0.403875342,0.407471900s; pipeline200k:
+3.088072533,3.030057990,2.995378536s. All model USD byte digests remain identical
+to the actual Apple-tested c1 files. This is Linux evidence, not three-platform
+acceptance. Complete log, six samples and model hashes are archived.
+
+Windows job124848531123 passed every model/attribute/rejection stage but FAILED
+all six speed samples while all full content comparisons passed. Core100k:
+0.337948200,0.331343700,0.326717500s; pipeline100k:
+3.062,2.813,2.812s. Core200k:0.673272000,0.699411400,0.658301000s;
+pipeline200k:5.516,6.047,5.468s. Its complete log and samples are archived too.
+The next repair keeps the same work and limits. It borrows face/UV slices,
+uses membership hashes during complete mesh validation, and avoids a temporary
+owned JSON value tree when a fresh CLI process reads the complete native scene.
+Both CLI serialization and the MCP value query share the same full-read builder.
+Filtered reads keep their existing validation and errors. A memory-only test
+checks complete scene values, revision, filtered errors and an independent cursor
+matrix. Diagnostic export/reopen/compare phase times stay inside the full clock.
+
+The fast float formatter is the same locked zmij1.0.23 already used by serde_json.
+The first scalar differential test failed at f32 bits48a951a4: zmij printed
+346765.12 while Display printed346765.13. Both round-trip, but byte preservation
+still matters. Exact decimal-halfway values and exponent spellings therefore
+retain Display. The unchanged differential test, with the first failure explicitly
+retained, now passes over4000 finite patterns across the f32 range plus boundary cases.
+All seven memory-only USD tests and the full-read helper test pass on Rust1.85.
+
+Contract review found a gap: the frozen v1 text requires control-byte escaping,
+but the first implementation rejected all control characters. This is a product
+defect, not a reason to narrow the contract. Additive reference/source bytes were
+frozen at25a3c2beb612a7e3525ef0c30644c6d03e51c087 BEFORE its repair. They use the
+same2095faf OpenUSD pin: string grammar, Quote and TfEscapeStringReplaceChar.
+Two-digit hex escapes preserve ASCII controls, including NUL and following text;
+quote/backslash escaping and multibyte UTF-8 remain exact. Both-interface CI now
+requires the actual OpenUSD-parsed name to equal the frozen input containing all
+ASCII controls, DEL, C1 characters, Chinese and an emoji. Local memory helpers
+check lexical bytes only; actual OpenUSD acceptance remains unrun until new CI.
+
+No source numeric rule, original sealed input, sample, threshold or full-regression
+command changed. New capacity/current-head CI and independent acceptance remain
+required. These repairs do not establish release or milestone acceptance.

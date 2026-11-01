@@ -1,5 +1,5 @@
 use std::collections::BTreeMap;
-use std::io::Read;
+use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
@@ -165,7 +165,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
             }
             "inspect" => {
                 let scene = formora::scene::Scene::load(Path::new(path)).map_err(map_err)?;
-                let value = formora::session::InspectRequest {
+                let request = formora::session::InspectRequest {
                     entity: options.get("--entity").cloned(),
                     mesh_asset: options.get("--mesh-asset").cloned(),
                     tessellate: options.contains_key("--tessellate"),
@@ -173,10 +173,13 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
                     normals: options.contains_key("--normals"),
                     world: options.contains_key("--world"),
                     object_state: options.contains_key("--object-state"),
-                }
-                .inspect(&scene)
-                .map_err(map_err)?;
-                Ok(Some(value))
+                };
+                let stdout = std::io::stdout();
+                let mut output = std::io::BufWriter::new(stdout.lock());
+                request.write_json(&scene, &mut output).map_err(map_err)?;
+                output.write_all(b"\n").map_err(|e| e.to_string())?;
+                output.flush().map_err(|e| e.to_string())?;
+                Ok(None)
             }
             "apply" => {
                 let request_path = &options["--request"];
