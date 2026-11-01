@@ -82,3 +82,44 @@ validation stays inside each clock. Small models cannot establish capacity pass.
 GPU quality/startup and Apple load are separate checks. All required failures,
 skips or unrun checks keep this gate incomplete. Old rotation/Windows CI failures,
 source seals and milestone acceptance remain. No milestone is closed by this gate.
+
+## Rebuild the four assets
+
+Use the new candidate branch from PR #87. Its base PR #81 is not integrated.
+Build with Rust 1.85 and `--features preview`. On hosts with a separate Homebrew
+Cargo installation, put the chosen rustup toolchain's `bin` directory first on PATH;
+`rustup run ... cargo clippy` alone can still select Homebrew's cargo-clippy.
+
+For each ID `crate`, `rock`, `workbench`, `radio`, run these native commands with a
+new scene and a new output path. `NAME` below is a shell variable for that ID.
+The third operation is the explicit whole-model pivot correction. It retains the
+original create/edit requests, vertices and material values. Final revision is3.
+
+```sh
+NAME=crate
+./target/debug/formora scene init --scene "/tmp/$NAME.json"
+./target/debug/formora scene apply --scene "/tmp/$NAME.json" --request "baseline/static-usd/$NAME/create.json"
+./target/debug/formora scene apply --scene "/tmp/$NAME.json" --request "baseline/static-usd/$NAME/edit.json"
+./target/debug/formora scene apply --scene "/tmp/$NAME.json" --request "baseline/static-usd-pivot/$NAME.json"
+./target/debug/formora scene inspect --scene "/tmp/$NAME.json"
+./target/debug/formora scene export --scene "/tmp/$NAME.json" --root "$NAME" --format usda --output "/tmp/$NAME.usda"
+```
+
+MCP uses `formora mcp --scene PATH`. Call `scene_apply` with exactly the same three
+request objects, then `scene_inspect` and `scene_export`. The export arguments are
+`{"root":"crate","format":"usda","output":"/tmp/crate.usda"}`. Output must be new.
+Inspect/save/edit use the existing shared scene core. `scene_export` returns actual
+root/revision/counts/bytes/SHA-256 and the complete-validation core duration.
+
+Native multiview helper: `python3 tools/static_usd_native_views.py BINARY MOTHER NEW_DIR`.
+It makes preview copies with cameras/lights. It does not change the mother.
+Apple tool: compile `tools/apple-static-usd/Inspect.swift` with `xcrun swiftc`,
+`-swift-version 5 -parse-as-library -target arm64-apple-macosx14.0`. Run its output
+as `INSPECTOR MODEL.usda NEW_REPORT.json NEW_CAPTURE_DIR`. Actual GPU access is
+required. Check buffers with `python3 tools/static_usd_apple_check.py REPORT MOTHER ROOT`.
+Minimum iOS17 API typecheck is separate; iOS hardware execution remains unrun.
+
+Textures, skinning, rigs, character animation, LOD, USDZ and a native Formora USD
+importer are not implemented by this gate. ASHFALL still must choose its game-unit
+conversion and adopt/independently test a pinned candidate. Its repository was not
+modified. Native JSON is the editable source; USD is a static delivery projection.

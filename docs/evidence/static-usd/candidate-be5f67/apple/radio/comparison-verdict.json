@@ -1,0 +1,13 @@
+{
+  "exit_code": 1,
+  "geometry_material_hierarchy_was_compared": true,
+  "bottom_centre_pivot_passed": false,
+  "full_gate_passed": false,
+  "command": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+    "tools/static_usd_apple_check.py",
+    "docs/evidence/static-usd/candidate-be5f67/apple/radio/loaded.json",
+    "docs/evidence/static-usd/candidate-be5f67/ci-transfer/radio/scene.json",
+    "radio"
+  ]
+}

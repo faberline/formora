@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "kind": "axis",
+      "command": [
+        "/private/tmp/formora-apple-static-inspect-03",
+        "/private/tmp/formora-apple-controls-be5-01/axis/wrong.usda",
+        "/private/tmp/formora-apple-controls-be5-01/axis/loaded.json"
+      ],
+      "pid": 92807,
+      "waited": true,
+      "exit_code": 0,
+      "elapsed_ns": 381999833,
+      "input_sha256": "c1546ab077ce65aab13b3a72f0e2cf2424d1e81ccd1438db35f2701f39ae3824",
+      "binary_sha256": "1d47e95bd44265eaaa5c8fff69faeb14859a00828ecd2f9b0be5bc7fc6abaa7e",
+      "comparison_error": "('missing oriented triangle', 'crate_band_left', [[-0.31000000000000005, 0.0, 0.31], [-0.25, 0.0, -0.31], [-0.25, 0.0, 0.31]])",
+      "detected": true
+    },
+    {
+      "kind": "unit",
+      "command": [
+        "/private/tmp/formora-apple-static-inspect-03",
+        "/private/tmp/formora-apple-controls-be5-01/unit/wrong.usda",
+        "/private/tmp/formora-apple-controls-be5-01/unit/loaded.json"
+      ],
+      "pid": 92810,
+      "waited": true,
+      "exit_code": 0,
+      "elapsed_ns": 252183375,
+      "input_sha256": "411781f15c236f4d3b84a4b77d40f5603d13606e039e4a0e99b0945da83f1aaf",
+      "binary_sha256": "1d47e95bd44265eaaa5c8fff69faeb14859a00828ecd2f9b0be5bc7fc6abaa7e",
+      "comparison_error": "('missing oriented triangle', 'crate_band_left', [[-0.31000000000000005, 0.0, 0.31], [-0.25, 0.0, -0.31], [-0.25, 0.0, 0.31]])",
+      "detected": true
+    },
+    {
+      "kind": "material",
+      "command": [
+        "/private/tmp/formora-apple-static-inspect-03",
+        "/private/tmp/formora-apple-controls-be5-01/material/wrong.usda",
+        "/private/tmp/formora-apple-controls-be5-01/material/loaded.json"
+      ],
+      "pid": 92903,
+      "waited": true,
+      "exit_code": 0,
+      "elapsed_ns": 198723000,
+      "input_sha256": "26ce483aed06b4feb1a86df2aa638c00a1dfb5b6e5131a521ad0cb030d0912ce",
+      "binary_sha256": "1d47e95bd44265eaaa5c8fff69faeb14859a00828ecd2f9b0be5bc7fc6abaa7e",
+      "comparison_error": "([0.12300000339746475, 0.8500000238418579], [0.4, 0.85])",
+      "detected": true
+    },
+    {
+      "kind": "geometry",
+      "command": [
+        "/private/tmp/formora-apple-static-inspect-03",
+        "/private/tmp/formora-apple-controls-be5-01/geometry/wrong.usda",
+        "/private/tmp/formora-apple-controls-be5-01/geometry/loaded.json"
+      ],
+      "pid": 92906,
+      "waited": true,
+      "exit_code": 0,
+      "elapsed_ns": 203314708,
+      "input_sha256": "21ebeefbfde428539c8057c3dcb67d6f7fc251950543ce6db2e210339f8ed0be",
+      "binary_sha256": "1d47e95bd44265eaaa5c8fff69faeb14859a00828ecd2f9b0be5bc7fc6abaa7e",
+      "comparison_error": "('missing or duplicate geometry', 'crate_band_left')",
+      "detected": true
+    },
+    {
+      "kind": "hierarchy",
+      "command": [
+        "/private/tmp/formora-apple-static-inspect-03",
+        "/private/tmp/formora-apple-controls-be5-01/hierarchy/wrong.usda",
+        "/private/tmp/formora-apple-controls-be5-01/hierarchy/loaded.json"
+      ],
+      "pid": 92907,
+      "waited": true,
+      "exit_code": 0,
+      "elapsed_ns": 210471708,
+      "input_sha256": "d42a27d6cac725fb63af772d2ec0fefe5085852e5e378cc2ef922534ce398677",
+      "binary_sha256": "1d47e95bd44265eaaa5c8fff69faeb14859a00828ecd2f9b0be5bc7fc6abaa7e",
+      "comparison_error": "('crate_band_left', '//Formora', 'id_6372617465')",
+      "detected": true
+    }
+  ]
+}

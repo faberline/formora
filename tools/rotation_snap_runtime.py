@@ -7,6 +7,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+from runtime_binary import resolve_binary
 import subprocess
 import tempfile
 
@@ -191,6 +192,8 @@ async def run(binary,output,case_ids=(),interfaces=('cli','official_mcp_sdk'),gz
                         'queries':{'before':qb,'after':qa},'world_queries':{'before':wb,'after':wa},
                         'scene_inspections':{'before':ib,'after':ia},'saved_before_sha256':saved_before,'saved_after_sha256':saved_after,
                         'fresh_reload_matches':True,'status':'passed' if failure is None else 'failed','comparison_error':failure},gzip_output)
+                    if failure is not None and sum(r['status']=='failed' for r in records)<8:
+                        print(json.dumps({'id':case['id'],'interface':interface,'comparison_error':failure}),flush=True)
                     records.append({'id':case['id'],'interface':interface,'file':path.name,'sha256':digest(path),
                                     'status':'passed' if failure is None else 'failed','error':failure})
                 if (index+1)%50==0:print(json.dumps({'interface':interface,'executed':index+1,'failed':sum(r['status']=='failed' for r in records)}),flush=True)
@@ -209,4 +212,4 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--case',action='append',default=[],dest='case_ids');parser.add_argument('--interface',action='append',choices=['cli','official_mcp_sdk'])
     parser.add_argument('--gzip-output',action='store_true')
-    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk'),args.gzip_output))
+    args=parser.parse_args();asyncio.run(run(resolve_binary(args.binary),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk'),args.gzip_output))

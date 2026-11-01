@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "binary_sha256": "636bf9c11e5dca4374c22160127e1ecfbebdf2b4a702dda75f5fb434ee2f9a86",
+  "results": [
+    {
+      "model": "crate",
+      "interface": "cli",
+      "scene_sha256": "ce7701d98c1f1c427607aea478146ea6a44fb9e8cd94b9de19a3708125d31e4f",
+      "usd_sha256": "32f5411b00502b424825e13fed1d2837db655f539078fa2d9887fa02393f116c",
+      "meshes": 3,
+      "entities": 4
+    },
+    {
+      "model": "crate",
+      "interface": "official_mcp_sdk",
+      "scene_sha256": "ce7701d98c1f1c427607aea478146ea6a44fb9e8cd94b9de19a3708125d31e4f",
+      "usd_sha256": "32f5411b00502b424825e13fed1d2837db655f539078fa2d9887fa02393f116c",
+      "meshes": 3,
+      "entities": 4
+    },
+    {
+      "model": "rock",
+      "interface": "cli",
+      "scene_sha256": "72695d4ca3918f7c7a319cbf0369c2f6fa76b1a1a72b5e7ded09a57fc0209dc4",
+      "usd_sha256": "5e7b66d39d7b1fb2af740c8f189f1183509f0af5d22a50823e7e7ae83a9063a3",
+      "meshes": 1,
+      "entities": 2
+    },
+    {
+      "model": "rock",
+      "interface": "official_mcp_sdk",
+      "scene_sha256": "72695d4ca3918f7c7a319cbf0369c2f6fa76b1a1a72b5e7ded09a57fc0209dc4",
+      "usd_sha256": "5e7b66d39d7b1fb2af740c8f189f1183509f0af5d22a50823e7e7ae83a9063a3",
+      "meshes": 1,
+      "entities": 2
+    },
+    {
+      "model": "workbench",
+      "interface": "cli",
+      "scene_sha256": "839a0633f161f61833df0af37b3892915b13ef4b7bfc41e65bea2f86fe3c8417",
+      "usd_sha256": "43e84b89c793d288a4d0db509042c97bf439b90e9921a6848f4c0294d1d3e370",
+      "meshes": 6,
+      "entities": 7
+    },
+    {
+      "model": "workbench",
+      "interface": "official_mcp_sdk",
+      "scene_sha256": "839a0633f161f61833df0af37b3892915b13ef4b7bfc41e65bea2f86fe3c8417",
+      "usd_sha256": "43e84b89c793d288a4d0db509042c97bf439b90e9921a6848f4c0294d1d3e370",
+      "meshes": 6,
+      "entities": 7
+    },
+    {
+      "model": "radio",
+      "interface": "cli",
+      "scene_sha256": "12f9b17c512070462d3dc58ac976557b86c283712c893ded3ca36044501c78de",
+      "usd_sha256": "6c4d5ede6383e9df3e75663b03bbe0f142ef3b4aa65298e65a1b09c21337ade8",
+      "meshes": 4,
+      "entities": 5
+    },
+    {
+      "model": "radio",
+      "interface": "official_mcp_sdk",
+      "scene_sha256": "12f9b17c512070462d3dc58ac976557b86c283712c893ded3ca36044501c78de",
+      "usd_sha256": "6c4d5ede6383e9df3e75663b03bbe0f142ef3b4aa65298e65a1b09c21337ade8",
+      "meshes": 4,
+      "entities": 5
+    }
+  ],
+  "required_capacity": "unrun",
+  "native_gpu": "unrun",
+  "apple_loader": "unrun",
+  "full_gate_passed": false
+}

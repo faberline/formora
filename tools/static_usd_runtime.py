@@ -31,11 +31,11 @@ def near(a, b):
 
 def native_expected(name):
     """Interpret only independently authored explicit setup/edit operations."""
-    scene = {'schema_version':1, 'revision':2, 'time_seconds':0.0,
+    scene = {'schema_version':1, 'revision':3, 'time_seconds':0.0,
              'entities':{}, 'materials':{}, 'mesh_assets':{}, 'doors':{},
              'active_camera':None, 'annotations':[]}
     b = ROOT/'baseline/static-usd'/name
-    for request in (load(b/'create.json'), load(b/'edit.json')):
+    for request in (load(b/'create.json'), load(b/'edit.json'), load(ROOT/'baseline/static-usd-pivot'/(name+'.json'))):
         for c in request['commands']:
             op = c['operation']
             if op == 'set_material':
@@ -44,6 +44,8 @@ def native_expected(name):
                 scene['mesh_assets'][c['id']] = copy.deepcopy(c['asset'])
             elif op == 'create_entity':
                 scene['entities'][c['id']] = copy.deepcopy(c['entity'])
+            elif op == 'set_transform':
+                scene['entities'][c['id']]['transform']=copy.deepcopy(c['transform'])
             elif op == 'set_mesh_vertices':
                 scene['mesh_assets'][c['id']]['vertices'].update(c['positions'])
             else:
@@ -53,8 +55,34 @@ def native_expected(name):
 def prim_id(id):
     return 'id_'+id.encode().hex()
 
-def validate_usd(path, scene, root):
+def source_f32_triangle_normals(points):
+    """Independent array arithmetic for the frozen preview's flat Newell rule.
+
+    This is input-only f32 arithmetic, not a product-output reference. The
+    native preview contract converts positions to f32 before sequential Newell
+    accumulation and reciprocal normalization. A f64 cross product defines a
+    different rule on translated capacity geometry. Keep both rules distinct.
+    """
+    import numpy as np
+    p=np.asarray(points,dtype=np.float32)
+    assert p.ndim==3 and p.shape[1:]==(3,3) and np.isfinite(p).all()
+    n=np.zeros((len(p),3),dtype=np.float32)
+    for i in range(3):
+        a=p[:,(i-1)%3,:];b=p[:,i,:]
+        for j in range(3):
+            n[:,j]=n[:,j]+(a[:,(j+1)%3]-b[:,(j+1)%3])*(a[:,(j+2)%3]+b[:,(j+2)%3])
+    squared=(n[:,0]*n[:,0]+n[:,1]*n[:,1])+n[:,2]*n[:,2]
+    assert np.isfinite(squared).all()
+    valid=squared>np.float32(1e-35)
+    inverse=np.zeros(len(n),dtype=np.float32)
+    inverse[valid]=np.float32(1)/np.sqrt(squared[valid])
+    n=n*inverse[:,None];n[~valid]=[0,0,1]
+    assert np.isfinite(n).all()
+    return n
+
+def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
     from pxr import Usd, UsdGeom, UsdShade
+    assert normal_policy in ('independent_f64_cross','frozen_preview_f32_newell')
     stage = Usd.Stage.Open(str(path))
     assert stage and stage.GetDefaultPrim().GetName() == 'Formora'
     assert UsdGeom.GetStageUpAxis(stage) == 'Z'
@@ -94,13 +122,21 @@ def validate_usd(path, scene, root):
         assert mesh.GetDoubleSidedAttr().Get() is False
         assert mesh.GetNormalsInterpolation() == 'faceVarying'
         normals = list(mesh.GetNormalsAttr().Get()); assert len(normals) == len(indices)
-        for i, f in enumerate(faces):
-            points = [a['vertices'][v] for v in a['triangles'][f]['vertices']]
-            ab = [points[1][j]-points[0][j] for j in range(3)]
-            ac = [points[2][j]-points[0][j] for j in range(3)]
-            n = [ab[(j+1)%3]*ac[(j+2)%3]-ab[(j+2)%3]*ac[(j+1)%3] for j in range(3)]
-            length = math.sqrt(sum(v*v for v in n)); n = [v/length for v in n]
-            for k in range(3): near(normals[3*i+k], n)
+        if normal_policy=='frozen_preview_f32_newell':
+            import numpy as np
+            input_points=np.array([[a['vertices'][v] for v in a['triangles'][f]['vertices']] for f in faces],dtype=np.float32)
+            expected_normals=source_f32_triangle_normals(input_points)
+            actual_normals=np.asarray(normals,dtype=np.float64).reshape(len(faces),3,3)
+            delta=np.abs(actual_normals-expected_normals[:,None,:])
+            assert np.isfinite(actual_normals).all() and (delta<=1e-6).all(),('f32 Newell normal mismatch',float(delta.max()))
+        else:
+            for i, f in enumerate(faces):
+                points = [a['vertices'][v] for v in a['triangles'][f]['vertices']]
+                ab = [points[1][j]-points[0][j] for j in range(3)]
+                ac = [points[2][j]-points[0][j] for j in range(3)]
+                n = [ab[(j+1)%3]*ac[(j+2)%3]-ab[(j+2)%3]*ac[(j+1)%3] for j in range(3)]
+                length = math.sqrt(sum(v*v for v in n)); n = [v/length for v in n]
+                for k in range(3): near(normals[3*i+k], n)
         material, _ = UsdShade.MaterialBindingAPI(mesh).ComputeBoundMaterial()
         mat_id = e['content']['material']
         assert material and material.GetPrim().GetAttribute('formora:sourceId').Get() == mat_id
@@ -114,6 +150,23 @@ def validate_usd(path, scene, root):
     assert {str(p.GetPath()) for p in stage.Traverse() if p.IsA(UsdGeom.Mesh)} == expected_meshes
     return {'meshes':len(expected_meshes),'entities':len(expected_nodes)}
 
+def verify_mcp_receipt(receipt,binary,scene):
+    assert isinstance(receipt,dict),'missing actual process receipt'
+    assert type(receipt.get('pid')) is int and receipt['pid']>0
+    assert receipt.get('waited') is True and type(receipt.get('exit_code')) is int and receipt['exit_code']==0
+    assert receipt.get('command')==[str(binary),'mcp','--scene',str(scene)]
+    assert receipt.get('binary_sha256')==sha(binary)
+    assert type(receipt.get('elapsed_ns')) is int and receipt['elapsed_ns']>=0
+
+def process_controls(actual,binary,scene):
+    verify_mcp_receipt(actual,binary,scene)
+    for bad in (None,{}, {**actual,'exit_code':1},{**actual,'waited':False},
+                {**actual,'exit_code':False},{**actual,'pid':0},{**actual,'binary_sha256':'0'*64},
+                {**actual,'command':['echo','pretend']},{**actual,'elapsed_ns':None}):
+        try:verify_mcp_receipt(bad,binary,scene)
+        except AssertionError:pass
+        else:raise AssertionError('accepted failed/missing/foreign process receipt')
+
 class Runner:
     def __init__(self, output):
         self.output = output
@@ -121,12 +174,32 @@ class Runner:
     def run(self, args, stdin=None, fail=False):
         start = time.monotonic_ns()
         p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        stdout, stderr = p.communicate(None if stdin is None else json.dumps(stdin), timeout=120)
+        timed_out=False
+        try:
+            stdout, stderr = p.communicate(None if stdin is None else json.dumps(stdin), timeout=120)
+        except subprocess.TimeoutExpired:
+            timed_out=True
+            p.terminate()
+            try:
+                stdout,stderr=p.communicate(timeout=10)
+            except subprocess.TimeoutExpired:
+                p.kill()
+                stdout,stderr=p.communicate(timeout=10)
         receipt = {'command':[str(x) for x in args], 'pid':p.pid, 'waited':True, 'exit_code':p.returncode,
-                   'elapsed_ns':time.monotonic_ns()-start, 'stdout':stdout, 'stderr':stderr}
+                   'elapsed_ns':time.monotonic_ns()-start, 'timed_out':timed_out,'stdout':stdout, 'stderr':stderr}
+        # Large actual query results stay complete in separate files, with hashes
+        # in the process ledger. Rewriting all prior 40 MiB query strings for each
+        # process would measure ledger amplification rather than the fixed pipeline.
+        for stream in ('stdout','stderr'):
+            raw=receipt[stream].encode()
+            file=self.output/('process-'+str(len(self.receipts))+'-'+stream+'.txt')
+            file.write_bytes(raw)
+            receipt[stream+'_file']=file.name
+            receipt[stream+'_sha256']=hashlib.sha256(raw).hexdigest()
+            if len(raw)>32768:receipt[stream]='[complete bytes in '+file.name+']'
         self.receipts.append(receipt)
         (self.output/'processes.json').write_text(json.dumps(self.receipts,indent=2)+'\n')
-        assert bool(p.returncode) == fail, receipt
+        assert not timed_out and p.returncode==(1 if fail else 0), receipt
         return json.loads(stdout)
 
 async def run(binary, output):
@@ -150,9 +223,10 @@ async def run(binary, output):
             if interface == 'cli':
                 for step in ('create','edit'):
                     cli('apply','--request',ROOT/'baseline/static-usd'/name/(step+'.json'))
+                cli('apply','--request',ROOT/'baseline/static-usd-pivot'/(name+'.json'))
                 before = scene.read_bytes()
                 receipt = cli('export','--root',name,'--format','usda','--output',usd)
-                transfer={'scene':json.loads(before),'usda':usd.read_text(),'reference':reference,'export_receipt':receipt}
+                transfer={'scene':json.loads(before),'scene_utf8':before.decode('utf8'),'usda':usd.read_text(),'reference':reference,'export_receipt':receipt}
                 packed=gzip.compress(json.dumps(transfer,sort_keys=True).encode(),mtime=0)
                 print('FORMORA_STATIC_ASSET_'+name.upper()+'='+base64.b64encode(packed).decode(),flush=True)
                 cli('export','--root',name,'--format','usda','--output',usd,fail=True)
@@ -171,6 +245,8 @@ async def run(binary, output):
                         for step in ('create','edit'):
                             result = await client.call_tool('scene_apply',load(ROOT/'baseline/static-usd'/name/(step+'.json')))
                             assert not result.is_error, result
+                        pivot=await client.call_tool('scene_apply',load(ROOT/'baseline/static-usd-pivot'/(name+'.json')))
+                        assert not pivot.is_error,pivot
                         before = scene.read_bytes()
                         args = {'root':name,'format':'usda','output':str(usd)}
                         Draft202012Validator(schema).validate(args)
@@ -180,20 +256,32 @@ async def run(binary, output):
                         again = await client.call_tool('scene_export',args); assert again.is_error
                         invalid = await client.call_tool('scene_export',{**args,'format':'usdz','output':str(folder/'no.usdz')}); assert invalid.is_error
                 receipt_record=load(process_receipt)
-                assert receipt_record['pid']>0 and receipt_record['waited'] is True and receipt_record['exit_code']==0, receipt_record
+                process_controls(receipt_record,binary,scene)
                 # stdio context has awaited the actual server process. The new
                 # CLI below must acquire its writer lock again, not merely inspect.
-                cli('apply','--request','-',stdin={'expected_revision':2,'commands':[]},fail=True)
+                cli('apply','--request','-',stdin={'expected_revision':3,'commands':[]},fail=True)
             assert scene.read_bytes() == before and sha(usd) == receipt['sha256']
             actual = cli('inspect')['scene']; assert actual == expected, (name,actual)
             assert actual['mesh_assets'][reference['edited_mesh_id']]['vertices']['v0'] == reference['edited_vertex']
             assert actual['materials'][reference['edited_material_id']] == reference['edited_material']
+            assert receipt['revision']==actual['revision']==3
             counts = validate_usd(usd,expected,name)
+            editable_scene=folder/'editable-reopen.json';editable_scene.write_bytes(before)
+            editable=copy.deepcopy(expected);editable['revision']=4
+            mesh_id=reference['edited_mesh_id'];material_id=reference['edited_material_id']
+            moved=list(editable['mesh_assets'][mesh_id]['vertices']['v0']);moved[0]+=.005
+            editable['mesh_assets'][mesh_id]['vertices']['v0']=moved
+            editable['materials'][material_id]['roughness']=.68
+            third={'expected_revision':3,'commands':[
+                {'operation':'set_mesh_vertices','id':mesh_id,'positions':{'v0':moved}},
+                {'operation':'set_material','id':material_id,'material':editable['materials'][material_id]}]}
+            runner.run([binary,'scene','apply','--scene',editable_scene,'--request','-'],stdin=third)
+            assert runner.run([binary,'scene','inspect','--scene',editable_scene])['scene']==editable
             if previous_usd is not None: assert usd.read_bytes() == previous_usd
             previous_usd = usd.read_bytes()
             results.append({'model':name,'interface':interface,'scene_sha256':sha(scene),'usd_sha256':sha(usd),**counts})
             if interface == 'cli':
-                bundle[name] = {'scene':json.loads(before),'usda':usd.read_text(),'reference':reference}
+                bundle[name] = {'scene':json.loads(before),'scene_utf8':before.decode('utf8'),'usda':usd.read_text(),'reference':reference}
         # Semantic corruption controls. No candidate-generated reference answers.
         from pxr import Usd, UsdGeom, UsdShade, Sdf
         for kind in ('axis','unit','material','geometry','hierarchy'):

@@ -17,12 +17,21 @@ jobs:
         with:
           components: rustfmt, clippy
       - run: cargo build --locked --features preview
+      - name: Compile Apple consumer at macOS 14 and check iOS 17 APIs
+        if: runner.os == 'macOS'
+        run: |
+          xcrun swiftc -swift-version 5 -parse-as-library -target x86_64-apple-macosx14.0 tools/apple-static-usd/Inspect.swift -o target/apple-static-usd
+          xcrun swiftc -swift-version 5 -typecheck -target arm64-apple-ios17.0 -sdk "$(xcrun --sdk iphoneos --show-sdk-path)" tools/apple-static-usd/Inspect.swift
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install -r tools/requirements-mcp.txt usd-core==26.5
+      - run: python -m pip install -r tools/requirements-mcp.txt usd-core==26.5 numpy==2.2.6
+      - name: Check input-only frozen normal arithmetic
+        run: python tools/static_usd_reference_check.py
       - name: Author, edit, reopen, export and independently compare all four models
         run: python tools/static_usd_runtime.py target/debug/formora target/static-usd
+      - name: Check frozen UV, normals, face materials and signed matrix inputs
+        run: python tools/static_usd_attributes.py target/debug/formora target/static-usd-attributes
       - name: Measure frozen 100k and 200k capacity samples
         run: |
           cargo build --locked --release

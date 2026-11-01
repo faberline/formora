@@ -48,3 +48,60 @@ Pending: exact-current-head three-platform CI, all four models through CLI/MCP,
 Apple authored material/geometry/hierarchy checks, four-model GPU quality review,
 capacity three samples each at100k/200k, failure controls and independent acceptance.
 Minimum OS compile evidence does not mean execution on macOS14 or iOS17 hardware.
+
+## Candidate be5f67 follow-up
+
+All three static USD CI jobs actually passed the four-model CLI/MCP stage before
+failing the capacity comparison. Run41299157370 jobs124826300894 (macOS),
+124826301018 (Windows),124826301082 (Linux). Each stage checked complete native
+scene equality, deterministic USD bytes between CLI and official MCP, geometry,
+material bindings/numeric values and hierarchy, plus semantic corruption controls.
+This is not whole-job success. The log transfer bundle SHA-256 was
+63ee322ec69fa266ee2488cf010e112cb8b72217499e4c1a5ea23a062dffadad.
+All four downloaded USD byte digests exactly match the CLI/MCP CI manifests.
+The transfer reconstructed mother JSON from complete objects, so its field order
+and byte digest differ from the original native save. No byte-identity claim is
+made for those transferred mother files. Subsequent bundles also retain the raw
+saved UTF-8 to permit an exact byte comparison.
+
+Actual RealityKit load and ARView captures for all four models completed with
+exit0 on Apple M1 Max/macOS26.5.2. Actual PhysicallyBasedMaterial properties,
+oriented triangle corners and semantic parents matched. Each model has eight
+RealityKit views and eight Formora Metal views, all64 inspected by the controller.
+The first two Formora capture rounds were dark; they remain archived. The third
+uses proper existing light-intensity units and shows the material roles/surfaces.
+No Blender process or upstream exporter made these assets.
+
+The additional whole-bounds pivot check correctly FAILED the first rock/radio
+assets. Rock's edited vertex changes its whole XY centre to x=0.0075m. Radio's
+front detail changes its whole centre to y=-0.00625m. These are authoring defects,
+not acceptable pivot exceptions. The original data and Apple failing comparisons
+remain under candidate-be5f67. Additive native set_transform recipes were frozen
+separately at44dd937d7cce7ff5768963cb5834f799f16ea64f before wiring the corrected
+recipe flow. They move every affected part by the independently calculated offset.
+The exporter does not recentre or change geometry. The corrected assets must pass
+actual CI and Apple loading again. The initial create/edit fixtures are unchanged.
+
+Actual Apple corruption controls loaded all five wrong files successfully, then
+rejected wrong axis, wrong units, wrong material, missing geometry and wrong parent.
+Loader failure alone was not used as semantic detection evidence. Original
+geometry/material matches do not cancel the newly exposed pivot failures.
+
+The capacity comparison's first numerical failure was reproduced from authored
+triangle104 alone: (104,0,0.06),(105,0,0),(104,1,0.05). Independent IEEE f32 sequential
+Newell gives y=0.009982731193304062, exactly the CI output. Independent f64 cross
+gives y=0.009981551179720135; their difference is1.1800135839273168e-6. The pre-code
+contract fixes the existing preview's f32 normal resolution. The initial comparator
+incorrectly applied f64 cross to that capacity payload. The correction implements
+the frozen input-only f32 arithmetic with NumPy, including each rounding step;
+it does not read product output as a reference. Both old values, the failed run
+and the unchanged1e-6 tolerance remain. Capacity timing has NOT passed. Every
+sample now records validation failure and actual timings before reporting failure.
+Full validation stays inside the same clocks; no sample count, workload or limit
+was reduced. Normal reference arithmetic is checked separately from product speed.
+
+The first new Windows full-contract run got beyond the normal helper, then failed
+when remaining_scale_regression hashed the path without .exe. The same entry-point
+error exists in the later required runtime drivers. They now resolve the actual
+executable before running or hashing it. All original commands and comparisons
+remain, and raw rotation errors are printed early as well as retained in reports.

@@ -1,0 +1,224 @@
+{
+  "active_camera": "preview_camera",
+  "annotations": [],
+  "doors": {},
+  "entities": {
+    "rock": {
+      "content": {
+        "kind": "empty"
+      },
+      "name": "rock",
+      "parent": null,
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "rock_body": {
+      "content": {
+        "geometry": {
+          "id": "rock_body",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "stone"
+      },
+      "name": "body",
+      "parent": "rock",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "preview_camera": {
+      "name": "preview_camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -2.558825973059541,
+          0.0,
+          0.325
+        ],
+        "rotation": [
+          0.5,
+          -0.5,
+          -0.5,
+          0.5
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 45,
+        "near": 0.01,
+        "far": 100
+      }
+    }
+  },
+  "materials": {
+    "stone": {
+      "base_color": [
+        0.32,
+        0.35,
+        0.31,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.72
+    }
+  },
+  "mesh_assets": {
+    "rock_body": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v4"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v4"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v4"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v0",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v1",
+            "v5"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v2",
+            "v5"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v5"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.485,
+          -0.24,
+          0.0
+        ],
+        "v1": [
+          0.4,
+          -0.4,
+          0.0
+        ],
+        "v2": [
+          0.5,
+          0.25,
+          0.0
+        ],
+        "v3": [
+          -0.3,
+          0.4,
+          0.0
+        ],
+        "v4": [
+          -0.12,
+          -0.05,
+          0.65
+        ],
+        "v5": [
+          0.05,
+          0.02,
+          0.05
+        ]
+      }
+    }
+  },
+  "revision": 2,
+  "schema_version": 1,
+  "time_seconds": 0.0
+}

@@ -37,14 +37,16 @@ for copies in (1,2):
         target=output/f'capacity-{copies}-{sample}.usda'
         start=time.monotonic_ns()
         receipt=runner.run([binary,'scene','export','--scene',source,'--root','root','--format','usda','--output',target])
-        reopened=runner.run([binary,'scene','inspect','--scene',source])['scene']
-        # Missing default fields are canonicalized by the real loader. Check every
-        # original field, not merely a hash/count or a selected subset of vertices.
-        for key,value in scene.items(): assert reopened[key]==value
-        validate_usd(target,scene,'root')
+        verification_error=None
+        try:
+            reopened=runner.run([binary,'scene','inspect','--scene',source])['scene']
+            for key,value in scene.items(): assert reopened[key]==value
+            validate_usd(target,scene,'root',normal_policy='frozen_preview_f32_newell')
+        except (AssertionError,ValueError,KeyError) as problem:
+            verification_error=str(problem) or type(problem).__name__
         elapsed=time.monotonic_ns()-start
-        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'pipeline_ns':elapsed,'source_sha256':sha(source),'usd_sha256':sha(target)}
-        item['passed']=item['core_ns']<=copies*250000000 and elapsed<=copies*2000000000
+        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'pipeline_ns':elapsed,'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
+        item['passed']=verification_error is None and item['core_ns']<=copies*250000000 and elapsed<=copies*2000000000
         results.append(item)
         (output/'report.json').write_text(json.dumps({'passed':all(x['passed'] for x in results),'samples':results},indent=2)+'\n')
         print(json.dumps(item),flush=True)

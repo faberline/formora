@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from runtime_binary import resolve_binary
 import struct
 import subprocess
 import tempfile
@@ -275,4 +276,4 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--case',action='append',default=[],dest='case_ids');parser.add_argument('--interface',action='append',choices=['cli','official_mcp_sdk'])
     parser.add_argument('--gzip-output',action='store_true',help='retain exact raw JSON bytes in lossless gzip files')
-    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk'),args.gzip_output))
+    args=parser.parse_args();asyncio.run(run(resolve_binary(args.binary),args.output.resolve(),args.case_ids,args.interface or ('cli','official_mcp_sdk'),args.gzip_output))

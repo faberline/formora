@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "geometry_material_hierarchy_was_compared": true,
+  "bottom_centre_pivot_passed": true,
+  "full_gate_passed": false,
+  "command": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+    "tools/static_usd_apple_check.py",
+    "docs/evidence/static-usd/candidate-be5f67/apple/workbench/loaded.json",
+    "docs/evidence/static-usd/candidate-be5f67/ci-transfer/workbench/scene.json",
+    "workbench"
+  ]
+}

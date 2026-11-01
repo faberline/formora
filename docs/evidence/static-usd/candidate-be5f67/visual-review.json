@@ -1,0 +1,23 @@
+{
+  "candidate": "be5f67e84141e8274ad40e5bb72d5bd941881e2e",
+  "reviewer": "Codex controller, not independent final acceptance",
+  "views_reviewed": {
+    "Formora": 32,
+    "RealityKit": 32
+  },
+  "observations": {
+    "crate": "Brown wooden body, two grey bands, intact six external sides.",
+    "rock": "Asymmetric low-poly closed stone, four unequal top slopes and closed bottom; no missing visible surface.",
+    "workbench": "Wood top and shelf, four metal legs; all six axis views and two oblique views checked.",
+    "radio": "Green box, dark front speaker block, grey dial and antenna; front/back/top/bottom and side profiles checked."
+  },
+  "visual_geometry_material_roles": "passed for finite silhouettes and roles",
+  "first_two_Formora_capture_rounds": "too dark; original PNGs/inputs/receipts retained; third round uses the existing light intensity unit correctly",
+  "pivot_failures": {
+    "rock": "x centre +0.007499992847442627m",
+    "radio": "Apple z centre +0.006249997764825821m"
+  },
+  "pivot_correction": "Unchanged exporter. Additive native SetTransform recipes frozen at44dd937d7; corrected actual CI/Apple run still required.",
+  "capacity": "failed, first comparator used f64 cross rather than frozen preview f32 Newell; first failure retained. No timing pass yet.",
+  "full_gate_passed": false
+}
