@@ -1,0 +1,37 @@
+{
+  "root": "radio",
+  "pivot": [
+    0,
+    0,
+    0
+  ],
+  "revision_after_create": 1,
+  "revision_after_edit": 2,
+  "part_ids": [
+    "radio_body",
+    "radio_aerial",
+    "radio_dial",
+    "radio_speaker"
+  ],
+  "vertex_count": 32,
+  "triangle_count": 48,
+  "edited_vertex_id": "v0",
+  "edited_mesh_id": "radio_body",
+  "edited_vertex": [
+    -0.21000000000000002,
+    -0.115,
+    0
+  ],
+  "edited_material_id": "case",
+  "edited_material": {
+    "base_color": [
+      0.08,
+      0.22,
+      0.16,
+      1
+    ],
+    "roughness": 0.72,
+    "metallic": 0.2
+  },
+  "authorship": "Original explicit geometry and independent arithmetic. No Formora exporter or Blender used."
+}

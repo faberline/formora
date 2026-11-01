@@ -1,0 +1,133 @@
+#usda 1.0
+(
+defaultPrim = "Formora"
+metersPerUnit = 1
+upAxis = "Z"
+)
+def Xform "Formora" {
+custom uint64 formora:revision = 2
+def Xform "id_726164696f" {
+custom string formora:sourceId = "radio"
+custom string formora:name = "radio"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "id_726164696f5f61657269616c" {
+custom string formora:sourceId = "radio_aerial"
+custom string formora:name = "aerial"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0.16, 0.07, 0.25, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "radio_aerial"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007", "f008", "f009", "f010", "f011"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.006, -0.006, 0), (0.006, -0.006, 0), (0.006, 0.006, 0), (-0.006, 0.006, 0), (-0.006, -0.006, 0.1), (0.006, -0.006, 0.1), (0.006, 0.006, 0.1), (-0.006, 0.006, 0.1)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_6d6574616c>
+}
+}
+def Xform "id_726164696f5f626f6479" {
+custom string formora:sourceId = "radio_body"
+custom string formora:name = "body"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "radio_body"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007", "f008", "f009", "f010", "f011"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.21, -0.115, 0), (0.225, -0.125, 0), (0.225, 0.125, 0), (-0.225, 0.125, 0), (-0.225, -0.125, 0.25), (0.225, -0.125, 0.25), (0.225, 0.125, 0.25), (-0.225, 0.125, 0.25)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -0.99999994), (0, 0, -0.99999994), (0, 0, -0.99999994), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (-0.02298243, -0.99973595, 0), (-0.02298243, -0.99973595, 0), (-0.02298243, -0.99973595, 0), (0, -0.99920106, -0.03996799), (0, -0.99920106, -0.03996799), (0, -0.99920106, -0.03996799), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (-0.99611646, -0.062257215, -0.06225728), (-0.99611646, -0.062257215, -0.06225728), (-0.99611646, -0.062257215, -0.06225728), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_63617365>
+}
+}
+def Xform "id_726164696f5f6469616c" {
+custom string formora:sourceId = "radio_dial"
+custom string formora:name = "dial"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0.12, -0.13, 0.1, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "radio_dial"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007", "f008", "f009", "f010", "f011"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.025, -0.0075, 0), (0.025, -0.0075, 0), (0.025, 0.0075, 0), (-0.025, 0.0075, 0), (-0.025, -0.0075, 0.05), (0.025, -0.0075, 0.05), (0.025, 0.0075, 0.05), (-0.025, 0.0075, 0.05)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_6d6574616c>
+}
+}
+def Xform "id_726164696f5f737065616b6572" {
+custom string formora:sourceId = "radio_speaker"
+custom string formora:name = "speaker"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-0.08, -0.13, 0.06, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "radio_speaker"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007", "f008", "f009", "f010", "f011"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.09, -0.0075, 0), (0.09, -0.0075, 0), (0.09, 0.0075, 0), (-0.09, 0.0075, 0), (-0.09, -0.0075, 0.13), (0.09, -0.0075, 0.13), (0.09, 0.0075, 0.13), (-0.09, 0.0075, 0.13)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -0.99999994, 0), (0, -0.99999994, 0), (0, -0.99999994, 0), (0, -0.99999994, 0), (0, -0.99999994, 0), (0, -0.99999994, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, 0.99999994, 0), (0, 0.99999994, 0), (0, 0.99999994, 0), (0, 0.99999994, 0), (0, 0.99999994, 0), (0, 0.99999994, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_6772696c6c65>
+}
+}
+}
+def Scope "Materials" {
+def Material "id_63617365" {
+custom string formora:sourceId = "case"
+token outputs:surface.connect = </Formora/Materials/id_63617365/Surface.outputs:surface>
+def Shader "Surface" {
+uniform token info:id = "UsdPreviewSurface"
+color3f inputs:diffuseColor = (0.08, 0.22, 0.16)
+float inputs:opacity = 1
+float inputs:roughness = 0.72
+float inputs:metallic = 0.2
+token outputs:surface
+}
+}
+def Material "id_6772696c6c65" {
+custom string formora:sourceId = "grille"
+token outputs:surface.connect = </Formora/Materials/id_6772696c6c65/Surface.outputs:surface>
+def Shader "Surface" {
+uniform token info:id = "UsdPreviewSurface"
+color3f inputs:diffuseColor = (0.025, 0.03, 0.03)
+float inputs:opacity = 1
+float inputs:roughness = 0.85
+float inputs:metallic = 0.3
+token outputs:surface
+}
+}
+def Material "id_6d6574616c" {
+custom string formora:sourceId = "metal"
+token outputs:surface.connect = </Formora/Materials/id_6d6574616c/Surface.outputs:surface>
+def Shader "Surface" {
+uniform token info:id = "UsdPreviewSurface"
+color3f inputs:diffuseColor = (0.15, 0.18, 0.2)
+float inputs:opacity = 1
+float inputs:roughness = 0.4
+float inputs:metallic = 0.85
+token outputs:surface
+}
+}
+}
+}

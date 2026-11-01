@@ -1,0 +1,1147 @@
+{
+  "run": {
+    "id": 41298644808,
+    "name": "Contract checks (not product acceptance)",
+    "node_id": "WFR_kwLOVausXs8AAAAJnZdPSA",
+    "head_branch": "codex/native-static-usd-gate",
+    "head_sha": "dd1f4acbecb9e968e70d6e2653e17e6daf637d1a",
+    "path": ".github/workflows/contracts.yml",
+    "display_title": "feat(usd): native static modeling and Apple interchange gate",
+    "run_number": 162,
+    "event": "pull_request",
+    "status": "in_progress",
+    "conclusion": null,
+    "workflow_id": 399644311,
+    "check_suite_id": 111932372669,
+    "check_suite_node_id": "CS_kwDOVausXs8AAAAaD7B2vQ",
+    "url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808",
+    "html_url": "https://github.com/faberline/formora/actions/runs/41298644808",
+    "pull_requests": [
+      {
+        "url": "https://api.github.com/repos/faberline/formora/pulls/87",
+        "id": 5106577852,
+        "number": 87,
+        "head": {
+          "ref": "codex/native-static-usd-gate",
+          "sha": "748f0ac50b59d60755a22e26a450cd64416a888a",
+          "repo": {
+            "id": 1437314142,
+            "url": "https://api.github.com/repos/faberline/formora",
+            "name": "formora"
+          }
+        },
+        "base": {
+          "ref": "codex/mesh-merge-multi-data-core",
+          "sha": "c67c23031cf305b4730702de689160a5c91abf06",
+          "repo": {
+            "id": 1437314142,
+            "url": "https://api.github.com/repos/faberline/formora",
+            "name": "formora"
+          }
+        }
+      }
+    ],
+    "created_at": "2026-11-01T10:42:16Z",
+    "updated_at": "2026-11-01T10:47:19Z",
+    "actor": {
+      "login": "chrischeng-c4",
+      "id": 210726774,
+      "node_id": "U_kgDODI9vdg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/210726774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrischeng-c4",
+      "html_url": "https://github.com/chrischeng-c4",
+      "followers_url": "https://api.github.com/users/chrischeng-c4/followers",
+      "following_url": "https://api.github.com/users/chrischeng-c4/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrischeng-c4/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrischeng-c4/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrischeng-c4/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrischeng-c4/orgs",
+      "repos_url": "https://api.github.com/users/chrischeng-c4/repos",
+      "events_url": "https://api.github.com/users/chrischeng-c4/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrischeng-c4/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "run_attempt": 1,
+    "referenced_workflows": [],
+    "run_started_at": "2026-11-01T10:42:16Z",
+    "triggering_actor": {
+      "login": "chrischeng-c4",
+      "id": 210726774,
+      "node_id": "U_kgDODI9vdg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/210726774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrischeng-c4",
+      "html_url": "https://github.com/chrischeng-c4",
+      "followers_url": "https://api.github.com/users/chrischeng-c4/followers",
+      "following_url": "https://api.github.com/users/chrischeng-c4/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrischeng-c4/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrischeng-c4/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrischeng-c4/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrischeng-c4/orgs",
+      "repos_url": "https://api.github.com/users/chrischeng-c4/repos",
+      "events_url": "https://api.github.com/users/chrischeng-c4/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrischeng-c4/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "jobs_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808/jobs",
+    "logs_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808/logs",
+    "check_suite_url": "https://api.github.com/repos/faberline/formora/check-suites/111932372669",
+    "artifacts_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808/artifacts",
+    "cancel_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808/cancel",
+    "rerun_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808/rerun",
+    "previous_attempt_url": null,
+    "workflow_url": "https://api.github.com/repos/faberline/formora/actions/workflows/399644311",
+    "head_commit": {
+      "id": "dd1f4acbecb9e968e70d6e2653e17e6daf637d1a",
+      "tree_id": "b5ce53b8eca4829452fffec79d14041d15cf1703",
+      "message": "feat(usd): add shared native static export and independent CI checks",
+      "timestamp": "2026-11-01T10:41:43Z",
+      "author": {
+        "name": "chrischeng-c4",
+        "email": "chris.cheng.c4@gmail.com"
+      },
+      "committer": {
+        "name": "chrischeng-c4",
+        "email": "chris.cheng.c4@gmail.com"
+      }
+    },
+    "repository": {
+      "id": 1437314142,
+      "node_id": "R_kgDOVausXg",
+      "name": "formora",
+      "full_name": "faberline/formora",
+      "private": false,
+      "owner": {
+        "login": "faberline",
+        "id": 333294630,
+        "node_id": "O_kgDOE92sJg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/333294630?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/faberline",
+        "html_url": "https://github.com/faberline",
+        "followers_url": "https://api.github.com/users/faberline/followers",
+        "following_url": "https://api.github.com/users/faberline/following{/other_user}",
+        "gists_url": "https://api.github.com/users/faberline/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/faberline/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/faberline/subscriptions",
+        "organizations_url": "https://api.github.com/users/faberline/orgs",
+        "repos_url": "https://api.github.com/users/faberline/repos",
+        "events_url": "https://api.github.com/users/faberline/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/faberline/received_events",
+        "type": "Organization",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/faberline/formora",
+      "description": "A Rust-based 3D creation suite combining modeling, animation, real-time rendering, and game development.",
+      "fork": false,
+      "url": "https://api.github.com/repos/faberline/formora",
+      "forks_url": "https://api.github.com/repos/faberline/formora/forks",
+      "keys_url": "https://api.github.com/repos/faberline/formora/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/faberline/formora/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/faberline/formora/teams",
+      "hooks_url": "https://api.github.com/repos/faberline/formora/hooks",
+      "issue_events_url": "https://api.github.com/repos/faberline/formora/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/faberline/formora/events",
+      "assignees_url": "https://api.github.com/repos/faberline/formora/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/faberline/formora/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/faberline/formora/tags",
+      "blobs_url": "https://api.github.com/repos/faberline/formora/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/faberline/formora/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/faberline/formora/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/faberline/formora/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/faberline/formora/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/faberline/formora/languages",
+      "stargazers_url": "https://api.github.com/repos/faberline/formora/stargazers",
+      "contributors_url": "https://api.github.com/repos/faberline/formora/contributors",
+      "subscribers_url": "https://api.github.com/repos/faberline/formora/subscribers",
+      "subscription_url": "https://api.github.com/repos/faberline/formora/subscription",
+      "commits_url": "https://api.github.com/repos/faberline/formora/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/faberline/formora/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/faberline/formora/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/faberline/formora/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/faberline/formora/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/faberline/formora/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/faberline/formora/merges",
+      "archive_url": "https://api.github.com/repos/faberline/formora/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/faberline/formora/downloads",
+      "issues_url": "https://api.github.com/repos/faberline/formora/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/faberline/formora/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/faberline/formora/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/faberline/formora/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/faberline/formora/labels{/name}",
+      "releases_url": "https://api.github.com/repos/faberline/formora/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/faberline/formora/deployments"
+    },
+    "head_repository": {
+      "id": 1437314142,
+      "node_id": "R_kgDOVausXg",
+      "name": "formora",
+      "full_name": "faberline/formora",
+      "private": false,
+      "owner": {
+        "login": "faberline",
+        "id": 333294630,
+        "node_id": "O_kgDOE92sJg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/333294630?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/faberline",
+        "html_url": "https://github.com/faberline",
+        "followers_url": "https://api.github.com/users/faberline/followers",
+        "following_url": "https://api.github.com/users/faberline/following{/other_user}",
+        "gists_url": "https://api.github.com/users/faberline/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/faberline/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/faberline/subscriptions",
+        "organizations_url": "https://api.github.com/users/faberline/orgs",
+        "repos_url": "https://api.github.com/users/faberline/repos",
+        "events_url": "https://api.github.com/users/faberline/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/faberline/received_events",
+        "type": "Organization",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/faberline/formora",
+      "description": "A Rust-based 3D creation suite combining modeling, animation, real-time rendering, and game development.",
+      "fork": false,
+      "url": "https://api.github.com/repos/faberline/formora",
+      "forks_url": "https://api.github.com/repos/faberline/formora/forks",
+      "keys_url": "https://api.github.com/repos/faberline/formora/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/faberline/formora/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/faberline/formora/teams",
+      "hooks_url": "https://api.github.com/repos/faberline/formora/hooks",
+      "issue_events_url": "https://api.github.com/repos/faberline/formora/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/faberline/formora/events",
+      "assignees_url": "https://api.github.com/repos/faberline/formora/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/faberline/formora/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/faberline/formora/tags",
+      "blobs_url": "https://api.github.com/repos/faberline/formora/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/faberline/formora/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/faberline/formora/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/faberline/formora/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/faberline/formora/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/faberline/formora/languages",
+      "stargazers_url": "https://api.github.com/repos/faberline/formora/stargazers",
+      "contributors_url": "https://api.github.com/repos/faberline/formora/contributors",
+      "subscribers_url": "https://api.github.com/repos/faberline/formora/subscribers",
+      "subscription_url": "https://api.github.com/repos/faberline/formora/subscription",
+      "commits_url": "https://api.github.com/repos/faberline/formora/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/faberline/formora/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/faberline/formora/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/faberline/formora/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/faberline/formora/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/faberline/formora/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/faberline/formora/merges",
+      "archive_url": "https://api.github.com/repos/faberline/formora/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/faberline/formora/downloads",
+      "issues_url": "https://api.github.com/repos/faberline/formora/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/faberline/formora/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/faberline/formora/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/faberline/formora/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/faberline/formora/labels{/name}",
+      "releases_url": "https://api.github.com/repos/faberline/formora/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/faberline/formora/deployments"
+    }
+  },
+  "jobs": {
+    "total_count": 3,
+    "jobs": [
+      {
+        "id": 124824792904,
+        "run_id": 41298644808,
+        "workflow_name": "Contract checks (not product acceptance)",
+        "head_branch": "codex/native-static-usd-gate",
+        "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVausXs8AAAAdECMvSA",
+        "head_sha": "dd1f4acbecb9e968e70d6e2653e17e6daf637d1a",
+        "url": "https://api.github.com/repos/faberline/formora/actions/jobs/124824792904",
+        "html_url": "https://github.com/faberline/formora/actions/runs/41298644808/job/124824792904",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-11-01T10:42:16Z",
+        "started_at": "2026-11-01T10:42:18Z",
+        "completed_at": "2026-11-01T11:16:12Z",
+        "name": "contracts (ubuntu-latest)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-01T10:42:19Z",
+            "completed_at": "2026-11-01T10:42:20Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-01T10:42:20Z",
+            "completed_at": "2026-11-01T10:44:00Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@1.85.0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-01T10:44:00Z",
+            "completed_at": "2026-11-01T10:44:08Z"
+          },
+          {
+            "name": "Run cargo fmt --check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-01T10:44:08Z",
+            "completed_at": "2026-11-01T10:44:08Z"
+          },
+          {
+            "name": "Run cargo clippy --locked --all-features --all-targets -- -D warnings",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-11-01T10:44:08Z",
+            "completed_at": "2026-11-01T10:44:41Z"
+          },
+          {
+            "name": "Run cargo test --locked --all-features",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-01T10:44:41Z",
+            "completed_at": "2026-11-01T10:46:15Z"
+          },
+          {
+            "name": "Check source metadata (product tests remain unrun)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-11-01T10:46:15Z",
+            "completed_at": "2026-11-01T10:46:32Z"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-01T10:46:32Z",
+            "completed_at": "2026-11-01T10:46:32Z"
+          },
+          {
+            "name": "Run python -m pip install -r tools/requirements-mcp.txt",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-01T10:46:32Z",
+            "completed_at": "2026-11-01T10:46:36Z"
+          },
+          {
+            "name": "Test reference comparison failure detection",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-01T10:46:36Z",
+            "completed_at": "2026-11-01T10:47:18Z"
+          },
+          {
+            "name": "Round-trip polygon reference payloads (not primitive generation)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-11-01T10:47:18Z",
+            "completed_at": "2026-11-01T10:47:24Z"
+          },
+          {
+            "name": "Verify recorded selection references (not product selection)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-11-01T10:47:24Z",
+            "completed_at": "2026-11-01T10:47:28Z"
+          },
+          {
+            "name": "Verify recorded transform references (not product transforms)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-11-01T10:47:28Z",
+            "completed_at": "2026-11-01T10:47:31Z"
+          },
+          {
+            "name": "Verify recorded direct-snap references (not product snapping)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-11-01T10:47:31Z",
+            "completed_at": "2026-11-01T10:47:53Z"
+          },
+          {
+            "name": "Verify raw snap rotation modes and channel locks (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-11-01T10:47:53Z",
+            "completed_at": "2026-11-01T10:48:44Z"
+          },
+          {
+            "name": "Verify nonidentity delta snap source captures (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-11-01T10:48:44Z",
+            "completed_at": "2026-11-01T10:49:24Z"
+          },
+          {
+            "name": "Verify vertex merge source captures (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-11-01T10:49:24Z",
+            "completed_at": "2026-11-01T10:50:11Z"
+          },
+          {
+            "name": "Verify stdio with the official MCP client",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 18,
+            "started_at": "2026-11-01T10:50:11Z",
+            "completed_at": "2026-11-01T10:50:12Z"
+          },
+          {
+            "name": "Compare automatic normal queries through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 19,
+            "started_at": "2026-11-01T10:50:12Z",
+            "completed_at": "2026-11-01T10:50:14Z"
+          },
+          {
+            "name": "Generate primitives and compare fixed geometry through CLI and MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 20,
+            "started_at": "2026-11-01T10:50:14Z",
+            "completed_at": "2026-11-01T10:50:38Z"
+          },
+          {
+            "name": "Verify negative and zero-axis scale geometry through CLI and MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21,
+            "started_at": "2026-11-01T10:50:38Z",
+            "completed_at": "2026-11-01T10:50:40Z"
+          },
+          {
+            "name": "Execute selection cases through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22,
+            "started_at": "2026-11-01T10:50:40Z",
+            "completed_at": "2026-11-01T10:51:54Z"
+          },
+          {
+            "name": "Execute primitive creation contexts through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23,
+            "started_at": "2026-11-01T10:51:54Z",
+            "completed_at": "2026-11-01T10:53:23Z"
+          },
+          {
+            "name": "Execute every required transform case through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 24,
+            "started_at": "2026-11-01T10:53:23Z",
+            "completed_at": "2026-11-01T10:55:03Z"
+          },
+          {
+            "name": "Execute all supported single edit-mesh snaps through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 25,
+            "started_at": "2026-11-01T10:55:03Z",
+            "completed_at": "2026-11-01T10:58:53Z"
+          },
+          {
+            "name": "Execute object and multi-edit snaps through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 26,
+            "started_at": "2026-11-01T10:58:53Z",
+            "completed_at": "2026-11-01T11:01:20Z"
+          },
+          {
+            "name": "Execute every raw rotation snap through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 27,
+            "started_at": "2026-11-01T11:01:20Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Execute every nonidentity delta snap through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 28,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Verify generation without source repository access",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 29,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Verify creation and insertion without source repository access",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 30,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Retain raw rotation failure details in job log",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 31,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 61,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 62,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:10Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 63,
+            "started_at": "2026-11-01T11:16:10Z",
+            "completed_at": "2026-11-01T11:16:11Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/124824792904",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000009047,
+        "runner_name": "GitHub Actions 1000009047",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 124824792941,
+        "run_id": 41298644808,
+        "workflow_name": "Contract checks (not product acceptance)",
+        "head_branch": "codex/native-static-usd-gate",
+        "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVausXs8AAAAdECMvbQ",
+        "head_sha": "dd1f4acbecb9e968e70d6e2653e17e6daf637d1a",
+        "url": "https://api.github.com/repos/faberline/formora/actions/jobs/124824792941",
+        "html_url": "https://github.com/faberline/formora/actions/runs/41298644808/job/124824792941",
+        "status": "in_progress",
+        "conclusion": null,
+        "created_at": "2026-11-01T10:42:16Z",
+        "started_at": "2026-11-01T10:47:19Z",
+        "completed_at": null,
+        "name": "contracts (macos-15-intel)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-01T10:47:19Z",
+            "completed_at": "2026-11-01T10:47:20Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-01T10:47:20Z",
+            "completed_at": "2026-11-01T10:50:38Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@1.85.0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-01T10:50:38Z",
+            "completed_at": "2026-11-01T10:50:48Z"
+          },
+          {
+            "name": "Run cargo fmt --check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-01T10:50:48Z",
+            "completed_at": "2026-11-01T10:50:48Z"
+          },
+          {
+            "name": "Run cargo clippy --locked --all-features --all-targets -- -D warnings",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-11-01T10:50:48Z",
+            "completed_at": "2026-11-01T10:52:02Z"
+          },
+          {
+            "name": "Run cargo test --locked --all-features",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-01T10:52:02Z",
+            "completed_at": "2026-11-01T10:54:23Z"
+          },
+          {
+            "name": "Check source metadata (product tests remain unrun)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-11-01T10:54:23Z",
+            "completed_at": "2026-11-01T10:55:11Z"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-01T10:55:11Z",
+            "completed_at": "2026-11-01T10:55:11Z"
+          },
+          {
+            "name": "Run python -m pip install -r tools/requirements-mcp.txt",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-01T10:55:11Z",
+            "completed_at": "2026-11-01T10:57:02Z"
+          },
+          {
+            "name": "Test reference comparison failure detection",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-01T10:57:02Z",
+            "completed_at": "2026-11-01T10:59:27Z"
+          },
+          {
+            "name": "Round-trip polygon reference payloads (not primitive generation)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-11-01T10:59:27Z",
+            "completed_at": "2026-11-01T10:59:49Z"
+          },
+          {
+            "name": "Verify recorded selection references (not product selection)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-11-01T10:59:49Z",
+            "completed_at": "2026-11-01T11:00:02Z"
+          },
+          {
+            "name": "Verify recorded transform references (not product transforms)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-11-01T11:00:02Z",
+            "completed_at": "2026-11-01T11:00:14Z"
+          },
+          {
+            "name": "Verify recorded direct-snap references (not product snapping)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-11-01T11:00:14Z",
+            "completed_at": "2026-11-01T11:01:27Z"
+          },
+          {
+            "name": "Verify raw snap rotation modes and channel locks (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-11-01T11:01:27Z",
+            "completed_at": "2026-11-01T11:04:08Z"
+          },
+          {
+            "name": "Verify nonidentity delta snap source captures (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-11-01T11:04:08Z",
+            "completed_at": "2026-11-01T11:06:14Z"
+          },
+          {
+            "name": "Verify vertex merge source captures (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-11-01T11:06:14Z",
+            "completed_at": "2026-11-01T11:08:42Z"
+          },
+          {
+            "name": "Verify stdio with the official MCP client",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 18,
+            "started_at": "2026-11-01T11:08:42Z",
+            "completed_at": "2026-11-01T11:08:45Z"
+          },
+          {
+            "name": "Compare automatic normal queries through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 19,
+            "started_at": "2026-11-01T11:08:45Z",
+            "completed_at": "2026-11-01T11:08:49Z"
+          },
+          {
+            "name": "Generate primitives and compare fixed geometry through CLI and MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 20,
+            "started_at": "2026-11-01T11:08:49Z",
+            "completed_at": "2026-11-01T11:10:11Z"
+          },
+          {
+            "name": "Verify negative and zero-axis scale geometry through CLI and MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21,
+            "started_at": "2026-11-01T11:10:11Z",
+            "completed_at": "2026-11-01T11:10:19Z"
+          },
+          {
+            "name": "Execute selection cases through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22,
+            "started_at": "2026-11-01T11:10:19Z",
+            "completed_at": "2026-11-01T11:13:46Z"
+          },
+          {
+            "name": "Execute primitive creation contexts through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23,
+            "started_at": "2026-11-01T11:13:46Z",
+            "completed_at": "2026-11-01T11:18:09Z"
+          },
+          {
+            "name": "Execute every required transform case through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 24,
+            "started_at": "2026-11-01T11:18:09Z",
+            "completed_at": "2026-11-01T11:23:16Z"
+          },
+          {
+            "name": "Execute all supported single edit-mesh snaps through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 25,
+            "started_at": "2026-11-01T11:23:16Z",
+            "completed_at": "2026-11-01T11:35:30Z"
+          },
+          {
+            "name": "Execute object and multi-edit snaps through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 26,
+            "started_at": "2026-11-01T11:35:30Z",
+            "completed_at": "2026-11-01T11:44:08Z"
+          },
+          {
+            "name": "Execute every raw rotation snap through CLI and official MCP",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 27,
+            "started_at": "2026-11-01T11:44:08Z",
+            "completed_at": null
+          },
+          {
+            "name": "Execute every nonidentity delta snap through CLI and official MCP",
+            "status": "pending",
+            "conclusion": null,
+            "number": 28,
+            "started_at": null,
+            "completed_at": null
+          },
+          {
+            "name": "Verify generation without source repository access",
+            "status": "pending",
+            "conclusion": null,
+            "number": 29,
+            "started_at": null,
+            "completed_at": null
+          },
+          {
+            "name": "Verify creation and insertion without source repository access",
+            "status": "pending",
+            "conclusion": null,
+            "number": 30,
+            "started_at": null,
+            "completed_at": null
+          },
+          {
+            "name": "Retain raw rotation failure details in job log",
+            "status": "pending",
+            "conclusion": null,
+            "number": 31,
+            "started_at": null,
+            "completed_at": null
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "pending",
+            "conclusion": null,
+            "number": 61,
+            "started_at": null,
+            "completed_at": null
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "pending",
+            "conclusion": null,
+            "number": 62,
+            "started_at": null,
+            "completed_at": null
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/124824792941",
+        "labels": [
+          "macos-15-intel"
+        ],
+        "runner_id": 1000009050,
+        "runner_name": "GitHub Actions 1000009050",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 124824792942,
+        "run_id": 41298644808,
+        "workflow_name": "Contract checks (not product acceptance)",
+        "head_branch": "codex/native-static-usd-gate",
+        "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41298644808",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVausXs8AAAAdECMvbg",
+        "head_sha": "dd1f4acbecb9e968e70d6e2653e17e6daf637d1a",
+        "url": "https://api.github.com/repos/faberline/formora/actions/jobs/124824792942",
+        "html_url": "https://github.com/faberline/formora/actions/runs/41298644808/job/124824792942",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-11-01T10:42:16Z",
+        "started_at": "2026-11-01T10:42:18Z",
+        "completed_at": "2026-11-01T10:56:27Z",
+        "name": "contracts (windows-latest)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-01T10:42:19Z",
+            "completed_at": "2026-11-01T10:42:20Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-01T10:42:20Z",
+            "completed_at": "2026-11-01T10:45:05Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@1.85.0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-01T10:45:05Z",
+            "completed_at": "2026-11-01T10:45:18Z"
+          },
+          {
+            "name": "Run cargo fmt --check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-01T10:45:18Z",
+            "completed_at": "2026-11-01T10:45:21Z"
+          },
+          {
+            "name": "Run cargo clippy --locked --all-features --all-targets -- -D warnings",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-11-01T10:45:21Z",
+            "completed_at": "2026-11-01T10:46:30Z"
+          },
+          {
+            "name": "Run cargo test --locked --all-features",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-01T10:46:30Z",
+            "completed_at": "2026-11-01T10:49:12Z"
+          },
+          {
+            "name": "Check source metadata (product tests remain unrun)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-11-01T10:49:12Z",
+            "completed_at": "2026-11-01T10:49:42Z"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-01T10:49:42Z",
+            "completed_at": "2026-11-01T10:49:43Z"
+          },
+          {
+            "name": "Run python -m pip install -r tools/requirements-mcp.txt",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-01T10:49:43Z",
+            "completed_at": "2026-11-01T10:49:59Z"
+          },
+          {
+            "name": "Test reference comparison failure detection",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-01T10:49:59Z",
+            "completed_at": "2026-11-01T10:51:02Z"
+          },
+          {
+            "name": "Round-trip polygon reference payloads (not primitive generation)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-11-01T10:51:02Z",
+            "completed_at": "2026-11-01T10:51:14Z"
+          },
+          {
+            "name": "Verify recorded selection references (not product selection)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-11-01T10:51:14Z",
+            "completed_at": "2026-11-01T10:51:20Z"
+          },
+          {
+            "name": "Verify recorded transform references (not product transforms)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-11-01T10:51:20Z",
+            "completed_at": "2026-11-01T10:51:26Z"
+          },
+          {
+            "name": "Verify recorded direct-snap references (not product snapping)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-11-01T10:51:26Z",
+            "completed_at": "2026-11-01T10:52:01Z"
+          },
+          {
+            "name": "Verify raw snap rotation modes and channel locks (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-11-01T10:52:01Z",
+            "completed_at": "2026-11-01T10:53:19Z"
+          },
+          {
+            "name": "Verify nonidentity delta snap source captures (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-11-01T10:53:19Z",
+            "completed_at": "2026-11-01T10:54:21Z"
+          },
+          {
+            "name": "Verify vertex merge source captures (not product acceptance)",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-11-01T10:54:21Z",
+            "completed_at": "2026-11-01T10:55:30Z"
+          },
+          {
+            "name": "Verify stdio with the official MCP client",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 18,
+            "started_at": "2026-11-01T10:55:30Z",
+            "completed_at": "2026-11-01T10:55:32Z"
+          },
+          {
+            "name": "Compare automatic normal queries through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 19,
+            "started_at": "2026-11-01T10:55:32Z",
+            "completed_at": "2026-11-01T10:55:36Z"
+          },
+          {
+            "name": "Generate primitives and compare fixed geometry through CLI and MCP",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 20,
+            "started_at": "2026-11-01T10:55:36Z",
+            "completed_at": "2026-11-01T10:56:18Z"
+          },
+          {
+            "name": "Verify negative and zero-axis scale geometry through CLI and MCP",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 21,
+            "started_at": "2026-11-01T10:56:18Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute selection cases through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 22,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute primitive creation contexts through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 23,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute every required transform case through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 24,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute all supported single edit-mesh snaps through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 25,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute object and multi-edit snaps through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 26,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute every raw rotation snap through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 27,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Execute every nonidentity delta snap through CLI and official MCP",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 28,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Verify generation without source repository access",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 29,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Verify creation and insertion without source repository access",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 30,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Retain raw rotation failure details in job log",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 31,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 61,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:22Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 62,
+            "started_at": "2026-11-01T10:56:22Z",
+            "completed_at": "2026-11-01T10:56:25Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 63,
+            "started_at": "2026-11-01T10:56:25Z",
+            "completed_at": "2026-11-01T10:56:25Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/124824792942",
+        "labels": [
+          "windows-latest"
+        ],
+        "runner_id": 1000009046,
+        "runner_name": "GitHub Actions 1000009046",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ]
+  }
+}

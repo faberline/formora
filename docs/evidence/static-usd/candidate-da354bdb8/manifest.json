@@ -1,0 +1,50 @@
+{
+  "source_head": "da354bdb82b7147aca929f7f3f7add1e94f8c9d7",
+  "run": 41323157878,
+  "logs": [
+    {
+      "platform": "linux",
+      "job": 124897468533,
+      "conclusion": "success",
+      "decoded_bytes": 130409,
+      "decoded_sha256": "fb2e1eb0543ff35758aa3bb20c5d024b45ca793911693aa00c6a4fa4c3ad0873",
+      "gzip_sha256": "8ff84bfd3defa0c3583486fc56893e1559947db243320ab6ae676586a4305fac",
+      "samples_passed": 6
+    },
+    {
+      "platform": "windows",
+      "job": 124897468487,
+      "conclusion": "success",
+      "decoded_bytes": 129691,
+      "decoded_sha256": "9256aa528a25941a9980f76dc34babc9a4bc1744e3891c4dcf9d1fad027c154f",
+      "gzip_sha256": "51a874bcf4eb5baaddb2f0b27738d482c75409b65edd6041c40ea1077f863a79",
+      "samples_passed": 6
+    },
+    {
+      "platform": "macos-arm64",
+      "job": 124897468731,
+      "conclusion": "success",
+      "decoded_bytes": 129287,
+      "decoded_sha256": "3b4d0e6afbfce9537f693fc8d130d4df364d164efe66b1080827d5c66cb36bf5",
+      "gzip_sha256": "b4835c3a9f27132088c2087a93abe94a3a00beba60d67e3aca48dfba0d8352eb",
+      "samples_passed": 6
+    },
+    {
+      "platform": "macos-intel",
+      "job": 124897468362,
+      "conclusion": "failure",
+      "decoded_bytes": 159309,
+      "decoded_sha256": "f3dabf495909c10b0ed08ce455e540f08938decf05508085f9d8b7311d731b4e",
+      "gzip_sha256": "8b1ba549df5ef5baff7d5466c27c2787002e310af5b7a2ce619a7a3e9e5f7a70",
+      "samples_passed": 0
+    }
+  ],
+  "cleanup05": {
+    "decoded_sha256": "cccd55c218eceaf28565b146a42506921ff244abcc60de6395413c4f16281663",
+    "gzip_sha256": "3ea8f1e913d9bd50de0fa8e91e31e62e16fd0e85127d20825fe920ed0f49b928",
+    "decoded_bytes": 347106,
+    "gzip_bytes": 22922
+  },
+  "own_obsolete_cancelled_total": 24,
+  "full_gate_passed": false
+}

@@ -1,0 +1,33 @@
+{
+  "reason": "Keep frozen bottom-centre pivot at the root origin after the authored vertex edit and all protruding parts. Apply native set_transform commands; the exporter never recentres geometry.",
+  "before_centre_offsets_metres": {
+    "crate": [
+      0,
+      0,
+      0
+    ],
+    "rock": [
+      0.0075,
+      0,
+      0
+    ],
+    "workbench": [
+      0,
+      0,
+      0
+    ],
+    "radio": [
+      0,
+      -0.00625,
+      0
+    ]
+  },
+  "after_pivot": [
+    0,
+    0,
+    0
+  ],
+  "after_revision": 3,
+  "continuous_tolerance": 1e-06,
+  "scope": "Additive authoring correction. Original c5bd012 inputs and reference files remain unchanged."
+}

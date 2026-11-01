@@ -1,0 +1,84 @@
+name: Native static USD gate
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  static-usd:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15-intel, macos-15, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: dtolnay/rust-toolchain@1.85.0
+        with:
+          components: rustfmt, clippy
+      - run: cargo build --locked --features preview
+      - name: Compile Apple consumer at macOS 14 and check iOS 17 APIs
+        if: runner.os == 'macOS'
+        run: |
+          xcrun swiftc -swift-version 5 -parse-as-library -target "$(uname -m)-apple-macosx14.0" tools/apple-static-usd/Inspect.swift -o target/apple-static-usd
+          xcrun swiftc -swift-version 5 -typecheck -target arm64-apple-ios17.0 -sdk "$(xcrun --sdk iphoneos --show-sdk-path)" tools/apple-static-usd/Inspect.swift
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --only-binary=orjson -r tools/requirements-static-usd.txt
+      - name: Check complete JSON decoder value, type and float-bit equivalence
+        run: python tools/static_usd_json_check.py
+      - name: Check input-only frozen normal arithmetic
+        run: python tools/static_usd_reference_check.py
+      - name: Check concurrent completion, joining and failure controls
+        run: python tools/static_usd_parallel_check.py
+      - name: Check all frozen world inputs against original adapters and source bytes
+        run: python tools/static_usd_axis_angle_reference_check.py
+      - name: Replay frozen rotation worlds in memory with exact source expectations
+        run: cargo test --locked --all-features --lib macos_axis_angle_memory -- --nocapture
+      - name: Author, edit, reopen, export and independently compare all four models
+        run: python tools/static_usd_runtime.py target/debug/formora target/static-usd
+      - name: Check frozen UV, normals, face materials and signed matrix inputs
+        run: python tools/static_usd_attributes.py target/debug/formora target/static-usd-attributes
+      - name: Reject unsupported input and preserve existing files
+        run: python tools/static_usd_rejections.py target/debug/formora target/static-usd-rejections
+      - name: Verify optimized USD, normal, read and rotation memory helpers
+        run: |
+          cargo test --locked --release --lib usd::tests
+          cargo test --locked --release --lib static_flat_tests
+          cargo test --locked --release --lib inspect_serialization_tests
+          cargo test --locked --release --lib cross_platform_tests
+      - name: Measure frozen 100k and 200k capacity samples
+        if: always()
+        run: |
+          cargo build --locked --release
+          python tools/static_usd_capacity.py target/release/formora target/static-usd-capacity
+  raw-rotation-diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: dtolnay/rust-toolchain@1.85.0
+      - run: cargo build --locked
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-mcp.txt
+      - name: Retain actual numeric state for known rotation failures (diagnosis only)
+        run: python tools/static_usd_rotation_diagnostic.py target/debug/formora target/static-usd-rotation-diagnostic
+  raw-rotation-macos-diagnostic:
+    runs-on: macos-15-intel
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: dtolnay/rust-toolchain@1.85.0
+      - run: cargo build --locked --features preview
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-mcp.txt
+      - name: Retain Intel Mac preview-feature CLI state for the same73 probes
+        run: python tools/static_usd_rotation_diagnostic.py target/debug/formora target/static-usd-rotation-macos-diagnostic

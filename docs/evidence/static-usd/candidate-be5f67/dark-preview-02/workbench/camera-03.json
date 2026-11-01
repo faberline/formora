@@ -1,0 +1,1331 @@
+{
+  "active_camera": "preview_camera",
+  "annotations": [],
+  "doors": {},
+  "entities": {
+    "workbench": {
+      "content": {
+        "kind": "empty"
+      },
+      "name": "workbench",
+      "parent": null,
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "workbench_leg_lb": {
+      "content": {
+        "geometry": {
+          "id": "workbench_leg_lb",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "metal"
+      },
+      "name": "leg_lb",
+      "parent": "workbench",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          -0.5,
+          0.25,
+          0.0
+        ]
+      }
+    },
+    "workbench_leg_lf": {
+      "content": {
+        "geometry": {
+          "id": "workbench_leg_lf",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "metal"
+      },
+      "name": "leg_lf",
+      "parent": "workbench",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          -0.5,
+          -0.25,
+          0.0
+        ]
+      }
+    },
+    "workbench_leg_rb": {
+      "content": {
+        "geometry": {
+          "id": "workbench_leg_rb",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "metal"
+      },
+      "name": "leg_rb",
+      "parent": "workbench",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.5,
+          0.25,
+          0.0
+        ]
+      }
+    },
+    "workbench_leg_rf": {
+      "content": {
+        "geometry": {
+          "id": "workbench_leg_rf",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "metal"
+      },
+      "name": "leg_rf",
+      "parent": "workbench",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.5,
+          -0.25,
+          0.0
+        ]
+      }
+    },
+    "workbench_shelf": {
+      "content": {
+        "geometry": {
+          "id": "workbench_shelf",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "wood"
+      },
+      "name": "shelf",
+      "parent": "workbench",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.25
+        ]
+      }
+    },
+    "workbench_top": {
+      "content": {
+        "geometry": {
+          "id": "workbench_top",
+          "kind": "asset"
+        },
+        "kind": "mesh",
+        "material": "wood"
+      },
+      "name": "top",
+      "parent": "workbench",
+      "transform": {
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "translation": [
+          0.0,
+          0.0,
+          0.8
+        ]
+      }
+    },
+    "preview_camera": {
+      "name": "preview_camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          -2.9795301643044327,
+          0.45
+        ],
+        "rotation": [
+          0.7071067811865475,
+          0.0,
+          0.0,
+          0.7071067811865476
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 45,
+        "near": 0.01,
+        "far": 100
+      }
+    },
+    "preview_key": {
+      "name": "preview_key",
+      "parent": null,
+      "transform": {
+        "translation": [
+          8.938590492913299,
+          -11.918120657217731,
+          15.347650821522162
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 0.8
+      }
+    },
+    "preview_fill": {
+      "name": "preview_fill",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -8.938590492913299,
+          5.9590603286088655,
+          -5.509060328608865
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 0.45
+      }
+    }
+  },
+  "materials": {
+    "metal": {
+      "base_color": [
+        0.15,
+        0.18,
+        0.2,
+        1.0
+      ],
+      "metallic": 0.85,
+      "roughness": 0.4
+    },
+    "wood": {
+      "base_color": [
+        0.31,
+        0.15,
+        0.055,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.72
+    }
+  },
+  "mesh_assets": {
+    "workbench_leg_lb": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ]
+        },
+        "f008": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ]
+        },
+        "f009": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ]
+        },
+        "f010": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f011": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.05,
+          -0.05,
+          0.0
+        ],
+        "v1": [
+          0.05,
+          -0.05,
+          0.0
+        ],
+        "v2": [
+          0.05,
+          0.05,
+          0.0
+        ],
+        "v3": [
+          -0.05,
+          0.05,
+          0.0
+        ],
+        "v4": [
+          -0.05,
+          -0.05,
+          0.8
+        ],
+        "v5": [
+          0.05,
+          -0.05,
+          0.8
+        ],
+        "v6": [
+          0.05,
+          0.05,
+          0.8
+        ],
+        "v7": [
+          -0.05,
+          0.05,
+          0.8
+        ]
+      }
+    },
+    "workbench_leg_lf": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ]
+        },
+        "f008": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ]
+        },
+        "f009": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ]
+        },
+        "f010": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f011": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.05,
+          -0.05,
+          0.0
+        ],
+        "v1": [
+          0.05,
+          -0.05,
+          0.0
+        ],
+        "v2": [
+          0.05,
+          0.05,
+          0.0
+        ],
+        "v3": [
+          -0.05,
+          0.05,
+          0.0
+        ],
+        "v4": [
+          -0.05,
+          -0.05,
+          0.8
+        ],
+        "v5": [
+          0.05,
+          -0.05,
+          0.8
+        ],
+        "v6": [
+          0.05,
+          0.05,
+          0.8
+        ],
+        "v7": [
+          -0.05,
+          0.05,
+          0.8
+        ]
+      }
+    },
+    "workbench_leg_rb": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ]
+        },
+        "f008": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ]
+        },
+        "f009": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ]
+        },
+        "f010": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f011": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.05,
+          -0.05,
+          0.0
+        ],
+        "v1": [
+          0.05,
+          -0.05,
+          0.0
+        ],
+        "v2": [
+          0.05,
+          0.05,
+          0.0
+        ],
+        "v3": [
+          -0.05,
+          0.05,
+          0.0
+        ],
+        "v4": [
+          -0.05,
+          -0.05,
+          0.8
+        ],
+        "v5": [
+          0.05,
+          -0.05,
+          0.8
+        ],
+        "v6": [
+          0.05,
+          0.05,
+          0.8
+        ],
+        "v7": [
+          -0.05,
+          0.05,
+          0.8
+        ]
+      }
+    },
+    "workbench_leg_rf": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ]
+        },
+        "f008": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ]
+        },
+        "f009": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ]
+        },
+        "f010": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f011": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.05,
+          -0.05,
+          0.0
+        ],
+        "v1": [
+          0.05,
+          -0.05,
+          0.0
+        ],
+        "v2": [
+          0.05,
+          0.05,
+          0.0
+        ],
+        "v3": [
+          -0.05,
+          0.05,
+          0.0
+        ],
+        "v4": [
+          -0.05,
+          -0.05,
+          0.8
+        ],
+        "v5": [
+          0.05,
+          -0.05,
+          0.8
+        ],
+        "v6": [
+          0.05,
+          0.05,
+          0.8
+        ],
+        "v7": [
+          -0.05,
+          0.05,
+          0.8
+        ]
+      }
+    },
+    "workbench_shelf": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ]
+        },
+        "f008": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ]
+        },
+        "f009": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ]
+        },
+        "f010": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f011": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.525,
+          -0.275,
+          0.0
+        ],
+        "v1": [
+          0.525,
+          -0.275,
+          0.0
+        ],
+        "v2": [
+          0.525,
+          0.275,
+          0.0
+        ],
+        "v3": [
+          -0.525,
+          0.275,
+          0.0
+        ],
+        "v4": [
+          -0.525,
+          -0.275,
+          0.05
+        ],
+        "v5": [
+          0.525,
+          -0.275,
+          0.05
+        ],
+        "v6": [
+          0.525,
+          0.275,
+          0.05
+        ],
+        "v7": [
+          -0.525,
+          0.275,
+          0.05
+        ]
+      }
+    },
+    "workbench_top": {
+      "material_slots": [],
+      "triangles": {
+        "f000": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ]
+        },
+        "f001": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ]
+        },
+        "f002": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ]
+        },
+        "f003": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ]
+        },
+        "f004": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ]
+        },
+        "f005": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ]
+        },
+        "f006": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ]
+        },
+        "f007": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ]
+        },
+        "f008": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ]
+        },
+        "f009": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ]
+        },
+        "f010": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ]
+        },
+        "f011": {
+          "corner_normals": null,
+          "material_slot": null,
+          "uv_layers": {},
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ]
+        }
+      },
+      "vertices": {
+        "v0": [
+          -0.585,
+          -0.33999999999999997,
+          0.0
+        ],
+        "v1": [
+          0.6,
+          -0.35,
+          0.0
+        ],
+        "v2": [
+          0.6,
+          0.35,
+          0.0
+        ],
+        "v3": [
+          -0.6,
+          0.35,
+          0.0
+        ],
+        "v4": [
+          -0.6,
+          -0.35,
+          0.1
+        ],
+        "v5": [
+          0.6,
+          -0.35,
+          0.1
+        ],
+        "v6": [
+          0.6,
+          0.35,
+          0.1
+        ],
+        "v7": [
+          -0.6,
+          0.35,
+          0.1
+        ]
+      }
+    }
+  },
+  "revision": 2,
+  "schema_version": 1,
+  "time_seconds": 0.0
+}

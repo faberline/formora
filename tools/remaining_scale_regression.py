@@ -5,6 +5,7 @@ import asyncio
 import hashlib
 import json
 from pathlib import Path
+from runtime_binary import resolve_binary
 import tempfile
 from primitive_reference_smoke import arguments_for, exercise, GEOMETRY
 from compare_mesh_reference import compare
@@ -43,4 +44,4 @@ async def run(binary,output):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
-    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve()))
+    args=parser.parse_args();asyncio.run(run(resolve_binary(args.binary),args.output.resolve()))

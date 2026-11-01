@@ -1,0 +1,947 @@
+{
+  "schema_version": 1,
+  "revision": 3,
+  "time_seconds": 0.0,
+  "entities": {
+    "radio": {
+      "name": "radio",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "radio_aerial": {
+      "name": "aerial",
+      "parent": "radio",
+      "transform": {
+        "translation": [
+          0.16,
+          0.07625000000000001,
+          0.25
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "radio_aerial"
+        },
+        "material": "metal"
+      }
+    },
+    "radio_body": {
+      "name": "body",
+      "parent": "radio",
+      "transform": {
+        "translation": [
+          0.0,
+          0.00625,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "radio_body"
+        },
+        "material": "case"
+      }
+    },
+    "radio_dial": {
+      "name": "dial",
+      "parent": "radio",
+      "transform": {
+        "translation": [
+          0.12,
+          -0.12375,
+          0.1
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "radio_dial"
+        },
+        "material": "metal"
+      }
+    },
+    "radio_speaker": {
+      "name": "speaker",
+      "parent": "radio",
+      "transform": {
+        "translation": [
+          -0.08,
+          -0.12375,
+          0.06
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "radio_speaker"
+        },
+        "material": "grille"
+      }
+    },
+    "preview_camera": {
+      "name": "preview_camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          -0.9547151189569874
+        ],
+        "rotation": [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 45,
+        "near": 0.01,
+        "far": 100
+      }
+    },
+    "preview_key": {
+      "name": "preview_key",
+      "parent": null,
+      "transform": {
+        "translation": [
+          1.1297151189569874,
+          -1.1297151189569874,
+          1.8695726784354811
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 350
+      }
+    },
+    "preview_fill": {
+      "name": "preview_fill",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -1.1297151189569874,
+          0.7908005832698911,
+          -0.72877209516559
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 170
+      }
+    }
+  },
+  "materials": {
+    "case": {
+      "base_color": [
+        0.08,
+        0.22,
+        0.16,
+        1.0
+      ],
+      "roughness": 0.72,
+      "metallic": 0.2
+    },
+    "grille": {
+      "base_color": [
+        0.025,
+        0.03,
+        0.03,
+        1.0
+      ],
+      "roughness": 0.85,
+      "metallic": 0.3
+    },
+    "metal": {
+      "base_color": [
+        0.15,
+        0.18,
+        0.2,
+        1.0
+      ],
+      "roughness": 0.4,
+      "metallic": 0.85
+    }
+  },
+  "mesh_assets": {
+    "radio_aerial": {
+      "vertices": {
+        "v0": [
+          -0.006,
+          -0.006,
+          0.0
+        ],
+        "v1": [
+          0.006,
+          -0.006,
+          0.0
+        ],
+        "v2": [
+          0.006,
+          0.006,
+          0.0
+        ],
+        "v3": [
+          -0.006,
+          0.006,
+          0.0
+        ],
+        "v4": [
+          -0.006,
+          -0.006,
+          0.1
+        ],
+        "v5": [
+          0.006,
+          -0.006,
+          0.1
+        ],
+        "v6": [
+          0.006,
+          0.006,
+          0.1
+        ],
+        "v7": [
+          -0.006,
+          0.006,
+          0.1
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    },
+    "radio_body": {
+      "vertices": {
+        "v0": [
+          -0.21000000000000002,
+          -0.115,
+          0.0
+        ],
+        "v1": [
+          0.225,
+          -0.125,
+          0.0
+        ],
+        "v2": [
+          0.225,
+          0.125,
+          0.0
+        ],
+        "v3": [
+          -0.225,
+          0.125,
+          0.0
+        ],
+        "v4": [
+          -0.225,
+          -0.125,
+          0.25
+        ],
+        "v5": [
+          0.225,
+          -0.125,
+          0.25
+        ],
+        "v6": [
+          0.225,
+          0.125,
+          0.25
+        ],
+        "v7": [
+          -0.225,
+          0.125,
+          0.25
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    },
+    "radio_dial": {
+      "vertices": {
+        "v0": [
+          -0.025,
+          -0.0075,
+          0.0
+        ],
+        "v1": [
+          0.025,
+          -0.0075,
+          0.0
+        ],
+        "v2": [
+          0.025,
+          0.0075,
+          0.0
+        ],
+        "v3": [
+          -0.025,
+          0.0075,
+          0.0
+        ],
+        "v4": [
+          -0.025,
+          -0.0075,
+          0.05
+        ],
+        "v5": [
+          0.025,
+          -0.0075,
+          0.05
+        ],
+        "v6": [
+          0.025,
+          0.0075,
+          0.05
+        ],
+        "v7": [
+          -0.025,
+          0.0075,
+          0.05
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    },
+    "radio_speaker": {
+      "vertices": {
+        "v0": [
+          -0.09,
+          -0.0075,
+          0.0
+        ],
+        "v1": [
+          0.09,
+          -0.0075,
+          0.0
+        ],
+        "v2": [
+          0.09,
+          0.0075,
+          0.0
+        ],
+        "v3": [
+          -0.09,
+          0.0075,
+          0.0
+        ],
+        "v4": [
+          -0.09,
+          -0.0075,
+          0.13
+        ],
+        "v5": [
+          0.09,
+          -0.0075,
+          0.13
+        ],
+        "v6": [
+          0.09,
+          0.0075,
+          0.13
+        ],
+        "v7": [
+          -0.09,
+          0.0075,
+          0.13
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    }
+  },
+  "doors": {},
+  "active_camera": "preview_camera",
+  "annotations": []
+}

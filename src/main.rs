@@ -1,10 +1,10 @@
 use std::collections::BTreeMap;
-use std::io::Read;
+use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID [--world | --object-state] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID [--world | --object-state] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene export --scene PATH --root ID --format usda --output NEW.usda\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -58,6 +58,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
         ],
         "apply" => &["--scene", "--request"],
         "serve" => &["--scene"],
+        "export" => &["--scene", "--root", "--format", "--output"],
         "mcp" => &["--scene", "--preview", "--capture"],
         "preview" => &["--scene", "--capture"],
         "render" => &["--scene", "--output", "--width", "--height"],
@@ -90,6 +91,22 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
     let result = (|| -> Result<Option<serde_json::Value>, String> {
         let map_err = |e: formora::scene::SceneError| e.to_string();
         match action {
+            "export" => {
+                let required = |key: &str| {
+                    options
+                        .get(key)
+                        .cloned()
+                        .ok_or_else(|| format!("{key} is required"))
+                };
+                let request = formora::usd::ExportRequest {
+                    root: required("--root")?,
+                    format: required("--format")?,
+                    output: required("--output")?,
+                };
+                let receipt =
+                    formora::usd::export_file(Path::new(path), &request).map_err(map_err)?;
+                Ok(Some(serde_json::json!(receipt)))
+            }
             "preview" | "render" => {
                 #[cfg(feature = "preview")]
                 {
@@ -148,7 +165,7 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
             }
             "inspect" => {
                 let scene = formora::scene::Scene::load(Path::new(path)).map_err(map_err)?;
-                let value = formora::session::InspectRequest {
+                let request = formora::session::InspectRequest {
                     entity: options.get("--entity").cloned(),
                     mesh_asset: options.get("--mesh-asset").cloned(),
                     tessellate: options.contains_key("--tessellate"),
@@ -156,10 +173,13 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
                     normals: options.contains_key("--normals"),
                     world: options.contains_key("--world"),
                     object_state: options.contains_key("--object-state"),
-                }
-                .inspect(&scene)
-                .map_err(map_err)?;
-                Ok(Some(value))
+                };
+                let stdout = std::io::stdout();
+                let mut output = std::io::BufWriter::new(stdout.lock());
+                request.write_json(&scene, &mut output).map_err(map_err)?;
+                output.write_all(b"\n").map_err(|e| e.to_string())?;
+                output.flush().map_err(|e| e.to_string())?;
+                Ok(None)
             }
             "apply" => {
                 let request_path = &options["--request"];

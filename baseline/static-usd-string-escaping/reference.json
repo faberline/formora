@@ -1,0 +1,7 @@
+{
+  "rule": "Frozen contract already requires escaped UTF-8 strings and control bytes. Use two-digit hex byte escapes for ASCII controls, backslash and quote escapes; preserve valid multibyte UTF-8. No product output is a reference.",
+  "input": "Quote \" backslash \\ controls \u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f DEL \u007f C1 \u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f \u4e2d\u6587 \ud83c\udf0b",
+  "escaped_ascii_controls": "\\x00\\x01\\x02\\x03\\x04\\x05\\x06\\x07\\x08\\x09\\x0a\\x0b\\x0c\\x0d\\x0e\\x0f\\x10\\x11\\x12\\x13\\x14\\x15\\x16\\x17\\x18\\x19\\x1a\\x1b\\x1c\\x1d\\x1e\\x1f",
+  "hex_escape_width": 2,
+  "required": "CLI and official MCP -> OpenUSD parsed formora:name must equal every original code point, including NUL and characters after it"
+}

@@ -1,0 +1,38 @@
+{
+  "verified_utc": "2026-11-01",
+  "openusd_commit": "2095fafafd033fa23386d7ec6d58c7cc33974518",
+  "sources": [
+    {
+      "file": "threadLimits.cpp",
+      "url": "https://raw.githubusercontent.com/PixarAnimationStudios/OpenUSD/2095fafafd033fa23386d7ec6d58c7cc33974518/pxr/base/work/threadLimits.cpp",
+      "sha256": "e4c62e77e83a14b26ab04cccacc578c5e9cdb66df8befdf04a360ff8986aa549"
+    },
+    {
+      "file": "threadLimits.h",
+      "url": "https://raw.githubusercontent.com/PixarAnimationStudios/OpenUSD/2095fafafd033fa23386d7ec6d58c7cc33974518/pxr/base/work/threadLimits.h",
+      "sha256": "25d2ff031153d7378aace71bef5d43bc12040d79fde7f814a2bcfcb5d90b2074"
+    },
+    {
+      "file": "wrapThreadLimits.cpp",
+      "url": "https://raw.githubusercontent.com/PixarAnimationStudios/OpenUSD/2095fafafd033fa23386d7ec6d58c7cc33974518/pxr/base/work/wrapThreadLimits.cpp",
+      "sha256": "44945bb4b4d01cef0cdd246ddadc00ba038d3abac00a8d94e7f9b23f622c7b57"
+    }
+  ],
+  "documentation": [
+    "https://openusd.org/release/api/work_page_front.html",
+    "https://numpy.org/doc/2.2/reference/global_state.html"
+  ],
+  "wheel": {
+    "source": "https://pypi.org/project/usd-core/26.5/",
+    "filename": "usd_core-26.5-cp312-none-macosx_10_15_universal2.whl",
+    "url": "https://files.pythonhosted.org/packages/8d/cc/04870cc3ae8e1b3a4e168efea47e389cfab6ab4f619005da2443a10390d4/usd_core-26.5-cp312-none-macosx_10_15_universal2.whl",
+    "sha256": "a9df2864e84b83ffc9cc0f2777a49170180f84f2b679bcd014d72036a51d057c",
+    "full_bytes_downloaded_and_hash_verified": true,
+    "work_module_entries": [
+      "pxr/Work/",
+      "pxr/Work/__init__.py",
+      "pxr/Work/_work.so"
+    ]
+  },
+  "method": "Static source and wheel-archive inspection only. No pxr import, local product CLI/MCP/capacity test or source process."
+}

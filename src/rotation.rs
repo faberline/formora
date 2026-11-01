@@ -4,6 +4,8 @@
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
+#[cfg(test)]
+mod macos_axis_angle_memory;
 pub(crate) mod source;
 
 /// Authored representation, independent of its evaluated physical pose.

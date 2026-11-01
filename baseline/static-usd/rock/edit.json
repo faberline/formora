@@ -1,0 +1,30 @@
+{
+  "expected_revision": 1,
+  "commands": [
+    {
+      "operation": "set_mesh_vertices",
+      "id": "rock_body",
+      "positions": {
+        "v0": [
+          -0.485,
+          -0.24,
+          0
+        ]
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "stone",
+      "material": {
+        "base_color": [
+          0.32,
+          0.35,
+          0.31,
+          1
+        ],
+        "roughness": 0.72,
+        "metallic": 0
+      }
+    }
+  ]
+}

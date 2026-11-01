@@ -1,0 +1,33 @@
+{
+  "frozen_before_exporter": true,
+  "samples": 3,
+  "continuous_tolerance": 1e-06,
+  "discrete": "exact",
+  "small_assets": [
+    "crate",
+    "rock",
+    "workbench",
+    "radio"
+  ],
+  "capacity": {
+    "data_copies": [
+      1,
+      2
+    ],
+    "vertices_per_copy": 100000,
+    "triangles_per_copy": 100000,
+    "construction": "Independent triangle grid: vertices v_i=(i%1000, floor(i/1000), (i%7)*0.01); triangle i=(i,i+1,i+1000), wrap only row-valid indices; use repeated indexed faces for exact 100000 triangles. IDs remain unique.",
+    "core_ms_per_copy": 250,
+    "pipeline_ms_per_copy": 2000,
+    "core_clock": "Complete validated scene/subtree projection, all bounds/precision checks, USD byte generation. Includes all validation. Excludes fixture construction.",
+    "pipeline_clock": "CLI operation through process wait, durable export, new process reopen and independent parse/full exact comparison. Includes full validation.",
+    "export_bytes_max": 268435456
+  },
+  "separate_evidence": [
+    "Apple actual load and data comparison",
+    "GPU startup and captures",
+    "image review of all external faces"
+  ],
+  "gpu_quality": "6 axis views plus 2 oblique views; all silhouettes and outward faces present; no missing faces, inverted normals, empty image or wrong material role; inspect actual PNGs.",
+  "unrun_or_failure": "required gate fails; no threshold changes after implementation"
+}

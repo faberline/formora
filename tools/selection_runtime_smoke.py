@@ -7,6 +7,7 @@ from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
+from runtime_binary import resolve_binary
 import subprocess
 import tempfile
 
@@ -260,4 +261,4 @@ if __name__=='__main__':
     parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--interface',choices=['cli','both'],default='both')
     args=parser.parse_args()
-    asyncio.run(run(args.binary.resolve(),args.output.resolve(),['cli'] if args.interface=='cli' else ['cli','official_mcp_sdk']))
+    asyncio.run(run(resolve_binary(args.binary),args.output.resolve(),['cli'] if args.interface=='cli' else ['cli','official_mcp_sdk']))

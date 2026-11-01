@@ -1,0 +1,32 @@
+{
+  "frozen_before_parallel_implementation": true,
+  "prior_code_head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+  "prior_failed_run": 41320675803,
+  "rules": [
+    "Start the original pipeline wall clock before creating any executor, event, task or initialization.",
+    "The native export subprocess must actually start before the verifier initialization event is set.",
+    "OpenUSD and NumPy initialization remains inside the clock, including the first cold sample.",
+    "Only after durable native export returns may USD validation or the fresh native query begin.",
+    "The independent full USD comparison and full fresh-query equality may overlap. Neither may sample, omit data, change expected values or use product output as a reference.",
+    "Retrieve every future result. Record every initialization, query and validation error. No acknowledgment or submission is completion.",
+    "Join every executor worker before stopping the clock. Preserve all actual native PID/wait/exit receipts.",
+    "A native launch/export error fails. Failure before the spawn signal must release and join the initialization waiter; it must not hang or pass.",
+    "A query, initialization or validation error keeps the sample failed even if other concurrent work succeeds.",
+    "All six samples, original 100k/200k workloads, 250/500ms core limits, 2000/4000ms total limits and full1e-6/discrete comparisons remain.",
+    "Diagnostic operation times may overlap and are never subtracted from elapsed wall time. No preclock warmup, cached-result substitution or cold exception.",
+    "Both Mac architectures remain required. New concurrency controls are helper evidence only, not product acceptance."
+  ],
+  "independent_control_cases": [
+    "initialization starts after native-start signal and overlaps export",
+    "query and validation both finish before return",
+    "query failure is retained while validation still completes",
+    "validation failure is retained while query still completes",
+    "initialization failure cannot pass",
+    "native launch failure releases and joins waiter",
+    "missing native-start signal is rejected"
+  ],
+  "sources": [
+    {"url":"https://docs.python.org/3.12/library/concurrent.futures.html","verified_utc":"2026-11-01","sections":["Executor.shutdown","Future.result","ThreadPoolExecutor"],"rule":"The executor context waits for pending work; result retrieves task outcome and raises task exceptions."},
+    {"url":"https://docs.python.org/3.12/library/threading.html#event-objects","verified_utc":"2026-11-01","rule":"Event communicates a condition; it never establishes successful task completion. Threads do not guarantee CPU parallelism under the GIL."}
+  ]
+}

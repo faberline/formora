@@ -1,0 +1,3108 @@
+{
+  "source_head": "f22e3e86ce77cde28dfe77709cde67bdfb9aff6a",
+  "run": 41331442934,
+  "job": 124922223005,
+  "full_world_memory_components": 1617408,
+  "full_world_component_violations": 78,
+  "focused_component_violations": 78,
+  "sources": [
+    {
+      "file": "baseline/reference/blender-5.2.3/snap-rotation/rotation_snap_0993.json.gz",
+      "sha256": "e3745ab6e8a5478f7b66852cc2378e923aafeecb790d00e35211049af174bcbe",
+      "axis_angle": [
+        2.094395160675049,
+        0.5773502588272095,
+        -0.5773502588272095,
+        0.5773502588272095
+      ]
+    },
+    {
+      "file": "baseline/reference/blender-5.2.3/snap-rotation-repeat/rotation_snap_0993.json.gz",
+      "sha256": "e3745ab6e8a5478f7b66852cc2378e923aafeecb790d00e35211049af174bcbe",
+      "axis_angle": [
+        2.094395160675049,
+        0.5773502588272095,
+        -0.5773502588272095,
+        0.5773502588272095
+      ]
+    }
+  ],
+  "scalar": {
+    "quaternion_wxyz": [
+      0.5,
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "expected_matrix_quaternion_w": 0.5,
+    "expected_half_angle": 1.0471975803375244,
+    "expected_half_f32_bits": 1065749138,
+    "observed_half_angle": 1.0471974611282349,
+    "observed_half_f32_bits": 1065749137,
+    "identity": "acos(1/2)=pi/3. Expected half angle comes from BOTH pre-existing native Blender captures, not product math."
+  },
+  "observations": "Actual stored angle is one f32 step low. Paired, separate and f64-quantized sine/cosine bits agree at every printed failing angle. The exact normalized cursor quaternion supplies a matrix-to-quaternion w=0.5 control; the new scalar test must assert that intermediate. Wider inverse-cosine evaluation is a candidate, not yet an Intel pass.",
+  "actual_differences": [
+    {
+      "angle_bits": 1076987928,
+      "f64_sin_cos_to_f32_bits": [
+        1052247991,
+        3211715652
+      ],
+      "first_point_difference": {
+        "actual": -11.374407768249512,
+        "case": "rotation_snap_0921",
+        "component": 0,
+        "entity": "target",
+        "expected": -11.374410629272461,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7739315032958984,
+            0.996796727180481,
+            -0.07031581550836563,
+            -0.03810485452413559
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7739317417144775,
+          0.9967966675758362,
+          -0.07031580805778503,
+          -0.03810485079884529
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076987928,
+      "f64_sin_cos_to_f32_bits": [
+        1052247991,
+        3211715652
+      ],
+      "first_point_difference": {
+        "actual": -9.69432258605957,
+        "case": "rotation_snap_0923",
+        "component": 0,
+        "entity": "target",
+        "expected": -9.69432544708252,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7739315032958984,
+            0.996796727180481,
+            -0.07031581550836563,
+            -0.03810485452413559
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7739317417144775,
+          0.9967966675758362,
+          -0.07031580805778503,
+          -0.03810485079884529
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076876710,
+      "f64_sin_cos_to_f32_bits": [
+        1053073937,
+        3211550265
+      ],
+      "first_point_difference": {
+        "actual": -10.31690788269043,
+        "case": "rotation_snap_0969",
+        "component": 0,
+        "entity": "target",
+        "expected": -10.316911697387695,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.747415065765381,
+            0.9918347001075745,
+            -0.08578941971063614,
+            -0.09436197578907013
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.74741530418396,
+          0.9918346405029297,
+          -0.08578941226005554,
+          -0.09436196833848953
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076876710,
+      "f64_sin_cos_to_f32_bits": [
+        1053073937,
+        3211550265
+      ],
+      "first_point_difference": {
+        "actual": -8.86380386352539,
+        "case": "rotation_snap_0971",
+        "component": 0,
+        "entity": "target",
+        "expected": -8.863807678222656,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.747415065765381,
+            0.9918347001075745,
+            -0.08578941971063614,
+            -0.09436197578907013
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.74741530418396,
+          0.9918346405029297,
+          -0.08578941226005554,
+          -0.09436196833848953
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076835667,
+      "f64_sin_cos_to_f32_bits": [
+        1053376480,
+        3211486474
+      ],
+      "first_point_difference": {
+        "actual": -9.865567207336426,
+        "case": "rotation_snap_0985",
+        "component": 0,
+        "entity": "target",
+        "expected": -9.865569114685059,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7376296520233154,
+            0.9937413334846497,
+            -0.046338923275470734,
+            -0.10164140909910202
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7376298904418945,
+          0.9937413334846497,
+          -0.046338923275470734,
+          -0.10164140909910202
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076835667,
+      "f64_sin_cos_to_f32_bits": [
+        1053376480,
+        3211486474
+      ],
+      "first_point_difference": {
+        "actual": -8.495251655578613,
+        "case": "rotation_snap_0987",
+        "component": 0,
+        "entity": "target",
+        "expected": -8.495253562927246,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7376296520233154,
+            0.9937413334846497,
+            -0.046338923275470734,
+            -0.10164140909910202
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7376298904418945,
+          0.9937413334846497,
+          -0.046338923275470734,
+          -0.10164140909910202
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_0993",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 5.837503910064697,
+        "case": "rotation_snap_0995",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 5.837502479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_0997",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_1001",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 5.302469253540039,
+        "case": "rotation_snap_1003",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 5.3024678230285645,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_1005",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1069094697,
+      "f64_sin_cos_to_f32_bits": [
+        1065222781,
+        1040114043
+      ],
+      "first_point_difference": {
+        "actual": 14.805827140808105,
+        "case": "rotation_snap_1005",
+        "component": 0,
+        "entity": "target",
+        "expected": 14.805825233459473,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            1.4460192918777466,
+            0.47833752632141113,
+            -0.5461728572845459,
+            0.6876688003540039
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          1.4460194110870361,
+          0.47833746671676636,
+          -0.5461727976799011,
+          0.6876687407493591
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1069094697,
+      "f64_sin_cos_to_f32_bits": [
+        1065222781,
+        1040114043
+      ],
+      "first_point_difference": {
+        "actual": 16.683996200561523,
+        "case": "rotation_snap_1007",
+        "component": 0,
+        "entity": "target",
+        "expected": 16.68399429321289,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            1.4460192918777466,
+            0.47833752632141113,
+            -0.5461728572845459,
+            0.6876688003540039
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          1.4460194110870361,
+          0.47833746671676636,
+          -0.5461727976799011,
+          0.6876687407493591
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795727,
+      "f64_sin_cos_to_f32_bits": [
+        1053669679,
+        3211422980
+      ],
+      "first_point_difference": {
+        "actual": -4.124999046325684,
+        "case": "rotation_snap_2341",
+        "component": 1,
+        "entity": "target",
+        "expected": -4.125000476837158,
+        "phase": "after",
+        "vertex": "v000021"
+      },
+      "paired_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107213973999,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442011147737503
+          ],
+          "euler": [
+            3.1415927410125732,
+            0,
+            0
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.728107452392578,
+          0.9599877595901489,
+          -0.2725318372249603,
+          -0.06442011147737503
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415927410125732,
+          0,
+          0
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795727,
+      "f64_sin_cos_to_f32_bits": [
+        1053669679,
+        3211422980
+      ],
+      "first_point_difference": {
+        "actual": -2.271294355392456,
+        "case": "rotation_snap_2343",
+        "component": 1,
+        "entity": "target",
+        "expected": -2.2712955474853516,
+        "phase": "after",
+        "vertex": "v000021"
+      },
+      "paired_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107213973999,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442011147737503
+          ],
+          "euler": [
+            3.1415927410125732,
+            0,
+            0
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.728107452392578,
+          0.9599877595901489,
+          -0.2725318372249603,
+          -0.06442011147737503
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415927410125732,
+          0,
+          0
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795728,
+      "f64_sin_cos_to_f32_bits": [
+        1053669672,
+        3211422981
+      ],
+      "first_point_difference": {
+        "actual": 3.075000047683716,
+        "case": "rotation_snap_2349",
+        "component": 0,
+        "entity": "target",
+        "expected": 3.0750014781951904,
+        "phase": "after",
+        "vertex": "v000010"
+      },
+      "paired_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107452392578,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442007422447205
+          ],
+          "euler": [
+            3.1415929794311523,
+            -1.570796251296997,
+            5.960464477539063e-08
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            5.960464477539063e-08,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7281076908111572,
+          0.9599876999855042,
+          -0.27253180742263794,
+          -0.06442007422447205
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415929794311523,
+          -1.570796251296997,
+          5.960464477539063e-08
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          5.960464477539063e-08,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795728,
+      "f64_sin_cos_to_f32_bits": [
+        1053669672,
+        3211422981
+      ],
+      "first_point_difference": {
+        "actual": 4.559629440307617,
+        "case": "rotation_snap_2351",
+        "component": 0,
+        "entity": "target",
+        "expected": 4.559630870819092,
+        "phase": "after",
+        "vertex": "v000010"
+      },
+      "paired_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107452392578,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442007422447205
+          ],
+          "euler": [
+            3.1415929794311523,
+            -1.570796251296997,
+            5.960464477539063e-08
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            5.960464477539063e-08,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7281076908111572,
+          0.9599876999855042,
+          -0.27253180742263794,
+          -0.06442007422447205
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415929794311523,
+          -1.570796251296997,
+          5.960464477539063e-08
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          5.960464477539063e-08,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076987928,
+      "f64_sin_cos_to_f32_bits": [
+        1052247991,
+        3211715652
+      ],
+      "first_point_difference": {
+        "actual": -11.374407768249512,
+        "case": "rotation_snap_0921",
+        "component": 0,
+        "entity": "target",
+        "expected": -11.374410629272461,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7739315032958984,
+            0.996796727180481,
+            -0.07031581550836563,
+            -0.03810485452413559
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7739317417144775,
+          0.9967966675758362,
+          -0.07031580805778503,
+          -0.03810485079884529
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076987928,
+      "f64_sin_cos_to_f32_bits": [
+        1052247991,
+        3211715652
+      ],
+      "first_point_difference": {
+        "actual": -9.69432258605957,
+        "case": "rotation_snap_0923",
+        "component": 0,
+        "entity": "target",
+        "expected": -9.69432544708252,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7739315032958984,
+            0.996796727180481,
+            -0.07031581550836563,
+            -0.03810485452413559
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1052247991,
+        3211715652
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7739317417144775,
+          0.9967966675758362,
+          -0.07031580805778503,
+          -0.03810485079884529
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076876710,
+      "f64_sin_cos_to_f32_bits": [
+        1053073937,
+        3211550265
+      ],
+      "first_point_difference": {
+        "actual": -10.31690788269043,
+        "case": "rotation_snap_0969",
+        "component": 0,
+        "entity": "target",
+        "expected": -10.316911697387695,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.747415065765381,
+            0.9918347001075745,
+            -0.08578941971063614,
+            -0.09436197578907013
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.74741530418396,
+          0.9918346405029297,
+          -0.08578941226005554,
+          -0.09436196833848953
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076876710,
+      "f64_sin_cos_to_f32_bits": [
+        1053073937,
+        3211550265
+      ],
+      "first_point_difference": {
+        "actual": -8.86380386352539,
+        "case": "rotation_snap_0971",
+        "component": 0,
+        "entity": "target",
+        "expected": -8.863807678222656,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.747415065765381,
+            0.9918347001075745,
+            -0.08578941971063614,
+            -0.09436197578907013
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053073937,
+        3211550265
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.74741530418396,
+          0.9918346405029297,
+          -0.08578941226005554,
+          -0.09436196833848953
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076835667,
+      "f64_sin_cos_to_f32_bits": [
+        1053376480,
+        3211486474
+      ],
+      "first_point_difference": {
+        "actual": -9.865567207336426,
+        "case": "rotation_snap_0985",
+        "component": 0,
+        "entity": "target",
+        "expected": -9.865569114685059,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7376296520233154,
+            0.9937413334846497,
+            -0.046338923275470734,
+            -0.10164140909910202
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7376298904418945,
+          0.9937413334846497,
+          -0.046338923275470734,
+          -0.10164140909910202
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076835667,
+      "f64_sin_cos_to_f32_bits": [
+        1053376480,
+        3211486474
+      ],
+      "first_point_difference": {
+        "actual": -8.495251655578613,
+        "case": "rotation_snap_0987",
+        "component": 0,
+        "entity": "target",
+        "expected": -8.495253562927246,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.7376296520233154,
+            0.9937413334846497,
+            -0.046338923275470734,
+            -0.10164140909910202
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053376480,
+        3211486474
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7376298904418945,
+          0.9937413334846497,
+          -0.046338923275470734,
+          -0.10164140909910202
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_0993",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 5.837503910064697,
+        "case": "rotation_snap_0995",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 5.837502479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_0997",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_1001",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 5.302469253540039,
+        "case": "rotation_snap_1003",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 5.3024678230285645,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1074137745,
+      "f64_sin_cos_to_f32_bits": [
+        1063105497,
+        3204448251
+      ],
+      "first_point_difference": {
+        "actual": 7.275003910064697,
+        "case": "rotation_snap_1005",
+        "component": 0,
+        "entity": "secondary",
+        "expected": 7.275002479553223,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.0943949222564697,
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1063105497,
+        3204448251
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.094395160675049,
+          0.5773502588272095,
+          -0.5773502588272095,
+          0.5773502588272095
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1069094697,
+      "f64_sin_cos_to_f32_bits": [
+        1065222781,
+        1040114043
+      ],
+      "first_point_difference": {
+        "actual": 14.805827140808105,
+        "case": "rotation_snap_1005",
+        "component": 0,
+        "entity": "target",
+        "expected": 14.805825233459473,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            1.4460192918777466,
+            0.47833752632141113,
+            -0.5461728572845459,
+            0.6876688003540039
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          1.4460194110870361,
+          0.47833746671676636,
+          -0.5461727976799011,
+          0.6876687407493591
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1069094697,
+      "f64_sin_cos_to_f32_bits": [
+        1065222781,
+        1040114043
+      ],
+      "first_point_difference": {
+        "actual": 16.683996200561523,
+        "case": "rotation_snap_1007",
+        "component": 0,
+        "entity": "target",
+        "expected": 16.68399429321289,
+        "phase": "after",
+        "vertex": "v000026"
+      },
+      "paired_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            1.4460192918777466,
+            0.47833752632141113,
+            -0.5461728572845459,
+            0.6876688003540039
+          ],
+          "euler": [
+            0.3100000023841858,
+            -0.23000000417232513,
+            0.4699999988079071
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0.5,
+            -0.5,
+            0.5,
+            0.5
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1065222781,
+        1040114043
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          1.4460194110870361,
+          0.47833746671676636,
+          -0.5461727976799011,
+          0.6876687407493591
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          0.3100000023841858,
+          -0.23000000417232513,
+          0.4699999988079071
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0.5,
+          -0.5,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795727,
+      "f64_sin_cos_to_f32_bits": [
+        1053669679,
+        3211422980
+      ],
+      "first_point_difference": {
+        "actual": -4.124999046325684,
+        "case": "rotation_snap_2341",
+        "component": 1,
+        "entity": "target",
+        "expected": -4.125000476837158,
+        "phase": "after",
+        "vertex": "v000021"
+      },
+      "paired_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107213973999,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442011147737503
+          ],
+          "euler": [
+            3.1415927410125732,
+            0,
+            0
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.728107452392578,
+          0.9599877595901489,
+          -0.2725318372249603,
+          -0.06442011147737503
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415927410125732,
+          0,
+          0
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795727,
+      "f64_sin_cos_to_f32_bits": [
+        1053669679,
+        3211422980
+      ],
+      "first_point_difference": {
+        "actual": -2.271294355392456,
+        "case": "rotation_snap_2343",
+        "component": 1,
+        "entity": "target",
+        "expected": -2.2712955474853516,
+        "phase": "after",
+        "vertex": "v000021"
+      },
+      "paired_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107213973999,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442011147737503
+          ],
+          "euler": [
+            3.1415927410125732,
+            0,
+            0
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669679,
+        3211422980
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.728107452392578,
+          0.9599877595901489,
+          -0.2725318372249603,
+          -0.06442011147737503
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415927410125732,
+          0,
+          0
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795728,
+      "f64_sin_cos_to_f32_bits": [
+        1053669672,
+        3211422981
+      ],
+      "first_point_difference": {
+        "actual": 3.075000047683716,
+        "case": "rotation_snap_2349",
+        "component": 0,
+        "entity": "target",
+        "expected": 3.0750014781951904,
+        "phase": "after",
+        "vertex": "v000010"
+      },
+      "paired_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107452392578,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442007422447205
+          ],
+          "euler": [
+            3.1415929794311523,
+            -1.570796251296997,
+            5.960464477539063e-08
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            5.960464477539063e-08,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7281076908111572,
+          0.9599876999855042,
+          -0.27253180742263794,
+          -0.06442007422447205
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415929794311523,
+          -1.570796251296997,
+          5.960464477539063e-08
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          5.960464477539063e-08,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle_bits": 1076795728,
+      "f64_sin_cos_to_f32_bits": [
+        1053669672,
+        3211422981
+      ],
+      "first_point_difference": {
+        "actual": 4.559629440307617,
+        "case": "rotation_snap_2351",
+        "component": 0,
+        "entity": "target",
+        "expected": 4.559630870819092,
+        "phase": "after",
+        "vertex": "v000010"
+      },
+      "paired_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "rotation": {
+        "channels": {
+          "axis_angle": [
+            2.728107452392578,
+            0.9599877595901489,
+            -0.2725318372249603,
+            -0.06442007422447205
+          ],
+          "euler": [
+            3.1415929794311523,
+            -1.570796251296997,
+            5.960464477539063e-08
+          ],
+          "mode": "axis_angle",
+          "quaternion_wxyz": [
+            5.960464477539063e-08,
+            1,
+            0,
+            0
+          ]
+        },
+        "kind": "channels"
+      },
+      "separate_sin_cos_bits": [
+        1053669672,
+        3211422981
+      ],
+      "source_rotation_channels": {
+        "axis_angle": [
+          2.7281076908111572,
+          0.9599876999855042,
+          -0.27253180742263794,
+          -0.06442007422447205
+        ],
+        "delta_euler": [
+          0,
+          0,
+          0
+        ],
+        "delta_quaternion_wxyz": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "euler": [
+          3.1415929794311523,
+          -1.570796251296997,
+          5.960464477539063e-08
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": false,
+        "mode": "AXIS_ANGLE",
+        "quaternion_wxyz": [
+          5.960464477539063e-08,
+          1,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "rule": "No expected source point/channel, source exception, tolerance, count, workload or clock changes."
+}

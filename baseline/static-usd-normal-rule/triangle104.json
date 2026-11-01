@@ -1,0 +1,35 @@
+{
+  "source": "Independent Python struct IEEE f32 arithmetic on authored input; no product output used as expected data. The pre-exporter contract fixes the existing preview normal rule.",
+  "triangle_start": 104,
+  "points": [
+    [
+      104,
+      0,
+      0.06
+    ],
+    [
+      105,
+      0,
+      0
+    ],
+    [
+      104,
+      1,
+      0.05
+    ]
+  ],
+  "f32_sequential_newell": [
+    0.0598893016576767,
+    0.009982731193304062,
+    0.9981550574302673
+  ],
+  "f64_geometric_cross": [
+    0.05988930707832083,
+    0.009981551179720135,
+    0.998155117972014
+  ],
+  "difference_max": 1.1800135839273168e-06,
+  "required_rule": "f32 sequential Newell, reciprocal normalization, as frozen preview contract",
+  "continuous_tolerance": 1e-06,
+  "first_failed_comparison_retained": true
+}

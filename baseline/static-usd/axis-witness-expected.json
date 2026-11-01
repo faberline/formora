@@ -1,0 +1,55 @@
+{
+  "source": "Independent hand-authored tetrahedron; right-handed X, Y, Z lengths 1, 2, 3 metres",
+  "source_world_points": [
+    [
+      0.125,
+      -0.25,
+      0.5
+    ],
+    [
+      1.125,
+      -0.25,
+      0.5
+    ],
+    [
+      0.125,
+      1.75,
+      0.5
+    ],
+    [
+      0.125,
+      -0.25,
+      3.5
+    ]
+  ],
+  "apple_y_up_points": [
+    [
+      0.125,
+      0.5,
+      0.25
+    ],
+    [
+      1.125,
+      0.5,
+      0.25
+    ],
+    [
+      0.125,
+      0.5,
+      -1.75
+    ],
+    [
+      0.125,
+      3.5,
+      0.25
+    ]
+  ],
+  "apple_mapping": "(x,y,z) -> (x,z,-y)",
+  "tolerance": 1e-06,
+  "triangles": 4,
+  "hierarchy": [
+    "Witness",
+    "Offset",
+    "Tetra"
+  ]
+}

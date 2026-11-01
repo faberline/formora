@@ -1,0 +1,88 @@
+#usda 1.0
+(
+defaultPrim = "Formora"
+metersPerUnit = 1
+upAxis = "Z"
+)
+def Xform "Formora" {
+custom uint64 formora:revision = 2
+def Xform "id_6372617465" {
+custom string formora:sourceId = "crate"
+custom string formora:name = "crate"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "id_63726174655f62616e645f6c656674" {
+custom string formora:sourceId = "crate_band_left"
+custom string formora:name = "band_left"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-0.28, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+
+}
+def Xform "id_63726174655f62616e645f7269676874" {
+custom string formora:sourceId = "crate_band_right"
+custom string formora:name = "band_right"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0.28, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "crate_band_right"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007", "f008", "f009", "f010", "f011"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.03, -0.31, 0), (0.03, -0.31, 0), (0.03, 0.31, 0), (-0.03, 0.31, 0), (-0.03, -0.31, 0.62), (0.03, -0.31, 0.62), (0.03, 0.31, 0.62), (-0.03, 0.31, 0.62)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0, -1, 0), (0.99999994, 0, 0), (0.99999994, 0, 0), (0.99999994, 0, 0), (0.99999994, 0, 0), (0.99999994, 0, 0), (0.99999994, 0, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (-0.99999994, 0, 0), (-0.99999994, 0, 0), (-0.99999994, 0, 0), (-0.99999994, 0, 0), (-0.99999994, 0, 0), (-0.99999994, 0, 0)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_6d6574616c>
+}
+}
+def Xform "id_63726174655f626f6479" {
+custom string formora:sourceId = "crate_body"
+custom string formora:name = "body"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "crate_body"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007", "f008", "f009", "f010", "f011"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.385, -0.29, 0), (0.4, -0.3, 0), (0.4, 0.3, 0), (-0.4, 0.3, 0), (-0.4, -0.3, 0.6), (0.4, -0.3, 0.6), (0.4, 0.3, 0.6), (-0.4, 0.3, 0.6)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 2, 1, 0, 3, 2, 4, 5, 6, 4, 6, 7, 0, 1, 5, 0, 5, 4, 1, 2, 6, 1, 6, 5, 2, 3, 7, 2, 7, 6, 3, 0, 4, 3, 4, 7]
+normal3f[] normals = [(0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, -1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1), (-0.012737846, -0.9999188, 0), (-0.012737846, -0.9999188, 0), (-0.012737846, -0.9999188, 0), (0, -0.9998611, -0.016664386), (0, -0.9998611, -0.016664386), (0, -0.9998611, -0.016664386), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (1, 0, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (0, 1, 0), (-0.99935424, -0.025407404, -0.025407339), (-0.99935424, -0.025407404, -0.025407339), (-0.99935424, -0.025407404, -0.025407339), (-1, 0, 0), (-1, 0, 0), (-1, 0, 0)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_776f6f64>
+}
+}
+}
+def Scope "Materials" {
+def Material "id_6d6574616c" {
+custom string formora:sourceId = "metal"
+token outputs:surface.connect = </Formora/Materials/id_6d6574616c/Surface.outputs:surface>
+def Shader "Surface" {
+uniform token info:id = "UsdPreviewSurface"
+color3f inputs:diffuseColor = (0.15, 0.18, 0.2)
+float inputs:opacity = 1
+float inputs:roughness = 0.4
+float inputs:metallic = 0.85
+token outputs:surface
+}
+}
+def Material "id_776f6f64" {
+custom string formora:sourceId = "wood"
+token outputs:surface.connect = </Formora/Materials/id_776f6f64/Surface.outputs:surface>
+def Shader "Surface" {
+uniform token info:id = "UsdPreviewSurface"
+color3f inputs:diffuseColor = (0.31, 0.15, 0.055)
+float inputs:opacity = 1
+float inputs:roughness = 0.72
+float inputs:metallic = 0
+token outputs:surface
+}
+}
+}
+}

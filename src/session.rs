@@ -57,7 +57,47 @@ pub struct InspectRequest {
     pub object_state: bool,
 }
 
+#[derive(Serialize)]
+struct FullInspection<'a> {
+    revision: u64,
+    scene: &'a Scene,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    cursor_matrix: Option<[[f64; 4]; 4]>,
+}
+fn full_inspection(scene: &Scene) -> Result<FullInspection<'_>> {
+    let cursor_matrix = scene
+        .authoring_context
+        .as_ref()
+        .filter(|c| c.cursor_orientation.is_some())
+        .map(|c| c.cursor_world_matrix())
+        .transpose()?;
+    Ok(FullInspection {
+        revision: scene.revision,
+        scene,
+        cursor_matrix,
+    })
+}
+
 impl InspectRequest {
+    /// Serialize a full read without constructing a second owned scene tree.
+    /// Filtered reads retain exactly the existing inspect validation and values.
+    pub fn write_json(&self, scene: &Scene, output: impl std::io::Write) -> Result<()> {
+        if self.entity.is_none()
+            && self.mesh_asset.is_none()
+            && !self.tessellate
+            && !self.selection_topology
+            && !self.normals
+            && !self.world
+            && !self.object_state
+        {
+            serde_json::to_writer(output, &full_inspection(scene)?)
+                .map_err(|e| SceneError(e.to_string()))
+        } else {
+            serde_json::to_writer(output, &self.inspect(scene)?)
+                .map_err(|e| SceneError(e.to_string()))
+        }
+    }
+
     /// The CLI can inspect a saved scene without taking the writer lock.
     pub fn inspect(&self, scene: &Scene) -> Result<serde_json::Value> {
         if self.object_state {
@@ -194,13 +234,7 @@ impl InspectRequest {
             (Some(id), None) => scene.entities.get(id).map(|entity| serde_json::json!({"revision":scene.revision,"id":id,"entity":entity})).ok_or_else(|| SceneError(format!("unknown entity: {id}"))),
             (None, Some(id)) => scene.mesh_assets.get(id).map(|asset| serde_json::json!({"revision":scene.revision,"id":id,"mesh_asset":asset})).ok_or_else(|| SceneError(format!("unknown mesh asset: {id}"))),
             (None, None) => {
-                let mut result=serde_json::json!({"revision":scene.revision,"scene":scene});
-                if let Some(context)=&scene.authoring_context {
-                    if context.cursor_orientation.is_some() {
-                        result["cursor_matrix"]=serde_json::to_value(context.cursor_world_matrix()?).map_err(|e| SceneError(e.to_string()))?;
-                    }
-                }
-                Ok(result)
+                serde_json::to_value(full_inspection(scene)?).map_err(|e| SceneError(e.to_string()))
             },
         }
     }
@@ -346,6 +380,80 @@ impl Session {
         candidate.scene().save(&self.path)?;
         self.editor = candidate;
         Ok(revision)
+    }
+}
+
+#[cfg(test)]
+mod inspect_serialization_tests {
+    use super::*;
+    #[test]
+    fn direct_json_equals_inspection_values_and_errors() {
+        let scene = Scene {
+            revision: 17,
+            ..Scene::default()
+        };
+        let request: ApplyRequest =
+            serde_json::from_str(include_str!("../baseline/static-usd/rock/create.json")).unwrap();
+        let mut editor = Editor::new(scene).unwrap();
+        editor.apply(&request.commands, Some(17)).unwrap();
+        let scene = editor.scene();
+        for request in [
+            InspectRequest::default(),
+            InspectRequest {
+                entity: Some("rock".into()),
+                ..InspectRequest::default()
+            },
+            InspectRequest {
+                entity: Some("absent".into()),
+                ..InspectRequest::default()
+            },
+            InspectRequest {
+                world: true,
+                ..InspectRequest::default()
+            },
+        ] {
+            let expected = request.inspect(scene);
+            let mut bytes = Vec::new();
+            match expected {
+                Ok(expected) => {
+                    request.write_json(scene, &mut bytes).unwrap();
+                    let actual: serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+                    assert_eq!(actual, expected);
+                    if request.entity.is_none() && !request.world {
+                        assert_eq!(actual["revision"], 18);
+                        assert_eq!(actual["scene"], serde_json::to_value(scene).unwrap());
+                        assert!(actual.get("cursor_matrix").is_none());
+                    }
+                }
+                Err(expected) => assert_eq!(
+                    request.write_json(scene, &mut bytes).unwrap_err().0,
+                    expected.0
+                ),
+            }
+        }
+        let mut scene = scene.clone();
+        scene.authoring_context = Some(crate::mesh::creation::AuthoringContext {
+            cursor_location: [0.125, -0.25, 0.5],
+            cursor_orientation: Some(crate::rotation::Channels::from_rotation(
+                crate::rotation::TransformRotation::Quaternion([0., 0., 0., 1.]),
+            )),
+            ..crate::mesh::creation::AuthoringContext::default()
+        });
+        scene.validate().unwrap();
+        let request = InspectRequest::default();
+        let mut bytes = Vec::new();
+        request.write_json(&scene, &mut bytes).unwrap();
+        let actual: serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+        assert_eq!(actual, request.inspect(&scene).unwrap());
+        assert_eq!(
+            actual["cursor_matrix"],
+            serde_json::json!([
+                [1., 0., 0., 0.125],
+                [0., 1., 0., -0.25],
+                [0., 0., 1., 0.5],
+                [0., 0., 0., 1.]
+            ])
+        );
     }
 }
 

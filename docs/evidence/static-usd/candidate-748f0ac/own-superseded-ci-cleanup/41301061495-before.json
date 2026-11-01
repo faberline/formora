@@ -1,0 +1,562 @@
+{
+  "run": {
+    "id": 41301061495,
+    "name": "Native static USD gate",
+    "node_id": "WFR_kwLOVausXs8AAAAJnbwvdw",
+    "head_branch": "codex/native-static-usd-gate",
+    "head_sha": "c1f0f87d9c6e550a68c7df5da1faa873a056ec9b",
+    "path": ".github/workflows/static-usd.yml",
+    "display_title": "feat(usd): native static modeling and Apple interchange gate",
+    "run_number": 6,
+    "event": "pull_request",
+    "status": "queued",
+    "conclusion": null,
+    "workflow_id": 403467039,
+    "check_suite_id": 111938566216,
+    "check_suite_node_id": "CS_kwDOVausXs8AAAAaEA74SA",
+    "url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495",
+    "html_url": "https://github.com/faberline/formora/actions/runs/41301061495",
+    "pull_requests": [
+      {
+        "url": "https://api.github.com/repos/faberline/formora/pulls/87",
+        "id": 5106577852,
+        "number": 87,
+        "head": {
+          "ref": "codex/native-static-usd-gate",
+          "sha": "748f0ac50b59d60755a22e26a450cd64416a888a",
+          "repo": {
+            "id": 1437314142,
+            "url": "https://api.github.com/repos/faberline/formora",
+            "name": "formora"
+          }
+        },
+        "base": {
+          "ref": "codex/mesh-merge-multi-data-core",
+          "sha": "c67c23031cf305b4730702de689160a5c91abf06",
+          "repo": {
+            "id": 1437314142,
+            "url": "https://api.github.com/repos/faberline/formora",
+            "name": "formora"
+          }
+        }
+      }
+    ],
+    "created_at": "2026-11-01T11:15:18Z",
+    "updated_at": "2026-11-01T11:15:18Z",
+    "actor": {
+      "login": "chrischeng-c4",
+      "id": 210726774,
+      "node_id": "U_kgDODI9vdg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/210726774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrischeng-c4",
+      "html_url": "https://github.com/chrischeng-c4",
+      "followers_url": "https://api.github.com/users/chrischeng-c4/followers",
+      "following_url": "https://api.github.com/users/chrischeng-c4/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrischeng-c4/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrischeng-c4/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrischeng-c4/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrischeng-c4/orgs",
+      "repos_url": "https://api.github.com/users/chrischeng-c4/repos",
+      "events_url": "https://api.github.com/users/chrischeng-c4/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrischeng-c4/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "run_attempt": 1,
+    "referenced_workflows": [],
+    "run_started_at": "2026-11-01T11:15:18Z",
+    "triggering_actor": {
+      "login": "chrischeng-c4",
+      "id": 210726774,
+      "node_id": "U_kgDODI9vdg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/210726774?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrischeng-c4",
+      "html_url": "https://github.com/chrischeng-c4",
+      "followers_url": "https://api.github.com/users/chrischeng-c4/followers",
+      "following_url": "https://api.github.com/users/chrischeng-c4/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrischeng-c4/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrischeng-c4/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrischeng-c4/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrischeng-c4/orgs",
+      "repos_url": "https://api.github.com/users/chrischeng-c4/repos",
+      "events_url": "https://api.github.com/users/chrischeng-c4/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrischeng-c4/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "jobs_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495/jobs",
+    "logs_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495/logs",
+    "check_suite_url": "https://api.github.com/repos/faberline/formora/check-suites/111938566216",
+    "artifacts_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495/artifacts",
+    "cancel_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495/cancel",
+    "rerun_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495/rerun",
+    "previous_attempt_url": null,
+    "workflow_url": "https://api.github.com/repos/faberline/formora/actions/workflows/403467039",
+    "head_commit": {
+      "id": "c1f0f87d9c6e550a68c7df5da1faa873a056ec9b",
+      "tree_id": "6f7931e6a201c0a851bb9353f41f10c752673280",
+      "message": "fix(usd): enforce authoring pivots and preserve native validation evidence",
+      "timestamp": "2026-11-01T11:14:41Z",
+      "author": {
+        "name": "chrischeng-c4",
+        "email": "chris.cheng.c4@gmail.com"
+      },
+      "committer": {
+        "name": "chrischeng-c4",
+        "email": "chris.cheng.c4@gmail.com"
+      }
+    },
+    "repository": {
+      "id": 1437314142,
+      "node_id": "R_kgDOVausXg",
+      "name": "formora",
+      "full_name": "faberline/formora",
+      "private": false,
+      "owner": {
+        "login": "faberline",
+        "id": 333294630,
+        "node_id": "O_kgDOE92sJg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/333294630?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/faberline",
+        "html_url": "https://github.com/faberline",
+        "followers_url": "https://api.github.com/users/faberline/followers",
+        "following_url": "https://api.github.com/users/faberline/following{/other_user}",
+        "gists_url": "https://api.github.com/users/faberline/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/faberline/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/faberline/subscriptions",
+        "organizations_url": "https://api.github.com/users/faberline/orgs",
+        "repos_url": "https://api.github.com/users/faberline/repos",
+        "events_url": "https://api.github.com/users/faberline/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/faberline/received_events",
+        "type": "Organization",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/faberline/formora",
+      "description": "A Rust-based 3D creation suite combining modeling, animation, real-time rendering, and game development.",
+      "fork": false,
+      "url": "https://api.github.com/repos/faberline/formora",
+      "forks_url": "https://api.github.com/repos/faberline/formora/forks",
+      "keys_url": "https://api.github.com/repos/faberline/formora/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/faberline/formora/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/faberline/formora/teams",
+      "hooks_url": "https://api.github.com/repos/faberline/formora/hooks",
+      "issue_events_url": "https://api.github.com/repos/faberline/formora/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/faberline/formora/events",
+      "assignees_url": "https://api.github.com/repos/faberline/formora/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/faberline/formora/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/faberline/formora/tags",
+      "blobs_url": "https://api.github.com/repos/faberline/formora/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/faberline/formora/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/faberline/formora/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/faberline/formora/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/faberline/formora/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/faberline/formora/languages",
+      "stargazers_url": "https://api.github.com/repos/faberline/formora/stargazers",
+      "contributors_url": "https://api.github.com/repos/faberline/formora/contributors",
+      "subscribers_url": "https://api.github.com/repos/faberline/formora/subscribers",
+      "subscription_url": "https://api.github.com/repos/faberline/formora/subscription",
+      "commits_url": "https://api.github.com/repos/faberline/formora/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/faberline/formora/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/faberline/formora/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/faberline/formora/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/faberline/formora/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/faberline/formora/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/faberline/formora/merges",
+      "archive_url": "https://api.github.com/repos/faberline/formora/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/faberline/formora/downloads",
+      "issues_url": "https://api.github.com/repos/faberline/formora/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/faberline/formora/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/faberline/formora/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/faberline/formora/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/faberline/formora/labels{/name}",
+      "releases_url": "https://api.github.com/repos/faberline/formora/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/faberline/formora/deployments"
+    },
+    "head_repository": {
+      "id": 1437314142,
+      "node_id": "R_kgDOVausXg",
+      "name": "formora",
+      "full_name": "faberline/formora",
+      "private": false,
+      "owner": {
+        "login": "faberline",
+        "id": 333294630,
+        "node_id": "O_kgDOE92sJg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/333294630?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/faberline",
+        "html_url": "https://github.com/faberline",
+        "followers_url": "https://api.github.com/users/faberline/followers",
+        "following_url": "https://api.github.com/users/faberline/following{/other_user}",
+        "gists_url": "https://api.github.com/users/faberline/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/faberline/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/faberline/subscriptions",
+        "organizations_url": "https://api.github.com/users/faberline/orgs",
+        "repos_url": "https://api.github.com/users/faberline/repos",
+        "events_url": "https://api.github.com/users/faberline/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/faberline/received_events",
+        "type": "Organization",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/faberline/formora",
+      "description": "A Rust-based 3D creation suite combining modeling, animation, real-time rendering, and game development.",
+      "fork": false,
+      "url": "https://api.github.com/repos/faberline/formora",
+      "forks_url": "https://api.github.com/repos/faberline/formora/forks",
+      "keys_url": "https://api.github.com/repos/faberline/formora/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/faberline/formora/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/faberline/formora/teams",
+      "hooks_url": "https://api.github.com/repos/faberline/formora/hooks",
+      "issue_events_url": "https://api.github.com/repos/faberline/formora/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/faberline/formora/events",
+      "assignees_url": "https://api.github.com/repos/faberline/formora/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/faberline/formora/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/faberline/formora/tags",
+      "blobs_url": "https://api.github.com/repos/faberline/formora/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/faberline/formora/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/faberline/formora/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/faberline/formora/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/faberline/formora/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/faberline/formora/languages",
+      "stargazers_url": "https://api.github.com/repos/faberline/formora/stargazers",
+      "contributors_url": "https://api.github.com/repos/faberline/formora/contributors",
+      "subscribers_url": "https://api.github.com/repos/faberline/formora/subscribers",
+      "subscription_url": "https://api.github.com/repos/faberline/formora/subscription",
+      "commits_url": "https://api.github.com/repos/faberline/formora/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/faberline/formora/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/faberline/formora/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/faberline/formora/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/faberline/formora/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/faberline/formora/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/faberline/formora/merges",
+      "archive_url": "https://api.github.com/repos/faberline/formora/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/faberline/formora/downloads",
+      "issues_url": "https://api.github.com/repos/faberline/formora/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/faberline/formora/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/faberline/formora/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/faberline/formora/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/faberline/formora/labels{/name}",
+      "releases_url": "https://api.github.com/repos/faberline/formora/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/faberline/formora/deployments"
+    }
+  },
+  "jobs": {
+    "total_count": 3,
+    "jobs": [
+      {
+        "id": 124831880592,
+        "run_id": 41301061495,
+        "workflow_name": "Native static USD gate",
+        "head_branch": "codex/native-static-usd-gate",
+        "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVausXs8AAAAdEI9VkA",
+        "head_sha": "c1f0f87d9c6e550a68c7df5da1faa873a056ec9b",
+        "url": "https://api.github.com/repos/faberline/formora/actions/jobs/124831880592",
+        "html_url": "https://github.com/faberline/formora/actions/runs/41301061495/job/124831880592",
+        "status": "queued",
+        "conclusion": null,
+        "created_at": "2026-11-01T11:15:19Z",
+        "started_at": "2026-11-01T11:15:19Z",
+        "completed_at": null,
+        "name": "static-usd (macos-15-intel)",
+        "steps": [],
+        "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/124831880592",
+        "labels": [
+          "macos-15-intel"
+        ],
+        "runner_id": 0,
+        "runner_name": "",
+        "runner_group_id": 0,
+        "runner_group_name": ""
+      },
+      {
+        "id": 124831880866,
+        "run_id": 41301061495,
+        "workflow_name": "Native static USD gate",
+        "head_branch": "codex/native-static-usd-gate",
+        "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVausXs8AAAAdEI9Wog",
+        "head_sha": "c1f0f87d9c6e550a68c7df5da1faa873a056ec9b",
+        "url": "https://api.github.com/repos/faberline/formora/actions/jobs/124831880866",
+        "html_url": "https://github.com/faberline/formora/actions/runs/41301061495/job/124831880866",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-11-01T11:15:19Z",
+        "started_at": "2026-11-01T11:16:14Z",
+        "completed_at": "2026-11-01T11:20:24Z",
+        "name": "static-usd (ubuntu-latest)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-01T11:16:14Z",
+            "completed_at": "2026-11-01T11:16:15Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-01T11:16:15Z",
+            "completed_at": "2026-11-01T11:17:58Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@1.85.0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-01T11:17:58Z",
+            "completed_at": "2026-11-01T11:18:07Z"
+          },
+          {
+            "name": "Run cargo build --locked --features preview",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-01T11:18:07Z",
+            "completed_at": "2026-11-01T11:19:00Z"
+          },
+          {
+            "name": "Compile Apple consumer at macOS 14 and check iOS 17 APIs",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 5,
+            "started_at": "2026-11-01T11:19:00Z",
+            "completed_at": "2026-11-01T11:19:00Z"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-01T11:19:00Z",
+            "completed_at": "2026-11-01T11:19:01Z"
+          },
+          {
+            "name": "Run python -m pip install -r tools/requirements-mcp.txt usd-core==26.5 numpy==2.2.6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-11-01T11:19:01Z",
+            "completed_at": "2026-11-01T11:19:07Z"
+          },
+          {
+            "name": "Check input-only frozen normal arithmetic",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-01T11:19:07Z",
+            "completed_at": "2026-11-01T11:19:08Z"
+          },
+          {
+            "name": "Author, edit, reopen, export and independently compare all four models",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-01T11:19:08Z",
+            "completed_at": "2026-11-01T11:19:13Z"
+          },
+          {
+            "name": "Check frozen UV, normals, face materials and signed matrix inputs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-01T11:19:13Z",
+            "completed_at": "2026-11-01T11:19:14Z"
+          },
+          {
+            "name": "Measure frozen 100k and 200k capacity samples",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 11,
+            "started_at": "2026-11-01T11:19:14Z",
+            "completed_at": "2026-11-01T11:20:22Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 21,
+            "started_at": "2026-11-01T11:20:22Z",
+            "completed_at": "2026-11-01T11:20:22Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22,
+            "started_at": "2026-11-01T11:20:22Z",
+            "completed_at": "2026-11-01T11:20:22Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23,
+            "started_at": "2026-11-01T11:20:22Z",
+            "completed_at": "2026-11-01T11:20:22Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/124831880866",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000009086,
+        "runner_name": "GitHub Actions 1000009086",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      },
+      {
+        "id": 124831880901,
+        "run_id": 41301061495,
+        "workflow_name": "Native static USD gate",
+        "head_branch": "codex/native-static-usd-gate",
+        "run_url": "https://api.github.com/repos/faberline/formora/actions/runs/41301061495",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVausXs8AAAAdEI9WxQ",
+        "head_sha": "c1f0f87d9c6e550a68c7df5da1faa873a056ec9b",
+        "url": "https://api.github.com/repos/faberline/formora/actions/jobs/124831880901",
+        "html_url": "https://github.com/faberline/formora/actions/runs/41301061495/job/124831880901",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-11-01T11:15:19Z",
+        "started_at": "2026-11-01T11:18:03Z",
+        "completed_at": "2026-11-01T11:26:10Z",
+        "name": "static-usd (windows-latest)",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-11-01T11:18:03Z",
+            "completed_at": "2026-11-01T11:18:05Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-11-01T11:18:05Z",
+            "completed_at": "2026-11-01T11:20:53Z"
+          },
+          {
+            "name": "Run dtolnay/rust-toolchain@1.85.0",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-11-01T11:20:53Z",
+            "completed_at": "2026-11-01T11:21:05Z"
+          },
+          {
+            "name": "Run cargo build --locked --features preview",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-11-01T11:21:05Z",
+            "completed_at": "2026-11-01T11:22:50Z"
+          },
+          {
+            "name": "Compile Apple consumer at macOS 14 and check iOS 17 APIs",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 5,
+            "started_at": "2026-11-01T11:22:50Z",
+            "completed_at": "2026-11-01T11:22:50Z"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-11-01T11:22:50Z",
+            "completed_at": "2026-11-01T11:22:50Z"
+          },
+          {
+            "name": "Run python -m pip install -r tools/requirements-mcp.txt usd-core==26.5 numpy==2.2.6",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-11-01T11:22:50Z",
+            "completed_at": "2026-11-01T11:23:12Z"
+          },
+          {
+            "name": "Check input-only frozen normal arithmetic",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-11-01T11:23:12Z",
+            "completed_at": "2026-11-01T11:23:13Z"
+          },
+          {
+            "name": "Author, edit, reopen, export and independently compare all four models",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-11-01T11:23:13Z",
+            "completed_at": "2026-11-01T11:23:18Z"
+          },
+          {
+            "name": "Check frozen UV, normals, face materials and signed matrix inputs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-11-01T11:23:18Z",
+            "completed_at": "2026-11-01T11:23:20Z"
+          },
+          {
+            "name": "Measure frozen 100k and 200k capacity samples",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 11,
+            "started_at": "2026-11-01T11:23:20Z",
+            "completed_at": "2026-11-01T11:26:05Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 21,
+            "started_at": "2026-11-01T11:26:06Z",
+            "completed_at": "2026-11-01T11:26:06Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22,
+            "started_at": "2026-11-01T11:26:06Z",
+            "completed_at": "2026-11-01T11:26:08Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23,
+            "started_at": "2026-11-01T11:26:08Z",
+            "completed_at": "2026-11-01T11:26:08Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/faberline/formora/check-runs/124831880901",
+        "labels": [
+          "windows-latest"
+        ],
+        "runner_id": 1000009087,
+        "runner_name": "GitHub Actions 1000009087",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ]
+  }
+}

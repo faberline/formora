@@ -1,0 +1,61 @@
+{
+  "head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+  "run": 41320675803,
+  "logs": [
+    {
+      "platform": "linux",
+      "job": 124889998633,
+      "source_head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+      "run": 41320675803,
+      "file": "linux.log.gz",
+      "decoded_bytes": 129500,
+      "decoded_sha256": "04c5561771ab024f0e39ce4aa69a06579c1c0e58fe410e0d9679bab0587dd2e2",
+      "gzip_sha256": "1fd66d77db31016a2fe92e3cd90cf8844b963cdbb741403831ff3949a8fcf02e",
+      "samples_passed": 6
+    },
+    {
+      "platform": "windows",
+      "job": 124889998507,
+      "source_head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+      "run": 41320675803,
+      "file": "windows.log.gz",
+      "decoded_bytes": 130955,
+      "decoded_sha256": "ea89f38c7b8f4dbf719618fcfe3e7250471d07ba386bc74562771fc3b0fde341",
+      "gzip_sha256": "57e63d49d986068cefbb670fd6e418110aaf785b3ae846d3c3a5564770c3c7b4",
+      "samples_passed": 5
+    },
+    {
+      "platform": "macos-arm64",
+      "job": 124889998578,
+      "source_head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+      "run": 41320675803,
+      "file": "macos-arm64.log.gz",
+      "decoded_bytes": 134039,
+      "decoded_sha256": "9fd2df33a54fe095c7e65cdf86cd9c2e1dc0921a634c643d468932a5db5ef297",
+      "gzip_sha256": "4dc3700466132334b02d610ac8db51bf3ae31cd6194733f3e1f615518ab9ea06",
+      "samples_passed": 5
+    },
+    {
+      "platform": "macos-intel",
+      "job": 124889998596,
+      "source_head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+      "run": 41320675803,
+      "file": "macos-intel.log.gz",
+      "decoded_bytes": 141233,
+      "decoded_sha256": "ae018243257a62828f0ddca18b92ff6f762f0827141476f9035aaabd2ee008c4",
+      "gzip_sha256": "d9729c483cfac16eae573ead89c88dcd089a82dcff7cc0189e1ae9e4df9c4f0c",
+      "samples_passed": 1
+    }
+  ],
+  "cleanup04_decoded_sha256": "5884a5b478a16a19a06d3c48aed5c957fac0f30f1b233a067f795d38c9aad219",
+  "cancelled_own_obsolete_total": 21,
+  "whole_gate_passed": false,
+  "independent_acceptance": "pending",
+  "evidence_location": "committed in candidate follow-up; each log retains exact e06 source head",
+  "job_conclusions": {
+    "linux": "success",
+    "windows": "failure",
+    "macos-arm64": "failure",
+    "macos-intel": "failure"
+  }
+}

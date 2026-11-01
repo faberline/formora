@@ -1,0 +1,30 @@
+{
+  "head": "c340be9a9eeb78dd921b531a1c204029da04665a",
+  "run": 41311306246,
+  "logs": [
+    {
+      "platform": "linux",
+      "job": 124862094400,
+      "uncompressed_bytes": 123338,
+      "sha256": "9a949425262e9c85e37742c5387857da470d64030cf8610cc59b896f20777ce5"
+    },
+    {
+      "platform": "windows",
+      "job": 124862094180,
+      "uncompressed_bytes": 123429,
+      "sha256": "cb7eddb8c4cf247ac63035589171b56824055ebc22f957b0af51c2c93465a5f5"
+    },
+    {
+      "platform": "macos",
+      "job": 124862094433,
+      "uncompressed_bytes": 131746,
+      "sha256": "a74a4e2cfed8d9b696033d836a5d63d8b81818c8429b4a32428195428ff5a236"
+    },
+    {
+      "platform": "rotation-diagnostic",
+      "job": 124862094356,
+      "uncompressed_bytes": 55278,
+      "sha256": "6b9358393dabd43049249938135b20e7955409bcc5aab0fa4ce04fdbbc70b420"
+    }
+  ]
+}

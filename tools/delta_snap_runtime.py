@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import copy
 from pathlib import Path
+from runtime_binary import resolve_binary
 
 from compare_snap_delta_reference import compare as verify_source
 from compare_snap_menu_reference import floats, tree
@@ -69,5 +70,5 @@ if __name__ == '__main__':
     parser.add_argument('--interface', action='append', choices=['cli', 'official_mcp_sdk'])
     parser.add_argument('--gzip-output', action='store_true')
     args = parser.parse_args()
-    asyncio.run(run(args.binary.resolve(), args.output.resolve(), args.case_ids,
+    asyncio.run(run(resolve_binary(args.binary), args.output.resolve(), args.case_ids,
         args.interface or ('cli', 'official_mcp_sdk'), args.gzip_output))

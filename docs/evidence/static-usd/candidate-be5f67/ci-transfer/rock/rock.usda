@@ -1,0 +1,49 @@
+#usda 1.0
+(
+defaultPrim = "Formora"
+metersPerUnit = 1
+upAxis = "Z"
+)
+def Xform "Formora" {
+custom uint64 formora:revision = 2
+def Xform "id_726f636b" {
+custom string formora:sourceId = "rock"
+custom string formora:name = "rock"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Xform "id_726f636b5f626f6479" {
+custom string formora:sourceId = "rock_body"
+custom string formora:name = "body"
+matrix4d xformOp:transform = ((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1))
+uniform token[] xformOpOrder = ["xformOp:transform"]
+def Mesh "Geometry" (prepend apiSchemas = ["MaterialBindingAPI"]) {
+uniform token subdivisionScheme = "none"
+uniform token orientation = "rightHanded"
+bool doubleSided = false
+custom string formora:meshId = "rock_body"
+custom string[] formora:vertexIds = ["v0", "v1", "v2", "v3", "v4", "v5"]
+custom string[] formora:faceIds = ["f000", "f001", "f002", "f003", "f004", "f005", "f006", "f007"]
+custom string[] formora:faceKinds = ["triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle", "triangle"]
+point3f[] points = [(-0.485, -0.24, 0), (0.4, -0.4, 0), (0.5, 0.25, 0), (-0.3, 0.4, 0), (-0.12, -0.05, 0.65), (0.05, 0.02, 0.05)]
+int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3]
+int[] faceVertexIndices = [0, 1, 4, 1, 2, 4, 2, 3, 4, 3, 0, 4, 1, 0, 5, 2, 1, 5, 3, 2, 5, 0, 3, 5]
+normal3f[] normals = [(-0.16588517, -0.9175523, 0.36135855), (-0.16588517, -0.9175523, 0.36135855), (-0.16588517, -0.9175523, 0.36135855), (0.7447201, -0.11457232, 0.65746886), (0.7447201, -0.11457232, 0.65746886), (0.7447201, -0.11457232, 0.65746886), (0.15596598, 0.8318187, 0.5326839), (0.15596598, 0.8318187, 0.5326839), (0.15596598, 0.8318187, 0.5326839), (-0.8733283, 0.25244647, 0.41661543), (-0.8733283, 0.25244647, 0.41661543), (-0.8733283, 0.25244647, 0.41661543), (0.02508731, 0.13876416, -0.9900076), (0.02508731, 0.13876416, -0.9900076), (0.02508731, 0.13876416, -0.9900076), (-0.11970596, 0.018416302, -0.99263865), (-0.11970596, 0.018416302, -0.99263865), (-0.11970596, 0.018416302, -0.99263865), (-0.029438151, -0.1570035, -0.98715925), (-0.029438151, -0.1570035, -0.98715925), (-0.029438151, -0.1570035, -0.98715925), (0.108042724, -0.031231105, -0.99365556), (0.108042724, -0.031231105, -0.99365556), (0.108042724, -0.031231105, -0.99365556)] (interpolation = "faceVarying")
+rel material:binding = </Formora/Materials/id_73746f6e65>
+}
+}
+}
+def Scope "Materials" {
+def Material "id_73746f6e65" {
+custom string formora:sourceId = "stone"
+token outputs:surface.connect = </Formora/Materials/id_73746f6e65/Surface.outputs:surface>
+def Shader "Surface" {
+uniform token info:id = "UsdPreviewSurface"
+color3f inputs:diffuseColor = (0.32, 0.35, 0.31)
+float inputs:opacity = 1
+float inputs:roughness = 0.72
+float inputs:metallic = 0
+token outputs:surface
+}
+}
+}
+}

@@ -1,0 +1,209 @@
+1695:   @available(visionOS 2.0, macOS 15.0, iOS 18.0, macCatalyst 18.0, *)
+1696:   @_Concurrency.MainActor @preconcurrency public var arrayLength: Swift.Int {
+1697:     get
+1698:   }
+1699:   @available(*, noasync, message: "Synchronous loading APIs block the main actor and should not be used in async contexts.  Use init(...) async instead")
+1700:   @_Concurrency.MainActor @preconcurrency public static func load(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil) throws -> RealityFoundation.TextureResource
+1701:   @available(macOS, introduced: 10.15, deprecated: 15.0, renamed: "init(contentsOf:withName:)")
+1702:   @available(iOS, introduced: 13.0, deprecated: 18.0, renamed: "init(contentsOf:withName:)")
+1703:   @available(macCatalyst, introduced: 13.0, deprecated: 18.0, renamed: "init(contentsOf:withName:)")
+1704:   @available(visionOS, introduced: 1.0, deprecated: 1.0, renamed: "init(contentsOf:withName:)")
+1705:   @available(tvOS, unavailable)
+1706:   @_Concurrency.MainActor @preconcurrency public static func loadAsync(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil) -> RealityFoundation.LoadRequest<RealityFoundation.TextureResource>
+1707:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+
+1704:   @available(visionOS, introduced: 1.0, deprecated: 1.0, renamed: "init(contentsOf:withName:)")
+1705:   @available(tvOS, unavailable)
+1706:   @_Concurrency.MainActor @preconcurrency public static func loadAsync(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil) -> RealityFoundation.LoadRequest<RealityFoundation.TextureResource>
+1707:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+1708:   @available(*, noasync, message: "Synchronous loading APIs block the main actor and should not be used in async contexts.  Use init(...) async instead")
+1709:   @_Concurrency.MainActor @preconcurrency public static func load(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil, options: RealityFoundation.TextureResource.CreateOptions) throws -> RealityFoundation.TextureResource
+1710:   @available(macOS, introduced: 12.0, deprecated: 15.0, renamed: "init(contentsOf:withName:options:)")
+1711:   @available(iOS, introduced: 15.0, deprecated: 18.0, renamed: "init(contentsOf:withName:options:)")
+1712:   @available(macCatalyst, introduced: 15.0, deprecated: 18.0, renamed: "init(contentsOf:withName:options:)")
+1713:   @available(visionOS, introduced: 1.0, deprecated: 1.0, renamed: "init(contentsOf:withName:options:)")
+1714:   @available(tvOS, unavailable)
+1715:   @_Concurrency.MainActor @preconcurrency public static func loadAsync(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil, options: RealityFoundation.TextureResource.CreateOptions) -> RealityFoundation.LoadRequest<RealityFoundation.TextureResource>
+1716:   @available(macOS, introduced: 12.0, deprecated: 15.0, renamed: "init(image:withName:options:)")
+
+3801:   @available(tvOS, unavailable)
+3802:   public var __baseColor: RealityFoundation.__MaterialColorParameter {
+3803:     get
+3804:     set
+3805:   }
+3806:   public var roughness: RealityFoundation.MaterialScalarParameter {
+3807:     get
+3808:     set
+3809:   }
+3810:   public var metallic: RealityFoundation.MaterialScalarParameter {
+3811:     get
+3812:     set
+3813:   }
+
+3805:   }
+3806:   public var roughness: RealityFoundation.MaterialScalarParameter {
+3807:     get
+3808:     set
+3809:   }
+3810:   public var metallic: RealityFoundation.MaterialScalarParameter {
+3811:     get
+3812:     set
+3813:   }
+3814:   public var __emissive: RealityFoundation.__MaterialColorParameter {
+3815:     get
+3816:     set
+3817:   }
+
+6889:   var buffers: [RealityFoundation.MeshBuffers.Identifier : RealityFoundation.AnyMeshBuffer] { get }
+6890:   subscript<S>(semantic: S) -> RealityFoundation.MeshBuffer<S.Element>? where S : RealityFoundation.MeshBufferSemantic { get set }
+6891: }
+6892: @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+6893: extension RealityFoundation.MeshBufferContainer {
+6894:   public var positions: RealityFoundation.MeshBuffers.Positions {
+6895:     get
+6896:     set
+6897:   }
+6898:   public var normals: RealityFoundation.MeshBuffers.Normals? {
+6899:     get
+6900:     set
+6901:   }
+
+7992:     public var transform: simd.simd_float4x4
+7993:     public init(id: Swift.String, model: Swift.String, at transform: simd.simd_float4x4? = nil)
+7994:     @available(iOS 15.0, tvOS 26.0, macOS 12.0, macCatalyst 15.0, *)
+7995:     public typealias ID = Swift.String
+7996:   }
+7997:   public struct Contents {
+7998:     public var models: RealityFoundation.MeshModelCollection
+7999:     public var instances: RealityFoundation.MeshInstanceCollection
+8000:     public init()
+8001:   }
+8002:   @_Concurrency.MainActor @preconcurrency public var contents: RealityFoundation.MeshResource.Contents {
+8003:     get
+8004:   }
+
+7993:     public init(id: Swift.String, model: Swift.String, at transform: simd.simd_float4x4? = nil)
+7994:     @available(iOS 15.0, tvOS 26.0, macOS 12.0, macCatalyst 15.0, *)
+7995:     public typealias ID = Swift.String
+7996:   }
+7997:   public struct Contents {
+7998:     public var models: RealityFoundation.MeshModelCollection
+7999:     public var instances: RealityFoundation.MeshInstanceCollection
+8000:     public init()
+8001:   }
+8002:   @_Concurrency.MainActor @preconcurrency public var contents: RealityFoundation.MeshResource.Contents {
+8003:     get
+8004:   }
+8005:   @_Concurrency.MainActor @preconcurrency public func replace(with content: RealityFoundation.MeshResource.Contents) throws
+
+7997:   public struct Contents {
+7998:     public var models: RealityFoundation.MeshModelCollection
+7999:     public var instances: RealityFoundation.MeshInstanceCollection
+8000:     public init()
+8001:   }
+8002:   @_Concurrency.MainActor @preconcurrency public var contents: RealityFoundation.MeshResource.Contents {
+8003:     get
+8004:   }
+8005:   @_Concurrency.MainActor @preconcurrency public func replace(with content: RealityFoundation.MeshResource.Contents) throws
+8006:   @available(visionOS, introduced: 1.0, deprecated: 1.0, renamed: "replace(with:)")
+8007:   @available(macOS, introduced: 12.0, deprecated: 15.0, renamed: "replace(with:)")
+8008:   @available(macCatalyst, introduced: 15.0, deprecated: 18.0, renamed: "replace(with:)")
+8009:   @available(iOS, introduced: 15.0, deprecated: 18.0, renamed: "replace(with:)")
+
+9810: extension RealityFoundation.TextureResource {
+9811:   public struct Dimensions2D {
+9812:   }
+9813:   public struct Format {
+9814:   }
+9815:   public struct Contents {
+9816:     public struct MipmapLevel {
+9817:     }
+9818:     public init(mipmapLevels: [RealityFoundation.TextureResource.Contents.MipmapLevel])
+9819:   }
+9820: }
+9821: @available(visionOS 2.0, macOS 15.0, iOS 18.0, macCatalyst 18.0, tvOS 26.0, *)
+9822: extension RealityFoundation.TextureResource.Contents {
+
+10827:   public var baseColor: RealityFoundation.CustomMaterial.BaseColor {
+10828:     get
+10829:     set
+10830:   }
+10831:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+10832:   public var metallic: RealityFoundation.CustomMaterial.Metallic {
+10833:     get
+10834:     set
+10835:   }
+10836:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+10837:   public var roughness: RealityFoundation.CustomMaterial.Roughness {
+10838:     get
+10839:     set
+
+10832:   public var metallic: RealityFoundation.CustomMaterial.Metallic {
+10833:     get
+10834:     set
+10835:   }
+10836:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+10837:   public var roughness: RealityFoundation.CustomMaterial.Roughness {
+10838:     get
+10839:     set
+10840:   }
+10841:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+10842:   public var emissiveColor: RealityFoundation.CustomMaterial.EmissiveColor {
+10843:     get
+10844:     set
+
+11682: @available(tvOS, unavailable)
+11683: @available(macOS, introduced: 10.15, deprecated: 15.0, renamed: "AudioFileResource.load(contentsOf:withName:configuration:)")
+11684: @available(macCatalyst, introduced: 13, deprecated: 18.0, renamed: "AudioFileResource.load(contentsOf:withName:configuration:)")
+11685: @available(iOS, introduced: 13, deprecated: 18.0, renamed: "AudioFileResource.load(contentsOf:withName:configuration:)")
+11686: extension RealityFoundation.AudioFileResource {
+11687:   @_disfavoredOverload @_Concurrency.MainActor @preconcurrency public static func load(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil, inputMode: RealityFoundation.AudioResource.InputMode = .spatial, loadingStrategy: RealityFoundation.AudioFileResource.LoadingStrategy = .preload, shouldLoop: Swift.Bool = false) throws -> RealityFoundation.AudioFileResource
+11688: }
+11689: @_originallyDefinedIn(module: "RealityKit", macOS 12.0)
+11690: @_originallyDefinedIn(module: "RealityKit", iOS 15.0)
+11691: @_originallyDefinedIn(module: "RealityKit", macCatalyst 15.0)
+11692: @available(visionOS, unavailable)
+11693: @available(tvOS, unavailable)
+11694: @available(macOS, introduced: 10.15, deprecated: 15.0, renamed: "AudioFileResource.init(named:in:configuration:)")
+
+11993:   @available(macCatalyst, introduced: 13.0, deprecated: 18.0, renamed: "init(named:in:)")
+11994:   @available(visionOS, introduced: 1.0, deprecated: 1.0, renamed: "init(named:in:)")
+11995:   @available(tvOS, unavailable)
+11996:   @_Concurrency.MainActor @preconcurrency public static func loadAsync(named name: Swift.String, in bundle: Foundation.Bundle? = nil) -> RealityFoundation.LoadRequest<RealityFoundation.Entity>
+11997:   @available(*, noasync, message: "Synchronous Entity loading APIs block the main actor and should not be used in async contexts.  Use init(...) async instead")
+11998:   @_Concurrency.MainActor @preconcurrency public static func load(contentsOf url: Foundation.URL, withName resourceName: Swift.String? = nil) throws -> RealityFoundation.Entity
+11999:   public struct __LoadOptions {
+12000:     public var downsamplingStrategy: (any RealityFoundation.__DownsamplingStrategy)?
+12001:     public var realityPerformanceReport: RealityFoundation.__REArchivalStats?
+12002:     public var generateDecimatedMesh: Swift.Bool
+12003:     public var enforceMemoryConstraints: Swift.Bool
+12004:     public var memoryLimit: Swift.Int?
+12005:     public struct LoadableFeatures : Swift.OptionSet {
+
+12214:   public var baseColor: RealityFoundation.PhysicallyBasedMaterial.BaseColor {
+12215:     get
+12216:     set
+12217:   }
+12218:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+12219:   public var metallic: RealityFoundation.PhysicallyBasedMaterial.Metallic {
+12220:     get
+12221:     set
+12222:   }
+12223:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+12224:   public var roughness: RealityFoundation.PhysicallyBasedMaterial.Roughness {
+12225:     get
+12226:     set
+
+12219:   public var metallic: RealityFoundation.PhysicallyBasedMaterial.Metallic {
+12220:     get
+12221:     set
+12222:   }
+12223:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+12224:   public var roughness: RealityFoundation.PhysicallyBasedMaterial.Roughness {
+12225:     get
+12226:     set
+12227:   }
+12228:   @available(macOS 12.0, iOS 15.0, macCatalyst 15.0, tvOS 26.0, *)
+12229:   public var emissiveColor: RealityFoundation.PhysicallyBasedMaterial.EmissiveColor {
+12230:     get
+12231:     set

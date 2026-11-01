@@ -191,8 +191,13 @@ where
         ) -> std::result::Result<Self::Value, A::Error> {
             let mut values = BTreeMap::new();
             while let Some((key, value)) = access.next_entry::<String, T>()? {
-                if values.insert(key.clone(), value).is_some() {
-                    return Err(de::Error::custom(format!("duplicate ID: {key}")));
+                match values.entry(key) {
+                    std::collections::btree_map::Entry::Vacant(entry) => {
+                        entry.insert(value);
+                    }
+                    std::collections::btree_map::Entry::Occupied(entry) => {
+                        return Err(de::Error::custom(format!("duplicate ID: {}", entry.key())));
+                    }
                 }
             }
             Ok(values)

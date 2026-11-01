@@ -1,0 +1,30 @@
+{
+  "expected_revision": 1,
+  "commands": [
+    {
+      "operation": "set_mesh_vertices",
+      "id": "radio_body",
+      "positions": {
+        "v0": [
+          -0.21000000000000002,
+          -0.115,
+          0
+        ]
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "case",
+      "material": {
+        "base_color": [
+          0.08,
+          0.22,
+          0.16,
+          1
+        ],
+        "roughness": 0.72,
+        "metallic": 0.2
+      }
+    }
+  ]
+}

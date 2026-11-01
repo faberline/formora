@@ -1,0 +1,734 @@
+[
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-00.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-00.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96683,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 1054085833,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-00.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-01.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-01.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96686,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 240998917,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-01.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-02.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-02.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96687,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 224503750,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-02.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-03.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-03.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96692,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 238005500,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-03.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-04.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-04.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96693,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 228720667,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-04.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-05.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-05.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96696,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 232472417,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-05.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-06.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-06.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96697,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 276764584,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-06.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/crate/camera-07.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/crate/formora-07.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96698,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 268593625,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/crate/formora-07.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-apple-static-inspect-03",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/ci-transfer/crate/crate.usda",
+      "/private/tmp/formora-c340-physical-01/crate/apple.json",
+      "/private/tmp/formora-c340-physical-01/crate/apple-views"
+    ],
+    "pid": 96701,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 7399788584,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-00.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-00.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96723,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 210632334,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-00.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-01.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-01.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96724,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 211178584,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-01.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-02.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-02.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96725,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 203412125,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-02.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-03.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-03.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96726,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 210076542,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-03.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-04.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-04.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96729,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 204033416,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-04.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-05.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-05.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96731,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 240832166,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-05.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-06.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-06.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96735,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 231965750,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-06.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/rock/camera-07.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/rock/formora-07.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96736,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 216278584,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/rock/formora-07.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-apple-static-inspect-03",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/ci-transfer/rock/rock.usda",
+      "/private/tmp/formora-c340-physical-01/rock/apple.json",
+      "/private/tmp/formora-c340-physical-01/rock/apple-views"
+    ],
+    "pid": 96740,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 7289945083,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-00.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-00.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96768,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 239061167,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-00.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-01.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-01.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96771,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 239545917,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-01.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-02.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-02.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96772,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 217068083,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-02.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-03.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-03.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96773,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 216710875,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-03.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-04.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-04.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96774,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 213522125,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-04.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-05.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-05.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96777,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 201396125,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-05.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-06.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-06.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96778,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 255318208,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-06.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/workbench/camera-07.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/workbench/formora-07.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96779,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 255500750,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/workbench/formora-07.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-apple-static-inspect-03",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/ci-transfer/workbench/workbench.usda",
+      "/private/tmp/formora-c340-physical-01/workbench/apple.json",
+      "/private/tmp/formora-c340-physical-01/workbench/apple-views"
+    ],
+    "pid": 96780,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 7299322541,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-00.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-00.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96807,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 210532958,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-00.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-01.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-01.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96809,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 217134083,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-01.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-02.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-02.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96810,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 194735375,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-02.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-03.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-03.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96811,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 211372416,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-03.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-04.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-04.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96812,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 197897084,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-04.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-05.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-05.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96815,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 208827709,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-05.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-06.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-06.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96816,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 247233416,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-06.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-native-static-usd-gate/target/debug/formora",
+      "render",
+      "--scene",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/formora-preview/radio/camera-07.json",
+      "--output",
+      "/private/tmp/formora-c340-physical-01/radio/formora-07.png",
+      "--width",
+      "800",
+      "--height",
+      "800"
+    ],
+    "pid": 96817,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 251989541,
+    "stdout": "{\"gpu\":\"Apple M1 Max (Metal, IntegratedGpu)\",\"height\":800,\"output\":\"/private/tmp/formora-c340-physical-01/radio/formora-07.png\",\"width\":800}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/formora-apple-static-inspect-03",
+      "/private/tmp/formora-native-static-usd-gate/docs/evidence/static-usd/candidate-c1f0f87/ci-transfer/radio/radio.usda",
+      "/private/tmp/formora-c340-physical-01/radio/apple.json",
+      "/private/tmp/formora-c340-physical-01/radio/apple-views"
+    ],
+    "pid": 96818,
+    "waited": true,
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_ns": 7294602166,
+    "stdout": "",
+    "stderr": ""
+  }
+]

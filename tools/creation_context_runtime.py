@@ -6,6 +6,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+from runtime_binary import resolve_binary
 import subprocess
 import tempfile
 from jsonschema import Draft202012Validator
@@ -101,7 +102,7 @@ async def run(binary,output,case_ids=()):
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     source_files=[root/'Cargo.toml',root/'Cargo.lock',*[p for p in (root/'src').rglob('*') if p.is_file()]]
     source_snapshot={str(p.relative_to(root)):sha(p) for p in sorted(source_files)}
-    input_files=[root/name for name in ['tools/creation_context_runtime.py','tools/compare_mesh_reference.py','tools/polygon_reference_smoke.py','tools/selection_runtime_smoke.py','baseline/fixtures/mesh-creation-contexts.json','baseline/fixtures/mesh-creation-seed.json']]
+    input_files=[root/name for name in ['tools/runtime_binary.py','tools/creation_context_runtime.py','tools/compare_mesh_reference.py','tools/polygon_reference_smoke.py','tools/selection_runtime_smoke.py','baseline/fixtures/mesh-creation-contexts.json','baseline/fixtures/mesh-creation-seed.json']]
     input_files += sorted((root/'baseline/reference/blender-5.2.3/mesh-contexts').glob('*.json'))
     input_snapshot={str(p.relative_to(root)):sha(p) for p in input_files}
     binary_sha=sha(binary)
@@ -186,4 +187,4 @@ async def run(binary,output,case_ids=()):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--case',action='append',default=[],dest='case_ids')
-    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve(),args.case_ids))
+    args=parser.parse_args();asyncio.run(run(resolve_binary(args.binary),args.output.resolve(),args.case_ids))

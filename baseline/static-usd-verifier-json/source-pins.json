@@ -1,0 +1,44 @@
+{
+  "package": "orjson",
+  "version": "3.13.0",
+  "source": "https://pypi.org/pypi/orjson/3.13.0/json",
+  "documentation": "https://pypi.org/project/orjson/3.13.0/",
+  "requires_python": ">=3.10",
+  "license_expression": "MPL-2.0 AND (Apache-2.0 OR MIT)",
+  "method": "Official PyPI version JSON; retain CPython3.12 Linux/Windows/macOS Intel wheel digests. Only prebuilt orjson wheels, no Rust-toolchain upgrade or source build.",
+  "wheels": [
+    {
+      "filename": "orjson-3.13.0-cp312-cp312-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl",
+      "url": "https://files.pythonhosted.org/packages/98/17/ed65f84ed5ed6a1e06eb628611b4172e7480fc4ad92594856751a6363cac/orjson-3.13.0-cp312-cp312-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl",
+      "size": 223063,
+      "digests": {
+        "blake2b_256": "9817ed65f84ed5ed6a1e06eb628611b4172e7480fc4ad92594856751a6363cac",
+        "md5": "6c2c5e512cbe950ae747ffea727693aa",
+        "sha256": "fb8644dc6d705e1269ed2842bf4dbe2b4e50d670de503bf79d5cef3a5148a4c7"
+      },
+      "upload_time_iso_8601": "2026-10-07T14:08:21.979606Z"
+    },
+    {
+      "filename": "orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "url": "https://files.pythonhosted.org/packages/ea/8c/bb07c368abbf4021c4cd01c12edb526e00090f7f750ff1b88da6e6b6c7a6/orjson-3.13.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 130612,
+      "digests": {
+        "blake2b_256": "ea8cbb07c368abbf4021c4cd01c12edb526e00090f7f750ff1b88da6e6b6c7a6",
+        "md5": "3b09cb7535d202e4c417d509b13358b2",
+        "sha256": "bceadfd314bd238f584fc229a4bbaf0e573597e7a026dec5429fbf29fd66c641"
+      },
+      "upload_time_iso_8601": "2026-10-07T14:08:30.041011Z"
+    },
+    {
+      "filename": "orjson-3.13.0-cp312-cp312-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/58/9d/a1ca7321eeafd7d72e174cdc388cc96301f41516d863e7b1f64f0a1735be/orjson-3.13.0-cp312-cp312-win_amd64.whl",
+      "size": 121538,
+      "digests": {
+        "blake2b_256": "589da1ca7321eeafd7d72e174cdc388cc96301f41516d863e7b1f64f0a1735be",
+        "md5": "40c927d5d87a668226a60c5ea40c6dfe",
+        "sha256": "b571236d8393edcd3236e07423f762bfcf571f852aad667a3bce9e7b755e0790"
+      },
+      "upload_time_iso_8601": "2026-10-07T14:08:34.325069Z"
+    }
+  ]
+}

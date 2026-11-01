@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "revision": 3,
+  "time_seconds": 0.0,
+  "entities": {
+    "rock": {
+      "name": "rock",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "rock_body": {
+      "name": "body",
+      "parent": "rock",
+      "transform": {
+        "translation": [
+          -0.0075,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "rock_body"
+        },
+        "material": "stone"
+      }
+    },
+    "preview_camera": {
+      "name": "preview_camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          2.566325973059541,
+          0.0,
+          0.325
+        ],
+        "rotation": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 45,
+        "near": 0.01,
+        "far": 100
+      }
+    },
+    "preview_key": {
+      "name": "preview_key",
+      "parent": null,
+      "transform": {
+        "translation": [
+          2.566325973059541,
+          -2.566325973059541,
+          4.174488959589311
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 350
+      }
+    },
+    "preview_fill": {
+      "name": "preview_fill",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -2.566325973059541,
+          1.7964281811416785,
+          -1.728060778447633
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 170
+      }
+    }
+  },
+  "materials": {
+    "stone": {
+      "base_color": [
+        0.32,
+        0.35,
+        0.31,
+        1.0
+      ],
+      "roughness": 0.72,
+      "metallic": 0.0
+    }
+  },
+  "mesh_assets": {
+    "rock_body": {
+      "vertices": {
+        "v0": [
+          -0.485,
+          -0.24,
+          0.0
+        ],
+        "v1": [
+          0.4,
+          -0.4,
+          0.0
+        ],
+        "v2": [
+          0.5,
+          0.25,
+          0.0
+        ],
+        "v3": [
+          -0.3,
+          0.4,
+          0.0
+        ],
+        "v4": [
+          -0.12,
+          -0.05,
+          0.65
+        ],
+        "v5": [
+          0.05,
+          0.02,
+          0.05
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v1",
+            "v0",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v2",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v3",
+            "v2",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    }
+  },
+  "doors": {},
+  "active_camera": "preview_camera",
+  "annotations": []
+}

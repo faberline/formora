@@ -1,0 +1,137 @@
+{
+  "expected_revision": 2,
+  "commands": [
+    {
+      "operation": "set_transform",
+      "id": "workbench_top",
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0.8
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "workbench_leg_lf",
+      "transform": {
+        "translation": [
+          -0.5,
+          -0.25,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "workbench_leg_rf",
+      "transform": {
+        "translation": [
+          0.5,
+          -0.25,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "workbench_leg_lb",
+      "transform": {
+        "translation": [
+          -0.5,
+          0.25,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "workbench_leg_rb",
+      "transform": {
+        "translation": [
+          0.5,
+          0.25,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "workbench_shelf",
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0.25
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ]
+}

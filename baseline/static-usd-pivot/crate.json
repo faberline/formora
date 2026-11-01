@@ -1,0 +1,71 @@
+{
+  "expected_revision": 2,
+  "commands": [
+    {
+      "operation": "set_transform",
+      "id": "crate_body",
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "crate_band_left",
+      "transform": {
+        "translation": [
+          -0.28,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation": "set_transform",
+      "id": "crate_band_right",
+      "transform": {
+        "translation": [
+          0.28,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ]
+}

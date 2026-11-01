@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/private/tmp/formora-native-static-usd-gate/tools/static_usd_apple_check.py", line 79, in <module>
+    print(json.dumps(check(report,scene,sys.argv[3]),indent=2))
+  File "/private/tmp/formora-native-static-usd-gate/tools/static_usd_apple_check.py", line 74, in check
+    near([(low[0]+high[0])/2,low[1],(low[2]+high[2])/2],[0,0,0])
+  File "/private/tmp/formora-native-static-usd-gate/tools/static_usd_apple_check.py", line 12, in near
+    assert all(math.isfinite(float(x)) and abs(x-y)<=TOLERANCE for x,y in zip(a,b)),(a,b)
+AssertionError: ([0.0, -7.450580596923828e-09, 0.006249997764825821], [0, 0, 0])

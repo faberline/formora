@@ -1,0 +1,134 @@
+[
+  {
+    "copies": 1,
+    "sample": 0,
+    "core_ns": 283860200,
+    "core_phases_ns": {
+      "mesh_prepare": 47156000,
+      "mesh_write": 131906400,
+      "normals": 62897200,
+      "validation": 32509500
+    },
+    "pipeline_ns": 2250000000,
+    "pipeline_phases_ns": {
+      "export": 531000000,
+      "reopen_compare": 594000000,
+      "usd_compare": 1125000000
+    },
+    "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+    "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 1,
+    "sample": 1,
+    "core_ns": 280539100,
+    "core_phases_ns": {
+      "mesh_prepare": 47643300,
+      "mesh_write": 131048500,
+      "normals": 60948900,
+      "validation": 31948700
+    },
+    "pipeline_ns": 2000000000,
+    "pipeline_phases_ns": {
+      "export": 515000000,
+      "reopen_compare": 594000000,
+      "usd_compare": 891000000
+    },
+    "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+    "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 1,
+    "sample": 2,
+    "core_ns": 278872100,
+    "core_phases_ns": {
+      "mesh_prepare": 47525400,
+      "mesh_write": 130411200,
+      "normals": 59892400,
+      "validation": 32124800
+    },
+    "pipeline_ns": 2016000000,
+    "pipeline_phases_ns": {
+      "export": 516000000,
+      "reopen_compare": 609000000,
+      "usd_compare": 891000000
+    },
+    "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+    "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 2,
+    "sample": 0,
+    "core_ns": 557723900,
+    "core_phases_ns": {
+      "mesh_prepare": 95776500,
+      "mesh_write": 260446600,
+      "normals": 120753700,
+      "validation": 63241900
+    },
+    "pipeline_ns": 3875000000,
+    "pipeline_phases_ns": {
+      "export": 1031000000,
+      "reopen_compare": 1219000000,
+      "usd_compare": 1625000000
+    },
+    "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+    "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 2,
+    "sample": 1,
+    "core_ns": 614761000,
+    "core_phases_ns": {
+      "mesh_prepare": 102257400,
+      "mesh_write": 286274500,
+      "normals": 131222800,
+      "validation": 76224400
+    },
+    "pipeline_ns": 4000000000,
+    "pipeline_phases_ns": {
+      "export": 1093000000,
+      "reopen_compare": 1204000000,
+      "usd_compare": 1703000000
+    },
+    "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+    "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 2,
+    "sample": 2,
+    "core_ns": 575603500,
+    "core_phases_ns": {
+      "mesh_prepare": 100127200,
+      "mesh_write": 270103600,
+      "normals": 124309600,
+      "validation": 63821500
+    },
+    "pipeline_ns": 3985000000,
+    "pipeline_phases_ns": {
+      "export": 1047000000,
+      "reopen_compare": 1234000000,
+      "usd_compare": 1704000000
+    },
+    "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+    "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  }
+]
