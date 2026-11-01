@@ -232,7 +232,9 @@ fn matrix_quaternion(mut m: Matrix, normalize: bool) -> Result<[f32; 4]> {
 }
 fn matrix_axis_angle(m: Matrix) -> Result<[f32; 4]> {
     let q = matrix_quaternion(m, true)?;
-    let half = q[0].acos();
+    // Quantize once after the wider evaluation. Native f32 acos differs by an
+    // ulp on Intel macOS, which can exceed the frozen world-coordinate limit.
+    let half = f64::from(q[0]).acos() as f32;
     let mut sine = half.sin();
     if sine.abs() < 0.0005 {
         sine = 1.;
@@ -305,6 +307,25 @@ pub(crate) fn assign(
 #[cfg(test)]
 mod cross_platform_tests {
     use super::*;
+    #[test]
+    fn frozen_axis_angle_scalar_keeps_source_float_bits() {
+        let reference: serde_json::Value = serde_json::from_str(include_str!(
+            "../../baseline/static-usd-macos-axis-angle/acos-diagnostic.json"
+        ))
+        .unwrap();
+        let input: [f64; 4] =
+            serde_json::from_value(reference["scalar"]["quaternion_wxyz"].clone()).unwrap();
+        let matrix = quaternion_matrix(input).unwrap();
+        let quaternion = matrix_quaternion(matrix, true).unwrap();
+        assert_eq!(quaternion[0].to_bits(), 0.5_f32.to_bits());
+        let result = matrix_axis_angle(matrix).unwrap();
+        assert_eq!(
+            (result[0] * 0.5).to_bits(),
+            reference["scalar"]["expected_half_f32_bits"]
+                .as_u64()
+                .unwrap() as u32
+        );
+    }
     #[test]
     fn frozen_parented_rotation_channels_match_source_cases() {
         let cases: serde_json::Value = serde_json::from_str(include_str!(

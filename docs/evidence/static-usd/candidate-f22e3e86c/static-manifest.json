@@ -1,0 +1,61 @@
+{
+  "head": "f22e3e86ce77cde28dfe77709cde67bdfb9aff6a",
+  "whole_acceptance": false,
+  "entries": [
+    {
+      "name": "linux",
+      "job": 124922223298,
+      "run": 41331442946,
+      "conclusion": "failure",
+      "decoded_bytes": 144658,
+      "decoded_sha256": "3b83d3d16be00e6ef646bbe3323c95506d225b8a48855c3d3ebb964c97d20c82",
+      "gzip_sha256": "63e07b3c899a23cb997bc5b21729196e1303cd94b9fa64fd40022a45c1e62091",
+      "samples": 6,
+      "passed_samples": 1
+    },
+    {
+      "name": "windows",
+      "job": 124922223244,
+      "run": 41331442946,
+      "conclusion": "failure",
+      "decoded_bytes": 140887,
+      "decoded_sha256": "7e83a2039a2792f0218e01e4f3efbd5a7d8aea4fd1c006d71e5b8cfc1136de5a",
+      "gzip_sha256": "e2955c584a6c6c547594c405f0e888dda8ca2cbfa17a3d91c919101c72271a39",
+      "samples": 6,
+      "passed_samples": 1
+    },
+    {
+      "name": "arm",
+      "job": 124922223258,
+      "run": 41331442946,
+      "conclusion": "failure",
+      "decoded_bytes": 143688,
+      "decoded_sha256": "d25fc85f485713e0f8f6db4ea897b1645128a70e94b2d28add562d5c92cd53fe",
+      "gzip_sha256": "5bac2ef06aae81ecc1aa1ca7567203ffa199d50b6bc6f6e43b633b06c3ab1835",
+      "samples": 6,
+      "passed_samples": 1
+    },
+    {
+      "name": "intel",
+      "job": 124922223156,
+      "run": 41331442946,
+      "conclusion": "failure",
+      "decoded_bytes": 150174,
+      "decoded_sha256": "a41ce72c7639302f9530aa0101e19a719b016d3d9d34c55f83a04d083e171a97",
+      "gzip_sha256": "64e8c63051f343aacb7f2ebd6663615e076681def2d171dfce913399472d8381",
+      "samples": 6,
+      "passed_samples": 0
+    },
+    {
+      "name": "intel_cli",
+      "job": 124922223259,
+      "run": 41331442946,
+      "conclusion": "failure",
+      "decoded_bytes": 126457,
+      "decoded_sha256": "cb4b3fcefa790f81630a32421a10a7ea073c9e75791588123084b3b80485c534",
+      "gzip_sha256": "5b19e35a9c561b9e519931d72784e83afbd1b1b5f86ab17af022d29ef022d757",
+      "samples": 0,
+      "passed_samples": 0
+    }
+  ]
+}

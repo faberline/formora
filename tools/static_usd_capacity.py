@@ -55,6 +55,9 @@ for copies in (1,2):
             began=time.monotonic_ns()
             from pxr import Usd, UsdGeom, UsdShade, Vt, Work
             import numpy
+            # Each sample has a fresh executor worker. Apply the pinned limit
+            # in that worker, not only during the first module initialization.
+            Work.SetConcurrencyLimit(1)
             verifier_pool.update(effective_limit=Work.GetConcurrencyLimit(),physical_limit=Work.GetPhysicalConcurrencyLimit(),has_concurrency=Work.HasConcurrency())
             assert verifier_pool['effective_limit']==1 and verifier_pool['has_concurrency'] is False,verifier_pool
             operation_times['initialize']=time.monotonic_ns()-began
