@@ -1,0 +1,307 @@
+{
+  "head": "e06d902a7f3ee5cf6ff4cb53aca39f0cf07f2738",
+  "job": 124889998578,
+  "samples": [
+    {
+      "copies": 1,
+      "sample": 0,
+      "core_ns": 149884250,
+      "core_phases_ns": {
+        "mesh_prepare": 38997625,
+        "mesh_write": 59944375,
+        "normal_setup": 11855667,
+        "validation": 36560917
+      },
+      "pipeline_ns": 2372240417,
+      "pipeline_phases_ns": {
+        "export": 401912667,
+        "reopen_compare": 372844167,
+        "usd_compare": 1597483583
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 940822166,
+        "usd_import_components_ns": {
+          "Usd": 829073375,
+          "UsdGeom": 57307500,
+          "UsdShade": 54439583,
+          "Vt": 1708
+        },
+        "usd_stage_open": 273467334,
+        "numpy_import": 186879792
+      },
+      "verifier_usage": {
+        "user_ns": 1788354000,
+        "system_ns": 466964000,
+        "cumulative_peak_rss_bytes": 453246976
+      },
+      "native_usage": [
+        {
+          "user_ns": 325756000,
+          "system_ns": 58928000,
+          "cumulative_peak_rss_bytes": 128024576
+        },
+        {
+          "user_ns": 141385000,
+          "system_ns": 25512000,
+          "cumulative_peak_rss_bytes": 128024576
+        }
+      ]
+    },
+    {
+      "copies": 1,
+      "sample": 1,
+      "core_ns": 121298417,
+      "core_phases_ns": {
+        "mesh_prepare": 27808792,
+        "mesh_write": 56260250,
+        "normal_setup": 5277250,
+        "validation": 29976792
+      },
+      "pipeline_ns": 1196952917,
+      "pipeline_phases_ns": {
+        "export": 349790458,
+        "reopen_compare": 457613709,
+        "usd_compare": 389548750
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 82167,
+        "usd_import_components_ns": {
+          "Usd": 59292,
+          "UsdGeom": 3000,
+          "UsdShade": 2250,
+          "Vt": 17625
+        },
+        "usd_stage_open": 211960250,
+        "numpy_import": 15584
+      },
+      "verifier_usage": {
+        "user_ns": 2367976000,
+        "system_ns": 599423000,
+        "cumulative_peak_rss_bytes": 586924032
+      },
+      "native_usage": [
+        {
+          "user_ns": 295792000,
+          "system_ns": 40716000,
+          "cumulative_peak_rss_bytes": 136331264
+        },
+        {
+          "user_ns": 158517000,
+          "system_ns": 29481000,
+          "cumulative_peak_rss_bytes": 136331264
+        }
+      ]
+    },
+    {
+      "copies": 1,
+      "sample": 2,
+      "core_ns": 113481375,
+      "core_phases_ns": {
+        "mesh_prepare": 30628042,
+        "mesh_write": 53501792,
+        "normal_setup": 5123667,
+        "validation": 22331709
+      },
+      "pipeline_ns": 1199257625,
+      "pipeline_phases_ns": {
+        "export": 323209042,
+        "reopen_compare": 423602292,
+        "usd_compare": 452446291
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 61708,
+        "usd_import_components_ns": {
+          "Usd": 46083,
+          "UsdGeom": 2167,
+          "UsdShade": 1500,
+          "Vt": 11958
+        },
+        "usd_stage_open": 227188500,
+        "numpy_import": 27417
+      },
+      "verifier_usage": {
+        "user_ns": 2975979000,
+        "system_ns": 713588000,
+        "cumulative_peak_rss_bytes": 616185856
+      },
+      "native_usage": [
+        {
+          "user_ns": 275206000,
+          "system_ns": 35520000,
+          "cumulative_peak_rss_bytes": 136331264
+        },
+        {
+          "user_ns": 172000000,
+          "system_ns": 27359000,
+          "cumulative_peak_rss_bytes": 136331264
+        }
+      ]
+    },
+    {
+      "copies": 2,
+      "sample": 0,
+      "core_ns": 233357000,
+      "core_phases_ns": {
+        "mesh_prepare": 53211290,
+        "mesh_write": 112129958,
+        "normal_setup": 10383084,
+        "validation": 54330834
+      },
+      "pipeline_ns": 3071759500,
+      "pipeline_phases_ns": {
+        "export": 769716292,
+        "reopen_compare": 1091547292,
+        "usd_compare": 1210495916
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 96542,
+        "usd_import_components_ns": {
+          "Usd": 85875,
+          "UsdGeom": 1292,
+          "UsdShade": 4542,
+          "Vt": 4833
+        },
+        "usd_stage_open": 707418375,
+        "numpy_import": 29250
+      },
+      "verifier_usage": {
+        "user_ns": 5340920000,
+        "system_ns": 1017959000,
+        "cumulative_peak_rss_bytes": 744259584
+      },
+      "native_usage": [
+        {
+          "user_ns": 521042000,
+          "system_ns": 75176000,
+          "cumulative_peak_rss_bytes": 225673216
+        },
+        {
+          "user_ns": 322145000,
+          "system_ns": 40866000,
+          "cumulative_peak_rss_bytes": 225673216
+        }
+      ]
+    },
+    {
+      "copies": 2,
+      "sample": 1,
+      "core_ns": 325921542,
+      "core_phases_ns": {
+        "mesh_prepare": 73151624,
+        "mesh_write": 154762542,
+        "normal_setup": 25941375,
+        "validation": 67753084
+      },
+      "pipeline_ns": 3423321250,
+      "pipeline_phases_ns": {
+        "export": 877076792,
+        "reopen_compare": 1130515916,
+        "usd_compare": 1415728542
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 84542,
+        "usd_import_components_ns": {
+          "Usd": 69917,
+          "UsdGeom": 1500,
+          "UsdShade": 583,
+          "Vt": 12542
+        },
+        "usd_stage_open": 716979208,
+        "numpy_import": 60083
+      },
+      "verifier_usage": {
+        "user_ns": 7162683000,
+        "system_ns": 1320545000,
+        "cumulative_peak_rss_bytes": 839876608
+      },
+      "native_usage": [
+        {
+          "user_ns": 671169000,
+          "system_ns": 164813000,
+          "cumulative_peak_rss_bytes": 253902848
+        },
+        {
+          "user_ns": 362216000,
+          "system_ns": 79743000,
+          "cumulative_peak_rss_bytes": 253902848
+        }
+      ]
+    },
+    {
+      "copies": 2,
+      "sample": 2,
+      "core_ns": 263792959,
+      "core_phases_ns": {
+        "mesh_prepare": 61730000,
+        "mesh_write": 125371875,
+        "normal_setup": 13755292,
+        "validation": 59878083
+      },
+      "pipeline_ns": 2704216458,
+      "pipeline_phases_ns": {
+        "export": 913979667,
+        "reopen_compare": 909446333,
+        "usd_compare": 880790458
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 64625,
+        "usd_import_components_ns": {
+          "Usd": 56083,
+          "UsdGeom": 1250,
+          "UsdShade": 500,
+          "Vt": 6792
+        },
+        "usd_stage_open": 446395625,
+        "numpy_import": 36501
+      },
+      "verifier_usage": {
+        "user_ns": 8425501000,
+        "system_ns": 1591140000,
+        "cumulative_peak_rss_bytes": 841564160
+      },
+      "native_usage": [
+        {
+          "user_ns": 586597000,
+          "system_ns": 145833000,
+          "cumulative_peak_rss_bytes": 253902848
+        },
+        {
+          "user_ns": 345615000,
+          "system_ns": 59301000,
+          "cumulative_peak_rss_bytes": 253902848
+        }
+      ]
+    }
+  ],
+  "whole_gate_passed": false
+}

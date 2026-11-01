@@ -450,3 +450,50 @@ required, with all original commands and limits. The new job has the same comple
 checks and all6 samples; a Silicon pass cannot cancel an Intel failure. Apple
 minimum target stays macOS14/iOS17, compiled for the actual runner architecture.
 Neither hardware choice, unrun checks nor resource diagnostics can pass this gate.
+
+## Candidate e06d902a7 and complete concurrent verification
+
+Run41320675803: Linux124889998633 passed the whole static job and all6 samples.
+Windows124889998507 passed all content/helpers but FAILED its first100k pipeline
+sample at2079000000ns (limit2000000000ns); the other5 samples passed. Apple
+Silicon124889998578 likewise passed content/helpers and5 samples, failing the
+first100k pipeline at2372240417ns. That first import cost940822166ns for OpenUSD
+and186879792ns for NumPy, still inside the clock. Intel124889998596 passed all
+content/helpers and all6 native core limits but only1 combined sample: pipelines
+100k2946844812,2088411820,1897270139ns;200k4697579832,4677286272,4337867513ns.
+Its first OpenUSD import was740825536ns. All24 full data comparisons passed;
+no failed sample or host variation was exempted. All four environments produced
+the same8 model/source digests as the actual Apple-tested files. Complete logs,
+all24 samples and the fourth cleanup audit are in candidate-e06d902a7.
+
+Cleanup04 cancelled only obsolete own push duplicates41311301590 and41317835827.
+Before snapshots require exact repository/branch/event/head and creation after
+this task's admission. Both final states were reread completed/cancelled. The
+corresponding PR runs, all e06 runs and original public reruns remain. Together
+with the first3 audits,21 own obsolete runs were cancelled; all are NONPASSING.
+No additional cancellation accompanies the next concurrency change.
+
+The complete concurrent wait/failure contract was frozen at
+c6f9fd3266a6b86f0417eadae8dd4e4f4dcdb24e BEFORE implementation. The same full
+pipeline clock starts before creating its executor/events. Only after the actual
+native export Popen returns is its start event signalled. The verifier initializes
+OpenUSD/NumPy while that native process runs. Durable export must return before
+query/validation begin. The native fresh-query Popen signals its actual start;
+only then may the independent full USD comparison run alongside that query and
+its full equality check. Full native waits, pipe capture and exit checks remain.
+
+Every future result is retrieved. Query/initialization/validation errors are
+recorded and keep the sample failed. A launch/export error remains an error even
+after its waiter is released for cleanup. The executor joins all workers before
+the original wall clock stops. No module initialization, parse, comparison or
+worker completion is moved outside it. Cold first samples remain mandatory.
+Diagnostic operation durations now overlap; their sum is not the elapsed time.
+The actual start-to-all-joined wall time alone determines pipeline timing pass.
+
+CI adds independent frozen controls for start ordering, actual overlap, complete
+joining, query/validator/initialization failures, launch failure and missing start
+signal. They establish helper behavior only. Locally these new Python files have
+syntax checks; no helper/product/capacity execution is claimed. Native Rust code,
+all source references, all six workloads, comparisons and250/500ms and2000/4000ms
+limits remain unchanged. Actual current-head CI and independent acceptance remain
+required. This gate remains incomplete.

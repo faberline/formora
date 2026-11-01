@@ -31,6 +31,8 @@ jobs:
         run: python tools/static_usd_json_check.py
       - name: Check input-only frozen normal arithmetic
         run: python tools/static_usd_reference_check.py
+      - name: Check concurrent completion, joining and failure controls
+        run: python tools/static_usd_parallel_check.py
       - name: Author, edit, reopen, export and independently compare all four models
         run: python tools/static_usd_runtime.py target/debug/formora target/static-usd
       - name: Check frozen UV, normals, face materials and signed matrix inputs

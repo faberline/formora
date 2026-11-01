@@ -231,10 +231,12 @@ class Runner:
     def __init__(self, output):
         self.output = output
         self.receipts = []
-    def run(self, args, stdin=None, fail=False):
+    def run(self, args, stdin=None, fail=False, spawned=None):
         start = time.monotonic_ns()
         usage_before=process_usage(children=True)
         p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if spawned is not None:
+            spawned.set()
         timed_out=False
         try:
             stdout, stderr = p.communicate(None if stdin is None else json.dumps(stdin).encode('utf-8'), timeout=120)

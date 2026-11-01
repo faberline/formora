@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import time
 from static_usd_runtime import Runner, validate_usd, load, sha, process_usage
+from static_usd_pipeline import execute
 
 binary=Path(sys.argv[1]).resolve()
 if not binary.exists() and binary.with_suffix('.exe').exists(): binary=binary.with_suffix('.exe')
@@ -40,25 +41,44 @@ for copies in (1,2):
     source=output/f'source-{copies}.json';source.write_text(json.dumps(scene,separators=(',',':')))
     for sample in range(3):
         target=output/f'capacity-{copies}-{sample}.usda'
-        start=time.monotonic_ns()
-        receipt=runner.run([binary,'scene','export','--scene',source,'--root','root','--format','usda','--output',target])
-        exported=time.monotonic_ns()
-        verification_error=None
-        reopened_at=None
         verify_phases={}
-        try:
-            reopened=runner.run([binary,'scene','inspect','--scene',source])['scene']
+        operation_times={}
+        timeline={}
+        def initialize():
+            began=time.monotonic_ns()
+            from pxr import Usd, UsdGeom, UsdShade, Vt
+            import numpy
+            operation_times['initialize']=time.monotonic_ns()-began
+            timeline['initialize_finished']=time.monotonic_ns()-start
+        def export(spawned):
+            began=time.monotonic_ns()
+            result=runner.run([binary,'scene','export','--scene',source,'--root','root','--format','usda','--output',target],spawned=spawned)
+            operation_times['export']=time.monotonic_ns()-began
+            timeline['export_finished']=time.monotonic_ns()-start
+            return result
+        def query(spawned):
+            began=time.monotonic_ns()
+            reopened=runner.run([binary,'scene','inspect','--scene',source],spawned=spawned)['scene']
             for key,value in scene.items(): assert reopened[key]==value
             # Full equality is complete. Release this large query inside the
-            # clock before USD parsing and the next native child process.
+            # clock; do not retain it into the next native child process.
             del reopened
-            reopened_at=time.monotonic_ns()
+            operation_times['reopen_compare']=time.monotonic_ns()-began
+            timeline['reopen_finished']=time.monotonic_ns()-start
+        def validate():
+            began=time.monotonic_ns()
             validate_usd(target,scene,'root',normal_policy='frozen_preview_f32_newell',timings=verify_phases)
-        except (AssertionError,ValueError,KeyError) as problem:
-            verification_error=str(problem) or type(problem).__name__
+            operation_times['usd_compare']=time.monotonic_ns()-began
+            timeline['validation_finished']=time.monotonic_ns()-start
+        # The clock includes executor/event creation, the first cold module
+        # imports, durable export, BOTH complete comparisons and worker joins.
+        start=time.monotonic_ns()
+        receipt,errors=execute(export,query,initialize,validate)
+        verification_error=errors or None
         verifier_usage=process_usage()
         elapsed=time.monotonic_ns()-start
-        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'core_phases_ns':receipt['core_phases_ns'],'pipeline_ns':elapsed,'pipeline_phases_ns':{'export':exported-start,'reopen_compare':None if reopened_at is None else reopened_at-exported,'usd_compare':None if reopened_at is None else start+elapsed-reopened_at},'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
+        timeline['all_joined']=elapsed
+        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'core_phases_ns':receipt['core_phases_ns'],'pipeline_ns':elapsed,'pipeline_phases_ns':operation_times,'pipeline_timeline_ns':timeline,'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
         item['passed']=verification_error is None and item['core_ns']<=copies*250000000 and elapsed<=copies*2000000000
         item['verifier_phases_ns']=verify_phases
         item['verifier_usage']=verifier_usage
