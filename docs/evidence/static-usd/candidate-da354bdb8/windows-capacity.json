@@ -1,0 +1,283 @@
+{
+  "source_head": "da354bdb82b7147aca929f7f3f7add1e94f8c9d7",
+  "job": 124897468487,
+  "samples": [
+    {
+      "copies": 1,
+      "sample": 0,
+      "core_ns": 124272200,
+      "core_phases_ns": {
+        "mesh_prepare": 32180500,
+        "mesh_write": 49291500,
+        "normal_setup": 10422600,
+        "validation": 30814300
+      },
+      "pipeline_ns": 1110000000,
+      "pipeline_phases_ns": {
+        "initialize": 172000000,
+        "export": 375000000,
+        "reopen_compare": 563000000,
+        "usd_compare": 735000000
+      },
+      "pipeline_timeline_ns": {
+        "initialize_finished": 172000000,
+        "export_finished": 375000000,
+        "reopen_finished": 938000000,
+        "validation_finished": 1110000000,
+        "all_joined": 1110000000
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 0,
+        "usd_import_components_ns": {
+          "Usd": 0,
+          "UsdGeom": 0,
+          "UsdShade": 0,
+          "Vt": 0
+        },
+        "usd_stage_open": 563000000,
+        "numpy_import": 0
+      },
+      "verifier_usage": null,
+      "native_usage": [
+        null,
+        null
+      ]
+    },
+    {
+      "copies": 1,
+      "sample": 1,
+      "core_ns": 129584100,
+      "core_phases_ns": {
+        "mesh_prepare": 32019400,
+        "mesh_write": 50800000,
+        "normal_setup": 10023900,
+        "validation": 34960400
+      },
+      "pipeline_ns": 984000000,
+      "pipeline_phases_ns": {
+        "initialize": 0,
+        "export": 359000000,
+        "reopen_compare": 469000000,
+        "usd_compare": 625000000
+      },
+      "pipeline_timeline_ns": {
+        "initialize_finished": 0,
+        "export_finished": 359000000,
+        "reopen_finished": 844000000,
+        "validation_finished": 984000000,
+        "all_joined": 984000000
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 0,
+        "usd_import_components_ns": {
+          "Usd": 0,
+          "UsdGeom": 0,
+          "UsdShade": 0,
+          "Vt": 0
+        },
+        "usd_stage_open": 469000000,
+        "numpy_import": 0
+      },
+      "verifier_usage": null,
+      "native_usage": [
+        null,
+        null
+      ]
+    },
+    {
+      "copies": 1,
+      "sample": 2,
+      "core_ns": 116164400,
+      "core_phases_ns": {
+        "mesh_prepare": 29979800,
+        "mesh_write": 49457500,
+        "normal_setup": 7714400,
+        "validation": 27285900
+      },
+      "pipeline_ns": 985000000,
+      "pipeline_phases_ns": {
+        "initialize": 0,
+        "export": 344000000,
+        "reopen_compare": 469000000,
+        "usd_compare": 641000000
+      },
+      "pipeline_timeline_ns": {
+        "initialize_finished": 0,
+        "export_finished": 344000000,
+        "reopen_finished": 844000000,
+        "validation_finished": 985000000,
+        "all_joined": 985000000
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 0,
+        "usd_import_components_ns": {
+          "Usd": 0,
+          "UsdGeom": 0,
+          "UsdShade": 0,
+          "Vt": 0
+        },
+        "usd_stage_open": 469000000,
+        "numpy_import": 0
+      },
+      "verifier_usage": null,
+      "native_usage": [
+        null,
+        null
+      ]
+    },
+    {
+      "copies": 2,
+      "sample": 0,
+      "core_ns": 246428100,
+      "core_phases_ns": {
+        "mesh_prepare": 62144500,
+        "mesh_write": 101381900,
+        "normal_setup": 16666300,
+        "validation": 62962200
+      },
+      "pipeline_ns": 2125000000,
+      "pipeline_phases_ns": {
+        "initialize": 0,
+        "export": 719000000,
+        "reopen_compare": 1063000000,
+        "usd_compare": 1390000000
+      },
+      "pipeline_timeline_ns": {
+        "initialize_finished": 0,
+        "export_finished": 719000000,
+        "reopen_finished": 1797000000,
+        "validation_finished": 2125000000,
+        "all_joined": 2125000000
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 0,
+        "usd_import_components_ns": {
+          "Usd": 0,
+          "UsdGeom": 0,
+          "UsdShade": 0,
+          "Vt": 0
+        },
+        "usd_stage_open": 1047000000,
+        "numpy_import": 0
+      },
+      "verifier_usage": null,
+      "native_usage": [
+        null,
+        null
+      ]
+    },
+    {
+      "copies": 2,
+      "sample": 1,
+      "core_ns": 266389900,
+      "core_phases_ns": {
+        "mesh_prepare": 71335200,
+        "mesh_write": 102576600,
+        "normal_setup": 22451700,
+        "validation": 66251700
+      },
+      "pipeline_ns": 2078000000,
+      "pipeline_phases_ns": {
+        "initialize": 0,
+        "export": 703000000,
+        "reopen_compare": 1031000000,
+        "usd_compare": 1375000000
+      },
+      "pipeline_timeline_ns": {
+        "initialize_finished": 0,
+        "export_finished": 703000000,
+        "reopen_finished": 1750000000,
+        "validation_finished": 2078000000,
+        "all_joined": 2078000000
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 0,
+        "usd_import_components_ns": {
+          "Usd": 0,
+          "UsdGeom": 0,
+          "UsdShade": 0,
+          "Vt": 0
+        },
+        "usd_stage_open": 1031000000,
+        "numpy_import": 0
+      },
+      "verifier_usage": null,
+      "native_usage": [
+        null,
+        null
+      ]
+    },
+    {
+      "copies": 2,
+      "sample": 2,
+      "core_ns": 241878500,
+      "core_phases_ns": {
+        "mesh_prepare": 62590900,
+        "mesh_write": 99404600,
+        "normal_setup": 18176100,
+        "validation": 58379800
+      },
+      "pipeline_ns": 2015000000,
+      "pipeline_phases_ns": {
+        "initialize": 0,
+        "export": 672000000,
+        "reopen_compare": 1000000000,
+        "usd_compare": 1343000000
+      },
+      "pipeline_timeline_ns": {
+        "initialize_finished": 0,
+        "export_finished": 672000000,
+        "reopen_finished": 1687000000,
+        "validation_finished": 2015000000,
+        "all_joined": 2015000000
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": true,
+      "verifier_phases_ns": {
+        "usd_module_import": 0,
+        "usd_import_components_ns": {
+          "Usd": 0,
+          "UsdGeom": 0,
+          "UsdShade": 0,
+          "Vt": 0
+        },
+        "usd_stage_open": 1000000000,
+        "numpy_import": 0
+      },
+      "verifier_usage": null,
+      "native_usage": [
+        null,
+        null
+      ]
+    }
+  ],
+  "full_gate_passed": false
+}

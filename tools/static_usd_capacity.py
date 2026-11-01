@@ -3,17 +3,23 @@
 import json
 import os
 import platform
+import shutil
 from pathlib import Path
 import sys
 import time
 from static_usd_runtime import Runner, validate_usd, load, sha, process_usage
 from static_usd_pipeline import execute
 
+profile=load(Path(__file__).resolve().parents[1]/'baseline/static-usd-verifier-resources/contract.json')
+assert profile['environment']=={'PXR_WORK_THREAD_LIMIT':'1'}
+assert 'numpy' not in sys.modules and not any(k=='pxr' or k.startswith('pxr.') for k in sys.modules)
+os.environ.update(profile['environment'])
+
 binary=Path(sys.argv[1]).resolve()
 if not binary.exists() and binary.with_suffix('.exe').exists(): binary=binary.with_suffix('.exe')
 output=Path(sys.argv[2]).resolve(); output.mkdir(parents=True,exist_ok=False)
 runner=Runner(output); results=[]
-environment={'platform':platform.platform(),'machine':platform.machine(),'cpu_count':os.cpu_count(),'python':sys.version,'binary_sha256':sha(binary),'runner':{k:os.environ.get(k) for k in ['RUNNER_OS','RUNNER_ARCH','ImageOS','ImageVersion']}}
+environment={'platform':platform.platform(),'machine':platform.machine(),'cpu_count':os.cpu_count(),'python':sys.version,'binary_sha256':sha(binary),'runner':{k:os.environ.get(k) for k in ['RUNNER_OS','RUNNER_ARCH','ImageOS','ImageVersion']},'verifier_pool_environment':profile['environment'],'disk_bytes':shutil.disk_usage(output)._asdict()}
 (output/'environment.json').write_text(json.dumps(environment,indent=2)+'\n')
 print(json.dumps({'capacity_environment':environment}),flush=True)
 # Fixture construction is outside the clocks. Every point is referenced. Row-valid
@@ -44,10 +50,13 @@ for copies in (1,2):
         verify_phases={}
         operation_times={}
         timeline={}
+        verifier_pool={}
         def initialize():
             began=time.monotonic_ns()
-            from pxr import Usd, UsdGeom, UsdShade, Vt
+            from pxr import Usd, UsdGeom, UsdShade, Vt, Work
             import numpy
+            verifier_pool.update(effective_limit=Work.GetConcurrencyLimit(),physical_limit=Work.GetPhysicalConcurrencyLimit(),has_concurrency=Work.HasConcurrency())
+            assert verifier_pool['effective_limit']==1 and verifier_pool['has_concurrency'] is False,verifier_pool
             operation_times['initialize']=time.monotonic_ns()-began
             timeline['initialize_finished']=time.monotonic_ns()-start
         def export(spawned):
@@ -83,6 +92,7 @@ for copies in (1,2):
         item['verifier_phases_ns']=verify_phases
         item['verifier_usage']=verifier_usage
         item['native_usage']=[x['child_usage'] for x in runner.receipts[-2:]]
+        item['verifier_pool']=verifier_pool
         results.append(item)
         (output/'report.json').write_text(json.dumps({'passed':all(x['passed'] for x in results),'samples':results},indent=2)+'\n')
         print(json.dumps(item),flush=True)

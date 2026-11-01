@@ -556,6 +556,7 @@ version = "0.0.0"
 dependencies = [
  "arboard",
  "bytemuck",
+ "flate2",
  "fs2",
  "glam",
  "png",

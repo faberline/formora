@@ -33,6 +33,10 @@ jobs:
         run: python tools/static_usd_reference_check.py
       - name: Check concurrent completion, joining and failure controls
         run: python tools/static_usd_parallel_check.py
+      - name: Check all frozen world inputs against original adapters and source bytes
+        run: python tools/static_usd_axis_angle_reference_check.py
+      - name: Replay frozen rotation worlds in memory with exact source expectations
+        run: cargo test --locked --all-features --lib macos_axis_angle_memory -- --nocapture
       - name: Author, edit, reopen, export and independently compare all four models
         run: python tools/static_usd_runtime.py target/debug/formora target/static-usd
       - name: Check frozen UV, normals, face materials and signed matrix inputs
@@ -64,3 +68,17 @@ jobs:
       - run: python -m pip install -r tools/requirements-mcp.txt
       - name: Retain actual numeric state for known rotation failures (diagnosis only)
         run: python tools/static_usd_rotation_diagnostic.py target/debug/formora target/static-usd-rotation-diagnostic
+  raw-rotation-macos-diagnostic:
+    runs-on: macos-15-intel
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: dtolnay/rust-toolchain@1.85.0
+      - run: cargo build --locked --features preview
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-mcp.txt
+      - name: Retain Intel Mac preview-feature CLI state for the same73 probes
+        run: python tools/static_usd_rotation_diagnostic.py target/debug/formora target/static-usd-rotation-macos-diagnostic

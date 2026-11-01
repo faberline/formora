@@ -497,3 +497,68 @@ syntax checks; no helper/product/capacity execution is claimed. Native Rust code
 all source references, all six workloads, comparisons and250/500ms and2000/4000ms
 limits remain unchanged. Actual current-head CI and independent acceptance remain
 required. This gate remains incomplete.
+
+## Candidate da354bdb8: three static passes and an Intel source regression
+
+Static run41323157878 passed whole Linux124897468533, Windows124897468487 and
+Apple Silicon124897468731 jobs, including all9 completion/error controls and all6
+capacity samples per host. First cold initialization remains inside the clock.
+Pipelines100k: Linux0.929-1.055s, Windows0.984-1.110s, Silicon1.055-1.764s;
+200k:1.836-1.880s,2.015-2.125s,2.311-2.486s respectively. All24 content
+comparisons on all4 hosts pass and all8 model/source digests remain identical.
+Intel124897468362 passes all content/helpers/9 controls but FAILS all6 speed
+samples. Its first100k core618769757ns/pipeline4456670980ns and last200k pipeline
+23229885058ns remain failures. CPU/RSS/system diagnostics and all raw records are
+archived under candidate-da354bdb8. No host contention cause is established.
+
+The retained c340 Intel full-contract job124862093900 completed FAILURE after
+all4992 raw-rotation checks, with34 failures. Its17 reported distinct CLI cases
+all use AXIS_ANGLE object channels. First921 target/v000026/x is source
+-11.374410629272461 versus actual-11.374407768249512, beyond1e-6. Both expected
+captures and their original raw input files stay unchanged. Complete failed log
+and digest are archived under candidate-c340be9a9/full-contract-macos*. No new
+source exception, tolerance change or passing full-Mac verdict is made.
+
+Focused17 authored inputs and both native expectations were frozen at
+1c8f53d8be2d36626a97d5ccf2abecdd372c4ce0. The complete2496 world-input corpus
+and4992 independent native captures were then frozen at
+24e87bba84596fcb049fdbf31adab0350a3f8c8b, before the complete memory replay.
+They use only original authored data and source captures, not product expectations.
+The original adapter module import first failed locally on its unrelated MCP
+snapshot dependency. Exact input-only function ASTs were used with every process
+launch forbidden. CI separately checks exact full original-adapter outputs and
+every original source byte hash, including both sets of world/frame/channel data.
+Its data-only common-input path omits only the unused run catalog from expensive
+deep copies; every case and resulting command remains checked against the frozen
+full-catalog output. The17 focused controls also run the full-catalog adapter.
+
+Memory-only Editor/apply/world reads now check all2496 cases against both source
+captures, all1617408 world-point components with unchanged1e-6 and exact IDs. The
+17 focused cases also check11016 components. Both tests actually PASS on Apple
+M1 Max under Rust1.85, with default and all features. The all-feature pair takes
+11.45s and has zero violations. These are memory/world checks, not CLI/MCP,
+persist/reload, raw-channel, delta or independent acceptance. No local product
+test, source process or filesystem session-lock test was run. flate2=1.1.10 was
+already in the lockfile and is added only as a pinned dev dependency to decode
+embedded source bytes. Production binaries do not embed this test corpus.
+
+No production rotation arithmetic has changed in this follow-up. Intel actual
+memory/CLI traces remain required before diagnosing or repairing its differences.
+CI adds the memory replay and an Intel preview-feature CLI diagnostic using the
+same73 retained probes, including921/923. Its first failing actual states are
+retained; the subset is diagnosis only. Every original4992/3584 full command stays.
+
+The verifier resource contract and exact26.05 Work sources were frozen at24e87b
+before configuration code. The pinned26.5 universal wheel was statically inspected
+with its complete SHA-256 verified; Work bindings exist. Capacity verification now
+requests PXR_WORK_THREAD_LIMIT=1 uniformly on all4 hosts, before any pxr import.
+Actual USD/NumPy initialization still happens inside the original complete clock,
+after native export starts. It requires effective Work limit1 and no concurrency
+inside that clock; a wrong setting fails. This limits the auxiliary verifier pool,
+not Rust operations or global machine settings. Available disk space is diagnostic.
+Resource execution/speed remains CI-only and unmeasured until the next actual run.
+
+Cleanup05's complete before/request/final payload was first attached to PR87 and
+read back with exact compressed/decoded SHA-256. It is now also committed under
+candidate-da354bdb8/cleanup-05.json.gz. All5 audits preserve24 own superseded
+cancellations as NONPASSING. No additional run is cancelled in this follow-up.
