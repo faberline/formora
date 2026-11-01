@@ -12,3 +12,4 @@ pub mod rotation;
 pub mod scene;
 pub mod session;
 pub mod transforms;
+pub mod usd;

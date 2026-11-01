@@ -153,4 +153,8 @@ async def run(binary, output):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('binary',type=Path);parser.add_argument('output',type=Path)
-    args=parser.parse_args();asyncio.run(run(args.binary.resolve(),args.output.resolve()))
+    args=parser.parse_args()
+    binary=args.binary.resolve()
+    if not binary.exists() and binary.with_suffix('.exe').exists():
+        binary=binary.with_suffix('.exe')
+    asyncio.run(run(binary,args.output.resolve()))

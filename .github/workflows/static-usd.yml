@@ -1,0 +1,25 @@
+name: Native static USD gate
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  static-usd:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15-intel, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.85.0
+        with:
+          components: rustfmt, clippy
+      - run: cargo build --locked --features preview
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-mcp.txt usd-core==26.5
+      - name: Author, edit, reopen, export and independently compare all four models
+        run: python tools/static_usd_runtime.py target/debug/formora target/static-usd

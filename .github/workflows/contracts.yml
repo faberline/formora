@@ -72,3 +72,16 @@ jobs:
       - name: Verify creation and insertion without source repository access
         if: runner.os == 'macOS'
         run: python tools/creation_context_independent.py target/debug/formora target/independent-creation-contexts
+      - name: Retain raw rotation failure details in job log
+        if: always()
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          p=Path("target/rotation-snap-runtime-cases/report.json")
+          if p.is_file():
+              r=json.loads(p.read_text())
+              failures=[x for x in r.get("runs",[]) if x.get("status")=="failed"]
+              print(json.dumps({"passed":r.get("passed"),"failed_count":len(failures),"first_failures":failures[:20]}))
+          else:
+              print("Raw rotation report missing; comparison gate did not complete.")

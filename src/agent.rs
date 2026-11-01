@@ -17,6 +17,12 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
             .apply_with_result(parse::<ApplyRequest>(arguments)?)
             .map(|result| json!(result))
             .map_err(|e| e.to_string()),
+        "scene_export" => crate::usd::export(
+            session.scene(),
+            &parse::<crate::usd::ExportRequest>(arguments)?,
+        )
+        .map(|receipt| json!(receipt))
+        .map_err(|e| e.to_string()),
         "scene_undo" => session
             .undo(parse::<UndoRequest>(arguments)?)
             .map(|revision| json!({"revision":revision}))
@@ -27,6 +33,7 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
 
 pub fn tools() -> Value {
     json!([
+        {"name":"scene_export","description":"Export one static root subtree to a new USDA file. Never overwrites output or changes the native scene. Rejects unsupported state.","inputSchema":schemars::schema_for!(crate::usd::ExportRequest),"annotations":{"readOnlyHint":false,"destructiveHint":false}},
         {"name":"scene_inspect","description":"Inspect the current scene, one entity (optionally its persistent object_state), or one mesh_asset (optionally with resolved face/corner normals, or tessellated with polygon corner indices and diagnostics). No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
         {"name":"scene_apply","description":"Apply one atomic command batch at expected_revision. Every command must leave a valid scene. Success is saved before returning. Query the scene first to obtain its revision.","inputSchema":schemars::schema_for!(ApplyRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}},
         {"name":"scene_undo","description":"Undo the last successful batch in this process. The restored scene is saved with a new revision. Undo history is not kept across process restarts.","inputSchema":schemars::schema_for!(UndoRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}}
@@ -186,7 +193,7 @@ impl McpServer {
                 let Some(name) = params.get("name").and_then(Value::as_str) else {
                     return Some(rpc_error(id, -32602, "tool name is required"));
                 };
-                if !["scene_inspect", "scene_apply", "scene_undo"].contains(&name) {
+                if !["scene_inspect", "scene_apply", "scene_undo", "scene_export"].contains(&name) {
                     return Some(rpc_error(id, -32602, "unknown tool"));
                 }
                 let arguments = params
