@@ -114,10 +114,10 @@ Inspect/save/edit use the existing shared scene core. `scene_export` returns act
 root/revision/counts/bytes/SHA-256 and the complete-validation core duration.
 
 Native multiview helper: `python3 tools/static_usd_native_views.py BINARY MOTHER NEW_DIR`.
+It makes preview copies with cameras/lights. It does not change the mother.
 For the Python verification tools, install their pinned dependencies with
 `python3 -m pip install --only-binary=orjson -r tools/requirements-static-usd.txt`.
 These are verification-tool dependencies; the native Rust CLI does not use Python.
-It makes preview copies with cameras/lights. It does not change the mother.
 Apple tool: compile `tools/apple-static-usd/Inspect.swift` with `xcrun swiftc`,
 `-swift-version 5 -parse-as-library -target arm64-apple-macosx14.0`. Run its output
 as `INSPECTOR MODEL.usda NEW_REPORT.json NEW_CAPTURE_DIR`. Actual GPU access is
