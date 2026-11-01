@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Frozen 100k/200k capacity gate, three samples. CI only."""
 import json
+import os
+import platform
 from pathlib import Path
 import sys
 import time
@@ -10,6 +12,9 @@ binary=Path(sys.argv[1]).resolve()
 if not binary.exists() and binary.with_suffix('.exe').exists(): binary=binary.with_suffix('.exe')
 output=Path(sys.argv[2]).resolve(); output.mkdir(parents=True,exist_ok=False)
 runner=Runner(output); results=[]
+environment={'platform':platform.platform(),'machine':platform.machine(),'cpu_count':os.cpu_count(),'python':sys.version,'binary_sha256':sha(binary),'runner':{k:os.environ.get(k) for k in ['RUNNER_OS','RUNNER_ARCH','ImageOS','ImageVersion']}}
+(output/'environment.json').write_text(json.dumps(environment,indent=2)+'\n')
+print(json.dumps({'capacity_environment':environment}),flush=True)
 # Fixture construction is outside the clocks. Every point is referenced. Row-valid
 # faces span a 1000x100 grid; the 100000th face repeats a valid indexed face with
 # a distinct face ID. Exact frozen counts do not depend on exporter output.
@@ -45,7 +50,7 @@ for copies in (1,2):
         except (AssertionError,ValueError,KeyError) as problem:
             verification_error=str(problem) or type(problem).__name__
         elapsed=time.monotonic_ns()-start
-        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'pipeline_ns':elapsed,'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
+        item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'core_phases_ns':receipt['core_phases_ns'],'pipeline_ns':elapsed,'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
         item['passed']=verification_error is None and item['core_ns']<=copies*250000000 and elapsed<=copies*2000000000
         results.append(item)
         (output/'report.json').write_text(json.dumps({'passed':all(x['passed'] for x in results),'samples':results},indent=2)+'\n')

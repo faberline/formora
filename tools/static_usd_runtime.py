@@ -89,10 +89,19 @@ def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
     assert UsdGeom.GetStageMetersPerUnit(stage) == 1
     expected_nodes = set()
     expected_meshes = set()
+    assert scene['entities'][root]['parent'] is None
+    selected={root};pending=[root]
+    while pending:
+        parent=pending.pop()
+        children=[id for id,e in scene['entities'].items() if e['parent']==parent]
+        for child in children:
+            assert child not in selected
+            selected.add(child);pending.append(child)
     def path_for(id):
         e = scene['entities'][id]
         return (path_for(e['parent']) if e['parent'] else '/Formora')+'/'+prim_id(id)
     for id, e in scene['entities'].items():
+        if id not in selected:continue
         p = stage.GetPrimAtPath(path_for(id)); assert p, id
         expected_nodes.add(str(p.GetPath()))
         assert p.GetAttribute('formora:sourceId').Get() == id
@@ -161,6 +170,7 @@ def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
             near(surface.GetInput(key).Get(), value)
     assert {str(p.GetPath()) for p in stage.Traverse() if p.GetAttribute('formora:sourceId') and p.IsA(UsdGeom.Xform)} == expected_nodes
     assert {str(p.GetPath()) for p in stage.Traverse() if p.IsA(UsdGeom.Mesh)} == expected_meshes
+    assert {str(p.GetPath()) for p in stage.Traverse() if p.IsA(UsdGeom.Xform)}==expected_nodes|{'/Formora'}
     return {'meshes':len(expected_meshes),'entities':len(expected_nodes)}
 
 def verify_mcp_receipt(receipt,binary,scene):
@@ -186,7 +196,7 @@ class Runner:
         self.receipts = []
     def run(self, args, stdin=None, fail=False):
         start = time.monotonic_ns()
-        p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8")
         timed_out=False
         try:
             stdout, stderr = p.communicate(None if stdin is None else json.dumps(stdin), timeout=120)

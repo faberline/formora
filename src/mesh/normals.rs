@@ -6,7 +6,7 @@ use super::{MeshAsset, selection::FaceRef};
 use crate::scene::{Result, SceneError};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
-use std::collections::BTreeSet;
+use std::collections::{BTreeSet, HashMap};
 
 type Vector = [f32; 3];
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
@@ -298,12 +298,12 @@ pub(crate) fn resolved_flat_validated(asset: &MeshAsset) -> Result<Option<MeshNo
     if !asset.smooth_triangles.is_empty() || asset.polygons.values().any(|f| f.smooth) {
         return Ok(None);
     }
-    if asset
+    let positions: HashMap<_, _> = asset
         .vertices
-        .values()
-        .flatten()
-        .any(|v| !(*v as f32).is_finite())
-    {
+        .iter()
+        .map(|(id, position)| (id.as_str(), position.map(|v| v as f32)))
+        .collect();
+    if positions.values().flatten().any(|v| !v.is_finite()) {
         return Err(SceneError(
             "automatic normals require finite f32 geometry".into(),
         ));
@@ -314,10 +314,7 @@ pub(crate) fn resolved_flat_validated(asset: &MeshAsset) -> Result<Option<MeshNo
                    explicit_face: Option<[f64; 3]>,
                    explicit: Option<&[[f64; 3]]>|
      -> Result<()> {
-        let points: Vec<_> = ids
-            .iter()
-            .map(|id| asset.vertices[id].map(|x| x as f32))
-            .collect();
+        let points: Vec<_> = ids.iter().map(|id| positions[id.as_str()]).collect();
         let normal = polygon_normal(&points);
         let corner = newell(&points);
         if normal.iter().chain(corner.iter()).any(|v| !v.is_finite()) {

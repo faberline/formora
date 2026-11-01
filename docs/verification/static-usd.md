@@ -177,3 +177,47 @@ runs even when an earlier independent new check fails, so a failure still leaves
 speed evidence. Earlier failed steps keep the whole job red. No continue-on-error
 was introduced. The rejection helper's expected missing-asset message was fixed
 to the existing Scene validator's exact wording; the product error did not change.
+
+## Candidate 748f0ac measurements
+
+Run41304474636: Linux job124841939567 and Windows job124841939449 passed all
+four editable-model CLI/MCP flows, attribute checks and rejection controls. Both
+jobs FAILED capacity speed. Every capacity sample passed full content comparison.
+The four exported model byte digests still exactly match candidate-c1f0f87, whose
+actual Apple/GPU evidence is archived separately with its own binary provenance.
+Linux core100k:0.602045377,0.621301165,0.621221043s; pipeline100k:
+3.006418972,2.712679357,2.498783856s. Linux core200k:
+1.181101870,1.178840053,1.125763959s; pipeline200k:
+4.999736062,4.993146061,4.751715020s.
+Windows core100k:0.867343600,0.809427600,0.787358900s; pipeline100k:
+3.516000000,3.094000000,3.063000000s. Windows core200k:
+1.616188400,1.553710800,1.569625700s; pipeline200k:
+6.719000000,5.985000000,6.047000000s.
+Limits remain0.25/2s per100k and0.5/4s per200k. No timing pass is claimed.
+
+The Linux diagnostic job124841939464 passed all53 selected CLI rotation probes.
+This is diagnosis only. It cannot replace the full4992-check source suite or
+current-head three-platform checks. Complete decoded logs are gzip archived in
+candidate-748f0ac, with uncompressed byte counts and SHA-256 in its manifest.
+
+Eleven superseded runs created by this issue86 branch AFTER task admission were
+explicitly cancelled to free CI slots. The audit retains every run/job snapshot,
+cancel request and completed/cancelled readback under own-superseded-ci-cleanup.
+All cancelled, skipped or unrun checks remain NONPASSING. Original pre-task runs,
+the two public reruns41136886204/41136867265 and source workloads were excluded.
+No completed run or log was deleted. The three current748 runs were retained.
+
+The next candidate streams arrays into one string buffer, reuses faces within
+the immutable validated projection, and uses hash lookups for flat-normal input
+positions and resolved face normals. Bit-identical adjacent normal text can be
+reused; signed zero is distinguished. Output ordering and complete validation
+remain unchanged. Diagnostic phase times remain inside the original complete
+core clock and do not define separate pass criteria. Runner metadata is recorded
+outside the clocks. Capacity is unmeasured until fresh CI.
+
+Added CI coverage uses the existing frozen concave-polygon fixture on BOTH
+interfaces: reject its loose/isolated components without creating output, then
+explicitly edit the native asset and preserve its eight corners, normal payload,
+two UV layers and IDs. It also checks UTF-8/escaped names and an unrelated camera
+sibling outside the selected subtree. These additions have only syntax checks
+locally; functional execution remains CI-only. No original fixture was changed.

@@ -10,6 +10,7 @@ use std::fs::OpenOptions;
 use std::io::Write as _;
 use std::path::Path;
 use std::sync::atomic::{AtomicU64, Ordering};
+use std::time::Instant;
 
 const MAX_BYTES: usize = 256 * 1024 * 1024;
 static NEXT: AtomicU64 = AtomicU64::new(0);
@@ -31,6 +32,7 @@ pub struct ExportReceipt {
     pub faces: usize,
     pub bytes: usize,
     pub core_elapsed_ns: u128,
+    pub core_phases_ns: CorePhases,
     pub sha256: String,
     pub output: String,
 }
@@ -40,6 +42,15 @@ pub struct Projection {
     pub meshes: usize,
     pub vertices: usize,
     pub faces: usize,
+    pub core_phases_ns: CorePhases,
+}
+/// Diagnostic portions of the complete core clock; never separate pass criteria.
+#[derive(Debug, Default, Serialize)]
+pub struct CorePhases {
+    validation: u128,
+    mesh_prepare: u128,
+    normals: u128,
+    mesh_write: u128,
 }
 fn error(message: impl Into<String>) -> SceneError {
     SceneError(format!("static USD: {}", message.into()))
@@ -71,23 +82,44 @@ fn float(v: f64) -> Result<f32> {
     Ok(f)
 }
 fn vector<const N: usize>(v: [f64; N]) -> Result<String> {
-    Ok(format!(
-        "({})",
-        v.into_iter()
-            .map(|v| float(v).map(|v| v.to_string()))
-            .collect::<Result<Vec<_>>>()?
-            .join(", ")
-    ))
+    let mut out = String::new();
+    write_vector(&mut out, v)?;
+    Ok(out)
 }
-fn list<T: ToString>(values: impl IntoIterator<Item = T>) -> String {
-    format!(
-        "[{}]",
-        values
-            .into_iter()
-            .map(|v| v.to_string())
-            .collect::<Vec<_>>()
-            .join(", ")
-    )
+fn write_vector<const N: usize>(out: &mut String, v: [f64; N]) -> Result<()> {
+    out.push('(');
+    for (i, value) in v.into_iter().enumerate() {
+        if i != 0 {
+            out.push_str(", ");
+        }
+        write!(out, "{}", float(value)?).expect("String write");
+    }
+    out.push(')');
+    Ok(())
+}
+fn write_list<T>(
+    out: &mut String,
+    values: impl IntoIterator<Item = T>,
+    mut emit: impl FnMut(&mut String, T) -> Result<()>,
+) -> Result<()> {
+    out.push('[');
+    for (i, value) in values.into_iter().enumerate() {
+        if i != 0 {
+            out.push_str(", ");
+        }
+        emit(out, value)?;
+    }
+    out.push(']');
+    Ok(())
+}
+fn list<T: std::fmt::Display>(values: impl IntoIterator<Item = T>) -> String {
+    let mut out = String::new();
+    write_list(&mut out, values, |out, v| {
+        write!(out, "{v}").expect("String write");
+        Ok(())
+    })
+    .expect("infallible display");
+    out
 }
 struct Face<'a> {
     kind: &'static str,
@@ -126,7 +158,7 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
         }))
         .collect()
 }
-fn supported(asset: &MeshAsset) -> Result<()> {
+fn supported(asset: &MeshAsset, faces: &[Face<'_>]) -> Result<()> {
     if asset.recipe.is_some()
         || asset.editing.is_some()
         || !asset.diagnostics.is_empty()
@@ -139,7 +171,6 @@ fn supported(asset: &MeshAsset) -> Result<()> {
             "unsupported recipe, editor, diagnostic or custom mesh state",
         ));
     }
-    let faces = faces(asset);
     if asset.vertices.is_empty() || faces.is_empty() {
         return Err(error("empty geometry"));
     }
@@ -152,7 +183,7 @@ fn supported(asset: &MeshAsset) -> Result<()> {
     }
     let mut used_edges = HashSet::new();
     if !asset.edges.is_empty() {
-        for f in &faces {
+        for f in faces {
             for i in 0..f.vertices.len() {
                 let a = f.vertices[i];
                 let b = f.vertices[(i + 1) % f.vertices.len()];
@@ -200,6 +231,7 @@ struct Writer<'a> {
     meshes: usize,
     entities: usize,
     materials: BTreeSet<String>,
+    phases: CorePhases,
 }
 impl Writer<'_> {
     fn entity(&mut self, id: &str, depth: usize) -> Result<()> {
@@ -267,14 +299,15 @@ impl Writer<'_> {
         Ok(())
     }
     fn mesh(&mut self, id: &str, fallback: Option<&str>) -> Result<()> {
+        let start = Instant::now();
         let asset = &self.scene.mesh_assets[id];
-        supported(asset)?;
+        let faces = faces(asset);
+        supported(asset, &faces)?;
         for point in asset.vertices.values() {
             for value in point {
                 float(*value)?;
             }
         }
-        let faces = faces(asset);
         self.meshes += 1;
         self.vertices += asset.vertices.len();
         self.faces += faces.len();
@@ -289,26 +322,27 @@ impl Writer<'_> {
             .map(|(i, id)| (*id, i))
             .collect();
         // project validated the entire immutable scene inside the core clock.
+        let normal_start = Instant::now();
+        self.phases.mesh_prepare += normal_start.duration_since(start).as_nanos();
         let normals = match crate::mesh::normals::resolved_flat_validated(asset)? {
             Some(normals) => normals,
             None => crate::mesh::normals::resolved(asset)?,
         };
-        let normals: BTreeMap<_, _> = normals
+        let write_start = Instant::now();
+        self.phases.normals += write_start.duration_since(normal_start).as_nanos();
+        let normals: HashMap<_, _> = normals
             .faces
             .iter()
-            .map(|f| (&f.face, &f.corner_normals))
+            .map(|f| {
+                let key = match &f.face {
+                    FaceRef::Triangle(id) => ("triangle", id.as_str()),
+                    FaceRef::Polygon(id) => ("polygon", id.as_str()),
+                };
+                (key, &f.corner_normals)
+            })
             .collect();
-        let mut corner_normals = Vec::new();
         let mut bindings: BTreeMap<&str, Vec<usize>> = BTreeMap::new();
         for (i, f) in faces.iter().enumerate() {
-            let key = if f.kind == "triangle" {
-                FaceRef::Triangle(f.id.into())
-            } else {
-                FaceRef::Polygon(f.id.into())
-            };
-            for n in normals[&key] {
-                corner_normals.push(vector(*n)?);
-            }
             let material = f
                 .material
                 .and_then(|s| asset.material_slots[s].as_deref())
@@ -346,29 +380,43 @@ impl Writer<'_> {
             list(faces.iter().map(|f| quoted(f.kind)))
         )
         .expect("String write");
-        let points = asset
-            .vertices
-            .values()
-            .map(|v| vector(*v))
-            .collect::<Result<Vec<_>>>()?;
-        writeln!(
-            self.out,
-            "point3f[] points = {}\nint[] faceVertexCounts = {}\nint[] faceVertexIndices = {}",
-            list(points),
-            list(faces.iter().map(|f| f.vertices.len())),
-            list(
-                faces
-                    .iter()
-                    .flat_map(|f| f.vertices.iter().map(|id| index[id]))
-            )
-        )
-        .expect("String write");
-        writeln!(
-            self.out,
-            "normal3f[] normals = {} (interpolation = \"faceVarying\")",
-            list(corner_normals)
-        )
-        .expect("String write");
+        self.out.push_str("point3f[] points = ");
+        write_list(&mut self.out, asset.vertices.values(), |out, v| {
+            write_vector(out, *v)
+        })?;
+        self.out.push_str("\nint[] faceVertexCounts = ");
+        write_list(&mut self.out, &faces, |out, f| {
+            write!(out, "{}", f.vertices.len()).expect("String write");
+            Ok(())
+        })?;
+        self.out.push_str("\nint[] faceVertexIndices = ");
+        write_list(
+            &mut self.out,
+            faces.iter().flat_map(|f| &f.vertices),
+            |out, id| {
+                write!(out, "{}", index[id]).expect("String write");
+                Ok(())
+            },
+        )?;
+        self.out.push_str("\nnormal3f[] normals = ");
+        // Reuse text only for bit-identical adjacent values. Signed zero is kept.
+        let mut previous = None;
+        let mut rendered = String::new();
+        write_list(
+            &mut self.out,
+            faces.iter().flat_map(|f| normals[&(f.kind, f.id)]),
+            |out, n| {
+                let bits = n.map(f64::to_bits);
+                if previous != Some(bits) {
+                    rendered.clear();
+                    write_vector(&mut rendered, *n)?;
+                    previous = Some(bits);
+                }
+                out.push_str(&rendered);
+                Ok(())
+            },
+        )?;
+        self.out.push_str(" (interpolation = \"faceVarying\")\n");
         for layer in faces[0].uv.keys() {
             let active = asset
                 .uv_layout
@@ -380,12 +428,18 @@ impl Writer<'_> {
             } else {
                 identifier(layer)
             };
-            let values = faces
-                .iter()
-                .flat_map(|f| f.uv[layer].iter())
-                .map(|v| vector(*v))
-                .collect::<Result<Vec<_>>>()?;
-            writeln!(self.out,"texCoord2f[] primvars:{name} = {} (interpolation = \"faceVarying\")\ncustom string formora:uv_{name} = {}",list(values),text_value(layer)?).expect("String write");
+            write!(self.out, "texCoord2f[] primvars:{name} = ").expect("String write");
+            write_list(
+                &mut self.out,
+                faces.iter().flat_map(|f| &f.uv[layer]),
+                |out, v| write_vector(out, *v),
+            )?;
+            writeln!(
+                self.out,
+                " (interpolation = \"faceVarying\")\ncustom string formora:uv_{name} = {}",
+                text_value(layer)?
+            )
+            .expect("String write");
             if self.out.len() > MAX_BYTES {
                 return Err(error("output exceeds 256 MiB"));
             }
@@ -406,6 +460,7 @@ impl Writer<'_> {
             }
         }
         self.out.push_str("}\n");
+        self.phases.mesh_write += write_start.elapsed().as_nanos();
         Ok(())
     }
 }
@@ -414,7 +469,9 @@ pub fn project(scene: &Scene, root: &str) -> Result<Projection> {
     if scene.entities.len() > 4096 {
         return Err(error("scene entity limit exceeded"));
     }
+    let start = Instant::now();
     scene.validate()?;
+    let validation = start.elapsed().as_nanos();
     if scene.time_seconds != 0.
         || !scene.doors.is_empty()
         || !scene.annotations.is_empty()
@@ -442,6 +499,10 @@ pub fn project(scene: &Scene, root: &str) -> Result<Projection> {
         meshes: 0,
         entities: 0,
         materials: BTreeSet::new(),
+        phases: CorePhases {
+            validation,
+            ..CorePhases::default()
+        },
     };
     w.entity(root, 1)?;
     if w.meshes == 0 {
@@ -462,6 +523,7 @@ pub fn project(scene: &Scene, root: &str) -> Result<Projection> {
         meshes: w.meshes,
         vertices: w.vertices,
         faces: w.faces,
+        core_phases_ns: w.phases,
     })
 }
 /// Publish a complete file without replacing any existing target, including links.
@@ -516,6 +578,7 @@ pub fn export(scene: &Scene, request: &ExportRequest) -> Result<ExportReceipt> {
         faces: projection.faces,
         bytes: projection.text.len(),
         core_elapsed_ns,
+        core_phases_ns: projection.core_phases_ns,
         sha256: format!("{:x}", Sha256::digest(projection.text.as_bytes())),
         output: request.output.clone(),
     })
