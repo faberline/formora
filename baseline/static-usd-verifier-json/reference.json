@@ -1,0 +1,16 @@
+{
+  "valid": [
+    "{\"revision\":18446744073709551615,\"integer_min\":-2147483648,\"count\":200000,\"name\":\"Quote \\\" backslash \\\\ \\u0000tail \u4e2d\u6587 \ud83c\udf0b\",\"points\":[0.0,-0.0,1.0000001192092896,-0.15624983608722687,0.009982731193304062,1e-45,1.7976931348623157e308]}",
+    "[true,false,null,{},[],{\"a\":[1,2,3]}]",
+    "{\"escaped_pair\":\"\\ud83c\\udf0b\",\"literal_escape\":\"\\\\x00\"}"
+  ],
+  "invalid": [
+    "{\"v\":NaN}",
+    "{\"v\":Infinity}",
+    "{\"v\":-Infinity}",
+    "{\"x\":1}garbage",
+    "{\"broken\":",
+    "\"\\ud800\""
+  ],
+  "rule": "Expected valid values/types and f64 bits from independent standard json decode; malformed/nonfinite/invalid UTF-8 must be rejected. All full native scenes and every output value still checked inside original capacity clocks."
+}
