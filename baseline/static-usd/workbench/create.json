@@ -1,0 +1,1292 @@
+{
+  "expected_revision": 0,
+  "commands": [
+    {
+      "operation": "set_material",
+      "id": "metal",
+      "material": {
+        "base_color": [
+          0.15,
+          0.18,
+          0.2,
+          1
+        ],
+        "roughness": 0.4,
+        "metallic": 0.85
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "wood",
+      "material": {
+        "base_color": [
+          0.31,
+          0.15,
+          0.055,
+          1
+        ],
+        "roughness": 0.8,
+        "metallic": 0
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench",
+      "entity": {
+        "name": "workbench",
+        "parent": null,
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "empty"
+        }
+      }
+    },
+    {
+      "operation": "set_mesh_asset",
+      "id": "workbench_top",
+      "asset": {
+        "vertices": {
+          "v0": [
+            -0.6,
+            -0.35,
+            0
+          ],
+          "v1": [
+            0.6,
+            -0.35,
+            0
+          ],
+          "v2": [
+            0.6,
+            0.35,
+            0
+          ],
+          "v3": [
+            -0.6,
+            0.35,
+            0
+          ],
+          "v4": [
+            -0.6,
+            -0.35,
+            0.1
+          ],
+          "v5": [
+            0.6,
+            -0.35,
+            0.1
+          ],
+          "v6": [
+            0.6,
+            0.35,
+            0.1
+          ],
+          "v7": [
+            -0.6,
+            0.35,
+            0.1
+          ]
+        },
+        "triangles": {
+          "f000": {
+            "vertices": [
+              "v0",
+              "v2",
+              "v1"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f001": {
+            "vertices": [
+              "v0",
+              "v3",
+              "v2"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f002": {
+            "vertices": [
+              "v4",
+              "v5",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f003": {
+            "vertices": [
+              "v4",
+              "v6",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f004": {
+            "vertices": [
+              "v0",
+              "v1",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f005": {
+            "vertices": [
+              "v0",
+              "v5",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f006": {
+            "vertices": [
+              "v1",
+              "v2",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f007": {
+            "vertices": [
+              "v1",
+              "v6",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f008": {
+            "vertices": [
+              "v2",
+              "v3",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f009": {
+            "vertices": [
+              "v2",
+              "v7",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f010": {
+            "vertices": [
+              "v3",
+              "v0",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f011": {
+            "vertices": [
+              "v3",
+              "v4",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench_top",
+      "entity": {
+        "name": "top",
+        "parent": "workbench",
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0.8
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "workbench_top"
+          },
+          "material": "wood"
+        }
+      }
+    },
+    {
+      "operation": "set_mesh_asset",
+      "id": "workbench_leg_lf",
+      "asset": {
+        "vertices": {
+          "v0": [
+            -0.05,
+            -0.05,
+            0
+          ],
+          "v1": [
+            0.05,
+            -0.05,
+            0
+          ],
+          "v2": [
+            0.05,
+            0.05,
+            0
+          ],
+          "v3": [
+            -0.05,
+            0.05,
+            0
+          ],
+          "v4": [
+            -0.05,
+            -0.05,
+            0.8
+          ],
+          "v5": [
+            0.05,
+            -0.05,
+            0.8
+          ],
+          "v6": [
+            0.05,
+            0.05,
+            0.8
+          ],
+          "v7": [
+            -0.05,
+            0.05,
+            0.8
+          ]
+        },
+        "triangles": {
+          "f000": {
+            "vertices": [
+              "v0",
+              "v2",
+              "v1"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f001": {
+            "vertices": [
+              "v0",
+              "v3",
+              "v2"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f002": {
+            "vertices": [
+              "v4",
+              "v5",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f003": {
+            "vertices": [
+              "v4",
+              "v6",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f004": {
+            "vertices": [
+              "v0",
+              "v1",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f005": {
+            "vertices": [
+              "v0",
+              "v5",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f006": {
+            "vertices": [
+              "v1",
+              "v2",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f007": {
+            "vertices": [
+              "v1",
+              "v6",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f008": {
+            "vertices": [
+              "v2",
+              "v3",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f009": {
+            "vertices": [
+              "v2",
+              "v7",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f010": {
+            "vertices": [
+              "v3",
+              "v0",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f011": {
+            "vertices": [
+              "v3",
+              "v4",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench_leg_lf",
+      "entity": {
+        "name": "leg_lf",
+        "parent": "workbench",
+        "transform": {
+          "translation": [
+            -0.5,
+            -0.25,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "workbench_leg_lf"
+          },
+          "material": "metal"
+        }
+      }
+    },
+    {
+      "operation": "set_mesh_asset",
+      "id": "workbench_leg_rf",
+      "asset": {
+        "vertices": {
+          "v0": [
+            -0.05,
+            -0.05,
+            0
+          ],
+          "v1": [
+            0.05,
+            -0.05,
+            0
+          ],
+          "v2": [
+            0.05,
+            0.05,
+            0
+          ],
+          "v3": [
+            -0.05,
+            0.05,
+            0
+          ],
+          "v4": [
+            -0.05,
+            -0.05,
+            0.8
+          ],
+          "v5": [
+            0.05,
+            -0.05,
+            0.8
+          ],
+          "v6": [
+            0.05,
+            0.05,
+            0.8
+          ],
+          "v7": [
+            -0.05,
+            0.05,
+            0.8
+          ]
+        },
+        "triangles": {
+          "f000": {
+            "vertices": [
+              "v0",
+              "v2",
+              "v1"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f001": {
+            "vertices": [
+              "v0",
+              "v3",
+              "v2"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f002": {
+            "vertices": [
+              "v4",
+              "v5",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f003": {
+            "vertices": [
+              "v4",
+              "v6",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f004": {
+            "vertices": [
+              "v0",
+              "v1",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f005": {
+            "vertices": [
+              "v0",
+              "v5",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f006": {
+            "vertices": [
+              "v1",
+              "v2",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f007": {
+            "vertices": [
+              "v1",
+              "v6",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f008": {
+            "vertices": [
+              "v2",
+              "v3",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f009": {
+            "vertices": [
+              "v2",
+              "v7",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f010": {
+            "vertices": [
+              "v3",
+              "v0",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f011": {
+            "vertices": [
+              "v3",
+              "v4",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench_leg_rf",
+      "entity": {
+        "name": "leg_rf",
+        "parent": "workbench",
+        "transform": {
+          "translation": [
+            0.5,
+            -0.25,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "workbench_leg_rf"
+          },
+          "material": "metal"
+        }
+      }
+    },
+    {
+      "operation": "set_mesh_asset",
+      "id": "workbench_leg_lb",
+      "asset": {
+        "vertices": {
+          "v0": [
+            -0.05,
+            -0.05,
+            0
+          ],
+          "v1": [
+            0.05,
+            -0.05,
+            0
+          ],
+          "v2": [
+            0.05,
+            0.05,
+            0
+          ],
+          "v3": [
+            -0.05,
+            0.05,
+            0
+          ],
+          "v4": [
+            -0.05,
+            -0.05,
+            0.8
+          ],
+          "v5": [
+            0.05,
+            -0.05,
+            0.8
+          ],
+          "v6": [
+            0.05,
+            0.05,
+            0.8
+          ],
+          "v7": [
+            -0.05,
+            0.05,
+            0.8
+          ]
+        },
+        "triangles": {
+          "f000": {
+            "vertices": [
+              "v0",
+              "v2",
+              "v1"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f001": {
+            "vertices": [
+              "v0",
+              "v3",
+              "v2"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f002": {
+            "vertices": [
+              "v4",
+              "v5",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f003": {
+            "vertices": [
+              "v4",
+              "v6",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f004": {
+            "vertices": [
+              "v0",
+              "v1",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f005": {
+            "vertices": [
+              "v0",
+              "v5",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f006": {
+            "vertices": [
+              "v1",
+              "v2",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f007": {
+            "vertices": [
+              "v1",
+              "v6",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f008": {
+            "vertices": [
+              "v2",
+              "v3",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f009": {
+            "vertices": [
+              "v2",
+              "v7",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f010": {
+            "vertices": [
+              "v3",
+              "v0",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f011": {
+            "vertices": [
+              "v3",
+              "v4",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench_leg_lb",
+      "entity": {
+        "name": "leg_lb",
+        "parent": "workbench",
+        "transform": {
+          "translation": [
+            -0.5,
+            0.25,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "workbench_leg_lb"
+          },
+          "material": "metal"
+        }
+      }
+    },
+    {
+      "operation": "set_mesh_asset",
+      "id": "workbench_leg_rb",
+      "asset": {
+        "vertices": {
+          "v0": [
+            -0.05,
+            -0.05,
+            0
+          ],
+          "v1": [
+            0.05,
+            -0.05,
+            0
+          ],
+          "v2": [
+            0.05,
+            0.05,
+            0
+          ],
+          "v3": [
+            -0.05,
+            0.05,
+            0
+          ],
+          "v4": [
+            -0.05,
+            -0.05,
+            0.8
+          ],
+          "v5": [
+            0.05,
+            -0.05,
+            0.8
+          ],
+          "v6": [
+            0.05,
+            0.05,
+            0.8
+          ],
+          "v7": [
+            -0.05,
+            0.05,
+            0.8
+          ]
+        },
+        "triangles": {
+          "f000": {
+            "vertices": [
+              "v0",
+              "v2",
+              "v1"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f001": {
+            "vertices": [
+              "v0",
+              "v3",
+              "v2"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f002": {
+            "vertices": [
+              "v4",
+              "v5",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f003": {
+            "vertices": [
+              "v4",
+              "v6",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f004": {
+            "vertices": [
+              "v0",
+              "v1",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f005": {
+            "vertices": [
+              "v0",
+              "v5",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f006": {
+            "vertices": [
+              "v1",
+              "v2",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f007": {
+            "vertices": [
+              "v1",
+              "v6",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f008": {
+            "vertices": [
+              "v2",
+              "v3",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f009": {
+            "vertices": [
+              "v2",
+              "v7",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f010": {
+            "vertices": [
+              "v3",
+              "v0",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f011": {
+            "vertices": [
+              "v3",
+              "v4",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench_leg_rb",
+      "entity": {
+        "name": "leg_rb",
+        "parent": "workbench",
+        "transform": {
+          "translation": [
+            0.5,
+            0.25,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "workbench_leg_rb"
+          },
+          "material": "metal"
+        }
+      }
+    },
+    {
+      "operation": "set_mesh_asset",
+      "id": "workbench_shelf",
+      "asset": {
+        "vertices": {
+          "v0": [
+            -0.525,
+            -0.275,
+            0
+          ],
+          "v1": [
+            0.525,
+            -0.275,
+            0
+          ],
+          "v2": [
+            0.525,
+            0.275,
+            0
+          ],
+          "v3": [
+            -0.525,
+            0.275,
+            0
+          ],
+          "v4": [
+            -0.525,
+            -0.275,
+            0.05
+          ],
+          "v5": [
+            0.525,
+            -0.275,
+            0.05
+          ],
+          "v6": [
+            0.525,
+            0.275,
+            0.05
+          ],
+          "v7": [
+            -0.525,
+            0.275,
+            0.05
+          ]
+        },
+        "triangles": {
+          "f000": {
+            "vertices": [
+              "v0",
+              "v2",
+              "v1"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f001": {
+            "vertices": [
+              "v0",
+              "v3",
+              "v2"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f002": {
+            "vertices": [
+              "v4",
+              "v5",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f003": {
+            "vertices": [
+              "v4",
+              "v6",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f004": {
+            "vertices": [
+              "v0",
+              "v1",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f005": {
+            "vertices": [
+              "v0",
+              "v5",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f006": {
+            "vertices": [
+              "v1",
+              "v2",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f007": {
+            "vertices": [
+              "v1",
+              "v6",
+              "v5"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f008": {
+            "vertices": [
+              "v2",
+              "v3",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f009": {
+            "vertices": [
+              "v2",
+              "v7",
+              "v6"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f010": {
+            "vertices": [
+              "v3",
+              "v0",
+              "v4"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          },
+          "f011": {
+            "vertices": [
+              "v3",
+              "v4",
+              "v7"
+            ],
+            "uv_layers": {},
+            "corner_normals": null,
+            "material_slot": null
+          }
+        },
+        "material_slots": []
+      }
+    },
+    {
+      "operation": "create_entity",
+      "id": "workbench_shelf",
+      "entity": {
+        "name": "shelf",
+        "parent": "workbench",
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0.25
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "content": {
+          "kind": "mesh",
+          "geometry": {
+            "kind": "asset",
+            "id": "workbench_shelf"
+          },
+          "material": "wood"
+        }
+      }
+    }
+  ]
+}

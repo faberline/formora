@@ -1,0 +1,13 @@
+460:     public typealias RawValue = Swift.UInt32
+461:   }
+462:   @_Concurrency.MainActor @preconcurrency public func __setProfilerUpdateInterval(newInterval: Swift.Float)
+463:   @_Concurrency.MainActor @preconcurrency public func __frameTime() -> Swift.Float
+464:   public typealias Image = AppKit.NSImage
+465:   @_Concurrency.MainActor @preconcurrency public func snapshot(saveToHDR: Swift.Bool, completion: @escaping (_ image: RealityKit.ARView.Image?) -> Swift.Void)
+466:   @_Concurrency.MainActor @preconcurrency public func __startAudioEngine()
+467:   @_Concurrency.MainActor @preconcurrency public func __stopAudioEngine()
+468:   @_Concurrency.MainActor @preconcurrency public func __distanceInMetersFromEntity(_ entity: RealityFoundation.Entity) -> Swift.Float
+469: }
+470: @available(visionOS 1.0, macOS 15.0, iOS 18.0, macCatalyst 18.0, tvOS 26.0, *)
+471: extension RealityFoundation.ParticleEmitterComponent.Presets {
+472:   public static var rain: RealityFoundation.ParticleEmitterComponent {

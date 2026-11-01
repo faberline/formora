@@ -1,0 +1,30 @@
+{
+  "expected_revision": 1,
+  "commands": [
+    {
+      "operation": "set_mesh_vertices",
+      "id": "workbench_top",
+      "positions": {
+        "v0": [
+          -0.585,
+          -0.33999999999999997,
+          0
+        ]
+      }
+    },
+    {
+      "operation": "set_material",
+      "id": "wood",
+      "material": {
+        "base_color": [
+          0.31,
+          0.15,
+          0.055,
+          1
+        ],
+        "roughness": 0.72,
+        "metallic": 0
+      }
+    }
+  ]
+}
