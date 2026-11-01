@@ -112,16 +112,29 @@ def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
         assert list(mesh.GetPrim().GetAttribute('formora:vertexIds').Get()) == ids
         assert list(mesh.GetPrim().GetAttribute('formora:faceIds').Get()) == faces
         assert list(mesh.GetPrim().GetAttribute('formora:faceKinds').Get()) == ['triangle']*len(faces)
-        near(list(mesh.GetPointsAttr().Get()), [a['vertices'][v] for v in ids])
+        if normal_policy=='frozen_preview_f32_newell':
+            import numpy as np
+            actual_points=np.asarray(mesh.GetPointsAttr().Get(),dtype=np.float64)
+            reference_points=np.asarray([a['vertices'][v] for v in ids],dtype=np.float64)
+            assert actual_points.shape==reference_points.shape
+            assert np.isfinite(actual_points).all() and (np.abs(actual_points-reference_points)<=1e-6).all()
+        else:
+            near(list(mesh.GetPointsAttr().Get()), [a['vertices'][v] for v in ids])
         index_by_id={v:i for i,v in enumerate(ids)}
         indices = [index_by_id[v] for f in faces for v in a['triangles'][f]['vertices']]
-        assert list(mesh.GetFaceVertexCountsAttr().Get()) == [3]*len(faces)
-        assert list(mesh.GetFaceVertexIndicesAttr().Get()) == indices
+        if normal_policy=='frozen_preview_f32_newell':
+            counts=np.asarray(mesh.GetFaceVertexCountsAttr().Get())
+            actual_indices=np.asarray(mesh.GetFaceVertexIndicesAttr().Get())
+            assert counts.shape==(len(faces),) and (counts==3).all()
+            assert np.array_equal(actual_indices,np.asarray(indices,dtype=np.int32))
+        else:
+            assert list(mesh.GetFaceVertexCountsAttr().Get()) == [3]*len(faces)
+            assert list(mesh.GetFaceVertexIndicesAttr().Get()) == indices
         assert mesh.GetSubdivisionSchemeAttr().Get() == 'none'
         assert mesh.GetOrientationAttr().Get() == 'rightHanded'
         assert mesh.GetDoubleSidedAttr().Get() is False
         assert mesh.GetNormalsInterpolation() == 'faceVarying'
-        normals = list(mesh.GetNormalsAttr().Get()); assert len(normals) == len(indices)
+        normals = mesh.GetNormalsAttr().Get(); assert len(normals) == len(indices)
         if normal_policy=='frozen_preview_f32_newell':
             import numpy as np
             input_points=np.array([[a['vertices'][v] for v in a['triangles'][f]['vertices']] for f in faces],dtype=np.float32)

@@ -1,0 +1,740 @@
+{
+  "schema_version": 1,
+  "revision": 3,
+  "time_seconds": 0.0,
+  "entities": {
+    "crate": {
+      "name": "crate",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "empty"
+      }
+    },
+    "crate_band_left": {
+      "name": "band_left",
+      "parent": "crate",
+      "transform": {
+        "translation": [
+          -0.28,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "crate_band_left"
+        },
+        "material": "metal"
+      }
+    },
+    "crate_band_right": {
+      "name": "band_right",
+      "parent": "crate",
+      "transform": {
+        "translation": [
+          0.28,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "crate_band_right"
+        },
+        "material": "metal"
+      }
+    },
+    "crate_body": {
+      "name": "body",
+      "parent": "crate",
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "crate_body"
+        },
+        "material": "wood"
+      }
+    },
+    "preview_camera": {
+      "name": "preview_camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          2.446471857993922
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 45,
+        "near": 0.01,
+        "far": 100
+      }
+    },
+    "preview_key": {
+      "name": "preview_key",
+      "parent": null,
+      "transform": {
+        "translation": [
+          2.136471857993922,
+          -2.136471857993922,
+          3.514707786990883
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 350
+      }
+    },
+    "preview_fill": {
+      "name": "preview_fill",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -2.136471857993922,
+          1.4955303005957452,
+          -1.3991774863951376
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "light",
+        "color": [
+          1,
+          1,
+          1
+        ],
+        "intensity": 170
+      }
+    }
+  },
+  "materials": {
+    "metal": {
+      "base_color": [
+        0.15,
+        0.18,
+        0.2,
+        1.0
+      ],
+      "roughness": 0.4,
+      "metallic": 0.85
+    },
+    "wood": {
+      "base_color": [
+        0.31,
+        0.15,
+        0.055,
+        1.0
+      ],
+      "roughness": 0.72,
+      "metallic": 0.0
+    }
+  },
+  "mesh_assets": {
+    "crate_band_left": {
+      "vertices": {
+        "v0": [
+          -0.03,
+          -0.31,
+          0.0
+        ],
+        "v1": [
+          0.03,
+          -0.31,
+          0.0
+        ],
+        "v2": [
+          0.03,
+          0.31,
+          0.0
+        ],
+        "v3": [
+          -0.03,
+          0.31,
+          0.0
+        ],
+        "v4": [
+          -0.03,
+          -0.31,
+          0.62
+        ],
+        "v5": [
+          0.03,
+          -0.31,
+          0.62
+        ],
+        "v6": [
+          0.03,
+          0.31,
+          0.62
+        ],
+        "v7": [
+          -0.03,
+          0.31,
+          0.62
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    },
+    "crate_band_right": {
+      "vertices": {
+        "v0": [
+          -0.03,
+          -0.31,
+          0.0
+        ],
+        "v1": [
+          0.03,
+          -0.31,
+          0.0
+        ],
+        "v2": [
+          0.03,
+          0.31,
+          0.0
+        ],
+        "v3": [
+          -0.03,
+          0.31,
+          0.0
+        ],
+        "v4": [
+          -0.03,
+          -0.31,
+          0.62
+        ],
+        "v5": [
+          0.03,
+          -0.31,
+          0.62
+        ],
+        "v6": [
+          0.03,
+          0.31,
+          0.62
+        ],
+        "v7": [
+          -0.03,
+          0.31,
+          0.62
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    },
+    "crate_body": {
+      "vertices": {
+        "v0": [
+          -0.385,
+          -0.29,
+          0.0
+        ],
+        "v1": [
+          0.4,
+          -0.3,
+          0.0
+        ],
+        "v2": [
+          0.4,
+          0.3,
+          0.0
+        ],
+        "v3": [
+          -0.4,
+          0.3,
+          0.0
+        ],
+        "v4": [
+          -0.4,
+          -0.3,
+          0.6
+        ],
+        "v5": [
+          0.4,
+          -0.3,
+          0.6
+        ],
+        "v6": [
+          0.4,
+          0.3,
+          0.6
+        ],
+        "v7": [
+          -0.4,
+          0.3,
+          0.6
+        ]
+      },
+      "triangles": {
+        "f000": {
+          "vertices": [
+            "v0",
+            "v2",
+            "v1"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f001": {
+          "vertices": [
+            "v0",
+            "v3",
+            "v2"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f002": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f003": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f004": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f005": {
+          "vertices": [
+            "v0",
+            "v5",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f006": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f007": {
+          "vertices": [
+            "v1",
+            "v6",
+            "v5"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f008": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f009": {
+          "vertices": [
+            "v2",
+            "v7",
+            "v6"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f010": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        },
+        "f011": {
+          "vertices": [
+            "v3",
+            "v4",
+            "v7"
+          ],
+          "uv_layers": {},
+          "corner_normals": null,
+          "material_slot": null
+        }
+      },
+      "material_slots": []
+    }
+  },
+  "doors": {},
+  "active_camera": "preview_camera",
+  "annotations": []
+}

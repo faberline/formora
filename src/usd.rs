@@ -4,7 +4,7 @@ use crate::scene::{EntityKind, Geometry, Result, Scene, SceneError};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 use std::fmt::Write as _;
 use std::fs::OpenOptions;
 use std::io::Write as _;
@@ -143,31 +143,33 @@ fn supported(asset: &MeshAsset) -> Result<()> {
     if asset.vertices.is_empty() || faces.is_empty() {
         return Err(error("empty geometry"));
     }
-    let used: BTreeSet<_> = faces
+    let used: HashSet<_> = faces
         .iter()
         .flat_map(|f| f.vertices.iter().copied())
         .collect();
     if used.len() != asset.vertices.len() {
         return Err(error("isolated vertices"));
     }
-    let mut used_edges = BTreeSet::new();
-    for f in &faces {
-        for i in 0..f.vertices.len() {
-            let a = f.vertices[i];
-            let b = f.vertices[(i + 1) % f.vertices.len()];
-            used_edges.insert(if a < b { (a, b) } else { (b, a) });
+    let mut used_edges = HashSet::new();
+    if !asset.edges.is_empty() {
+        for f in &faces {
+            for i in 0..f.vertices.len() {
+                let a = f.vertices[i];
+                let b = f.vertices[(i + 1) % f.vertices.len()];
+                used_edges.insert(if a < b { (a, b) } else { (b, a) });
+            }
         }
-    }
-    if asset.edges.values().any(|[a, b]| {
-        !used_edges.contains(
-            &(if a < b {
-                (a.as_str(), b.as_str())
-            } else {
-                (b.as_str(), a.as_str())
-            }),
-        )
-    }) {
-        return Err(error("loose edges"));
+        if asset.edges.values().any(|[a, b]| {
+            !used_edges.contains(
+                &(if a < b {
+                    (a.as_str(), b.as_str())
+                } else {
+                    (b.as_str(), a.as_str())
+                }),
+            )
+        }) {
+            return Err(error("loose edges"));
+        }
     }
     let layers: BTreeSet<_> = faces.iter().flat_map(|f| f.uv.keys().copied()).collect();
     if faces
@@ -281,19 +283,23 @@ impl Writer<'_> {
             return Err(error("geometry limit exceeded"));
         }
         let vertex_ids: Vec<_> = asset.vertices.keys().map(String::as_str).collect();
-        let index: BTreeMap<_, _> = vertex_ids
+        let index: HashMap<_, _> = vertex_ids
             .iter()
             .enumerate()
             .map(|(i, id)| (*id, i))
             .collect();
-        let normals = crate::mesh::normals::resolved(asset)?;
+        // project validated the entire immutable scene inside the core clock.
+        let normals = match crate::mesh::normals::resolved_flat_validated(asset)? {
+            Some(normals) => normals,
+            None => crate::mesh::normals::resolved(asset)?,
+        };
         let normals: BTreeMap<_, _> = normals
             .faces
             .iter()
             .map(|f| (&f.face, &f.corner_normals))
             .collect();
         let mut corner_normals = Vec::new();
-        let mut bindings: BTreeMap<String, Vec<usize>> = BTreeMap::new();
+        let mut bindings: BTreeMap<&str, Vec<usize>> = BTreeMap::new();
         for (i, f) in faces.iter().enumerate() {
             let key = if f.kind == "triangle" {
                 FaceRef::Triangle(f.id.into())
@@ -311,8 +317,10 @@ impl Writer<'_> {
             if !self.scene.materials.contains_key(material) {
                 return Err(error("unknown material"));
             }
-            bindings.entry(material.into()).or_default().push(i);
-            self.materials.insert(material.into());
+            bindings.entry(material).or_default().push(i);
+        }
+        for material in bindings.keys() {
+            self.materials.insert((*material).into());
         }
         // Validate even unused slots: missing material must not become silent loss.
         if asset
@@ -390,7 +398,7 @@ impl Writer<'_> {
             self.out
                 .push_str("uniform token subsetFamily:materialBind:familyType = \"partition\"\n");
             for (material, indices) in bindings {
-                let name = identifier(&material);
+                let name = identifier(material);
                 writeln!(self.out,"def GeomSubset \"{name}\" (prepend apiSchemas = [\"MaterialBindingAPI\"]) {{\nuniform token elementType = \"face\"\nuniform token familyName = \"materialBind\"\nint[] indices = {}\nrel material:binding = </Formora/Materials/{name}>\n}}",list(indices)).expect("String write");
             }
         }

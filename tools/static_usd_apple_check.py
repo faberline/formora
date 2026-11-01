@@ -72,7 +72,7 @@ def check(report,scene,root):
     all_points=[p for n in nodes for part in n.get('parts',[]) for p in part['world_positions']]
     low=[min(p[i] for p in all_points) for i in range(3)];high=[max(p[i] for p in all_points) for i in range(3)]
     near([(low[0]+high[0])/2,low[1],(low[2]+high[2])/2],[0,0,0])
-    return {'passed':True,'meshes':len(mesh_nodes),'tolerance':TOLERANCE,'geometry':'complete oriented triangle corners','materials':'actual Apple numeric material properties','hierarchy':'exact semantic parents','source_units':'metres','apple_axis':'Y up'}
+    return {'passed':True,'meshes':len(mesh_nodes),'tolerance':TOLERANCE,'geometry':'complete oriented triangle corners','materials':'actual Apple numeric material properties','hierarchy':'exact semantic parents','source_units':'metres','apple_axis':'Y up','bottom_centre_pivot':[0,0,0]}
 
 if __name__=='__main__':
     report,scene=map(lambda p:json.loads(Path(p).read_text()),sys.argv[1:3])

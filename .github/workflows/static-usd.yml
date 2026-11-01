@@ -32,7 +32,21 @@ jobs:
         run: python tools/static_usd_runtime.py target/debug/formora target/static-usd
       - name: Check frozen UV, normals, face materials and signed matrix inputs
         run: python tools/static_usd_attributes.py target/debug/formora target/static-usd-attributes
+      - name: Reject unsupported input and preserve existing files
+        run: python tools/static_usd_rejections.py target/debug/formora target/static-usd-rejections
       - name: Measure frozen 100k and 200k capacity samples
         run: |
           cargo build --locked --release
           python tools/static_usd_capacity.py target/release/formora target/static-usd-capacity
+  raw-rotation-diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.85.0
+      - run: cargo build --locked
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-mcp.txt
+      - name: Retain actual numeric state for known rotation failures (diagnosis only)
+        run: python tools/static_usd_rotation_diagnostic.py target/debug/formora target/static-usd-rotation-diagnostic

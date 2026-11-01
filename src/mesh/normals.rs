@@ -289,3 +289,95 @@ fn store_automatic(asset: &mut MeshAsset, normals: MeshNormals) {
         }
     }
 }
+
+/// Flat faces do not use edge adjacency or smoothing fans. The caller must hold
+/// an immutable asset already checked by Scene::validate (the static exporter
+/// does). Keep the same f32 arithmetic and explicit-normal precedence while
+/// avoiding construction/hashing of unused derived edge identities.
+pub(crate) fn resolved_flat_validated(asset: &MeshAsset) -> Result<Option<MeshNormals>> {
+    if !asset.smooth_triangles.is_empty() || asset.polygons.values().any(|f| f.smooth) {
+        return Ok(None);
+    }
+    if asset
+        .vertices
+        .values()
+        .flatten()
+        .any(|v| !(*v as f32).is_finite())
+    {
+        return Err(SceneError(
+            "automatic normals require finite f32 geometry".into(),
+        ));
+    }
+    let mut faces = Vec::with_capacity(asset.triangles.len() + asset.polygons.len());
+    let mut add = |key: FaceRef,
+                   ids: &[String],
+                   explicit_face: Option<[f64; 3]>,
+                   explicit: Option<&[[f64; 3]]>|
+     -> Result<()> {
+        let points: Vec<_> = ids
+            .iter()
+            .map(|id| asset.vertices[id].map(|x| x as f32))
+            .collect();
+        let normal = polygon_normal(&points);
+        let corner = newell(&points);
+        if normal.iter().chain(corner.iter()).any(|v| !v.is_finite()) {
+            return Err(SceneError(
+                "automatic normal arithmetic exceeded finite f32 range".into(),
+            ));
+        }
+        let mut result = FaceNormals {
+            face: key,
+            normal: normal.map(f64::from),
+            corner_normals: vec![corner.map(f64::from); points.len()],
+        };
+        if let Some(face) = explicit_face {
+            result.normal = face;
+            result.corner_normals.fill(face);
+        }
+        if let Some(corners) = explicit {
+            result.corner_normals = corners.to_vec();
+        }
+        faces.push(result);
+        Ok(())
+    };
+    for (id, f) in &asset.polygons {
+        add(
+            FaceRef::Polygon(id.clone()),
+            &f.vertices,
+            f.normal,
+            f.corner_normals.as_deref(),
+        )?;
+    }
+    for (id, f) in &asset.triangles {
+        add(
+            FaceRef::Triangle(id.clone()),
+            &f.vertices,
+            None,
+            f.corner_normals.as_ref().map(|n| n.as_slice()),
+        )?;
+    }
+    faces.sort_by(|a, b| a.face.cmp(&b.face));
+    Ok(Some(MeshNormals { faces }))
+}
+
+#[cfg(test)]
+mod static_flat_tests {
+    use super::*;
+    #[test]
+    fn flat_projection_matches_full_resolver_on_frozen_normals_and_loose_topology() {
+        for input in [
+            include_str!("../../tests/fixtures/triangle-asset.json"),
+            include_str!("../../tests/fixtures/polygon-asset.json"),
+        ] {
+            let asset: MeshAsset = serde_json::from_str(input).unwrap();
+            asset.validate().unwrap();
+            let flat = resolved_flat_validated(&asset).unwrap().unwrap();
+            assert_eq!(flat, resolved(&asset).unwrap());
+        }
+        let mut asset: MeshAsset =
+            serde_json::from_str(include_str!("../../tests/fixtures/triangle-asset.json")).unwrap();
+        asset.smooth_triangles.insert("lower".into());
+        asset.validate().unwrap();
+        assert!(resolved_flat_validated(&asset).unwrap().is_none());
+    }
+}

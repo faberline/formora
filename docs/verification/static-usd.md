@@ -105,3 +105,48 @@ when remaining_scale_regression hashed the path without .exe. The same entry-poi
 error exists in the later required runtime drivers. They now resolve the actual
 executable before running or hashing it. All original commands and comparisons
 remain, and raw rotation errors are printed early as well as retained in reports.
+
+## Candidate c1f0f87 follow-up
+
+Linux run41301056657/job124831867208 passed the frozen normal arithmetic witness,
+all four revision3 model flows through CLI and official MCP, and the signed-matrix/
+UV/corner-normal/face-material fixture on both interfaces. Its transfer bundle
+4eec3251d84d08d1ea1409f4660d737bdcd7f52d51c24df3e015ba976d419114 retains raw native
+scene UTF-8 as well as USD. All eight source/output digests match the CI manifest.
+Windows also reached the capacity step. Hosted macOS compiled the consumer with
+minimum macOS14 target and checked iOS17 API availability, then reached capacity.
+These observations do not make a failing whole job pass.
+
+Actual RealityKit reruns on the four corrected files all exited0 (PIDs5557,5699,
+5888,6041). Complete oriented triangles, numeric material values, semantic parents,
+Y-up conversion and whole-bounds bottom-centre pivot now pass1e-6. Actual reports
+are bound to waited process PIDs and input digests. The five actually loaded Apple
+corruptions were rejected again. Native Formora Metal reruns used byte-exact CI
+mother files. Of64 captured views,56 are byte-identical to the previously directly
+inspected images. The other8 were viewed directly. The review record retains each
+digest and method. This is finite controller QA, not independent final acceptance.
+
+All six Linux capacity samples failed speed while full content comparison passed.
+100k core:1.149103052,1.170461662,1.208502211 seconds (limit0.25s).
+100k full pipeline:3.522837498,3.396361995,3.438243432 seconds (limit2s).
+200k core:2.392929971,2.256033950,2.317162971 seconds (limit0.5s).
+200k full pipeline:6.838689525,6.708970614,6.727934908 seconds (limit4s).
+All raw failures and records remain under candidate-c1f0f87. The next optimization
+keeps Scene::validate inside the core clock. Flat faces do not use smoothing fans
+or derived edge IDs; a private validated-flat resolver uses the same existing f32
+normal functions and explicit-normal precedence. An exact-value memory test checks
+it against the unchanged full resolver on frozen triangle/polygon fixtures,
+including loose geometry, degenerate faces and explicit normals. Smooth faces
+fall back to the full resolver. The export's sets/index lookups use hash tables;
+serialization order still comes from the source BTreeMaps. Deterministic bytes
+remain checked. Full capacity comparisons use array operations for every element;
+they do not sample or omit data, change tolerance, or move validation out of clocks.
+The first optimization is unmeasured until the next actual CI sample.
+
+The retained first Linux contract run dd1f4ac ended with122 rotation failures in
+4992 checks. The first is rotation_snap_0097 world_vertices/v000026/y:
+source -6.924999713897705 versus Rust -6.92500114440918. This is an inherited
+cross-platform numerical defect, not a new accepted source exception. The next
+bounded diagnostic retains the full actual failed state for cases97/99/139 and
+the first affected range. It is explicitly not full acceptance. The full4992-check
+commands and1e-6 limit remain. No rotating matrix algorithm was changed on a guess.
