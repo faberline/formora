@@ -22,7 +22,7 @@ def load(path):
     return json.loads(path.read_text())
 
 def near(a, b):
-    if isinstance(a, (list, tuple)) or hasattr(a, '__iter__') and not isinstance(a, (str, dict)):
+    if isinstance(b, (list, tuple)):
         assert len(a) == len(b), (a, b)
         for x, y in zip(a, b):
             near(x, y)
@@ -85,7 +85,8 @@ def validate_usd(path, scene, root):
         assert list(mesh.GetPrim().GetAttribute('formora:faceIds').Get()) == faces
         assert list(mesh.GetPrim().GetAttribute('formora:faceKinds').Get()) == ['triangle']*len(faces)
         near(list(mesh.GetPointsAttr().Get()), [a['vertices'][v] for v in ids])
-        indices = [ids.index(v) for f in faces for v in a['triangles'][f]['vertices']]
+        index_by_id={v:i for i,v in enumerate(ids)}
+        indices = [index_by_id[v] for f in faces for v in a['triangles'][f]['vertices']]
         assert list(mesh.GetFaceVertexCountsAttr().Get()) == [3]*len(faces)
         assert list(mesh.GetFaceVertexIndicesAttr().Get()) == indices
         assert mesh.GetSubdivisionSchemeAttr().Get() == 'none'
@@ -151,6 +152,9 @@ async def run(binary, output):
                     cli('apply','--request',ROOT/'baseline/static-usd'/name/(step+'.json'))
                 before = scene.read_bytes()
                 receipt = cli('export','--root',name,'--format','usda','--output',usd)
+                transfer={'scene':json.loads(before),'usda':usd.read_text(),'reference':reference,'export_receipt':receipt}
+                packed=gzip.compress(json.dumps(transfer,sort_keys=True).encode(),mtime=0)
+                print('FORMORA_STATIC_ASSET_'+name.upper()+'='+base64.b64encode(packed).decode(),flush=True)
                 cli('export','--root',name,'--format','usda','--output',usd,fail=True)
                 cli('export','--root',name,'--format','glb','--output',folder/'no.glb',fail=True)
                 cli('export','--root',name,'--format','usda','--output',folder/'missing'/'no.usda',fail=True)

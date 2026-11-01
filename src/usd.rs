@@ -30,6 +30,7 @@ pub struct ExportReceipt {
     pub vertices: usize,
     pub faces: usize,
     pub bytes: usize,
+    pub core_elapsed_ns: u128,
     pub sha256: String,
     pub output: String,
 }
@@ -461,7 +462,9 @@ pub fn export(scene: &Scene, request: &ExportRequest) -> Result<ExportReceipt> {
     if target.extension().and_then(|s| s.to_str()) != Some("usda") {
         return Err(error("output must end in .usda"));
     }
+    let start = std::time::Instant::now();
     let projection = project(scene, &request.root)?;
+    let core_elapsed_ns = start.elapsed().as_nanos();
     let parent = target
         .parent()
         .filter(|p| !p.as_os_str().is_empty())
@@ -501,6 +504,7 @@ pub fn export(scene: &Scene, request: &ExportRequest) -> Result<ExportReceipt> {
         vertices: projection.vertices,
         faces: projection.faces,
         bytes: projection.text.len(),
+        core_elapsed_ns,
         sha256: format!("{:x}", Sha256::digest(projection.text.as_bytes())),
         output: request.output.clone(),
     })
