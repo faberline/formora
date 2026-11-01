@@ -295,7 +295,8 @@ fn store_automatic(asset: &mut MeshAsset, normals: MeshNormals) {
 /// does). Keep the same f32 arithmetic and explicit-normal precedence while
 /// avoiding construction/hashing of unused derived edge identities.
 pub(crate) struct FlatResolver<'a> {
-    positions: HashMap<&'a str, Vector>,
+    positions: Vec<Vector>,
+    vertex_index: HashMap<&'a str, usize>,
 }
 pub(crate) enum FlatCorners<'a> {
     Authored(&'a [[f64; 3]]),
@@ -314,36 +315,44 @@ impl<'a> FlatResolver<'a> {
         if !asset.smooth_triangles.is_empty() || asset.polygons.values().any(|f| f.smooth) {
             return Ok(None);
         }
-        let positions: HashMap<_, _> = asset
+        let positions: Vec<_> = asset
             .vertices
-            .iter()
-            .map(|(id, p)| (id.as_str(), p.map(|v| v as f32)))
+            .values()
+            .map(|p| p.map(|v| v as f32))
             .collect();
-        if positions.values().flatten().any(|v| !v.is_finite()) {
+        if positions.iter().flatten().any(|v| !v.is_finite()) {
             return Err(SceneError(
                 "automatic normals require finite f32 geometry".into(),
             ));
         }
-        Ok(Some(Self { positions }))
+        let vertex_index = asset
+            .vertices
+            .keys()
+            .enumerate()
+            .map(|(i, id)| (id.as_str(), i))
+            .collect();
+        Ok(Some(Self {
+            positions,
+            vertex_index,
+        }))
+    }
+    pub(crate) fn vertex_index(&self) -> &HashMap<&'a str, usize> {
+        &self.vertex_index
     }
     // Asset validation and this resolver share the same immutable borrow.
     // Resolve every face, including arithmetic checks, without owning copies of
     // face IDs or corner arrays. The three-point case needs no heap allocation.
-    pub(crate) fn face<'b>(
+    pub(crate) fn face_indexed<'b>(
         &self,
-        ids: &[String],
+        indices: &[usize],
         explicit_face: Option<[f64; 3]>,
         explicit: Option<&'b [[f64; 3]]>,
     ) -> Result<([f64; 3], FlatCorners<'b>)> {
         let evaluate = |points: &[Vector]| (polygon_normal(points), newell(points));
-        let (normal, corner) = if let [a, b, c] = ids {
-            evaluate(&[
-                self.positions[a.as_str()],
-                self.positions[b.as_str()],
-                self.positions[c.as_str()],
-            ])
+        let (normal, corner) = if let [a, b, c] = indices {
+            evaluate(&[self.positions[*a], self.positions[*b], self.positions[*c]])
         } else {
-            let points: Vec<_> = ids.iter().map(|id| self.positions[id.as_str()]).collect();
+            let points: Vec<_> = indices.iter().map(|i| self.positions[*i]).collect();
             evaluate(&points)
         };
         if normal.iter().chain(corner.iter()).any(|v| !v.is_finite()) {
@@ -371,7 +380,11 @@ fn resolved_flat_validated(asset: &MeshAsset) -> Result<Option<MeshNormals>> {
                    explicit_face: Option<[f64; 3]>,
                    explicit: Option<&[[f64; 3]]>|
      -> Result<()> {
-        let (normal, corners) = resolver.face(ids, explicit_face, explicit)?;
+        let indices: Vec<_> = ids
+            .iter()
+            .map(|id| resolver.vertex_index[id.as_str()])
+            .collect();
+        let (normal, corners) = resolver.face_indexed(&indices, explicit_face, explicit)?;
         let result = FaceNormals {
             face: key,
             normal,

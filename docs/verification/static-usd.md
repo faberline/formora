@@ -342,3 +342,65 @@ four-run manifest. All4 final states were independently reread completed/cancell
 Together with cleanup01,15 own obsolete runs were cancelled. All remain NONPASSING.
 Original pre-task/public runs, retained748 cross-platform evidence, f1 static
 capacity jobs and current0e50 jobs were excluded. No CI log was deleted.
+
+## Candidate c340be9a9: two static CI passes, macOS speed failure
+
+Run41311306246/jobs124862094400 (Linux) and124862094180 (Windows) passed the
+entire static gate: all four CLI/MCP model flows, attribute/name/polygon cases,
+negative controls,12 optimized memory helpers and all6 capacity samples per OS.
+The73-case Linux diagnostic job124862094356 passed with zero failures. In the
+full contract run41311306212, Linux's entire raw rotation step completed SUCCESS
+at2026-11-01T14:20:31Z and proceeded to nonidentity delta tests. The full job was
+still running at capture; no whole-job or three-platform acceptance is claimed.
+
+macOS static job124862094433 passed every content check and12 optimized helpers,
+but FAILED all6 combined timing samples. Core100k:
+259806821,281714684,206710813ns; pipeline100k:
+5718785204,3705526765,2276011547ns. Core200k:
+436657134,518855779,433810451ns; pipeline200k:
+5525377493,7676356628,5255962912ns. Every complete content comparison passed.
+No cold sample is discarded, exempted or averaged away. Complete decoded logs,
+all sample records and their hashes are retained under candidate-c340be9a9.
+
+Fresh physical evidence uses the c340 Rust1.85 preview binary, SHA-256
+b9e814844bbd8a2297cba69f444bf2fffed65532366dc471de56499aa75580d6,
+on actual macOS26.5.2/Apple M1 Max. Its32 native renders and4 Apple load/capture
+processes were actually waited to exit0. Every model passed actual Apple numeric
+geometry, material, semantic hierarchy, axis and bottom-centre checks. All64 PNGs
+are byte-identical to the separately inspected c1 images. The new identity,36
+process receipts, raw Apple reports and every frame digest are archived; the
+committed-image-reference list maps each exact model/engine/view to existing
+committed PNG bytes and its review entry. This is finite controller QA, not
+independent or whole-product acceptance. No local authoring/export/capacity CLI
+test was run; the local CLI exception was physical render only.
+
+Cleanup03 requested cancellation only for six superseded own candidate runs.
+Four old full-contract runs actually cancelled; two static runs had already
+completed failure and were retained. All6 final states were independently reread.
+The archived full before/request/final records and manifest show19 total own
+obsolete cancellations across the three cleanups. Original pre-task/public runs
+and currentc340 were excluded. Cancelled, skipped and unrun checks never pass.
+
+The next projection uses one source vertex-index table and one complete dense
+corner array for used-vertex checks, USD indices and normal lookups. It retains
+all original IDs, topology, arithmetic and full scene validation. The CLI's saved
+file wrapper decodes once and then calls the same export core as MCP. Complete
+Scene::validate stays inside project/core and before any output; only its identical
+extra pre-core call is removed. Scene::load for other commands remains unchanged.
+The seven USD memory tests and flat-normal differential pass in debug and release.
+
+Verifier JSON inputs and official orjson3.13.0 CPython3.12 wheel digests were frozen
+ataaf61de5838e751d185248f0a18c59b1ea93277d before changing its decoder. The
+verifier captures complete raw pipe bytes and parses the complete native reply
+without a redundant Unicode decode/encode cycle. The independent source-input
+interpreter still uses standard json. The new CI corpus requires identical values,
+types and f64 bits, including signed zero, u64 maximum, UTF-8 and escaped controls;
+it also rejects malformed/nonfinite/invalid UTF-8 input. Only prebuilt wheels are
+used; the native Rust toolchain remains1.85. These Python changes have syntax
+checks locally; actual equivalence and full functional runs are CI-only.
+
+OpenUSD and NumPy imports remain INSIDE the original pipeline clock. New diagnostic
+import/Stage.Open times do not subtract anything from that clock or change pass
+criteria. No data check moves outside it. All6 samples,250/500ms core limits and
+2000/4000ms full pipeline limits remain. This next optimization is unmeasured until
+new current-head CI. All failed and still-unrun required gates remain incomplete.

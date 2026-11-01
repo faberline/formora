@@ -193,7 +193,7 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
         }))
         .collect()
 }
-fn supported(asset: &MeshAsset, faces: &[Face<'_>]) -> Result<()> {
+fn supported(asset: &MeshAsset, faces: &[Face<'_>], indices: &[usize]) -> Result<()> {
     if asset.recipe.is_some()
         || asset.editing.is_some()
         || !asset.diagnostics.is_empty()
@@ -209,11 +209,11 @@ fn supported(asset: &MeshAsset, faces: &[Face<'_>]) -> Result<()> {
     if asset.vertices.is_empty() || faces.is_empty() {
         return Err(error("empty geometry"));
     }
-    let used: HashSet<_> = faces
-        .iter()
-        .flat_map(|f| f.vertices.iter().map(String::as_str))
-        .collect();
-    if used.len() != asset.vertices.len() {
+    let mut used = vec![false; asset.vertices.len()];
+    for &i in indices {
+        used[i] = true;
+    }
+    if used.iter().any(|v| !v) {
         return Err(error("isolated vertices"));
     }
     let mut used_edges = HashSet::new();
@@ -337,7 +337,6 @@ impl Writer<'_> {
         let start = Instant::now();
         let asset = &self.scene.mesh_assets[id];
         let faces = faces(asset);
-        supported(asset, &faces)?;
         for point in asset.vertices.values() {
             for value in point {
                 float(*value)?;
@@ -351,11 +350,6 @@ impl Writer<'_> {
             return Err(error("geometry limit exceeded"));
         }
         let vertex_ids: Vec<_> = asset.vertices.keys().map(String::as_str).collect();
-        let index: HashMap<_, _> = vertex_ids
-            .iter()
-            .enumerate()
-            .map(|(i, id)| (*id, i))
-            .collect();
         // project validated the entire immutable scene inside the core clock.
         let normal_start = Instant::now();
         self.phases.mesh_prepare += normal_start.duration_since(start).as_nanos();
@@ -367,6 +361,29 @@ impl Writer<'_> {
         };
         let write_start = Instant::now();
         self.phases.normal_setup += write_start.duration_since(normal_start).as_nanos();
+        // One index table and one complete corner array serve topology checks,
+        // USD indices and automatic normals. All source IDs remain preserved.
+        let fallback_index: HashMap<_, _> = if flat.is_none() {
+            vertex_ids
+                .iter()
+                .copied()
+                .enumerate()
+                .map(|(i, id)| (id, i))
+                .collect()
+        } else {
+            HashMap::new()
+        };
+        let index = flat
+            .as_ref()
+            .map(|r| r.vertex_index())
+            .unwrap_or(&fallback_index);
+        let indices: Vec<_> = faces
+            .iter()
+            .flat_map(|f| f.vertices.iter().map(|id| index[id.as_str()]))
+            .collect();
+        supported(asset, &faces, &indices)?;
+        self.phases.mesh_prepare += write_start.elapsed().as_nanos();
+        let write_start = Instant::now();
         let normals: HashMap<_, _> = normals
             .as_ref()
             .into_iter()
@@ -431,29 +448,28 @@ impl Writer<'_> {
             Ok(())
         })?;
         self.out.push_str("\nint[] faceVertexIndices = ");
-        write_list(
-            &mut self.out,
-            faces.iter().flat_map(|f| f.vertices),
-            |out, id| {
-                write!(out, "{}", index[id.as_str()]).expect("String write");
-                Ok(())
-            },
-        )?;
+        write_list(&mut self.out, &indices, |out, i| {
+            write!(out, "{i}").expect("String write");
+            Ok(())
+        })?;
         self.out.push_str("\nnormal3f[] normals = ");
         // Reuse text only for bit-identical adjacent values. Signed zero is kept.
         let mut previous = None;
         let mut rendered = String::new();
         self.out.push('[');
         let mut separator = "";
+        let mut offset = 0;
         for face in &faces {
+            let end = offset + face.vertices.len();
             let corners = match &flat {
                 Some(resolver) => {
                     resolver
-                        .face(face.vertices, face.normal, face.corner_normals)?
+                        .face_indexed(&indices[offset..end], face.normal, face.corner_normals)?
                         .1
                 }
                 None => crate::mesh::normals::FlatCorners::Authored(normals[&(face.kind, face.id)]),
             };
+            offset = end;
             for i in 0..face.vertices.len() {
                 self.out.push_str(separator);
                 separator = ", ";
@@ -577,6 +593,15 @@ pub fn project(scene: &Scene, root: &str) -> Result<Projection> {
         core_phases_ns: w.phases,
     })
 }
+/// Publish a complete file without replacing any existing target, including links.
+pub fn export_file(scene_path: &Path, request: &ExportRequest) -> Result<ExportReceipt> {
+    let raw = std::fs::read(scene_path).map_err(|e| SceneError(e.to_string()))?;
+    let scene: Scene = serde_json::from_slice(&raw).map_err(|e| SceneError(e.to_string()))?;
+    // export/project performs complete scene validation inside the core clock,
+    // before any output is created. Do not repeat it before that same boundary.
+    export(&scene, request)
+}
+
 /// Publish a complete file without replacing any existing target, including links.
 pub fn export(scene: &Scene, request: &ExportRequest) -> Result<ExportReceipt> {
     if request.format != "usda" {

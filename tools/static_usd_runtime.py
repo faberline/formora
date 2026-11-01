@@ -11,6 +11,7 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+import orjson
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ('crate', 'rock', 'workbench', 'radio')
@@ -80,10 +81,14 @@ def source_f32_triangle_normals(points):
     assert np.isfinite(n).all()
     return n
 
-def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
+def validate_usd(path, scene, root, normal_policy='independent_f64_cross', timings=None):
+    import_start=time.monotonic_ns()
     from pxr import Usd, UsdGeom, UsdShade, Vt
+    if timings is not None:timings['usd_module_import']=time.monotonic_ns()-import_start
     assert normal_policy in ('independent_f64_cross','frozen_preview_f32_newell')
+    parse_start=time.monotonic_ns()
     stage = Usd.Stage.Open(str(path))
+    if timings is not None:timings['usd_stage_open']=time.monotonic_ns()-parse_start
     assert stage and stage.GetDefaultPrim().GetName() == 'Formora'
     assert UsdGeom.GetStageUpAxis(stage) == 'Z'
     assert UsdGeom.GetStageMetersPerUnit(stage) == 1
@@ -127,7 +132,9 @@ def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
             assert list(mesh.GetPrim().GetAttribute('formora:faceIds').Get()) == faces
             assert list(mesh.GetPrim().GetAttribute('formora:faceKinds').Get()) == ['triangle']*len(faces)
         if normal_policy=='frozen_preview_f32_newell':
+            numpy_start=time.monotonic_ns()
             import numpy as np
+            if timings is not None:timings['numpy_import']=timings.get('numpy_import',0)+time.monotonic_ns()-numpy_start
             actual_points=np.asarray(mesh.GetPointsAttr().Get(),dtype=np.float64)
             reference_points=np.asarray([a['vertices'][v] for v in ids],dtype=np.float64)
             assert actual_points.shape==reference_points.shape
@@ -203,10 +210,10 @@ class Runner:
         self.receipts = []
     def run(self, args, stdin=None, fail=False):
         start = time.monotonic_ns()
-        p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8")
+        p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         timed_out=False
         try:
-            stdout, stderr = p.communicate(None if stdin is None else json.dumps(stdin), timeout=120)
+            stdout, stderr = p.communicate(None if stdin is None else json.dumps(stdin).encode('utf-8'), timeout=120)
         except subprocess.TimeoutExpired:
             timed_out=True
             p.terminate()
@@ -221,16 +228,16 @@ class Runner:
         # in the process ledger. Rewriting all prior 40 MiB query strings for each
         # process would measure ledger amplification rather than the fixed pipeline.
         for stream in ('stdout','stderr'):
-            raw=receipt[stream].encode()
+            raw=receipt[stream]
             file=self.output/('process-'+str(len(self.receipts))+'-'+stream+'.txt')
             file.write_bytes(raw)
             receipt[stream+'_file']=file.name
             receipt[stream+'_sha256']=hashlib.sha256(raw).hexdigest()
-            if len(raw)>32768:receipt[stream]='[complete bytes in '+file.name+']'
+            receipt[stream]='[complete bytes in '+file.name+']' if len(raw)>32768 else raw.decode('utf-8')
         self.receipts.append(receipt)
         (self.output/'processes.json').write_text(json.dumps(self.receipts,indent=2)+'\n')
         assert not timed_out and p.returncode==(1 if fail else 0), receipt
-        return json.loads(stdout)
+        return orjson.loads(stdout)
 
 async def run(binary, output):
     from mcp import ClientSession, StdioServerParameters

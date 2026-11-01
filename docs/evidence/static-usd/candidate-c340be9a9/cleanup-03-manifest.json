@@ -1,0 +1,46 @@
+{
+  "bytes": 194288,
+  "sha256": "65d0cd22fd0e4df82ce033495da2beb97a379b9f0df620b50eca915d5a3db387",
+  "final_states": [
+    {
+      "conclusion": "cancelled",
+      "head_sha": "748f0ac50b59d60755a22e26a450cd64416a888a",
+      "id": 41304474642,
+      "status": "completed"
+    },
+    {
+      "conclusion": "cancelled",
+      "head_sha": "748f0ac50b59d60755a22e26a450cd64416a888a",
+      "id": 41304470771,
+      "status": "completed"
+    },
+    {
+      "conclusion": "cancelled",
+      "head_sha": "0e50f4079e4de81d80209cdece911cd3df86e029",
+      "id": 41308623663,
+      "status": "completed"
+    },
+    {
+      "conclusion": "cancelled",
+      "head_sha": "0e50f4079e4de81d80209cdece911cd3df86e029",
+      "id": 41308619916,
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "head_sha": "f1e61add21ba44aa1ffba87972e6aa5d8ca6e5ff",
+      "id": 41308228713,
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "head_sha": "0e50f4079e4de81d80209cdece911cd3df86e029",
+      "id": 41308623799,
+      "status": "completed"
+    }
+  ],
+  "cancelled": 4,
+  "retained_completed_failures": 2,
+  "total_own_superseded_cancelled": 19,
+  "scope": "Only own issue86 candidates created after admission. Original pre-task/public runs and c340 current-head runs excluded. All cancelled/skipped/unrun remains nonpassing; no logs deleted."
+}

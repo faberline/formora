@@ -103,8 +103,8 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
                     format: required("--format")?,
                     output: required("--output")?,
                 };
-                let scene = formora::scene::Scene::load(Path::new(path)).map_err(map_err)?;
-                let receipt = formora::usd::export(&scene, &request).map_err(map_err)?;
+                let receipt =
+                    formora::usd::export_file(Path::new(path), &request).map_err(map_err)?;
                 Ok(Some(serde_json::json!(receipt)))
             }
             "preview" | "render" => {
