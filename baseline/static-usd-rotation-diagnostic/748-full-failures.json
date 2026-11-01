@@ -1,0 +1,169 @@
+{
+  "head": "748f0ac50b59d60755a22e26a450cd64416a888a",
+  "run": 41304474642,
+  "job": 124841939518,
+  "passed": false,
+  "failed_count": 50,
+  "first_failures": [
+    {
+      "id": "rotation_snap_0037",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0037.json.gz",
+      "sha256": "150dbf25c64ce05c1c7e3d1c5e77f6e600a5ec43b2e3ecd2800239cd71399ab0",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -8.879652976989746 != -8.879651069641113"
+    },
+    {
+      "id": "rotation_snap_0039",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0039.json.gz",
+      "sha256": "989f6dcea186ee9621c03653ef340e7657a6c48de0303944bbc0d350255ad403",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -10.31595230102539 != -10.315950393676758"
+    },
+    {
+      "id": "rotation_snap_0205",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0205.json.gz",
+      "sha256": "6eac1fe3fbf0ae0c9c12421b26383ace6fe7c55bd9dacc488c7026358ddd2660",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: 10.277471542358398 != 10.277473449707031"
+    },
+    {
+      "id": "rotation_snap_0207",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0207.json.gz",
+      "sha256": "09bcf6507226749585089862ba8f35c00bdec824a4d398e23031fff5d57bd190",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: 11.701179504394531 != 11.701181411743164"
+    },
+    {
+      "id": "rotation_snap_0245",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0245.json.gz",
+      "sha256": "027328bb94c6bfed8675add002747e95c90150aad42175c350814de1c16916f7",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -8.662453651428223 != -8.66245174407959"
+    },
+    {
+      "id": "rotation_snap_0247",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0247.json.gz",
+      "sha256": "e39e6a4387e4f2ecc29dc5d0f716a1a2441b48b6dbfe0f665e27c5123615559b",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -9.981563568115234 != -9.981560707092285"
+    },
+    {
+      "id": "rotation_snap_0251",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0251.json.gz",
+      "sha256": "b4cfaabc3f2b527b9ac7c33420c4d2caa2c09fe393fc90974d37d0fd1a58a9a2",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: 15.59644603729248 != 15.596444129943848"
+    },
+    {
+      "id": "rotation_snap_0277",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0277.json.gz",
+      "sha256": "d5e94f626c62c2837182739ee9abfec61c5f318817d25863210f745238682ef4",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: 12.124409675598145 != 12.124407768249512"
+    },
+    {
+      "id": "rotation_snap_0281",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0281.json.gz",
+      "sha256": "7b8c45b0ac65c89e8e9f22e92b3de022e41e092413beb75495861b698b78b207",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: -0.4080843925476074 != -0.40808558464050293"
+    },
+    {
+      "id": "rotation_snap_0283",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0283.json.gz",
+      "sha256": "aa6631c75fecd869f302d21f533f68338669fd218a0e7a19b6a50379eed1e5ca",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: 1.2720005512237549 != 1.2719993591308594"
+    },
+    {
+      "id": "rotation_snap_0369",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0369.json.gz",
+      "sha256": "462612a1ee52958c038cb6ab5a04c5911f6a9f62ffc974f75442902a16062c9b",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -8.662453651428223 != -8.662450790405273"
+    },
+    {
+      "id": "rotation_snap_0371",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0371.json.gz",
+      "sha256": "4a26c5f93eb1a167a6c7241cd8569e0c9c3b659d2f2acbe8252fdf48b5c5119f",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -9.735353469848633 != -9.7353515625"
+    },
+    {
+      "id": "rotation_snap_0451",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0451.json.gz",
+      "sha256": "32af7597a30e55439993f38b0bf9f6370e934167cb7650444e7ae884b7811c0a",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/0: 12.157428741455078 != 12.157430648803711"
+    },
+    {
+      "id": "rotation_snap_0521",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0521.json.gz",
+      "sha256": "b812084825e3eee45eea75b915f9869e52fae41a12fd65a9b4eef118c62d8c54",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -16.061349868774414 != -16.061351776123047"
+    },
+    {
+      "id": "rotation_snap_0527",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0527.json.gz",
+      "sha256": "84f1e802c79cec4d5e07b29e2dc0e5f526a8eea3c06a671f0959311c9e153e38",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/2: 19.147146224975586 != 19.14714813232422"
+    },
+    {
+      "id": "rotation_snap_0571",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0571.json.gz",
+      "sha256": "399b7d355caf22c7b233feab5788fae7b0fb3534d2966eff2d999543ee8dfe10",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -17.594568252563477 != -17.59457015991211"
+    },
+    {
+      "id": "rotation_snap_0587",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0587.json.gz",
+      "sha256": "cf893ac8fd934561d4f973a6d630a2741de9f039f37fd60ee5eb3f313db0ab5f",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/1: -16.131004333496094 != -16.13100242614746"
+    },
+    {
+      "id": "rotation_snap_0589",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0589.json.gz",
+      "sha256": "ac72ae4b40973256fff13ba2f34744c0efeecef91d419da491db581e1ef1f199",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/2: 22.223783493041992 != 22.22378158569336"
+    },
+    {
+      "id": "rotation_snap_0591",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0591.json.gz",
+      "sha256": "f0400ec20a7f160f0fa78e4074573f3e87a0388ca7c9481326a7221b818f1d5f",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/2: 24.68317222595215 != 24.683170318603516"
+    },
+    {
+      "id": "rotation_snap_0669",
+      "interface": "cli",
+      "file": "cli-rotation_snap_0669.json.gz",
+      "sha256": "8c966a7830f562b9c0c90eb734311357d3f49ee89414ab4a0af479a9c229978b",
+      "status": "failed",
+      "error": "component differs: meshes/target/world_vertices/v000026/2: 21.08452796936035 != 21.084529876708984"
+    }
+  ]
+}

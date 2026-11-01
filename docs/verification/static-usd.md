@@ -274,3 +274,12 @@ check lexical bytes only; actual OpenUSD acceptance remains unrun until new CI.
 No source numeric rule, original sealed input, sample, threshold or full-regression
 command changed. New capacity/current-head CI and independent acceptance remain
 required. These repairs do not establish release or milestone acceptance.
+
+Full Linux contract job124841939518, run41304474642 at748f0ac, completed FAILURE:
+50 failed CLI/MCP records out of4992 checks. The first is rotation_snap_0037,
+world vertex v000026/y: -8.879652976989746 versus -8.879651069641113. Thus the
+53-probe diagnostic success did not establish the full trig correction. The
+complete decoded log/digest and the actual first20 failure records are retained.
+The bounded diagnostic now includes these20 IDs alongside the previous53 and
+prints the actual first three failed states. It remains diagnosis, not acceptance.
+No further rotation algorithm change is made before obtaining that actual state.

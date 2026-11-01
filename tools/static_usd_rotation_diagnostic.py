@@ -9,7 +9,8 @@ import time
 from runtime_binary import resolve_binary
 
 binary=resolve_binary(sys.argv[1]);output=Path(sys.argv[2]).resolve();output.mkdir(parents=True,exist_ok=False)
-cases=[97,99,139,*range(900,950)]
+retained=json.loads((Path(__file__).resolve().parents[1]/'baseline/static-usd-rotation-diagnostic/748-full-failures.json').read_text())
+cases=sorted({97,99,139,*range(900,950),*(int(x['id'].rsplit('_',1)[1]) for x in retained['first_failures'])})
 command=[sys.executable,str(Path(__file__).with_name('rotation_snap_runtime.py')),str(binary),str(output/'cases'),'--interface','cli','--gzip-output']
 for case in cases:command += ['--case',f'rotation_snap_{case:04}']
 start=time.monotonic_ns();process=subprocess.Popen(command);code=process.wait()
