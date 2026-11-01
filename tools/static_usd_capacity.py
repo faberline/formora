@@ -6,7 +6,7 @@ import platform
 from pathlib import Path
 import sys
 import time
-from static_usd_runtime import Runner, validate_usd, load, sha
+from static_usd_runtime import Runner, validate_usd, load, sha, process_usage
 
 binary=Path(sys.argv[1]).resolve()
 if not binary.exists() and binary.with_suffix('.exe').exists(): binary=binary.with_suffix('.exe')
@@ -49,14 +49,20 @@ for copies in (1,2):
         try:
             reopened=runner.run([binary,'scene','inspect','--scene',source])['scene']
             for key,value in scene.items(): assert reopened[key]==value
+            # Full equality is complete. Release this large query inside the
+            # clock before USD parsing and the next native child process.
+            del reopened
             reopened_at=time.monotonic_ns()
             validate_usd(target,scene,'root',normal_policy='frozen_preview_f32_newell',timings=verify_phases)
         except (AssertionError,ValueError,KeyError) as problem:
             verification_error=str(problem) or type(problem).__name__
+        verifier_usage=process_usage()
         elapsed=time.monotonic_ns()-start
         item={'copies':copies,'sample':sample,'core_ns':receipt['core_elapsed_ns'],'core_phases_ns':receipt['core_phases_ns'],'pipeline_ns':elapsed,'pipeline_phases_ns':{'export':exported-start,'reopen_compare':None if reopened_at is None else reopened_at-exported,'usd_compare':None if reopened_at is None else start+elapsed-reopened_at},'source_sha256':sha(source),'usd_sha256':sha(target),'verification_error':verification_error,'normal_policy':'frozen preview f32 sequential Newell, unchanged 1e-6 tolerance'}
         item['passed']=verification_error is None and item['core_ns']<=copies*250000000 and elapsed<=copies*2000000000
         item['verifier_phases_ns']=verify_phases
+        item['verifier_usage']=verifier_usage
+        item['native_usage']=[x['child_usage'] for x in runner.receipts[-2:]]
         results.append(item)
         (output/'report.json').write_text(json.dumps({'passed':all(x['passed'] for x in results),'samples':results},indent=2)+'\n')
         print(json.dumps(item),flush=True)

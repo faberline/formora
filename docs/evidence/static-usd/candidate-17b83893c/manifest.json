@@ -1,0 +1,62 @@
+{
+  "logs": [
+    {
+      "file": "c340-linux-contracts.log.gz",
+      "run": 41311306212,
+      "job": 124862094136,
+      "source_head": "c340be9a9eeb78dd921b531a1c204029da04665a",
+      "url": "https://github.com/faberline/formora/actions/runs/41311306212/job/124862094136",
+      "decoded_log_bytes": 234440,
+      "decoded_log_sha256": "f82e53cacf454cd0979016694d486ff180ba9b18ee6b2253803d99f5c724df11",
+      "gzip_sha256": "a839c1de6600ca33031dbf00ce20ac229271fb13e58bc375546318405487491a",
+      "job_conclusion": "success"
+    },
+    {
+      "file": "c340-windows-contracts.log.gz",
+      "run": 41311306212,
+      "job": 124862094079,
+      "source_head": "c340be9a9eeb78dd921b531a1c204029da04665a",
+      "url": "https://github.com/faberline/formora/actions/runs/41311306212/job/124862094079",
+      "decoded_log_bytes": 235451,
+      "decoded_log_sha256": "b82651c41d6c275a66c7af48e9e8f6387f58eb2c3ded5c109d0624fc160b77d8",
+      "gzip_sha256": "52f3d072bec7df585db928ca0839c5f4592261f7617bf33cf81f4295279341de",
+      "job_conclusion": "success"
+    },
+    {
+      "file": "linux-static.log.gz",
+      "run": 41317842134,
+      "job": 124881570328,
+      "source_head": "17b83893cc68d7f01bcf04067478d1636375c1a2",
+      "url": "https://github.com/faberline/formora/actions/runs/41317842134/job/124881570328",
+      "decoded_log_bytes": 126664,
+      "decoded_log_sha256": "8ce35410a787ff8e16f73d57ae985a7ef0473f12f71b2924a0fdcfa4297b7ff7",
+      "gzip_sha256": "c20f68f467c33e17659d095a2f27dad9438a7fbff03ec63d1f3d7df9e3581f1e",
+      "job_conclusion": "success"
+    },
+    {
+      "file": "macos-static.log.gz",
+      "run": 41317842134,
+      "job": 124881570484,
+      "source_head": "17b83893cc68d7f01bcf04067478d1636375c1a2",
+      "url": "https://github.com/faberline/formora/actions/runs/41317842134/job/124881570484",
+      "decoded_log_bytes": 138481,
+      "decoded_log_sha256": "29d1635a2a32363ced76b89536b2f45e34c0e27673123f1fc3d547bff5342fe3",
+      "gzip_sha256": "7c72b85e7855ee9a42b0f49ed91fb9be1e6db12c3e0bde4c64c4d3420657b358",
+      "job_conclusion": "failure"
+    },
+    {
+      "file": "windows-static.log.gz",
+      "run": 41317842134,
+      "job": 124881570531,
+      "source_head": "17b83893cc68d7f01bcf04067478d1636375c1a2",
+      "url": "https://github.com/faberline/formora/actions/runs/41317842134/job/124881570531",
+      "decoded_log_bytes": 126309,
+      "decoded_log_sha256": "b66556244e95b0498cfe9ec35807e93f65102d6473156a488d7c659ff568b487",
+      "gzip_sha256": "7b6c8a8cb59bcd281fd9c7e80ea23725ebac91ab0931dd14e02ba7873612458b",
+      "job_conclusion": "success"
+    }
+  ],
+  "current_head": "17b83893cc68d7f01bcf04067478d1636375c1a2",
+  "full_gate_passed": false,
+  "status": "Linux and Windows static jobs pass. Intel macOS static job fails all six speed samples. Older c340 Linux/Windows full contracts pass; current-head full contracts remain pending."
+}

@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-15-intel, ubuntu-latest, windows-latest]
+        os: [macos-15-intel, macos-15, ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
       - name: Compile Apple consumer at macOS 14 and check iOS 17 APIs
         if: runner.os == 'macOS'
         run: |
-          xcrun swiftc -swift-version 5 -parse-as-library -target x86_64-apple-macosx14.0 tools/apple-static-usd/Inspect.swift -o target/apple-static-usd
+          xcrun swiftc -swift-version 5 -parse-as-library -target "$(uname -m)-apple-macosx14.0" tools/apple-static-usd/Inspect.swift -o target/apple-static-usd
           xcrun swiftc -swift-version 5 -typecheck -target arm64-apple-ios17.0 -sdk "$(xcrun --sdk iphoneos --show-sdk-path)" tools/apple-static-usd/Inspect.swift
       - uses: actions/setup-python@v5
         with:

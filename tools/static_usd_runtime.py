@@ -12,6 +12,10 @@ import subprocess
 import sys
 import time
 import orjson
+try:
+    import resource
+except ImportError:
+    resource=None
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ('crate', 'rock', 'workbench', 'radio')
@@ -21,6 +25,14 @@ def sha(path):
 
 def load(path):
     return json.loads(path.read_text())
+
+def process_usage(children=False):
+    """Diagnostic CPU totals and cumulative peak RSS; never a pass criterion."""
+    if resource is None:
+        return None
+    r=resource.getrusage(resource.RUSAGE_CHILDREN if children else resource.RUSAGE_SELF)
+    return {'user_ns':round(r.ru_utime*1e9),'system_ns':round(r.ru_stime*1e9),
+            'cumulative_peak_rss_bytes':int(r.ru_maxrss)*(1 if sys.platform=='darwin' else 1024)}
 
 def near(a, b):
     if isinstance(b, (list, tuple)):
@@ -83,8 +95,19 @@ def source_f32_triangle_normals(points):
 
 def validate_usd(path, scene, root, normal_policy='independent_f64_cross', timings=None):
     import_start=time.monotonic_ns()
-    from pxr import Usd, UsdGeom, UsdShade, Vt
-    if timings is not None:timings['usd_module_import']=time.monotonic_ns()-import_start
+    from pxr import Usd
+    usd_imported=time.monotonic_ns()
+    from pxr import UsdGeom
+    geom_imported=time.monotonic_ns()
+    from pxr import UsdShade
+    shade_imported=time.monotonic_ns()
+    from pxr import Vt
+    all_imported=time.monotonic_ns()
+    if timings is not None:
+        timings['usd_module_import']=all_imported-import_start
+        timings['usd_import_components_ns']={'Usd':usd_imported-import_start,
+            'UsdGeom':geom_imported-usd_imported,'UsdShade':shade_imported-geom_imported,
+            'Vt':all_imported-shade_imported}
     assert normal_policy in ('independent_f64_cross','frozen_preview_f32_newell')
     parse_start=time.monotonic_ns()
     stage = Usd.Stage.Open(str(path))
@@ -210,6 +233,7 @@ class Runner:
         self.receipts = []
     def run(self, args, stdin=None, fail=False):
         start = time.monotonic_ns()
+        usage_before=process_usage(children=True)
         p = subprocess.Popen([str(x) for x in args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         timed_out=False
         try:
@@ -222,8 +246,13 @@ class Runner:
             except subprocess.TimeoutExpired:
                 p.kill()
                 stdout,stderr=p.communicate(timeout=10)
+        usage_after=process_usage(children=True)
         receipt = {'command':[str(x) for x in args], 'pid':p.pid, 'waited':True, 'exit_code':p.returncode,
                    'elapsed_ns':time.monotonic_ns()-start, 'timed_out':timed_out,'stdout':stdout, 'stderr':stderr}
+        receipt['child_usage']=None if usage_before is None else {
+            'user_ns':usage_after['user_ns']-usage_before['user_ns'],
+            'system_ns':usage_after['system_ns']-usage_before['system_ns'],
+            'cumulative_peak_rss_bytes':usage_after['cumulative_peak_rss_bytes']}
         # Large actual query results stay complete in separate files, with hashes
         # in the process ledger. Rewriting all prior 40 MiB query strings for each
         # process would measure ledger amplification rather than the fixed pipeline.

@@ -1,0 +1,170 @@
+{
+  "source_head": "17b83893cc68d7f01bcf04067478d1636375c1a2",
+  "run": 41317842134,
+  "job": 124881570484,
+  "samples": [
+    {
+      "copies": 1,
+      "sample": 0,
+      "core_ns": 266977977,
+      "core_phases_ns": {
+        "mesh_prepare": 47419875,
+        "mesh_write": 157893855,
+        "normal_setup": 13185814,
+        "validation": 45297452
+      },
+      "pipeline_ns": 8930316235,
+      "pipeline_phases_ns": {
+        "export": 864617230,
+        "reopen_compare": 978830832,
+        "usd_compare": 7086868173
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 2359956811,
+        "usd_stage_open": 1370889514,
+        "numpy_import": 665535680
+      }
+    },
+    {
+      "copies": 1,
+      "sample": 1,
+      "core_ns": 416995239,
+      "core_phases_ns": {
+        "mesh_prepare": 81626372,
+        "mesh_write": 224874654,
+        "normal_setup": 24030493,
+        "validation": 84058408
+      },
+      "pipeline_ns": 4554596099,
+      "pipeline_phases_ns": {
+        "export": 1608841612,
+        "reopen_compare": 1611836097,
+        "usd_compare": 1333918390
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 31921,
+        "usd_stage_open": 705444569,
+        "numpy_import": 9082
+      }
+    },
+    {
+      "copies": 1,
+      "sample": 2,
+      "core_ns": 209761145,
+      "core_phases_ns": {
+        "mesh_prepare": 44278630,
+        "mesh_write": 108810217,
+        "normal_setup": 10354998,
+        "validation": 43551997
+      },
+      "pipeline_ns": 3137341260,
+      "pipeline_phases_ns": {
+        "export": 904995577,
+        "reopen_compare": 1315221667,
+        "usd_compare": 917124016
+      },
+      "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+      "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 38261,
+        "usd_stage_open": 510033107,
+        "numpy_import": 7967
+      }
+    },
+    {
+      "copies": 2,
+      "sample": 0,
+      "core_ns": 2282079366,
+      "core_phases_ns": {
+        "mesh_prepare": 621403083,
+        "mesh_write": 1507232374,
+        "normal_setup": 52369428,
+        "validation": 87939060
+      },
+      "pipeline_ns": 8761226519,
+      "pipeline_phases_ns": {
+        "export": 4539464120,
+        "reopen_compare": 2525672775,
+        "usd_compare": 1696089624
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 28340,
+        "usd_stage_open": 1036404077,
+        "numpy_import": 20534
+      }
+    },
+    {
+      "copies": 2,
+      "sample": 1,
+      "core_ns": 601119543,
+      "core_phases_ns": {
+        "mesh_prepare": 99014702,
+        "mesh_write": 410453027,
+        "normal_setup": 17446230,
+        "validation": 67764532
+      },
+      "pipeline_ns": 5341542325,
+      "pipeline_phases_ns": {
+        "export": 1950360170,
+        "reopen_compare": 2040069292,
+        "usd_compare": 1351112863
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 65858,
+        "usd_stage_open": 758633213,
+        "numpy_import": 17201
+      }
+    },
+    {
+      "copies": 2,
+      "sample": 2,
+      "core_ns": 350286488,
+      "core_phases_ns": {
+        "mesh_prepare": 73435566,
+        "mesh_write": 198990585,
+        "normal_setup": 14171297,
+        "validation": 59251247
+      },
+      "pipeline_ns": 7691785431,
+      "pipeline_phases_ns": {
+        "export": 1418490493,
+        "reopen_compare": 4125850357,
+        "usd_compare": 2147444581
+      },
+      "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+      "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+      "verification_error": null,
+      "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+      "passed": false,
+      "verifier_phases_ns": {
+        "usd_module_import": 55352,
+        "usd_stage_open": 1169648622,
+        "numpy_import": 18415
+      }
+    }
+  ],
+  "whole_gate_passed": false
+}

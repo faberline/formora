@@ -404,3 +404,49 @@ import/Stage.Open times do not subtract anything from that clock or change pass
 criteria. No data check moves outside it. All6 samples,250/500ms core limits and
 2000/4000ms full pipeline limits remain. This next optimization is unmeasured until
 new current-head CI. All failed and still-unrun required gates remain incomplete.
+
+## Candidate 17b83893c: complete content passes, Intel macOS speed failure
+
+Static run41317842134 passed its entire Linux job124881570328 and Windows
+job124881570531. Both passed the independent JSON value/type/f64-bit corpus,
+all four CLI/MCP model flows, attributes/polygons/control names, negative controls,
+12 optimized memory helpers and all6 fixed capacity samples. Linux100k core:
+91605864,88903980,97182428ns; pipeline:1077614000,896938792,855787775ns.
+Linux200k core:179507861,180403295,194701997ns; pipeline:
+1630740043,1634667817,1649882144ns. Windows100k core:
+136573600,130448700,130783400ns; pipeline:1953000000,1719000000,1734000000ns.
+Windows200k core:285809300,253982200,257595000ns; pipeline:
+3422000000,3250000000,3359000000ns. All8 model/source digests exactly match
+the c340 physical evidence. No current binary is claimed as that physical binary.
+
+Intel macOS job124881570484 passed every content/negative/helper stage, then
+FAILED all6 combined speed samples. Core100k:266977977,416995239,209761145ns;
+pipeline100k:8930316235,4554596099,3137341260ns. Core200k:
+2282079366,601119543,350286488ns; pipeline200k:
+8761226519,5341542325,7691785431ns. Every data comparison passed. First sample
+OpenUSD import alone took2359956811ns, stage open1370889514ns and NumPy import
+665535680ns. These times remain inside the unchanged2000000000ns total limit.
+They are not exemptions. Host contention, memory pressure or a library startup
+cause is not established from wall time alone.
+
+Complete logs, every sample and model digest are archived in candidate-17b83893c.
+Also archived are older c340 full-contract Linux/Windows SUCCESS jobs124862094136
+and124862094079, including4992 raw rotations and3584 nonidentity-delta checks
+per platform. c340 macOS and exact17b full-contract jobs remain running at capture.
+They are not passes. No additional CI was cancelled.
+
+The next verifier releases each complete reopened scene only AFTER full equality,
+inside the existing pipeline clock. Previously it kept the large decoded query
+alive during USD parsing and the next native export. Every original comparison
+still runs. CPU totals and cumulative peak RSS are diagnostic, not new criteria;
+Windows reports unavailable resource diagnostics explicitly. Per-module USD import
+times refine the existing aggregate without prewarming or subtracting any time.
+Only Python syntax checks ran locally; actual behavior remains CI-only.
+
+Add macos-15 Apple Silicon alongside the existing macos-15-intel job. The official
+runner labels/hardware are recorded in baseline/static-usd-host-diagnostic.json.
+This adds the architecture used by the actual physical evidence. Intel remains
+required, with all original commands and limits. The new job has the same complete
+checks and all6 samples; a Silicon pass cannot cancel an Intel failure. Apple
+minimum target stays macOS14/iOS17, compiled for the actual runner architecture.
+Neither hardware choice, unrun checks nor resource diagnostics can pass this gate.
