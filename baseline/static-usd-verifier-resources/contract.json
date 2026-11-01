@@ -1,0 +1,17 @@
+{
+  "frozen_before_resource_profile_implementation": true,
+  "prior_remote_head": "da354bdb82b7147aca929f7f3f7add1e94f8c9d7",
+  "failed_intel_job": 124897468362,
+  "environment": {"PXR_WORK_THREAD_LIMIT": "1"},
+  "rules": [
+    "Use the same profile for every capacity-verifier platform. It controls only the independent Python/OpenUSD verifier's pool, not native Rust operations or global user settings.",
+    "Set the environment before importing pxr. Do not initialize any USD or NumPy module before the original complete wall clock.",
+    "Inside the existing initialize task, import pxr.Work and require GetConcurrencyLimit()==1 and HasConcurrency()==false. Record effective and physical limits. A mismatched profile is failure.",
+    "The same complete validated native projection, durable export, actual fresh native query, all exact/source1e-6 comparisons, module initialization, every future result and worker join remain inside their original clocks.",
+    "All six original samples and250/500ms core and2000/4000ms total limits remain. No cooldown, preclock warmup, averaging, discarded sample, cached result or hardware exemption.",
+    "NumPy's existing ufunc comparisons and arithmetic stay unchanged. No new BLAS operation, reassociation or numeric tolerance is introduced.",
+    "Record available disk space with the existing host/environment evidence. CPU/RSS/thread diagnostics never decide success or excuse a failed sample.",
+    "Oversubscription or host contention is a hypothesis, not an established cause. Only actual new complete samples can establish a pass. All prior failures remain."
+  ],
+  "source_rule": "The pinned26.05 Work setting0 permits maximum physical concurrency. Setting1 requests single-threaded mode and takes precedence over runtime API limits. The pinned wheel has the Work Python module and its wrapper exposes GetConcurrencyLimit and HasConcurrency. Static inspection is not runtime proof; CI must assert the effective limit."
+}
