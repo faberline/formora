@@ -71,6 +71,12 @@ fn normalize_columns(m: &mut Matrix) {
         }
     }
 }
+// Host atan2f differs by one f32 step for the same pinned matrix on glibc and
+// Darwin (including the positive pi/2 gimbal case). Evaluate the same f32 input
+// in f64, then quantize once to the source's stored f32 channel precision.
+fn source_atan2(y: f32, x: f32) -> f32 {
+    f64::from(y).atan2(f64::from(x)) as f32
+}
 /// Mat3-to-Euler uses normalized columns and the smaller L1 solution.
 pub(crate) fn euler(mut m: Matrix, order: EulerOrder) -> [f32; 3] {
     normalize_columns(&mut m);
@@ -78,15 +84,15 @@ pub(crate) fn euler(mut m: Matrix, order: EulerOrder) -> [f32; 3] {
     let cy = m[i][i].hypot(m[j][i]);
     let (mut a, mut b) = ([0.; 3], [0.; 3]);
     if cy > 0.0000375 {
-        a[i] = m[k][j].atan2(m[k][k]);
-        a[j] = (-m[k][i]).atan2(cy);
-        a[k] = m[j][i].atan2(m[i][i]);
-        b[i] = (-m[k][j]).atan2(-m[k][k]);
-        b[j] = (-m[k][i]).atan2(-cy);
-        b[k] = (-m[j][i]).atan2(-m[i][i]);
+        a[i] = source_atan2(m[k][j], m[k][k]);
+        a[j] = source_atan2(-m[k][i], cy);
+        a[k] = source_atan2(m[j][i], m[i][i]);
+        b[i] = source_atan2(-m[k][j], -m[k][k]);
+        b[j] = source_atan2(-m[k][i], -cy);
+        b[k] = source_atan2(-m[j][i], -m[i][i]);
     } else {
-        a[i] = (-m[j][k]).atan2(m[j][j]);
-        a[j] = (-m[k][i]).atan2(cy);
+        a[i] = source_atan2(-m[j][k], m[j][j]);
+        a[j] = source_atan2(-m[k][i], cy);
         a[k] = 0.;
         b = a;
     }
@@ -239,4 +245,18 @@ pub(crate) fn assign(
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod cross_platform_tests {
+    use super::*;
+    #[test]
+    fn gimbal_channels_keep_the_exact_frozen_source_float_bits() {
+        let input: [f64; 4] = [0.5, 0.5, -0.5, 0.5];
+        let matrix = quaternion_matrix(input).unwrap();
+        let result = euler(matrix, EulerOrder::Xyz);
+        assert_eq!(result.map(f32::to_bits), [0x3fc90fdb, 0xbfc90fdb, 0]);
+        assert_eq!(source_atan2(1., -f32::EPSILON).to_bits(), 0x3fc90fdc);
+        assert_eq!(source_atan2(1., 0.).to_bits(), 0x3fc90fdb);
+    }
 }

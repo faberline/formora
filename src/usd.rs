@@ -386,6 +386,9 @@ impl Writer<'_> {
                 .map(|v| vector(*v))
                 .collect::<Result<Vec<_>>>()?;
             writeln!(self.out,"texCoord2f[] primvars:{name} = {} (interpolation = \"faceVarying\")\ncustom string formora:uv_{name} = {}",list(values),text_value(layer)?).expect("String write");
+            if self.out.len() > MAX_BYTES {
+                return Err(error("output exceeds 256 MiB"));
+            }
         }
         if bindings.len() == 1 {
             writeln!(

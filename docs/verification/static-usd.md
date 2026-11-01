@@ -150,3 +150,30 @@ cross-platform numerical defect, not a new accepted source exception. The next
 bounded diagnostic retains the full actual failed state for cases97/99/139 and
 the first affected range. It is explicitly not full acceptance. The full4992-check
 commands and1e-6 limit remain. No rotating matrix algorithm was changed on a guess.
+
+## Frozen cross-platform trig correction
+
+The bounded Linux diagnostic (run41302871368/job124837267656) reproduced exactly
+three failures among53 selected CLI cases:97,99,139. Its complete actual states
+are frozen under baseline/static-usd-rotation-diagnostic. For97/99 the evaluated
+cursor matrices are byte-equivalent numeric values to the source-backed passing
+ARM records, but one assigned Euler channel is1.570796251296997 instead of the
+Blender source's1.5707963705062866. Case139 has the same cursor matrix too, but
+its third assigned Euler channel differs by one f32 step. The original source
+fixture SHA-256 and exact expected channel bits were frozen at42c814170 before
+implementation. No source exception or tolerance was added.
+
+The Euler conversion now evaluates atan2 on the same input f32 values in f64,
+then quantizes once to f32. It keeps the same branch/normalization/lock rules and
+stored channel format. A pure-memory gimbal helper test passes the frozen bits
+3fc90fdb/bfc90fdb/00000000, including nearby atan2 boundaries. This preserves the
+source on ARM; actual Linux diagnosis and full three-platform regression must
+still qualify the correction. No whole-suite pass is claimed from this unit test.
+
+All CI checkouts now select the exact PR head SHA. The new static-USD workflow
+runs on the PR event once per update to avoid duplicate identical work; original
+full-contract push/PR triggers and every required test command remain. Capacity
+runs even when an earlier independent new check fails, so a failure still leaves
+speed evidence. Earlier failed steps keep the whole job red. No continue-on-error
+was introduced. The rejection helper's expected missing-asset message was fixed
+to the existing Scene validator's exact wording; the product error did not change.
