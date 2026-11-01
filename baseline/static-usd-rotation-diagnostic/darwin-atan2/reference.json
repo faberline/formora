@@ -1,0 +1,63 @@
+{
+  "source": "https://github.com/apple-oss-distributions/Libm/blob/17a5f9daa3f5679f7536b26f133b40cc078753c3/Source/Intel/atan2f.s",
+  "commit": "17a5f9daa3f5679f7536b26f133b40cc078753c3",
+  "method": "GitHub connector fetch_file at exact commit; UTF-8 bytes, gzip mtime=0",
+  "bytes": 12541,
+  "sha256": "de9517cbc7a238328a8e5696ffaa37a6cc658a6ca0e73153c9dc76f0785909db",
+  "scope": "Published scalar approximation and mathematical constants; do not claim this is the current macOS26 library build. ARM source file at this pin is empty. Independent Rust arithmetic must pass fixed Blender source cases and current-head three-platform tests.",
+  "coefficient_order": [
+    "c01",
+    "c21",
+    "c00",
+    "c20",
+    "c11",
+    "c31",
+    "c10",
+    "c30",
+    "c2"
+  ],
+  "coefficient_decimal": [
+    "2.2971562298314633761676433",
+    "0.0207432003007420961489920",
+    "2.4449692297316409651126041",
+    "3.7888879287802702842997915",
+    "-2.9466967515109826289085300",
+    "-4.9721072376211623038916292",
+    "5.4728447324456990092824269",
+    "6.7197076223592378022736307",
+    "0.0029352921857004596570518"
+  ],
+  "coefficient_f64_bits": [
+    "4002609372076e2c",
+    "3f953db49b9fcf6b",
+    "40038f4c070b63c1",
+    "400e4fa479729042",
+    "c00792d5bf17c0bc",
+    "c013e370146726b3",
+    "4015e43168d7c2b6",
+    "401ae0fb08f2dc00",
+    "3f680bc0fe23203d"
+  ],
+  "factored_polynomial": "low = (((t+c01)*t+c00)*((t+c11)*t+c10))*z; high = (((t+c21)*t+c20)*((t+c31)*t+c30))*c2; atan approx = low*high, t=z*z. Preserve indicated operation order; no fused multiply-add.",
+  "pairs": [
+    {
+      "y_f32": "be1d98af",
+      "x_f32": "3f7a1963",
+      "expected_f32": "be1ffff5",
+      "expected_from": "Blender rotation_snap_0037 after/rotation_channels/target/euler, successive XYZ channels; input scalar pairs from memory-only matrix-path diagnosis, not output used as oracle"
+    },
+    {
+      "y_f32": "be177a99",
+      "x_f32": "3f7d2efa",
+      "expected_f32": "be180971",
+      "expected_from": "Blender rotation_snap_0037 after/rotation_channels/target/euler, successive XYZ channels; input scalar pairs from memory-only matrix-path diagnosis, not output used as oracle"
+    },
+    {
+      "y_f32": "3d821882",
+      "x_f32": "3f7ca924",
+      "expected_f32": "3d83a232",
+      "expected_from": "Blender rotation_snap_0037 after/rotation_channels/target/euler, successive XYZ channels; input scalar pairs from memory-only matrix-path diagnosis, not output used as oracle"
+    }
+  ],
+  "required": "Finite and signed-zero/quadrant helper checks, old gimbal source97, source37/39/205 memory inputs, bounded73 and full4992 source acceptance. No input-ID branch or tolerance change."
+}
