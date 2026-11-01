@@ -35,6 +35,7 @@ jobs:
       - name: Reject unsupported input and preserve existing files
         run: python tools/static_usd_rejections.py target/debug/formora target/static-usd-rejections
       - name: Measure frozen 100k and 200k capacity samples
+        if: always()
         run: |
           cargo build --locked --release
           python tools/static_usd_capacity.py target/release/formora target/static-usd-capacity

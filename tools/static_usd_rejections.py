@@ -14,7 +14,7 @@ def case(name,edit,message):
     scene=copy.deepcopy(original);edit(scene);cases.append((name,json.dumps(scene),message))
 mesh_id='crate_body'
 case('unknown_field',lambda s:s.update(unknown_field=True),'unknown field')
-case('missing_asset',lambda s:s['entities']['crate_body']['content']['geometry'].update(id='absent'),'unknown')
+case('missing_asset',lambda s:s['entities']['crate_body']['content']['geometry'].update(id='absent'),'missing mesh asset')
 case('missing_material',lambda s:s['materials'].pop('wood'),'material')
 case('precision_limit',lambda s:s['mesh_assets'][mesh_id]['vertices']['v0'].__setitem__(0,1000.0000015),'1e-6')
 case('isolated_vertex',lambda s:s['mesh_assets'][mesh_id]['vertices'].update(loose=[0,0,0]),'isolated')
