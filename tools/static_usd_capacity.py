@@ -51,15 +51,38 @@ for copies in (1,2):
         operation_times={}
         timeline={}
         verifier_pool={}
+        initialize_components={}
+        initialize_usage={}
+        verifier_build={}
         def initialize():
             began=time.monotonic_ns()
-            from pxr import Usd, UsdGeom, UsdShade, Vt, Work
+            initialize_usage['before']=process_usage()
+            imports_started=time.monotonic_ns()
+            from pxr import Usd
+            usd_imported=time.monotonic_ns()
+            from pxr import UsdGeom
+            geom_imported=time.monotonic_ns()
+            from pxr import UsdShade
+            shade_imported=time.monotonic_ns()
+            from pxr import Vt
+            vt_imported=time.monotonic_ns()
+            from pxr import Work
+            work_imported=time.monotonic_ns()
             import numpy
+            numpy_imported=time.monotonic_ns()
             # Each sample has a fresh executor worker. Apply the pinned limit
             # in that worker, not only during the first module initialization.
             Work.SetConcurrencyLimit(1)
+            work_limited=time.monotonic_ns()
+            initialize_components.update(usage_before=imports_started-began,Usd=usd_imported-imports_started,UsdGeom=geom_imported-usd_imported,
+                UsdShade=shade_imported-geom_imported,Vt=vt_imported-shade_imported,
+                Work=work_imported-vt_imported,numpy=numpy_imported-work_imported,
+                work_limit=work_limited-numpy_imported)
+            verifier_build.update(numpy_version=numpy.__version__,numpy_module=numpy.__file__,
+                numpy_build_dependencies=getattr(numpy.__config__,'CONFIG',{}).get('Build Dependencies',{}))
             verifier_pool.update(effective_limit=Work.GetConcurrencyLimit(),physical_limit=Work.GetPhysicalConcurrencyLimit(),has_concurrency=Work.HasConcurrency())
             assert verifier_pool['effective_limit']==1 and verifier_pool['has_concurrency'] is False,verifier_pool
+            initialize_usage['after']=process_usage()
             operation_times['initialize']=time.monotonic_ns()-began
             timeline['initialize_finished']=time.monotonic_ns()-start
         def export(spawned):
@@ -96,6 +119,9 @@ for copies in (1,2):
         item['verifier_usage']=verifier_usage
         item['native_usage']=[x['child_usage'] for x in runner.receipts[-2:]]
         item['verifier_pool']=verifier_pool
+        item['verifier_initialize_components_ns']=initialize_components
+        item['verifier_initialize_usage']=initialize_usage
+        item['verifier_build']=verifier_build
         results.append(item)
         (output/'report.json').write_text(json.dumps({'passed':all(x['passed'] for x in results),'samples':results},indent=2)+'\n')
         print(json.dumps(item),flush=True)
