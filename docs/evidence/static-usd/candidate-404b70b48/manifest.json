@@ -1,0 +1,60 @@
+{
+  "head": "404b70b48765f2ec3c94b7ebc220bfb1e1f761b3",
+  "run": 41333927769,
+  "whole_acceptance": false,
+  "entries": [
+    {
+      "name": "linux",
+      "job": 124929622938,
+      "decoded_bytes": 135688,
+      "decoded_sha256": "4831b8843e521f578af6be7c80b42598e6649653f20465ec9cc0987770f9f202",
+      "gzip_sha256": "9ef5289c56827012360fa1434ed233edbfdb60e807bad454e03e7d36477b747a",
+      "capacity_samples": 6,
+      "passed_samples": 6,
+      "model_digests_equal_across_hosts": true,
+      "all_profile_assertions_pass": true
+    },
+    {
+      "name": "windows",
+      "job": 124929622894,
+      "decoded_bytes": 134448,
+      "decoded_sha256": "01df2cc65c474b7a23a7ae7e88939c3cb149b1710cc392c2b4a9f0cbbe68317c",
+      "gzip_sha256": "6b0589ce7138830e76714ef3079b1049d88026087ff71b6fdd793388e20f9246",
+      "capacity_samples": 6,
+      "passed_samples": 6,
+      "model_digests_equal_across_hosts": true,
+      "all_profile_assertions_pass": true
+    },
+    {
+      "name": "arm",
+      "job": 124929622912,
+      "decoded_bytes": 134444,
+      "decoded_sha256": "c9c55db0df8b9f97920d925a29912022b19afe7646ca883d31192717f1ef1677",
+      "gzip_sha256": "76fb89eb3568ad0e2970c4c65734acfa15db0dfb82a494a7ba1c1401683e820d",
+      "capacity_samples": 6,
+      "passed_samples": 6,
+      "model_digests_equal_across_hosts": true,
+      "all_profile_assertions_pass": true
+    },
+    {
+      "name": "intel",
+      "job": 124929622983,
+      "decoded_bytes": 163991,
+      "decoded_sha256": "956665673d7ca6c8f8a8b33687ac4b9e6b7d80d308a263b05b0f2f5c647a55a1",
+      "gzip_sha256": "762c283aa53286a8f39259b9e8801387600bcdaafd0285662c29cae176eaee76",
+      "capacity_samples": 6,
+      "passed_samples": 0,
+      "model_digests_equal_across_hosts": true,
+      "all_profile_assertions_pass": true
+    },
+    {
+      "name": "intel_diag",
+      "job": 124929622668,
+      "decoded_bytes": 84050,
+      "decoded_sha256": "fdd8b4512d8bb37bf8239d3e563e51072f917dc745d0186cf9698840ad98e153",
+      "gzip_sha256": "36c6895b1e46973d865244675c1f83cda1236af2313ca5ed01d02cb249ceef6e",
+      "capacity_samples": 0,
+      "passed_samples": 0
+    }
+  ]
+}
