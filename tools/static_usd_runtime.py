@@ -81,7 +81,7 @@ def source_f32_triangle_normals(points):
     return n
 
 def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
-    from pxr import Usd, UsdGeom, UsdShade
+    from pxr import Usd, UsdGeom, UsdShade, Vt
     assert normal_policy in ('independent_f64_cross','frozen_preview_f32_newell')
     stage = Usd.Stage.Open(str(path))
     assert stage and stage.GetDefaultPrim().GetName() == 'Formora'
@@ -118,9 +118,14 @@ def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
         a = scene['mesh_assets'][e['content']['geometry']['id']]
         assert mesh.GetPrim().GetAttribute('formora:meshId').Get() == e['content']['geometry']['id']
         ids = sorted(a['vertices']); faces = sorted(a['triangles'])
-        assert list(mesh.GetPrim().GetAttribute('formora:vertexIds').Get()) == ids
-        assert list(mesh.GetPrim().GetAttribute('formora:faceIds').Get()) == faces
-        assert list(mesh.GetPrim().GetAttribute('formora:faceKinds').Get()) == ['triangle']*len(faces)
+        if normal_policy=='frozen_preview_f32_newell':
+            assert mesh.GetPrim().GetAttribute('formora:vertexIds').Get()==Vt.StringArray(ids)
+            assert mesh.GetPrim().GetAttribute('formora:faceIds').Get()==Vt.StringArray(faces)
+            assert mesh.GetPrim().GetAttribute('formora:faceKinds').Get()==Vt.StringArray(['triangle']*len(faces))
+        else:
+            assert list(mesh.GetPrim().GetAttribute('formora:vertexIds').Get()) == ids
+            assert list(mesh.GetPrim().GetAttribute('formora:faceIds').Get()) == faces
+            assert list(mesh.GetPrim().GetAttribute('formora:faceKinds').Get()) == ['triangle']*len(faces)
         if normal_policy=='frozen_preview_f32_newell':
             import numpy as np
             actual_points=np.asarray(mesh.GetPointsAttr().Get(),dtype=np.float64)
@@ -146,7 +151,9 @@ def validate_usd(path, scene, root, normal_policy='independent_f64_cross'):
         normals = mesh.GetNormalsAttr().Get(); assert len(normals) == len(indices)
         if normal_policy=='frozen_preview_f32_newell':
             import numpy as np
-            input_points=np.array([[a['vertices'][v] for v in a['triangles'][f]['vertices']] for f in faces],dtype=np.float32)
+            # Gather every authored corner by the independent source index.
+            # Never derive the expected normals from exported point data.
+            input_points=reference_points[np.asarray(indices,dtype=np.intp).reshape(len(faces),3)].astype(np.float32)
             expected_normals=source_f32_triangle_normals(input_points)
             actual_normals=np.asarray(normals,dtype=np.float64).reshape(len(faces),3,3)
             delta=np.abs(actual_normals-expected_normals[:,None,:])

@@ -294,46 +294,89 @@ fn store_automatic(asset: &mut MeshAsset, normals: MeshNormals) {
 /// an immutable asset already checked by Scene::validate (the static exporter
 /// does). Keep the same f32 arithmetic and explicit-normal precedence while
 /// avoiding construction/hashing of unused derived edge identities.
-pub(crate) fn resolved_flat_validated(asset: &MeshAsset) -> Result<Option<MeshNormals>> {
-    if !asset.smooth_triangles.is_empty() || asset.polygons.values().any(|f| f.smooth) {
+pub(crate) struct FlatResolver<'a> {
+    positions: HashMap<&'a str, Vector>,
+}
+pub(crate) enum FlatCorners<'a> {
+    Authored(&'a [[f64; 3]]),
+    Uniform([f64; 3]),
+}
+impl FlatCorners<'_> {
+    pub(crate) fn at(&self, i: usize) -> [f64; 3] {
+        match self {
+            Self::Authored(values) => values[i],
+            Self::Uniform(value) => *value,
+        }
+    }
+}
+impl<'a> FlatResolver<'a> {
+    pub(crate) fn new_validated(asset: &'a MeshAsset) -> Result<Option<Self>> {
+        if !asset.smooth_triangles.is_empty() || asset.polygons.values().any(|f| f.smooth) {
+            return Ok(None);
+        }
+        let positions: HashMap<_, _> = asset
+            .vertices
+            .iter()
+            .map(|(id, p)| (id.as_str(), p.map(|v| v as f32)))
+            .collect();
+        if positions.values().flatten().any(|v| !v.is_finite()) {
+            return Err(SceneError(
+                "automatic normals require finite f32 geometry".into(),
+            ));
+        }
+        Ok(Some(Self { positions }))
+    }
+    // Asset validation and this resolver share the same immutable borrow.
+    // Resolve every face, including arithmetic checks, without owning copies of
+    // face IDs or corner arrays. The three-point case needs no heap allocation.
+    pub(crate) fn face<'b>(
+        &self,
+        ids: &[String],
+        explicit_face: Option<[f64; 3]>,
+        explicit: Option<&'b [[f64; 3]]>,
+    ) -> Result<([f64; 3], FlatCorners<'b>)> {
+        let evaluate = |points: &[Vector]| (polygon_normal(points), newell(points));
+        let (normal, corner) = if let [a, b, c] = ids {
+            evaluate(&[
+                self.positions[a.as_str()],
+                self.positions[b.as_str()],
+                self.positions[c.as_str()],
+            ])
+        } else {
+            let points: Vec<_> = ids.iter().map(|id| self.positions[id.as_str()]).collect();
+            evaluate(&points)
+        };
+        if normal.iter().chain(corner.iter()).any(|v| !v.is_finite()) {
+            return Err(SceneError(
+                "automatic normal arithmetic exceeded finite f32 range".into(),
+            ));
+        }
+        let normal = explicit_face.unwrap_or(normal.map(f64::from));
+        let corners = match explicit {
+            Some(values) => FlatCorners::Authored(values),
+            None => FlatCorners::Uniform(explicit_face.unwrap_or(corner.map(f64::from))),
+        };
+        Ok((normal, corners))
+    }
+}
+
+#[cfg(test)]
+fn resolved_flat_validated(asset: &MeshAsset) -> Result<Option<MeshNormals>> {
+    let Some(resolver) = FlatResolver::new_validated(asset)? else {
         return Ok(None);
-    }
-    let positions: HashMap<_, _> = asset
-        .vertices
-        .iter()
-        .map(|(id, position)| (id.as_str(), position.map(|v| v as f32)))
-        .collect();
-    if positions.values().flatten().any(|v| !v.is_finite()) {
-        return Err(SceneError(
-            "automatic normals require finite f32 geometry".into(),
-        ));
-    }
+    };
     let mut faces = Vec::with_capacity(asset.triangles.len() + asset.polygons.len());
     let mut add = |key: FaceRef,
                    ids: &[String],
                    explicit_face: Option<[f64; 3]>,
                    explicit: Option<&[[f64; 3]]>|
      -> Result<()> {
-        let points: Vec<_> = ids.iter().map(|id| positions[id.as_str()]).collect();
-        let normal = polygon_normal(&points);
-        let corner = newell(&points);
-        if normal.iter().chain(corner.iter()).any(|v| !v.is_finite()) {
-            return Err(SceneError(
-                "automatic normal arithmetic exceeded finite f32 range".into(),
-            ));
-        }
-        let mut result = FaceNormals {
+        let (normal, corners) = resolver.face(ids, explicit_face, explicit)?;
+        let result = FaceNormals {
             face: key,
-            normal: normal.map(f64::from),
-            corner_normals: vec![corner.map(f64::from); points.len()],
+            normal,
+            corner_normals: (0..ids.len()).map(|i| corners.at(i)).collect(),
         };
-        if let Some(face) = explicit_face {
-            result.normal = face;
-            result.corner_normals.fill(face);
-        }
-        if let Some(corners) = explicit {
-            result.corner_normals = corners.to_vec();
-        }
         faces.push(result);
         Ok(())
     };

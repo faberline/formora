@@ -49,7 +49,7 @@ pub struct Projection {
 pub struct CorePhases {
     validation: u128,
     mesh_prepare: u128,
-    normals: u128,
+    normal_setup: u128,
     mesh_write: u128,
 }
 fn error(message: impl Into<String>) -> SceneError {
@@ -156,6 +156,8 @@ struct Face<'a> {
     vertices: &'a [String],
     uv: BTreeMap<&'a str, &'a [[f64; 2]]>,
     material: Option<usize>,
+    normal: Option<[f64; 3]>,
+    corner_normals: Option<&'a [[f64; 3]]>,
 }
 fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
     asset
@@ -171,6 +173,8 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
                 .map(|(k, v)| (k.as_str(), v.as_slice()))
                 .collect(),
             material: f.material_slot,
+            normal: None,
+            corner_normals: f.corner_normals.as_ref().map(|n| n.as_slice()),
         })
         .chain(asset.polygons.iter().map(|(id, f)| {
             Face {
@@ -183,6 +187,8 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
                     .map(|(k, v)| (k.as_str(), v.as_slice()))
                     .collect(),
                 material: f.material_slot,
+                normal: f.normal,
+                corner_normals: f.corner_normals.as_deref(),
             }
         }))
         .collect()
@@ -353,15 +359,18 @@ impl Writer<'_> {
         // project validated the entire immutable scene inside the core clock.
         let normal_start = Instant::now();
         self.phases.mesh_prepare += normal_start.duration_since(start).as_nanos();
-        let normals = match crate::mesh::normals::resolved_flat_validated(asset)? {
-            Some(normals) => normals,
-            None => crate::mesh::normals::resolved(asset)?,
+        let flat = crate::mesh::normals::FlatResolver::new_validated(asset)?;
+        let normals = if flat.is_none() {
+            Some(crate::mesh::normals::resolved(asset)?)
+        } else {
+            None
         };
         let write_start = Instant::now();
-        self.phases.normals += write_start.duration_since(normal_start).as_nanos();
+        self.phases.normal_setup += write_start.duration_since(normal_start).as_nanos();
         let normals: HashMap<_, _> = normals
-            .faces
-            .iter()
+            .as_ref()
+            .into_iter()
+            .flat_map(|n| &n.faces)
             .map(|f| {
                 let key = match &f.face {
                     FaceRef::Triangle(id) => ("triangle", id.as_str()),
@@ -396,19 +405,22 @@ impl Writer<'_> {
         }
         self.out.push_str("def Mesh \"Geometry\" (prepend apiSchemas = [\"MaterialBindingAPI\"]) {\nuniform token subdivisionScheme = \"none\"\nuniform token orientation = \"rightHanded\"\nbool doubleSided = false\n");
         writeln!(self.out, "custom string formora:meshId = {}", quoted(id)).expect("String write");
-        writeln!(
-            self.out,
-            "custom string[] formora:vertexIds = {}",
-            list(vertex_ids.iter().map(|s| quoted(s)))
-        )
-        .expect("String write");
-        writeln!(
-            self.out,
-            "custom string[] formora:faceIds = {}\ncustom string[] formora:faceKinds = {}",
-            list(faces.iter().map(|f| quoted(f.id))),
-            list(faces.iter().map(|f| quoted(f.kind)))
-        )
-        .expect("String write");
+        // Full scene validation restricts source IDs to ASCII letters, digits,
+        // '-' and '_'. Face kinds below are static identifiers. These arrays
+        // need no escape allocation; arbitrary source names still use quoted.
+        let write_id = |out: &mut String, id: &str| {
+            out.push('"');
+            out.push_str(id);
+            out.push('"');
+            Ok(())
+        };
+        self.out.push_str("custom string[] formora:vertexIds = ");
+        write_list(&mut self.out, vertex_ids.iter().copied(), write_id)?;
+        self.out.push_str("\ncustom string[] formora:faceIds = ");
+        write_list(&mut self.out, faces.iter().map(|f| f.id), write_id)?;
+        self.out.push_str("\ncustom string[] formora:faceKinds = ");
+        write_list(&mut self.out, faces.iter().map(|f| f.kind), write_id)?;
+        self.out.push('\n');
         self.out.push_str("point3f[] points = ");
         write_list(&mut self.out, asset.vertices.values(), |out, v| {
             write_vector(out, *v)
@@ -431,21 +443,31 @@ impl Writer<'_> {
         // Reuse text only for bit-identical adjacent values. Signed zero is kept.
         let mut previous = None;
         let mut rendered = String::new();
-        write_list(
-            &mut self.out,
-            faces.iter().flat_map(|f| normals[&(f.kind, f.id)]),
-            |out, n| {
+        self.out.push('[');
+        let mut separator = "";
+        for face in &faces {
+            let corners = match &flat {
+                Some(resolver) => {
+                    resolver
+                        .face(face.vertices, face.normal, face.corner_normals)?
+                        .1
+                }
+                None => crate::mesh::normals::FlatCorners::Authored(normals[&(face.kind, face.id)]),
+            };
+            for i in 0..face.vertices.len() {
+                self.out.push_str(separator);
+                separator = ", ";
+                let n = corners.at(i);
                 let bits = n.map(f64::to_bits);
                 if previous != Some(bits) {
                     rendered.clear();
-                    write_vector(&mut rendered, *n)?;
+                    write_vector(&mut rendered, n)?;
                     previous = Some(bits);
                 }
-                out.push_str(&rendered);
-                Ok(())
-            },
-        )?;
-        self.out.push_str(" (interpolation = \"faceVarying\")\n");
+                self.out.push_str(&rendered);
+            }
+        }
+        self.out.push_str("] (interpolation = \"faceVarying\")\n");
         for layer in faces[0].uv.keys() {
             let active = asset
                 .uv_layout

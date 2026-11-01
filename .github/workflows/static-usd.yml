@@ -35,6 +35,12 @@ jobs:
         run: python tools/static_usd_attributes.py target/debug/formora target/static-usd-attributes
       - name: Reject unsupported input and preserve existing files
         run: python tools/static_usd_rejections.py target/debug/formora target/static-usd-rejections
+      - name: Verify optimized USD, normal, read and rotation memory helpers
+        run: |
+          cargo test --locked --release --lib usd::tests
+          cargo test --locked --release --lib static_flat_tests
+          cargo test --locked --release --lib inspect_serialization_tests
+          cargo test --locked --release --lib cross_platform_tests
       - name: Measure frozen 100k and 200k capacity samples
         if: always()
         run: |

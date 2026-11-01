@@ -1,0 +1,134 @@
+[
+  {
+    "copies": 1,
+    "sample": 0,
+    "core_ns": 269610000,
+    "core_phases_ns": {
+      "mesh_prepare": 46791800,
+      "mesh_write": 127573500,
+      "normals": 56068000,
+      "validation": 29619200
+    },
+    "pipeline_ns": 2172000000,
+    "pipeline_phases_ns": {
+      "export": 516000000,
+      "reopen_compare": 563000000,
+      "usd_compare": 1093000000
+    },
+    "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+    "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 1,
+    "sample": 1,
+    "core_ns": 273063100,
+    "core_phases_ns": {
+      "mesh_prepare": 47643200,
+      "mesh_write": 127883500,
+      "normals": 58798000,
+      "validation": 30244000
+    },
+    "pipeline_ns": 1984000000,
+    "pipeline_phases_ns": {
+      "export": 515000000,
+      "reopen_compare": 578000000,
+      "usd_compare": 891000000
+    },
+    "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+    "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 1,
+    "sample": 2,
+    "core_ns": 279852500,
+    "core_phases_ns": {
+      "mesh_prepare": 47872500,
+      "mesh_write": 131594900,
+      "normals": 56492600,
+      "validation": 34244700
+    },
+    "pipeline_ns": 1969000000,
+    "pipeline_phases_ns": {
+      "export": 516000000,
+      "reopen_compare": 578000000,
+      "usd_compare": 875000000
+    },
+    "source_sha256": "f8ccda3b3bdf24eaa835f5962fe0a95b46ab0782810dda065e8096a547fcd5b5",
+    "usd_sha256": "500f23934bd93255e78a095f5e312b787fa0d3b22eead0c18126d3572dd93e95",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 2,
+    "sample": 0,
+    "core_ns": 541367600,
+    "core_phases_ns": {
+      "mesh_prepare": 92651400,
+      "mesh_write": 253679500,
+      "normals": 110050200,
+      "validation": 67958200
+    },
+    "pipeline_ns": 3828000000,
+    "pipeline_phases_ns": {
+      "export": 1000000000,
+      "reopen_compare": 1188000000,
+      "usd_compare": 1640000000
+    },
+    "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+    "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 2,
+    "sample": 1,
+    "core_ns": 539234600,
+    "core_phases_ns": {
+      "mesh_prepare": 88673300,
+      "mesh_write": 261279900,
+      "normals": 109282500,
+      "validation": 62251900
+    },
+    "pipeline_ns": 3860000000,
+    "pipeline_phases_ns": {
+      "export": 1016000000,
+      "reopen_compare": 1172000000,
+      "usd_compare": 1672000000
+    },
+    "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+    "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  },
+  {
+    "copies": 2,
+    "sample": 2,
+    "core_ns": 545432500,
+    "core_phases_ns": {
+      "mesh_prepare": 91867000,
+      "mesh_write": 266591200,
+      "normals": 110922100,
+      "validation": 58345200
+    },
+    "pipeline_ns": 3937000000,
+    "pipeline_phases_ns": {
+      "export": 1062000000,
+      "reopen_compare": 1188000000,
+      "usd_compare": 1687000000
+    },
+    "source_sha256": "1df845765fc2be507e5ac5bd1d7ef0c4e637ed6b48bbccdafe3498b848256169",
+    "usd_sha256": "7173a6ff37b79e096834ac916bfe67334fcbdddcb036324ed5ed4b94c6830447",
+    "verification_error": null,
+    "normal_policy": "frozen preview f32 sequential Newell, unchanged 1e-6 tolerance",
+    "passed": false
+  }
+]

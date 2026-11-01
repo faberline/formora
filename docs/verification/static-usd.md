@@ -283,3 +283,62 @@ complete decoded log/digest and the actual first20 failure records are retained.
 The bounded diagnostic now includes these20 IDs alongside the previous53 and
 prints the actual first three failed states. It remains diagnosis, not acceptance.
 No further rotation algorithm change is made before obtaining that actual state.
+
+## Portable scalar repair and further allocation reduction
+
+Run41308623799/job124854140435 reproduced20 failures among73 selected CLI
+probes and retained full actual states37/39/205. Source-backed target Euler values
+in37 are[-0.15624983608722687,-0.14847351610660553,0.06427420675754547]; the
+rounded f64 attempt produced[-0.15624982118606567,-0.14847350120544434,...]. A
+memory-only scene/matrix helper reproduced this failure on Apple M1 Max too.
+The native host atan2f returned the frozen source values for these scalar inputs;
+the rounded f64 function did not. This failure is not a tolerance exception.
+
+Apple's published Libm approximation at17a5f9daa3f5679f7536b26f133b40cc078753c3
+also reproduces those scalar values. Its source bytes, exact coefficient bits,
+independent Blender expected values and actual failed states were frozen separately
+atc62742a83c49693d074ba3df5e91a9cf02778500 BEFORE replacing the f64 attempt.
+The new Rust function uses the fixed factored polynomial and quadrant rules,
+including signed zero, followed by one f32 conversion. It calls neither host
+atan2f nor host f64 atan2. It has no case-ID branches or fitted product references.
+The source pin is evidence for a published approximation, not proof of the
+current macOS26 library's build identity; the pinned ARM source file is empty.
+Three memory-only tests now pass: scalar pairs/quadrants/signed zero, old source97
+gimbal bits, and complete source Euler channels in37/39/205. Actual73-probe and
+full4992 three-platform checks remain required; no whole-suite pass is claimed.
+
+The complete logs and all capacity samples for3739 macOS, f1 Linux/Windows and
+0e50 Linux/Windows are archived separately. All content comparisons passed.
+f1 Linux passed5 of6 samples: one100k core took250082524ns, above250000000ns.
+That sample and whole-job failure remain. 0e50 Linux passed all6 at the same
+product code; Windows still failed speed. macOS3739 failed every sample, with
+substantial host-time variation. No failed sample is discarded as noise or averaged
+away. Existing limits, three samples and complete clocks remain unchanged.
+
+Further optimization streams valid ASCII ID arrays without per-ID string copies.
+The immutable flat resolver evaluates every face using the same existing f32
+normal functions and precedence, borrowing explicit corner data and using stack
+storage for triangles. It no longer owns per-face ID/corner copies or a second
+flat normal lookup table. The unchanged differential helper still compares every
+normal against the full resolver on the frozen fixtures. Smooth faces retain the
+full resolver. The diagnostic normal_setup phase now measures setup only; per-face
+flat arithmetic stays in mesh_write, inside the unchanged complete core clock.
+
+Typed JSON map reads retain duplicate rejection and sorted data while avoiding a
+redundant key clone. The capacity comparator uses full native Vt string-array
+equality and gathers every authored corner with its independent source indices.
+It still checks every ID, corner, normal, point, material and transform. It never
+uses exported points to create the expected normals. None of that validation
+moves outside the clocks. Release builds use thin LTO and one codegen unit, with
+optimized memory helpers added to CI. Runtime capacity still requires real samples.
+The12 selected memory-only helpers also passed locally under the actual Rust1.85
+optimized release profile on Apple M1 Max (7 USD,1 flat-normal differential,1 read,
+3 rotation). This is not a CLI/MCP, capacity, GPU or whole-product acceptance run.
+
+Four additional superseded own full-contract runs were cancelled after readbacks
+confirmed current0e50 head. The full before/request/final-cancelled records are in
+candidate-0e50f407/own-superseded-ci-cleanup-02.json.gz with its digest and readable
+four-run manifest. All4 final states were independently reread completed/cancelled.
+Together with cleanup01,15 own obsolete runs were cancelled. All remain NONPASSING.
+Original pre-task/public runs, retained748 cross-platform evidence, f1 static
+capacity jobs and current0e50 jobs were excluded. No CI log was deleted.

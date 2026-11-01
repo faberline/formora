@@ -71,11 +71,66 @@ fn normalize_columns(m: &mut Matrix) {
         }
     }
 }
-// Host atan2f differs by one f32 step for the same pinned matrix on glibc and
-// Darwin (including the positive pi/2 gimbal case). Evaluate the same f32 input
-// in f64, then quantize once to the source's stored f32 channel precision.
+// Neither host atan2f nor a rounded f64 atan2 reproduces the pinned source on
+// every platform. Evaluate the published Darwin factored approximation with
+// fixed coefficient bits and operation order, then quantize once. The source,
+// constants, scalar pairs and independent Blender expectations were frozen in
+// baseline/static-usd-rotation-diagnostic/darwin-atan2 before this repair.
 fn source_atan2(y: f32, x: f32) -> f32 {
-    f64::from(y).atan2(f64::from(x)) as f32
+    use std::f64::consts::{FRAC_PI_2, FRAC_PI_4, PI};
+    let (y, x) = (f64::from(y), f64::from(x));
+    if y.is_nan() || x.is_nan() {
+        return (y + x) as f32;
+    }
+    // The published near-negative-axis result stays inside [-pi, pi].
+    let pi_inside = f64::from(f32::from_bits(0x40490fda));
+    if y == x {
+        return if y == 0. {
+            if x.is_sign_negative() {
+                pi_inside.copysign(y) as f32
+            } else {
+                y as f32
+            }
+        } else if y > 0. {
+            FRAC_PI_4 as f32
+        } else {
+            (-3. * FRAC_PI_4) as f32
+        };
+    }
+    if y == -x {
+        return if y > 0. {
+            (3. * FRAC_PI_4) as f32
+        } else {
+            -FRAC_PI_4 as f32
+        };
+    }
+    let (z, base) = if y.abs() < x {
+        (y / x, -0.)
+    } else if y.abs() < -x {
+        let z = y / x;
+        if z.abs() <= 2.384185791015625e-7 {
+            return pi_inside.copysign(y) as f32;
+        }
+        (z, PI.copysign(y))
+    } else {
+        (-x / y, FRAC_PI_2.copysign(y))
+    };
+    let [c01, c21, c00, c20, c11, c31, c10, c30, c2] = [
+        0x4002609372076e2c,
+        0x3f953db49b9fcf6b,
+        0x40038f4c070b63c1,
+        0x400e4fa479729042,
+        0xc00792d5bf17c0bc,
+        0xc013e370146726b3,
+        0x4015e43168d7c2b6,
+        0x401ae0fb08f2dc00,
+        0x3f680bc0fe23203d,
+    ]
+    .map(f64::from_bits);
+    let t = z * z;
+    let low = (((t + c01) * t + c00) * ((t + c11) * t + c10)) * z;
+    let high = (((t + c21) * t + c20) * ((t + c31) * t + c30)) * c2;
+    (low * high + base) as f32
 }
 /// Mat3-to-Euler uses normalized columns and the smaller L1 solution.
 pub(crate) fn euler(mut m: Matrix, order: EulerOrder) -> [f32; 3] {
@@ -250,6 +305,62 @@ pub(crate) fn assign(
 #[cfg(test)]
 mod cross_platform_tests {
     use super::*;
+    #[test]
+    fn frozen_parented_rotation_channels_match_source_cases() {
+        let cases: serde_json::Value = serde_json::from_str(include_str!(
+            "../../baseline/static-usd-rotation-diagnostic/0e50-memory-inputs.json"
+        ))
+        .unwrap();
+        for case in cases.as_array().unwrap() {
+            let scene: crate::scene::Scene =
+                serde_json::from_value(case["before_scene"].clone()).unwrap();
+            let request: crate::session::ApplyRequest =
+                serde_json::from_value(case["request"].clone()).unwrap();
+            let mut editor = crate::scene::Editor::new(scene).unwrap();
+            editor
+                .apply(&request.commands, Some(request.expected_revision))
+                .unwrap();
+            let actual = serde_json::to_value(editor.scene()).unwrap();
+            for (id, expected) in case["expected_euler"].as_object().unwrap() {
+                assert_eq!(
+                    actual["entities"][id]["transform"]["rotation"]["channels"]["euler"], *expected,
+                    "case {}, entity {id}",
+                    case["case"]
+                );
+            }
+        }
+    }
+    #[test]
+    fn frozen_scalar_pairs_signed_zero_and_quadrants() {
+        let reference: serde_json::Value = serde_json::from_str(include_str!(
+            "../../baseline/static-usd-rotation-diagnostic/darwin-atan2/reference.json"
+        ))
+        .unwrap();
+        for pair in reference["pairs"].as_array().unwrap() {
+            let bits = |key: &str| u32::from_str_radix(pair[key].as_str().unwrap(), 16).unwrap();
+            assert_eq!(
+                source_atan2(f32::from_bits(bits("y_f32")), f32::from_bits(bits("x_f32")))
+                    .to_bits(),
+                bits("expected_f32")
+            );
+        }
+        for (y, x, expected) in [
+            (0., 1., 0),
+            (-0., 1., 0x80000000),
+            (0., -1., 0x40490fda),
+            (-0., -1., 0xc0490fda),
+            (1., 0., 0x3fc90fdb),
+            (-1., 0., 0xbfc90fdb),
+            (1., 1., 0x3f490fdb),
+            (1., -1., 0x4016cbe4),
+            (-1., 1., 0xbf490fdb),
+            (-1., -1., 0xc016cbe4),
+            (f32::INFINITY, -f32::INFINITY, 0x4016cbe4),
+        ] {
+            assert_eq!(source_atan2(y, x).to_bits(), expected);
+        }
+        assert!(source_atan2(f32::NAN, 1.).is_nan());
+    }
     #[test]
     fn gimbal_channels_keep_the_exact_frozen_source_float_bits() {
         let input: [f64; 4] = [0.5, 0.5, -0.5, 0.5];

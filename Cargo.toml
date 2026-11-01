@@ -25,6 +25,10 @@ pollster = { version = "0.4", optional = true }
 wgpu = { version = "26.0.1", default-features = false, features = ["std", "parking_lot", "metal", "vulkan", "dx12", "wgsl"], optional = true }
 winit = { version = "0.30.12", optional = true }
 
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
 [lints.rust]
 unsafe_code = "forbid"
 
