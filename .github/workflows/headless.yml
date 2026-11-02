@@ -1,0 +1,69 @@
+name: CPU headless diagnostics
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  headless:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /Cargo.toml
+            /Cargo.lock
+            /src/
+            /tests/
+            /tools/headless_smoke.py
+            /tools/requirements-mcp.txt
+            /docs/renderer-cache.md
+      - uses: dtolnay/rust-toolchain@1.85.0
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - name: Check CPU-only dependency boundary
+        shell: python
+        run: |
+          import subprocess
+          lines=subprocess.check_output(["cargo","tree","--locked","--no-default-features","--features","headless","--prefix","none","--format","{p}"],text=True).splitlines()
+          names={line.split()[0] for line in lines if line.strip()}
+          forbidden={"wgpu","winit","arboard","pollster","png","metal","ash"}
+          assert not names & forbidden, names & forbidden
+          print("CPU-only dependency tree: no window or GPU crates")
+      - run: cargo clippy --locked --no-default-features --features headless --lib --bin formora -- -D warnings
+      - run: cargo test --locked --no-default-features --features headless --test headless --test preview_cache
+      - run: cargo build --locked --no-default-features --features headless
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r tools/requirements-mcp.txt
+      - name: Exercise CPU CLI and official MCP with no display
+        shell: python
+        run: |
+          import os, subprocess
+          from pathlib import Path
+          env=dict(os.environ)
+          env.pop("DISPLAY",None)
+          env.pop("WAYLAND_DISPLAY",None)
+          binary=Path("target/debug/formora.exe" if os.name=="nt" else "target/debug/formora")
+          subprocess.run(["python","tools/headless_smoke.py",str(binary),"target/headless-evidence"],env=env,check=True,timeout=120)
+      - name: Compare fixed repeated-mesh CPU preparation in release
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --locked --release --no-default-features --features headless --test preview_cache cache_benchmark_256 -- --ignored --nocapture 2>&1 | tee target/headless-evidence/cache-benchmark.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: headless-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: target/headless-evidence
+          if-no-files-found: error

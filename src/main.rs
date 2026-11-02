@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID [--world | --object-state] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene export --scene PATH --root ID --format usda --output NEW.usda\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID [--world | --object-state] | --mesh-asset ID [--tessellate] [--selection-topology] [--normals]]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene export --scene PATH --root ID --format usda --output NEW.usda\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]\n  formora headless --scene PATH [--geometry] [--include-world] [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -29,6 +29,8 @@ fn options(
             "--normals",
             "--world",
             "--object-state",
+            "--geometry",
+            "--include-world",
         ]
         .contains(&key.as_str())
         {
@@ -62,6 +64,13 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
         "mcp" => &["--scene", "--preview", "--capture"],
         "preview" => &["--scene", "--capture"],
         "render" => &["--scene", "--output", "--width", "--height"],
+        "headless" => &[
+            "--scene",
+            "--geometry",
+            "--include-world",
+            "--width",
+            "--height",
+        ],
         "schema" => &[],
         _ => return usage("unknown scene action"),
     };
@@ -91,6 +100,40 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
     let result = (|| -> Result<Option<serde_json::Value>, String> {
         let map_err = |e: formora::scene::SceneError| e.to_string();
         match action {
+            "headless" => {
+                #[cfg(feature = "headless")]
+                {
+                    let dimension = |key: &str, default: u32| -> Result<u32, String> {
+                        options
+                            .get(key)
+                            .map(|v| {
+                                v.parse::<u32>()
+                                    .map_err(|_| format!("{key} must be a positive integer"))
+                            })
+                            .unwrap_or(Ok(default))
+                    };
+                    let request = formora::headless::DebugRequest {
+                        geometry: options.contains_key("--geometry"),
+                        include_world: options.contains_key("--include-world"),
+                        width: dimension("--width", 1280)?,
+                        height: dimension("--height", 800)?,
+                    };
+                    let scene = formora::scene::Scene::load(Path::new(path)).map_err(|e| {
+                        serde_json::json!({"schema_version":1,"mode":"headless_cpu","passed":false,
+                            "checks":[{"name":"load","status":"failed","error":e.to_string()}]})
+                        .to_string()
+                    })?;
+                    let report = formora::headless::diagnose(&scene, &request);
+                    if report["passed"] != true {
+                        return Err(report.to_string());
+                    }
+                    Ok(Some(report))
+                }
+                #[cfg(not(feature = "headless"))]
+                {
+                    Err("headless support is not enabled; build with --features headless".into())
+                }
+            }
             "export" => {
                 let required = |key: &str| {
                     options
@@ -246,6 +289,11 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
         Err(error) => {
             if action == "mcp" {
                 eprintln!("{error}");
+            } else if action == "headless"
+                && serde_json::from_str::<serde_json::Value>(&error)
+                    .is_ok_and(|v| v["mode"] == "headless_cpu")
+            {
+                println!("{error}");
             } else {
                 println!("{}", serde_json::json!({"error":error}));
             }
@@ -266,6 +314,7 @@ fn main() -> std::process::ExitCode {
         Some("mcp") => return scene_cli("mcp", args),
         Some("preview") => return scene_cli("preview", args),
         Some("render") => return scene_cli("render", args),
+        Some("headless") => return scene_cli("headless", args),
         Some("baseline") if args.next().as_deref() == Some("check") => {}
         _ => return usage("command is required"),
     }

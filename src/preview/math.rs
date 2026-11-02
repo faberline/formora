@@ -3,6 +3,10 @@ use crate::scene::{EntityKind, Geometry, Result, Scene, SceneError};
 use glam::{DMat4, DVec3, DVec4};
 use std::collections::{BTreeMap, BTreeSet};
 
+#[path = "cache.rs"]
+mod cache;
+pub use cache::GeometryCache;
+
 #[repr(C)]
 #[derive(Clone, Copy, bytemuck::Pod, bytemuck::Zeroable)]
 pub struct Vertex {
@@ -12,6 +16,7 @@ pub struct Vertex {
     pub surface: [f32; 2],
 }
 
+#[derive(Clone)]
 pub struct Camera {
     pub view_projection: DMat4,
     pub position: DVec3,
@@ -45,6 +50,60 @@ pub fn camera(scene: &Scene, width: u32, height: u32) -> Result<Camera> {
         return Err(SceneError("preview size must be nonzero".into()));
     }
     let world = world_transforms(scene)?;
+    camera_with_world(scene, width, height, &world)
+}
+
+/// Projects only the active camera and its transform ancestry.
+/// Other scene data is not validated. Use with an already prepared snapshot.
+pub fn camera_view(scene: &Scene, width: u32, height: u32) -> Result<Camera> {
+    if width == 0 || height == 0 {
+        return Err(SceneError("preview size must be nonzero".into()));
+    }
+    let mut view = Scene::default();
+    let Some(active) = &scene.active_camera else {
+        return camera(&view, width, height);
+    };
+    let mut seen = BTreeSet::new();
+    let mut current = Some(active.as_str());
+    let mut context = crate::objects::Context::default();
+    while let Some(id) = current {
+        if !seen.insert(id) {
+            return Err(SceneError("camera parent cycle".into()));
+        }
+        let source = scene
+            .entities
+            .get(id)
+            .ok_or_else(|| SceneError(format!("missing camera ancestor: {id}")))?;
+        let mut entity = source.clone();
+        if id == active {
+            if !matches!(entity.content, EntityKind::Camera { .. }) {
+                return Err(SceneError("active entity is not a camera".into()));
+            }
+        } else {
+            entity.content = EntityKind::Empty;
+        }
+        view.entities.insert(id.into(), entity);
+        if let Some(state) = scene.object_context.as_ref().and_then(|c| c.states.get(id)) {
+            context.states.insert(id.into(), state.clone());
+        }
+        current = source.parent.as_deref();
+    }
+    view.active_camera = Some(active.clone());
+    if !context.states.is_empty() {
+        view.object_context = Some(context);
+    }
+    camera(&view, width, height)
+}
+
+pub(crate) fn camera_with_world(
+    scene: &Scene,
+    width: u32,
+    height: u32,
+    world: &BTreeMap<String, DMat4>,
+) -> Result<Camera> {
+    if width == 0 || height == 0 {
+        return Err(SceneError("preview size must be nonzero".into()));
+    }
     let (view, fov, near, far, position) = if let Some(id) = &scene.active_camera {
         let EntityKind::Camera {
             vertical_fov_degrees,

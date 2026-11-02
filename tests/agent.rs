@@ -182,7 +182,7 @@ fn mcp_initialization_discovery_edits_errors_and_undo_work_in_a_real_process() {
     assert_eq!(responses.len(), 6);
     assert_eq!(responses[0]["result"]["protocolVersion"], "2025-11-25");
     let tools = responses[1]["result"]["tools"].as_array().unwrap();
-    assert_eq!(tools.len(), 4);
+    assert_eq!(tools.len(), 4 + usize::from(cfg!(feature = "headless")));
     let apply = tools.iter().find(|t| t["name"] == "scene_apply").unwrap();
     assert!(apply["inputSchema"]["$defs"]["Command"].is_object());
     assert_eq!(responses[2]["result"]["structuredContent"]["revision"], 2);

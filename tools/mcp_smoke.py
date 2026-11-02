@@ -29,7 +29,8 @@ async def run(binary):
             async with ClientSession(reader, writer, read_timeout_seconds=10) as client:
                 initialized = await client.initialize()
                 listed = await client.list_tools()
-                assert {t.name for t in listed.tools} == {"scene_inspect", "scene_apply", "scene_undo", "scene_export"}
+                required = {"scene_inspect", "scene_apply", "scene_undo", "scene_export"}
+                assert {t.name for t in listed.tools} in (required, required | {"scene_debug"})
                 for tool in listed.tools:
                     Draft202012Validator.check_schema(tool.input_schema)
                 inspected = await client.call_tool("scene_inspect", {})

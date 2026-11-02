@@ -1,9 +1,9 @@
 //! Native result preview. Authoring remains in the shared scene session.
-pub mod math;
+pub use crate::geometry as math;
 mod render;
 mod window;
 
-pub use render::{Renderer, render_png};
+pub use render::{PreparedScene, Renderer, render_png};
 pub use window::run;
 
 use crate::scene::{Command, Result, Scene};

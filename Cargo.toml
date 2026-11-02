@@ -8,7 +8,8 @@ description = "Agent-operated 3D creation and runtime"
 
 [features]
 default = []
-preview = ["dep:arboard", "dep:bytemuck", "dep:glam", "dep:png", "dep:pollster", "dep:wgpu", "dep:winit"]
+headless = ["dep:bytemuck", "dep:glam"]
+preview = ["headless", "dep:arboard", "dep:png", "dep:pollster", "dep:wgpu", "dep:winit"]
 
 [dependencies]
 fs2 = "0.4"

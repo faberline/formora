@@ -10,6 +10,16 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
         serde_json::from_value(value).map_err(|e| e.to_string())
     }
     match name {
+        #[cfg(feature = "headless")]
+        "scene_debug" => {
+            let request = parse::<crate::headless::DebugRequest>(arguments)?;
+            let report = crate::headless::diagnose(session.scene(), &request);
+            if report["passed"] == true {
+                Ok(report)
+            } else {
+                Err(report.to_string())
+            }
+        }
         "scene_inspect" => session
             .inspect(parse::<InspectRequest>(arguments)?)
             .map_err(|e| e.to_string()),
@@ -32,12 +42,24 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
 }
 
 pub fn tools() -> Value {
-    json!([
+    let tools = json!([
         {"name":"scene_export","description":"Export one static root subtree to a new USDA file. Never overwrites output or changes the native scene. Rejects unsupported state.","inputSchema":schemars::schema_for!(crate::usd::ExportRequest),"annotations":{"readOnlyHint":false,"destructiveHint":false}},
         {"name":"scene_inspect","description":"Inspect the current scene, one entity (optionally its persistent object_state), or one mesh_asset (optionally with resolved face/corner normals, or tessellated with polygon corner indices and diagnostics). No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
         {"name":"scene_apply","description":"Apply one atomic command batch at expected_revision. Every command must leave a valid scene. Success is saved before returning. Query the scene first to obtain its revision.","inputSchema":schemars::schema_for!(ApplyRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}},
         {"name":"scene_undo","description":"Undo the last successful batch in this process. The restored scene is saved with a new revision. Undo history is not kept across process restarts.","inputSchema":schemars::schema_for!(UndoRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}}
-    ])
+    ]);
+    #[cfg(feature = "headless")]
+    {
+        let mut tools = tools;
+        tools.as_array_mut().expect("tool array").push(json!({"name":"scene_debug",
+            "description":"Read-only CPU diagnosis without a GPU or window. Checks validation, world transforms and camera. Optional geometry prepares preview f32 vertices. Failure reports retain failed/skipped stages; timings are diagnostic, not frame-rate acceptance.",
+            "inputSchema":schemars::schema_for!(crate::headless::DebugRequest),"annotations":{"readOnlyHint":true}}));
+        tools
+    }
+    #[cfg(not(feature = "headless"))]
+    {
+        tools
+    }
 }
 
 fn read_message(reader: &mut impl BufRead) -> io::Result<Option<Vec<u8>>> {
@@ -193,7 +215,9 @@ impl McpServer {
                 let Some(name) = params.get("name").and_then(Value::as_str) else {
                     return Some(rpc_error(id, -32602, "tool name is required"));
                 };
-                if !["scene_inspect", "scene_apply", "scene_undo", "scene_export"].contains(&name) {
+                if !(["scene_inspect", "scene_apply", "scene_undo", "scene_export"].contains(&name)
+                    || cfg!(feature = "headless") && name == "scene_debug")
+                {
                     return Some(rpc_error(id, -32602, "unknown tool"));
                 }
                 let arguments = params
