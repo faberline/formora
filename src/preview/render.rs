@@ -1,7 +1,7 @@
+use super::buffers::{Draw, VertexBuffers};
 use super::math::{self, Vertex};
 use crate::scene::{Result, Scene, SceneError};
 use std::collections::BTreeMap;
-use std::ops::Range;
 use std::path::Path;
 use std::sync::{Arc, Mutex};
 use std::time::Instant;
@@ -26,14 +26,14 @@ struct Light {
 #[derive(Clone, Default)]
 struct Prepared {
     geometry: math::GeometryCache,
-    vertex: Option<(Arc<Vec<Vertex>>, Arc<wgpu::Buffer>)>,
+    vertex: Option<Arc<VertexBuffers>>,
 }
 
 /// Immutable GPU snapshot, tied to the Renderer that prepared it.
 /// Prepare again after geometry, material, annotation or lighting changes.
 pub struct PreparedScene {
     owner: Arc<()>,
-    vertex: Arc<wgpu::Buffer>,
+    vertex: Arc<VertexBuffers>,
     count: u32,
     lights: wgpu::Buffer,
     light_count: u32,
@@ -51,6 +51,11 @@ impl PreparedScene {
     /// The exact validated prepare-time world transform. It does not read live data.
     pub fn world_transform(&self, id: &str) -> Option<glam::DMat4> {
         self.world.get(id).copied()
+    }
+
+    /// Number of immutable GPU vertex buffers. All corners are retained across them.
+    pub fn vertex_buffer_count(&self) -> usize {
+        self.vertex.buffer_count()
     }
 
     pub fn vertex_count(&self) -> u32 {
@@ -90,11 +95,6 @@ pub struct ProfiledFrame {
     pub gpu: Option<GpuPassTiming>,
 }
 
-struct Draw<'a> {
-    vertex: &'a wgpu::Buffer,
-    range: Range<u32>,
-}
-
 struct PassQuery {
     set: wgpu::QuerySet,
     resolve: wgpu::Buffer,
@@ -118,6 +118,7 @@ pub struct Renderer {
     prepared: Mutex<Prepared>,
     owner: Arc<()>,
     profiled: bool,
+    vertex_buffer_chunk_limit: u64,
     pub width: u32,
     pub height: u32,
     pub adapter: String,
@@ -234,6 +235,7 @@ impl Renderer {
             multiview:None,cache:None,
         });
         let depth = Self::depth(&device, width, height);
+        let vertex_buffer_chunk_limit = device.limits().max_buffer_size;
         Ok(Self {
             _instance: instance,
             surface,
@@ -247,6 +249,7 @@ impl Renderer {
             prepared: Mutex::default(),
             owner: Arc::new(()),
             profiled,
+            vertex_buffer_chunk_limit,
             width,
             height,
             adapter: adapter_name,
@@ -315,27 +318,18 @@ impl Renderer {
         let ranges = prepared.geometry.draw_ranges()?;
         Self::validate_camera(&camera)?;
         let count = u32::try_from(vertices.len()).map_err(error)?;
-        let dummy = Vertex::zeroed();
         if !prepared
             .vertex
             .as_ref()
-            .is_some_and(|(old, _)| Arc::ptr_eq(old, &vertices))
+            .is_some_and(|old| old.matches(&vertices, self.vertex_buffer_chunk_limit))
         {
-            let bytes = if vertices.is_empty() {
-                bytemuck::bytes_of(&dummy)
-            } else {
-                bytemuck::cast_slice(vertices.as_slice())
-            };
-            let buffer = self
-                .device
-                .create_buffer_init(&wgpu::util::BufferInitDescriptor {
-                    label: Some("Scene triangles"),
-                    contents: bytes,
-                    usage: wgpu::BufferUsages::VERTEX,
-                });
-            prepared.vertex = Some((Arc::clone(&vertices), Arc::new(buffer)));
+            prepared.vertex = Some(Arc::new(VertexBuffers::new(
+                &self.device,
+                Arc::clone(&vertices),
+                self.vertex_buffer_chunk_limit,
+            )?));
         }
-        let vertex = Arc::clone(&prepared.vertex.as_ref().expect("prepared vertex buffer").1);
+        let vertex = Arc::clone(prepared.vertex.as_ref().expect("prepared vertex buffers"));
         Ok(PreparedScene {
             owner: Arc::clone(&self.owner),
             vertex,
@@ -390,6 +384,23 @@ impl Renderer {
         })
     }
 
+    /// Current byte limit for each new vertex upload chunk.
+    pub fn vertex_buffer_chunk_limit(&self) -> u64 {
+        self.vertex_buffer_chunk_limit
+    }
+
+    /// Optional allocation-only debug policy. None restores the actual device limit.
+    /// Existing immutable snapshots remain valid. New uploads use complete triangles.
+    pub fn set_vertex_buffer_chunk_limit(&mut self, bytes: Option<u64>) -> Result<()> {
+        let limit = bytes.unwrap_or(self.device.limits().max_buffer_size);
+        if limit > self.device.limits().max_buffer_size {
+            return Err(error("vertex buffer chunk limit exceeds device maximum"));
+        }
+        super::buffers::triangle_ranges(0, limit)?;
+        self.vertex_buffer_chunk_limit = limit;
+        Ok(())
+    }
+
     fn validate_camera(camera: &math::Camera) -> Result<()> {
         if !camera.position.is_finite()
             || !camera.position.as_vec3().is_finite()
@@ -421,10 +432,7 @@ impl Renderer {
     ) -> Result<wgpu::CommandEncoder> {
         self.validate_snapshot(snapshot, camera)?;
         self.encode_draws(
-            &[Draw {
-                vertex: &snapshot.vertex,
-                range: 0..snapshot.count,
-            }],
+            &snapshot.vertex.draws(0..snapshot.count)?,
             camera,
             &snapshot.lights,
             snapshot.light_count,
@@ -542,13 +550,10 @@ impl Renderer {
             self.validate_snapshot(layer, camera)?;
         }
         let ranges: Vec<_> = layers.iter().map(|l| &l.ranges).collect();
-        let draws = math::ordered_ranges(&ranges)?
-            .into_iter()
-            .map(|(index, range)| Draw {
-                vertex: &layers[index].vertex,
-                range,
-            })
-            .collect();
+        let mut draws = Vec::new();
+        for (index, range) in math::ordered_ranges(&ranges)? {
+            layers[index].vertex.append_draws(range, &mut draws)?;
+        }
         Ok(draws)
     }
 

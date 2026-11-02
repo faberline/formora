@@ -61,13 +61,18 @@ fn scene() -> Scene {
     scene
 }
 
-fn pixels(path: &Path, size: PhysicalSize<u32>) -> Result<Vec<u8>> {
+fn rgba(path: &Path, size: PhysicalSize<u32>) -> Result<Vec<u8>> {
     let mut reader = png::Decoder::new(BufReader::new(fs::File::open(path)?)).read_info()?;
     let mut data = vec![0; reader.output_buffer_size().ok_or("PNG too large")?];
     let info = reader.next_frame(&mut data)?;
     assert_eq!((info.width, info.height), (size.width, size.height));
     assert_eq!(info.color_type, png::ColorType::Rgba);
     data.truncate(info.buffer_size());
+    Ok(data)
+}
+
+fn pixels(path: &Path, size: PhysicalSize<u32>) -> Result<Vec<u8>> {
+    let data = rgba(path, size)?;
     let background = &data[..4];
     assert!(data.chunks_exact(4).filter(|p| *p != background).count() > 100);
     Ok(data)
@@ -452,7 +457,10 @@ impl Trial {
             let current = full.clone();
             let reference = self.output.join(format!("layers-reference-{step}.png"));
             let output = self.output.join(format!("layers-ordered-{step}.png"));
+            let chunk_limit = renderer.vertex_buffer_chunk_limit();
+            renderer.set_vertex_buffer_chunk_limit(None)?;
             renderer.capture(&full, &reference)?;
+            renderer.set_vertex_buffer_chunk_limit(Some(chunk_limit))?;
             renderer.capture_layers(&[&dynamic, &static_snapshot], &camera, &lights, &output)?;
             let image = pixels(&reference, size)?;
             assert_eq!(
@@ -649,6 +657,89 @@ impl Trial {
         renderer.resize(original_size.0, original_size.1);
         println!(
             "PASS snapshot CPU branches, retained future and full validation; layers: global ID order, shared current lighting, same-revision updates, immutable world poses, old snapshots, annotations, resize, foreign/duplicate rejection and real GPU ticks"
+        );
+        Ok(())
+    }
+
+    fn chunked_buffers(
+        &self,
+        renderer: &mut Renderer,
+        size: PhysicalSize<u32>,
+        windowed: bool,
+    ) -> Result<()> {
+        let scene = scene();
+        let original_limit = renderer.vertex_buffer_chunk_limit();
+        let reference = self.output.join("chunk-single-reference.png");
+        renderer.capture(&scene, &reference)?;
+        let expected = pixels(&reference, size)?;
+        let old = renderer.prepare(&scene)?;
+        assert_eq!(old.vertex_buffer_count(), 1);
+        let triangle_bytes = 3 * std::mem::size_of::<formora::geometry::Vertex>() as u64;
+        for invalid in [0, triangle_bytes - 1, u64::MAX] {
+            assert!(
+                renderer
+                    .set_vertex_buffer_chunk_limit(Some(invalid))
+                    .is_err()
+            );
+            assert_eq!(renderer.vertex_buffer_chunk_limit(), original_limit);
+        }
+        renderer.set_vertex_buffer_chunk_limit(Some(triangle_bytes))?;
+        let split = renderer.prepare_from(&old, &scene)?;
+        assert_eq!(split.vertex_count(), 36);
+        assert_eq!(
+            split.vertex_buffer_count(),
+            12,
+            "one actual buffer per source triangle"
+        );
+        let camera = formora::geometry::camera_view(&scene, size.width, size.height)?;
+        let lights = renderer.prepare_lighting(&scene)?;
+        let path = self.output.join("chunk-prepared.png");
+        renderer.capture_prepared(&split, &camera, &path)?;
+        assert_eq!(pixels(&path, size)?, expected);
+        renderer.capture(&scene, &self.output.join("chunk-live.png"))?;
+        assert_eq!(pixels(&self.output.join("chunk-live.png"), size)?, expected);
+        renderer.capture_layers(
+            &[&split],
+            &camera,
+            &lights,
+            &self.output.join("chunk-layer.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("chunk-layer.png"), size)?,
+            expected
+        );
+        renderer.capture_prepared(&old, &camera, &self.output.join("chunk-old-retained.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("chunk-old-retained.png"), size)?,
+            expected
+        );
+        assert_eq!(old.vertex_buffer_count(), 1);
+        if windowed {
+            renderer.draw_prepared(&split, &camera)?;
+            renderer.draw_layers(&[&split], &camera, &lights)?;
+        }
+        let empty = Scene::default();
+        let no_vertices = renderer.prepare(&empty)?;
+        assert_eq!(no_vertices.vertex_count(), 0);
+        assert_eq!(no_vertices.vertex_buffer_count(), 0);
+        let empty_path = self.output.join("chunk-empty.png");
+        renderer.capture_prepared(&no_vertices, no_vertices.camera(), &empty_path)?;
+        let clear = rgba(&empty_path, size)?;
+        assert!(clear.chunks_exact(4).all(|p| p == &clear[..4]));
+        // Repeat all interleaved global mesh/annotation and future-branch checks
+        // with real one-triangle GPU buffers. Each reference uses the normal limit.
+        self.layers(renderer, size, windowed)?;
+        renderer.set_vertex_buffer_chunk_limit(None)?;
+        assert_eq!(renderer.vertex_buffer_chunk_limit(), original_limit);
+        let joined = renderer.prepare_from(&split, &scene)?;
+        assert_eq!(joined.vertex_buffer_count(), 1);
+        renderer.capture_prepared(&joined, &camera, &self.output.join("chunk-reset.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("chunk-reset.png"), size)?,
+            expected
+        );
+        println!(
+            "PASS complete triangle GPU chunks:12buffers/36corners,single-vs-chunk pixel parity,old snapshots,policy errors,empty frame,global layered order,resize and prepare_from rechunking"
         );
         Ok(())
     }
@@ -864,6 +955,7 @@ impl Trial {
         self.corner_colors(renderer, size)?;
         self.authored_cancellation(renderer, size)?;
         self.layers(renderer, size, windowed)?;
+        self.chunked_buffers(renderer, size, windowed)?;
         println!("PASS resize, zero resize, invalid-scene/output rejection, host ownership");
         fs::write(
             self.output.join("passed.txt"),
