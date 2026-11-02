@@ -115,6 +115,19 @@ impl Trial {
         let repeat = self.output.join("repeat.png");
         renderer.capture(&self.scene, &repeat)?;
         assert_eq!(pixels(&repeat, size)?, data);
+        let prepared = renderer.prepare(&self.scene)?;
+        assert_eq!(prepared.vertex_count(), 36);
+        let camera = formora::geometry::camera_view(&self.scene, size.width, size.height)?;
+        let captured = self.output.join(format!("prepared-{step}.png"));
+        if windowed {
+            renderer.draw_prepared(&prepared, &camera)?;
+        }
+        renderer.capture_prepared(&prepared, &camera, &captured)?;
+        assert_eq!(
+            pixels(&captured, size)?,
+            data,
+            "prepared and live pixels must match"
+        );
         assert_eq!(self.scene, before, "rendering must not mutate host state");
         assert_eq!(self.scene.revision, self.original.revision);
         self.previous = Some(data);
@@ -146,6 +159,110 @@ impl Trial {
         renderer.capture(&self.scene, &path)?;
         pixels(&path, RESIZED)?;
         let good = fs::read(&path)?;
+        let snapshot = renderer.prepare(&self.scene)?;
+        let camera = formora::geometry::camera_view(&self.scene, RESIZED.width, RESIZED.height)?;
+        renderer.capture_prepared(
+            &snapshot,
+            &camera,
+            &self.output.join("prepared-resized.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("prepared-resized.png"), RESIZED)?,
+            pixels(&path, RESIZED)?
+        );
+        if !windowed {
+            assert!(renderer.draw_prepared(&snapshot, &camera).is_err());
+        }
+        let mut bad_camera = camera.clone();
+        bad_camera.position.x = f64::NAN;
+        assert!(
+            renderer
+                .capture_prepared(&snapshot, &bad_camera, &path)
+                .is_err()
+        );
+        assert_eq!(fs::read(&path)?, good);
+        let foreign = pollster::block_on(Renderer::new(None, RESIZED.width, RESIZED.height))?;
+        let error = foreign
+            .capture_prepared(&snapshot, &camera, &path)
+            .unwrap_err();
+        assert!(error.to_string().contains("another renderer"));
+        assert_eq!(fs::read(&path)?, good);
+        let mut changed = self.scene.clone();
+        changed.materials.get_mut("paint").unwrap().base_color = [0.1, 0.9, 0.05, 1.0];
+        let newer = renderer.prepare(&changed)?;
+        renderer.capture_prepared(&newer, &camera, &self.output.join("prepared-newer.png"))?;
+        renderer.capture(&changed, &self.output.join("live-newer.png"))?;
+        let newer_pixels = pixels(&self.output.join("prepared-newer.png"), RESIZED)?;
+        assert_eq!(
+            newer_pixels,
+            pixels(&self.output.join("live-newer.png"), RESIZED)?
+        );
+        assert_ne!(newer_pixels, pixels(&path, RESIZED)?);
+        renderer.capture_prepared(
+            &snapshot,
+            &camera,
+            &self.output.join("prepared-original-again.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("prepared-original-again.png"), RESIZED)?,
+            pixels(&path, RESIZED)?,
+            "preparing changed data must not mutate the old snapshot"
+        );
+        changed = self.scene.clone();
+        changed
+            .entities
+            .get_mut("camera")
+            .unwrap()
+            .transform
+            .translation[0] += 0.4;
+        let moved_camera = formora::geometry::camera_view(&changed, RESIZED.width, RESIZED.height)?;
+        renderer.capture_prepared(
+            &snapshot,
+            &moved_camera,
+            &self.output.join("prepared-camera.png"),
+        )?;
+        renderer.capture(&changed, &self.output.join("live-camera.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("prepared-camera.png"), RESIZED)?,
+            pixels(&self.output.join("live-camera.png"), RESIZED)?
+        );
+        changed = self.scene.clone();
+        changed.entities.insert(
+            "light".into(),
+            Entity {
+                name: "Light".into(),
+                parent: None,
+                transform: Transform {
+                    translation: [0.0, 0.0, 5.0],
+                    ..Transform::default()
+                },
+                content: EntityKind::Light {
+                    color: [0.1, 1.0, 0.1],
+                    intensity: 100.0,
+                },
+            },
+        );
+        let lit = renderer.prepare(&changed)?;
+        renderer.capture_prepared(&lit, &camera, &self.output.join("prepared-light.png"))?;
+        renderer.capture(&changed, &self.output.join("live-light.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("prepared-light.png"), RESIZED)?,
+            pixels(&self.output.join("live-light.png"), RESIZED)?
+        );
+        assert_ne!(
+            pixels(&self.output.join("prepared-light.png"), RESIZED)?,
+            pixels(&path, RESIZED)?
+        );
+        renderer.capture_prepared(
+            &snapshot,
+            &camera,
+            &self.output.join("prepared-old-light.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("prepared-old-light.png"), RESIZED)?,
+            pixels(&path, RESIZED)?
+        );
+        assert_eq!(changed.revision, self.scene.revision);
         let mut invalid = self.scene.clone();
         invalid.active_camera = Some("missing".into());
         assert!(renderer.capture(&invalid, &path).is_err());
@@ -161,7 +278,7 @@ impl Trial {
         fs::write(
             self.output.join("passed.txt"),
             format!(
-                "adapter={}\nwindowed={windowed}\nframes=5\nscene_revision={}\n",
+                "adapter={}\nwindowed={windowed}\nscene_samples=5\nprepared_matches_live=true\nimmutable_snapshot_checked=true\nscene_revision={}\n",
                 renderer.adapter, self.scene.revision
             ),
         )?;

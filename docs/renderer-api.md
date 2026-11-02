@@ -62,6 +62,11 @@ Renderer 持有視窗的 Arc。結束時先釋放 Renderer，再釋放 host 的�
 裝置限制、配置及記憶體耗盡等 wgpu 錯誤仍可能造成 panic。
 不要把任意使用者尺寸直接傳入 GPU。
 
+大量靜態場景另可使用 [PreparedScene 快照](renderer-cache.md)的
+`prepare`、`draw_prepared`、`capture_prepared`，並以 `geometry::camera_view` 更新相機。
+這條路徑明確畫已準備的快照。資料改變後須重新準備。
+它不改變原四個方法的 live Scene 行為。
+
 `draw` 遇到 Lost／Outdated 時會重設 surface，並略過這一幀。
 Timeout／Other 也可能略過一幀。
 上述情況仍回傳 `Ok(())`，所以它不是呈現成功的收據。
@@ -81,8 +86,9 @@ host 可在記憶體中建立或更新 `Scene`，先呼叫 `Scene::validate()`�
 正式遊戲的時間、選取、建造、存檔及識別碼映射仍由 host 負責。
 不要將可編輯 Scene 的 revision 當成遊戲狀態版本。
 
-每次繪圖仍重算世界變換與頂點，並建立 GPU 緩衝。
-目前沒有 prepare/cache、局部更新或 draw-call 效能保證。
+每次繪圖仍驗證完整 Scene 並求出世界變換。
+[幾何準備快取](renderer-cache.md)重用未變的 asset、物件頂點與 GPU 緩衝。
+目前沒有局部 GPU 更新、GPU instancing 或 draw-call 效能保證。
 大型城市必須另做效能驗收。
 材質、光照與幾何的支援範圍沿用[基本預覽](preview.md)。
 本次沒有加入紋理、骨架、動畫或 per-corner RGBA 繪圖支援。

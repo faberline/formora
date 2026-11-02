@@ -1,7 +1,7 @@
 use super::math::{self, Vertex};
 use crate::scene::{EntityKind, Result, Scene, SceneError};
 use std::path::Path;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 use wgpu::util::DeviceExt;
 use winit::window::Window;
 
@@ -20,6 +20,33 @@ struct Light {
     color: [f32; 4],
 }
 
+#[derive(Default)]
+struct Prepared {
+    geometry: math::GeometryCache,
+    vertex: Option<(Arc<Vec<Vertex>>, Arc<wgpu::Buffer>)>,
+}
+
+/// Immutable GPU snapshot, tied to the Renderer that prepared it.
+/// Prepare again after geometry, material, annotation or lighting changes.
+pub struct PreparedScene {
+    owner: Arc<()>,
+    vertex: Arc<wgpu::Buffer>,
+    count: u32,
+    lights: wgpu::Buffer,
+    light_count: u32,
+    camera: math::Camera,
+}
+
+impl PreparedScene {
+    /// The camera at prepare time and at that renderer size.
+    pub fn camera(&self) -> &math::Camera {
+        &self.camera
+    }
+    pub fn vertex_count(&self) -> u32 {
+        self.count
+    }
+}
+
 /// Basic GPU preview owned by an external host or the standalone tool.
 ///
 /// The host owns the window, event loop and scene. No [`crate::session::Session`]
@@ -34,6 +61,8 @@ pub struct Renderer {
     uniform: wgpu::Buffer,
     depth: wgpu::TextureView,
     format: wgpu::TextureFormat,
+    prepared: Mutex<Prepared>,
+    owner: Arc<()>,
     pub width: u32,
     pub height: u32,
     pub adapter: String,
@@ -133,6 +162,8 @@ impl Renderer {
             uniform,
             depth,
             format,
+            prepared: Mutex::default(),
+            owner: Arc::new(()),
             width,
             height,
             adapter: adapter_name,
@@ -174,9 +205,11 @@ impl Renderer {
         }
     }
 
-    fn encode(&self, scene: &Scene, view: &wgpu::TextureView) -> Result<wgpu::CommandEncoder> {
-        let camera = math::camera(scene, self.width, self.height)?;
+    /// Fully validates current data and prepares an immutable snapshot, irrespective of revision.
+    /// Record this cost separately and include it in a frame that needs to update geometry.
+    pub fn prepare(&self, scene: &Scene) -> Result<PreparedScene> {
         let world = math::world_transforms(scene)?;
+        let camera = math::camera_with_world(scene, self.width, self.height, &world)?;
         let mut lights = Vec::new();
         for (id, entity) in &scene.entities {
             if let EntityKind::Light { color, intensity } = &entity.content {
@@ -210,6 +243,74 @@ impl Renderer {
                 contents: bytemuck::cast_slice(&lights),
                 usage: wgpu::BufferUsages::STORAGE,
             });
+        Self::validate_camera(&camera)?;
+        let mut prepared = self
+            .prepared
+            .lock()
+            .map_err(|_| error("renderer preparation cache is poisoned"))?;
+        let vertices = prepared.geometry.with_world(scene, &world)?;
+        let count = u32::try_from(vertices.len()).map_err(error)?;
+        let dummy = Vertex::zeroed();
+        if !prepared
+            .vertex
+            .as_ref()
+            .is_some_and(|(old, _)| Arc::ptr_eq(old, &vertices))
+        {
+            let bytes = if vertices.is_empty() {
+                bytemuck::bytes_of(&dummy)
+            } else {
+                bytemuck::cast_slice(vertices.as_slice())
+            };
+            let buffer = self
+                .device
+                .create_buffer_init(&wgpu::util::BufferInitDescriptor {
+                    label: Some("Scene triangles"),
+                    contents: bytes,
+                    usage: wgpu::BufferUsages::VERTEX,
+                });
+            prepared.vertex = Some((Arc::clone(&vertices), Arc::new(buffer)));
+        }
+        let vertex = Arc::clone(&prepared.vertex.as_ref().expect("prepared vertex buffer").1);
+        Ok(PreparedScene {
+            owner: Arc::clone(&self.owner),
+            vertex,
+            count,
+            lights: light_buffer,
+            light_count,
+            camera,
+        })
+    }
+
+    fn validate_camera(camera: &math::Camera) -> Result<()> {
+        if !camera.position.is_finite()
+            || !camera.position.as_vec3().is_finite()
+            || !camera.view_projection.is_finite()
+            || !camera.view_projection.as_mat4().is_finite()
+        {
+            return Err(error("camera exceeds preview range"));
+        }
+        Ok(())
+    }
+
+    fn validate_snapshot(&self, snapshot: &PreparedScene, camera: &math::Camera) -> Result<()> {
+        if !Arc::ptr_eq(&self.owner, &snapshot.owner) {
+            return Err(error("prepared scene belongs to another renderer"));
+        }
+        Self::validate_camera(camera)
+    }
+
+    fn encode(&self, scene: &Scene, view: &wgpu::TextureView) -> Result<wgpu::CommandEncoder> {
+        let snapshot = self.prepare(scene)?;
+        self.encode_prepared(&snapshot, snapshot.camera(), view)
+    }
+
+    fn encode_prepared(
+        &self,
+        snapshot: &PreparedScene,
+        camera: &math::Camera,
+        view: &wgpu::TextureView,
+    ) -> Result<wgpu::CommandEncoder> {
+        self.validate_snapshot(snapshot, camera)?;
         let bind_group = self.device.create_bind_group(&wgpu::BindGroupDescriptor {
             label: Some("Preview bindings"),
             layout: &self.pipeline.get_bind_group_layout(0),
@@ -220,36 +321,18 @@ impl Renderer {
                 },
                 wgpu::BindGroupEntry {
                     binding: 1,
-                    resource: light_buffer.as_entire_binding(),
+                    resource: snapshot.lights.as_entire_binding(),
                 },
             ],
         });
         let eye = camera.position.as_vec3();
-        if !eye.is_finite() {
-            return Err(error("camera exceeds preview range"));
-        }
         let uniform = Uniform {
             view_projection: camera.view_projection.as_mat4().to_cols_array_2d(),
             eye: [eye.x, eye.y, eye.z, 1.0],
-            light_meta: [light_count, 0, 0, 0],
+            light_meta: [snapshot.light_count, 0, 0, 0],
         };
         self.queue
             .write_buffer(&self.uniform, 0, bytemuck::bytes_of(&uniform));
-        let vertices = math::vertices(scene)?;
-        let count = u32::try_from(vertices.len()).map_err(error)?;
-        let dummy = Vertex::zeroed();
-        let bytes = if vertices.is_empty() {
-            bytemuck::bytes_of(&dummy)
-        } else {
-            bytemuck::cast_slice(&vertices)
-        };
-        let buffer = self
-            .device
-            .create_buffer_init(&wgpu::util::BufferInitDescriptor {
-                label: Some("Scene triangles"),
-                contents: bytes,
-                usage: wgpu::BufferUsages::VERTEX,
-            });
         let mut encoder = self
             .device
             .create_command_encoder(&wgpu::CommandEncoderDescriptor {
@@ -285,8 +368,8 @@ impl Renderer {
             });
             pass.set_pipeline(&self.pipeline);
             pass.set_bind_group(0, &bind_group, &[]);
-            pass.set_vertex_buffer(0, buffer.slice(..));
-            pass.draw(0..count, 0..1);
+            pass.set_vertex_buffer(0, snapshot.vertex.slice(..));
+            pass.draw(0..snapshot.count, 0..1);
         }
         Ok(encoder)
     }
@@ -294,6 +377,19 @@ impl Renderer {
     /// Renders the supplied scene to the window. Fails without a window surface.
     /// A recoverable surface error can skip a frame while returning `Ok(())`.
     pub fn draw(&mut self, scene: &Scene) -> Result<()> {
+        self.present(|view| self.encode(scene, view))
+    }
+
+    /// Draws immutable prepared data with a current camera. Does not read a live Scene.
+    pub fn draw_prepared(&mut self, snapshot: &PreparedScene, camera: &math::Camera) -> Result<()> {
+        self.validate_snapshot(snapshot, camera)?;
+        self.present(|view| self.encode_prepared(snapshot, camera, view))
+    }
+
+    fn present(
+        &self,
+        encode: impl FnOnce(&wgpu::TextureView) -> Result<wgpu::CommandEncoder>,
+    ) -> Result<()> {
         let Some(surface) = &self.surface else {
             return Err(error("renderer has no window"));
         };
@@ -310,7 +406,7 @@ impl Renderer {
             Err(e) => return Err(error(e)),
         };
         let view = frame.texture.create_view(&Default::default());
-        self.queue.submit([self.encode(scene, &view)?.finish()]);
+        self.queue.submit([encode(&view)?.finish()]);
         frame.present();
         Ok(())
     }
@@ -318,6 +414,25 @@ impl Renderer {
     /// Renders a separate offscreen frame and writes PNG, replacing an existing file.
     /// This blocks for GPU readback. It is not a desktop screenshot or atomic save.
     pub fn capture(&self, scene: &Scene, path: &Path) -> Result<()> {
+        self.capture_frame(path, |view| self.encode(scene, view))
+    }
+
+    /// Captures a new offscreen frame from the snapshot. Replaces existing output.
+    pub fn capture_prepared(
+        &self,
+        snapshot: &PreparedScene,
+        camera: &math::Camera,
+        path: &Path,
+    ) -> Result<()> {
+        self.validate_snapshot(snapshot, camera)?;
+        self.capture_frame(path, |view| self.encode_prepared(snapshot, camera, view))
+    }
+
+    fn capture_frame(
+        &self,
+        path: &Path,
+        encode: impl FnOnce(&wgpu::TextureView) -> Result<wgpu::CommandEncoder>,
+    ) -> Result<()> {
         let texture = self.device.create_texture(&wgpu::TextureDescriptor {
             label: Some("Scene capture"),
             size: wgpu::Extent3d {
@@ -333,7 +448,7 @@ impl Renderer {
             view_formats: &[],
         });
         let view = texture.create_view(&Default::default());
-        let mut encoder = self.encode(scene, &view)?;
+        let mut encoder = encode(&view)?;
         let row = (self.width * 4).div_ceil(256) * 256;
         let buffer = self.device.create_buffer(&wgpu::BufferDescriptor {
             label: Some("Capture readback"),
