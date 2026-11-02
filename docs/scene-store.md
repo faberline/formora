@@ -106,6 +106,36 @@ let next = renderer.prepare_store_from(&first, store)?;
 Host 須保留上個成功快照，修復資料後再準備。
 失敗不能算作呈現成功。
 
+## 原生世界座標查詢
+
+`geometry::world_transforms_store(&SceneStore)` 傳回當前全部 entity 的原生 f64 世界矩陣。
+啟用 `headless` 或 `preview` 後可使用。
+`preview::math` 也提供同一個函式。
+矩陣型別是 `BTreeMap<String, glam::DMat4>`。
+它沿用原世界變換計算。
+父鏈、parent inverse、精度與 delta 規則都保留。
+每次仍檢查跨欄位、配方與權重規則。
+未變模型可重用核心持有的驗證。
+
+此查詢使用當前容器，不使用舊 GPU 快照。
+它不過濾 HUD 或 site entity。
+Host 須在自己的選取候選中過濾不需要的 ID。
+不要為此暫時移除容器中的物件。
+Host 的空間索引可用 `mesh_stamp` 判斷模型是否更新。
+
+有限 f64 座標可能超出 GPU f32 範圍。
+原生查詢仍可成功。
+組合後的非有限世界矩陣，則回報與 raw 查詢相同的錯誤。
+原 `world_transforms(&Scene)` 不變，仍驗證全部實值。
+
+獨立效能案例同樣使用 32 個資產，每個含 2048 個三角形。
+暖機 3 次後，交替量測 8 組原生世界座標查詢。
+每組的矩陣位元必須相同。
+容器與 raw 查詢的中位時間比須不大於 0.10。
+冷啟動及兩條路徑的每次更新成本另列。
+Host 仍須把這些成本計入實際幀。
+此案例不能取代 FF 原 1.10 ms 輸入與選取門檻。
+
 ## 驗證範圍
 
 CI 的獨立 consumer 會比較 raw、容器及 layer 的 PNG 像素。
