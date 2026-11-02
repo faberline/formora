@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 30
     defaults:
       run:
-        working-directory: ${{ runner.temp }}/formora-probe-source
+        working-directory: ${{ github.workspace }}/../formora-probe-source
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,7 +49,7 @@ jobs:
           tool = subprocess.check_output(['git', 'ls-files', 'tools/renderer-surface-probe'], text=True).splitlines()
           paths = sorted(set(manifest['files']) | set(tool))
           assert len(manifest['files']) == 99 and len(paths) == 106
-          root = Path(os.environ['RUNNER_TEMP']) / 'formora-probe-source'
+          root = Path(os.environ['GITHUB_WORKSPACE']).parent / 'formora-probe-source'
           root.mkdir(exist_ok=False)
           archive = subprocess.check_output(['git', 'archive', '--format=tar', 'HEAD', '--', *paths])
           extracted = set()
@@ -114,5 +114,5 @@ jobs:
         if: always() && runner.os == 'Linux'
         with:
           name: surface-probe-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/formora-probe-source/target/surface-probe-evidence
+          path: ${{ github.workspace }}/../formora-probe-source/target/surface-probe-evidence
           if-no-files-found: error
