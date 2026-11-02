@@ -36,7 +36,7 @@ jobs:
         with:
           components: rustfmt, clippy
       - name: Check core without preview
-        run: cargo check --locked --no-default-features --lib
+        run: cargo clippy --locked --no-default-features --lib -- -D warnings
       - name: Check external consumer formatting
         run: cargo fmt --manifest-path tools/renderer-consumer/Cargo.toml --check
       - name: Compile public API from a separate crate

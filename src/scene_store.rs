@@ -118,6 +118,7 @@ impl SceneStore {
         Ok(())
     }
     /// Recheck all cross-field rules. Only immutable, owned mesh validation can be reused.
+    #[cfg(feature = "headless")]
     pub(crate) fn validate_for_prepare(&self) -> Result<()> {
         self.scene.validate_with_mesh_assets(|_, asset| {
             if asset.recipe.is_some() || asset.vertex_weights.is_some() {
