@@ -1,0 +1,50 @@
+name: External Renderer consumer
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  external-consumer:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15-intel, macos-15, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: dtolnay/rust-toolchain@1.85.0
+        with:
+          components: rustfmt, clippy
+      - name: Check core without preview
+        run: cargo check --locked --no-default-features --lib
+      - name: Check external consumer formatting
+        run: cargo fmt --manifest-path tools/renderer-consumer/Cargo.toml --check
+      - name: Compile public API from a separate crate
+        run: cargo clippy --locked --manifest-path tools/renderer-consumer/Cargo.toml --all-targets -- -D warnings
+      - name: Install Linux software Vulkan and virtual display
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y mesa-vulkan-drivers libvulkan1 xvfb xauth
+      - name: Build the executable consumer
+        if: runner.os == 'Linux'
+        run: cargo build --locked --manifest-path tools/renderer-consumer/Cargo.toml
+      - name: Exercise offscreen renderer and host-owned window
+        if: runner.os == 'Linux'
+        shell: bash
+        env:
+          WINIT_UNIX_BACKEND: x11
+        run: |
+          set -euo pipefail
+          mkdir -p target/renderer-evidence
+          timeout 120s tools/renderer-consumer/target/debug/formora-renderer-consumer --offscreen target/renderer-evidence/offscreen 2>&1 | tee target/renderer-evidence/offscreen.log
+          timeout 120s xvfb-run -a tools/renderer-consumer/target/debug/formora-renderer-consumer --window target/renderer-evidence/window 2>&1 | tee target/renderer-evidence/window.log
+      - name: Retain PNGs and adapter logs
+        if: always() && runner.os == 'Linux'
+        uses: actions/upload-artifact@v4
+        with:
+          name: renderer-consumer-${{ github.run_id }}-${{ github.run_attempt }}
+          path: target/renderer-evidence
+          if-no-files-found: error

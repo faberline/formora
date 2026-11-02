@@ -20,6 +20,10 @@ struct Light {
     color: [f32; 4],
 }
 
+/// Basic GPU preview owned by an external host or the standalone tool.
+///
+/// The host owns the window, event loop and scene. No [`crate::session::Session`]
+/// or scene revision change is required. Enable the `preview` feature.
 pub struct Renderer {
     _instance: wgpu::Instance,
     surface: Option<wgpu::Surface<'static>>,
@@ -40,6 +44,8 @@ fn error(e: impl std::fmt::Display) -> SceneError {
 }
 
 impl Renderer {
+    /// Creates a window surface, or an offscreen renderer when `window` is `None`.
+    /// Dimensions are physical pixels and must be nonzero. GPU setup can fail.
     pub async fn new(window: Option<Arc<Window>>, width: u32, height: u32) -> Result<Self> {
         if width == 0 || height == 0 {
             return Err(error("render size must be nonzero"));
@@ -152,6 +158,8 @@ impl Renderer {
             .create_view(&Default::default())
     }
 
+    /// Reconfigures the surface and depth buffer. A zero dimension is ignored.
+    /// Call this with the window's physical size after a resize event.
     pub fn resize(&mut self, width: u32, height: u32) {
         if width == 0 || height == 0 {
             return;
@@ -283,6 +291,8 @@ impl Renderer {
         Ok(encoder)
     }
 
+    /// Renders the supplied scene to the window. Fails without a window surface.
+    /// A recoverable surface error can skip a frame while returning `Ok(())`.
     pub fn draw(&mut self, scene: &Scene) -> Result<()> {
         let Some(surface) = &self.surface else {
             return Err(error("renderer has no window"));
@@ -305,6 +315,8 @@ impl Renderer {
         Ok(())
     }
 
+    /// Renders a separate offscreen frame and writes PNG, replacing an existing file.
+    /// This blocks for GPU readback. It is not a desktop screenshot or atomic save.
     pub fn capture(&self, scene: &Scene, path: &Path) -> Result<()> {
         let texture = self.device.create_texture(&wgpu::TextureDescriptor {
             label: Some("Scene capture"),

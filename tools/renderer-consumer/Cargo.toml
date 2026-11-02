@@ -1,0 +1,20 @@
+[package]
+name = "formora-renderer-consumer"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[workspace]
+
+[dependencies]
+formora = { path = "../..", features = ["preview"] }
+png = "0.18"
+pollster = "0.4"
+winit = "=0.30.13"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
