@@ -569,3 +569,315 @@ fn cache_benchmark_256() {
         "warm preparation median exceeded fixed 25% ratio: {ratio}"
     );
 }
+
+#[test]
+fn warm_validation_matches_full_scene_errors_and_recovers() {
+    for case in 0..17 {
+        let original = scene();
+        let mut changed = original.clone();
+        let mut cache = GeometryCache::default();
+        let old = reference(&original, &mut cache);
+        match case {
+            0 => {
+                changed
+                    .mesh_assets
+                    .get_mut("shape")
+                    .unwrap()
+                    .vertices
+                    .get_mut("top")
+                    .unwrap()[0] = f64::NAN
+            }
+            1 => {
+                changed
+                    .mesh_assets
+                    .get_mut("shape")
+                    .unwrap()
+                    .triangles
+                    .get_mut("t0")
+                    .unwrap()
+                    .uv_layers
+                    .insert("uv".into(), [[f64::NAN, 0.]; 3]);
+            }
+            2 => {
+                changed
+                    .mesh_assets
+                    .get_mut("shape")
+                    .unwrap()
+                    .triangles
+                    .get_mut("t0")
+                    .unwrap()
+                    .corner_normals = Some([[0., 0., 2.]; 3])
+            }
+            3 => {
+                changed
+                    .mesh_assets
+                    .get_mut("shape")
+                    .unwrap()
+                    .triangles
+                    .get_mut("t0")
+                    .unwrap()
+                    .corner_colors = Some([[-1., 0., 0., 1.]; 3])
+            }
+            4 => {
+                changed
+                    .mesh_assets
+                    .get_mut("shape")
+                    .unwrap()
+                    .triangles
+                    .get_mut("t0")
+                    .unwrap()
+                    .material_slot = Some(99)
+            }
+            5 => {
+                changed
+                    .mesh_assets
+                    .get_mut("shape")
+                    .unwrap()
+                    .triangles
+                    .get_mut("t0")
+                    .unwrap()
+                    .vertices[0] = "missing".into()
+            }
+            6 => {
+                changed.mesh_assets.get_mut("shape").unwrap().editing = Some(Editing {
+                    selected: formora::mesh::selection::Elements {
+                        vertices: BTreeSet::from(["missing".into()]),
+                        ..Default::default()
+                    },
+                    ..Default::default()
+                })
+            }
+            7 => {
+                let EntityKind::Mesh { material, .. } =
+                    &mut changed.entities.get_mut("mesh").unwrap().content
+                else {
+                    unreachable!()
+                };
+                *material = Some("missing".into());
+            }
+            8 => {
+                changed
+                    .entities
+                    .get_mut("mesh")
+                    .unwrap()
+                    .transform
+                    .translation[0] = f64::INFINITY
+            }
+            9 => {
+                changed.entities.get_mut("parent").unwrap().content = EntityKind::Light {
+                    color: [f64::NAN, 0., 0.],
+                    intensity: 1.,
+                };
+            }
+            10 => changed.active_camera = Some("missing".into()),
+            11 => changed.entities.get_mut("parent").unwrap().parent = Some("mesh".into()),
+            12 => {
+                let mut unused = original.mesh_assets["shape"].clone();
+                unused.vertices.get_mut("top").unwrap()[1] = f64::NAN;
+                changed.mesh_assets.insert("unused".into(), unused);
+            }
+            13 => {
+                changed.mesh_assets.remove("shape");
+            }
+            14 => changed.schema_version = 999,
+            15 => changed.time_seconds = -1.,
+            16 => {
+                changed.materials.remove("paint");
+            }
+            _ => unreachable!(),
+        }
+        let expected = changed.validate().unwrap_err().to_string();
+        assert_eq!(
+            cache.vertices(&changed).err().unwrap().to_string(),
+            expected,
+            "case {case}"
+        );
+        assert_eq!(changed.revision, original.revision);
+        let recovered = reference(&original, &mut cache);
+        assert_eq!(
+            bytemuck::cast_slice::<Vertex, u8>(old.as_slice()),
+            bytemuck::cast_slice::<Vertex, u8>(recovered.as_slice())
+        );
+    }
+}
+
+#[test]
+fn validation_key_includes_uv_bits_and_metadata_without_mutating_old_vertices() {
+    let mut source = scene();
+    let face = source
+        .mesh_assets
+        .get_mut("shape")
+        .unwrap()
+        .triangles
+        .get_mut("t0")
+        .unwrap();
+    face.uv_layers.insert("uv".into(), [[0., 0.]; 3]);
+    let mut cache = GeometryCache::default();
+    let first = reference(&source, &mut cache);
+    let before = bytemuck::cast_slice::<Vertex, u8>(first.as_slice()).to_vec();
+    source
+        .mesh_assets
+        .get_mut("shape")
+        .unwrap()
+        .triangles
+        .get_mut("t0")
+        .unwrap()
+        .uv_layers
+        .get_mut("uv")
+        .unwrap()[0][0] = -0.0;
+    let changed = reference(&source, &mut cache);
+    assert!(!Arc::ptr_eq(&first, &changed));
+    assert_eq!(
+        bytemuck::cast_slice::<Vertex, u8>(changed.as_slice()),
+        before
+    );
+    source
+        .mesh_assets
+        .get_mut("shape")
+        .unwrap()
+        .diagnostics
+        .push("explicit_source_marker".into());
+    let metadata = reference(&source, &mut cache);
+    assert!(!Arc::ptr_eq(&changed, &metadata));
+    assert_eq!(bytemuck::cast_slice::<Vertex, u8>(first.as_slice()), before);
+    assert_eq!(source.revision, 0);
+}
+
+#[test]
+fn recipe_and_vertex_weight_assets_retain_full_validation_and_recovery() {
+    for recipe in [false, true] {
+        let mut scene = scene();
+        let asset = scene.mesh_assets.get_mut("shape").unwrap();
+        if recipe {
+            asset.recipe = Some(formora::mesh::primitives::PrimitiveRecipe {
+                primitive: serde_json::from_value(
+                    serde_json::json!({"kind":"plane","size":2.,"calc_uvs":false}),
+                )
+                .unwrap(),
+                max_components: 1000,
+                edited: true,
+                creation_frame: None,
+            });
+        } else {
+            asset.vertex_groups = vec!["pin".into()];
+            asset.vertex_weights =
+                Some(formora::mesh::selection::VertexWeights(BTreeMap::from([(
+                    "top".into(),
+                    formora::mesh::selection::GroupWeights(BTreeMap::from([("pin".into(), 0.5)])),
+                )])));
+        }
+        let valid = scene.clone();
+        let mut cache = GeometryCache::default();
+        reference(&scene, &mut cache);
+        reference(&scene, &mut cache);
+        let asset = scene.mesh_assets.get_mut("shape").unwrap();
+        if recipe {
+            asset.recipe.as_mut().unwrap().max_components = 0;
+        } else {
+            asset
+                .vertex_weights
+                .as_mut()
+                .unwrap()
+                .0
+                .get_mut("top")
+                .unwrap()
+                .0
+                .insert("pin".into(), f64::NAN);
+        }
+        let expected = scene.validate().unwrap_err().to_string();
+        assert_eq!(cache.vertices(&scene).err().unwrap().to_string(), expected);
+        reference(&valid, &mut cache);
+    }
+}
+
+#[test]
+#[ignore = "performance test; execute only in CI"]
+fn cache_validation_benchmark_32_assets() {
+    use std::time::Instant;
+    let mut scene = Scene::default();
+    for i in 0..32 {
+        let id = format!("asset{i}");
+        let asset = MeshAsset {
+            vertices: BTreeMap::from([
+                ("a".into(), [0., 0., 0.]),
+                ("b".into(), [1., 0., 0.]),
+                ("c".into(), [0., 1., 0.]),
+            ]),
+            triangles: (0..2048)
+                .map(|face| {
+                    (
+                        format!("t{face}"),
+                        Triangle {
+                            vertices: ["a", "b", "c"].map(str::to_owned),
+                            uv_layers: BTreeMap::new(),
+                            corner_normals: Some([[0., 0., 1.]; 3]),
+                            corner_colors: None,
+                            material_slot: None,
+                        },
+                    )
+                })
+                .collect(),
+            ..Default::default()
+        };
+        scene.mesh_assets.insert(id.clone(), asset);
+        scene.entities.insert(
+            format!("object{i}"),
+            Entity {
+                name: "Independent asset".into(),
+                parent: None,
+                transform: Transform::default(),
+                content: EntityKind::Mesh {
+                    geometry: Geometry::Asset { id },
+                    material: None,
+                },
+            },
+        );
+    }
+    let mut cache = GeometryCache::default();
+    let start = Instant::now();
+    let first = reference(&scene, &mut cache);
+    let cold_reference_and_prepare_ms = start.elapsed().as_secs_f64() * 1000.;
+    assert_eq!(first.len(), 196608);
+    for _ in 0..3 {
+        cache.vertices(&scene).unwrap();
+    }
+    let mut full_plus_warm = Vec::new();
+    let mut cached = Vec::new();
+    for pair in 0..8 {
+        for cached_only in if pair % 2 == 0 {
+            [false, true]
+        } else {
+            [true, false]
+        } {
+            let start = Instant::now();
+            if !cached_only {
+                std::hint::black_box(&scene).validate().unwrap();
+            }
+            let vertices = cache.vertices(std::hint::black_box(&scene)).unwrap();
+            let ms = start.elapsed().as_secs_f64() * 1000.;
+            assert!(Arc::ptr_eq(&first, &vertices));
+            if cached_only {
+                cached.push(ms);
+            } else {
+                full_plus_warm.push(ms);
+            }
+        }
+    }
+    let median = |samples: &[f64]| {
+        let mut s = samples.to_vec();
+        s.sort_by(f64::total_cmp);
+        (s[3] + s[4]) / 2.
+    };
+    let ratio = median(&cached) / median(&full_plus_warm);
+    println!(
+        "{}",
+        serde_json::json!({"assets":32,"triangles_per_asset":2048,"vertices":196608,
+        "cold_reference_and_prepare_ms":cold_reference_and_prepare_ms,"full_validation_plus_warm_ms":full_plus_warm,
+        "cached_preparation_ms":cached,"median_ratio":ratio,"limit":0.75,
+        "scope":"CPU cached preparation vs additional full Scene validation plus cached preparation; not old source, GPU or full frame"})
+    );
+    assert!(
+        ratio <= 0.75,
+        "cached preparation exceeded fixed 75% ratio: {ratio}"
+    );
+}

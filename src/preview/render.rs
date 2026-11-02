@@ -208,7 +208,11 @@ impl Renderer {
     /// Fully validates current data and prepares an immutable snapshot, irrespective of revision.
     /// Record this cost separately and include it in a frame that needs to update geometry.
     pub fn prepare(&self, scene: &Scene) -> Result<PreparedScene> {
-        let world = math::world_transforms(scene)?;
+        let mut prepared = self
+            .prepared
+            .lock()
+            .map_err(|_| error("renderer preparation cache is poisoned"))?;
+        let (world, vertices) = prepared.geometry.prepare(scene)?;
         let camera = math::camera_with_world(scene, self.width, self.height, &world)?;
         let mut lights = Vec::new();
         for (id, entity) in &scene.entities {
@@ -244,11 +248,6 @@ impl Renderer {
                 usage: wgpu::BufferUsages::STORAGE,
             });
         Self::validate_camera(&camera)?;
-        let mut prepared = self
-            .prepared
-            .lock()
-            .map_err(|_| error("renderer preparation cache is poisoned"))?;
-        let vertices = prepared.geometry.with_world(scene, &world)?;
         let count = u32::try_from(vertices.len()).map_err(error)?;
         let dummy = Vertex::zeroed();
         if !prepared

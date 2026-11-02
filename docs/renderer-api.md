@@ -7,6 +7,7 @@ Renderer 只讀取傳入的 `Scene`。
 
 資產可使用 [每角 RGBA](corner-colors.md)保存不同頂點顏色。
 省略欄位時仍沿用材質色；改色後須重新準備不可變快照。
+Renderer 會[重用內容相同資產的驗證](renderer-validation-cache.md)，仍檢查目前的動態場景。
 
 ## 來源與依賴
 

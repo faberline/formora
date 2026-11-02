@@ -264,6 +264,15 @@ impl Scene {
     }
 
     pub fn validate(&self) -> Result<()> {
+        self.validate_with_mesh_assets(|_, asset| asset.validate())
+    }
+
+    // Internal preparation may reuse a proof for identical, previously valid mesh data.
+    // Every other scene check and the error order stay in this single implementation.
+    pub(crate) fn validate_with_mesh_assets(
+        &self,
+        mut validate_asset: impl FnMut(&str, &MeshAsset) -> Result<()>,
+    ) -> Result<()> {
         if let Some(context) = &self.object_context {
             context.validate(self)?;
         }
@@ -280,7 +289,7 @@ impl Scene {
             if !valid_id(id) {
                 return fail(format!("invalid mesh asset ID: {id}"));
             }
-            asset.validate()?;
+            validate_asset(id, asset)?;
             if asset
                 .material_slots
                 .iter()

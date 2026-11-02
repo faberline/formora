@@ -179,6 +179,49 @@ impl Trial {
         assert!(renderer.capture(&scene, &path).is_err());
         assert_eq!(pixels(&path, size)?, image);
         assert_eq!(scene.revision, original.revision);
+        // Warm caches must not hide errors, including assets without an instance.
+        for case in 0..4 {
+            renderer.capture(&original, &path)?;
+            let mut bad = original.clone();
+            match case {
+                0 => {
+                    let mut unused = MeshAsset::default();
+                    unused.vertices.insert("bad".into(), [f64::NAN, 0., 0.]);
+                    bad.mesh_assets.insert("unused".into(), unused);
+                }
+                1 => {
+                    bad.materials.remove("paint");
+                }
+                2 => {
+                    bad.mesh_assets
+                        .get_mut("gradient")
+                        .unwrap()
+                        .triangles
+                        .get_mut("face")
+                        .unwrap()
+                        .vertices[1] = "missing".into()
+                }
+                3 => {
+                    bad.mesh_assets
+                        .get_mut("gradient")
+                        .unwrap()
+                        .triangles
+                        .get_mut("face")
+                        .unwrap()
+                        .corner_normals = Some([[0., 0., 2.]; 3])
+                }
+                _ => unreachable!(),
+            }
+            assert!(bad.validate().is_err());
+            assert!(renderer.prepare(&bad).is_err());
+            assert!(renderer.capture(&bad, &path).is_err());
+            assert_eq!(pixels(&path, size)?, image);
+            renderer.capture(&original, &path)?;
+            assert_eq!(pixels(&path, size)?, image);
+        }
+        println!(
+            "PASS warm validation rejects unused asset, removed material, missing vertex and invalid normals; original capture recovers"
+        );
         println!(
             "PASS RGB corner interpolation, same-revision change, prepared parity, retained snapshot and invalid-color file preservation"
         );

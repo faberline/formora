@@ -1,12 +1,15 @@
 //! Value-checked CPU preparation. Revision and allocation identity are not cache keys.
 use super::{
-    SurfaceTriangle, Vertex, append_selection, append_triangle, triangles, world_transforms,
+    SurfaceTriangle, Vertex, append_selection, append_triangle, triangles,
+    world_transforms_validated,
 };
 use crate::mesh::MeshAsset;
 use crate::scene::{Annotation, EntityKind, Geometry, Material, Result, Scene, SceneError};
 use glam::{DMat4, DVec3};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 use std::sync::Arc;
+
+type GeometryPreparation = (BTreeMap<String, DMat4>, Arc<Vec<Vertex>>);
 
 struct Triangle {
     points: [DVec3; 3],
@@ -69,12 +72,25 @@ fn material_bits(m: &Material) -> [u64; 6] {
 }
 
 // Derived PartialEq distinguishes structure and all nonzero values. Add exact bits
-// for every mesh float consumed by this renderer, including signed zero normals.
-fn render_bits(asset: &MeshAsset) -> impl Iterator<Item = u64> + '_ {
+// for every explicit mesh float, including UVs and signed zero. Recipe and weight
+// data never reuse validation; their existing validation runs on every call.
+fn mesh_bits(asset: &MeshAsset) -> impl Iterator<Item = u64> + '_ {
     asset
         .vertices
         .values()
         .flatten()
+        .chain(
+            asset
+                .triangles
+                .values()
+                .flat_map(|t| t.uv_layers.values().flatten().flatten()),
+        )
+        .chain(
+            asset
+                .polygons
+                .values()
+                .flat_map(|p| p.uv_layers.values().flatten().flatten()),
+        )
         .chain(
             asset
                 .triangles
@@ -107,15 +123,49 @@ impl GeometryCache {
     /// Prepares current CPU preview vertices, even if `Scene.revision` is unchanged.
     /// No GPU, files, session, source mutation or timing assumptions are involved.
     pub fn vertices(&mut self, scene: &Scene) -> Result<Arc<Vec<Vertex>>> {
-        let world = world_transforms(scene)?;
-        self.with_world(scene, &world)
+        self.prepare(scene).map(|(_, vertices)| vertices)
     }
 
-    // Only the renderer calls this after world_transforms validated the same Scene.
-    pub(crate) fn with_world(
+    // No unchecked public path. Validation, transform evaluation and preparation all
+    // read this immutable Scene before returning. Reuse is based on actual values.
+    pub(crate) fn prepare(&mut self, scene: &Scene) -> Result<GeometryPreparation> {
+        let used: BTreeSet<_> = scene
+            .entities
+            .values()
+            .filter_map(|e| match &e.content {
+                EntityKind::Mesh {
+                    geometry: Geometry::Asset { id },
+                    ..
+                } => Some(id.as_str()),
+                _ => None,
+            })
+            .collect();
+        let mut validated = BTreeMap::new();
+        scene.validate_with_mesh_assets(|id, source| {
+            let reusable = self.assets.get(id).filter(|old| {
+                used.contains(id)
+                    && source.recipe.is_none()
+                    && source.vertex_weights.is_none()
+                    && old.source == *source
+                    && mesh_bits(&old.source).eq(mesh_bits(source))
+            });
+            if let Some(asset) = reusable {
+                validated.insert(id.to_owned(), Arc::clone(asset));
+                Ok(())
+            } else {
+                source.validate()
+            }
+        })?;
+        let world = world_transforms_validated(scene)?;
+        let vertices = self.with_world(scene, &world, &validated)?;
+        Ok((world, vertices))
+    }
+
+    fn with_world(
         &mut self,
         scene: &Scene,
         world: &BTreeMap<String, DMat4>,
+        validated: &BTreeMap<String, Arc<Asset>>,
     ) -> Result<Arc<Vec<Vertex>>> {
         let same_materials = self.materials.len() == scene.materials.len()
             && self
@@ -147,8 +197,10 @@ impl GeometryCache {
                         .mesh_assets
                         .get(asset_id)
                         .ok_or_else(|| SceneError(format!("missing mesh asset: {asset_id}")))?;
-                    let reusable = self.assets.get(asset_id).filter(|old| {
-                        old.source == *source && render_bits(&old.source).eq(render_bits(source))
+                    let reusable = validated.get(asset_id).or_else(|| {
+                        self.assets.get(asset_id).filter(|old| {
+                            old.source == *source && mesh_bits(&old.source).eq(mesh_bits(source))
+                        })
                     });
                     let asset = if let Some(old) = reusable {
                         Arc::clone(old)

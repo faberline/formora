@@ -61,6 +61,7 @@ jobs:
         run: |
           set -euo pipefail
           cargo test --locked --release --no-default-features --features headless --test preview_cache cache_benchmark_256 -- --ignored --nocapture 2>&1 | tee target/headless-evidence/cache-benchmark.log
+          cargo test --locked --release --no-default-features --features headless --test preview_cache cache_validation_benchmark_32_assets -- --ignored --nocapture 2>&1 | tee target/headless-evidence/validation-benchmark.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
