@@ -749,6 +749,21 @@ impl Trial {
             store.apply(update)?;
             assert_eq!(store.scene().revision, 0);
             let snapshot = renderer.prepare_store_from(&previous, &store)?;
+            let world = formora::geometry::world_transforms_store(&store)?;
+            let raw_world = formora::geometry::world_transforms(store.scene())?;
+            for (id, matrix) in &world {
+                let bits = matrix.to_cols_array().map(f64::to_bits);
+                assert_eq!(bits, raw_world[id].to_cols_array().map(f64::to_bits));
+                assert_eq!(
+                    bits,
+                    snapshot
+                        .world_transform(id)
+                        .unwrap()
+                        .to_cols_array()
+                        .map(f64::to_bits)
+                );
+            }
+
             let camera = formora::geometry::camera_view(store.scene(), size.width, size.height)?;
             let raw = self.output.join(format!("store-{step}-raw.png"));
             let owned = self.output.join(format!("store-{step}-owned.png"));

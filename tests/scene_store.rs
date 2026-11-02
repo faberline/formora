@@ -392,3 +392,168 @@ fn recipe_and_weights_keep_full_validation_on_owned_paths() {
         cache.vertices_store(&store).unwrap();
     }
 }
+
+#[cfg(feature = "headless")]
+fn owned_world_bits(store: &SceneStore) -> BTreeMap<String, [u64; 16]> {
+    use formora::geometry;
+    let actual = geometry::world_transforms_store(store).unwrap();
+    let expected = geometry::world_transforms(store.scene()).unwrap();
+    let bits = |world: BTreeMap<String, glam::DMat4>| {
+        world
+            .into_iter()
+            .map(|(id, matrix)| (id, matrix.to_cols_array().map(f64::to_bits)))
+            .collect::<BTreeMap<_, _>>()
+    };
+    assert_eq!(bits(actual.clone()), bits(expected));
+    bits(actual)
+}
+
+#[cfg(feature = "headless")]
+#[test]
+fn owned_world_query_is_current_native_ancestry_precision_delta_and_parent_inverse() {
+    let mut raw = scene();
+    raw.entities.insert(
+        "parent".into(),
+        Entity {
+            name: "Parent".into(),
+            parent: None,
+            transform: Transform::default(),
+            content: EntityKind::Empty,
+        },
+    );
+    raw.entities.get_mut("object").unwrap().parent = Some("parent".into());
+    let mut inverse = formora::objects::identity();
+    inverse[0][3] = -2.;
+    raw.object_context = Some(formora::objects::Context {
+        states: BTreeMap::from([(
+            "object".into(),
+            formora::objects::State {
+                parent_inverse: Some(inverse),
+                ..Default::default()
+            },
+        )]),
+        ..Default::default()
+    });
+    let mut store = SceneStore::new(raw).unwrap();
+    let first = owned_world_bits(&store);
+    for (index, scale) in [[1., 2., -3.], [0., 1., 1.], [-0., -1., 2.], [0.25, 4., 1.]]
+        .into_iter()
+        .enumerate()
+    {
+        let mut child = store.scene().entities["object"].transform.clone();
+        child.precision = if index % 2 == 0 {
+            formora::transforms::Precision::F32
+        } else {
+            formora::transforms::Precision::F64
+        };
+        child.translation = [0.123456789, -0., 2.5];
+        child.delta.translation = [0.1, 0.2, 0.3];
+        child.delta.scale = [1.25, 0.75, 1.];
+        child.rotation = [0., 0., 0.3826834323650898, 0.9238795325112867].into();
+        let parent = Transform {
+            translation: [index as f64 + 2., -0., 4.],
+            scale,
+            ..Default::default()
+        };
+        let mut context = store.scene().object_context.clone().unwrap();
+        context
+            .states
+            .get_mut("object")
+            .unwrap()
+            .parent_inverse
+            .as_mut()
+            .unwrap()[1][3] = index as f64 * 0.5;
+        let revision = store.scene().revision;
+        store
+            .apply(SceneUpdate {
+                transforms: BTreeMap::from([("parent".into(), parent), ("object".into(), child)]),
+                object_context: Some(Some(context)),
+                ..Default::default()
+            })
+            .unwrap();
+        let current = owned_world_bits(&store);
+        assert_ne!(first, current);
+        assert_eq!(store.scene().revision, revision);
+    }
+}
+
+#[cfg(feature = "headless")]
+#[test]
+fn owned_world_query_keeps_native_f64_when_gpu_f32_fails_and_matches_overflow_errors() {
+    use formora::geometry::{self, GeometryCache};
+    let valid = scene();
+    let mut store = SceneStore::new(valid.clone()).unwrap();
+    store
+        .apply(SceneUpdate {
+            transforms: BTreeMap::from([(
+                "object".into(),
+                Transform {
+                    translation: [f64::MAX, 0., 0.],
+                    ..Default::default()
+                },
+            )]),
+            ..Default::default()
+        })
+        .unwrap();
+    assert!(GeometryCache::default().vertices_store(&store).is_err());
+    assert!(!owned_world_bits(&store).is_empty());
+    let mut parent = store.scene().entities["object"].clone();
+    parent.content = EntityKind::Empty;
+    parent.transform = Transform {
+        scale: [f64::MAX; 3],
+        ..Default::default()
+    };
+    let mut child = store.scene().entities["object"].clone();
+    child.parent = Some("parent".into());
+    child.transform = Transform {
+        scale: [f64::MAX; 3],
+        ..Default::default()
+    };
+    store
+        .apply(SceneUpdate {
+            entities: BTreeMap::from([
+                ("parent".into(), Some(parent)),
+                ("object".into(), Some(child)),
+            ]),
+            ..Default::default()
+        })
+        .unwrap();
+    let stamp = store.stamp();
+    let before = serde_json::to_vec(store.scene()).unwrap();
+    let error = geometry::world_transforms(store.scene()).unwrap_err();
+    assert_eq!(geometry::world_transforms_store(&store).unwrap_err(), error);
+    assert_eq!(store.stamp(), stamp);
+    assert_eq!(before, serde_json::to_vec(store.scene()).unwrap());
+    store.replace_all(valid).unwrap();
+    assert_eq!(owned_world_bits(&store).len(), 1);
+}
+
+#[cfg(feature = "headless")]
+#[test]
+fn owned_world_query_keeps_last_valid_state_after_rejected_unused_mesh_and_parent_updates() {
+    let mut store = SceneStore::new(scene()).unwrap();
+    let original = owned_world_bits(&store);
+    let stamp = store.stamp();
+    let mut bad = store.scene().mesh_assets["mesh"].clone();
+    bad.vertices.get_mut("a").unwrap()[0] = f64::NAN;
+    assert!(
+        store
+            .apply(SceneUpdate {
+                mesh_assets: BTreeMap::from([("unused".into(), Some(bad))]),
+                ..Default::default()
+            })
+            .is_err()
+    );
+    let mut entity = store.scene().entities["object"].clone();
+    entity.parent = Some("missing".into());
+    assert!(
+        store
+            .apply(SceneUpdate {
+                entities: BTreeMap::from([("object".into(), Some(entity))]),
+                ..Default::default()
+            })
+            .is_err()
+    );
+    assert_eq!(owned_world_bits(&store), original);
+    assert_eq!(store.stamp(), stamp);
+}

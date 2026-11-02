@@ -36,6 +36,16 @@ pub fn world_transforms(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
     world_transforms_validated(scene)
 }
 
+/// Query current native f64 worlds from core-owned, validated scene data.
+/// Rechecks cross-field rules, recipes and weights; immutable mesh payloads need no rescan.
+/// Does not use a GPU snapshot, caller revision, ray filtering or f32 projection.
+pub fn world_transforms_store(
+    store: &crate::scene_store::SceneStore,
+) -> Result<BTreeMap<String, DMat4>> {
+    store.validate_for_prepare()?;
+    world_transforms_validated(store.scene())
+}
+
 // The caller must have validated this exact immutable Scene in the same operation.
 pub(crate) fn world_transforms_validated(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
     let mut result = BTreeMap::new();

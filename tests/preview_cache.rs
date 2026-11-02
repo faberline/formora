@@ -1211,3 +1211,130 @@ fn store_transform_benchmark_32_assets() {
         "owned preparation exceeded fixed 25% ratio: {ratio}"
     );
 }
+
+#[test]
+#[ignore = "performance test; execute only in CI"]
+fn store_world_benchmark_32_assets() {
+    use formora::scene_store::{SceneStore, SceneUpdate};
+    use std::time::Instant;
+    let mut scene = Scene::default();
+    for i in 0..32 {
+        let id = format!("asset{i}");
+        let asset = MeshAsset {
+            vertices: BTreeMap::from([
+                ("a".into(), [0., 0., 0.]),
+                ("b".into(), [1., 0., 0.]),
+                ("c".into(), [0., 1., 0.]),
+            ]),
+            triangles: (0..2048)
+                .map(|face| {
+                    (
+                        format!("t{face}"),
+                        Triangle {
+                            vertices: ["a", "b", "c"].map(str::to_owned),
+                            uv_layers: BTreeMap::new(),
+                            corner_normals: Some([[0., 0., 1.]; 3]),
+                            corner_colors: None,
+                            material_slot: None,
+                        },
+                    )
+                })
+                .collect(),
+            ..Default::default()
+        };
+        scene.mesh_assets.insert(id.clone(), asset);
+        scene.entities.insert(
+            format!("object{i}"),
+            Entity {
+                name: "Independent asset".into(),
+                parent: None,
+                transform: Transform::default(),
+                content: EntityKind::Mesh {
+                    geometry: Geometry::Asset { id },
+                    material: None,
+                },
+            },
+        );
+    }
+
+    let bits = |world: BTreeMap<String, glam::DMat4>| {
+        world
+            .into_iter()
+            .map(|(id, matrix)| (id, matrix.to_cols_array().map(f64::to_bits)))
+            .collect::<BTreeMap<_, _>>()
+    };
+    let start = Instant::now();
+    let mut store = SceneStore::new(scene.clone()).unwrap();
+    let cold_store_construct_ms = start.elapsed().as_secs_f64() * 1000.;
+    let start = Instant::now();
+    let first = geometry::world_transforms_store(&store).unwrap();
+    let cold_owned_query_ms = start.elapsed().as_secs_f64() * 1000.;
+    let start = Instant::now();
+    let raw = geometry::world_transforms(&scene).unwrap();
+    let cold_raw_query_ms = start.elapsed().as_secs_f64() * 1000.;
+    assert_eq!(first.len(), 32);
+    assert_eq!(bits(first), bits(raw));
+    let mut raw_ms = Vec::new();
+    let mut owned_ms = Vec::new();
+    let mut raw_update_ms = Vec::new();
+    let mut store_update_ms = Vec::new();
+    for pair in 0..11 {
+        let transform = Transform {
+            translation: [pair as f64 * 0.01, -0., 0.],
+            ..Default::default()
+        };
+        let start = Instant::now();
+        store
+            .apply(SceneUpdate {
+                transforms: BTreeMap::from([("object0".into(), transform.clone())]),
+                ..Default::default()
+            })
+            .unwrap();
+        let update = start.elapsed().as_secs_f64() * 1000.;
+        let start = Instant::now();
+        scene.entities.get_mut("object0").unwrap().transform = transform;
+        let raw_update = start.elapsed().as_secs_f64() * 1000.;
+        if pair >= 3 {
+            store_update_ms.push(update);
+            raw_update_ms.push(raw_update);
+        }
+        let mut outputs = Vec::new();
+        for owned in if pair % 2 == 0 {
+            [false, true]
+        } else {
+            [true, false]
+        } {
+            let start = Instant::now();
+            let world = if owned {
+                geometry::world_transforms_store(std::hint::black_box(&store)).unwrap()
+            } else {
+                geometry::world_transforms(std::hint::black_box(&scene)).unwrap()
+            };
+            let elapsed = start.elapsed().as_secs_f64() * 1000.;
+            if pair >= 3 {
+                if owned {
+                    owned_ms.push(elapsed);
+                } else {
+                    raw_ms.push(elapsed);
+                }
+            }
+            outputs.push(bits(world));
+        }
+        assert_eq!(outputs[0], outputs[1]);
+        assert_eq!(store.scene().revision, scene.revision);
+    }
+    let median = |samples: &[f64]| {
+        let mut sorted = samples.to_vec();
+        sorted.sort_by(f64::total_cmp);
+        (sorted[3] + sorted[4]) / 2.
+    };
+    let ratio = median(&owned_ms) / median(&raw_ms);
+    println!(
+        "{}",
+        serde_json::json!({"assets":32,"triangles_per_asset":2048,"world_matrices":32,"warmups":3,"alternating_pairs":8,"cold_store_construct_ms":cold_store_construct_ms,"cold_owned_query_ms":cold_owned_query_ms,"cold_raw_query_ms":cold_raw_query_ms,"raw_world_query_ms":raw_ms,"owned_world_query_ms":owned_ms,"raw_update_ms":raw_update_ms,"store_atomic_update_ms":store_update_ms,"median_ratio":ratio,"limit":0.10,"scope":"native f64 world queries only; bitwise matrix parity each pair; cold/updates separate and must be charged by host; not FF1.10ms input/pick or fullframe acceptance"})
+    );
+    assert!(
+        ratio <= 0.10,
+        "owned world query exceeded fixed 10% ratio: {ratio}"
+    );
+}
