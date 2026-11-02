@@ -31,6 +31,11 @@ pub struct Hit {
 
 pub fn world_transforms(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
     scene.validate()?;
+    world_transforms_validated(scene)
+}
+
+// The caller must have validated this exact immutable Scene in the same operation.
+pub(crate) fn world_transforms_validated(scene: &Scene) -> Result<BTreeMap<String, DMat4>> {
     let mut result = BTreeMap::new();
     for id in scene.entities.keys() {
         let world = crate::transforms::world(scene, id)?;
