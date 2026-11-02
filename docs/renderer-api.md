@@ -122,3 +122,5 @@ FF Modern 與 Vortex 的實際遊戲視窗及互動流程須各自保留實測�
 編譯、虛擬視窗與單張圖片不能代替完整遊戲驗收。
 
 See [geometry layers and GPU timing](renderer-layers.md) to reuse static snapshots with current shared lights.
+
+Use [snapshot cache branches](renderer-snapshot-cache.md) when updating interleaved layers from their own previous prepared data.

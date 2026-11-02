@@ -420,6 +420,7 @@ impl Trial {
         let original_lights = renderer.prepare_lighting(&full)?;
         let original_camera = formora::geometry::camera_view(&full, size.width, size.height)?;
         let mut first = None;
+        let mut retained_future = None;
         for step in 0..4 {
             match step {
                 1 => {
@@ -439,11 +440,13 @@ impl Trial {
                 }
                 3 => {
                     full.entities.get_mut("a").unwrap().transform.translation[1] -= 0.5;
-                    static_snapshot = renderer.prepare(&layer(&full, &["a", "c"], 1))?;
+                    static_snapshot =
+                        renderer.prepare_from(&static_snapshot, &layer(&full, &["a", "c"], 1))?;
                 }
                 _ => {}
             }
-            let dynamic = renderer.prepare(&layer(&full, &["b", "d"], 0))?;
+            let dynamic =
+                renderer.prepare_from(&original_dynamic, &layer(&full, &["b", "d"], 0))?;
             let camera = formora::geometry::camera_view(&full, size.width, size.height)?;
             let lights = renderer.prepare_lighting(&full)?;
             let current = full.clone();
@@ -547,6 +550,16 @@ impl Trial {
                 let foreign = pollster::block_on(Renderer::new(None, size.width, size.height))?;
                 let foreign_scene = foreign.prepare(&full)?;
                 let foreign_lights = foreign.prepare_lighting(&full)?;
+                assert!(renderer.prepare_from(&foreign_scene, &full).is_err());
+                let mut invalid = full.clone();
+                invalid.mesh_assets.insert(
+                    "unused-invalid".into(),
+                    MeshAsset {
+                        vertices: BTreeMap::from([("bad".into(), [f64::NAN, 0., 0.])]),
+                        ..Default::default()
+                    },
+                );
+                assert!(renderer.prepare_from(&original_static, &invalid).is_err());
                 assert!(
                     renderer
                         .capture_layers(&[&foreign_scene], &camera, &lights, &output)
@@ -583,7 +596,33 @@ impl Trial {
             };
             assert!(renderer.prepare_lighting(&bad_light).is_err());
             assert_eq!(fs::read(&output)?, good);
+            if step == 1 {
+                retained_future = Some((dynamic, camera, lights, image));
+            }
         }
+        let (future, future_camera, future_lights, future_pixels) =
+            retained_future.ok_or("missing future branch")?;
+        let path = self.output.join("layers-future-retained.png");
+        renderer.capture_layers(
+            &[&future, &original_static],
+            &future_camera,
+            &future_lights,
+            &path,
+        )?;
+        assert_eq!(
+            pixels(&path, size)?,
+            future_pixels,
+            "a later branch must not mutate an earlier future"
+        );
+        let unchanged = renderer.prepare_from(&original_static, &layer(&before, &["a", "c"], 1))?;
+        let path = self.output.join("layers-unchanged-branch.png");
+        renderer.capture_layers(
+            &[&original_dynamic, &unchanged],
+            &original_camera,
+            &original_lights,
+            &path,
+        )?;
+        assert_eq!(pixels(&path, size)?, first.as_ref().unwrap().as_slice());
         let path = self.output.join("layers-original-retained.png");
         renderer.capture_layers(
             &[&original_dynamic, &original_static],
@@ -609,7 +648,7 @@ impl Trial {
         assert_eq!(pixels(&path, resized)?, pixels(&reference, resized)?);
         renderer.resize(original_size.0, original_size.1);
         println!(
-            "PASS layers: global ID order, shared current lighting, same-revision updates, immutable world poses, old snapshots, annotations, resize, foreign/duplicate rejection and real GPU ticks"
+            "PASS snapshot CPU branches, retained future and full validation; layers: global ID order, shared current lighting, same-revision updates, immutable world poses, old snapshots, annotations, resize, foreign/duplicate rejection and real GPU ticks"
         );
         Ok(())
     }

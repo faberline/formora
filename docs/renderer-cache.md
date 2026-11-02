@@ -90,3 +90,5 @@ Linux CI 另跑固定的合成 CPU 比較。
 這些是 CPU 準備資料的量測，不含 GPU、視窗呈現或完整遊戲 frame。
 FF Modern 的完整 frame 與 1000 村民門檻，以及 Vortex 的完整城市互動標準，仍須由使用端各自驗證。
 合成比較通過不能代替它們。
+
+Use [snapshot cache branches](renderer-snapshot-cache.md) when updating interleaved layers from their own previous prepared data.
