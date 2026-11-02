@@ -1,6 +1,7 @@
 use super::buffers::{Draw, VertexBuffers};
 use super::math::{self, Vertex};
 use crate::scene::{Result, Scene, SceneError};
+use crate::scene_store::SceneStore;
 use std::collections::BTreeMap;
 use std::path::Path;
 use std::sync::{Arc, Mutex};
@@ -21,6 +22,11 @@ struct Uniform {
 struct Light {
     position: [f32; 4],
     color: [f32; 4],
+}
+
+enum SceneInput<'a> {
+    Live(&'a Scene),
+    Store(&'a SceneStore),
 }
 
 #[derive(Clone, Default)]
@@ -298,7 +304,7 @@ impl Renderer {
             .prepared
             .lock()
             .map_err(|_| error("renderer preparation cache is poisoned"))?;
-        self.prepare_cached(scene, &mut prepared)
+        self.prepare_cached(SceneInput::Live(scene), &mut prepared)
     }
 
     /// Branches the previous snapshot's CPU cache. Other preparations cannot evict it.
@@ -308,11 +314,40 @@ impl Renderer {
             return Err(error("prepared scene belongs to another renderer"));
         }
         let mut prepared = previous.cache.as_ref().clone();
-        self.prepare_cached(scene, &mut prepared)
+        self.prepare_cached(SceneInput::Live(scene), &mut prepared)
     }
 
-    fn prepare_cached(&self, scene: &Scene, prepared: &mut Prepared) -> Result<PreparedScene> {
-        let (world, vertices) = prepared.geometry.prepare(scene)?;
+    /// Prepare a validated core-owned scene. Raw Scene APIs remain value-checked.
+    pub fn prepare_store(&self, store: &SceneStore) -> Result<PreparedScene> {
+        let mut prepared = self
+            .prepared
+            .lock()
+            .map_err(|_| error("preview cache lock poisoned"))?;
+        self.prepare_cached(SceneInput::Store(store), &mut prepared)
+    }
+
+    /// Branch from an immutable snapshot using core-owned input stamps.
+    pub fn prepare_store_from(
+        &self,
+        previous: &PreparedScene,
+        store: &SceneStore,
+    ) -> Result<PreparedScene> {
+        if !Arc::ptr_eq(&self.owner, &previous.owner) {
+            return Err(error("prepared scene belongs to another renderer"));
+        }
+        let mut prepared = previous.cache.as_ref().clone();
+        self.prepare_cached(SceneInput::Store(store), &mut prepared)
+    }
+
+    fn prepare_cached(
+        &self,
+        input: SceneInput<'_>,
+        prepared: &mut Prepared,
+    ) -> Result<PreparedScene> {
+        let (scene, (world, vertices)) = match input {
+            SceneInput::Live(scene) => (scene, prepared.geometry.prepare(scene)?),
+            SceneInput::Store(store) => (store.scene(), prepared.geometry.prepare_store(store)?),
+        };
         let camera = math::camera_with_world(scene, self.width, self.height, &world)?;
         let lighting = self.lighting(math::lights_with_world(scene, &world))?;
         let ranges = prepared.geometry.draw_ranges()?;

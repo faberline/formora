@@ -5,6 +5,7 @@ use super::{
 };
 use crate::mesh::MeshAsset;
 use crate::scene::{Annotation, EntityKind, Geometry, Material, Result, Scene, SceneError};
+use crate::scene_store::{SceneStore, ValueStamp};
 use glam::{DMat4, DVec3};
 use std::collections::{BTreeMap, BTreeSet};
 #[cfg(feature = "preview")]
@@ -61,6 +62,7 @@ struct Entity {
 #[derive(Clone, Default)]
 pub struct GeometryCache {
     assets: BTreeMap<String, Arc<Asset>>,
+    owned_stamps: BTreeMap<String, ValueStamp>,
     entities: BTreeMap<String, Entity>,
     materials: BTreeMap<String, Material>,
     material_token: Arc<()>,
@@ -190,6 +192,33 @@ impl GeometryCache {
         })?;
         let world = world_transforms_validated(scene)?;
         let vertices = self.with_world(scene, &world, &validated)?;
+        self.owned_stamps.clear();
+        Ok((world, vertices))
+    }
+
+    /// Prepare immutable core-owned data without rescanning untouched mesh payloads.
+    pub fn vertices_store(&mut self, store: &SceneStore) -> Result<Arc<Vec<Vertex>>> {
+        self.prepare_store(store).map(|(_, vertices)| vertices)
+    }
+
+    pub(crate) fn prepare_store(&mut self, store: &SceneStore) -> Result<GeometryPreparation> {
+        store.validate_for_prepare()?;
+        let scene = store.scene();
+        let world = world_transforms_validated(scene)?;
+        let validated = self
+            .assets
+            .iter()
+            .filter_map(|(id, asset)| {
+                let stamp = store.mesh_stamp(id)?;
+                (self.owned_stamps.get(id) == Some(&stamp)).then(|| (id.clone(), Arc::clone(asset)))
+            })
+            .collect();
+        let vertices = self.with_world(scene, &world, &validated)?;
+        self.owned_stamps = self
+            .assets
+            .keys()
+            .filter_map(|id| store.mesh_stamp(id).map(|stamp| (id.clone(), stamp)))
+            .collect();
         Ok((world, vertices))
     }
 

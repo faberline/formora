@@ -2,6 +2,7 @@
 use formora::mesh::{MeshAsset, Triangle};
 use formora::preview::{DrawOutcome, PreparedScene, Renderer};
 use formora::scene::{Entity, EntityKind, Geometry, Material, Scene, Transform};
+use formora::scene_store::{SceneStore, SceneUpdate};
 use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
 use std::fs;
@@ -559,6 +560,8 @@ impl Trial {
                 let foreign_scene = foreign.prepare(&full)?;
                 let foreign_lights = foreign.prepare_lighting(&full)?;
                 assert!(renderer.prepare_from(&foreign_scene, &full).is_err());
+                let owned = SceneStore::new(full.clone())?;
+                assert!(renderer.prepare_store_from(&foreign_scene, &owned).is_err());
                 let mut invalid = full.clone();
                 invalid.mesh_assets.insert(
                     "unused-invalid".into(),
@@ -657,6 +660,151 @@ impl Trial {
         renderer.resize(original_size.0, original_size.1);
         println!(
             "PASS snapshot CPU branches, retained future and full validation; layers: global ID order, shared current lighting, same-revision updates, immutable world poses, old snapshots, annotations, resize, foreign/duplicate rejection and real GPU ticks"
+        );
+        Ok(())
+    }
+
+    fn scene_store(
+        &self,
+        renderer: &mut Renderer,
+        size: PhysicalSize<u32>,
+        windowed: bool,
+    ) -> Result<()> {
+        let mut scene = scene();
+        let colors = [[1., 0., 0., 1.], [0., 1., 0., 1.], [0., 0., 1., 1.]];
+        scene.mesh_assets.insert(
+            "gradient".into(),
+            MeshAsset {
+                vertices: BTreeMap::from([
+                    ("a".into(), [-1., -1., 0.]),
+                    ("b".into(), [1., -1., 0.]),
+                    ("c".into(), [0., 1., 0.]),
+                ]),
+                triangles: BTreeMap::from([(
+                    "face".into(),
+                    Triangle {
+                        vertices: ["a", "b", "c"].map(str::to_owned),
+                        uv_layers: BTreeMap::new(),
+                        corner_normals: Some([[0., 0., 1.]; 3]),
+                        corner_colors: Some(colors),
+                        material_slot: None,
+                    },
+                )]),
+                ..Default::default()
+            },
+        );
+        let EntityKind::Mesh { geometry, .. } = &mut scene.entities.get_mut("box").unwrap().content
+        else {
+            unreachable!()
+        };
+        *geometry = Geometry::Asset {
+            id: "gradient".into(),
+        };
+
+        let mut store = SceneStore::new(scene)?;
+        let original = renderer.prepare_store(&store)?;
+        let old_camera = formora::geometry::camera_view(store.scene(), size.width, size.height)?;
+        let original_path = self.output.join("store-original.png");
+        renderer.capture_prepared(&original, &old_camera, &original_path)?;
+        let original_pixels = pixels(&original_path, size)?;
+        let mut previous = renderer.prepare_store_from(&original, &store)?;
+        for step in 0..4 {
+            let mut update = SceneUpdate::default();
+            match step {
+                0 => {
+                    update.transforms.insert(
+                        "box".into(),
+                        Transform {
+                            translation: [0.25, 0., 0.],
+                            ..Default::default()
+                        },
+                    );
+                }
+                1 => {
+                    let mut asset = store.scene().mesh_assets["gradient"].clone();
+                    asset
+                        .triangles
+                        .get_mut("face")
+                        .unwrap()
+                        .corner_colors
+                        .as_mut()
+                        .unwrap()[0] = [1., 1., 0., 0.5];
+                    update.mesh_assets.insert("gradient".into(), Some(asset));
+                }
+                2 => {
+                    let mut material = store.scene().materials["paint"].clone();
+                    material.roughness = 0.15;
+                    update.materials.insert("paint".into(), Some(material));
+                }
+                _ => {
+                    update.transforms.insert(
+                        "box".into(),
+                        Transform {
+                            scale: [1.2, 0.8, 1.],
+                            ..Default::default()
+                        },
+                    );
+                }
+            }
+            store.apply(update)?;
+            assert_eq!(store.scene().revision, 0);
+            let snapshot = renderer.prepare_store_from(&previous, &store)?;
+            let camera = formora::geometry::camera_view(store.scene(), size.width, size.height)?;
+            let raw = self.output.join(format!("store-{step}-raw.png"));
+            let owned = self.output.join(format!("store-{step}-owned.png"));
+            let layers = self.output.join(format!("store-{step}-layers.png"));
+            renderer.capture(store.scene(), &raw)?;
+            renderer.capture_prepared(&snapshot, &camera, &owned)?;
+            renderer.capture_layers(
+                &[&snapshot],
+                &camera,
+                &renderer.prepare_lighting(store.scene())?,
+                &layers,
+            )?;
+            let expected = pixels(&raw, size)?;
+            assert_eq!(pixels(&owned, size)?, expected);
+            assert_eq!(pixels(&layers, size)?, expected);
+            if windowed {
+                renderer.draw_prepared(&snapshot, &camera)?;
+            }
+            previous = snapshot;
+        }
+        let stamp = store.stamp();
+        assert!(
+            store
+                .apply(SceneUpdate {
+                    materials: BTreeMap::from([("paint".into(), None)]),
+                    ..Default::default()
+                })
+                .is_err()
+        );
+        assert_eq!(stamp, store.stamp());
+        let valid = store.scene().clone();
+        store.apply(SceneUpdate {
+            transforms: BTreeMap::from([(
+                "box".into(),
+                Transform {
+                    translation: [f64::MAX, 0., 0.],
+                    ..Default::default()
+                },
+            )]),
+            ..Default::default()
+        })?;
+        assert!(renderer.prepare_store_from(&previous, &store).is_err());
+        assert!(renderer.prepare_store(&store).is_err());
+        store.replace_all(valid)?;
+        let repaired = renderer.prepare_store_from(&previous, &store)?;
+        let camera = formora::geometry::camera_view(store.scene(), size.width, size.height)?;
+        let repair = self.output.join("store-repaired.png");
+        let raw = self.output.join("store-repaired-raw.png");
+        renderer.capture_prepared(&repaired, &camera, &repair)?;
+        renderer.capture(store.scene(), &raw)?;
+        assert_eq!(pixels(&repair, size)?, pixels(&raw, size)?);
+        let retained = self.output.join("store-retained-original.png");
+        renderer.capture_prepared(&original, &old_camera, &retained)?;
+        assert_eq!(pixels(&retained, size)?, original_pixels);
+        println!(
+            "PASS SceneStore:raw/owned/layer bitwise pixel parity,typed same-revision updates,atomic rejection,owned failure/repair,immutable old snapshots"
         );
         Ok(())
     }
@@ -956,6 +1104,7 @@ impl Trial {
         self.authored_cancellation(renderer, size)?;
         self.layers(renderer, size, windowed)?;
         self.chunked_buffers(renderer, size, windowed)?;
+        self.scene_store(renderer, size, windowed)?;
         println!("PASS resize, zero resize, invalid-scene/output rejection, host ownership");
         fs::write(
             self.output.join("passed.txt"),
