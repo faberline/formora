@@ -15,6 +15,7 @@ pub mod objects;
 pub mod preview;
 pub mod rotation;
 pub mod scene;
+pub mod scene_store;
 pub mod session;
 pub mod transforms;
 pub mod usd;

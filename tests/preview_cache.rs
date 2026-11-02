@@ -1094,3 +1094,120 @@ fn cache_snapshot_branch_benchmark_256() {
         "branch median exceeded fixed25% ratio: {ratio}"
     );
 }
+
+#[test]
+#[ignore = "performance test; execute only in CI"]
+fn store_transform_benchmark_32_assets() {
+    use formora::scene_store::{SceneStore, SceneUpdate};
+    use std::time::Instant;
+    let mut scene = Scene::default();
+    for i in 0..32 {
+        let id = format!("asset{i}");
+        let asset = MeshAsset {
+            vertices: BTreeMap::from([
+                ("a".into(), [0., 0., 0.]),
+                ("b".into(), [1., 0., 0.]),
+                ("c".into(), [0., 1., 0.]),
+            ]),
+            triangles: (0..2048)
+                .map(|face| {
+                    (
+                        format!("t{face}"),
+                        Triangle {
+                            vertices: ["a", "b", "c"].map(str::to_owned),
+                            uv_layers: BTreeMap::new(),
+                            corner_normals: Some([[0., 0., 1.]; 3]),
+                            corner_colors: None,
+                            material_slot: None,
+                        },
+                    )
+                })
+                .collect(),
+            ..Default::default()
+        };
+        scene.mesh_assets.insert(id.clone(), asset);
+        scene.entities.insert(
+            format!("object{i}"),
+            Entity {
+                name: "Independent asset".into(),
+                parent: None,
+                transform: Transform::default(),
+                content: EntityKind::Mesh {
+                    geometry: Geometry::Asset { id },
+                    material: None,
+                },
+            },
+        );
+    }
+
+    let start = Instant::now();
+    let mut store = SceneStore::new(scene.clone()).unwrap();
+    let mut owned = GeometryCache::default();
+    let first = owned.vertices_store(&store).unwrap();
+    let cold_store_construct_prepare_ms = start.elapsed().as_secs_f64() * 1000.;
+    let mut raw = GeometryCache::default();
+    let start = Instant::now();
+    let reference = raw.vertices(&scene).unwrap();
+    let cold_raw_prepare_ms = start.elapsed().as_secs_f64() * 1000.;
+    assert_eq!(first.len(), 196608);
+    assert_eq!(
+        bytemuck::cast_slice::<Vertex, u8>(&first),
+        bytemuck::cast_slice::<Vertex, u8>(&reference)
+    );
+    let mut raw_ms = Vec::new();
+    let mut owned_ms = Vec::new();
+    for pair in 0..11 {
+        let transform = Transform {
+            translation: [pair as f64 * 0.01, 0., 0.],
+            ..Default::default()
+        };
+        let mut outputs = Vec::new();
+        for is_owned in if pair % 2 == 0 {
+            [false, true]
+        } else {
+            [true, false]
+        } {
+            let start = Instant::now();
+            let vertices = if is_owned {
+                store
+                    .apply(SceneUpdate {
+                        transforms: BTreeMap::from([("object0".into(), transform.clone())]),
+                        ..Default::default()
+                    })
+                    .unwrap();
+                owned.vertices_store(&store).unwrap()
+            } else {
+                scene.entities.get_mut("object0").unwrap().transform = transform.clone();
+                raw.vertices(&scene).unwrap()
+            };
+            let elapsed = start.elapsed().as_secs_f64() * 1000.;
+            if pair >= 3 {
+                if is_owned {
+                    owned_ms.push(elapsed);
+                } else {
+                    raw_ms.push(elapsed);
+                }
+            }
+            outputs.push(vertices);
+        }
+        assert_eq!(
+            bytemuck::cast_slice::<Vertex, u8>(&outputs[0]),
+            bytemuck::cast_slice::<Vertex, u8>(&outputs[1])
+        );
+        assert_eq!(store.scene().revision, scene.revision);
+    }
+    let median = |samples: &[f64]| {
+        let mut sorted = samples.to_vec();
+        sorted.sort_by(f64::total_cmp);
+        (sorted[3] + sorted[4]) / 2.
+    };
+    let ratio = median(&owned_ms) / median(&raw_ms);
+    println!(
+        "{}",
+        serde_json::json!({"assets":32,"triangles_per_asset":2048,"vertices":196608,"warmups":3,"alternating_pairs":8,"cold_store_construct_prepare_ms":cold_store_construct_prepare_ms,"cold_raw_prepare_ms":cold_raw_prepare_ms,"raw_transform_prepare_ms":raw_ms,"store_atomic_transform_prepare_ms":owned_ms,"median_ratio":ratio,"limit":0.25,"scope":"complete atomic entity transform update plus cached CPU frame; bitwise parity each pair; not FF total frame or GPU acceptance"})
+    );
+    assert!(
+        ratio <= 0.25,
+        "owned preparation exceeded fixed 25% ratio: {ratio}"
+    );
+}

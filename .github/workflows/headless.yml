@@ -39,7 +39,7 @@ jobs:
           assert not names & forbidden, names & forbidden
           print("CPU-only dependency tree: no window or GPU crates")
       - run: cargo clippy --locked --no-default-features --features headless --lib --bin formora -- -D warnings
-      - run: cargo test --locked --no-default-features --features headless --test headless --test preview_cache --test corner_colors --test authored_faces --test preview_layers
+      - run: cargo test --locked --no-default-features --features headless --test scene_store --test headless --test preview_cache --test corner_colors --test authored_faces --test preview_layers
       - run: cargo build --locked --no-default-features --features headless
       - uses: actions/setup-python@v5
         with:
@@ -63,6 +63,7 @@ jobs:
           cargo test --locked --release --no-default-features --features headless --test preview_cache cache_benchmark_256 -- --ignored --nocapture 2>&1 | tee target/headless-evidence/cache-benchmark.log
           cargo test --locked --release --no-default-features --features headless --test preview_cache cache_validation_benchmark_32_assets -- --ignored --nocapture 2>&1 | tee target/headless-evidence/validation-benchmark.log
           cargo test --locked --release --no-default-features --features headless --test preview_cache cache_snapshot_branch_benchmark_256 -- --ignored --nocapture 2>&1 | tee target/headless-evidence/snapshot-branch-benchmark.log
+          cargo test --locked --release --no-default-features --features headless --test preview_cache store_transform_benchmark_32_assets -- --ignored --nocapture 2>&1 | tee target/headless-evidence/store-transform-benchmark.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
