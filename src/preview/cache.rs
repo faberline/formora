@@ -44,6 +44,7 @@ struct Asset {
     triangles: Vec<Triangle>,
 }
 
+#[derive(Clone)]
 struct Entity {
     world: [u64; 16],
     geometry: Geometry,
@@ -56,7 +57,8 @@ struct Entity {
 /// Reuses resolved asset triangles and world-space vertex chunks by exact input values.
 /// Every call validates the full scene. The returned snapshot is immutable and owned.
 /// Camera-facing edit markers rebuild conservatively. This does not cache game state.
-#[derive(Default)]
+/// Clone shares immutable asset/vertex data and copies the mutable indexes.
+#[derive(Clone, Default)]
 pub struct GeometryCache {
     assets: BTreeMap<String, Arc<Asset>>,
     entities: BTreeMap<String, Entity>,

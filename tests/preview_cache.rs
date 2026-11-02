@@ -881,3 +881,216 @@ fn cache_validation_benchmark_32_assets() {
         "cached preparation exceeded fixed 75% ratio: {ratio}"
     );
 }
+
+#[test]
+fn cache_branches_survive_eviction_and_keep_every_old_snapshot() {
+    let scene = scene();
+    let mut base = GeometryCache::default();
+    let original = reference(&scene, &mut base);
+    let old_bytes = bytemuck::cast_slice::<Vertex, u8>(original.as_slice()).to_vec();
+    let saved = base.clone();
+    let mut unrelated = Scene::default();
+    unrelated.entities.insert(
+        "unrelated".into(),
+        Entity {
+            name: "Other".into(),
+            parent: None,
+            transform: Default::default(),
+            content: EntityKind::Mesh {
+                geometry: Geometry::Cube { size: [3.; 3] },
+                material: None,
+            },
+        },
+    );
+    reference(&unrelated, &mut base);
+    let mut same = saved.clone();
+    assert!(Arc::ptr_eq(&original, &reference(&scene, &mut same)));
+    assert!(!Arc::ptr_eq(&original, &reference(&scene, &mut base)));
+    let mut first_scene = scene.clone();
+    first_scene
+        .entities
+        .get_mut("mesh")
+        .unwrap()
+        .transform
+        .translation[0] += 0.125;
+    let mut first = saved.clone();
+    let first_vertices = reference(&first_scene, &mut first);
+    let first_bytes = bytemuck::cast_slice::<Vertex, u8>(first_vertices.as_slice()).to_vec();
+    let mut second_scene = scene.clone();
+    second_scene.materials.get_mut("paint").unwrap().base_color = [0.1, 0.9, 0.2, 0.5];
+    let mut second = saved.clone();
+    reference(&second_scene, &mut second);
+    assert_eq!(
+        bytemuck::cast_slice::<Vertex, u8>(original.as_slice()),
+        old_bytes
+    );
+    assert_eq!(
+        bytemuck::cast_slice::<Vertex, u8>(first_vertices.as_slice()),
+        first_bytes
+    );
+    assert!(Arc::ptr_eq(
+        &first_vertices,
+        &reference(&first_scene, &mut first)
+    ));
+    assert!(Arc::ptr_eq(&original, &reference(&scene, &mut same)));
+    assert_eq!(first_scene.revision, scene.revision);
+    assert_eq!(second_scene.revision, scene.revision);
+}
+
+#[test]
+fn cache_branch_invalid_input_and_signed_zero_do_not_corrupt_the_base() {
+    let scene = scene();
+    let mut base = GeometryCache::default();
+    let original = reference(&scene, &mut base);
+    let mut branch = base.clone();
+    let mut bad = scene.clone();
+    bad.mesh_assets.insert(
+        "unused".into(),
+        MeshAsset {
+            vertices: BTreeMap::from([("bad".into(), [f64::NAN, 0., 0.])]),
+            ..Default::default()
+        },
+    );
+    assert_eq!(
+        branch.vertices(&bad).err().unwrap().0,
+        bad.validate().unwrap_err().0
+    );
+    assert!(Arc::ptr_eq(&original, &reference(&scene, &mut base)));
+    reference(&scene, &mut branch);
+    let mut changed = scene.clone();
+    changed
+        .mesh_assets
+        .get_mut("shape")
+        .unwrap()
+        .vertices
+        .get_mut("a")
+        .unwrap()[2] = -0.;
+    let updated = reference(&changed, &mut branch);
+    assert!(!Arc::ptr_eq(&updated, &original));
+    assert!(Arc::ptr_eq(&original, &reference(&scene, &mut base)));
+    assert_eq!(changed.revision, scene.revision);
+}
+
+#[test]
+#[ignore = "performance test; execute only in CI"]
+fn cache_snapshot_branch_benchmark_256() {
+    use std::time::Instant;
+    // The same public 256-instance/189-face fixture as the original benchmark.
+    let mut scene = Scene::default();
+    let mut asset = MeshAsset {
+        material_slots: vec![None],
+        ..Default::default()
+    };
+    asset.vertices.insert("top".into(), [0., 0., 2.]);
+    for i in 0..189 {
+        let angle = (i as f64) * std::f64::consts::TAU / 189.;
+        asset
+            .vertices
+            .insert(format!("v{i}"), [angle.cos(), angle.sin(), 0.]);
+        asset.triangles.insert(
+            format!("t{i}"),
+            Triangle {
+                corner_colors: None,
+                vertices: ["top".into(), format!("v{i}"), format!("v{}", (i + 1) % 189)],
+                uv_layers: BTreeMap::new(),
+                corner_normals: None,
+                material_slot: None,
+            },
+        );
+    }
+    scene.mesh_assets.insert("tree".into(), asset);
+    for i in 0..256 {
+        scene.entities.insert(
+            format!("tree{i}"),
+            Entity {
+                name: "Repeated tree".into(),
+                parent: None,
+                transform: Transform {
+                    translation: [(i % 16) as f64 * 3., (i / 16) as f64 * 3., 0.],
+                    ..Default::default()
+                },
+                content: EntityKind::Mesh {
+                    geometry: Geometry::Asset { id: "tree".into() },
+                    material: None,
+                },
+            },
+        );
+    }
+    let mut base = GeometryCache::default();
+    let start = Instant::now();
+    reference(&scene, &mut base);
+    let cold_reference_and_prepare_ms = start.elapsed().as_secs_f64() * 1000.;
+    let mut changed = scene.clone();
+    changed
+        .entities
+        .get_mut("tree0")
+        .unwrap()
+        .transform
+        .translation[0] += 0.125;
+    let expected = geometry::vertices(&changed).unwrap();
+    assert_eq!(expected.len(), 145152);
+    let dynamic = Scene::default();
+    let branch = || {
+        let start = Instant::now();
+        let mut cache = base.clone();
+        let clone_ms = start.elapsed().as_secs_f64() * 1000.;
+        let actual = cache.vertices(std::hint::black_box(&changed)).unwrap();
+        (actual, clone_ms, start.elapsed().as_secs_f64() * 1000.)
+    };
+    let evicted = || {
+        let mut cache = base.clone();
+        let eviction = Instant::now();
+        cache.vertices(&dynamic).unwrap();
+        let eviction_ms = eviction.elapsed().as_secs_f64() * 1000.;
+        let start = Instant::now();
+        let actual = cache.vertices(std::hint::black_box(&changed)).unwrap();
+        (actual, eviction_ms, start.elapsed().as_secs_f64() * 1000.)
+    };
+    let verify = |data: &Arc<Vec<Vertex>>| {
+        assert_eq!(
+            bytemuck::cast_slice::<Vertex, u8>(data.as_slice()),
+            bytemuck::cast_slice::<Vertex, u8>(&expected)
+        )
+    };
+    for _ in 0..3 {
+        verify(&branch().0);
+        verify(&evicted().0);
+    }
+    let mut branch_ms = Vec::new();
+    let mut clone_ms = Vec::new();
+    let mut evicted_ms = Vec::new();
+    let mut eviction_ms = Vec::new();
+    for i in 0..8 {
+        let (a, b) = if i % 2 == 0 {
+            (branch(), evicted())
+        } else {
+            let b = evicted();
+            let a = branch();
+            (a, b)
+        };
+        verify(&a.0);
+        verify(&b.0);
+        branch_ms.push(a.2);
+        clone_ms.push(a.1);
+        evicted_ms.push(b.2);
+        eviction_ms.push(b.1);
+    }
+    let median = |values: &[f64]| {
+        let mut v = values.to_vec();
+        v.sort_by(f64::total_cmp);
+        (v[3] + v[4]) / 2.
+    };
+    let ratio = median(&branch_ms) / median(&evicted_ms);
+    println!(
+        "{}",
+        serde_json::json!({"entities":256,"asset_triangles":189,"vertices":145152,
+        "warmups":3,"pairs":8,"alternate_order":true,"cold_reference_and_prepare_ms":cold_reference_and_prepare_ms,
+        "branch_clone_plus_prepare_ms":branch_ms,"clone_ms":clone_ms,"evicted_cache_prepare_ms":evicted_ms,
+        "eviction_setup_ms":eviction_ms,"median_ratio":ratio,"limit":0.25,
+        "scope":"CPU cache branch preparation only; not GPU, full-frame or FPS acceptance"})
+    );
+    assert!(
+        ratio <= 0.25,
+        "branch median exceeded fixed25% ratio: {ratio}"
+    );
+}

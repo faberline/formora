@@ -23,7 +23,7 @@ struct Light {
     color: [f32; 4],
 }
 
-#[derive(Default)]
+#[derive(Clone, Default)]
 struct Prepared {
     geometry: math::GeometryCache,
     vertex: Option<(Arc<Vec<Vertex>>, Arc<wgpu::Buffer>)>,
@@ -38,6 +38,7 @@ pub struct PreparedScene {
     lights: wgpu::Buffer,
     light_count: u32,
     camera: math::Camera,
+    cache: Arc<Prepared>,
     ranges: math::DrawRanges,
     world: BTreeMap<String, glam::DMat4>,
 }
@@ -294,6 +295,20 @@ impl Renderer {
             .prepared
             .lock()
             .map_err(|_| error("renderer preparation cache is poisoned"))?;
+        self.prepare_cached(scene, &mut prepared)
+    }
+
+    /// Branches the previous snapshot's CPU cache. Other preparations cannot evict it.
+    /// Fully validates current Scene values. The base and all older branches stay immutable.
+    pub fn prepare_from(&self, previous: &PreparedScene, scene: &Scene) -> Result<PreparedScene> {
+        if !Arc::ptr_eq(&self.owner, &previous.owner) {
+            return Err(error("prepared scene belongs to another renderer"));
+        }
+        let mut prepared = previous.cache.as_ref().clone();
+        self.prepare_cached(scene, &mut prepared)
+    }
+
+    fn prepare_cached(&self, scene: &Scene, prepared: &mut Prepared) -> Result<PreparedScene> {
         let (world, vertices) = prepared.geometry.prepare(scene)?;
         let camera = math::camera_with_world(scene, self.width, self.height, &world)?;
         let lighting = self.lighting(math::lights_with_world(scene, &world))?;
@@ -328,6 +343,7 @@ impl Renderer {
             lights: lighting.lights,
             light_count: lighting.count,
             camera,
+            cache: Arc::new(prepared.clone()),
             ranges,
             world,
         })
