@@ -5,6 +5,9 @@
 Renderer 只讀取傳入的 `Scene`。
 它不需要 `Session`、`Editor` 或檔案寫入鎖。
 
+資產可使用 [每角 RGBA](corner-colors.md)保存不同頂點顏色。
+省略欄位時仍沿用材質色；改色後須重新準備不可變快照。
+
 ## 來源與依賴
 
 Formora 尚未發布 crates.io SDK。

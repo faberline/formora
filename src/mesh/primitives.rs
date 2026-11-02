@@ -546,6 +546,7 @@ impl Builder {
         self.asset.polygons.insert(
             format!("p{:06}", self.asset.polygons.len()),
             Polygon {
+                corner_colors: None,
                 vertices: indices.iter().map(|i| vertex_id(*i)).collect(),
                 uv_layers: if self.calc_uvs {
                     BTreeMap::from([("UVMap".into(), uv)])

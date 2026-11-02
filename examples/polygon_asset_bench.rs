@@ -35,6 +35,7 @@ fn sample() -> MeshAsset {
                 asset.polygons.insert(
                     format!("p_{x}_{y}"),
                     Polygon {
+                        corner_colors: None,
                         vertices: vec![
                             format!("v_{x}_{y}"),
                             format!("v_{}_{y}", x + 1),

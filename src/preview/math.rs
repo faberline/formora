@@ -202,6 +202,7 @@ fn quads(geometry: &Geometry) -> Vec<[DVec3; 4]> {
 struct SurfaceTriangle<'a> {
     points: [DVec3; 3],
     normals: Option<[[f64; 3]; 3]>,
+    colors: Option<[[f64; 4]; 3]>,
     material: Option<&'a str>,
     selected: bool,
 }
@@ -259,6 +260,7 @@ fn triangles<'a>(
             .iter()
             .filter(|(id, _)| !hidden.contains(&FaceRef::Triangle((*id).clone())))
             .map(|(id, triangle)| SurfaceTriangle {
+                colors: triangle.corner_colors,
                 points: triangle
                     .vertices
                     .each_ref()
@@ -287,6 +289,10 @@ fn triangles<'a>(
         for t in asset.tessellate_without(&hidden_polygons)?.triangles {
             let polygon = &asset.polygons[&t.polygon];
             result.push(SurfaceTriangle {
+                colors: polygon
+                    .corner_colors
+                    .as_ref()
+                    .map(|colors| t.corners.map(|c| colors[c])),
                 points: t
                     .corners
                     .map(|c| DVec3::from_array(asset.vertices[&polygon.vertices[c]])),
@@ -312,6 +318,7 @@ fn triangles<'a>(
         .into_iter()
         .flat_map(|quad| {
             [[0, 1, 2], [0, 2, 3]].map(|indices| SurfaceTriangle {
+                colors: None,
                 points: indices.map(|i| quad[i]),
                 normals: None,
                 material: None,
@@ -350,7 +357,13 @@ fn append_triangle(
         vertices.push(Vertex {
             position: p.to_array(),
             normal: normal.to_array(),
-            color,
+            color: if triangle.selected {
+                color
+            } else {
+                triangle
+                    .colors
+                    .map_or(color, |colors| colors[index].map(|c| c as f32))
+            },
             surface,
         });
     }
@@ -431,6 +444,7 @@ fn append_selection(
             append_triangle(
                 output,
                 SurfaceTriangle {
+                    colors: None,
                     points: indices.map(|i| corners[i]),
                     normals: None,
                     material: None,

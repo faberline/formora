@@ -5,6 +5,7 @@ use std::collections::BTreeMap;
 
 fn polygon(vertices: &[&str], smooth: bool) -> Polygon {
     Polygon {
+        corner_colors: None,
         vertices: vertices.iter().map(|s| (*s).into()).collect(),
         uv_layers: BTreeMap::new(),
         normal: None,
@@ -208,6 +209,7 @@ fn coincident_positions_and_equal_triangle_polygon_names_keep_distinct_identity(
     asset.triangles.insert(
         "floor".into(),
         Triangle {
+            corner_colors: None,
             vertices: ["coincident".into(), "e".into(), "f".into()],
             uv_layers: BTreeMap::new(),
             corner_normals: None,

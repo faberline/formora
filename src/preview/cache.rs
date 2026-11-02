@@ -11,6 +11,7 @@ use std::sync::Arc;
 struct Triangle {
     points: [DVec3; 3],
     normals: Option<[[f64; 3]; 3]>,
+    colors: Option<[[f64; 4]; 3]>,
     material: Option<String>,
     selected: bool,
 }
@@ -20,6 +21,7 @@ impl Triangle {
         SurfaceTriangle {
             points: self.points,
             normals: self.normals,
+            colors: self.colors,
             material: self.material.as_deref(),
             selected: self.selected,
         }
@@ -78,6 +80,18 @@ fn render_bits(asset: &MeshAsset) -> impl Iterator<Item = u64> + '_ {
                 .triangles
                 .values()
                 .flat_map(|t| t.corner_normals.iter().flatten().flatten()),
+        )
+        .chain(
+            asset
+                .triangles
+                .values()
+                .flat_map(|t| t.corner_colors.iter().flatten().flatten()),
+        )
+        .chain(
+            asset
+                .polygons
+                .values()
+                .flat_map(|p| p.corner_colors.iter().flatten().flatten()),
         )
         .chain(asset.polygons.values().flat_map(|p| {
             p.corner_normals
@@ -144,6 +158,7 @@ impl GeometryCache {
                             .map(|t| Triangle {
                                 points: t.points,
                                 normals: t.normals,
+                                colors: t.colors,
                                 material: t.material.map(str::to_owned),
                                 selected: t.selected,
                             })

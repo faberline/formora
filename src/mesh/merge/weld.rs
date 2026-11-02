@@ -17,6 +17,7 @@ struct Face {
     vertices: Vec<String>,
     uv: BTreeMap<String, Vec<[f64; 2]>>,
     normals: Option<Vec<[f64; 3]>>,
+    colors: Option<Vec<[f64; 4]>>,
     normal: Option<[f64; 3]>,
     smooth: bool,
     material: Option<usize>,
@@ -32,6 +33,7 @@ impl Face {
                     vertices: face.vertices.clone(),
                     uv: face.uv_layers.clone(),
                     normals: face.corner_normals.clone(),
+                    colors: face.corner_colors.clone(),
                     normal: face.normal,
                     smooth: face.smooth,
                     material: face.material_slot,
@@ -49,6 +51,7 @@ impl Face {
                         .map(|(name, values)| (name.clone(), values.to_vec()))
                         .collect(),
                     normals: face.corner_normals.map(|values| values.to_vec()),
+                    colors: face.corner_colors.map(|values| values.to_vec()),
                     normal: None,
                     smooth: asset.smooth_triangles.contains(id),
                     material: face.material_slot,
@@ -68,6 +71,10 @@ impl Face {
             .normals
             .as_ref()
             .map(|values| indices.iter().map(|i| values[*i]).collect());
+        face.colors = self
+            .colors
+            .as_ref()
+            .map(|values| indices.iter().map(|i| values[*i]).collect());
         face
     }
     fn store(&self, asset: &mut MeshAsset) -> Result<()> {
@@ -76,6 +83,7 @@ impl Face {
                 asset.polygons.insert(
                     id.clone(),
                     Polygon {
+                        corner_colors: self.colors.clone(),
                         vertices: self.vertices.clone(),
                         uv_layers: self.uv.clone(),
                         corner_normals: self.normals.clone(),
@@ -115,6 +123,15 @@ impl Face {
                 asset.triangles.insert(
                     id.clone(),
                     Triangle {
+                        corner_colors: self
+                            .colors
+                            .clone()
+                            .map(|values| {
+                                values.try_into().map_err(|_| {
+                                    SceneError("invalid welded triangle color length".into())
+                                })
+                            })
+                            .transpose()?,
                         vertices,
                         uv_layers,
                         corner_normals,

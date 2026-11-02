@@ -194,6 +194,13 @@ fn faces(asset: &MeshAsset) -> Vec<Face<'_>> {
         .collect()
 }
 fn supported(asset: &MeshAsset, faces: &[Face<'_>], indices: &[usize]) -> Result<()> {
+    if asset.triangles.values().any(|f| f.corner_colors.is_some())
+        || asset.polygons.values().any(|f| f.corner_colors.is_some())
+    {
+        return Err(error(
+            "corner colors are not supported by the static USD projection",
+        ));
+    }
     if asset.recipe.is_some()
         || asset.editing.is_some()
         || !asset.diagnostics.is_empty()

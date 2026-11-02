@@ -38,6 +38,7 @@ fn fixture(mode: Domain) -> MeshAsset {
             mesh.polygons.insert(
                 format!("f{i:06}"),
                 Polygon {
+                    corner_colors: None,
                     vertices: vec![
                         vertex(x, y),
                         vertex(x + 1, y),
