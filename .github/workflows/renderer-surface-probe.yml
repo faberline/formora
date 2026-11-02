@@ -70,6 +70,8 @@ jobs:
           evidence = root / 'target/surface-probe-evidence'
           evidence.mkdir(parents=True)
           (evidence / 'source.json').write_text(json.dumps({'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), 'engine': manifest['engine_commit'], 'engine_files_verified': 99, 'build_source_files': len(paths)}))
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as environment:
+              environment.write(f'FORMORA_PROBE_EVIDENCE={evidence.resolve()}\n')
           # Cargo 1.85 cannot enumerate this large sparse Git index on hosted runners.
           # The exact source files above have no enclosing Git worktree.
       - uses: dtolnay/rust-toolchain@1.85.0
@@ -114,5 +116,5 @@ jobs:
         if: always() && runner.os == 'Linux'
         with:
           name: surface-probe-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ github.workspace }}/../formora-probe-source/target/surface-probe-evidence
+          path: ${{ env.FORMORA_PROBE_EVIDENCE }}
           if-no-files-found: error
