@@ -1,0 +1,31 @@
+[package]
+name = "formora-renderer-surface-probe"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[workspace]
+
+[dependencies]
+formora = { path = "../..", features = ["preview"] }
+bytemuck = "1"
+png = "0.18"
+pollster = "0.4"
+serde_json = "1"
+sha2 = "0.10"
+winit = "=0.30.13"
+
+[build-dependencies]
+serde_json = "1"
+sha2 = "0.10"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
