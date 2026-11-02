@@ -7,7 +7,15 @@ use crate::mesh::MeshAsset;
 use crate::scene::{Annotation, EntityKind, Geometry, Material, Result, Scene, SceneError};
 use glam::{DMat4, DVec3};
 use std::collections::{BTreeMap, BTreeSet};
+#[cfg(feature = "preview")]
+use std::ops::Range;
 use std::sync::Arc;
+
+#[cfg(feature = "preview")]
+pub(crate) struct DrawRanges {
+    pub meshes: BTreeMap<String, Range<u32>>,
+    pub annotations: Range<u32>,
+}
 
 type GeometryPreparation = (BTreeMap<String, DMat4>, Arc<Vec<Vertex>>);
 
@@ -120,6 +128,28 @@ fn mesh_bits(asset: &MeshAsset) -> impl Iterator<Item = u64> + '_ {
 }
 
 impl GeometryCache {
+    // Only called after successful preparation under the renderer's cache lock.
+    #[cfg(feature = "preview")]
+    pub(crate) fn draw_ranges(&self) -> Result<DrawRanges> {
+        let mut end = 0_u32;
+        let mut meshes = BTreeMap::new();
+        for (id, entity) in &self.entities {
+            let start = end;
+            end = end
+                .checked_add(
+                    u32::try_from(entity.vertices.len())
+                        .map_err(|_| SceneError("too many preview vertices".into()))?,
+                )
+                .ok_or_else(|| SceneError("too many preview vertices".into()))?;
+            meshes.insert(id.clone(), start..end);
+        }
+        let total = u32::try_from(self.combined.len())
+            .map_err(|_| SceneError("too many preview vertices".into()))?;
+        Ok(DrawRanges {
+            meshes,
+            annotations: end..total,
+        })
+    }
     /// Prepares current CPU preview vertices, even if `Scene.revision` is unchanged.
     /// No GPU, files, session, source mutation or timing assumptions are involved.
     pub fn vertices(&mut self, scene: &Scene) -> Result<Arc<Vec<Vertex>>> {
@@ -339,5 +369,107 @@ impl GeometryCache {
             self.chunks = chunks;
         }
         Ok(Arc::clone(&self.combined))
+    }
+}
+
+#[cfg(feature = "preview")]
+pub(crate) fn ordered_ranges(layers: &[&DrawRanges]) -> Result<Vec<(usize, Range<u32>)>> {
+    let mut meshes = BTreeMap::new();
+    for (index, layer) in layers.iter().enumerate() {
+        for (id, range) in &layer.meshes {
+            if meshes.insert(id, (index, range.clone())).is_some() {
+                return Err(SceneError(format!("duplicate prepared mesh entity: {id}")));
+            }
+        }
+    }
+    let mut result: Vec<(usize, Range<u32>)> = Vec::new();
+    let mut append = |index: usize, range: Range<u32>| {
+        if range.is_empty() {
+            return;
+        }
+        if let Some((old, previous)) = result.last_mut() {
+            if *old == index && previous.end == range.start {
+                previous.end = range.end;
+                return;
+            }
+        }
+        result.push((index, range));
+    };
+    for (index, range) in meshes.into_values() {
+        append(index, range);
+    }
+    for (index, layer) in layers.iter().enumerate() {
+        append(index, layer.annotations.clone());
+    }
+    Ok(result)
+}
+
+#[cfg(all(test, feature = "preview"))]
+mod tests {
+    use super::*;
+    fn ranges(items: &[(&str, Range<u32>)], notes: Range<u32>) -> DrawRanges {
+        DrawRanges {
+            meshes: items
+                .iter()
+                .map(|(id, r)| (id.to_string(), r.clone()))
+                .collect(),
+            annotations: notes,
+        }
+    }
+    #[test]
+    fn layers_sort_global_ids_before_annotations_and_coalesce_only_adjacent_ranges() {
+        let a = ranges(&[("a", 0..3), ("c", 3..6), ("d", 6..9)], 9..12);
+        let b = ranges(&[("b", 0..6), ("z", 6..9)], 9..15);
+        assert_eq!(
+            ordered_ranges(&[&b, &a]).unwrap(),
+            vec![(1, 0..3), (0, 0..6), (1, 3..9), (0, 6..15), (1, 9..12)]
+        );
+    }
+    #[test]
+    fn duplicate_ids_fail_even_when_both_meshes_have_no_vertices() {
+        let a = ranges(&[("empty", 0..0)], 0..0);
+        assert!(
+            ordered_ranges(&[&a, &a])
+                .unwrap_err()
+                .0
+                .contains("duplicate")
+        );
+        assert!(ordered_ranges(&[]).unwrap().is_empty());
+    }
+    #[test]
+    fn successful_cache_ranges_cover_exact_vertex_chunks_and_annotations() {
+        let mut scene = Scene::default();
+        for id in ["z", "a"] {
+            scene.entities.insert(
+                id.into(),
+                crate::scene::Entity {
+                    name: id.into(),
+                    parent: None,
+                    transform: Default::default(),
+                    content: EntityKind::Mesh {
+                        geometry: Geometry::Cube { size: [1.; 3] },
+                        material: None,
+                    },
+                },
+            );
+        }
+        scene.annotations.push(Annotation {
+            entity: None,
+            position: [0., 0., 0.],
+            text: "note".into(),
+        });
+        let mut cache = GeometryCache::default();
+        let data = cache.vertices(&scene).unwrap();
+        let r = cache.draw_ranges().unwrap();
+        assert_eq!(r.meshes["a"], 0..36);
+        assert_eq!(r.meshes["z"], 36..72);
+        assert_eq!(r.annotations, 72..data.len() as u32);
+        assert!(r.annotations.end > 72);
+        scene.entities.remove("a");
+        cache.vertices(&scene).unwrap();
+        let r = cache.draw_ranges().unwrap();
+        assert_eq!(r.meshes.len(), 1);
+        assert_eq!(r.meshes["z"], 0..36);
+        assert_eq!(r.annotations.start, 36);
     }
 }

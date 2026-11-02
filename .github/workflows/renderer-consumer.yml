@@ -25,6 +25,10 @@ jobs:
         run: cargo fmt --manifest-path tools/renderer-consumer/Cargo.toml --check
       - name: Compile public API from a separate crate
         run: cargo clippy --locked --manifest-path tools/renderer-consumer/Cargo.toml --all-targets -- -D warnings
+      - name: Check layer order and timestamp conversion without GPU
+        run: |
+          cargo test --locked --features preview --lib geometry::cache::tests
+          cargo test --locked --features preview --lib preview::render::tests
       - name: Install Linux software Vulkan and virtual display
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y mesa-vulkan-drivers libvulkan1 libxkbcommon-x11-0 xvfb xauth

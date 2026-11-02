@@ -1,6 +1,6 @@
 //! Independent public-API consumer. Execute GPU/file checks in CI, not unit tests.
 use formora::mesh::{MeshAsset, Triangle};
-use formora::preview::{PreparedScene, Renderer};
+use formora::preview::{DrawOutcome, PreparedScene, Renderer};
 use formora::scene::{Entity, EntityKind, Geometry, Material, Scene, Transform};
 use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
@@ -333,6 +333,287 @@ impl Trial {
         Ok(())
     }
 
+    fn layers(
+        &self,
+        renderer: &mut Renderer,
+        size: PhysicalSize<u32>,
+        windowed: bool,
+    ) -> Result<()> {
+        let mut full = scene();
+        full.entities.remove("box");
+        for (index, id) in ["a", "b", "c", "d"].iter().enumerate() {
+            let color = [
+                [1., 0.1, 0.1, 0.45],
+                [0.1, 1., 0.1, 0.7],
+                [0.1, 0.1, 1., 0.6],
+                [1., 1., 0.1, 0.8],
+            ][index];
+            full.materials.insert(
+                id.to_string(),
+                Material {
+                    base_color: color,
+                    roughness: 0.6,
+                    metallic: 0.,
+                },
+            );
+            full.entities.insert(
+                id.to_string(),
+                Entity {
+                    name: id.to_string(),
+                    parent: None,
+                    transform: Transform {
+                        translation: [(index as f64 - 1.5) * 0.3, 0., 0.],
+                        ..Default::default()
+                    },
+                    content: EntityKind::Mesh {
+                        geometry: Geometry::Plane { size: [2.8, 2.] },
+                        material: Some(id.to_string()),
+                    },
+                },
+            );
+        }
+        for (id, x, color) in [
+            ("a_light", -2., [0.2, 1., 0.4]),
+            ("z_light", 3., [1., 0.3, 0.2]),
+        ] {
+            full.entities.insert(
+                id.into(),
+                Entity {
+                    name: id.into(),
+                    parent: None,
+                    transform: Transform {
+                        translation: [x, 0., 4.],
+                        ..Default::default()
+                    },
+                    content: EntityKind::Light {
+                        color,
+                        intensity: 80.,
+                    },
+                },
+            );
+        }
+        // Caller order is [dynamic, static]. All annotations follow all mesh IDs.
+        full.annotations = vec![
+            formora::scene::Annotation {
+                entity: None,
+                position: [-0.5, 0.6, 0.5],
+                text: "dynamic".into(),
+            },
+            formora::scene::Annotation {
+                entity: None,
+                position: [0.5, 0.6, 0.5],
+                text: "static".into(),
+            },
+        ];
+        let layer = |source: &Scene, ids: &[&str], note: usize| {
+            let mut part = source.clone();
+            part.entities.retain(|id, e| {
+                !matches!(e.content, EntityKind::Mesh { .. }) || ids.contains(&id.as_str())
+            });
+            part.annotations = vec![source.annotations[note].clone()];
+            part
+        };
+        let before = full.clone();
+        let mut static_snapshot = renderer.prepare(&layer(&full, &["a", "c"], 1))?;
+        let original_static = renderer.prepare(&layer(&full, &["a", "c"], 1))?;
+        let original_dynamic = renderer.prepare(&layer(&full, &["b", "d"], 0))?;
+        let original_lights = renderer.prepare_lighting(&full)?;
+        let original_camera = formora::geometry::camera_view(&full, size.width, size.height)?;
+        let mut first = None;
+        for step in 0..4 {
+            match step {
+                1 => {
+                    full.entities.get_mut("b").unwrap().transform.translation[1] += 0.5;
+                    full.materials.get_mut("d").unwrap().base_color = [0.8, 0.2, 0.7, 0.8];
+                }
+                2 => {
+                    full.entities.get_mut("a_light").unwrap().content = EntityKind::Light {
+                        color: [0.1, 0.3, 1.],
+                        intensity: 250.,
+                    };
+                    full.entities
+                        .get_mut("camera")
+                        .unwrap()
+                        .transform
+                        .translation[0] += 0.3;
+                }
+                3 => {
+                    full.entities.get_mut("a").unwrap().transform.translation[1] -= 0.5;
+                    static_snapshot = renderer.prepare(&layer(&full, &["a", "c"], 1))?;
+                }
+                _ => {}
+            }
+            let dynamic = renderer.prepare(&layer(&full, &["b", "d"], 0))?;
+            let camera = formora::geometry::camera_view(&full, size.width, size.height)?;
+            let lights = renderer.prepare_lighting(&full)?;
+            let current = full.clone();
+            let reference = self.output.join(format!("layers-reference-{step}.png"));
+            let output = self.output.join(format!("layers-ordered-{step}.png"));
+            renderer.capture(&full, &reference)?;
+            renderer.capture_layers(&[&dynamic, &static_snapshot], &camera, &lights, &output)?;
+            let image = pixels(&reference, size)?;
+            assert_eq!(
+                pixels(&output, size)?,
+                image,
+                "layers must match full-scene order and current lights"
+            );
+            if let Some(previous) = &first {
+                assert_ne!(
+                    &image, previous,
+                    "actual dynamic updates must change reference"
+                );
+            } else {
+                first = Some(image.clone());
+            }
+            let world = formora::geometry::world_transforms(&full)?;
+            for id in ["b", "d", "camera"] {
+                assert_eq!(
+                    dynamic
+                        .world_transform(id)
+                        .unwrap()
+                        .to_cols_array()
+                        .map(f64::to_bits),
+                    world[id].to_cols_array().map(f64::to_bits)
+                );
+            }
+            assert!(dynamic.world_transform("missing").is_none());
+            assert!(dynamic.world_transform("a").is_none());
+            if windowed {
+                let mut submitted = false;
+                for _ in 0..10 {
+                    let result = renderer.draw_layers_profiled(
+                        &[&dynamic, &static_snapshot],
+                        &camera,
+                        &lights,
+                    )?;
+                    match result.outcome {
+                        DrawOutcome::Submitted => {
+                            let sample = result.gpu.ok_or("submitted frame lacks timestamp")?;
+                            println!(
+                                "GPU layers surface step={step} start={} end={} period_ns={} render_ms={} cpu_readback_seconds={}",
+                                sample.start_tick,
+                                sample.end_tick,
+                                sample.timestamp_period_ns,
+                                sample.render_ms,
+                                sample.cpu_readback_seconds
+                            );
+                            submitted = true;
+                            break;
+                        }
+                        DrawOutcome::Skipped => assert!(result.gpu.is_none()),
+                    }
+                }
+                assert!(submitted, "no surface frame submitted");
+                assert!(matches!(
+                    renderer.draw_layers(&[&dynamic, &static_snapshot], &camera, &lights)?,
+                    DrawOutcome::Submitted | DrawOutcome::Skipped
+                ));
+            } else {
+                assert!(
+                    renderer
+                        .draw_layers(&[&dynamic, &static_snapshot], &camera, &lights)
+                        .is_err()
+                );
+            }
+            let sample =
+                renderer.profile_layers(&[&dynamic, &static_snapshot], &camera, &lights)?;
+            assert!(sample.end_tick > sample.start_tick && sample.render_ms > 0.);
+            println!(
+                "GPU layers offscreen step={step} start={} end={} period_ns={} render_ms={} cpu_readback_seconds={}",
+                sample.start_tick,
+                sample.end_tick,
+                sample.timestamp_period_ns,
+                sample.render_ms,
+                sample.cpu_readback_seconds
+            );
+            assert_eq!(full, current);
+            assert_eq!(full.revision, before.revision);
+            let good = fs::read(&output)?;
+            assert!(
+                renderer
+                    .capture_layers(&[&dynamic, &dynamic], &camera, &lights, &output)
+                    .is_err()
+            );
+            assert_eq!(fs::read(&output)?, good);
+            let mut invalid = camera.clone();
+            invalid.view_projection.x_axis.x = f64::NAN;
+            assert!(
+                renderer
+                    .capture_layers(&[&dynamic], &invalid, &lights, &output)
+                    .is_err()
+            );
+            assert_eq!(fs::read(&output)?, good);
+            if step == 0 {
+                let foreign = pollster::block_on(Renderer::new(None, size.width, size.height))?;
+                let foreign_scene = foreign.prepare(&full)?;
+                let foreign_lights = foreign.prepare_lighting(&full)?;
+                assert!(
+                    renderer
+                        .capture_layers(&[&foreign_scene], &camera, &lights, &output)
+                        .is_err()
+                );
+                assert!(
+                    renderer
+                        .capture_layers(&[&dynamic], &camera, &foreign_lights, &output)
+                        .is_err()
+                );
+                assert!(
+                    foreign
+                        .profile_layers(&[&foreign_scene], &camera, &foreign_lights)
+                        .is_err()
+                );
+                assert_eq!(fs::read(&output)?, good);
+                let mut wrong = full.clone();
+                let a = wrong.entities.remove("a").unwrap();
+                let b = wrong.entities.remove("b").unwrap();
+                wrong.entities.insert("a".into(), b);
+                wrong.entities.insert("b".into(), a);
+                let path = self.output.join("layers-order-negative.png");
+                renderer.capture(&wrong, &path)?;
+                assert_ne!(
+                    pixels(&path, size)?,
+                    image,
+                    "fixture must detect ID-order mistakes"
+                );
+            }
+            let mut bad_light = full.clone();
+            bad_light.entities.get_mut("a_light").unwrap().content = EntityKind::Light {
+                color: [1.; 3],
+                intensity: f64::NAN,
+            };
+            assert!(renderer.prepare_lighting(&bad_light).is_err());
+            assert_eq!(fs::read(&output)?, good);
+        }
+        let path = self.output.join("layers-original-retained.png");
+        renderer.capture_layers(
+            &[&original_dynamic, &original_static],
+            &original_camera,
+            &original_lights,
+            &path,
+        )?;
+        assert_eq!(pixels(&path, size)?, first.unwrap());
+        // The same immutable geometry also survives a real target resize.
+        let original_size = (renderer.width, renderer.height);
+        renderer.resize(size.width + 8, size.height + 6);
+        let resized = PhysicalSize::new(renderer.width, renderer.height);
+        let camera = formora::geometry::camera_view(&before, resized.width, resized.height)?;
+        let path = self.output.join("layers-retained-resized.png");
+        renderer.capture_layers(
+            &[&original_dynamic, &original_static],
+            &camera,
+            &original_lights,
+            &path,
+        )?;
+        let reference = self.output.join("layers-reference-resized.png");
+        renderer.capture(&before, &reference)?;
+        assert_eq!(pixels(&path, resized)?, pixels(&reference, resized)?);
+        renderer.resize(original_size.0, original_size.1);
+        println!(
+            "PASS layers: global ID order, shared current lighting, same-revision updates, immutable world poses, old snapshots, annotations, resize, foreign/duplicate rejection and real GPU ticks"
+        );
+        Ok(())
+    }
+
     fn frame(&mut self, renderer: &mut Renderer, step: u32, windowed: bool) -> Result<()> {
         match step {
             1 => {
@@ -543,6 +824,7 @@ impl Trial {
         assert_eq!(self.original, scene());
         self.corner_colors(renderer, size)?;
         self.authored_cancellation(renderer, size)?;
+        self.layers(renderer, size, windowed)?;
         println!("PASS resize, zero resize, invalid-scene/output rejection, host ownership");
         fs::write(
             self.output.join("passed.txt"),
@@ -610,7 +892,7 @@ impl ApplicationHandler for Host {
                 )?,
             );
             let size = window.inner_size();
-            let renderer = pollster::block_on(Renderer::new(
+            let renderer = pollster::block_on(Renderer::new_profiled(
                 Some(Arc::clone(&window)),
                 size.width,
                 size.height,
@@ -677,7 +959,8 @@ fn main() -> Result<()> {
         last_prepared: None,
     };
     if args[1] == "--offscreen" {
-        let mut renderer = pollster::block_on(Renderer::new(None, INITIAL.width, INITIAL.height))?;
+        let mut renderer =
+            pollster::block_on(Renderer::new_profiled(None, INITIAL.width, INITIAL.height))?;
         println!("adapter={}", renderer.adapter);
         for step in 0..4 {
             trial.frame(&mut renderer, step, false)?;

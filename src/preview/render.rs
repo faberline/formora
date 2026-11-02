@@ -1,7 +1,10 @@
 use super::math::{self, Vertex};
-use crate::scene::{EntityKind, Result, Scene, SceneError};
+use crate::scene::{Result, Scene, SceneError};
+use std::collections::BTreeMap;
+use std::ops::Range;
 use std::path::Path;
 use std::sync::{Arc, Mutex};
+use std::time::Instant;
 use wgpu::util::DeviceExt;
 use winit::window::Window;
 
@@ -35,6 +38,8 @@ pub struct PreparedScene {
     lights: wgpu::Buffer,
     light_count: u32,
     camera: math::Camera,
+    ranges: math::DrawRanges,
+    world: BTreeMap<String, glam::DMat4>,
 }
 
 impl PreparedScene {
@@ -42,9 +47,57 @@ impl PreparedScene {
     pub fn camera(&self) -> &math::Camera {
         &self.camera
     }
+    /// The exact validated prepare-time world transform. It does not read live data.
+    pub fn world_transform(&self, id: &str) -> Option<glam::DMat4> {
+        self.world.get(id).copied()
+    }
+
     pub fn vertex_count(&self) -> u32 {
         self.count
     }
+}
+
+/// Immutable shared lighting, tied to the renderer that prepared it.
+pub struct PreparedLighting {
+    owner: Arc<()>,
+    lights: wgpu::Buffer,
+    count: u32,
+}
+
+/// A submitted present request is not proof of physical display.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum DrawOutcome {
+    Submitted,
+    Skipped,
+}
+
+/// Raw GPU render-pass ticks and their conversion. Excludes CPU preparation and readback.
+#[derive(Clone, Copy, Debug)]
+pub struct GpuPassTiming {
+    pub start_tick: u64,
+    pub end_tick: u64,
+    pub timestamp_period_ns: f32,
+    pub render_ms: f64,
+    /// Blocking map/poll/readback wall time. Include this in complete frame accounting.
+    pub cpu_readback_seconds: f64,
+}
+
+/// Skipped surface frames never contain a GPU timing sample.
+#[derive(Clone, Copy, Debug)]
+pub struct ProfiledFrame {
+    pub outcome: DrawOutcome,
+    pub gpu: Option<GpuPassTiming>,
+}
+
+struct Draw<'a> {
+    vertex: &'a wgpu::Buffer,
+    range: Range<u32>,
+}
+
+struct PassQuery {
+    set: wgpu::QuerySet,
+    resolve: wgpu::Buffer,
+    readback: wgpu::Buffer,
 }
 
 /// Basic GPU preview owned by an external host or the standalone tool.
@@ -63,6 +116,7 @@ pub struct Renderer {
     format: wgpu::TextureFormat,
     prepared: Mutex<Prepared>,
     owner: Arc<()>,
+    profiled: bool,
     pub width: u32,
     pub height: u32,
     pub adapter: String,
@@ -76,6 +130,25 @@ impl Renderer {
     /// Creates a window surface, or an offscreen renderer when `window` is `None`.
     /// Dimensions are physical pixels and must be nonzero. GPU setup can fail.
     pub async fn new(window: Option<Arc<Window>>, width: u32, height: u32) -> Result<Self> {
+        Self::create(window, width, height, false).await
+    }
+
+    /// Opt-in blocking GPU pass profiling. Fails if timestamp queries are unsupported.
+    /// Normal `new` does not request this optional device feature.
+    pub async fn new_profiled(
+        window: Option<Arc<Window>>,
+        width: u32,
+        height: u32,
+    ) -> Result<Self> {
+        Self::create(window, width, height, true).await
+    }
+
+    async fn create(
+        window: Option<Arc<Window>>,
+        width: u32,
+        height: u32,
+        profiled: bool,
+    ) -> Result<Self> {
         if width == 0 || height == 0 {
             return Err(error("render size must be nonzero"));
         }
@@ -97,10 +170,18 @@ impl Renderer {
             .map_err(error)?;
         let info = adapter.get_info();
         let adapter_name = format!("{} ({:?}, {:?})", info.name, info.backend, info.device_type);
+        let features = if profiled {
+            wgpu::Features::TIMESTAMP_QUERY
+        } else {
+            wgpu::Features::empty()
+        };
+        if !adapter.features().contains(features) {
+            return Err(error("adapter does not support GPU timestamp queries"));
+        }
         let (device, queue) = adapter
             .request_device(&wgpu::DeviceDescriptor {
                 label: Some("Formora preview"),
-                required_features: wgpu::Features::empty(),
+                required_features: features,
                 required_limits: wgpu::Limits::default(),
                 memory_hints: wgpu::MemoryHints::Performance,
                 trace: wgpu::Trace::Off,
@@ -164,6 +245,7 @@ impl Renderer {
             format,
             prepared: Mutex::default(),
             owner: Arc::new(()),
+            profiled,
             width,
             height,
             adapter: adapter_name,
@@ -214,39 +296,8 @@ impl Renderer {
             .map_err(|_| error("renderer preparation cache is poisoned"))?;
         let (world, vertices) = prepared.geometry.prepare(scene)?;
         let camera = math::camera_with_world(scene, self.width, self.height, &world)?;
-        let mut lights = Vec::new();
-        for (id, entity) in &scene.entities {
-            if let EntityKind::Light { color, intensity } = &entity.content {
-                let p = world[id].transform_point3(glam::DVec3::ZERO).as_vec3();
-                if !p.is_finite() {
-                    return Err(error("light exceeds preview range"));
-                }
-                let light_color = [
-                    color[0] as f32,
-                    color[1] as f32,
-                    color[2] as f32,
-                    (*intensity / 100.0) as f32,
-                ];
-                if !light_color.iter().all(|n| n.is_finite()) {
-                    return Err(error("light exceeds preview range"));
-                }
-                lights.push(Light {
-                    position: [p.x, p.y, p.z, 1.0],
-                    color: light_color,
-                });
-            }
-        }
-        let light_count = u32::try_from(lights.len()).map_err(error)?;
-        if lights.is_empty() {
-            lights.push(Light::zeroed());
-        }
-        let light_buffer = self
-            .device
-            .create_buffer_init(&wgpu::util::BufferInitDescriptor {
-                label: Some("Scene lights"),
-                contents: bytemuck::cast_slice(&lights),
-                usage: wgpu::BufferUsages::STORAGE,
-            });
+        let lighting = self.lighting(math::lights_with_world(scene, &world))?;
+        let ranges = prepared.geometry.draw_ranges()?;
         Self::validate_camera(&camera)?;
         let count = u32::try_from(vertices.len()).map_err(error)?;
         let dummy = Vertex::zeroed();
@@ -274,9 +325,52 @@ impl Renderer {
             owner: Arc::clone(&self.owner),
             vertex,
             count,
-            lights: light_buffer,
-            light_count,
+            lights: lighting.lights,
+            light_count: lighting.count,
             camera,
+            ranges,
+            world,
+        })
+    }
+
+    /// Validates only lights and their ancestors. Does not validate live mesh data.
+    pub fn prepare_lighting(&self, scene: &Scene) -> Result<PreparedLighting> {
+        self.lighting(math::lights_view(scene)?)
+    }
+
+    fn lighting(&self, source: Vec<math::WorldLight>) -> Result<PreparedLighting> {
+        let mut lights = Vec::with_capacity(source.len().max(1));
+        for light in source {
+            let p = light.position.as_vec3();
+            let color = [
+                light.color[0] as f32,
+                light.color[1] as f32,
+                light.color[2] as f32,
+                (light.intensity / 100.0) as f32,
+            ];
+            if !p.is_finite() || !color.iter().all(|n| n.is_finite()) {
+                return Err(error("light exceeds preview range"));
+            }
+            lights.push(Light {
+                position: [p.x, p.y, p.z, 1.0],
+                color,
+            });
+        }
+        let count = u32::try_from(lights.len()).map_err(error)?;
+        if lights.is_empty() {
+            lights.push(Light::zeroed());
+        }
+        let lights = self
+            .device
+            .create_buffer_init(&wgpu::util::BufferInitDescriptor {
+                label: Some("Scene lights"),
+                contents: bytemuck::cast_slice(&lights),
+                usage: wgpu::BufferUsages::STORAGE,
+            });
+        Ok(PreparedLighting {
+            owner: Arc::clone(&self.owner),
+            lights,
+            count,
         })
     }
 
@@ -310,6 +404,28 @@ impl Renderer {
         view: &wgpu::TextureView,
     ) -> Result<wgpu::CommandEncoder> {
         self.validate_snapshot(snapshot, camera)?;
+        self.encode_draws(
+            &[Draw {
+                vertex: &snapshot.vertex,
+                range: 0..snapshot.count,
+            }],
+            camera,
+            &snapshot.lights,
+            snapshot.light_count,
+            view,
+            None,
+        )
+    }
+
+    fn encode_draws(
+        &self,
+        draws: &[Draw<'_>],
+        camera: &math::Camera,
+        lights: &wgpu::Buffer,
+        light_count: u32,
+        view: &wgpu::TextureView,
+        query: Option<&PassQuery>,
+    ) -> Result<wgpu::CommandEncoder> {
         let bind_group = self.device.create_bind_group(&wgpu::BindGroupDescriptor {
             label: Some("Preview bindings"),
             layout: &self.pipeline.get_bind_group_layout(0),
@@ -320,7 +436,7 @@ impl Renderer {
                 },
                 wgpu::BindGroupEntry {
                     binding: 1,
-                    resource: snapshot.lights.as_entire_binding(),
+                    resource: lights.as_entire_binding(),
                 },
             ],
         });
@@ -328,7 +444,7 @@ impl Renderer {
         let uniform = Uniform {
             view_projection: camera.view_projection.as_mat4().to_cols_array_2d(),
             eye: [eye.x, eye.y, eye.z, 1.0],
-            light_meta: [snapshot.light_count, 0, 0, 0],
+            light_meta: [light_count, 0, 0, 0],
         };
         self.queue
             .write_buffer(&self.uniform, 0, bytemuck::bytes_of(&uniform));
@@ -362,13 +478,23 @@ impl Renderer {
                     }),
                     stencil_ops: None,
                 }),
-                timestamp_writes: None,
+                timestamp_writes: query.map(|q| wgpu::RenderPassTimestampWrites {
+                    query_set: &q.set,
+                    beginning_of_pass_write_index: Some(0),
+                    end_of_pass_write_index: Some(1),
+                }),
                 occlusion_query_set: None,
             });
             pass.set_pipeline(&self.pipeline);
             pass.set_bind_group(0, &bind_group, &[]);
-            pass.set_vertex_buffer(0, snapshot.vertex.slice(..));
-            pass.draw(0..snapshot.count, 0..1);
+            for draw in draws {
+                pass.set_vertex_buffer(0, draw.vertex.slice(..));
+                pass.draw(draw.range.clone(), 0..1);
+            }
+        }
+        if let Some(q) = query {
+            encoder.resolve_query_set(&q.set, 0..2, &q.resolve, 0);
+            encoder.copy_buffer_to_buffer(&q.resolve, 0, &q.readback, 0, 16);
         }
         Ok(encoder)
     }
@@ -376,19 +502,188 @@ impl Renderer {
     /// Renders the supplied scene to the window. Fails without a window surface.
     /// A recoverable surface error can skip a frame while returning `Ok(())`.
     pub fn draw(&mut self, scene: &Scene) -> Result<()> {
-        self.present(|view| self.encode(scene, view))
+        self.present(|view| self.encode(scene, view)).map(|_| ())
     }
 
     /// Draws immutable prepared data with a current camera. Does not read a live Scene.
     pub fn draw_prepared(&mut self, snapshot: &PreparedScene, camera: &math::Camera) -> Result<()> {
         self.validate_snapshot(snapshot, camera)?;
         self.present(|view| self.encode_prepared(snapshot, camera, view))
+            .map(|_| ())
+    }
+
+    fn layer_draws<'a>(
+        &self,
+        layers: &[&'a PreparedScene],
+        camera: &math::Camera,
+        lighting: &PreparedLighting,
+    ) -> Result<Vec<Draw<'a>>> {
+        Self::validate_camera(camera)?;
+        if !Arc::ptr_eq(&self.owner, &lighting.owner) {
+            return Err(error("prepared lighting belongs to another renderer"));
+        }
+        for layer in layers {
+            self.validate_snapshot(layer, camera)?;
+        }
+        let ranges: Vec<_> = layers.iter().map(|l| &l.ranges).collect();
+        let draws = math::ordered_ranges(&ranges)?
+            .into_iter()
+            .map(|(index, range)| Draw {
+                vertex: &layers[index].vertex,
+                range,
+            })
+            .collect();
+        Ok(draws)
+    }
+
+    /// Draws all mesh IDs in global source order, then annotations in layer order.
+    /// No live geometry is read. Reprepare every layer affected by source changes.
+    pub fn draw_layers(
+        &mut self,
+        layers: &[&PreparedScene],
+        camera: &math::Camera,
+        lighting: &PreparedLighting,
+    ) -> Result<DrawOutcome> {
+        let draws = self.layer_draws(layers, camera, lighting)?;
+        self.present(|view| {
+            self.encode_draws(&draws, camera, &lighting.lights, lighting.count, view, None)
+        })
+    }
+
+    /// Captures the same ordered layers with current shared lights. Replaces output on success.
+    pub fn capture_layers(
+        &self,
+        layers: &[&PreparedScene],
+        camera: &math::Camera,
+        lighting: &PreparedLighting,
+        path: &Path,
+    ) -> Result<()> {
+        let draws = self.layer_draws(layers, camera, lighting)?;
+        self.capture_frame(path, |view| {
+            self.encode_draws(&draws, camera, &lighting.lights, lighting.count, view, None)
+        })
+    }
+
+    fn pass_query(&self) -> Result<PassQuery> {
+        if !self.profiled {
+            return Err(error("use Renderer::new_profiled for GPU pass timing"));
+        }
+        Ok(PassQuery {
+            set: self.device.create_query_set(&wgpu::QuerySetDescriptor {
+                label: Some("Preview GPU pass time"),
+                ty: wgpu::QueryType::Timestamp,
+                count: 2,
+            }),
+            resolve: self.device.create_buffer(&wgpu::BufferDescriptor {
+                label: Some("Preview timestamp resolve"),
+                size: 16,
+                usage: wgpu::BufferUsages::QUERY_RESOLVE | wgpu::BufferUsages::COPY_SRC,
+                mapped_at_creation: false,
+            }),
+            readback: self.device.create_buffer(&wgpu::BufferDescriptor {
+                label: Some("Preview timestamp readback"),
+                size: 16,
+                usage: wgpu::BufferUsages::COPY_DST | wgpu::BufferUsages::MAP_READ,
+                mapped_at_creation: false,
+            }),
+        })
+    }
+
+    fn read_timing(&self, query: PassQuery) -> Result<GpuPassTiming> {
+        let start = Instant::now();
+        let (send, receive) = std::sync::mpsc::sync_channel(1);
+        query
+            .readback
+            .slice(..)
+            .map_async(wgpu::MapMode::Read, move |result| {
+                let _ = send.send(result);
+            });
+        self.device.poll(wgpu::PollType::Wait).map_err(error)?;
+        receive.recv().map_err(error)?.map_err(error)?;
+        let data = query.readback.slice(..).get_mapped_range();
+        let begin = u64::from_ne_bytes(data[..8].try_into().map_err(error)?);
+        let end = u64::from_ne_bytes(data[8..16].try_into().map_err(error)?);
+        drop(data);
+        query.readback.unmap();
+        let period = self.queue.get_timestamp_period();
+        let render_ms = timing_ms(begin, end, period)?;
+        Ok(GpuPassTiming {
+            start_tick: begin,
+            end_tick: end,
+            timestamp_period_ns: period,
+            render_ms,
+            cpu_readback_seconds: start.elapsed().as_secs_f64(),
+        })
+    }
+
+    /// Blocking diagnostic surface draw. Count its CPU/readback overhead in the full frame.
+    pub fn draw_layers_profiled(
+        &mut self,
+        layers: &[&PreparedScene],
+        camera: &math::Camera,
+        lighting: &PreparedLighting,
+    ) -> Result<ProfiledFrame> {
+        let draws = self.layer_draws(layers, camera, lighting)?;
+        let query = self.pass_query()?;
+        let outcome = self.present(|view| {
+            self.encode_draws(
+                &draws,
+                camera,
+                &lighting.lights,
+                lighting.count,
+                view,
+                Some(&query),
+            )
+        })?;
+        let gpu = if outcome == DrawOutcome::Submitted {
+            Some(self.read_timing(query)?)
+        } else {
+            None
+        };
+        Ok(ProfiledFrame { outcome, gpu })
+    }
+
+    /// Blocking offscreen diagnostic of the same pass. Does not present or write files.
+    /// Its GPU time alone cannot establish full-pipeline performance or FPS.
+    pub fn profile_layers(
+        &self,
+        layers: &[&PreparedScene],
+        camera: &math::Camera,
+        lighting: &PreparedLighting,
+    ) -> Result<GpuPassTiming> {
+        let draws = self.layer_draws(layers, camera, lighting)?;
+        let query = self.pass_query()?;
+        let texture = self.device.create_texture(&wgpu::TextureDescriptor {
+            label: Some("Preview profiled offscreen"),
+            size: wgpu::Extent3d {
+                width: self.width,
+                height: self.height,
+                depth_or_array_layers: 1,
+            },
+            mip_level_count: 1,
+            sample_count: 1,
+            dimension: wgpu::TextureDimension::D2,
+            format: self.format,
+            usage: wgpu::TextureUsages::RENDER_ATTACHMENT,
+            view_formats: &[],
+        });
+        let view = texture.create_view(&Default::default());
+        let encoder = self.encode_draws(
+            &draws,
+            camera,
+            &lighting.lights,
+            lighting.count,
+            &view,
+            Some(&query),
+        )?;
+        self.queue.submit([encoder.finish()]);
+        self.read_timing(query)
     }
 
     fn present(
         &self,
         encode: impl FnOnce(&wgpu::TextureView) -> Result<wgpu::CommandEncoder>,
-    ) -> Result<()> {
+    ) -> Result<DrawOutcome> {
         let Some(surface) = &self.surface else {
             return Err(error("renderer has no window"));
         };
@@ -399,15 +694,17 @@ impl Renderer {
                     &self.device,
                     self.config.as_ref().expect("window configuration"),
                 );
-                return Ok(());
+                return Ok(DrawOutcome::Skipped);
             }
-            Err(wgpu::SurfaceError::Timeout | wgpu::SurfaceError::Other) => return Ok(()),
+            Err(wgpu::SurfaceError::Timeout | wgpu::SurfaceError::Other) => {
+                return Ok(DrawOutcome::Skipped);
+            }
             Err(e) => return Err(error(e)),
         };
         let view = frame.texture.create_view(&Default::default());
         self.queue.submit([encode(&view)?.finish()]);
         frame.present();
-        Ok(())
+        Ok(DrawOutcome::Submitted)
     }
 
     /// Renders a separate offscreen frame and writes PNG, replacing an existing file.
@@ -513,3 +810,32 @@ pub fn render_png(scene: &Scene, path: &Path, width: u32, height: u32) -> Result
 }
 
 use bytemuck::Zeroable;
+
+fn timing_ms(begin: u64, end: u64, period: f32) -> Result<f64> {
+    if end <= begin || !period.is_finite() || period <= 0.0 {
+        return Err(error("invalid GPU pass timestamp sample"));
+    }
+    let milliseconds = (end - begin) as f64 * f64::from(period) / 1_000_000.0;
+    if !milliseconds.is_finite() || milliseconds <= 0.0 {
+        return Err(error("invalid GPU pass timestamp duration"));
+    }
+    Ok(milliseconds)
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn timestamp_conversion_requires_real_positive_sample() {
+        assert_eq!(super::timing_ms(100, 250, 2.0).unwrap(), 0.0003);
+        for (a, b, p) in [
+            (0, 0, 1.),
+            (4, 3, 1.),
+            (0, 1, 0.),
+            (0, 1, -1.),
+            (0, 1, f32::NAN),
+            (0, 1, f32::INFINITY),
+        ] {
+            assert!(super::timing_ms(a, b, p).is_err());
+        }
+    }
+}

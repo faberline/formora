@@ -120,3 +120,5 @@ CI 保留 PNG、adapter 名稱及程序輸出。
 它比較重複擷取、各次影像差異、非對齊寬度、resize、零尺寸、無視窗 draw、無效場景與輸出錯誤。
 FF Modern 與 Vortex 的實際遊戲視窗及互動流程須各自保留實測證據。
 編譯、虛擬視窗與單張圖片不能代替完整遊戲驗收。
+
+See [geometry layers and GPU timing](renderer-layers.md) to reuse static snapshots with current shared lights.
