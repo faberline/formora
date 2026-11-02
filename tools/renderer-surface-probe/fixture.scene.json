@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "revision": 0,
+  "time_seconds": 0,
+  "entities": {
+    "a-static": {
+      "name": "Static",
+      "parent": null,
+      "transform": {
+        "translation": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "material": "paint"
+      }
+    },
+    "b-dynamic": {
+      "name": "Dynamic",
+      "parent": null,
+      "transform": {
+        "translation": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "cube",
+          "size": [
+            1.5,
+            1.5,
+            1.5
+          ]
+        },
+        "material": "paint"
+      }
+    },
+    "camera": {
+      "name": "Camera",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          7.0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "content": {
+        "kind": "camera",
+        "vertical_fov_degrees": 50,
+        "near": 0.01,
+        "far": 100
+      }
+    }
+  },
+  "materials": {
+    "paint": {
+      "base_color": [
+        0.8,
+        0.2,
+        0.1,
+        1.0
+      ],
+      "roughness": 0.6,
+      "metallic": 0.0
+    }
+  },
+  "doors": {},
+  "active_camera": "camera",
+  "annotations": []
+}

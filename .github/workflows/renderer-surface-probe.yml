@@ -1,0 +1,120 @@
+name: Paired Renderer GPU diagnostic
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/../formora-probe-source
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /Cargo.toml
+            /Cargo.lock
+            /src/
+            /tests/
+            /docs/
+            /tools/renderer-consumer/
+            /tools/renderer-surface-probe/
+            /.github/workflows/renderer-consumer.yml
+            /.github/workflows/headless.yml
+            /tools/headless_smoke.py
+            /tools/mcp_smoke.py
+            /tools/requirements-mcp.txt
+            /baseline/static-usd/
+            /baseline/static-usd-macos-axis-angle/
+            /baseline/static-usd-rotation-diagnostic/
+            /baseline/static-usd-string-escaping/
+            /baseline/reference/blender-5.2.3/random-falloff/
+      - name: Stage exact tracked sources outside the sparse Git worktree
+        shell: python
+        working-directory: ${{ github.workspace }}
+        run: |
+          import hashlib, io, json, os, subprocess, tarfile
+          from pathlib import Path, PurePosixPath
+          manifest = json.loads(Path('tools/renderer-surface-probe/engine-identity.json').read_bytes())
+          tool = subprocess.check_output(['git', 'ls-files', 'tools/renderer-surface-probe'], text=True).splitlines()
+          paths = sorted(set(manifest['files']) | set(tool))
+          assert len(manifest['files']) == 99 and len(paths) == 106
+          root = Path(os.environ['GITHUB_WORKSPACE']).parent / 'formora-probe-source'
+          root.mkdir(exist_ok=False)
+          archive = subprocess.check_output(['git', 'archive', '--format=tar', 'HEAD', '--', *paths])
+          extracted = set()
+          with tarfile.open(fileobj=io.BytesIO(archive)) as source:
+              for member in source.getmembers():
+                  path = PurePosixPath(member.name)
+                  assert not path.is_absolute() and '..' not in path.parts
+                  if member.isdir():
+                      continue
+                  assert member.isfile() and member.name in paths
+                  target = root / member.name
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(source.extractfile(member).read())
+                  extracted.add(member.name)
+          assert extracted == set(paths)
+          for path, digest in manifest['files'].items():
+              assert hashlib.sha256((root / path).read_bytes()).hexdigest() == digest, path
+          evidence = root / 'target/surface-probe-evidence'
+          evidence.mkdir(parents=True)
+          (evidence / 'source.json').write_text(json.dumps({'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), 'engine': manifest['engine_commit'], 'engine_files_verified': 99, 'build_source_files': len(paths)}))
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as environment:
+              environment.write(f'FORMORA_PROBE_EVIDENCE={evidence.resolve()}\n')
+          # Cargo 1.85 cannot enumerate this large sparse Git index on hosted runners.
+          # The exact source files above have no enclosing Git worktree.
+      - uses: dtolnay/rust-toolchain@1.85.0
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --manifest-path tools/renderer-surface-probe/Cargo.toml --check
+      - run: cargo clippy --locked --manifest-path tools/renderer-surface-probe/Cargo.toml --all-targets -- -D warnings
+      - run: cargo test --locked --manifest-path tools/renderer-surface-probe/Cargo.toml
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y mesa-vulkan-drivers libxkbcommon-x11-0 xvfb xauth
+      - if: runner.os == 'Linux'
+        run: cargo build --locked --manifest-path tools/renderer-surface-probe/Cargo.toml
+      - if: runner.os == 'Linux'
+        shell: bash
+        env:
+          WINIT_UNIX_BACKEND: x11
+        run: |
+          set -euo pipefail
+          mkdir -p target/surface-probe-evidence
+          timeout 120s xvfb-run -a tools/renderer-surface-probe/target/debug/formora-renderer-surface-probe tools/renderer-surface-probe/fixture.scene.json target/surface-probe-evidence/gpu 257 193 --active false --dynamic-prefix b- | tee target/surface-probe-evidence/stdout.jsonl
+          python3 - <<'PY'
+          import json, math
+          from pathlib import Path
+          r = json.loads(Path('target/surface-probe-evidence/gpu/report.json').read_text())
+          assert r['engine_commit'] == 'd25a2a7ed7c16fa8d61f70e9c2f65926e962303d'
+          assert r['status'] == 'completed_diagnostic_not_budget_acceptance'
+          assert r['vertices'] == 72 and r['layer_vertices'] == [36, 36]
+          assert r['offscreen_RGBA_exact'] and r['input_unchanged']
+          rows = r['samples']
+          assert len(rows) == 26 and sum(s['warmup'] for s in rows) == 10
+          for path in ('surface', 'offscreen'):
+              measured = [s for s in rows if s['path'] == path and not s['warmup']]
+              assert len(measured) == 8 and {s['pair'] for s in measured} == set(range(8))
+          for s in rows:
+              assert s['actual_size'] == [257, 193]
+              assert s['end_tick'] > s['start_tick'] and s['timestamp_period_ns'] > 0
+              ms = (s['end_tick'] - s['start_tick']) * s['timestamp_period_ns'] / 1e6
+              assert math.isfinite(ms) and abs(ms - s['gpu_ms']) < 1e-8
+          # This software-GPU smoke test is not the original FF budget gate.
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always() && runner.os == 'Linux'
+        with:
+          name: surface-probe-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.FORMORA_PROBE_EVIDENCE }}
+          if-no-files-found: error
