@@ -48,6 +48,7 @@ fn legacy_edges_are_stable_queries_are_read_only_and_face_kinds_do_not_alias() {
     mesh.polygons.insert(
         "face".into(),
         formora::mesh::Polygon {
+            corner_colors: None,
             vertices: vec!["a".into(), "b".into(), "c".into()],
             uv_layers: BTreeMap::new(),
             corner_normals: None,

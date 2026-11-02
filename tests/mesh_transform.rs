@@ -184,6 +184,7 @@ fn mixed_face_kinds_keep_separate_identity_with_an_authored_world_pivot() {
     asset.polygons.insert(
         "face".into(),
         formora::mesh::Polygon {
+            corner_colors: None,
             vertices: vec!["near".into(), "b".into(), "a".into()],
             uv_layers: BTreeMap::new(),
             normal: None,

@@ -469,6 +469,7 @@ fn origin_rotation_reuses_incidence_but_computes_normals_from_changed_positions(
     mesh.triangles.insert(
         "face".into(),
         formora::mesh::Triangle {
+            corner_colors: None,
             vertices: ["a".into(), "b".into(), "c".into()],
             uv_layers: BTreeMap::new(),
             corner_normals: None,
@@ -510,6 +511,7 @@ fn multi_edit_normal_overflow_rejects_without_publishing_scene_revision_or_undo(
     mesh.triangles.insert(
         "face".into(),
         formora::mesh::Triangle {
+            corner_colors: None,
             vertices: ["a".into(), "b".into(), "c".into()],
             uv_layers: BTreeMap::new(),
             corner_normals: None,

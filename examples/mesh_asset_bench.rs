@@ -28,6 +28,7 @@ fn sample() -> MeshAsset {
                 asset.triangles.insert(
                     format!("t_{}_{}_{}", x, y, i),
                     Triangle {
+                        corner_colors: None,
                         vertices,
                         uv_layers: BTreeMap::from([(
                             "UVMap".into(),

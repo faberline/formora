@@ -40,6 +40,9 @@ pub struct Triangle {
     #[serde(deserialize_with = "unique_map")]
     pub uv_layers: BTreeMap<String, [[f64; 2]; 3]>,
     pub corner_normals: Option<[[f64; 3]; 3]>,
+    /// Final straight linear RGBA, in vertex corner order. None uses material color.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub corner_colors: Option<[[f64; 4]; 3]>,
     pub material_slot: Option<usize>,
 }
 
@@ -50,6 +53,9 @@ pub struct Polygon {
     #[serde(deserialize_with = "unique_map")]
     pub uv_layers: BTreeMap<String, Vec<[f64; 2]>>,
     pub corner_normals: Option<Vec<[f64; 3]>>,
+    /// Final straight linear RGBA, in vertex corner order. None uses material color.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub corner_colors: Option<Vec<[f64; 4]>>,
     pub normal: Option<[f64; 3]>,
     pub smooth: bool,
     pub material_slot: Option<usize>,
@@ -246,6 +252,10 @@ impl MeshAsset {
                     .corner_normals
                     .as_ref()
                     .is_some_and(|ns| ns.len() != count || ns.iter().any(|n| !valid_normal(n)))
+                || polygon
+                    .corner_colors
+                    .as_ref()
+                    .is_some_and(|cs| cs.len() != count || cs.iter().any(|c| !valid_color(c)))
             {
                 return Err(SceneError(format!("invalid mesh polygon: {id}")));
             }
@@ -267,6 +277,13 @@ impl MeshAsset {
             }
         }
         for (id, triangle) in &self.triangles {
+            if triangle
+                .corner_colors
+                .as_ref()
+                .is_some_and(|cs| cs.iter().any(|c| !valid_color(c)))
+            {
+                return Err(SceneError(format!("invalid mesh corner color: {id}")));
+            }
             if !valid_id(id)
                 || triangle.vertices[0] == triangle.vertices[1]
                 || triangle.vertices[0] == triangle.vertices[2]
@@ -317,6 +334,12 @@ fn valid_layer(name: &str) -> bool {
 fn valid_normal(n: &[f64; 3]) -> bool {
     n.iter().all(|x| x.is_finite())
         && (n.iter().all(|x| *x == 0.) || (n.iter().map(|x| x * x).sum::<f64>() - 1.).abs() <= 1e-6)
+}
+
+fn valid_color(color: &[f64; 4]) -> bool {
+    color
+        .iter()
+        .all(|c| c.is_finite() && (0.0..=1.0).contains(c))
 }
 
 fn edge_pair<'a>(a: &'a str, b: &'a str) -> (&'a str, &'a str) {

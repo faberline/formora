@@ -125,11 +125,76 @@ async def run(binary, output):
     process = json.loads(receipt.read_text())
     assert process["waited"] and process["exit_code"] == 0, process
     assert digest(scene) == edited_hash
+    # Public synthetic data. No consumer model data is included in this CI fixture.
+    colors = [[0.25, 0.5, 0.75, 1], [0.125, 0.75, 0.375, 1], [0, 0, 1, 1]]
+    color_scene = output / "colors.scene.json"
+    cli("colors-init", ["scene", "init", "--scene", color_scene])
+    asset = {"vertices": {"a": [-1, -1, 0], "b": [1, -1, 0], "c": [0, 1, 0]},
+             "triangles": {"face": {"vertices": ["a", "b", "c"], "uv_layers": {},
+                 "corner_normals": [[0, 0, 1]] * 3, "corner_colors": colors, "material_slot": None}},
+             "material_slots": []}
+    color_request = output / "colors-create-request.json"
+    save(color_request, {"expected_revision": 0, "commands": [
+        {"operation": "set_mesh_asset", "id": "mesh", "asset": asset},
+        {"operation": "create_entity", "id": "object", "entity": {
+            "name": "Colors", "parent": None,
+            "transform": {"translation": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1]},
+            "content": {"kind": "mesh", "geometry": {"kind": "asset", "id": "mesh"}, "material": None}}}]})
+    cli("colors-create", ["scene", "apply", "--scene", color_scene, "--request", color_request])
+    assert json.loads(color_scene.read_text())["mesh_assets"]["mesh"]["triangles"]["face"]["corner_colors"] == colors
+    color_args = ["headless", "--scene", color_scene, "--geometry"]
+    color_first = cli("colors-cold-reopen", color_args)
+    assert color_first["passed"] and color_first["geometry"]["vertices"] == 3
+    color_receipt = output / "colors-mcp-process.json"
+    color_params = StdioServerParameters(command=sys.executable,
+        args=[str(Path(__file__).resolve()), "--mcp-child", str(binary), str(color_scene), str(color_receipt)])
+    async with stdio_client(color_params) as (reader, writer):
+        async with ClientSession(reader, writer, read_timeout_seconds=30) as client:
+            await client.initialize()
+            tools = await client.list_tools()
+            assert "corner_colors" in str(next(t for t in tools.tools if t.name == "scene_apply").input_schema)
+            asset["triangles"]["face"]["corner_colors"] = [[0.75, 0.25, 0.5, 1], [0.375, 0.625, 0.25, 1], [0, 0, 1, 1]]
+            revision = json.loads(color_scene.read_text())["revision"]
+            applied = await client.call_tool("scene_apply", {"expected_revision": revision,
+                "commands": [{"operation": "set_mesh_asset", "id": "mesh", "asset": asset}]})
+            assert not applied.is_error
+            saved_colors = json.loads(color_scene.read_text())["mesh_assets"]["mesh"]["triangles"]["face"]["corner_colors"]
+            assert saved_colors == asset["triangles"]["face"]["corner_colors"]
+            color_updated = await client.call_tool("scene_debug", {"geometry": True})
+            assert not color_updated.is_error
+            assert color_updated.structured_content["geometry"]["sha256"] != color_first["geometry"]["sha256"]
+            save(output / "colors-mcp-debug.json", color_updated.structured_content)
+            protected_hash = digest(color_scene)
+            asset["triangles"]["face"]["corner_colors"][0][0] = 2
+            invalid_request = {"expected_revision": revision + 1,
+                "commands": [{"operation": "set_mesh_asset", "id": "mesh", "asset": asset}]}
+            rejected = await client.call_tool("scene_apply", invalid_request)
+            assert rejected.is_error and digest(color_scene) == protected_hash
+            save(output / "colors-mcp-rejected.json", rejected.model_dump(mode="json"))
+    color_process = json.loads(color_receipt.read_text())
+    assert color_process["waited"] and color_process["exit_code"] == 0
+    color_reopened = cli("colors-after-mcp-exit", color_args)
+    assert stable(color_reopened) == stable(color_updated.structured_content)
+    invalid_request_path = output / "colors-invalid-request.json"
+    save(invalid_request_path, invalid_request)
+    cli("colors-reject-invalid-cli", ["scene", "apply", "--scene", color_scene, "--request", invalid_request_path], 1)
+    assert digest(color_scene) == protected_hash
+    usd = output / "colors-existing.usda"
+    usd.write_text("preserve existing output\n")
+    usd_hash = digest(usd)
+    rejected_usd = cli("colors-reject-usd", ["scene", "export", "--scene", color_scene,
+        "--root", "object", "--format", "usda", "--output", usd], 1)
+    assert "corner colors" in str(rejected_usd) and digest(usd) == usd_hash
+    assert digest(color_scene) == protected_hash
     save(output / "result.json", {"passed": True, "mode": "headless_cpu",
          "display_variables_absent": True, "cli_mcp_reports_match": True,
          "debug_reads_preserve_files": True, "explicit_edit_changes_world_and_geometry": True,
          "source_before_explicit_edit_sha256": original, "source_after_explicit_edit_sha256": edited_hash,
          "mcp_waited": True, "mcp_exit_code": process["exit_code"]})
+    save(output / "colors-result.json", {"passed": True, "cli_create_and_cold_reopen": True,
+        "mcp_schema_and_update": True, "rgba_preserved": True, "geometry_hash_changed": True,
+        "invalid_cli_mcp_preserve_file": True, "usd_rejects_without_overwrite": True,
+        "waited": True, "exit_code": color_process["exit_code"]})
     print(json.dumps({"passed": True, "output": str(output)}))
 
 

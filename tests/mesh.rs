@@ -291,6 +291,7 @@ fn fixed_blender_plane_and_cube_triangle_payloads_preserve_geometry_and_uvs() {
             asset.triangles.insert(
                 format!("t{i}"),
                 formora::mesh::Triangle {
+                    corner_colors: None,
                     vertices: indices.map(|v| format!("v{v}")),
                     uv_layers: BTreeMap::from([("UVMap".into(), uv)]),
                     corner_normals: Some(normals),

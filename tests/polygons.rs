@@ -24,6 +24,7 @@ fn ring(points: &[[f64; 3]]) -> MeshAsset {
         polygons: BTreeMap::from([(
             "face".into(),
             Polygon {
+                corner_colors: None,
                 vertices: (0..points.len()).map(|i| format!("v{i}")).collect(),
                 uv_layers: BTreeMap::new(),
                 corner_normals: None,

@@ -39,7 +39,7 @@ jobs:
           assert not names & forbidden, names & forbidden
           print("CPU-only dependency tree: no window or GPU crates")
       - run: cargo clippy --locked --no-default-features --features headless --lib --bin formora -- -D warnings
-      - run: cargo test --locked --no-default-features --features headless --test headless --test preview_cache
+      - run: cargo test --locked --no-default-features --features headless --test headless --test preview_cache --test corner_colors
       - run: cargo build --locked --no-default-features --features headless
       - uses: actions/setup-python@v5
         with:

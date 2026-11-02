@@ -1,6 +1,8 @@
 //! Independent public-API consumer. Execute GPU/file checks in CI, not unit tests.
+use formora::mesh::{MeshAsset, Triangle};
 use formora::preview::{PreparedScene, Renderer};
 use formora::scene::{Entity, EntityKind, Geometry, Material, Scene, Transform};
+use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
 use std::fs;
 use std::io::BufReader;
@@ -80,6 +82,109 @@ struct Trial {
 }
 
 impl Trial {
+    fn corner_colors(&self, renderer: &mut Renderer, size: PhysicalSize<u32>) -> Result<()> {
+        let mut scene = scene();
+        let colors = [[1., 0., 0., 1.], [0., 1., 0., 1.], [0., 0., 1., 1.]];
+        scene.mesh_assets.insert(
+            "gradient".into(),
+            MeshAsset {
+                vertices: BTreeMap::from([
+                    ("a".into(), [-1., -1., 0.]),
+                    ("b".into(), [1., -1., 0.]),
+                    ("c".into(), [0., 1., 0.]),
+                ]),
+                triangles: BTreeMap::from([(
+                    "face".into(),
+                    Triangle {
+                        vertices: ["a", "b", "c"].map(str::to_owned),
+                        uv_layers: BTreeMap::new(),
+                        corner_normals: Some([[0., 0., 1.]; 3]),
+                        corner_colors: Some(colors),
+                        material_slot: None,
+                    },
+                )]),
+                ..Default::default()
+            },
+        );
+        let EntityKind::Mesh { geometry, .. } = &mut scene.entities.get_mut("box").unwrap().content
+        else {
+            unreachable!()
+        };
+        *geometry = Geometry::Asset {
+            id: "gradient".into(),
+        };
+        let path = self.output.join("corner-live.png");
+        renderer.capture(&scene, &path)?;
+        let image = pixels(&path, size)?;
+        let background = &image[..4];
+        let distinct: BTreeSet<_> = image
+            .chunks_exact(4)
+            .filter(|p| *p != background)
+            .map(|p| [p[0], p[1], p[2]])
+            .collect();
+        assert!(
+            distinct.len() >= 32,
+            "corner interpolation must not become a single face color"
+        );
+        for channel in 0..3 {
+            assert!(
+                distinct
+                    .iter()
+                    .any(|p| (0..3).all(|other| other == channel || p[channel] > p[other])),
+                "each of RGB must dominate somewhere on this ambient-only triangle"
+            );
+        }
+        let snapshot = renderer.prepare(&scene)?;
+        let camera = formora::geometry::camera_view(&scene, size.width, size.height)?;
+        renderer.capture_prepared(&snapshot, &camera, &self.output.join("corner-prepared.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("corner-prepared.png"), size)?,
+            image
+        );
+        let original = scene.clone();
+        scene
+            .mesh_assets
+            .get_mut("gradient")
+            .unwrap()
+            .triangles
+            .get_mut("face")
+            .unwrap()
+            .corner_colors = Some([[1. / 3., 1. / 3., 1. / 3., 1.]; 3]);
+        renderer.capture(&scene, &self.output.join("corner-average.png"))?;
+        assert_ne!(
+            pixels(&self.output.join("corner-average.png"), size)?,
+            image
+        );
+        renderer.capture_prepared(&snapshot, &camera, &self.output.join("corner-retained.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("corner-retained.png"), size)?,
+            image
+        );
+        let changed = renderer.prepare(&scene)?;
+        renderer.capture_prepared(&changed, &camera, &self.output.join("corner-updated.png"))?;
+        assert_eq!(
+            pixels(&self.output.join("corner-updated.png"), size)?,
+            pixels(&self.output.join("corner-average.png"), size)?
+        );
+        scene
+            .mesh_assets
+            .get_mut("gradient")
+            .unwrap()
+            .triangles
+            .get_mut("face")
+            .unwrap()
+            .corner_colors
+            .as_mut()
+            .unwrap()[0][3] = 2.;
+        assert!(renderer.capture(&scene, &path).is_err());
+        assert_eq!(pixels(&path, size)?, image);
+        assert_eq!(scene.revision, original.revision);
+        println!(
+            "PASS RGB corner interpolation, same-revision change, prepared parity, retained snapshot and invalid-color file preservation"
+        );
+        Ok(())
+    }
+
     fn frame(&mut self, renderer: &mut Renderer, step: u32, windowed: bool) -> Result<()> {
         match step {
             1 => {
@@ -288,6 +393,7 @@ impl Trial {
         );
         renderer.capture(&self.original, &self.output.join("restored.png"))?;
         assert_eq!(self.original, scene());
+        self.corner_colors(renderer, size)?;
         println!("PASS resize, zero resize, invalid-scene/output rejection, host ownership");
         fs::write(
             self.output.join("passed.txt"),

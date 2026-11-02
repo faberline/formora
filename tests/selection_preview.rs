@@ -125,6 +125,7 @@ fn hidden_crossing_polygon_does_not_prevent_other_surfaces_from_previewing() {
     mesh.polygons.insert(
         "crossing".into(),
         formora::mesh::Polygon {
+            corner_colors: None,
             vertices: ["a", "d", "b", "c"].map(String::from).to_vec(),
             uv_layers: Default::default(),
             corner_normals: None,

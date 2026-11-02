@@ -14,6 +14,7 @@ fn scene(surface: bool) -> Scene {
         asset.polygons.insert(
             "quad".into(),
             formora::mesh::Polygon {
+                corner_colors: None,
                 vertices: vec!["a".into(), "b".into(), "c".into(), "d".into()],
                 uv_layers: Default::default(),
                 normal: None,

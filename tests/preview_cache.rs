@@ -8,6 +8,7 @@ use std::sync::Arc;
 
 fn triangle(vertices: [&str; 3]) -> Triangle {
     Triangle {
+        corner_colors: None,
         vertices: vertices.map(str::to_owned),
         uv_layers: BTreeMap::new(),
         corner_normals: None,
@@ -48,6 +49,7 @@ fn scene() -> Scene {
         polygons: BTreeMap::from([(
             "base".into(),
             Polygon {
+                corner_colors: None,
                 vertices: ["a", "d", "c", "b"].map(str::to_owned).into(),
                 uv_layers: BTreeMap::new(),
                 corner_normals: None,
@@ -497,6 +499,7 @@ fn cache_benchmark_256() {
         asset.triangles.insert(
             format!("t{i}"),
             Triangle {
+                corner_colors: None,
                 vertices: ["top".into(), format!("v{i}"), format!("v{}", (i + 1) % 189)],
                 uv_layers: BTreeMap::new(),
                 corner_normals: None,
