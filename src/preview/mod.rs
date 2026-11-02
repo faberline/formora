@@ -1,5 +1,5 @@
 //! Native result preview. Authoring remains in the shared scene session.
-pub mod math;
+pub use crate::geometry as math;
 mod render;
 mod window;
 
