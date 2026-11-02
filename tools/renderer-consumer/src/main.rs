@@ -82,6 +82,111 @@ struct Trial {
 }
 
 impl Trial {
+    fn authored_cancellation(
+        &self,
+        renderer: &mut Renderer,
+        size: PhysicalSize<u32>,
+    ) -> Result<()> {
+        let mut scene = scene();
+        let small = 1. / (1_u64 << 60) as f64;
+        scene.mesh_assets.insert(
+            "needle".into(),
+            MeshAsset {
+                vertices: BTreeMap::from([
+                    ("a".into(), [1., 1., 0.]),
+                    ("b".into(), [0., 0., 0.]),
+                    ("c".into(), [small, 0., 0.]),
+                ]),
+                triangles: BTreeMap::from([(
+                    "face".into(),
+                    Triangle {
+                        vertices: ["a", "b", "c"].map(str::to_owned),
+                        uv_layers: BTreeMap::new(),
+                        corner_normals: Some([[0., 0., 1.]; 3]),
+                        corner_colors: None,
+                        material_slot: None,
+                    },
+                )]),
+                ..Default::default()
+            },
+        );
+        let EntityKind::Mesh { geometry, .. } = &mut scene.entities.get_mut("box").unwrap().content
+        else {
+            unreachable!()
+        };
+        *geometry = Geometry::Asset {
+            id: "needle".into(),
+        };
+        scene.entities.insert(
+            "camera_parent".into(),
+            Entity {
+                name: "Camera parent".into(),
+                parent: None,
+                transform: Transform::default(),
+                content: EntityKind::Empty,
+            },
+        );
+        scene.entities.get_mut("camera").unwrap().parent = Some("camera_parent".into());
+        scene.object_context = Some(formora::objects::Context {
+            states: BTreeMap::from([(
+                "camera".into(),
+                formora::objects::State {
+                    parent_inverse: Some([
+                        [small, 2., 0., 0.],
+                        [0., 2., 0., 0.],
+                        [0., 0., 1., 0.],
+                        [0., 0., 0., 1.],
+                    ]),
+                    ..Default::default()
+                },
+            )]),
+            ..Default::default()
+        });
+        let before = scene.clone();
+        let path = self.output.join("cancellation-live.png");
+        renderer.capture(&scene, &path)?;
+        let image = pixels(&path, size)?;
+        let snapshot = renderer.prepare(&scene)?;
+        assert_eq!(snapshot.vertex_count(), 3);
+        let camera = formora::geometry::camera_view(&scene, size.width, size.height)?;
+        renderer.capture_prepared(
+            &snapshot,
+            &camera,
+            &self.output.join("cancellation-prepared.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("cancellation-prepared.png"), size)?,
+            image
+        );
+        assert_eq!(scene, before);
+        scene
+            .mesh_assets
+            .get_mut("needle")
+            .unwrap()
+            .vertices
+            .get_mut("c")
+            .unwrap()[0] = small * 0.5;
+        renderer.capture(&scene, &self.output.join("cancellation-changed.png"))?;
+        assert_ne!(
+            pixels(&self.output.join("cancellation-changed.png"), size)?,
+            image
+        );
+        renderer.capture_prepared(
+            &snapshot,
+            &camera,
+            &self.output.join("cancellation-retained.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("cancellation-retained.png"), size)?,
+            image
+        );
+        assert_eq!(scene.revision, 0);
+        println!(
+            "PASS authored cancellation face is visible, three corners retained, live/prepared equal and old snapshot immutable"
+        );
+        Ok(())
+    }
+
     fn corner_colors(&self, renderer: &mut Renderer, size: PhysicalSize<u32>) -> Result<()> {
         let mut scene = scene();
         let colors = [[1., 0., 0., 1.], [0., 1., 0., 1.], [0., 0., 1., 1.]];
@@ -437,6 +542,7 @@ impl Trial {
         renderer.capture(&self.original, &self.output.join("restored.png"))?;
         assert_eq!(self.original, scene());
         self.corner_colors(renderer, size)?;
+        self.authored_cancellation(renderer, size)?;
         println!("PASS resize, zero resize, invalid-scene/output rejection, host ownership");
         fs::write(
             self.output.join("passed.txt"),
