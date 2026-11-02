@@ -211,7 +211,7 @@ fn paused_playback_is_stable_and_room_generates_real_triangles() {
 }
 
 #[test]
-fn shared_triangle_assets_render_pick_edit_materials_and_skip_zero_area() {
+fn shared_triangle_assets_render_pick_edit_materials_and_preserve_authored_corners() {
     let asset: formora::mesh::MeshAsset =
         serde_json::from_str(include_str!("fixtures/triangle-asset.json")).unwrap();
     let mut scene = Scene::default();
@@ -236,7 +236,7 @@ fn shared_triangle_assets_render_pick_edit_materials_and_skip_zero_area() {
     a.transform.scale = [-2., 1., 1.];
     scene.entities.insert("b".into(), a);
     let vertices = math::vertices(&scene).unwrap();
-    assert_eq!(vertices.len(), 12); // Two real triangles per instance. Coincident IDs stay stored.
+    assert_eq!(vertices.len(), 18); // All three authored-normal faces per instance, including coincident corners.
     assert_eq!(vertices[0].color, [1., 0., 0., 1.]);
     assert_eq!(vertices[3].color, [0.65, 0.68, 0.72, 1.]);
     assert!(vertices.iter().all(|v| {

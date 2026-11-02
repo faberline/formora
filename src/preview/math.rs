@@ -342,19 +342,33 @@ fn append_triangle(
 ) -> Result<()> {
     let points = triangle.points.map(|p| matrix.transform_point3(p));
     let cross = (points[1] - points[0]).cross(points[2] - points[0]);
-    // Keep degenerate topology in the asset; it contributes no visible area.
-    if cross.length_squared() == 0.0 {
+    let flat = (cross.length_squared() != 0.0).then(|| cross.normalize());
+    let normal_matrix = matrix.inverse().transpose();
+    let supplied = triangle.normals.map(|normals| {
+        normals.map(|normal| {
+            let normal = normal_matrix
+                .transform_vector3(DVec3::from_array(normal))
+                .normalize();
+            normal.is_finite().then_some(normal)
+        })
+    });
+    // A rounded flat cross is not proof that the authored face has zero area.
+    // Usable corner normals let us keep every source corner, even for a true
+    // degenerate triangle. Only skip when no complete shading normal exists.
+    if flat.is_none()
+        && supplied
+            .as_ref()
+            .is_none_or(|normals| normals.iter().any(Option::is_none))
+    {
         return Ok(());
     }
-    let flat = cross.normalize();
-    let normal_matrix = matrix.inverse().transpose();
     for (index, point) in points.into_iter().enumerate() {
-        let supplied = triangle.normals.map(|normals| {
-            normal_matrix
-                .transform_vector3(DVec3::from_array(normals[index]))
-                .normalize()
-        });
-        let normal = supplied.filter(|n| n.is_finite()).unwrap_or(flat).as_vec3();
+        let normal = supplied
+            .as_ref()
+            .and_then(|normals| normals[index])
+            .or(flat)
+            .expect("flat or all corner normals are available")
+            .as_vec3();
         let p = point.as_vec3();
         if !p.is_finite() || !normal.is_finite() {
             return Err(SceneError("geometry exceeds preview range".into()));
