@@ -29,6 +29,7 @@ jobs:
         run: |
           cargo test --locked --features preview --lib geometry::cache::tests
           cargo test --locked --features preview --lib preview::render::tests
+          cargo test --locked --features preview --lib preview::buffers::tests
       - name: Install Linux software Vulkan and virtual display
         if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y mesa-vulkan-drivers libvulkan1 libxkbcommon-x11-0 xvfb xauth

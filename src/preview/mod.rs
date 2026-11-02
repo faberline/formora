@@ -1,5 +1,6 @@
 //! Native result preview. Authoring remains in the shared scene session.
 pub use crate::geometry as math;
+mod buffers;
 mod render;
 mod window;
 

@@ -124,3 +124,5 @@ FF Modern 與 Vortex 的實際遊戲視窗及互動流程須各自保留實測�
 See [geometry layers and GPU timing](renderer-layers.md) to reuse static snapshots with current shared lights.
 
 Use [snapshot cache branches](renderer-snapshot-cache.md) when updating interleaved layers from their own previous prepared data.
+
+See [complete vertex-buffer chunks](renderer-buffer-chunks.md) for device limits, buffer counts and the allocation-only debug policy.
