@@ -3,7 +3,7 @@ pub mod math;
 mod render;
 mod window;
 
-pub use render::render_png;
+pub use render::{Renderer, render_png};
 pub use window::run;
 
 use crate::scene::{Command, Result, Scene};
