@@ -1,5 +1,5 @@
 //! Independent public-API consumer. Execute GPU/file checks in CI, not unit tests.
-use formora::preview::Renderer;
+use formora::preview::{PreparedScene, Renderer};
 use formora::scene::{Entity, EntityKind, Geometry, Material, Scene, Transform};
 use std::error::Error;
 use std::fs;
@@ -76,6 +76,7 @@ struct Trial {
     original: Scene,
     output: PathBuf,
     previous: Option<Vec<u8>>,
+    last_prepared: Option<PreparedScene>,
 }
 
 impl Trial {
@@ -128,6 +129,7 @@ impl Trial {
             data,
             "prepared and live pixels must match"
         );
+        self.last_prepared = Some(prepared);
         assert_eq!(self.scene, before, "rendering must not mutate host state");
         assert_eq!(self.scene.revision, self.original.revision);
         self.previous = Some(data);
@@ -138,18 +140,17 @@ impl Trial {
         Ok(())
     }
 
-    fn finish(&mut self, renderer: &mut Renderer, windowed: bool) -> Result<()> {
-        assert_eq!(
-            (renderer.width, renderer.height),
-            (RESIZED.width, RESIZED.height)
-        );
+    fn finish(
+        &mut self,
+        renderer: &mut Renderer,
+        windowed: bool,
+        size: PhysicalSize<u32>,
+    ) -> Result<()> {
+        assert_eq!((renderer.width, renderer.height), (size.width, size.height));
         renderer.resize(0, 0);
         renderer.resize(0, 100);
         renderer.resize(100, 0);
-        assert_eq!(
-            (renderer.width, renderer.height),
-            (RESIZED.width, RESIZED.height)
-        );
+        assert_eq!((renderer.width, renderer.height), (size.width, size.height));
         let path = self.output.join("resized.png");
         if windowed {
             renderer.draw(&self.scene)?;
@@ -157,18 +158,31 @@ impl Trial {
             assert!(renderer.draw(&self.scene).is_err());
         }
         renderer.capture(&self.scene, &path)?;
-        pixels(&path, RESIZED)?;
+        pixels(&path, size)?;
         let good = fs::read(&path)?;
         let snapshot = renderer.prepare(&self.scene)?;
-        let camera = formora::geometry::camera_view(&self.scene, RESIZED.width, RESIZED.height)?;
+        let camera = formora::geometry::camera_view(&self.scene, size.width, size.height)?;
+        let retained = self
+            .last_prepared
+            .as_ref()
+            .ok_or("no pre-resize snapshot")?;
+        renderer.capture_prepared(
+            retained,
+            &camera,
+            &self.output.join("retained-after-resize.png"),
+        )?;
+        assert_eq!(
+            pixels(&self.output.join("retained-after-resize.png"), size)?,
+            pixels(&path, size)?
+        );
         renderer.capture_prepared(
             &snapshot,
             &camera,
             &self.output.join("prepared-resized.png"),
         )?;
         assert_eq!(
-            pixels(&self.output.join("prepared-resized.png"), RESIZED)?,
-            pixels(&path, RESIZED)?
+            pixels(&self.output.join("prepared-resized.png"), size)?,
+            pixels(&path, size)?
         );
         if !windowed {
             assert!(renderer.draw_prepared(&snapshot, &camera).is_err());
@@ -181,7 +195,7 @@ impl Trial {
                 .is_err()
         );
         assert_eq!(fs::read(&path)?, good);
-        let foreign = pollster::block_on(Renderer::new(None, RESIZED.width, RESIZED.height))?;
+        let foreign = pollster::block_on(Renderer::new(None, size.width, size.height))?;
         let error = foreign
             .capture_prepared(&snapshot, &camera, &path)
             .unwrap_err();
@@ -192,20 +206,20 @@ impl Trial {
         let newer = renderer.prepare(&changed)?;
         renderer.capture_prepared(&newer, &camera, &self.output.join("prepared-newer.png"))?;
         renderer.capture(&changed, &self.output.join("live-newer.png"))?;
-        let newer_pixels = pixels(&self.output.join("prepared-newer.png"), RESIZED)?;
+        let newer_pixels = pixels(&self.output.join("prepared-newer.png"), size)?;
         assert_eq!(
             newer_pixels,
-            pixels(&self.output.join("live-newer.png"), RESIZED)?
+            pixels(&self.output.join("live-newer.png"), size)?
         );
-        assert_ne!(newer_pixels, pixels(&path, RESIZED)?);
+        assert_ne!(newer_pixels, pixels(&path, size)?);
         renderer.capture_prepared(
             &snapshot,
             &camera,
             &self.output.join("prepared-original-again.png"),
         )?;
         assert_eq!(
-            pixels(&self.output.join("prepared-original-again.png"), RESIZED)?,
-            pixels(&path, RESIZED)?,
+            pixels(&self.output.join("prepared-original-again.png"), size)?,
+            pixels(&path, size)?,
             "preparing changed data must not mutate the old snapshot"
         );
         changed = self.scene.clone();
@@ -215,7 +229,7 @@ impl Trial {
             .unwrap()
             .transform
             .translation[0] += 0.4;
-        let moved_camera = formora::geometry::camera_view(&changed, RESIZED.width, RESIZED.height)?;
+        let moved_camera = formora::geometry::camera_view(&changed, size.width, size.height)?;
         renderer.capture_prepared(
             &snapshot,
             &moved_camera,
@@ -223,8 +237,8 @@ impl Trial {
         )?;
         renderer.capture(&changed, &self.output.join("live-camera.png"))?;
         assert_eq!(
-            pixels(&self.output.join("prepared-camera.png"), RESIZED)?,
-            pixels(&self.output.join("live-camera.png"), RESIZED)?
+            pixels(&self.output.join("prepared-camera.png"), size)?,
+            pixels(&self.output.join("live-camera.png"), size)?
         );
         changed = self.scene.clone();
         changed.entities.insert(
@@ -246,12 +260,12 @@ impl Trial {
         renderer.capture_prepared(&lit, &camera, &self.output.join("prepared-light.png"))?;
         renderer.capture(&changed, &self.output.join("live-light.png"))?;
         assert_eq!(
-            pixels(&self.output.join("prepared-light.png"), RESIZED)?,
-            pixels(&self.output.join("live-light.png"), RESIZED)?
+            pixels(&self.output.join("prepared-light.png"), size)?,
+            pixels(&self.output.join("live-light.png"), size)?
         );
         assert_ne!(
-            pixels(&self.output.join("prepared-light.png"), RESIZED)?,
-            pixels(&path, RESIZED)?
+            pixels(&self.output.join("prepared-light.png"), size)?,
+            pixels(&path, size)?
         );
         renderer.capture_prepared(
             &snapshot,
@@ -259,8 +273,8 @@ impl Trial {
             &self.output.join("prepared-old-light.png"),
         )?;
         assert_eq!(
-            pixels(&self.output.join("prepared-old-light.png"), RESIZED)?,
-            pixels(&path, RESIZED)?
+            pixels(&self.output.join("prepared-old-light.png"), size)?,
+            pixels(&path, size)?
         );
         assert_eq!(changed.revision, self.scene.revision);
         let mut invalid = self.scene.clone();
@@ -294,6 +308,7 @@ struct Host {
     started: Instant,
     failure: Option<String>,
     completed: bool,
+    size_before_resize: Option<PhysicalSize<u32>>,
 }
 
 impl Host {
@@ -304,11 +319,20 @@ impl Host {
             self.trial.frame(renderer, self.step, true)?;
             self.step += 1;
             if self.step == 4 {
+                self.size_before_resize = Some(window.inner_size());
                 let _ = window.request_inner_size(RESIZED);
             }
-        } else if window.inner_size() == RESIZED {
-            renderer.resize(RESIZED.width, RESIZED.height);
-            self.trial.finish(renderer, true)?;
+        } else if Some(window.inner_size()) != self.size_before_resize
+            && window.inner_size().width > 0
+            && window.inner_size().height > 0
+        {
+            let actual = window.inner_size();
+            renderer.resize(actual.width, actual.height);
+            println!(
+                "resize requested={}x{} actual={}x{}",
+                RESIZED.width, RESIZED.height, actual.width, actual.height
+            );
+            self.trial.finish(renderer, true, actual)?;
             self.completed = true;
             event_loop.exit();
         }
@@ -395,6 +419,7 @@ fn main() -> Result<()> {
         scene,
         output,
         previous: None,
+        last_prepared: None,
     };
     if args[1] == "--offscreen" {
         let mut renderer = pollster::block_on(Renderer::new(None, INITIAL.width, INITIAL.height))?;
@@ -403,7 +428,7 @@ fn main() -> Result<()> {
             trial.frame(&mut renderer, step, false)?;
         }
         renderer.resize(RESIZED.width, RESIZED.height);
-        trial.finish(&mut renderer, false)?;
+        trial.finish(&mut renderer, false, RESIZED)?;
     } else {
         let event_loop = EventLoop::new()?;
         event_loop.set_control_flow(ControlFlow::Poll);
@@ -415,6 +440,7 @@ fn main() -> Result<()> {
             started: Instant::now(),
             failure: None,
             completed: false,
+            size_before_resize: None,
         };
         event_loop.run_app(&mut host)?;
         if let Some(error) = host.failure {
