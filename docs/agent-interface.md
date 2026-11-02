@@ -20,6 +20,10 @@ cargo build --locked
 `init` 不會覆寫既有場景。
 `inspect` 不修改場景。
 `schema` 輸出操作資料的 JSON Schema，也就是可由程式讀取的欄位規則。
+它不是完整場景檔案的 JSON Schema。
+
+操作前也須核對[操作精度](operation-precision.md)。
+物件的 `precision: f64` 不會將來源相容的 snap 算子改成 f64 運算。
 
 ## 修改
 
@@ -86,6 +90,7 @@ MCP 是 agent 用來發現和呼叫工具的協定。
 | `scene_inspect` | 查詢場景、物件或資產；可取得多邊形切分結果 |
 | `scene_apply` | 檢查版本號，再執行並儲存一批指令 |
 | `scene_undo` | 復原此程序中的上一批操作，並儲存結果 |
+| `scene_export` | 將一個靜態根物件及子項匯出到新的 USDA 檔案；限制見[靜態交換契約](static-usd.md) |
 
 初始化完成前不能呼叫工具。
 工具失敗時，MCP 回傳 `isError: true`。
