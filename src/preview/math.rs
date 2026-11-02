@@ -6,6 +6,8 @@ use std::collections::{BTreeMap, BTreeSet};
 #[path = "cache.rs"]
 mod cache;
 pub use cache::GeometryCache;
+#[cfg(feature = "preview")]
+pub(crate) use cache::{DrawRanges, ordered_ranges};
 
 #[repr(C)]
 #[derive(Clone, Copy, bytemuck::Pod, bytemuck::Zeroable)]
@@ -98,6 +100,71 @@ pub fn camera_view(scene: &Scene, width: u32, height: u32) -> Result<Camera> {
         view.object_context = Some(context);
     }
     camera(&view, width, height)
+}
+
+/// One current light, in native world coordinates. Ordered by source entity ID.
+#[derive(Clone, Debug, PartialEq)]
+pub struct WorldLight {
+    pub entity: String,
+    pub position: DVec3,
+    pub color: [f64; 3],
+    pub intensity: f64,
+}
+
+/// Validates only lights and their transform ancestors, not unrelated scene data.
+/// Use this explicit partial view with geometry that was already prepared.
+pub fn lights_view(scene: &Scene) -> Result<Vec<WorldLight>> {
+    let mut view = Scene::default();
+    let mut context = crate::objects::Context::default();
+    for (light, entity) in &scene.entities {
+        if !matches!(entity.content, EntityKind::Light { .. }) {
+            continue;
+        }
+        let mut seen = BTreeSet::new();
+        let mut current = Some(light.as_str());
+        while let Some(id) = current {
+            if !seen.insert(id) {
+                return Err(SceneError("light parent cycle".into()));
+            }
+            let source = scene
+                .entities
+                .get(id)
+                .ok_or_else(|| SceneError(format!("missing light ancestor: {id}")))?;
+            let mut entity = source.clone();
+            if !matches!(entity.content, EntityKind::Light { .. }) {
+                entity.content = EntityKind::Empty;
+            }
+            view.entities.insert(id.into(), entity);
+            if let Some(state) = scene.object_context.as_ref().and_then(|c| c.states.get(id)) {
+                context.states.insert(id.into(), state.clone());
+            }
+            current = source.parent.as_deref();
+        }
+    }
+    if !context.states.is_empty() {
+        view.object_context = Some(context);
+    }
+    let world = world_transforms(&view)?;
+    Ok(lights_with_world(&view, &world))
+}
+
+// The caller validated this exact scene and evaluated these transforms.
+pub(crate) fn lights_with_world(scene: &Scene, world: &BTreeMap<String, DMat4>) -> Vec<WorldLight> {
+    scene
+        .entities
+        .iter()
+        .filter_map(|(id, entity)| {
+            let EntityKind::Light { color, intensity } = &entity.content else {
+                return None;
+            };
+            Some(WorldLight {
+                entity: id.clone(),
+                position: world[id].transform_point3(DVec3::ZERO),
+                color: *color,
+                intensity: *intensity,
+            })
+        })
+        .collect()
 }
 
 pub(crate) fn camera_with_world(

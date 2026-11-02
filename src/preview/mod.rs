@@ -3,7 +3,10 @@ pub use crate::geometry as math;
 mod render;
 mod window;
 
-pub use render::{PreparedScene, Renderer, render_png};
+pub use render::{
+    DrawOutcome, GpuPassTiming, PreparedLighting, PreparedScene, ProfiledFrame, Renderer,
+    render_png,
+};
 pub use window::run;
 
 use crate::scene::{Command, Result, Scene};
