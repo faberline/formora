@@ -13,6 +13,9 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-15, macos-15-intel]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: ${{ runner.temp }}/formora-probe-source
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,6 +39,39 @@ jobs:
             /baseline/static-usd-rotation-diagnostic/
             /baseline/static-usd-string-escaping/
             /baseline/reference/blender-5.2.3/random-falloff/
+      - name: Stage exact tracked sources outside the sparse Git worktree
+        shell: python
+        working-directory: ${{ github.workspace }}
+        run: |
+          import hashlib, io, json, os, subprocess, tarfile
+          from pathlib import Path, PurePosixPath
+          manifest = json.loads(Path('tools/renderer-surface-probe/engine-identity.json').read_bytes())
+          tool = subprocess.check_output(['git', 'ls-files', 'tools/renderer-surface-probe'], text=True).splitlines()
+          paths = sorted(set(manifest['files']) | set(tool))
+          assert len(manifest['files']) == 99 and len(paths) == 106
+          root = Path(os.environ['RUNNER_TEMP']) / 'formora-probe-source'
+          root.mkdir(exist_ok=False)
+          archive = subprocess.check_output(['git', 'archive', '--format=tar', 'HEAD', '--', *paths])
+          extracted = set()
+          with tarfile.open(fileobj=io.BytesIO(archive)) as source:
+              for member in source.getmembers():
+                  path = PurePosixPath(member.name)
+                  assert not path.is_absolute() and '..' not in path.parts
+                  if member.isdir():
+                      continue
+                  assert member.isfile() and member.name in paths
+                  target = root / member.name
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(source.extractfile(member).read())
+                  extracted.add(member.name)
+          assert extracted == set(paths)
+          for path, digest in manifest['files'].items():
+              assert hashlib.sha256((root / path).read_bytes()).hexdigest() == digest, path
+          evidence = root / 'target/surface-probe-evidence'
+          evidence.mkdir(parents=True)
+          (evidence / 'source.json').write_text(json.dumps({'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), 'engine': manifest['engine_commit'], 'engine_files_verified': 99, 'build_source_files': len(paths)}))
+          # Cargo 1.85 cannot enumerate this large sparse Git index on hosted runners.
+          # The exact source files above have no enclosing Git worktree.
       - uses: dtolnay/rust-toolchain@1.85.0
         with:
           components: rustfmt, clippy
@@ -78,5 +114,5 @@ jobs:
         if: always() && runner.os == 'Linux'
         with:
           name: surface-probe-${{ github.run_id }}-${{ github.run_attempt }}
-          path: target/surface-probe-evidence
+          path: ${{ runner.temp }}/formora-probe-source/target/surface-probe-evidence
           if-no-files-found: error
