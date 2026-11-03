@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora model schema\n  formora model import --manifest PATH --expected-manifest-sha256 HASH --output NEW_DIRECTORY\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -210,9 +210,52 @@ fn scene_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
     }
 }
 
+fn model_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::ExitCode {
+    let allowed: &[&str] = match action {
+        "schema" => &[],
+        "import" => &["--manifest", "--expected-manifest-sha256", "--output"],
+        _ => return usage("expected model schema or model import"),
+    };
+    let options = match options(args, allowed) {
+        Ok(options) => options,
+        Err(error) => return usage(&error),
+    };
+    if action == "schema" {
+        println!("{}", formora::model_package::schemas());
+        return std::process::ExitCode::SUCCESS;
+    }
+    let (Some(manifest), Some(expected), Some(output)) = (
+        options.get("--manifest"),
+        options.get("--expected-manifest-sha256"),
+        options.get("--output"),
+    ) else {
+        return usage("model import requires --manifest, --expected-manifest-sha256, and --output");
+    };
+    let receipt = formora::model_package::import(formora::model_package::ImportRequest {
+        manifest: manifest.into(),
+        expected_manifest_sha256: expected.clone(),
+        output: output.into(),
+    });
+    println!(
+        "{}",
+        serde_json::to_string(&receipt).expect("import receipt serializes")
+    );
+    if receipt.is_ok() {
+        std::process::ExitCode::SUCCESS
+    } else {
+        std::process::ExitCode::from(1)
+    }
+}
+
 fn main() -> std::process::ExitCode {
     let mut args = std::env::args().skip(1);
     match args.next().as_deref() {
+        Some("model") => {
+            return match args.next() {
+                Some(action) => model_cli(&action, args),
+                None => usage("model action is required"),
+            };
+        }
         Some("scene") => {
             return match args.next() {
                 Some(action) => scene_cli(&action, args),

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest",
+    "expected_manifest_sha256",
+    "output"
+  ],
+  "title": "ImportRequest",
+  "type": "object"
+}
