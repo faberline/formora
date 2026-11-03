@@ -1,0 +1,158 @@
+{
+  "schema": "proposed_fixture_not_current_schema",
+  "status": "requirements_only_not_implemented",
+  "mother": "two_bone_limb.scene.json",
+  "mesh_id": "mesh_mesh",
+  "units": "fixture units; not game units",
+  "coordinate_system": "right-handed, Z up; local quaternion x,y,z,w",
+  "bind_pose": {
+    "root": {
+      "parent": null,
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "tip": {
+      "parent": "root",
+      "translation": [
+        0,
+        0,
+        1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "weights_per_vertex": {
+    "v0000": {
+      "root": 1,
+      "tip": 0
+    },
+    "v0001": {
+      "root": 1,
+      "tip": 0
+    },
+    "v0002": {
+      "root": 1,
+      "tip": 0
+    },
+    "v0003": {
+      "root": 1,
+      "tip": 0
+    },
+    "v0004": {
+      "root": 0.75,
+      "tip": 0.25
+    },
+    "v0005": {
+      "root": 0.75,
+      "tip": 0.25
+    },
+    "v0006": {
+      "root": 0.75,
+      "tip": 0.25
+    },
+    "v0007": {
+      "root": 0.75,
+      "tip": 0.25
+    },
+    "v0008": {
+      "root": 0.25,
+      "tip": 0.75
+    },
+    "v0009": {
+      "root": 0.25,
+      "tip": 0.75
+    },
+    "v0010": {
+      "root": 0.25,
+      "tip": 0.75
+    },
+    "v0011": {
+      "root": 0.25,
+      "tip": 0.75
+    },
+    "v0012": {
+      "root": 0,
+      "tip": 1
+    },
+    "v0013": {
+      "root": 0,
+      "tip": 1
+    },
+    "v0014": {
+      "root": 0,
+      "tip": 1
+    },
+    "v0015": {
+      "root": 0,
+      "tip": 1
+    }
+  },
+  "clip": {
+    "id": "bend",
+    "length_seconds": 1.0,
+    "interpolation": "linear translation and normalized quaternion interpolation",
+    "keyframes": [
+      {
+        "time": 0,
+        "bone": "tip",
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "time": 0.5,
+        "bone": "tip",
+        "rotation": [
+          0,
+          0.3826834323650898,
+          0,
+          0.9238795325112867
+        ]
+      },
+      {
+        "time": 1,
+        "bone": "tip",
+        "rotation": [
+          0,
+          0.7071067811865475,
+          0,
+          0.7071067811865476
+        ]
+      }
+    ]
+  },
+  "expected": "Bind pose matches mother, each vertex moves with its declared weights and tip rotates about the bind joint; deterministic poses at 0, 0.5, 1 seconds.",
+  "negative_cases": [
+    {
+      "case": "invalid_bone_index",
+      "expected": "explicit validation error"
+    },
+    {
+      "case": "negative_weight",
+      "expected": "explicit validation error"
+    },
+    {
+      "case": "missing_clip",
+      "expected": "explicit validation error"
+    }
+  ],
+  "executed": false,
+  "note": "This is a proposed semantic fixture, not a Formora scene schema; vertex_groups are not bones."
+}

@@ -10,6 +10,28 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
         serde_json::from_value(value).map_err(|e| e.to_string())
     }
     match name {
+        "material_project_schema" => {
+            parse::<crate::model_package::SchemaRequest>(arguments)?;
+            Ok(crate::material_project::schemas())
+        }
+        "material_inspect" => {
+            serde_json::to_value(crate::material_project::inspect(parse::<
+                crate::material_project::InspectRequest,
+            >(arguments)?))
+            .map_err(|e| e.to_string())
+        }
+        "material_sample" => {
+            serde_json::to_value(crate::material_project::sample(parse::<
+                crate::material_project::SampleRequest,
+            >(arguments)?))
+            .map_err(|e| e.to_string())
+        }
+        "material_import" => {
+            serde_json::to_value(crate::material_project::import(parse::<
+                crate::material_project::ImportRequest,
+            >(arguments)?))
+            .map_err(|e| e.to_string())
+        }
         "model_package_schema" => {
             parse::<crate::model_package::SchemaRequest>(arguments)?;
             Ok(crate::model_package::schemas())
@@ -35,6 +57,10 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
 
 pub fn tools() -> Value {
     json!([
+        {"name":"material_project_schema","description":"Read the CPU material project, full bb025 source, request and receipt schemas.","inputSchema":schemars::schema_for!(crate::model_package::SchemaRequest),"annotations":{"readOnlyHint":true}},
+        {"name":"material_inspect","description":"Validate a CPU texture project and all raw resource hashes. No scene/game state changes or GPU.","inputSchema":crate::material_project::schemas()["inspect_request"],"annotations":{"readOnlyHint":true}},
+        {"name":"material_sample","description":"Sample explicit texture-space UV points on a bound source face using nearest/clamp/srgb. No rendering or scene/game changes.","inputSchema":crate::material_project::schemas()["sample_request"],"annotations":{"readOnlyHint":true}},
+        {"name":"material_import","description":"Validate and copy exact polygon source, PNG and descriptor bytes to a NEW owned project directory. Check ok before adoption. Never overwrite output or change the open scene/game save.","inputSchema":crate::material_project::schemas()["import_request"],"annotations":{"readOnlyHint":false,"destructiveHint":false}},
         {"name":"model_package_schema","description":"Read the model package manifest, request, and receipt schemas. No model or game state changes.","inputSchema":schemars::schema_for!(crate::model_package::SchemaRequest),"annotations":{"readOnlyHint":true}},
         {"name":"model_import","description":"Validate and copy a static main-profile model package to a NEW owned directory. Check the returned receipt ok flag. Never overwrites an existing output or changes this scene/game save. No GPU is used.","inputSchema":crate::model_package::schemas()["import_request"],"annotations":{"readOnlyHint":false,"destructiveHint":false}},
         {"name":"scene_inspect","description":"Inspect the current scene, one entity, or one mesh_asset. No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
@@ -202,6 +228,10 @@ impl McpServer {
                     "scene_undo",
                     "model_package_schema",
                     "model_import",
+                    "material_project_schema",
+                    "material_inspect",
+                    "material_sample",
+                    "material_import",
                 ]
                 .contains(&name)
                 {
@@ -213,7 +243,14 @@ impl McpServer {
                     .unwrap_or_else(|| json!({}));
                 match dispatch(session, name, arguments) {
                     Ok(value) => {
-                        let is_error = name == "model_import" && value["ok"] == false;
+                        let is_error = [
+                            "model_import",
+                            "material_inspect",
+                            "material_sample",
+                            "material_import",
+                        ]
+                        .contains(&name)
+                            && value["ok"] == false;
                         json!({"content":[{"type":"text","text":value.to_string()}],"structuredContent":value,"isError":is_error})
                     }
                     Err(error) => json!({"content":[{"type":"text","text":error}],"isError":true}),

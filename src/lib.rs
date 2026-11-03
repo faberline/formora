@@ -4,6 +4,7 @@
 pub mod agent;
 pub mod baseline;
 mod json;
+pub mod material_project;
 pub mod mesh;
 pub mod model_package;
 #[cfg(feature = "preview")]

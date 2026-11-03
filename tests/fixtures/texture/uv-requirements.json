@@ -1,0 +1,51 @@
+{
+  "schema": "proposed_fixture_not_current_schema",
+  "status": "requirements_only_not_implemented",
+  "mother": "uv_panel.scene.json",
+  "mesh_id": "mesh_mesh",
+  "front_polygon": "p0001",
+  "front_corner_order": "bottom-left, bottom-right, top-right, top-left",
+  "front_uv": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "base_color_texture": "four-colors.png",
+  "path_resolution": "project-relative to this fixture directory",
+  "image_colors_top_to_bottom": [
+    [
+      "red",
+      "green"
+    ],
+    [
+      "blue",
+      "yellow"
+    ]
+  ],
+  "expected": "Render four distinct quadrants with explicit documented UV/image-origin convention and same result in Rust and native previews; specify orientation before verdict.",
+  "negative_cases": [
+    {
+      "case": "missing_image",
+      "expected": "explicit error, no fallback success"
+    },
+    {
+      "case": "missing_uv",
+      "expected": "explicit error, no fallback success"
+    }
+  ],
+  "executed": false,
+  "note": "Native scene already stores UV; image material binding and rendering are requirements, not an existing command."
+}

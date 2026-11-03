@@ -1,0 +1,79 @@
+{
+  "manifest_version": 1,
+  "status": "fixture_authored_capabilities_not_implemented_or_tested",
+  "author_tool": {
+    "path": "/private/tmp/formora-agent-tools-bb025/formora",
+    "sha256": "84e6a05ff4503544143de541282ec1ab0689be330c66ba5e05654f7d248c7d18",
+    "source_commit_claim": "bb025ce17432ba0419008d0cd794222127e7ff92",
+    "source_commit_note": "binary hash verified; commit association follows existing recorded identity, not rebuilt here"
+  },
+  "fixtures": {
+    "uv": "uv_panel.scene.json",
+    "rig": "two_bone_limb.scene.json"
+  },
+  "files": {
+    ".two_bone_limb.scene.json.formora.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".uv_panel.scene.json.formora.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "four-colors.png": "71676a057ca47df88bcaa37191d0be9c2ec46eae37f882cb4ecb01140fff8607",
+    "rig-requirements.json": "053616e01a9bb1a92ba38099f9d1984ecd9b138c94f765f5aef72118393e9697",
+    "two_bone_limb.scene.json": "e362cbcc579fde81fb6a7ac1b80b4541a6a20bad187a401af2b1396add344fc4",
+    "uv-requirements.json": "2dda360e8db1518517e0c048d09c6360e41c486bde8983dbfd7a39fe1eb08e42",
+    "uv_panel.scene.json": "c8a790703dfaad4aa061667f29830b9877252afdd13a809c0d279f0539223b29"
+  },
+  "evidence_directory": "build/formora-production/capability-fixture-author-run1",
+  "evidence_files": {
+    "author.py": "f3b03aa3db202b48ef0d1ebfc14315339af68baf2336852e3009e98f163721ec",
+    "processes.json": "a8b269469593c6d6c742296de61c3459c61fdd6576ab4644640550cfe6e1e48e",
+    "two_bone_limb-00-init.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "two_bone_limb-00-init.stdout": "0387d343d65dc7d886be4e0bb509255f205308fd08004588600ee8d93696ac05",
+    "two_bone_limb-01-apply.request.json": "5851635b18f9d56f7c133d60453958663c7122d215971246a3bb33b52c8e0915",
+    "two_bone_limb-01-apply.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "two_bone_limb-01-apply.stdout": "62a92cd956a686a92c788388dd8078640c027860b121f9a6d591a6f392bfb2ac",
+    "two_bone_limb-02-inspect.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "two_bone_limb-02-inspect.stdout": "0651b90a501f8d8e7f06daf0f20123eb34412a6d082df2d3d88113c9b6f00af1",
+    "two_bone_limb-03-inspect-mesh.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "two_bone_limb-03-inspect-mesh.stdout": "6ef0948b2245643ed2a6d8519c5162c723f2a2189129c8535e87d6b42453762a",
+    "uv_panel-00-init.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uv_panel-00-init.stdout": "0387d343d65dc7d886be4e0bb509255f205308fd08004588600ee8d93696ac05",
+    "uv_panel-01-apply.request.json": "8e10ef725ce512dc2e2258b80c3a2a75e1a97a0c31ce5a80d8afdc4d33ea63f4",
+    "uv_panel-01-apply.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uv_panel-01-apply.stdout": "62a92cd956a686a92c788388dd8078640c027860b121f9a6d591a6f392bfb2ac",
+    "uv_panel-02-inspect.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uv_panel-02-inspect.stdout": "553021042081c5d190f5bef880ef2a9e701cf33fd43b1fbeb9096bdd647dc355",
+    "uv_panel-03-inspect-mesh.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "uv_panel-03-inspect-mesh.stdout": "62b7ce18f58c1859ee9ba6d547c7b6e9f7fdd7b59572509e1221412a88609245"
+  },
+  "current_api_sources": [
+    {
+      "path": "build/formora-renderer-host/0a48-20261102-run1/source/src/mesh.rs",
+      "lines": "41-61,67-96",
+      "meaning": "UV corner data and vertex groups exist; groups are not skeletons."
+    },
+    {
+      "path": "build/formora-renderer-host/0a48-20261102-run1/source/src/scene.rs",
+      "lines": "97-101",
+      "meaning": "Material holds base_color, roughness, metallic; no texture field."
+    },
+    {
+      "path": "build/formora-renderer-host/0a48-20261102-run1/source/src/preview/math.rs",
+      "lines": "311",
+      "meaning": "Current preview consumes base_color."
+    }
+  ],
+  "expected": "See uv-requirements.json and rig-requirements.json; missing-image, missing-UV, bad-index, negative-weight, missing-clip cases are future acceptance requirements.",
+  "not_run": [
+    "texture binding",
+    "texture rendering",
+    "skeleton creation",
+    "skinning",
+    "animation evaluation",
+    "negative cases",
+    "GPU",
+    "game build"
+  ],
+  "limitations": [
+    "Current mother scenes use only supported commands; no fictional texture or skeleton fields.",
+    "PNG is original fixture data; no external artwork.",
+    "Independent visual and cross-renderer acceptance remain pending."
+  ]
+}

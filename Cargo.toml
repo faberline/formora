@@ -8,9 +8,10 @@ description = "Agent-operated 3D creation and runtime"
 
 [features]
 default = []
-preview = ["dep:arboard", "dep:bytemuck", "dep:glam", "dep:png", "dep:pollster", "dep:wgpu", "dep:winit"]
+preview = ["dep:arboard", "dep:bytemuck", "dep:glam", "dep:pollster", "dep:wgpu", "dep:winit"]
 
 [dependencies]
+formora_native_bb025 = { package = "formora-native-bb025", path = "compat/bb025", default-features = false }
 fs2 = "0.4"
 schemars = "1.2"
 serde = { version = "1", features = ["derive"] }
@@ -19,7 +20,7 @@ sha2 = "0.10"
 bytemuck = { version = "1", features = ["derive"], optional = true }
 arboard = { version = "3.6", default-features = false, optional = true }
 glam = { version = "0.34", optional = true }
-png = { version = "0.18", optional = true }
+png = "0.18"
 pollster = { version = "0.4", optional = true }
 wgpu = { version = "26.0.1", default-features = false, features = ["std", "parking_lot", "metal", "vulkan", "dx12", "wgsl"], optional = true }
 winit = { version = "0.30.12", optional = true }
@@ -29,3 +30,6 @@ unsafe_code = "forbid"
 
 [lints.clippy]
 all = "warn"
+
+[workspace]
+exclude = ["compat/bb025"]
