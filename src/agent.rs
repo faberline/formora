@@ -10,6 +10,14 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
         serde_json::from_value(value).map_err(|e| e.to_string())
     }
     match name {
+        "model_package_schema" => {
+            parse::<crate::model_package::SchemaRequest>(arguments)?;
+            Ok(crate::model_package::schemas())
+        }
+        "model_import" => serde_json::to_value(crate::model_package::import(parse::<
+            crate::model_package::ImportRequest,
+        >(arguments)?))
+        .map_err(|e| e.to_string()),
         "scene_inspect" => session
             .inspect(parse::<InspectRequest>(arguments)?)
             .map_err(|e| e.to_string()),
@@ -27,6 +35,8 @@ pub fn dispatch(session: &mut Session, name: &str, arguments: Value) -> Result<V
 
 pub fn tools() -> Value {
     json!([
+        {"name":"model_package_schema","description":"Read the model package manifest, request, and receipt schemas. No model or game state changes.","inputSchema":schemars::schema_for!(crate::model_package::SchemaRequest),"annotations":{"readOnlyHint":true}},
+        {"name":"model_import","description":"Validate and copy a static main-profile model package to a NEW owned directory. Check the returned receipt ok flag. Never overwrites an existing output or changes this scene/game save. No GPU is used.","inputSchema":crate::model_package::schemas()["import_request"],"annotations":{"readOnlyHint":false,"destructiveHint":false}},
         {"name":"scene_inspect","description":"Inspect the current scene, one entity, or one mesh_asset. No changes are made.","inputSchema":schemars::schema_for!(InspectRequest),"annotations":{"readOnlyHint":true}},
         {"name":"scene_apply","description":"Apply one atomic command batch at expected_revision. Every command must leave a valid scene. Success is saved before returning. Query the scene first to obtain its revision.","inputSchema":schemars::schema_for!(ApplyRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}},
         {"name":"scene_undo","description":"Undo the last successful batch in this process. The restored scene is saved with a new revision. Undo history is not kept across process restarts.","inputSchema":schemars::schema_for!(UndoRequest),"annotations":{"readOnlyHint":false,"destructiveHint":true}}
@@ -186,7 +196,15 @@ impl McpServer {
                 let Some(name) = params.get("name").and_then(Value::as_str) else {
                     return Some(rpc_error(id, -32602, "tool name is required"));
                 };
-                if !["scene_inspect", "scene_apply", "scene_undo"].contains(&name) {
+                if ![
+                    "scene_inspect",
+                    "scene_apply",
+                    "scene_undo",
+                    "model_package_schema",
+                    "model_import",
+                ]
+                .contains(&name)
+                {
                     return Some(rpc_error(id, -32602, "unknown tool"));
                 }
                 let arguments = params
@@ -195,7 +213,8 @@ impl McpServer {
                     .unwrap_or_else(|| json!({}));
                 match dispatch(session, name, arguments) {
                     Ok(value) => {
-                        json!({"content":[{"type":"text","text":value.to_string()}],"structuredContent":value,"isError":false})
+                        let is_error = name == "model_import" && value["ok"] == false;
+                        json!({"content":[{"type":"text","text":value.to_string()}],"structuredContent":value,"isError":is_error})
                     }
                     Err(error) => json!({"content":[{"type":"text","text":error}],"isError":true}),
                 }

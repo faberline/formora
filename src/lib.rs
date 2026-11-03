@@ -5,6 +5,7 @@ pub mod agent;
 pub mod baseline;
 mod json;
 pub mod mesh;
+pub mod model_package;
 #[cfg(feature = "preview")]
 pub mod preview;
 pub mod scene;

@@ -28,9 +28,22 @@ async def run(binary):
             async with ClientSession(reader, writer, read_timeout_seconds=10) as client:
                 initialized = await client.initialize()
                 listed = await client.list_tools()
-                assert {t.name for t in listed.tools} == {"scene_inspect", "scene_apply", "scene_undo"}
+                assert {t.name for t in listed.tools} == {"scene_inspect", "scene_apply", "scene_undo", "model_package_schema", "model_import"}
                 for tool in listed.tools:
                     Draft202012Validator.check_schema(tool.input_schema)
+                package_schemas = await client.call_tool("model_package_schema", {})
+                assert not package_schemas.is_error
+                for package_schema in package_schemas.structured_content.values():
+                    Draft202012Validator.check_schema(package_schema)
+                missing_package = await client.call_tool("model_import", {
+                    "manifest": str(Path(directory) / "missing-manifest.json"),
+                    "expected_manifest_sha256": "0" * 64,
+                    "output": str(Path(directory) / "unused-model-output"),
+                })
+                assert missing_package.is_error
+                Draft202012Validator(package_schemas.structured_content["receipt"]).validate(missing_package.structured_content)
+                assert missing_package.structured_content["error"]["code"] == "manifest_missing"
+                assert "saved_location" not in missing_package.structured_content
                 inspected = await client.call_tool("scene_inspect", {})
                 assert not inspected.is_error
                 revision = inspected.structured_content["revision"]
@@ -96,6 +109,7 @@ async def run(binary):
             "undo": "passed", "reload": "passed",
             "mesh_create_edit_query": "passed", "referenced_mesh_delete_rejected": "passed",
             "mesh_undo_reload": "passed", "product_milestone_acceptance": False,
+            "model_package_schemas": "passed", "model_import_failure_receipt": "passed",
         }))
 
 
