@@ -46,6 +46,12 @@ jobs:
           import hashlib, io, json, os, subprocess, tarfile
           from pathlib import Path, PurePosixPath
           manifest = json.loads(Path('tools/renderer-surface-probe/engine-identity.json').read_bytes())
+          documentation = manifest.get('documentation_overrides', {})
+          if documentation:
+              assert set(documentation) == {'docs/preview.md', 'docs/renderer-api.md', 'docs/renderer-layers.md'}
+              for path, change in documentation.items():
+                  assert change['base_sha256'] == manifest['files'][path], path
+                  assert len(change['sha256']) == 64 and all(c in '0123456789abcdef' for c in change['sha256'])
           tool = subprocess.check_output(['git', 'ls-files', 'tools/renderer-surface-probe'], text=True).splitlines()
           paths = sorted(set(manifest['files']) | set(tool))
           assert len(manifest['files']) == 99 and len(paths) == 106
@@ -66,10 +72,11 @@ jobs:
                   extracted.add(member.name)
           assert extracted == set(paths)
           for path, digest in manifest['files'].items():
+              digest = documentation.get(path, {}).get('sha256', digest)
               assert hashlib.sha256((root / path).read_bytes()).hexdigest() == digest, path
           evidence = root / 'target/surface-probe-evidence'
           evidence.mkdir(parents=True)
-          (evidence / 'source.json').write_text(json.dumps({'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), 'engine': manifest['engine_commit'], 'engine_files_verified': 99, 'build_source_files': len(paths)}))
+          (evidence / 'source.json').write_text(json.dumps({'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(), 'engine': manifest['engine_commit'], 'base_manifest_entries': 99, 'unchanged_base_files_verified': 99 - len(documentation), 'documentation_overrides_verified': documentation, 'build_source_files': len(paths)}))
           with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as environment:
               environment.write(f'FORMORA_PROBE_EVIDENCE={evidence.resolve()}\n')
           # Cargo 1.85 cannot enumerate this large sparse Git index on hosted runners.

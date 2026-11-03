@@ -40,6 +40,8 @@ Meshes render in global entity ID order. The input layer order does not change t
 
 `prepare_lighting` validates the current light entities and their transform ancestors. It includes stored native transform channels and `parent_inverse`. It keeps lights in global entity ID order. It ignores unrelated mesh data. This is an explicit partial view, like `camera_view`. It does not certify the whole live scene. The resulting `PreparedLighting` is immutable and belongs to one renderer. Supply the current lighting to every layer. A layer's old prepared lighting is ignored by the layer methods.
 
+Stored light intensity uses the [preview light scale](preview.md#燈光強度). The renderer divides it by `100.0` before distance attenuation. These values are not physical light units. Reprepare lighting after a light changes. Keep the original light inputs and failed images when making a separate diagnostic scene.
+
 Geometry, topology, material, annotation and ancestor changes require preparation of every affected layer. Camera-facing vertex and edge edit markers also require preparation when their camera changes. Keep static changes, validation, CPU preparation and GPU upload costs in the frame where they occur. Revision is never a validity key. Source changes that cross layers require updates to all affected layers.
 
 ## Measure a GPU pass

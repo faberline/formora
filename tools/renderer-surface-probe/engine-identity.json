@@ -100,5 +100,19 @@
     "tools/renderer-consumer/Cargo.toml": "23fc61906a596358e32359993570d66113242278346920c72259f0a9b780b910",
     "tools/renderer-consumer/src/main.rs": "f1825f32b37c23b3572009cc9617d6f521f4f9398421c6d7b53d3d6d44da7b8d",
     "tools/requirements-mcp.txt": "f339c94a07680b28b17b8efd7f105729c36a96e34107ad8b78eeb4c570fc3929"
+  },
+  "documentation_overrides": {
+    "docs/preview.md": {
+      "base_sha256": "720c769f7a5c28fba5b6ef3bec9c46547002a005103081c82928276084dfc865",
+      "sha256": "1bf2e22cfa1edc814793b3209c65ab569b298b379e9da99b5484726be4a238e2"
+    },
+    "docs/renderer-api.md": {
+      "base_sha256": "6f9fe665bcf13feba5d043218b24d1713515d5440d1b94851e6c59134049f90f",
+      "sha256": "c3cf378039cd683281ffdc642f90254c6eddc9c88af19375ca0119f8ac8eabe1"
+    },
+    "docs/renderer-layers.md": {
+      "base_sha256": "3d2f74a465e949e81708aff70b4bba10bb66f137cf0f497de0f1a134e367c3c4",
+      "sha256": "1f15b448cb6b02bb87fcb5b9e0fe99806a574e3e7505742f5157f324d2b47c9f"
+    }
   }
 }
