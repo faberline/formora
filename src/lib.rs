@@ -5,6 +5,8 @@ pub mod agent;
 pub mod baseline;
 mod json;
 pub mod material_project;
+#[cfg(feature = "render")]
+pub mod material_renderer;
 pub mod mesh;
 pub mod model_package;
 #[cfg(feature = "preview")]

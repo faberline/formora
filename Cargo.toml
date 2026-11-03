@@ -8,7 +8,8 @@ description = "Agent-operated 3D creation and runtime"
 
 [features]
 default = []
-preview = ["dep:arboard", "dep:bytemuck", "dep:glam", "dep:pollster", "dep:wgpu", "dep:winit"]
+render = ["dep:bytemuck", "dep:wgpu"]
+preview = ["render", "dep:arboard", "dep:glam", "dep:pollster", "dep:winit"]
 
 [dependencies]
 formora_native_bb025 = { package = "formora-native-bb025", path = "compat/bb025", default-features = false }
@@ -31,5 +32,8 @@ unsafe_code = "forbid"
 [lints.clippy]
 all = "warn"
 
+[dev-dependencies]
+naga = { version = "26.0.0", features = ["wgsl-in"] }
+
 [workspace]
-exclude = ["compat/bb025"]
+exclude = ["compat/bb025", "consumers/material-headless"]

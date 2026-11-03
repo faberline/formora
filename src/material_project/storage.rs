@@ -29,7 +29,8 @@ fn read_file(path: &Path, missing: ErrorCode, stage: &str) -> Result<Vec<u8>, Fa
     fs::read(path).map_err(fail)
 }
 
-fn load(request: &InspectRequest) -> Result<PreparedProject, Failure> {
+/// Load checked raw project/resource bytes without changing model or game state.
+pub fn load(request: &InspectRequest) -> Result<PreparedProject, Failure> {
     if request.project.as_os_str().is_empty() || !valid_hash(&request.expected_project_sha256) {
         return Err(Failure::new(
             ErrorCode::InvalidRequest,
