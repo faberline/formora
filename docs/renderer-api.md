@@ -99,7 +99,9 @@ host 可在記憶體中建立或更新 `Scene`，先呼叫 `Scene::validate()`�
 目前沒有局部 GPU 更新、GPU instancing 或 draw-call 效能保證。
 大型城市必須另做效能驗收。
 材質、光照與幾何的支援範圍沿用[基本預覽](preview.md)。
-本次沒有加入紋理、骨架、動畫或 per-corner RGBA 繪圖支援。
+燈光強度的除以 `100.0` 規則及距離衰減見[燈光強度](preview.md#燈光強度)。
+目前支援[每角 RGBA](corner-colors.md)。
+目前沒有材質貼圖取樣、骨架蒙皮或動畫時間求值。
 資料精度見[操作精度](operation-precision.md)。
 
 ## 外部 consumer 檢查
