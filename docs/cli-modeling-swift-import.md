@@ -261,17 +261,26 @@ The receipt has separate success and failure forms, selected by `ok`.
 `ok: true` requires the complete validated fields and a successfully saved owned package.
 `ok: false` requires an error code, message, and validation stage.
 It may include observed manifest or scene hashes that Rust actually obtained.
-If the manifest is missing, cannot be parsed, or has the wrong hash,
-validated profile, producer, adopted roots, validated scene hash, and saved location
-must be absent or null.
-Do not copy untrusted manifest declarations into those validated result fields.
-A hash that could not be read is also absent or null.
+The failure form permits only `receipt_schema_version`, `ok`, `error`,
+and the optional `observed_manifest_sha256` and `observed_scene_sha256` fields.
+All success-only fields must be omitted on every failure.
+These include validated profile, producer, adopted roots, validated scene hash,
+counts, units, validator revision, and saved location.
+Explicit `null` is not allowed for those success-only fields.
+Do not copy untrusted manifest declarations into them.
+The schema permits `null` for the two optional observed hashes only.
+This importer omits an observed hash when it could not read the corresponding bytes.
 A failed import never reports adopted data or a successful save.
 `validator_revision` identifies compiled-in validator and core source inputs as `sha256:HEX`.
 It is not a Git commit, binary hash, or reproducible-build attestation.
 The CLI exits `0` for a saved package and `1` for a failure receipt.
 CLI usage errors exit `64` and do not constitute model validation.
-MCP returns the same receipt as structured content, with `isError: true` on import failure.
+For `model_import` arguments that deserialize as `ImportRequest`, MCP returns
+the same receipt as structured content, with `isError: true` on import failure.
+A missing field, wrong field type, or unknown field is a tool argument error.
+It returns text with `isError: true` and no `structuredContent`, before import starts.
+A request with the correct field types but an invalid hash string reaches the importer
+and returns an `invalid_request` failure receipt.
 
 Minimum error cases are unsupported format or schema, hash mismatch, invalid scene,
 unsupported profile or producer, missing resource or entity reference,
