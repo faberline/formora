@@ -20,7 +20,10 @@ Swift app integration and original model-set acceptance remain separate work.
 The [CPU material project slice](docs/material-project.md) adds a separate complete
 bb025 static polygon profile, project-relative RGB8 PNG resources, and UV image sampling.
 Use `formora material schema` for its frozen contracts.
-Its Rust window/GPU display and Swift app integration remain separate work.
+The [Rust material renderer](docs/material-renderer.md) derives per-corner UV geometry
+and exposes an optional renderer for a caller's existing GPU pass.
+Its external headless consumer defaults to CPU checks. GPU execution and Swift app
+integration require separate evidence.
 
 The [GitHub milestones](https://github.com/faberline/formora/milestones) define the roadmap.
 The current work is the [source-backed acceptance baseline](docs/baseline.md).

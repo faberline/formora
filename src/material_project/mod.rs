@@ -1,12 +1,13 @@
 //! CPU texture projects. Native polygon source and image bytes remain unchanged.
 mod image;
+pub mod render_data;
 mod schema;
 mod storage;
 mod types;
 mod validate;
 
 pub use schema::schemas;
-pub use storage::{import, inspect, sample};
+pub use storage::{import, inspect, load, sample};
 pub use types::*;
 pub use validate::{PreparedProject, validate_bytes};
 
