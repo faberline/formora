@@ -155,7 +155,10 @@
         "$ref": "#/$defs/Resource"
       },
       "scene_profile": {
-        "const": "formora-static-polygons-bb025-v1",
+        "enum": [
+          "formora-static-polygons-bb025-v1",
+          "formora-static-polygons-bb025-v2"
+        ],
         "type": "string"
       }
     },
@@ -492,7 +495,10 @@
             ]
           },
           "scene_profile": {
-            "const": "formora-static-polygons-bb025-v1",
+            "enum": [
+              "formora-static-polygons-bb025-v1",
+              "formora-static-polygons-bb025-v2"
+            ],
             "type": "string"
           },
           "scene_sha256": {

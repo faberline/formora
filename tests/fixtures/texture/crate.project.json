@@ -1,0 +1,28 @@
+{
+  "project_schema_version": 1,
+  "project_profile": "formora-base-color-image-v1",
+  "scene_profile": "formora-static-polygons-bb025-v2",
+  "producer_commit": "bb025ce17432ba0419008d0cd794222127e7ff92",
+  "scene": {
+    "path": "palette/crate.scene.json",
+    "sha256": "1d486c74d3587046232183476c78248294cdc14343997e9f3e0f144cccccb428"
+  },
+  "roots": [
+    "loot_crate"
+  ],
+  "images": {
+    "four": {
+      "path": "four-colors.png",
+      "sha256": "71676a057ca47df88bcaa37191d0be9c2ec46eae37f882cb4ecb01140fff8607",
+      "color_space": "srgb"
+    }
+  },
+  "bindings": {
+    "wood_grain": {
+      "image": "four",
+      "uv_layer": "UVMap",
+      "filter": "nearest",
+      "address_mode": "clamp_to_edge"
+    }
+  }
+}

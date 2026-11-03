@@ -30,11 +30,11 @@ pub fn schemas() -> Value {
     for (field, value) in [
         ("project_schema_version", json!(1)),
         ("project_profile", json!(PROJECT_PROFILE)),
-        ("scene_profile", json!(SOURCE_PROFILE)),
         ("producer_commit", json!(PRODUCER)),
     ] {
         project["properties"][field]["const"] = value;
     }
+    project["properties"]["scene_profile"]["enum"] = json!([SOURCE_PROFILE, SOURCE_PROFILE_V2]);
     project["properties"]["roots"]["minItems"] = json!(1);
     project["properties"]["roots"]["uniqueItems"] = json!(true);
     for map in ["images", "bindings"] {
@@ -70,11 +70,12 @@ pub fn schemas() -> Value {
     }
     for (field, value) in [
         ("project_profile", json!(PROJECT_PROFILE)),
-        ("scene_profile", json!(SOURCE_PROFILE)),
         ("producer_commit", json!(PRODUCER)),
     ] {
         receipt["$defs"]["Success"]["properties"][field]["const"] = value;
     }
+    receipt["$defs"]["Success"]["properties"]["scene_profile"]["enum"] =
+        json!([SOURCE_PROFILE, SOURCE_PROFILE_V2]);
     for field in ["project_sha256", "scene_sha256"] {
         receipt["$defs"]["Success"]["properties"][field]["pattern"] = json!("^[0-9a-f]{64}$");
     }

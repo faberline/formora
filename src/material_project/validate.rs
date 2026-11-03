@@ -32,7 +32,7 @@ pub(crate) fn parse_project(bytes: &[u8], expected: &str) -> Result<Project, Fai
     .map_err(|e| Failure::new(ErrorCode::InvalidProject, "project", e))?;
     if p.project_schema_version != 1
         || p.project_profile != PROJECT_PROFILE
-        || p.scene_profile != SOURCE_PROFILE
+        || ![SOURCE_PROFILE, SOURCE_PROFILE_V2].contains(&p.scene_profile.as_str())
     {
         return Err(Failure::new(
             ErrorCode::UnsupportedProfile,
@@ -305,14 +305,22 @@ fn check_closure(project: &Project, scene: &Scene) -> Result<(), Failure> {
     for m in scene.mesh_assets.values() {
         materials.extend(m.material_slots.iter().filter_map(Option::as_deref));
     }
+    let definitions: BTreeSet<_> = scene.materials.keys().map(String::as_str).collect();
+    // V1 retains its original exact material-set rule. V2 adds preservation of
+    // valid native palettes; it never relaxes references or external image use.
+    let material_set_valid = if project.scene_profile == SOURCE_PROFILE_V2 {
+        materials.is_subset(&definitions)
+    } else {
+        materials == definitions
+    };
     if selected != scene.entities.keys().map(String::as_str).collect()
         || meshes != scene.mesh_assets.keys().map(String::as_str).collect()
-        || materials != scene.materials.keys().map(String::as_str).collect()
+        || !material_set_valid
     {
         return Err(Failure::new(
             ErrorCode::ClosureMismatch,
             "closure",
-            "Entities and all mesh/material resources must match the complete roots closure",
+            "Entity/mesh closure and the selected profile's native material rule must hold",
         ));
     }
     Ok(())
@@ -334,7 +342,7 @@ impl PreparedProject {
             project_sha256: sha256(&self.project_bytes),
             scene_sha256: self.project.scene.sha256.clone(),
             project_profile: PROJECT_PROFILE.into(),
-            scene_profile: SOURCE_PROFILE.into(),
+            scene_profile: self.project.scene_profile.clone(),
             producer_commit: PRODUCER.into(),
             validator_revision: validator_revision(),
             roots: self.project.roots.clone(),

@@ -251,6 +251,63 @@ fn nested_resources_are_copied_without_cwd_lookup() {
 }
 
 #[test]
+fn original_crate_and_survivor_keep_unused_native_palettes_after_reopen() {
+    for (descriptor, source, name, entity, face, material_count) in [
+        (
+            include_bytes!("fixtures/texture/crate.project.json").as_slice(),
+            include_bytes!("fixtures/texture/palette/crate.scene.json").as_slice(),
+            "crate",
+            "crate_coarse_grain_0",
+            "p000000",
+            20,
+        ),
+        (
+            include_bytes!("fixtures/texture/survivor.project.json").as_slice(),
+            include_bytes!("fixtures/texture/palette/survivor.scene.json").as_slice(),
+            "survivor",
+            "s4_ear_-1",
+            "p0000",
+            26,
+        ),
+    ] {
+        let f = Fixture::new();
+        fs::create_dir(f.root.join("palette")).unwrap();
+        let source_path = format!("palette/{name}.scene.json");
+        fs::write(f.root.join(&source_path), source).unwrap();
+        fs::write(f.root.join("project.json"), descriptor).unwrap();
+        let mut sampled = f.request();
+        sampled["samples"] =
+            json!([{"entity":entity,"face":{"kind":"polygon","id":face},"uv":[0.25,0.25]}]);
+        assert_eq!(
+            colors(&cli("sample", &sampled, true)),
+            vec![json!([0, 0, 255, 255])]
+        );
+        let output = f.root.join("owned");
+        let mut request = f.request();
+        request["output"] = json!(output);
+        cli("import", &request, true);
+        let mut reopen = f.request();
+        reopen["project"] = json!(output.join("project.json"));
+        assert_eq!(
+            cli("inspect", &reopen, true)["scene_profile"],
+            "formora-static-polygons-bb025-v2"
+        );
+        let saved = fs::read(output.join(&source_path)).unwrap();
+        assert_eq!(saved, source);
+        assert_eq!(fs::read(f.root.join(&source_path)).unwrap(), source);
+        let original: Value = serde_json::from_slice(source).unwrap();
+        let reopened: Value = serde_json::from_slice(&saved).unwrap();
+        assert_eq!(
+            reopened["materials"].as_object().unwrap().len(),
+            material_count
+        );
+        assert_eq!(reopened["materials"], original["materials"]);
+        assert!(reopened["materials"].get("stone_ochre").is_some());
+        f.protected();
+    }
+}
+
+#[test]
 fn linked_image_is_rejected_even_when_its_hash_matches() {
     let f = Fixture::new();
     let from = f.root.join("four-colors.png");

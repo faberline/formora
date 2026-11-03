@@ -256,6 +256,127 @@ fn complete_closure_rejects_extra_entity_asset_or_material() {
 }
 
 #[test]
+fn v2_preserves_valid_unused_native_materials_without_changing_v1() {
+    let add_palette =
+        |s: &mut Value| s["materials"]["palette_only"] = s["materials"]["fixture_white"].clone();
+    code(changed(add_palette, |_| {}), ErrorCode::ClosureMismatch);
+    let p = changed(add_palette, |p| {
+        p["scene_profile"] = json!(SOURCE_PROFILE_V2)
+    })
+    .unwrap();
+    assert_eq!(p.scene.materials.len(), 2);
+    assert!(p.scene.materials.contains_key("palette_only"));
+    assert_eq!(p.inspect().scene_profile, SOURCE_PROFILE_V2);
+    assert_eq!(
+        p.samples(&[query([0.25, 0.25])]).unwrap().samples[0].rgba8,
+        [0, 0, 255, 255]
+    );
+    let raw: Value =
+        serde_json::from_slice(p.resource_bytes("uv_panel.scene.json").unwrap()).unwrap();
+    assert_eq!(
+        raw["materials"]["palette_only"],
+        raw["materials"]["fixture_white"]
+    );
+}
+
+#[test]
+fn v2_still_checks_unused_native_values_and_all_material_references() {
+    code(
+        changed(
+            |s| {
+                s["materials"]["unused_bad"] = s["materials"]["fixture_white"].clone();
+                s["materials"]["unused_bad"]["roughness"] = json!(2);
+            },
+            |p| p["scene_profile"] = json!(SOURCE_PROFILE_V2),
+        ),
+        ErrorCode::InvalidScene,
+    );
+    code(
+        changed(
+            |s| s["mesh_assets"]["mesh_mesh"]["material_slots"] = json!(["missing_material"]),
+            |p| p["scene_profile"] = json!(SOURCE_PROFILE_V2),
+        ),
+        ErrorCode::InvalidScene,
+    );
+}
+
+#[test]
+fn v2_native_palette_does_not_allow_unused_images_or_unused_texture_bindings() {
+    code(
+        changed(
+            |_| {},
+            |p| {
+                p["scene_profile"] = json!(SOURCE_PROFILE_V2);
+                p["images"]["unused_image"] = p["images"]["four"].clone();
+                p["images"]["unused_image"]["path"] = json!("unused.png");
+            },
+        ),
+        ErrorCode::ClosureMismatch,
+    );
+    code(
+        changed(
+            |s| s["materials"]["unused_material"] = s["materials"]["fixture_white"].clone(),
+            |p| {
+                p["scene_profile"] = json!(SOURCE_PROFILE_V2);
+                p["bindings"]["unused_material"] = p["bindings"]["fixture_white"].clone();
+            },
+        ),
+        ErrorCode::InvalidBinding,
+    );
+}
+
+#[test]
+fn unchanged_original_crate_and_survivor_load_with_their_complete_palettes() {
+    for (descriptor, source, name, hash, material_count, entity, face) in [
+        (
+            include_bytes!("../../tests/fixtures/texture/crate.project.json").as_slice(),
+            include_bytes!("../../tests/fixtures/texture/palette/crate.scene.json").as_slice(),
+            "palette/crate.scene.json",
+            "1d486c74d3587046232183476c78248294cdc14343997e9f3e0f144cccccb428",
+            20,
+            "crate_coarse_grain_0",
+            "p000000",
+        ),
+        (
+            include_bytes!("../../tests/fixtures/texture/survivor.project.json").as_slice(),
+            include_bytes!("../../tests/fixtures/texture/palette/survivor.scene.json").as_slice(),
+            "palette/survivor.scene.json",
+            "27be95cda012822751a43a1410dc52431be2919494a755beab3c26d593c3a0a2",
+            26,
+            "s4_ear_-1",
+            "p0000",
+        ),
+    ] {
+        assert_eq!(sha256(source), hash);
+        let f = BTreeMap::from([
+            (name.into(), source.to_vec()),
+            ("four-colors.png".into(), PNG.to_vec()),
+        ]);
+        let p = validate_bytes(descriptor, &sha256(descriptor), &f).unwrap();
+        assert_eq!(p.resource_bytes(name), Some(source));
+        assert_eq!(p.scene.materials.len(), material_count);
+        assert!(p.scene.materials.contains_key("stone_ochre"));
+        let q = Query {
+            entity: entity.into(),
+            face: Face::Polygon { id: face.into() },
+            uv: [0.25, 0.25],
+        };
+        assert_eq!(p.samples(&[q]).unwrap().samples[0].rgba8, [0, 0, 255, 255]);
+    }
+}
+
+#[test]
+fn palette_profile_does_not_accept_unknown_d25_native_fields() {
+    code(
+        changed(
+            |s| s["mesh_assets"]["mesh_mesh"]["polygons"]["p0001"]["corner_colors"] = json!([]),
+            |p| p["scene_profile"] = json!(SOURCE_PROFILE_V2),
+        ),
+        ErrorCode::InvalidScene,
+    );
+}
+
+#[test]
 fn producer_profile_and_sampling_declarations_are_not_guessed() {
     code(
         changed(

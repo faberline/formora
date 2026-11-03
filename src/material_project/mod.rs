@@ -15,6 +15,8 @@ use sha2::{Digest, Sha256};
 
 pub const PRODUCER: &str = "bb025ce17432ba0419008d0cd794222127e7ff92";
 pub const SOURCE_PROFILE: &str = "formora-static-polygons-bb025-v1";
+/// Preserves valid unused native material definitions. External image closure stays exact.
+pub const SOURCE_PROFILE_V2: &str = "formora-static-polygons-bb025-v2";
 pub const PROJECT_PROFILE: &str = "formora-base-color-image-v1";
 
 pub fn invalid_request(message: impl ToString) -> Receipt {

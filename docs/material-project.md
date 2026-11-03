@@ -1,6 +1,6 @@
 # CPU material projects
 
-Status: CPU slice A is implemented on this branch. Functional CI is pending.
+Status: CPU slice A is implemented on this branch. Acceptance requires fixed-commit CI and consumer evidence.
 The Rust window/GPU slice B and Swift app integration are not implemented here.
 
 The CLI and MCP use `material_project` in the Rust library.
@@ -14,7 +14,7 @@ It does not render a mesh or compute a camera pixel, ray hit, or interpolated su
 | --- | --- |
 | Project schema | `1` |
 | Project profile | `formora-base-color-image-v1` |
-| Source profile | `formora-static-polygons-bb025-v1` |
+| Source profile | `formora-static-polygons-bb025-v1` or `formora-static-polygons-bb025-v2` |
 | Declared source producer | `bb025ce17432ba0419008d0cd794222127e7ff92` |
 | Image | RGB8 PNG with no transparency, animation, or embedded color metadata |
 | Color declaration | Explicit `srgb` |
@@ -32,8 +32,12 @@ Missing normals remain missing. Unused vertices and all material slots remain pr
 This profile permits only empty entities and mesh entities with asset geometry.
 It requires time zero, empty doors/annotations, and no active camera.
 Roots must be distinct top-level entities. Their descendants must equal all entities.
-All and only referenced meshes and materials must be present.
-Material references include unused non-null mesh slots.
+All and only referenced meshes must be present.
+The v1 source profile keeps its original exact material-set rule.
+The v2 source profile also preserves valid native material definitions with no references.
+Native unused palette definitions are model data, not external image resources.
+Every referenced material must still exist. Material references include unused non-null mesh slots.
+The native validator checks every material definition, including unused ones.
 Every texture binding must be used by at least one face.
 Every image must be referenced by a binding.
 An entity material overrides asset slots, as in the pinned native preview.
@@ -199,6 +203,22 @@ The PNG remains
 `71676a057ca47df88bcaa37191d0be9c2ec46eae37f882cb4ecb01140fff8607`.
 The old manifest and requirements are copied as provenance, not as a new execution result.
 The new descriptor is a separate file with its own hash.
+
+Two unchanged Ashfall models test the v2 palette rule:
+
+| Source | SHA-256 | Preserved native material definitions |
+| --- | --- | --- |
+| [Original crate](../tests/fixtures/texture/palette/crate.scene.json) | `1d486c74d3587046232183476c78248294cdc14343997e9f3e0f144cccccb428` | 20 |
+| [Survivor v8](../tests/fixtures/texture/palette/survivor.scene.json) | `27be95cda012822751a43a1410dc52431be2919494a755beab3c26d593c3a0a2` | 26 |
+
+Their descriptors are [crate](../tests/fixtures/texture/crate.project.json)
+and [survivor](../tests/fixtures/texture/survivor.project.json).
+Only the descriptors are new. The source models and palettes are not rewritten.
+The crate binds `wood_grain` with `UVMap`. The survivor binds `survivor4_skin` with `uv0`.
+All faces using each bound material must have that layer. Other materials stay untextured.
+No UV is generated to make a positive case pass.
+V1 still rejects extra material definitions. V2 still rejects invalid unused material values,
+missing material references, unused external images, and unused texture bindings.
 
 Pure memory tests check native source identity, original polygon/UV bytes, gray transfer,
 quadrants, clamps, invalid hashes/profiles/paths/UV/image data, and failure receipts.
