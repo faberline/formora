@@ -4,7 +4,7 @@ use std::path::{Path, PathBuf};
 
 fn usage(message: &str) -> std::process::ExitCode {
     eprintln!(
-        "{message}\nUsage:\n  formora model schema\n  formora model import --manifest PATH --expected-manifest-sha256 HASH --output NEW_DIRECTORY\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
+        "{message}\nUsage:\n  formora material schema\n  formora material inspect|sample|import --request FILE|-\n  formora model schema\n  formora model import --manifest PATH --expected-manifest-sha256 HASH --output NEW_DIRECTORY\n  formora baseline check [--root PATH] [--strict]\n  formora scene init --scene PATH [--demo-room]\n  formora scene inspect --scene PATH [--entity ID | --mesh-asset ID]\n  formora scene apply --scene PATH --request FILE|-\n  formora scene serve --scene PATH\n  formora scene schema\n  formora mcp --scene PATH [--preview] [--capture PNG]\n  formora preview --scene PATH [--capture PNG]\n  formora render --scene PATH --output PNG [--width N] [--height N]"
     );
     std::process::ExitCode::from(64)
 }
@@ -247,9 +247,53 @@ fn model_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::
     }
 }
 
+fn material_cli(action: &str, args: impl Iterator<Item = String>) -> std::process::ExitCode {
+    let allowed: &[&str] = match action {
+        "schema" => &[],
+        "inspect" | "sample" | "import" => &["--request"],
+        _ => return usage("expected material schema, inspect, sample or import"),
+    };
+    let options = match options(args, allowed) {
+        Ok(o) => o,
+        Err(e) => return usage(&e),
+    };
+    if action == "schema" {
+        println!("{}", formora::material_project::schemas());
+        return std::process::ExitCode::SUCCESS;
+    }
+    let Some(path) = options.get("--request") else {
+        return usage("material operations require --request FILE|-");
+    };
+    let bytes = if path == "-" {
+        let mut bytes = Vec::new();
+        std::io::Read::read_to_end(&mut std::io::stdin().lock(), &mut bytes).map(|_| bytes)
+    } else {
+        std::fs::read(path)
+    };
+    let receipt = match bytes {
+        Ok(bytes) => formora::material_project::request_json(action, &bytes),
+        Err(e) => formora::material_project::invalid_request(e),
+    };
+    println!(
+        "{}",
+        serde_json::to_string(&receipt).expect("material receipt serializes")
+    );
+    if receipt.is_ok() {
+        std::process::ExitCode::SUCCESS
+    } else {
+        std::process::ExitCode::from(1)
+    }
+}
+
 fn main() -> std::process::ExitCode {
     let mut args = std::env::args().skip(1);
     match args.next().as_deref() {
+        Some("material") => {
+            return match args.next() {
+                Some(action) => material_cli(&action, args),
+                None => usage("material action is required"),
+            };
+        }
         Some("model") => {
             return match args.next() {
                 Some(action) => model_cli(&action, args),
