@@ -110,16 +110,7 @@ fn run() -> Result<Value, Box<dyn std::error::Error>> {
     let source_bytes = project
         .resource_bytes(&descriptor.scene.path)
         .ok_or("source resource missing")?;
-    let mut expected_source: Value = serde_json::from_slice(include_bytes!(
-        "../../../tests/fixtures/texture/uv_panel.scene.json"
-    ))?;
-    expected_source["materials"]["fixture_white"]["base_color"] = json!(expected_factor);
-    if serde_json::from_slice::<Value>(source_bytes)? != expected_source {
-        return Err(
-            "diagnostic source must be the original panel with only the declared factor change"
-                .into(),
-        );
-    }
+    check_diagnostic_source(source_bytes, expected_factor)?;
     for (i, pixel) in protocol["pixels"]
         .as_array()
         .ok_or("bad protocol")?
@@ -173,4 +164,75 @@ fn run() -> Result<Value, Box<dyn std::error::Error>> {
         return Err("--output is only used with explicitly requested GPU mode".into());
     }
     Ok(record)
+}
+
+fn check_diagnostic_source(
+    source_bytes: &[u8],
+    expected_factor: [f32; 4],
+) -> Result<(), Box<dyn std::error::Error>> {
+    let mut expected_source: Value = serde_json::from_slice(include_bytes!(
+        "../../../tests/fixtures/texture/uv_panel.scene.json"
+    ))?;
+    expected_source["materials"]["fixture_white"]["base_color"] = json!(expected_factor);
+    let mut source: Value = serde_json::from_slice(source_bytes)?;
+    let factor: [f64; 4] =
+        serde_json::from_value(source["materials"]["fixture_white"]["base_color"].clone())?;
+    if factor != expected_factor.map(f64::from) {
+        return Err("diagnostic source requires the exact declared numeric factor".into());
+    }
+    // JSON 1 and 1.0 have the same required value. Normalize only this allowed
+    // field after exact f64 comparison; keep every other source field guarded.
+    source["materials"]["fixture_white"]["base_color"] = json!(expected_factor);
+    if source != expected_source {
+        return Err(
+            "diagnostic source must be the original panel with only the declared factor change"
+                .into(),
+        );
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod source_tests {
+    use super::*;
+    const PANEL: &[u8] = include_bytes!("../../../tests/fixtures/texture/uv_panel.scene.json");
+    const HALF: [f32; 4] = [0.5, 0.5, 0.5, 1.0];
+
+    fn with_factor(factor: Value) -> Value {
+        let mut source: Value = serde_json::from_slice(PANEL).unwrap();
+        source["materials"]["fixture_white"]["base_color"] = factor;
+        source
+    }
+
+    #[test]
+    fn integer_and_float_alpha_are_the_same_required_factor() {
+        for factor in [json!([0.5, 0.5, 0.5, 1]), json!([0.5, 0.5, 0.5, 1.0])] {
+            let source = serde_json::to_vec(&with_factor(factor)).unwrap();
+            assert!(check_diagnostic_source(&source, HALF).is_ok());
+        }
+    }
+
+    #[test]
+    fn source_guard_rejects_other_model_edits_and_nearby_factors() {
+        for factor in [
+            json!([0.500000001, 0.5, 0.5, 1]),
+            json!([0.5, 0.5, 0.5]),
+            json!([0.5, 0.5, 0.5, "1"]),
+        ] {
+            let source = serde_json::to_vec(&with_factor(factor)).unwrap();
+            assert!(check_diagnostic_source(&source, HALF).is_err());
+        }
+        let mut source = with_factor(json!([0.5, 0.5, 0.5, 1.0]));
+        source["mesh_assets"]["mesh_mesh"]["vertices"]["v0000"][0] = json!(42.0);
+        assert!(check_diagnostic_source(&serde_json::to_vec(&source).unwrap(), HALF).is_err());
+        let mut source = with_factor(json!([0.5, 0.5, 0.5, 1.0]));
+        source["mesh_assets"]["mesh_mesh"]["polygons"]["p0001"]["uv_layers"]["uv0"][0][0] =
+            json!(0.125);
+        assert!(check_diagnostic_source(&serde_json::to_vec(&source).unwrap(), HALF).is_err());
+    }
+
+    #[test]
+    fn untouched_panel_still_matches_white_factor() {
+        assert!(check_diagnostic_source(PANEL, [1.0; 4]).is_ok());
+    }
 }

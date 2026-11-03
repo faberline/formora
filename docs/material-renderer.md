@@ -104,6 +104,9 @@ The other cases are `gray128`, `gray128-half`, and `red-half`.
 Use separate copied projects with the protocol's exact image and material change.
 Keep original inputs unchanged.
 The diagnostic consumer accepts the original panel geometry only.
+It compares the four allowed material factors as exact `f64` numbers.
+JSON `1` and `1.0` have the same value. Nearby values do not pass through rounding.
+All other source fields must still match the original panel.
 The public library also accepts other valid native material projects.
 
 CI compiles both external modes and runs CPU geometry and shader validation tests.

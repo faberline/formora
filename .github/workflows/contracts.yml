@@ -25,6 +25,7 @@ jobs:
       - name: Check the external material consumer (no GPU execution)
         run: |
           cargo fmt --manifest-path consumers/material-headless/Cargo.toml --check
+          cargo test --locked --manifest-path consumers/material-headless/Cargo.toml --bin formora-material-headless-consumer source_tests
           cargo clippy --locked --manifest-path consumers/material-headless/Cargo.toml --all-targets -- -D warnings
           cargo clippy --locked --manifest-path consumers/material-headless/Cargo.toml --all-targets --features gpu -- -D warnings
       - name: Check source metadata (product tests remain unrun)
