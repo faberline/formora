@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "feature_id": "mesh.selection.mode",
+  "fixture": {
+    "suite_path": "baseline/fixtures/mesh-selection.json",
+    "reference_directory": "baseline/reference/blender-5.2.3/mesh-selection",
+    "repeat_directory": "baseline/reference/blender-5.2.3/mesh-selection-repeat",
+    "run_ids": [
+      "selection_0000",
+      "selection_0001",
+      "selection_0002",
+      "selection_0003",
+      "selection_0004",
+      "selection_0005",
+      "selection_0006",
+      "selection_0007",
+      "selection_0008"
+    ],
+    "operation_contract": {
+      "target": "stable mesh asset ID",
+      "component_ids": "authored v/e/f logical IDs; never infer identity from coincident positions",
+      "mode": "agent-visible component domain mask, not a required legacy GUI",
+      "outcomes": [
+        "completed",
+        "unchanged",
+        "invalid_selection_domain",
+        "missing_vertex_weights"
+      ]
+    },
+    "performance_contract": {
+      "hardware": "Apple M1 Max",
+      "platform": "macos",
+      "profile": "release",
+      "fixture": "100x100 quad grid: 10201 vertices, 20200 edges, 10000 faces",
+      "runs_per_function_and_conversion": 3,
+      "maximum_core_ms": 100,
+      "maximum_select_save_reload_ms": 2000,
+      "status": "unrun",
+      "initial_mode": [
+        "VERT"
+      ],
+      "parameters": {
+        "type": "FACE"
+      },
+      "initial_selection": "Row-major integer XY grid. Select initial-domain vertices or element midpoints with X < 50. Ungrouped uses weight 1 only on vertices with X < 50.",
+      "measurement": "Prepare and load the fixture before timing. Measure core selection, then select/save/reload. Retain monotonic raw timestamps. All elapsed values must be nonnegative.",
+      "attributes": "Two UV layers: (+/-)(face_index + corner_index*0.125, corner_index*0.25); two material slots with face_index%2; smooth=bool(face_index%2); seam=edge_index%3==0."
+    },
+    "execution_status": {
+      "blender_reference": "530 cases reproduced in two independent processes",
+      "formora": "unrun"
+    },
+    "remaining": [
+      "full numeric domains and capacity",
+      "multi-object selection",
+      "three-platform product execution",
+      "independent content acceptance"
+    ]
+  },
+  "steps": [
+    "由固定初始網格與指定邏輯 ID 建立案例；保持 UV、材質、群組權重及隱藏狀態。",
+    "以同一 Rust 核心，分別透過 MCP 與命令列執行指定參數。實際查詢所有模式、選取與歷史狀態。",
+    "逐項比較完整 ID 集合與順序；不可只比較數量。保持不變、預期拒絕與完成操作分開記錄。",
+    "操作不得改變幾何或無關屬性。錯誤須原子回復；儲存、重開與 undo 須保持結果。",
+    "三平台保留實際要求、查詢、操作收據及預覽證據。未執行或意外失敗不能算通過。"
+  ],
+  "assertions": [
+    {
+      "target": "runs.selection_0000.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000000",
+            "v000001"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [
+          {
+            "domain": "VERT",
+            "id": "v000000"
+          },
+          {
+            "domain": "VERT",
+            "id": "v000001"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0000.operation_outcome",
+      "expected": "unchanged"
+    },
+    {
+      "target": "runs.selection_0000.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0000.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0001.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000000",
+            "v000001"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0001.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0001.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0001.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0002.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [],
+          "FACE": [],
+          "VERT": []
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0002.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0002.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0002.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0003.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000",
+            "e000003"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000000",
+            "v000001",
+            "v000004"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0003.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0003.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0003.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0004.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000",
+            "e000003"
+          ],
+          "FACE": [],
+          "VERT": [
+            "v000000",
+            "v000001",
+            "v000004"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [
+          {
+            "domain": "EDGE",
+            "id": "e000000"
+          },
+          {
+            "domain": "EDGE",
+            "id": "e000003"
+          }
+        ],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0004.operation_outcome",
+      "expected": "unchanged"
+    },
+    {
+      "target": "runs.selection_0004.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0004.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0005.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [],
+          "FACE": [],
+          "VERT": []
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [],
+        "active_face": null
+      }
+    },
+    {
+      "target": "runs.selection_0005.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0005.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0005.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0006.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000",
+            "e000001",
+            "e000003",
+            "e000005"
+          ],
+          "FACE": [
+            "f000000"
+          ],
+          "VERT": [
+            "v000000",
+            "v000001",
+            "v000003",
+            "v000004"
+          ]
+        },
+        "mode": [
+          "VERT"
+        ],
+        "history": [],
+        "active_face": "f000000"
+      }
+    },
+    {
+      "target": "runs.selection_0006.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0006.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0006.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0007.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000",
+            "e000001",
+            "e000003",
+            "e000005"
+          ],
+          "FACE": [
+            "f000000"
+          ],
+          "VERT": [
+            "v000000",
+            "v000001",
+            "v000003",
+            "v000004"
+          ]
+        },
+        "mode": [
+          "EDGE"
+        ],
+        "history": [],
+        "active_face": "f000000"
+      }
+    },
+    {
+      "target": "runs.selection_0007.operation_outcome",
+      "expected": "completed"
+    },
+    {
+      "target": "runs.selection_0007.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0007.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0008.selection_state",
+      "expected": {
+        "selected": {
+          "EDGE": [
+            "e000000",
+            "e000001",
+            "e000003",
+            "e000005"
+          ],
+          "FACE": [
+            "f000000"
+          ],
+          "VERT": [
+            "v000000",
+            "v000001",
+            "v000003",
+            "v000004"
+          ]
+        },
+        "mode": [
+          "FACE"
+        ],
+        "history": [
+          {
+            "domain": "FACE",
+            "id": "f000000"
+          }
+        ],
+        "active_face": "f000000"
+      }
+    },
+    {
+      "target": "runs.selection_0008.operation_outcome",
+      "expected": "unchanged"
+    },
+    {
+      "target": "runs.selection_0008.geometry_hidden_uv_material_groups_unchanged",
+      "expected": true
+    },
+    {
+      "target": "runs.selection_0008.agent_cli_mcp_reload_undo_match",
+      "expected": true
+    },
+    {
+      "target": "performance.grid_100x100.run_1.core_selection_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 100.0
+    },
+    {
+      "target": "performance.grid_100x100.run_1.select_save_reload_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 2000.0
+    },
+    {
+      "target": "performance.grid_100x100.run_1.nonnegative_monotonic_measurement",
+      "expected": true
+    },
+    {
+      "target": "performance.grid_100x100.run_2.core_selection_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 100.0
+    },
+    {
+      "target": "performance.grid_100x100.run_2.select_save_reload_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 2000.0
+    },
+    {
+      "target": "performance.grid_100x100.run_2.nonnegative_monotonic_measurement",
+      "expected": true
+    },
+    {
+      "target": "performance.grid_100x100.run_3.core_selection_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 100.0
+    },
+    {
+      "target": "performance.grid_100x100.run_3.select_save_reload_ms",
+      "expected": 0.0,
+      "absolute_tolerance": 2000.0
+    },
+    {
+      "target": "performance.grid_100x100.run_3.nonnegative_monotonic_measurement",
+      "expected": true
+    }
+  ],
+  "evidence": [
+    "固定文件、輸入、參考執行檔、兩個程序及輸出的 SHA-256。",
+    "完整邏輯 ID、選取、歷史、模式、結果與無關屬性比較。",
+    "MCP／CLI 實際查詢、保存重開、undo、拒絕回復及預覽證據。",
+    "固定效能與三平台候選記錄；目前產品仍為 unrun。"
+  ]
+}

@@ -130,6 +130,114 @@
       "milestone": "0.2",
       "case_path": "baseline/cases/mesh-creation-default-uv.json",
       "review": "pending"
+    },
+    {
+      "id": "mesh.selection.mode",
+      "title": "選取：單一模式與一般轉換",
+      "source_ids": [
+        "blender:aab323c13e4f224bc666",
+        "blender:01ac178996302f3a5973"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-mode.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.combined_modes",
+      "title": "選取：多模式啟用、停用與切換",
+      "source_ids": [
+        "blender:aab323c13e4f224bc666",
+        "blender:01ac178996302f3a5973"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-combined_modes.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.expand",
+      "title": "選取：向上轉換並擴張",
+      "source_ids": [
+        "blender:3204b871dacbe921ef40"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-expand.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.contract",
+      "title": "選取：向下轉換並收縮",
+      "source_ids": [
+        "blender:3204b871dacbe921ef40"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-contract.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.non_manifold",
+      "title": "條件選取：非流形分類旗標",
+      "source_ids": [
+        "blender:d860456e7c92cee11ea9",
+        "blender:9705da05aa46f62c9fad"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-non_manifold.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.loose",
+      "title": "條件選取：鬆散頂點、邊與面",
+      "source_ids": [
+        "blender:d860456e7c92cee11ea9",
+        "blender:c360fb7c3acdfa975eb6"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-loose.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.interior_faces",
+      "title": "條件選取：內部面",
+      "source_ids": [
+        "blender:d860456e7c92cee11ea9",
+        "blender:e8b79366f6d4051c2fd4"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-interior_faces.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.faces_by_sides",
+      "title": "條件選取：面邊數比較",
+      "source_ids": [
+        "blender:d860456e7c92cee11ea9",
+        "blender:2b9a679eb3a70d298cb5"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-faces_by_sides.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.poles",
+      "title": "條件選取：頂點邊數比較",
+      "source_ids": [
+        "blender:d860456e7c92cee11ea9",
+        "blender:8cf4cc892947df70ce3c"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-poles.json",
+      "review": "pending"
+    },
+    {
+      "id": "mesh.selection.ungrouped",
+      "title": "條件選取：未分組頂點",
+      "source_ids": [
+        "blender:d860456e7c92cee11ea9",
+        "blender:c5715f031eebe158a155"
+      ],
+      "milestone": "0.2",
+      "case_path": "baseline/cases/mesh-selection-ungrouped.json",
+      "review": "pending"
     }
   ]
 }

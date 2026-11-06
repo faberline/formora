@@ -42484,63 +42484,82 @@
       "product": "blender",
       "title": "Select All by Trait",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.non_manifold",
+        "mesh.selection.loose",
+        "mesh.selection.interior_faces",
+        "mesh.selection.faces_by_sides",
+        "mesh.selection.poles",
+        "mesh.selection.ungrouped"
+      ]
     },
     {
       "id": "blender:8cf4cc892947df70ce3c",
       "product": "blender",
       "title": "Poles by Count",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html#bpy-ops-mesh-select-by-pole-count",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.poles"
+      ]
     },
     {
       "id": "blender:2b9a679eb3a70d298cb5",
       "product": "blender",
       "title": "Faces by Sides",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html#bpy-ops-mesh-select-face-by-sides",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.faces_by_sides"
+      ]
     },
     {
       "id": "blender:e8b79366f6d4051c2fd4",
       "product": "blender",
       "title": "Interior Faces",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html#bpy-ops-mesh-select-interior-faces",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.interior_faces"
+      ]
     },
     {
       "id": "blender:c360fb7c3acdfa975eb6",
       "product": "blender",
       "title": "Loose Geometry",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html#bpy-ops-mesh-select-loose",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.loose"
+      ]
     },
     {
       "id": "blender:9705da05aa46f62c9fad",
       "product": "blender",
       "title": "Non Manifold",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html#bpy-ops-mesh-select-non-manifold",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.non_manifold"
+      ]
     },
     {
       "id": "blender:c5715f031eebe158a155",
       "product": "blender",
       "title": "Ungrouped Vertices",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/all_by_trait.html#bpy-ops-mesh-select-ungrouped",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.ungrouped"
+      ]
     },
     {
       "id": "blender:4ff9c8b151588a167202",
@@ -42601,27 +42620,36 @@
       "product": "blender",
       "title": "Selection Modes",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/introduction.html#bpy-ops-mesh-select-mode",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.mode",
+        "mesh.selection.combined_modes"
+      ]
     },
     {
       "id": "blender:01ac178996302f3a5973",
       "product": "blender",
       "title": "Selection Modes",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/introduction.html#bpy-types-toolsettings-mesh-select-mode",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.mode",
+        "mesh.selection.combined_modes"
+      ]
     },
     {
       "id": "blender:3204b871dacbe921ef40",
       "product": "blender",
       "title": "Expand/Contract Selection",
       "url": "https://docs.blender.org/manual/en/5.2/modeling/meshes/selecting/introduction.html#modeling-meshes-selecting-switch-mode-expand-contract",
-      "decision": "pending",
-      "rationale": "",
-      "feature_ids": []
+      "decision": "include",
+      "rationale": "已讀固定文件正文。此章節的行為與選項對應逐項選取契約；新契約仍待內容驗收。",
+      "feature_ids": [
+        "mesh.selection.expand",
+        "mesh.selection.contract"
+      ]
     },
     {
       "id": "blender:ec3060069cb2d5630fdd",
