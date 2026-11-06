@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import importlib.metadata
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -28,9 +29,46 @@ async def run(binary):
             async with ClientSession(reader, writer, read_timeout_seconds=10) as client:
                 initialized = await client.initialize()
                 listed = await client.list_tools()
-                assert {t.name for t in listed.tools} == {"scene_inspect", "scene_apply", "scene_undo"}
+                assert {t.name for t in listed.tools} == {"scene_inspect", "scene_apply", "scene_undo", "model_package_schema", "model_import", "material_project_schema", "material_inspect", "material_sample", "material_import"}
                 for tool in listed.tools:
                     Draft202012Validator.check_schema(tool.input_schema)
+                package_schemas = await client.call_tool("model_package_schema", {})
+                assert not package_schemas.is_error
+                for package_schema in package_schemas.structured_content.values():
+                    Draft202012Validator.check_schema(package_schema)
+                missing_package = await client.call_tool("model_import", {
+                    "manifest": str(Path(directory) / "missing-manifest.json"),
+                    "expected_manifest_sha256": "0" * 64,
+                    "output": str(Path(directory) / "unused-model-output"),
+                })
+                assert missing_package.is_error
+                Draft202012Validator(package_schemas.structured_content["receipt"]).validate(missing_package.structured_content)
+                assert missing_package.structured_content["error"]["code"] == "manifest_missing"
+                assert "saved_location" not in missing_package.structured_content
+                material_schemas = await client.call_tool("material_project_schema", {})
+                assert not material_schemas.is_error
+                contracts = material_schemas.structured_content
+                for contract in contracts.values():
+                    Draft202012Validator.check_schema(contract)
+                fixture = Path(__file__).resolve().parents[1] / "tests/fixtures/texture"
+                project_bytes = (fixture / "project.json").read_bytes()
+                Draft202012Validator(contracts["project"]).validate(json.loads(project_bytes))
+                Draft202012Validator(contracts["source"]).validate(json.loads((fixture / "uv_panel.scene.json").read_bytes()))
+                before_sampling = scene.read_bytes()
+                sampled = await client.call_tool("material_sample", {
+                    "project": str(fixture / "project.json"),
+                    "expected_project_sha256": hashlib.sha256(project_bytes).hexdigest(),
+                    "samples": [{"entity": "mesh", "face": {"kind": "polygon", "id": "p0001"}, "uv": uv}
+                                for uv in [[0.25, 0.25], [0.75, 0.25], [0.25, 0.75], [0.75, 0.75]]],
+                })
+                assert not sampled.is_error
+                Draft202012Validator(contracts["receipt"]).validate(sampled.structured_content)
+                assert [s["rgba8"] for s in sampled.structured_content["samples"]] == [
+                    [0, 0, 255, 255], [255, 255, 0, 255], [255, 0, 0, 255], [0, 255, 0, 255],
+                ]
+                assert scene.read_bytes() == before_sampling
+                argument_error = await client.call_tool("material_sample", {"samples": []})
+                assert argument_error.is_error and argument_error.structured_content is None
                 inspected = await client.call_tool("scene_inspect", {})
                 assert not inspected.is_error
                 revision = inspected.structured_content["revision"]
@@ -96,6 +134,9 @@ async def run(binary):
             "undo": "passed", "reload": "passed",
             "mesh_create_edit_query": "passed", "referenced_mesh_delete_rejected": "passed",
             "mesh_undo_reload": "passed", "product_milestone_acceptance": False,
+            "model_package_schemas": "passed", "model_import_failure_receipt": "passed",
+            "material_project_schemas": "passed", "material_four_quadrant_sampling": "passed",
+            "material_argument_error_boundary": "passed",
         }))
 
 

@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "Capability": {
+      "enum": [
+        "triangle_meshes",
+        "hierarchy",
+        "corner_uvs",
+        "corner_normals",
+        "solid_color_materials"
+      ],
+      "type": "string"
+    },
+    "DisplayExport": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "relative_path": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "format",
+        "relative_path",
+        "sha256",
+        "scope"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "contains": {
+        "const": "triangle_meshes"
+      },
+      "items": {
+        "$ref": "#/$defs/Capability"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "coordinate_system": {
+      "const": "right_handed",
+      "type": "string"
+    },
+    "display_exports": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/DisplayExport"
+      },
+      "maxItems": 0,
+      "type": "array"
+    },
+    "manifest_schema_version": {
+      "const": 1,
+      "format": "uint32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "meters_per_unit": {
+      "const": 1.0,
+      "format": "double",
+      "type": "number"
+    },
+    "producer_commit": {
+      "const": "5761e683b01bb82e5efc3cfc931e40a3cc55a8c2",
+      "type": "string"
+    },
+    "roots": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scene_file": {
+      "const": "model.scene.json",
+      "type": "string"
+    },
+    "scene_profile": {
+      "const": "formora-static-triangles-main-v1",
+      "type": "string"
+    },
+    "scene_schema_version": {
+      "const": 1,
+      "format": "uint32",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scene_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "up_axis": {
+      "const": "Z",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_schema_version",
+    "scene_file",
+    "scene_sha256",
+    "scene_schema_version",
+    "scene_profile",
+    "producer_commit",
+    "roots",
+    "meters_per_unit",
+    "up_axis",
+    "coordinate_system",
+    "capabilities"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

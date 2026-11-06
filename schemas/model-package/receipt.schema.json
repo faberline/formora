@@ -1,0 +1,246 @@
+{
+  "$defs": {
+    "Counts": {
+      "additionalProperties": false,
+      "properties": {
+        "entities": {
+          "format": "uint",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "materials": {
+          "format": "uint",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "mesh_assets": {
+          "format": "uint",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "triangles": {
+          "format": "uint",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "vertices": {
+          "format": "uint",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "entities",
+        "mesh_assets",
+        "vertices",
+        "triangles",
+        "materials"
+      ],
+      "type": "object"
+    },
+    "ErrorCode": {
+      "enum": [
+        "invalid_request",
+        "manifest_missing",
+        "invalid_manifest",
+        "hash_mismatch",
+        "unsupported_schema",
+        "unsupported_profile",
+        "unsupported_producer",
+        "unsupported_units",
+        "unsupported_feature",
+        "scene_missing",
+        "invalid_scene",
+        "invalid_roots",
+        "closure_mismatch",
+        "unsupported_scene_state",
+        "output_exists",
+        "io_error"
+      ],
+      "type": "string"
+    },
+    "ErrorDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/ErrorCode"
+        },
+        "message": {
+          "type": "string"
+        },
+        "stage": {
+          "$ref": "#/$defs/Stage"
+        }
+      },
+      "required": [
+        "code",
+        "stage",
+        "message"
+      ],
+      "type": "object"
+    },
+    "Failure": {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "$ref": "#/$defs/ErrorDetail"
+        },
+        "observed_manifest_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_scene_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ok": {
+          "$ref": "#/$defs/FalseFlag"
+        },
+        "receipt_schema_version": {
+          "const": 1,
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "receipt_schema_version",
+        "ok",
+        "error"
+      ],
+      "type": "object"
+    },
+    "FalseFlag": {
+      "const": false,
+      "type": "boolean"
+    },
+    "Imported": {
+      "additionalProperties": false,
+      "properties": {
+        "conversion_report": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        },
+        "coordinate_system": {
+          "const": "right_handed",
+          "type": "string"
+        },
+        "counts": {
+          "$ref": "#/$defs/Counts"
+        },
+        "loss_report": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 0,
+          "type": "array"
+        },
+        "manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "meters_per_unit": {
+          "const": 1.0,
+          "format": "double",
+          "type": "number"
+        },
+        "ok": {
+          "$ref": "#/$defs/TrueFlag"
+        },
+        "producer_commit": {
+          "const": "5761e683b01bb82e5efc3cfc931e40a3cc55a8c2",
+          "type": "string"
+        },
+        "receipt_schema_version": {
+          "const": 1,
+          "format": "uint32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "roots": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "saved_location": {
+          "type": "string"
+        },
+        "scene_profile": {
+          "const": "formora-static-triangles-main-v1",
+          "type": "string"
+        },
+        "scene_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "up_axis": {
+          "const": "Z",
+          "type": "string"
+        },
+        "validator_revision": {
+          "description": "SHA-256 of the validator's compiled-in source inputs, not a build attestation.",
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "receipt_schema_version",
+        "ok",
+        "manifest_sha256",
+        "scene_sha256",
+        "scene_profile",
+        "producer_commit",
+        "validator_revision",
+        "roots",
+        "meters_per_unit",
+        "up_axis",
+        "coordinate_system",
+        "counts",
+        "saved_location",
+        "conversion_report",
+        "loss_report"
+      ],
+      "type": "object"
+    },
+    "Stage": {
+      "enum": [
+        "request",
+        "read_manifest",
+        "manifest_hash",
+        "manifest",
+        "profile",
+        "read_scene",
+        "scene_hash",
+        "scene",
+        "closure",
+        "stage_output",
+        "save_model"
+      ],
+      "type": "string"
+    },
+    "TrueFlag": {
+      "const": true,
+      "type": "boolean"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "$ref": "#/$defs/Imported"
+    },
+    {
+      "$ref": "#/$defs/Failure"
+    }
+  ],
+  "title": "Receipt"
+}

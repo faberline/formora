@@ -1,0 +1,28 @@
+{
+  "project_schema_version": 1,
+  "project_profile": "formora-base-color-image-v1",
+  "scene_profile": "formora-static-polygons-bb025-v2",
+  "producer_commit": "bb025ce17432ba0419008d0cd794222127e7ff92",
+  "scene": {
+    "path": "palette/survivor.scene.json",
+    "sha256": "27be95cda012822751a43a1410dc52431be2919494a755beab3c26d593c3a0a2"
+  },
+  "roots": [
+    "character_survivor"
+  ],
+  "images": {
+    "four": {
+      "path": "four-colors.png",
+      "sha256": "71676a057ca47df88bcaa37191d0be9c2ec46eae37f882cb4ecb01140fff8607",
+      "color_space": "srgb"
+    }
+  },
+  "bindings": {
+    "survivor4_skin": {
+      "image": "four",
+      "uv_layer": "uv0",
+      "filter": "nearest",
+      "address_mode": "clamp_to_edge"
+    }
+  }
+}

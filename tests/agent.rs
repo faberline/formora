@@ -182,7 +182,21 @@ fn mcp_initialization_discovery_edits_errors_and_undo_work_in_a_real_process() {
     assert_eq!(responses.len(), 6);
     assert_eq!(responses[0]["result"]["protocolVersion"], "2025-11-25");
     let tools = responses[1]["result"]["tools"].as_array().unwrap();
-    assert_eq!(tools.len(), 3);
+    assert_eq!(tools.len(), 9);
+    for name in [
+        "material_project_schema",
+        "material_inspect",
+        "material_sample",
+        "material_import",
+    ] {
+        assert!(tools.iter().any(|tool| tool["name"] == name));
+    }
+    assert!(
+        tools
+            .iter()
+            .any(|tool| tool["name"] == "model_package_schema")
+    );
+    assert!(tools.iter().any(|tool| tool["name"] == "model_import"));
     let apply = tools.iter().find(|t| t["name"] == "scene_apply").unwrap();
     assert!(apply["inputSchema"]["$defs"]["Command"].is_object());
     assert_eq!(responses[2]["result"]["structuredContent"]["revision"], 2);

@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "revision": 1,
+  "time_seconds": 0.0,
+  "entities": {
+    "mesh": {
+      "name": "mesh",
+      "parent": "uv_panel",
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "mesh",
+        "geometry": {
+          "kind": "asset",
+          "id": "mesh_mesh"
+        },
+        "material": "fixture_white"
+      }
+    },
+    "uv_panel": {
+      "name": "uv_panel",
+      "parent": null,
+      "transform": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "content": {
+        "kind": "empty"
+      }
+    }
+  },
+  "materials": {
+    "fixture_white": {
+      "base_color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "roughness": 0.8,
+      "metallic": 0.0
+    }
+  },
+  "mesh_assets": {
+    "mesh_mesh": {
+      "vertices": {
+        "v0000": [
+          -0.5,
+          -0.025,
+          0.0
+        ],
+        "v0001": [
+          0.5,
+          -0.025,
+          0.0
+        ],
+        "v0002": [
+          0.5,
+          0.025,
+          0.0
+        ],
+        "v0003": [
+          -0.5,
+          0.025,
+          0.0
+        ],
+        "v0004": [
+          -0.5,
+          -0.025,
+          1.0
+        ],
+        "v0005": [
+          0.5,
+          -0.025,
+          1.0
+        ],
+        "v0006": [
+          0.5,
+          0.025,
+          1.0
+        ],
+        "v0007": [
+          -0.5,
+          0.025,
+          1.0
+        ]
+      },
+      "triangles": {},
+      "edges": {
+        "e0000": [
+          "v0000",
+          "v0001"
+        ],
+        "e0001": [
+          "v0000",
+          "v0003"
+        ],
+        "e0002": [
+          "v0000",
+          "v0004"
+        ],
+        "e0003": [
+          "v0001",
+          "v0002"
+        ],
+        "e0004": [
+          "v0001",
+          "v0005"
+        ],
+        "e0005": [
+          "v0002",
+          "v0003"
+        ],
+        "e0006": [
+          "v0002",
+          "v0006"
+        ],
+        "e0007": [
+          "v0003",
+          "v0007"
+        ],
+        "e0008": [
+          "v0004",
+          "v0005"
+        ],
+        "e0009": [
+          "v0004",
+          "v0007"
+        ],
+        "e0010": [
+          "v0005",
+          "v0006"
+        ],
+        "e0011": [
+          "v0006",
+          "v0007"
+        ]
+      },
+      "polygons": {
+        "p0000": {
+          "vertices": [
+            "v0003",
+            "v0002",
+            "v0001",
+            "v0000"
+          ],
+          "uv_layers": {
+            "uv0": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        },
+        "p0001": {
+          "vertices": [
+            "v0000",
+            "v0001",
+            "v0005",
+            "v0004"
+          ],
+          "uv_layers": {
+            "uv0": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        },
+        "p0002": {
+          "vertices": [
+            "v0001",
+            "v0002",
+            "v0006",
+            "v0005"
+          ],
+          "uv_layers": {
+            "uv0": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        },
+        "p0003": {
+          "vertices": [
+            "v0002",
+            "v0003",
+            "v0007",
+            "v0006"
+          ],
+          "uv_layers": {
+            "uv0": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        },
+        "p0004": {
+          "vertices": [
+            "v0003",
+            "v0000",
+            "v0004",
+            "v0007"
+          ],
+          "uv_layers": {
+            "uv0": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        },
+        "p0005": {
+          "vertices": [
+            "v0004",
+            "v0005",
+            "v0006",
+            "v0007"
+          ],
+          "uv_layers": {
+            "uv0": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "corner_normals": null,
+          "normal": null,
+          "smooth": false,
+          "material_slot": null
+        }
+      },
+      "uv_layout": {
+        "layers": [
+          "uv0"
+        ],
+        "active": "uv0"
+      },
+      "material_slots": []
+    }
+  },
+  "doors": {},
+  "active_camera": null,
+  "annotations": []
+}

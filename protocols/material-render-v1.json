@@ -1,0 +1,181 @@
+{
+  "protocol_version": 1,
+  "render_profile": "formora-unlit-texture-bb025-v1",
+  "status": "FROZEN_BEFORE_IMPLEMENTATION_NO_GPU_EXECUTION",
+  "CPU_A_evidence": {
+    "source_commit": "fb3a317d648605985008979667105cc65d7416a0",
+    "independent_receipt_sha256": "6ad1ae382cd17e024a699d564c187a2cfaf311281ca7008ff9421ad3ac23d8db",
+    "Root_bounded_audit_sha256": "d6dc0efc7cfaba33eeabd20078330dc00c909c63c34cc699560a3c46783bfd1f"
+  },
+  "Rust_interface": {
+    "CPU": "material_project::render_data::{RenderScene, Frame, ReferencePixel}; RenderScene::from_project(&PreparedProject), identity(), batches(), reference_pixel(&Frame,width,height,x,y)",
+    "GPU": "feature render; material_renderer::{Renderer,GpuScene,wgpu}; Renderer::new(&Device,target_format), upload(&Device,&Queue,&RenderScene), GpuScene::set_frame(&Queue,&Frame), Renderer::draw(&GpuScene,&mut caller RenderPass)",
+    "ownership": "Caller owns Device, Queue, Encoder, targets and render pass. Each GpuScene owns its frame buffer. No adapter/window/eventloop in library. Frame updates change GPU memory only; no Editor/MCP/file writes.",
+    "memory": "validate_bytes(raw descriptor, expected SHA, all encoded resources) before prepare. Render packet borrows immutable validated project; GPU copies checked decoded RGBA8. No filesystem access in prepare/upload/draw."
+  },
+  "geometry": {
+    "source": "Complete pinned bb025 source, native polygon tessellation corner-index mapping and source triangles. All authored faces; no LOD/face filtering or editing selection overlays. Any tessellation diagnostics fail. Source fields and raw bytes retained; packet is derived only.",
+    "per_corner_UV": "Index the original polygon/triangle corner UVs; never index by shared vertex. GPU storesf32; native f64 source remains unchanged. Native physical world transforms including parent inverse applied once.",
+    "materials": "Entity override before slot. Bound image uses declared layer; unbound native material is solid base color with an internal white texel. Missing declared image/UV fails. Opaque unlit first profile: used alpha must equal1; no PBR/normal/light evaluation."
+  },
+  "fixed_inputs": {
+    "manifest": "5e61b47734aa27c01dd61bf93a8897746c4e9fc964d0b2ce42ed12b985d71f6a",
+    "panel": "c8a790703dfaad4aa061667f29830b9877252afdd13a809c0d279f0539223b29",
+    "four_colors": "71676a057ca47df88bcaa37191d0be9c2ec46eae37f882cb4ecb01140fff8607",
+    "source_profile": "formora-static-polygons-bb025-v1 or v2",
+    "producer": "bb025ce17432ba0419008d0cd794222127e7ff92",
+    "mutations": "None to original panel/PNG/manifest. Gray/factor diagnostics use separately hashed disposable copies."
+  },
+  "render": {
+    "extent": [
+      128,
+      128
+    ],
+    "camera": {
+      "type": "orthographic",
+      "eye": [
+        0,
+        -2,
+        0.5
+      ],
+      "target": [
+        0,
+        0,
+        0.5
+      ],
+      "up": [
+        0,
+        0,
+        1
+      ],
+      "left": -0.75,
+      "right": 0.75,
+      "bottom": -0.75,
+      "top": 0.75,
+      "near": 0.1,
+      "far": 10.0
+    },
+    "view_projection_columns": [
+      [
+        1.3333333333333333,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.10101010101010101,
+        0
+      ],
+      [
+        0,
+        1.3333333333333333,
+        0,
+        0
+      ],
+      [
+        0,
+        -0.6666666666666666,
+        0.1919191919191919,
+        1
+      ]
+    ],
+    "model_to_world": "identity at baseline; runtime frame matrix allowed without source writes",
+    "color_target": "Rgba8UnormSrgb; Bgra8UnormSrgb supported with explicit readback swizzle",
+    "depth": "Depth32Float, clear1, writeenabled, comparisonLess",
+    "samples": 1,
+    "culling": "none",
+    "blend": "none, opaque only",
+    "clear_rgba": [
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  "color": {
+    "image": "EncodedRGB8 expandedtoRGBA8 alpha255; GPUtextureRgba8UnormSrgb, one mip. sRGBsample->linear once.",
+    "material_factor": "Native base_color RGB treatedaslinear normalized factor; alpha1. Multiply after image decode. Untextured materials use linear native factor.",
+    "output": "Linear shader color -> sRGB render target encode once. No tone mapping/exposure/lights/PBR/dither.",
+    "UV_origin": "sourceUV(0,0)bottomleft; decodedPNGrow0top; flipvexactlyonce",
+    "sampling": "nearest min/mag/mip, clamptoedge",
+    "reference": "https://www.w3.org/TR/2026/CRD-webgpu-20260915/#texture-formats"
+  },
+  "pixels": [
+    {
+      "xy": [
+        35,
+        40
+      ],
+      "RGBA8": [
+        255,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "xy": [
+        84,
+        38
+      ],
+      "RGBA8": [
+        0,
+        255,
+        0,
+        255
+      ]
+    },
+    {
+      "xy": [
+        38,
+        82
+      ],
+      "RGBA8": [
+        0,
+        0,
+        255,
+        255
+      ]
+    },
+    {
+      "xy": [
+        88,
+        83
+      ],
+      "RGBA8": [
+        255,
+        255,
+        0,
+        255
+      ]
+    }
+  ],
+  "pixel_rules": {
+    "coordinates": "integerx/y topleft framebuffer; evaluatepixelcenter(x+.5,y+.5)",
+    "edges": "These fixedsamplesareinsidefrontp0001andatleastseveralpixelsoffbothpossiblequaddiagonals. CPUtestsverifybarycentricmargin>=1/64. No movingprobesafterfailure.",
+    "tolerance": "EveryRGBAchannel CPU/GPUandgolden absdifference<=1codevalue; no aggregate score can hide a failed pixel.",
+    "gray": "SeparateRGB8gray128 image, white native factor; output128 alpha255 andCPUlinear0.21586050011389926 abs<=1e-12.",
+    "factor": "Separategray128 image withnative RGBfactor0.5, alpha1; expectedoutput92 alpha255. Separatefullred255 withRGBfactor0.5 expected188. Originalwhitefactorcaseunchanged."
+  },
+  "external_consumer": {
+    "path": "consumers/material-headless",
+    "default": "CPUonly, noGPUdependency. Readsprojectthroughsharedvalidatedloader; outputsgeometryidentityandCPUreferencepixels.",
+    "gpu_build": "--features gpu; runtime still requires explicit --gpu. Caller requests actual Metal backend without fallback, owns all GPU objects, reads raw output, validates scopes and records adapter/backend/source/shader/image/frame/hash/wait/exit.",
+    "execution": "NOT authorized inRoot or CI. External consumer is compile-checked only. Ashfall performs independently admitted Metal run after fixed source/API/protocol delivery."
+  },
+  "checks_before_delivery": [
+    "Explicit pure CPU geometry tests and Naga WGSL parse/validation without a GPU",
+    "CPU and GPU-feature external consumer cargo check under pinned lockfiles",
+    "ExistingCI unchanged gates retained; no new GPU/device/window test run",
+    "Source/encodedresource hashes before/after; source remains editable/native; no replacement by render triangles"
+  ],
+  "retained_gates": [
+    "PBR/light/contact shadows",
+    "native windows/App/physicaldevice",
+    "rig/skinning/timedposes/sockets",
+    "water/fire",
+    "alloriginalmodelsetsandperformancegates"
+  ]
+}

@@ -556,8 +556,10 @@ version = "0.0.0"
 dependencies = [
  "arboard",
  "bytemuck",
+ "formora-native-bb025",
  "fs2",
  "glam",
+ "naga",
  "png",
  "pollster",
  "schemars",
@@ -566,6 +568,18 @@ dependencies = [
  "sha2",
  "wgpu",
  "winit",
+]
+
+[[package]]
+name = "formora-native-bb025"
+version = "0.0.0"
+dependencies = [
+ "fs2",
+ "schemars",
+ "serde",
+ "serde_json",
+ "sha2",
+ "zmij",
 ]
 
 [[package]]
