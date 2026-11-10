@@ -1,0 +1,34 @@
+Formora
+Copyright (c) 2025 Tech Platform Team
+
+Formora is licensed under the MIT License. See the LICENSE file.
+
+Third-party material
+====================
+
+The files below are not covered by the MIT License.
+
+Blender Manual
+--------------
+
+These files are unmodified copies of pages and the object inventory of the
+Blender 5.2 Manual. They are kept as baseline evidence. Their hashes are in
+baseline/lock.json.
+
+  baseline/sources/blender-5.2-mesh-primitives.html
+    https://docs.blender.org/manual/en/5.2/modeling/meshes/primitives.html
+  baseline/sources/blender-5.2-object-types.html
+    https://docs.blender.org/manual/en/5.2/scene_layout/object/types.html
+  baseline/sources/blender-5.2-objects.inv
+    https://docs.blender.org/manual/en/5.2/objects.inv
+
+Copyright: the Blender Documentation Team (Blender Authors).
+License: Creative Commons Attribution-ShareAlike 4.0 International
+(CC BY-SA 4.0), https://creativecommons.org/licenses/by-sa/4.0/
+
+Unreal Engine documentation index
+---------------------------------
+
+The files baseline/sources/unreal-5.8-*.json hold titles, URLs, identifiers
+and hashes of pages of the Unreal Engine documentation. They hold no page
+text. Unreal Engine is a trademark of Epic Games, Inc.
